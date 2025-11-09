@@ -82,6 +82,13 @@
 <script 
   src="https://www.paypal.com/sdk/js?client-id=BAApYaG5zDntUHsd2tRXv1ylGkYhREqRR-t7PWcH3-Sh7ElgWliEyCEnhAeQjoawIGidc1LY7PQRK9A0Sg&components=hosted-buttons&disable-funding=venmo&currency=GBP">
 </script>
+  
+  <!-- 2️⃣ Render the specific hosted button -->
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "5ZBSDBUWLJ3B4"
+  }).render("#paypal-container-5ZBSDBUWLJ3B4");
+</script>
     // Add more buttons below as you create them in PayPal
   </script>
 </body>

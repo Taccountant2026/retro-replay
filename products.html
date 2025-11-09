@@ -29,20 +29,49 @@
       <p>Explore our range of refurbished consoles, curated bundles, accessories, and modding services — all tested and ready for play.</p>
     </section>
 
-    <!-- Example Product -->
+    <!-- Consoles – Clean / Tested -->
     <section class="product-category">
       <h2 class="section-title">PS2 Consoles – Clean / Tested</h2>
       <div class="product-grid">
-        <div class="product-card">
-          <img src="assets/images.png" alt="PS2 Fat Console Only">
-          <div class="name">PS2 Fat – Console Only (Clean & Tested)</div>
-          <div class="price">£120</div>
+<div class="product-card">
+  <img src="assets/images.png" alt="PS2 Fat Console Only">
+  <div class="name">PS2 Fat – Console Only (Clean & Tested)</div>
+  <div class="price">£120</div>
 
-          <!-- ✅ Single PayPal Button -->
-          <div id="paypal-container-5ZBSDBUWLJ3B4"></div>
+  <!-- ✅ PayPal Button -->
+  <div id="paypal-container-5ZBSDBUWLJ3B4"></div>
+</div>
+
+        <div class="product-card">
+          <img src="assets/images.png" alt="PS2 Fat Plug & Play Bundle">
+          <div class="name">PS2 Fat – Plug & Play Bundle (Clean & Tested)</div>
+          <div class="price">£180</div>
+          <div id="paypal-container-ps2fat-bundle"></div>
         </div>
       </div>
     </section>
+
+    <!-- Consoles – Refurbished -->
+    <section class="product-category">
+      <h2 class="section-title">PS2 Consoles – Refurbished</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="assets/images.png" alt="Refurbished PS2 Fat Console Only">
+          <div class="name">PS2 Fat – Console Only (Refurbished & Tested)</div>
+          <div class="price">£200</div>
+          <div id="paypal-container-ps2fat-refurbished"></div>
+        </div>
+
+        <div class="product-card">
+          <img src="assets/images.png" alt="Refurbished PS2 Fat Plug & Play Bundle">
+          <div class="name">PS2 Fat – Plug & Play Bundle (Refurbished & Tested)</div>
+          <div class="price">£250</div>
+          <div id="paypal-container-ps2fat-refurbished-bundle"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accessories, Memory Cards, etc. (unchanged) -->
 
     <footer>
       <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
@@ -50,14 +79,10 @@
     </footer>
   </div>
 
-  <!-- PayPal SDK -->
-  <script src="https://www.paypal.com/sdk/js?client-id=BAApYaG5zDntUHsd2tRXv1ylGkYhREqRR-t7PWcH3-Sh7ElgWliEyCEnhAeQjoawIGidc1LY7PQRK9A0Sg&components=hosted-buttons&disable-funding=venmo&currency=GBP"></script>
-
-  <!-- Render the hosted button -->
-  <script>
-    paypal.HostedButtons({
-      hostedButtonId: "5ZBSDBUWLJ3B4"
-    }).render("#paypal-container-5ZBSDBUWLJ3B4");
+<script 
+  src="https://www.paypal.com/sdk/js?client-id=BAApYaG5zDntUHsd2tRXv1ylGkYhREqRR-t7PWcH3-Sh7ElgWliEyCEnhAeQjoawIGidc1LY7PQRK9A0Sg&components=hosted-buttons&disable-funding=venmo&currency=GBP">
+</script>
+    // Add more buttons below as you create them in PayPal
   </script>
 </body>
 </html>

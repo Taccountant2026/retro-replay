@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout — Retro Replay</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="cart.js"></script>
+</head>
+<body>
+<div class="ambient"></div>
+<div class="scanlines"></div>
+
+<div class="wrap">
+<header>
+  <div style="display:flex;align-items:center;gap:14px">
+    <img src="assets/logo.png" alt="Retro Replay logo" class="logo" style="max-height:60px">
+  </div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="about.html">About</a>
+    <a href="checkout.html" class="active">Checkout 🛒</a>
+  </nav>
+</header>
+
+<section class="about-section">
+  <h2 class="section-title">Checkout</h2>
+  <p>Your selected items appear below. Choose your preferred payment method: Stripe, PayPal, or Cash on Delivery.</p>
+</section>
+
+<section class="product-grid">
+  <div id="cart-items-js">
+    <!-- Cart items dynamically inserted by cart.js -->
+  </div>
+</section>
+
+<footer>
+  <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
+  <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
+</footer>
+</div>
+</body>
+</html>

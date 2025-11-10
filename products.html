@@ -7,17 +7,69 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .product-card {
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid #00aaff;
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 100, 255, 0.4);
+      transition: 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(0, 150, 255, 0.7);
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
     .paypal-container {
       display: flex;
       justify-content: center;
-      margin-top: 10px;
+      align-items: center;
+      margin-top: 12px;
+      min-height: 42px;
+    }
+
+    .placeholder-btn {
+      background: #002d80;
+      color: #9dd8ff;
+      border: 1px solid #0078ff;
+      padding: 8px 18px;
+      border-radius: 6px;
+      cursor: not-allowed;
+      opacity: 0.6;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin-top: 2rem;
+    }
+
+    footer strong {
+      color: #fff;
     }
   </style>
 </head>
-<body>
-  <div class="ambient"></div>
-  <div class="scanlines"></div>
 
+<body>
   <div class="wrap">
     <header>
       <div style="display:flex;align-items:center;gap:14px">
@@ -36,100 +88,39 @@
       <p>Explore our range of refurbished consoles, curated bundles, accessories, and modding services — all tested and ready for play.</p>
     </section>
 
-    <!-- Consoles – Clean / Tested -->
-    <section class="product-category">
-      <h2 class="section-title">PS2 Consoles – Clean / Tested</h2>
-      <div class="product-grid">
+    <!-- PRODUCTS GRID -->
+    <section class="product-grid">
 
-        <div class="product-card">
-          <img src="assets/images.png" alt="PS2 Fat Console Only">
-          <div class="name">PS2 Fat – Console Only (Clean & Tested)</div>
-          <div class="price">£120</div>
-          <div class="paypal-container" id="paypal-container-5ZBSDBUWLJ3B4"></div>
-        </div>
-
-        <div class="product-card">
-          <img src="assets/images.png" alt="PS2 Fat Plug & Play Bundle">
-          <div class="name">PS2 Fat – Plug & Play Bundle (Clean & Tested)</div>
-          <div class="price">£180</div>
-          <div class="paypal-container" id="paypal-container-ps2fat-bundle"></div>
-        </div>
-
+      <!-- Example 1 -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="PS2 Fat Console">
+        <div class="name">PS2 Fat – Console Only (Clean & Tested)</div>
+        <div class="price">£120</div>
+        <div class="paypal-container" id="paypal-container-5ZBSDBUWLJ3B4"></div>
       </div>
-    </section>
 
-    <!-- Consoles – Refurbished -->
-    <section class="product-category">
-      <h2 class="section-title">PS2 Consoles – Refurbished</h2>
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="assets/images.png" alt="Refurbished PS2 Fat Console Only">
-          <div class="name">PS2 Fat – Console Only (Refurbished & Tested)</div>
-          <div class="price">£200</div>
-          <div class="paypal-container" id="paypal-container-ps2fat-refurbished"></div>
-        </div>
-
-        <div class="product-card">
-          <img src="assets/images.png" alt="Refurbished PS2 Fat Plug & Play Bundle">
-          <div class="name">PS2 Fat – Plug & Play Bundle (Refurbished & Tested)</div>
-          <div class="price">£250</div>
-          <div class="paypal-container" id="paypal-container-ps2fat-refurbished-bundle"></div>
-        </div>
+      <!-- Example 2 -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="PS2 Fat Plug & Play">
+        <div class="name">PS2 Fat – Plug & Play Bundle</div>
+        <div class="price">£180</div>
+        <div class="paypal-container" id="paypal-container-bundle"></div>
       </div>
-    </section>
 
-    <!-- Accessories -->
-    <section class="product-category">
-      <h2 class="section-title">Accessories</h2>
-
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="assets/images.png" alt="PS2 Controller">
-          <div class="name">PS2 Controller – Official</div>
-          <div class="price">£55</div>
-          <div class="paypal-container" id="paypal-container-controller-official"></div>
-        </div>
-
-        <div class="product-card">
-          <img src="assets/images.png" alt="Third-Party Wired PS2 Controller">
-          <div class="name">PS2 Controller – Third-Party Wired</div>
-          <div class="price">£35</div>
-          <div class="paypal-container" id="paypal-container-controller-wired"></div>
-        </div>
-
-        <div class="product-card">
-          <img src="assets/images.png" alt="Third-Party Wireless PS2 Controller">
-          <div class="name">PS2 Controller – Third-Party Wireless</div>
-          <div class="price">£50</div>
-          <div class="paypal-container" id="paypal-container-controller-wireless"></div>
-        </div>
+      <!-- Example 3 -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="Refurbished PS2">
+        <div class="name">PS2 Fat – Refurbished Console</div>
+        <div class="price">£200</div>
+        <div class="paypal-container" id="paypal-container-refurb"></div>
       </div>
-    </section>
 
-    <!-- Modding Services -->
-    <section class="product-category">
-      <h2 class="section-title">Custom & Modding Services</h2>
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="assets/images.png" alt="Preloaded HDD">
-          <div class="name">Preloaded HDD</div>
-          <div class="price">£80+</div>
-          <div class="paypal-container" id="paypal-container-hdd"></div>
-        </div>
-
-        <div class="product-card">
-          <img src="assets/images.png" alt="Preloaded Memory Card">
-          <div class="name">Preloaded Memory Card</div>
-          <div class="price">£30+</div>
-          <div class="paypal-container" id="paypal-container-memcard"></div>
-        </div>
-
-        <div class="product-card">
-          <img src="assets/images.png" alt="Custom Modding Service">
-          <div class="name">Custom Modding Service</div>
-          <div class="price">£150+</div>
-          <div class="paypal-container" id="paypal-container-modding"></div>
-        </div>
+      <!-- Example 4 -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="Custom Modding">
+        <div class="name">Custom Modding Service</div>
+        <div class="price">£150+</div>
+        <div class="paypal-container" id="paypal-container-modding"></div>
       </div>
     </section>
 
@@ -139,35 +130,26 @@
     </footer>
   </div>
 
-  <!-- ✅ PayPal SDK -->
+  <!-- PAYPAL SDK -->
   <script 
     src="https://www.paypal.com/sdk/js?client-id=BAApYaG5zDntUHsd2tRXv1ylGkYhREqRR-t7PWcH3-Sh7ElgWliEyCEnhAeQjoawIGidc1LY7PQRK9A0Sg&components=hosted-buttons&disable-funding=venmo&currency=GBP">
   </script>
 
-  <!-- ✅ Render Working & Placeholder Buttons -->
   <script>
-    // Working product
+    // Working PayPal button
     paypal.HostedButtons({ hostedButtonId: "5ZBSDBUWLJ3B4" }).render("#paypal-container-5ZBSDBUWLJ3B4");
 
-    // Placeholder buttons — replace IDs as you create more
-    const placeholderIds = [
-      "ps2fat-bundle",
-      "ps2fat-refurbished",
-      "ps2fat-refurbished-bundle",
-      "controller-official",
-      "controller-wired",
-      "controller-wireless",
-      "hdd",
-      "memcard",
-      "modding"
+    // Placeholder buttons (for others)
+    const placeholders = [
+      "paypal-container-bundle",
+      "paypal-container-refurb",
+      "paypal-container-modding"
     ];
-
-    placeholderIds.forEach(id => {
-      const el = document.querySelector(`#paypal-container-${id}`);
-      if (el) {
-        el.innerHTML = '<button disabled style="background:#003399;color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:not-allowed;opacity:0.5;">Coming Soon</button>';
-      }
+    placeholders.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = '<button class="placeholder-btn">Coming Soon</button>';
     });
   </script>
 </body>
 </html>
+

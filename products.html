@@ -76,18 +76,46 @@
       <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
     </footer>
   </div>
-
-  <!-- PayPal SDK -->
+  
+  <!-- ✅ PayPal SDK -->
   <script 
-    src="https://www.paypal.com/sdk/js?client-id=BAApYaG5zDntUHsd2tRXv1ylGkYhREqRR-t7PWcH3-Sh7ElgWliEyCEnhAeQjoawIGidc1LY7PQRK9A0Sg&components=hosted-buttons&disable-funding=venmo&currency=GBP">
+    src="https://www.paypal.com/sdk/js?client-id=BAApYaG5zDntUHsd2tRXv1ylGkYhREqRR-t7PWcH3-Sh7ElgWliEyCEnhAeQjoawIGidc1LY7PQRK9A0Sg&components=buttons&disable-funding=venmo&currency=GBP">
   </script>
 
-  <!-- Render 1 working PayPal button -->
+  <!-- ✅ Render PayPal Button -->
   <script>
-    paypal.HostedButtons({
-      hostedButtonId: "5ZBSDBUWLJ3B4"
-    }).render("#paypal-container-5ZBSDBUWLJ3B4");
+    document.addEventListener("DOMContentLoaded", function() {
+      const paypalContainer = document.querySelector("#paypal-container-5ZBSDBUWLJ3B4");
+      if (paypalContainer && window.paypal) {
+        paypal.Buttons({
+          style: {
+            color: 'gold',
+            shape: 'rect',
+            label: 'buynow',
+            height: 40
+          },
+          createOrder: function(data, actions) {
+            return actions.order.create({
+              purchase_units: [{
+                description: "PS2 Fat – Console Only (Clean & Tested)",
+                amount: { currency_code: "GBP", value: "120.00" }
+              }]
+            });
+          },
+          onApprove: function(data, actions) {
+            return actions.order.capture().then(function(orderData) {
+              alert("✅ Payment successful! Thank you for your order.");
+            });
+          },
+          onError: function(err) {
+            console.error("PayPal button error:", err);
+            alert("Something went wrong loading the PayPal button.");
+          }
+        }).render("#paypal-container-5ZBSDBUWLJ3B4");
+      } else {
+        console.error("PayPal SDK or container not found.");
+      }
+    });
   </script>
-
 </body>
 </html>

@@ -6,6 +6,13 @@
   <title>Products — Retro Replay</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .paypal-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
   <div class="ambient"></div>
@@ -34,20 +41,18 @@
       <h2 class="section-title">PS2 Consoles – Clean / Tested</h2>
       <div class="product-grid">
 
-        <!-- Product 1 -->
         <div class="product-card">
           <img src="assets/images.png" alt="PS2 Fat Console Only">
           <div class="name">PS2 Fat – Console Only (Clean & Tested)</div>
           <div class="price">£120</div>
-          <div id="paypal-container-5ZBSDBUWLJ3B4"></div>
+          <div class="paypal-container" id="paypal-container-5ZBSDBUWLJ3B4"></div>
         </div>
 
-        <!-- Product 2 -->
         <div class="product-card">
           <img src="assets/images.png" alt="PS2 Fat Plug & Play Bundle">
           <div class="name">PS2 Fat – Plug & Play Bundle (Clean & Tested)</div>
           <div class="price">£180</div>
-          <!-- Add PayPal button later -->
+          <div class="paypal-container" id="paypal-container-ps2fat-bundle"></div>
         </div>
 
       </div>
@@ -61,12 +66,69 @@
           <img src="assets/images.png" alt="Refurbished PS2 Fat Console Only">
           <div class="name">PS2 Fat – Console Only (Refurbished & Tested)</div>
           <div class="price">£200</div>
+          <div class="paypal-container" id="paypal-container-ps2fat-refurbished"></div>
         </div>
 
         <div class="product-card">
           <img src="assets/images.png" alt="Refurbished PS2 Fat Plug & Play Bundle">
           <div class="name">PS2 Fat – Plug & Play Bundle (Refurbished & Tested)</div>
           <div class="price">£250</div>
+          <div class="paypal-container" id="paypal-container-ps2fat-refurbished-bundle"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accessories -->
+    <section class="product-category">
+      <h2 class="section-title">Accessories</h2>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="assets/images.png" alt="PS2 Controller">
+          <div class="name">PS2 Controller – Official</div>
+          <div class="price">£55</div>
+          <div class="paypal-container" id="paypal-container-controller-official"></div>
+        </div>
+
+        <div class="product-card">
+          <img src="assets/images.png" alt="Third-Party Wired PS2 Controller">
+          <div class="name">PS2 Controller – Third-Party Wired</div>
+          <div class="price">£35</div>
+          <div class="paypal-container" id="paypal-container-controller-wired"></div>
+        </div>
+
+        <div class="product-card">
+          <img src="assets/images.png" alt="Third-Party Wireless PS2 Controller">
+          <div class="name">PS2 Controller – Third-Party Wireless</div>
+          <div class="price">£50</div>
+          <div class="paypal-container" id="paypal-container-controller-wireless"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modding Services -->
+    <section class="product-category">
+      <h2 class="section-title">Custom & Modding Services</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="assets/images.png" alt="Preloaded HDD">
+          <div class="name">Preloaded HDD</div>
+          <div class="price">£80+</div>
+          <div class="paypal-container" id="paypal-container-hdd"></div>
+        </div>
+
+        <div class="product-card">
+          <img src="assets/images.png" alt="Preloaded Memory Card">
+          <div class="name">Preloaded Memory Card</div>
+          <div class="price">£30+</div>
+          <div class="paypal-container" id="paypal-container-memcard"></div>
+        </div>
+
+        <div class="product-card">
+          <img src="assets/images.png" alt="Custom Modding Service">
+          <div class="name">Custom Modding Service</div>
+          <div class="price">£150+</div>
+          <div class="paypal-container" id="paypal-container-modding"></div>
         </div>
       </div>
     </section>
@@ -77,19 +139,35 @@
     </footer>
   </div>
 
-<!-- ✅ PayPal SDK (Hosted Buttons) -->
-<script 
-  src="https://www.paypal.com/sdk/js?client-id=BAApYaG5zDntUHsd2tRXv1ylGkYhREqRR-t7PWcH3-Sh7ElgWliEyCEnhAeQjoawIGidc1LY7PQRK9A0Sg&components=hosted-buttons&disable-funding=venmo&currency=GBP">
-</script>
+  <!-- ✅ PayPal SDK -->
+  <script 
+    src="https://www.paypal.com/sdk/js?client-id=BAApYaG5zDntUHsd2tRXv1ylGkYhREqRR-t7PWcH3-Sh7ElgWliEyCEnhAeQjoawIGidc1LY7PQRK9A0Sg&components=hosted-buttons&disable-funding=venmo&currency=GBP">
+  </script>
 
-<!-- ✅ Only one working PayPal button for PS2 Fat £120 -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    paypal.HostedButtons({
-      hostedButtonId: "5ZBSDBUWLJ3B4"
-    }).render("#paypal-container-5ZBSDBUWLJ3B4");
-  });
-</script>
+  <!-- ✅ Render Working & Placeholder Buttons -->
+  <script>
+    // Working product
+    paypal.HostedButtons({ hostedButtonId: "5ZBSDBUWLJ3B4" }).render("#paypal-container-5ZBSDBUWLJ3B4");
+
+    // Placeholder buttons — replace IDs as you create more
+    const placeholderIds = [
+      "ps2fat-bundle",
+      "ps2fat-refurbished",
+      "ps2fat-refurbished-bundle",
+      "controller-official",
+      "controller-wired",
+      "controller-wireless",
+      "hdd",
+      "memcard",
+      "modding"
+    ];
+
+    placeholderIds.forEach(id => {
+      const el = document.querySelector(`#paypal-container-${id}`);
+      if (el) {
+        el.innerHTML = '<button disabled style="background:#003399;color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:not-allowed;opacity:0.5;">Coming Soon</button>';
+      }
+    });
+  </script>
 </body>
 </html>
-

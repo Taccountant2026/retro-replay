@@ -7,149 +7,304 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .product-card {
-      background: rgba(0, 0, 0, 0.7);
-      border: 1px solid #00aaff;
-      border-radius: 12px;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(0, 100, 255, 0.4);
-      transition: 0.3s ease;
-    }
-
-    .product-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 25px rgba(0, 150, 255, 0.7);
-    }
-
-    .product-card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-
-    .paypal-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 12px;
-      min-height: 42px;
-    }
-
-    .placeholder-btn {
-      background: #002d80;
-      color: #9dd8ff;
-      border: 1px solid #0078ff;
-      padding: 8px 18px;
-      border-radius: 6px;
-      cursor: not-allowed;
-      opacity: 0.6;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 0.9rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #9ca3af;
-      margin-top: 2rem;
-    }
-
-    footer strong {
-      color: #fff;
-    }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px; }
+    .product-card { background: #1c1c1c; padding: 15px; border-radius: 10px; color: #eee; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .product-card img { max-width: 100%; margin-bottom: 10px; border-radius: 5px; }
+    .product-card .name { font-weight: 700; margin-bottom: 5px; }
+    .product-card .price { font-weight: 600; margin-bottom: 10px; }
+    .section-title { margin: 30px 0 10px; font-size: 1.75rem; font-weight: 900; text-align: center; }
+    footer { text-align: center; font-size: 0.85rem; padding: 20px 0; color: #aaa; }
   </style>
 </head>
-
 <body>
-  <div class="wrap">
-    <header>
-      <div style="display:flex;align-items:center;gap:14px">
-        <img src="assets/logo.png" alt="Retro Replay logo" class="logo" style="max-height:60px">
-      </div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="products.html" class="active">Products</a>
-        <a href="about.html">About</a>
-        <a href="checkout.html">Checkout 🛒</a>
-      </nav>
-    </header>
+<div class="wrap">
+  <header>
+    <div style="display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:20px;">
+      <img src="assets/logo.png" alt="Retro Replay logo" class="logo" style="max-height:60px">
+    </div>
+    <nav class="nav" style="text-align:center;margin-bottom:30px;">
+      <a href="index.html">Home</a> |
+      <a href="products.html" class="active">Products</a> |
+      <a href="about.html">About</a> |
+      <a href="checkout.html">Checkout 🛒</a>
+    </nav>
+  </header>
 
-    <section class="about-section">
-      <h2 class="section-title">Our Products</h2>
-      <p>Explore our range of refurbished consoles, curated bundles, accessories, and modding services — all tested and ready for play.</p>
-    </section>
+  <!-- Consoles – Clean / Tested -->
+  <section>
+    <h2 class="section-title">PS2 Consoles – Clean / Tested</h2>
+    <div class="product-grid">
 
-    <!-- PRODUCTS GRID -->
-    <section class="product-grid">
-
-      <!-- Example 1 -->
+      <!-- PS2 Fat Console Only -->
       <div class="product-card">
-        <img src="assets/images.png" alt="PS2 Fat Console">
+        <img src="assets/images.png" alt="PS2 Fat Console Only">
         <div class="name">PS2 Fat – Console Only (Clean & Tested)</div>
-        <div class="price">£120</div>
-        <div class="paypal-container" id="paypal-container-5ZBSDBUWLJ3B4"></div>
+        <div class="price">£130</div>
+        <div id="paypal-container-5ZBSDBUWLJ3B4"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ZBSDBUWLJ3B4" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
       </div>
 
-      <!-- Example 2 -->
+      <!-- PS2 Fat Plug & Play Bundle -->
       <div class="product-card">
-        <img src="assets/images.png" alt="PS2 Fat Plug & Play">
-        <div class="name">PS2 Fat – Plug & Play Bundle</div>
+        <img src="assets/images.png" alt="PS2 Fat Plug & Play Bundle">
+        <div class="name">PS2 Fat – Plug & Play Bundle (Clean & Tested)</div>
         <div class="price">£180</div>
-        <div class="paypal-container" id="paypal-container-bundle"></div>
+        <div id="paypal-container-3HDEMFMFNMF84"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3HDEMFMFNMF84" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
       </div>
 
-      <!-- Example 3 -->
+    </div>
+  </section>
+
+  <!-- Consoles – Refurbished -->
+  <section>
+    <h2 class="section-title">PS2 Consoles – Refurbished</h2>
+    <div class="product-grid">
+
+      <!-- PS2 Fat Console Only Refurbished -->
       <div class="product-card">
-        <img src="assets/images.png" alt="Refurbished PS2">
-        <div class="name">PS2 Fat – Refurbished Console</div>
+        <img src="assets/images.png" alt="Refurbished PS2 Fat Console Only">
+        <div class="name">PS2 Fat – Console Only (Refurbished & Tested)</div>
         <div class="price">£200</div>
-        <div class="paypal-container" id="paypal-container-refurb"></div>
+        <div id="paypal-container-24UH3R5PRF5UJ"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=24UH3R5PRF5UJ" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
       </div>
 
-      <!-- Example 4 -->
+      <!-- PS2 Fat Plug & Play Bundle Refurbished -->
       <div class="product-card">
-        <img src="assets/images.png" alt="Custom Modding">
+        <img src="assets/images.png" alt="Refurbished PS2 Fat Plug & Play Bundle">
+        <div class="name">PS2 Fat – Plug & Play Bundle (Refurbished & Tested)</div>
+        <div class="price">£250</div>
+        <div id="paypal-container-FNWGVGF6D3324"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FNWGVGF6D3324" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Controllers -->
+  <section>
+    <h2 class="section-title">Controllers</h2>
+    <div class="product-grid">
+
+      <!-- Official -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="Official PS2 Controller">
+        <div class="name">PS2 Controller – Official (Refurbished)</div>
+        <div class="price">£55</div>
+        <div id="paypal-container-X3D4GQWRMGZN4"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X3D4GQWRMGZN4" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+      <!-- Third-Party Wired -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="Third-Party Wired PS2 Controller">
+        <div class="name">PS2 Controller – Third-Party Wired</div>
+        <div class="price">£35</div>
+        <div id="paypal-container-9MRPKXUYHR8QC"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9MRPKXUYHR8QC" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+      <!-- Third-Party Wireless -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="Third-Party Wireless PS2 Controller">
+        <div class="name">PS2 Controller – Third-Party Wireless</div>
+        <div class="price">£50</div>
+        <div id="paypal-container-JCFV9FGY3MHT2"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JCFV9FGY3MHT2" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Memory Cards -->
+  <section>
+    <h2 class="section-title">Memory Cards</h2>
+    <div class="product-grid">
+
+      <!-- 8MB -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="Official PS2 Memory Card 8MB">
+        <div class="name">Official PS2 Memory Card – 8MB</div>
+        <div class="price">£30</div>
+        <div id="paypal-container-3NAWLTNHHMFGE"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3NAWLTNHHMFGE" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+      <!-- 16MB -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="PS2 Memory Card 16MB">
+        <div class="name">PS2 Compatible Memory Card – 16MB</div>
+        <div class="price">£28</div>
+        <div id="paypal-container-8P3KACX5Q3WC6"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8P3KACX5Q3WC6" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+      <!-- 32MB -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="PS2 Memory Card 32MB">
+        <div class="name">PS2 Compatible Memory Card – 32MB</div>
+        <div class="price">£42</div>
+        <div id="paypal-container-EGAQZHPY97222"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EGAQZHPY97222" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+      <!-- 64MB -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="PS2 Memory Card 64MB">
+        <div class="name">PS2 Compatible Memory Card – 64MB</div>
+        <div class="price">£48</div>
+        <div id="paypal-container-ZB2G3CN5Z6WRS"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZB2G3CN5Z6WRS" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+      <!-- 128MB -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="PS2 Memory Card 128MB">
+        <div class="name">PS2 Compatible Memory Card – 128MB</div>
+        <div class="price">£85</div>
+        <div id="paypal-container-YZRF9S57E2W5U"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YZRF9S57E2W5U" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Cables & Accessories -->
+  <section>
+    <h2 class="section-title">Cables & Accessories</h2>
+    <div class="product-grid">
+
+      <!-- AV Multi Cable -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="AV Multi Cable">
+        <div class="name">AV Multi Cable</div>
+        <div class="price">£9</div>
+        <div id="paypal-container-ARVYRKFQ3JW7U"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ARVYRKFQ3JW7U" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+      <!-- HDMI Cable -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="HDMI Cable 1M">
+        <div class="name">HDMI Cable – 1M</div>
+        <div class="price">£12</div>
+        <div id="paypal-container-AEEP26CFY5ZQE"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AEEP26CFY5ZQE" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+      <!-- Power Cable -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="PS2 Power Cable">
+        <div class="name">PS2 Power Cable</div>
+        <div class="price">£8</div>
+        <div id="paypal-container-FWM8PZDAECU64"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FWM8PZDAECU64" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+      <!-- HDMI – AV Adapter -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="HDMI – AV Adapter">
+        <div class="name">HDMI – AV Adapter</div>
+        <div class="price">£15</div>
+        <div id="paypal-container-FBYSXR7KJWMMN"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FBYSXR7KJWMMN" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Custom / Modding Services -->
+  <section>
+    <h2 class="section-title">Custom / Modding Services</h2>
+    <div class="product-grid">
+
+      <!-- Preloaded HDD -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="Preloaded HDD">
+        <div class="name">Preloaded HDD</div>
+        <div class="price">£80+</div>
+        <div id="paypal-container-D98EQNG5DDRTW"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D98EQNG5DDRTW" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+      <!-- Preloaded Memory Card -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="Preloaded Memory Card">
+        <div class="name">Preloaded Memory Card</div>
+        <div class="price">£30+</div>
+        <div id="paypal-container-FB8WMNP7L9P8Q"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FB8WMNP7L9P8Q" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
+      </div>
+
+      <!-- Custom Modding Service -->
+      <div class="product-card">
+        <img src="assets/images.png" alt="Custom Modding Service">
         <div class="name">Custom Modding Service</div>
         <div class="price">£150+</div>
-        <div class="paypal-container" id="paypal-container-modding"></div>
+        <div id="paypal-container-KZTTHJVUHAFZC"></div>
+        <form action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KZTTHJVUHAFZC" method="post" target="_blank">
+          <input type="submit" value="Buy Now" />
+        </form>
       </div>
-    </section>
 
-    <footer>
-      <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
-      <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
-    </footer>
-  </div>
+    </div>
+  </section>
 
-  <!-- PAYPAL SDK -->
-  <script 
-    src="https://www.paypal.com/sdk/js?client-id=BAApYaG5zDntUHsd2tRXv1ylGkYhREqRR-t7PWcH3-Sh7ElgWliEyCEnhAeQjoawIGidc1LY7PQRK9A0Sg&components=hosted-buttons&disable-funding=venmo&currency=GBP">
-  </script>
+  <footer>
+    <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
+    <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
+  </footer>
+</div>
 
-  <script>
-    // Working PayPal button
-    paypal.HostedButtons({ hostedButtonId: "5ZBSDBUWLJ3B4" }).render("#paypal-container-5ZBSDBUWLJ3B4");
+<!-- PayPal SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=AYXmDuhylfxtnuRz3E2EzoyXNO0HnxJAXr_DQauHlsoawJjLKel8W17luzhp1_52OlIh9qjJYDggdf8o&currency=GBP"></script>
 
-    // Placeholder buttons (for others)
-    const placeholders = [
-      "paypal-container-bundle",
-      "paypal-container-refurb",
-      "paypal-container-modding"
-    ];
-    placeholders.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.innerHTML = '<button class="placeholder-btn">Coming Soon</button>';
-    });
-  </script>
-</body>
-</html>
-
+<!-- Render all Smart Buttons -->
+<script>
+  paypal.Buttons({ style: { layout: 'vertical' } }).render('#paypal-container-5ZBSDBUWLJ3B4');
+  paypal.Buttons({ style: { layout: 'vertical' } }).render('#paypal-container-3HDEMFMFNMF84');
+  paypal.Buttons({ style: { layout: 'vertical' } }).render('#paypal-container-24UH3R5PRF5UJ');
+  paypal.Buttons({ style: { layout: 'vertical' } }).render('#paypal-container-FNWGVGF6D3324');
+  paypal.Buttons({ style: { layout: 'vertical' } }).render('#paypal-container-X3D4GQWRMGZN4');
+  paypal.Buttons({ style: { layout: 'vertical' } }).render('#paypal-container-9MRPKXUYHR8QC');
+  paypal.Buttons({ style: { layout: 'vertical' } }).render('#paypal-container-JCFV9FGY3MHT2');
+  paypal.Buttons({ style: { layout: 'vertical' } }).render('#paypal-container-3NAWLTNHHMFGE');
+  paypal.Buttons({ style: { layout: 'vertical' } }).render('#paypal-container-8P3KACX5Q3WC6');
+  paypal.Buttons({ style: { layout: 'vertical' } }).render('#paypal-container-E

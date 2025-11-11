@@ -48,6 +48,7 @@
     padding:2rem;
     border-radius:10px;
     box-shadow:0 0 20px rgba(255,209,64,0.2);
+    margin-bottom:3rem;
   }
 
   .section-title {
@@ -66,6 +67,44 @@
   .highlight {
     color:#FFD140;
     font-weight:700;
+  }
+
+  /* Team & Showcase section */
+  .team-section {
+    background:#22262f;
+    padding:2rem;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(255,209,64,0.2);
+  }
+
+  .team-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:1.5rem;
+    margin-top:1rem;
+  }
+
+  .team-member, .console-showcase {
+    background:#181b23;
+    padding:1rem;
+    border-radius:8px;
+    text-align:center;
+  }
+
+  .team-member img, .console-showcase img {
+    max-width:100%;
+    border-radius:8px;
+    margin-bottom:0.5rem;
+  }
+
+  .member-name, .console-name {
+    font-weight:700;
+    margin-bottom:0.3rem;
+  }
+
+  .member-role {
+    font-size:0.9rem;
+    color:#FFD140;
   }
 
   footer {
@@ -92,6 +131,7 @@
     0%,100%{opacity:0.03;}
     50%{opacity:0.06;}
   }
+
 </style>
 </head>
 <body>
@@ -113,6 +153,34 @@
     <p>Welcome to <span class="highlight">Retro Replay</span>, where the PlayStation 2 comes alive again! We specialize in refurbishing consoles, offering professional modifications, and reviving classic retro gaming experiences.</p>
     <p>Every console is meticulously tested, cleaned, and cosmetically refreshed. Whether you're a nostalgic gamer or discovering the PS2 for the first time, we provide the ultimate gaming experience with reliability and style.</p>
     <p>Our modded systems include <span class="highlight">HDD setups, homebrew support, and media playback</span> so you can enjoy your favorite games and content without limitations. Nostalgia has never looked this good!</p>
+  </section>
+
+  <!-- Team & Console Showcase -->
+  <section class="team-section">
+    <h2 class="section-title">Our Team & Console Showcase</h2>
+    <div class="team-grid">
+      <!-- Team Member -->
+      <div class="team-member">
+        <img src="assets/team1.jpg" alt="Team Member 1">
+        <div class="member-name">Leighton Hepworth</div>
+        <div class="member-role">Founder & Lead Technician</div>
+      </div>
+      <div class="team-member">
+        <img src="assets/team2.jpg" alt="Team Member 2">
+        <div class="member-name">Alex Johnson</div>
+        <div class="member-role">Refurbishment Specialist</div>
+      </div>
+
+      <!-- Console Showcase -->
+      <div class="console-showcase">
+        <img src="assets/ps2-fat.jpg" alt="PS2 Fat Refurbished">
+        <div class="console-name">PS2 Fat – Refurbished</div>
+      </div>
+      <div class="console-showcase">
+        <img src="assets/ps2-bundle.jpg" alt="PS2 Plug & Play Bundle">
+        <div class="console-name">Plug & Play Bundle</div>
+      </div>
+    </div>
   </section>
 
   <footer>

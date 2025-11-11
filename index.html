@@ -15,69 +15,52 @@
     padding:0;
   }
 
-  .wrap {
-    max-width:1200px;
-    margin:0 auto;
-    padding:2rem;
-  }
+  .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
 
   header {
     display:flex;
     justify-content:space-between;
     align-items:center;
+    flex-wrap: wrap;
     margin-bottom:2rem;
   }
 
-  .logo-container img {
-    height: 120px;
-    width: auto;
-  }
+  .logo-container img { height: 120px; width:auto; }
 
+  .nav { display:flex; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; }
   .nav a {
-    margin-left:1rem;
+    margin:0.5rem 1rem;
     color:#e3e7ed;
     text-decoration:none;
     font-weight:bold;
     transition:0.2s;
   }
+  .nav a.active, .nav a:hover { text-decoration:underline; }
 
-  .nav a.active, .nav a:hover {
-    color:#e3e7ed;
-    text-decoration:underline;
+  .hero {
+    text-align:center;
+    margin-bottom:2rem;
   }
-
-  .hero .logo {
-    height: 480px;
-    width: auto;
-    display:block;
-    margin:0 auto 1rem;
-  }
-
-  .hero-secondary {
-    display:block;
-    margin:0 auto 1rem;
-    max-width:200px;
-  }
-
+  .hero .logo { max-width:90%; height:auto; margin:0 auto 1rem; }
+  .hero-secondary { max-width:50%; height:auto; display:block; margin:0 auto 1rem; }
   .boot-bar { margin:1rem 0; }
-  .boot-caption { text-align:center; font-size:1rem; }
+  .boot-caption { font-size:1rem; }
 
   .about-section {
     background:#22262f;
     padding:2rem;
     border-radius:10px;
     margin-bottom:2rem;
+    text-align:center;
   }
-
-  .section-title { font-size:2rem; margin-bottom:1rem; text-align:center; }
-  .about-section p { font-size:1.05rem; line-height:1.6; margin-bottom:1rem; }
+  .section-title { font-size:2rem; margin-bottom:1rem; }
+  .about-section p { font-size:1.05rem; line-height:1.6; }
 
   .product-grid {
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:1.5rem;
   }
-
   .product-card {
     background:#22262f;
     padding:1rem;
@@ -86,25 +69,45 @@
     display:flex;
     flex-direction:column;
   }
-
   .product-card img { max-width:100%; margin-bottom:0.5rem; border-radius:4px; }
   .product-card .name { font-weight:600; margin-bottom:0.3rem; }
   .product-card .price { font-size:1.2rem; font-weight:bold; margin-bottom:0.5rem; }
-
-  footer {
-    text-align:center;
-    font-size:0.8rem;
-    margin-top:3rem;
-    color:#999;
+  .btn {
+    background:#2a2f3a;
+    color:#e3e7ed;
+    padding:0.5rem 1rem;
+    text-decoration:none;
+    border-radius:4px;
+    transition:0.2s;
   }
+  .btn:hover { background:#3b3f4a; }
+
+  footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
+
+  /* Mobile tweaks */
+  @media screen and (max-width:768px){
+    .hero-secondary { max-width:70%; }
+  }
+  @media screen and (max-width:480px){
+    .section-title { font-size:1.5rem; }
+    .product-card .price { font-size:1rem; }
+    .btn { width:100%; text-align:center; }
+  }
+
+  /* Ambient effect */
+  .ambient {
+    position:fixed; top:0; left:0; width:100%; height:100%;
+    background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
+    pointer-events:none; z-index:0;
+    animation: pulse 5s infinite;
+  }
+  @keyframes pulse {0%,100%{opacity:0.02;}50%{opacity:0.04;}}
 </style>
-  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 </head>
 <body>
 <div class="ambient"></div>
-<div class="scanlines"></div>
-
 <div class="wrap">
+
 <header>
   <div class="logo-container">
     <img src="assets/logo.png" alt="Retro Replay logo">
@@ -135,25 +138,25 @@
     <img src="assets/images.png" alt="Refurbished PS2 Fat">
     <div class="name">Refurbished PS2 Fat</div>
     <div class="price">£150</div>
-    <div id="paypal-refurbished-ps2"></div>
+    <div id="paypal-ps2fat"></div>
   </div>
   <div class="product-card">
     <img src="assets/images.png" alt="Plug & Play Bundle">
     <div class="name">Plug & Play Bundle</div>
     <div class="price">£185</div>
-    <div id="paypal-bundle-ps2"></div>
+    <div id="paypal-bundle"></div>
   </div>
   <div class="product-card">
     <img src="assets/images.png" alt="PS2 Tested Console">
     <div class="name">PS2 Tested Console</div>
     <div class="price">£95</div>
-    <div id="paypal-tested-ps2"></div>
+    <div id="paypal-tested"></div>
   </div>
   <div class="product-card">
     <img src="assets/images.png" alt="Modded PS2">
     <div class="name">Modded Bundle (HDD)</div>
     <div class="price">£250</div>
-    <div id="paypal-modded-ps2"></div>
+    <div id="paypal-modded"></div>
   </div>
 </section>
 
@@ -161,29 +164,27 @@
   <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
   <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
 </footer>
-</div>
 
 <!-- PayPal SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=AYXmDuhylfxtnuRz3E2EzoyXNO0HnxJAXr_DQauHlsoawJjLKel8W17luzhp1_52OlIh9qjJYDggdf8o&currency=GBP"></script>
 <script>
-function renderButton(id, desc, price){
-    paypal.Buttons({
-        style:{layout:'vertical',color:'gold',shape:'rect',label:'buynow'},
-        createOrder:(data,actions)=>actions.order.create({
-            purchase_units:[{description:desc,amount:{currency_code:'GBP',value:price}}]
-        }),
-        onApprove:(data,actions)=>actions.order.capture().then(details=>{
-            window.location.href="checkout-success.html";
-        }),
-        onError:err=>{console.error(err);}
-    }).render('#'+id);
-}
+const products = [
+  ['paypal-ps2fat','Refurbished PS2 Fat','150'],
+  ['paypal-bundle','Plug & Play Bundle','185'],
+  ['paypal-tested','PS2 Tested Console','95'],
+  ['paypal-modded','Modded Bundle (HDD)','250']
+];
 
-// Render all buttons
-renderButton('paypal-refurbished-ps2','Refurbished PS2 Fat','150');
-renderButton('paypal-bundle-ps2','Plug & Play Bundle','185');
-renderButton('paypal-tested-ps2','PS2 Tested Console','95');
-renderButton('paypal-modded-ps2','Modded Bundle (HDD)','250');
+products.forEach(p=>{
+  paypal.Buttons({
+    style:{layout:'vertical',color:'gold',shape:'rect',label:'buynow'},
+    createOrder:(data,actions)=>actions.order.create({purchase_units:[{description:p[1],amount:{currency_code:'GBP',value:p[2]}}]}),
+    onApprove:(data,actions)=>actions.order.capture().then(()=>{window.location.href="checkout-success.html";}),
+    onError:err=>{console.error(err);}
+  }).render('#'+p[0]);
+});
 </script>
+
+</div>
 </body>
 </html>

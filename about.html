@@ -27,22 +27,27 @@
   }
   .section-title { font-size:2rem; margin-bottom:1.5rem; text-align:center; color:#e3e7ed; }
   .about-section p { font-size:1.05rem; line-height:1.6; margin-bottom:1rem; }
-  .team-section { background:#22262f; padding:2rem; border-radius:10px; margin-bottom:3rem; }
-  .team-grid {
+  .testimonials-section {
+    background:#22262f;
+    padding:2rem;
+    border-radius:10px;
+    margin-bottom:3rem;
+  }
+  .testimonial-grid {
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:1.5rem;
     margin-top:1rem;
   }
-  .team-member, .console-showcase {
+  .testimonial {
     background:#181b23;
-    padding:1rem;
+    padding:1.5rem;
     border-radius:8px;
-    text-align:center;
+    text-align:left;
+    font-size:1rem;
+    line-height:1.5;
   }
-  .team-member img, .console-showcase img { max-width:100%; border-radius:8px; margin-bottom:0.5rem; }
-  .member-name, .console-name { font-weight:700; margin-bottom:0.3rem; }
-  .member-role { font-size:0.9rem; color:#e3e7ed; }
+  .testimonial strong { display:block; margin-bottom:0.5rem; color:#fff; }
   footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
   .ambient {
     position:fixed;
@@ -74,31 +79,25 @@
 
 <section class="about-section">
   <h2 class="section-title">About Retro Replay</h2>
-  <p>Retro Replay is your destination for **PlayStation 2 nostalgia**. We refurbish consoles, offer professional modifications, and bring classic retro gaming back to life.</p>
+  <p>Retro Replay is your destination for <strong>PlayStation 2 nostalgia</strong>. We refurbish consoles, offer professional modifications, and bring classic retro gaming back to life.</p>
   <p>All consoles are fully tested, cleaned, and cosmetically refreshed. Whether you're rediscovering the PS2 or exploring it for the first time, we provide a premium gaming experience.</p>
-  <p>Our modded systems include **HDD setups, homebrew support, and media playback**, ensuring your retro adventure is smooth and fun.</p>
+  <p>Our modded systems include <strong>HDD setups, homebrew support, and media playback</strong>, ensuring your retro adventure is smooth and fun.</p>
 </section>
 
-<section class="team-section">
-  <h2 class="section-title">Our Team & Console Showcase</h2>
-  <div class="team-grid">
-    <div class="team-member">
-      <img src="assets/team1.jpg" alt="Team Member 1">
-      <div class="member-name">Leighton Hepworth</div>
-      <div class="member-role">Founder & Lead Technician</div>
+<section class="testimonials-section">
+  <h2 class="section-title">What Our Customers Say</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <strong>John D.</strong>
+      "Absolutely amazing! My refurbished PS2 works perfectly and looks brand new. Highly recommend Retro Replay for anyone wanting a true retro experience."
     </div>
-    <div class="team-member">
-      <img src="assets/team2.jpg" alt="Team Member 2">
-      <div class="member-name">Alex Johnson</div>
-      <div class="member-role">Refurbishment Specialist</div>
+    <div class="testimonial">
+      <strong>Emma S.</strong>
+      "The Plug & Play bundle was exactly as described. Easy setup, fast delivery, and the quality is excellent. Definitely my go-to for PS2 consoles!"
     </div>
-    <div class="console-showcase">
-      <img src="assets/ps2-fat.jpg" alt="PS2 Fat Refurbished">
-      <div class="console-name">PS2 Fat – Refurbished</div>
-    </div>
-    <div class="console-showcase">
-      <img src="assets/ps2-bundle.jpg" alt="PS2 Plug & Play Bundle">
-      <div class="console-name">Plug & Play Bundle</div>
+    <div class="testimonial">
+      <strong>Mark R.</strong>
+      "Fantastic service and attention to detail. My modded PS2 with HDD works flawlessly and the homebrew setup makes gaming even more fun."
     </div>
   </div>
 </section>

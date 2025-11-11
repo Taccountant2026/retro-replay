@@ -14,26 +14,42 @@
     margin:0;
     padding:0;
   }
+
   .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
-  header { display:flex; justify-content:space-between; align-items:center; margin-bottom:3rem; }
-  .logo { max-height:60px; }
-  .nav a { margin-left:1rem; color:#e3e7ed; text-decoration:none; font-weight:bold; transition:0.2s; }
-  .nav a:hover, .nav a.active { color:#e3e7ed; text-decoration:underline; }
+
+  header {
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    align-items:center;
+    margin-bottom:3rem;
+  }
+
+  .logo { max-height:120px; width:auto; }
+
+  .nav { display:flex; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; }
+  .nav a { margin:0.5rem 1rem; color:#e3e7ed; text-decoration:none; font-weight:bold; transition:0.2s; }
+  .nav a:hover, .nav a.active { text-decoration:underline; }
+
   .about-section {
     background:#22262f;
     padding:2rem;
     border-radius:10px;
-    margin-bottom:3rem;
+    margin-bottom:2rem;
+    text-align:center;
   }
-  .section-title { font-size:2rem; margin-bottom:1.5rem; text-align:center; color:#e3e7ed; }
+
+  .section-title { font-size:2rem; margin-bottom:1.5rem; }
   .about-section p { font-size:1.05rem; line-height:1.6; margin-bottom:1rem; }
-  .testimonials-section {
+
+  /* Testimonials Section */
+  .testimonials {
     background:#22262f;
     padding:2rem;
     border-radius:10px;
-    margin-bottom:3rem;
+    margin-bottom:2rem;
   }
-  .testimonial-grid {
+  .testimonials-grid {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:1.5rem;
@@ -41,14 +57,15 @@
   }
   .testimonial {
     background:#181b23;
-    padding:1.5rem;
+    padding:1rem;
     border-radius:8px;
-    text-align:left;
-    font-size:1rem;
-    line-height:1.5;
+    text-align:center;
   }
-  .testimonial strong { display:block; margin-bottom:0.5rem; color:#fff; }
+  .testimonial p { font-size:1rem; line-height:1.4; margin-bottom:0.5rem; }
+  .testimonial .author { font-weight:700; margin-top:0.5rem; color:#ffd700; }
+
   footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
+
   .ambient {
     position:fixed;
     top:0; left:0;
@@ -58,9 +75,14 @@
     z-index:0;
     animation: pulse 5s infinite;
   }
-  @keyframes pulse {
-    0%,100%{opacity:0.02;}
-    50%{opacity:0.04;}
+  @keyframes pulse {0%,100%{opacity:0.02;}50%{opacity:0.04;}}
+
+  /* Mobile tweaks */
+  @media screen and (max-width:768px){
+    .section-title { font-size:1.7rem; }
+  }
+  @media screen and (max-width:480px){
+    .section-title { font-size:1.4rem; }
   }
 </style>
 </head>
@@ -84,20 +106,20 @@
   <p>Our modded systems include <strong>HDD setups, homebrew support, and media playback</strong>, ensuring your retro adventure is smooth and fun.</p>
 </section>
 
-<section class="testimonials-section">
+<section class="testimonials">
   <h2 class="section-title">What Our Customers Say</h2>
-  <div class="testimonial-grid">
+  <div class="testimonials-grid">
     <div class="testimonial">
-      <strong>John D.</strong>
-      "Absolutely amazing! My refurbished PS2 works perfectly and looks brand new. Highly recommend Retro Replay for anyone wanting a true retro experience."
+      <p>"The refurbished PS2 Fat I bought works perfectly! Feels brand new and looks amazing on my shelf."</p>
+      <div class="author">— Alex R.</div>
     </div>
     <div class="testimonial">
-      <strong>Emma S.</strong>
-      "The Plug & Play bundle was exactly as described. Easy setup, fast delivery, and the quality is excellent. Definitely my go-to for PS2 consoles!"
+      <p>"Customer support was incredible, and the modded bundle was ready to play straight away. Highly recommend Retro Replay!"</p>
+      <div class="author">— Jamie L.</div>
     </div>
     <div class="testimonial">
-      <strong>Mark R.</strong>
-      "Fantastic service and attention to detail. My modded PS2 with HDD works flawlessly and the homebrew setup makes gaming even more fun."
+      <p>"Fast shipping, beautifully restored consoles, and professional setup of the HDD. My retro gaming setup is complete!"</p>
+      <div class="author">— Sam K.</div>
     </div>
   </div>
 </section>

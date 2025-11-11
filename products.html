@@ -6,81 +6,74 @@
 <title>Products — Retro Replay</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
-  body { font-family: 'Orbitron', sans-serif; background:#181b23; color:#e3e7ed; margin:0; padding:0; }
-  .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
-  header { display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem; }
-  .logo { max-height:60px; }
-  .nav a { margin-left:1rem; color:#e3e7ed; text-decoration:none; font-weight:bold; }
-  .nav a.active { text-decoration:underline; }
-  .filter { margin-bottom:1.5rem; }
-  .filter button { margin-right:0.5rem; background:#22262f; color:#FFD140; border:none; padding:0.5rem 1rem; border-radius:4px; cursor:pointer; }
-  .filter button.active { background:#FFD140; color:#181b23; }
-  .product-category { margin-bottom:3rem; }
-  .section-title { font-size:1.8rem; margin-bottom:1rem; color:#FFD140; }
-  .product-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; }
-  .product-card { background:#22262f; padding:1rem; border-radius:8px; text-align:center; display:flex; flex-direction:column; }
-  .product-card img { max-width:100%; margin-bottom:0.5rem; border-radius:4px; }
-  .product-card .name { font-weight:600; margin-bottom:0.3rem; }
-  .product-card .short-desc { font-size:0.9rem; margin-bottom:0.5rem; }
-  .product-card .price { font-size:1.2rem; font-weight:bold; margin-bottom:0.5rem; }
-  footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
+body { font-family: 'Orbitron', sans-serif; background:#181b23; color:#e3e7ed; margin:0; padding:0; }
+.wrap { max-width:1200px; margin:0 auto; padding:2rem; }
+header { display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem; }
+.logo { max-height:60px; }
+.nav a { margin-left:1rem; color:#e3e7ed; text-decoration:none; font-weight:bold; }
+.nav a.active { text-decoration:underline; }
+.filter { margin-bottom:1.5rem; }
+.filter button { margin-right:0.5rem; background:#22262f; color:#e3e7ed; border:none; padding:0.5rem 1rem; border-radius:4px; cursor:pointer; transition:0.2s; }
+.filter button.active, .filter button:hover { background:#3c414d; color:#fff; }
+.product-category { margin-bottom:3rem; }
+.section-title { font-size:1.8rem; margin-bottom:1rem; color:#3c414d; }
+.product-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; }
+.product-card { background:#22262f; padding:1rem; border-radius:8px; text-align:center; display:flex; flex-direction:column; transition:0.3s; }
+.product-card:hover { transform:translateY(-4px); box-shadow:0 4px 12px rgba(0,0,0,0.5); }
+.product-card img { max-width:100%; margin-bottom:0.5rem; border-radius:4px; }
+.product-card .name { font-weight:600; margin-bottom:0.3rem; }
+.product-card .short-desc { font-size:0.9rem; margin-bottom:0.5rem; }
+.product-card .price { font-size:1.2rem; font-weight:bold; margin-bottom:0.5rem; }
+footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
 </style>
 </head>
 <body>
 
 <div class="wrap">
-  <header>
+<header>
     <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
     <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="products.html" class="active">Products</a>
-      <a href="about.html">About</a>
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="about.html">About</a>
     </nav>
-  </header>
+</header>
 
-  <!-- Category Filter -->
-  <div class="filter">
+<div class="filter">
     <button class="filter-btn active" data-category="all">All</button>
     <button class="filter-btn" data-category="consoles">Consoles</button>
     <button class="filter-btn" data-category="controllers">Controllers</button>
     <button class="filter-btn" data-category="memory">Memory Cards</button>
     <button class="filter-btn" data-category="cables">Cables & Accessories</button>
     <button class="filter-btn" data-category="modding">Custom / Modding</button>
-  </div>
-
-  <!-- Products Grid -->
-  <div class="product-grid" id="product-grid">
-    <!-- Example Product Card -->
-    <!-- Use the same structure for all products -->
-    <div class="product-card" data-category="consoles">
-      <img src="assets/images.png" alt="PS2 Fat Console Only">
-      <div class="name">PS2 Fat – Console Only</div>
-      <div class="short-desc">Fully tested, cleaned, and ready to play.</div>
-      <div class="price">£130</div>
-      <div id="paypal-ps2fat-clean"></div>
-    </div>
-
-    <div class="product-card" data-category="consoles">
-      <img src="assets/images.png" alt="PS2 Fat Plug & Play Bundle">
-      <div class="name">PS2 Fat – Plug & Play Bundle</div>
-      <div class="short-desc">Ready to play out of the box — console, controller, and cables included.</div>
-      <div class="price">£180</div>
-      <div id="paypal-ps2fat-bundle"></div>
-    </div>
-
-    <!-- Repeat all products with proper data-category -->
-    <!-- ...all other products here, make sure each has unique ID for PayPal -->
-  </div>
-
-  <footer>
-    <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
-    <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
-  </footer>
 </div>
 
-<!-- PayPal SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=AYXmDuhylfxtnuRz3E2EzoyXNO0HnxJAXr_DQauHlsoawJjLKel8W17luzhp1_52OlIh9qjJYDggdf8o&currency=GBP"></script>
+<div class="product-grid" id="product-grid">
+  <!-- Example Product Card -->
+  <div class="product-card" data-category="consoles">
+    <img src="assets/images.png" alt="PS2 Fat Console Only">
+    <div class="name">PS2 Fat – Console Only</div>
+    <div class="short-desc">Fully tested, cleaned, and ready to play.</div>
+    <div class="price">£130</div>
+    <div id="paypal-ps2fat-clean"></div>
+  </div>
+  <div class="product-card" data-category="consoles">
+    <img src="assets/images.png" alt="PS2 Fat Plug & Play Bundle">
+    <div class="name">PS2 Fat – Plug & Play Bundle</div>
+    <div class="short-desc">Ready to play out of the box — console, controller, and cables included.</div>
+    <div class="price">£180</div>
+    <div id="paypal-ps2fat-bundle"></div>
+  </div>
+  <!-- Add all other product cards here, each with unique id for PayPal -->
+</div>
 
+<footer>
+  <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
+  <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
+</footer>
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AYXmDuhylfxtnuRz3E2EzoyXNO0HnxJAXr_DQauHlsoawJjLKel8W17luzhp1_52OlIh9qjJYDggdf8o&currency=GBP"></script>
 <script>
 // Render PayPal Buttons
 function renderButton(id, desc, price){
@@ -97,7 +90,7 @@ function renderButton(id, desc, price){
 }
 
 // List of products [id, description, price]
-const products=[
+const products=[ 
 ['paypal-ps2fat-clean','PS2 Fat – Console Only','130'],
 ['paypal-ps2fat-bundle','PS2 Fat – Plug & Play Bundle','180'],
 ['paypal-ps2fat-refurbished','PS2 Fat – Console Only (Refurbished)','200'],

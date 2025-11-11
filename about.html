@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>About — Retro Replay</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
   body {
     font-family: 'Orbitron', sans-serif;
@@ -13,180 +14,99 @@
     margin:0;
     padding:0;
   }
-
-  .wrap {
-    max-width:1000px;
-    margin:0 auto;
-    padding:2rem;
-  }
-
-  header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:3rem;
-  }
-
+  .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
+  header { display:flex; justify-content:space-between; align-items:center; margin-bottom:3rem; }
   .logo { max-height:60px; }
-
-  .nav a {
-    margin-left:1rem;
-    color:#e3e7ed;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.2s;
-  }
-
-  .nav a:hover,
-  .nav a.active {
-    color:#e3e7ed; /* Match site coloring, remove yellow */
-    text-decoration:underline;
-  }
-
+  .nav a { margin-left:1rem; color:#e3e7ed; text-decoration:none; font-weight:bold; transition:0.2s; }
+  .nav a:hover, .nav a.active { color:#e3e7ed; text-decoration:underline; }
   .about-section {
     background:#22262f;
     padding:2rem;
     border-radius:10px;
-    box-shadow:0 0 20px rgba(227,231,237,0.2); /* subtle light-grey shadow instead of yellow */
     margin-bottom:3rem;
   }
-
-  .section-title {
-    font-size:2rem;
-    margin-bottom:1.5rem;
-    color:#e3e7ed; /* no yellow */
-    text-align:center;
-  }
-
-  .about-section p {
-    font-size:1.05rem;
-    line-height:1.6;
-    margin-bottom:1rem;
-  }
-
-  .highlight {
-    color:#e3e7ed; /* remove yellow highlight */
-    font-weight:700;
-  }
-
-  /* Team & Showcase section */
-  .team-section {
-    background:#22262f;
-    padding:2rem;
-    border-radius:10px;
-    box-shadow:0 0 20px rgba(227,231,237,0.2); /* subtle shadow */
-  }
-
+  .section-title { font-size:2rem; margin-bottom:1.5rem; text-align:center; color:#e3e7ed; }
+  .about-section p { font-size:1.05rem; line-height:1.6; margin-bottom:1rem; }
+  .team-section { background:#22262f; padding:2rem; border-radius:10px; margin-bottom:3rem; }
   .team-grid {
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:1.5rem;
     margin-top:1rem;
   }
-
   .team-member, .console-showcase {
     background:#181b23;
     padding:1rem;
     border-radius:8px;
     text-align:center;
   }
-
-  .team-member img, .console-showcase img {
-    max-width:100%;
-    border-radius:8px;
-    margin-bottom:0.5rem;
-  }
-
-  .member-name, .console-name {
-    font-weight:700;
-    margin-bottom:0.3rem;
-  }
-
-  .member-role {
-    font-size:0.9rem;
-    color:#e3e7ed; /* remove yellow */
-  }
-
-  footer {
-    text-align:center;
-    font-size:0.8rem;
-    margin-top:3rem;
-    color:#999;
-  }
-
-  footer strong { color:#e3e7ed; }
-
-  /* Optional subtle animation for retro vibe */
+  .team-member img, .console-showcase img { max-width:100%; border-radius:8px; margin-bottom:0.5rem; }
+  .member-name, .console-name { font-weight:700; margin-bottom:0.3rem; }
+  .member-role { font-size:0.9rem; color:#e3e7ed; }
+  footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
   .ambient {
     position:fixed;
     top:0; left:0;
     width:100%; height:100%;
-    background:radial-gradient(circle at center, rgba(255,255,255,0.03), transparent 70%);
+    background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
     pointer-events:none;
     z-index:0;
     animation: pulse 5s infinite;
   }
-
   @keyframes pulse {
-    0%,100%{opacity:0.03;}
-    50%{opacity:0.06;}
+    0%,100%{opacity:0.02;}
+    50%{opacity:0.04;}
   }
 </style>
 </head>
 <body>
-
 <div class="ambient"></div>
 
 <div class="wrap">
-  <header>
-    <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="about.html" class="active">About</a>
-    </nav>
-  </header>
+<header>
+  <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="about.html" class="active">About</a>
+  </nav>
+</header>
 
-  <section class="about-section">
-    <h2 class="section-title">About <span class="highlight">Retro Replay</span></h2>
-    <p>Welcome to <span class="highlight">Retro Replay</span>, where the PlayStation 2 comes alive again! We specialize in refurbishing consoles, offering professional modifications, and reviving classic retro gaming experiences.</p>
-    <p>Every console is meticulously tested, cleaned, and cosmetically refreshed. Whether you're a nostalgic gamer or discovering the PS2 for the first time, we provide the ultimate gaming experience with reliability and style.</p>
-    <p>Our modded systems include <span class="highlight">HDD setups, homebrew support, and media playback</span> so you can enjoy your favorite games and content without limitations. Nostalgia has never looked this good!</p>
-  </section>
+<section class="about-section">
+  <h2 class="section-title">About Retro Replay</h2>
+  <p>Retro Replay is your destination for **PlayStation 2 nostalgia**. We refurbish consoles, offer professional modifications, and bring classic retro gaming back to life.</p>
+  <p>All consoles are fully tested, cleaned, and cosmetically refreshed. Whether you're rediscovering the PS2 or exploring it for the first time, we provide a premium gaming experience.</p>
+  <p>Our modded systems include **HDD setups, homebrew support, and media playback**, ensuring your retro adventure is smooth and fun.</p>
+</section>
 
-  <!-- Team & Console Showcase -->
-  <section class="team-section">
-    <h2 class="section-title">Our Team & Console Showcase</h2>
-    <div class="team-grid">
-      <!-- Team Member -->
-      <div class="team-member">
-        <img src="assets/team1.jpg" alt="Team Member 1">
-        <div class="member-name">Leighton Hepworth</div>
-        <div class="member-role">Founder & Lead Technician</div>
-      </div>
-      <div class="team-member">
-        <img src="assets/team2.jpg" alt="Team Member 2">
-        <div class="member-name">Alex Johnson</div>
-        <div class="member-role">Refurbishment Specialist</div>
-      </div>
-
-      <!-- Console Showcase -->
-      <div class="console-showcase">
-        <img src="assets/ps2-fat.jpg" alt="PS2 Fat Refurbished">
-        <div class="console-name">PS2 Fat – Refurbished</div>
-      </div>
-      <div class="console-showcase">
-        <img src="assets/ps2-bundle.jpg" alt="PS2 Plug & Play Bundle">
-        <div class="console-name">Plug & Play Bundle</div>
-      </div>
+<section class="team-section">
+  <h2 class="section-title">Our Team & Console Showcase</h2>
+  <div class="team-grid">
+    <div class="team-member">
+      <img src="assets/team1.jpg" alt="Team Member 1">
+      <div class="member-name">Leighton Hepworth</div>
+      <div class="member-role">Founder & Lead Technician</div>
     </div>
-  </section>
+    <div class="team-member">
+      <img src="assets/team2.jpg" alt="Team Member 2">
+      <div class="member-name">Alex Johnson</div>
+      <div class="member-role">Refurbishment Specialist</div>
+    </div>
+    <div class="console-showcase">
+      <img src="assets/ps2-fat.jpg" alt="PS2 Fat Refurbished">
+      <div class="console-name">PS2 Fat – Refurbished</div>
+    </div>
+    <div class="console-showcase">
+      <img src="assets/ps2-bundle.jpg" alt="PS2 Plug & Play Bundle">
+      <div class="console-name">Plug & Play Bundle</div>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
-    <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
-  </footer>
+<footer>
+  <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
+  <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
+</footer>
 </div>
-
 </body>
 </html>

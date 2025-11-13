@@ -14,7 +14,9 @@
     margin: 0;
     padding: 0;
   }
+
   .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
+
   header {
     display:flex;
     justify-content:space-between;
@@ -22,7 +24,9 @@
     flex-wrap: wrap;
     margin-bottom:2rem;
   }
+
   .logo-container img { height:120px; width:auto; }
+
   nav { display:flex; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; gap:1rem; }
   nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
   nav a:hover, nav a.active { text-decoration:underline; }
@@ -67,7 +71,10 @@
 
   /* Mobile tweaks */
   @media screen and (max-width:768px){ .hero-secondary { max-width:70%; } }
-  @media screen and (max-width:480px){ .section-title { font-size:1.5rem; } .product-card .price { font-size:1rem; } }
+  @media screen and (max-width:480px){ 
+    .section-title { font-size:1.5rem; } 
+    .product-card .price { font-size:1rem; } 
+  }
 
   /* Ambient effect */
   .ambient {
@@ -80,13 +87,16 @@
 </style>
 </head>
 <body>
+
 <div class="ambient"></div>
 <div class="wrap">
 
 <header>
-  <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
+  <div class="logo-container">
+    <img src="assets/logo.png" alt="Retro Replay logo">
+  </div>
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="services.html">Services</a>
     <a href="info.html">PS2 History</a>
     <a href="buying-guide.html">Buying Guide</a>
@@ -95,61 +105,61 @@
     <a href="how-we-refurbish.html">How We Refurbish</a>
     <a href="trade-in.html">Trade-In</a>
     <a href="faq.html">FAQ</a>
-    <a href="contact.html" class="active">Contact</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-  <section class="hero">
-    <img class="logo" src="assets/logo.png" alt="Retro Replay Logo">
-    <div class="subtag">Featuring</div>
-    <img class="hero-secondary" src="assets/PLAYSTATION_LOGO_EDITED.png" alt="PlayStation Logo">
-    <div class="boot-caption">Classic PS2 experience — refurbished consoles & curated bundles</div>
-  </section>
+<section class="hero">
+  <img class="logo" src="assets/logo.png" alt="Retro Replay Logo">
+  <div class="subtag">Featuring</div>
+  <img class="hero-secondary" src="assets/PLAYSTATION_LOGO_EDITED.png" alt="PlayStation Logo">
+  <div class="boot-caption">Classic PS2 experience — refurbished consoles & curated bundles</div>
+</section>
 
-  <section class="about-section">
-    <h2 class="section-title">Welcome to Retro Replay</h2>
-    <p>Dive into the iconic world of PlayStation 2! Refurbished consoles, homebrew-ready modifications, and curated collections of retro games.</p>
-    <p>Relive nostalgia or explore retro gaming for the first time — Retro Replay ensures every console works perfectly and looks great.</p>
-  </section>
-  
-  <section class="product-grid">
-    <div class="product-card">
-      <img src="assets/PS2_REFURBED_BUNDLE.jpg" alt="Refurbished PS2 Fat">
-      <div class="name">Refurbished PS2 Fat</div>
-      <div class="price">£150</div>
-      <p>Fully refurbished PS2 Fat console, cleaned, tested, and cosmetically restored for reliable performance.</p>
-      <div id="paypal-ps2fat"></div>
-    </div>
+<section class="about-section">
+  <h2 class="section-title">Welcome to Retro Replay</h2>
+  <p>Dive into the iconic world of PlayStation 2! Refurbished consoles, homebrew-ready modifications, and curated collections of retro games.</p>
+  <p>Relive nostalgia or explore retro gaming for the first time — Retro Replay ensures every console works perfectly and looks great.</p>
+</section>
 
-    <div class="product-card">
-      <img src="assets/Console_Bundle.jpg" alt="Plug & Play Bundle">
-      <div class="name">Plug & Play Bundle</div>
-      <div class="price">£185</div>
-      <p>Includes console, controller, AV cables, and curated games — ready to play instantly.</p>
-      <div id="paypal-bundle"></div>
-    </div>
+<section class="product-grid">
+  <div class="product-card">
+    <img src="assets/PS2_REFURBED_BUNDLE.jpg" alt="Refurbished PS2 Fat">
+    <div class="name">Refurbished PS2 Fat</div>
+    <div class="price">£150</div>
+    <p>Fully refurbished PS2 Fat console, cleaned, tested, and cosmetically restored for reliable performance.</p>
+    <div id="paypal-ps2fat"></div>
+  </div>
 
-    <div class="product-card">
-      <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png" alt="PS2 Tested Console">
-      <div class="name">PS2 Tested Console</div>
-      <div class="price">£95</div>
-      <p>Tested console for reliable gaming or modding. Fully verified and ready to play.</p>
-      <div id="paypal-tested"></div>
-    </div>
+  <div class="product-card">
+    <img src="assets/Console_Bundle.jpg" alt="Plug & Play Bundle">
+    <div class="name">Plug & Play Bundle</div>
+    <div class="price">£185</div>
+    <p>Includes console, controller, AV cables, and curated games — ready to play instantly.</p>
+    <div id="paypal-bundle"></div>
+  </div>
 
-    <div class="product-card">
-      <img src="assets/PS2_MODDED_REAR.jpg" alt="Modded PS2">
-      <div class="name">Modded Bundle (HDD)</div>
-      <div class="price">£250</div>
-      <p>Professionally modded PS2 bundle with HDD and homebrew support. Ready-to-go library included.</p>
-      <div id="paypal-modded"></div>
-    </div>
-  </section>
-  
-  <footer>
-    <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
-    <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
-  </footer>
+  <div class="product-card">
+    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png" alt="PS2 Tested Console">
+    <div class="name">PS2 Tested Console</div>
+    <div class="price">£95</div>
+    <p>Tested console for reliable gaming or modding. Fully verified and ready to play.</p>
+    <div id="paypal-tested"></div>
+  </div>
+
+  <div class="product-card">
+    <img src="assets/PS2_MODDED_REAR.jpg" alt="Modded PS2">
+    <div class="name">Modded Bundle (HDD)</div>
+    <div class="price">£250</div>
+    <p>Professionally modded PS2 bundle with HDD and homebrew support. Ready-to-go library included.</p>
+    <div id="paypal-modded"></div>
+  </div>
+</section>
+
+<footer>
+  <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
+  <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
+</footer>
 
 </div>
 
@@ -166,7 +176,9 @@ const products = [
 products.forEach(p=>{
   paypal.Buttons({
     style:{layout:'vertical',color:'gold',shape:'rect',label:'buynow'},
-    createOrder:(data,actions)=>actions.order.create({purchase_units:[{description:p[1],amount:{currency_code:'GBP',value:p[2]}}]}),
+    createOrder:(data,actions)=>actions.order.create({
+      purchase_units:[{description:p[1],amount:{currency_code:'GBP',value:p[2]}}]
+    }),
     onApprove:(data,actions)=>actions.order.capture().then(()=>{window.location.href="checkout-success.html";}),
     onError:err=>{console.error(err);}
   }).render('#'+p[0]);

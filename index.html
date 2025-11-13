@@ -1,22 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Retro Replay — Featuring PlayStation 2</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 <style>
   body {
     font-family: 'Orbitron', sans-serif;
-    background:#181b23;
-    color:#e3e7ed;
-    margin:0;
-    padding:0;
+    background: #181b23;
+    color: #e3e7ed;
+    margin: 0;
+    padding: 0;
   }
-
   .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
-
   header {
     display:flex;
     justify-content:space-between;
@@ -24,27 +22,18 @@
     flex-wrap: wrap;
     margin-bottom:2rem;
   }
-
-  .logo-container img { height: 120px; width:auto; }
-
-  .nav { display:flex; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; }
-  .nav a {
-    margin:0.5rem 1rem;
-    color:#e3e7ed;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.2s;
-  }
-  .nav a.active, .nav a:hover { text-decoration:underline; }
+  .logo-container img { height:120px; width:auto; }
+  nav { display:flex; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; gap:1rem; }
+  nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
+  nav a:hover, nav a.active { text-decoration:underline; }
 
   .hero {
     text-align:center;
     margin-bottom:2rem;
   }
-  .hero .logo { max-width:90%; height:auto; margin:0 auto 1rem; }
+  .hero .logo { max-width:90%; height:auto; margin-bottom:1rem; }
   .hero-secondary { max-width:50%; height:auto; display:block; margin:0 auto 1rem; }
-  .boot-bar { margin:1rem 0; }
-  .boot-caption { font-size:1rem; }
+  .boot-caption { font-size:1rem; margin-top:0.5rem; }
 
   .about-section {
     background:#22262f;
@@ -72,27 +61,13 @@
   .product-card img { max-width:100%; margin-bottom:0.5rem; border-radius:4px; }
   .product-card .name { font-weight:600; margin-bottom:0.3rem; }
   .product-card .price { font-size:1.2rem; font-weight:bold; margin-bottom:0.5rem; }
-  .btn {
-    background:#2a2f3a;
-    color:#e3e7ed;
-    padding:0.5rem 1rem;
-    text-decoration:none;
-    border-radius:4px;
-    transition:0.2s;
-  }
-  .btn:hover { background:#3b3f4a; }
+  .product-card p { font-size:0.95rem; line-height:1.4; }
 
   footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
 
   /* Mobile tweaks */
-  @media screen and (max-width:768px){
-    .hero-secondary { max-width:70%; }
-  }
-  @media screen and (max-width:480px){
-    .section-title { font-size:1.5rem; }
-    .product-card .price { font-size:1rem; }
-    .btn { width:100%; text-align:center; }
-  }
+  @media screen and (max-width:768px){ .hero-secondary { max-width:70%; } }
+  @media screen and (max-width:480px){ .section-title { font-size:1.5rem; } .product-card .price { font-size:1rem; } }
 
   /* Ambient effect */
   .ambient {
@@ -103,84 +78,81 @@
   }
   @keyframes pulse {0%,100%{opacity:0.02;}50%{opacity:0.04;}}
 </style>
-  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 </head>
 <body>
 <div class="ambient"></div>
 <div class="wrap">
 
-<header>
-  <div class="logo-container">
-    <img src="assets/logo.png" alt="Retro Replay logo">
-  </div>
-<nav class="navbar">
-<div class="nav-logo">RetroReplay</div>
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="info.html">PS2 History</a></li>
-<li><a href="buying-guide.html">Buying Guide</a></li>
-<li><a href="mods-upgrades.html">Mods & Upgrades</a></li>
-<li><a href="how-we-refurbish.html">How We Refurbish</a></li>
-<li><a href="trade-in.html">Trade-In</a></li>
-<li><a href="faq.html">FAQ</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
-</header>
+  <header>
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="Retro Replay logo">
+    </div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="services.html">Services</a>
+      <a href="info.html">PS2 History</a>
+      <a href="buying-guide.html">Buying Guide</a>
+      <a href="mods-upgrades.html">Mods & Upgrades</a>
+      <a href="how-we-refurbish.html">How We Refurbish</a>
+      <a href="trade-in.html">Trade-In</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<section class="hero">
-  <img class="logo" src="assets/logo.png" alt="Retro Replay Logo">
-  <div class="subtag">Featuring</div>
-  <img class="hero-secondary" src="assets/PLAYSTATION_LOGO_EDITED.png" alt="Extra Image">
-  <div class="boot-bar"><i></i></div>
-  <div class="boot-caption">Classic PS2 experience — refurbished consoles & curated bundles</div>
-</section>
+  <section class="hero">
+    <img class="logo" src="assets/logo.png" alt="Retro Replay Logo">
+    <div class="subtag">Featuring</div>
+    <img class="hero-secondary" src="assets/PLAYSTATION_LOGO_EDITED.png" alt="PlayStation Logo">
+    <div class="boot-caption">Classic PS2 experience — refurbished consoles & curated bundles</div>
+  </section>
 
-<section class="about-section">
-  <h2 class="section-title">Welcome to Retro Replay</h2>
-  <p>Dive into the iconic world of PlayStation 2! Refurbished consoles, homebrew-ready modifications, and curated collections of retro games.</p>
-  <p>Relive nostalgia or explore retro gaming for the first time — Retro Replay ensures every console works perfectly and looks great.</p>
-</section>
+  <section class="about-section">
+    <h2 class="section-title">Welcome to Retro Replay</h2>
+    <p>Dive into the iconic world of PlayStation 2! Refurbished consoles, homebrew-ready modifications, and curated collections of retro games.</p>
+    <p>Relive nostalgia or explore retro gaming for the first time — Retro Replay ensures every console works perfectly and looks great.</p>
+  </section>
   
-<section class="product-grid">
-  <div class="product-card">
-    <img src="assets/PS2_REFURBED_BUNDLE.jpg" alt="Refurbished PS2 Fat">
-    <div class="name">Refurbished PS2 Fat</div>
-    <div class="price">£150</div>
-    <p>Rediscover the iconic PlayStation 2 experience with this fully refurbished PS2 Fat console. Each unit is cleaned, tested, and cosmetically restored to ensure reliable performance. Perfect for gamers and collectors alike, this console delivers authentic retro gameplay and comes ready for immediate use.</p>
-    <div id="paypal-ps2fat"></div>
-  </div>
+  <section class="product-grid">
+    <div class="product-card">
+      <img src="assets/PS2_REFURBED_BUNDLE.jpg" alt="Refurbished PS2 Fat">
+      <div class="name">Refurbished PS2 Fat</div>
+      <div class="price">£150</div>
+      <p>Fully refurbished PS2 Fat console, cleaned, tested, and cosmetically restored for reliable performance.</p>
+      <div id="paypal-ps2fat"></div>
+    </div>
 
-  <div class="product-card">
-    <img src="assets/Console_Bundle.jpg" alt="Plug & Play Bundle">
-    <div class="name">Plug & Play Bundle</div>
-    <div class="price">£185</div>
-    <p>This complete Plug & Play bundle includes a tested PS2 Fat console, official controller, AV cables, and a curated selection of classic games. Designed for instant enjoyment, it’s perfect for gamers who want the authentic retro experience without any setup hassle.</p>
-    <div id="paypal-bundle"></div>
-  </div>
+    <div class="product-card">
+      <img src="assets/Console_Bundle.jpg" alt="Plug & Play Bundle">
+      <div class="name">Plug & Play Bundle</div>
+      <div class="price">£185</div>
+      <p>Includes console, controller, AV cables, and curated games — ready to play instantly.</p>
+      <div id="paypal-bundle"></div>
+    </div>
 
-  <div class="product-card">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png" alt="PS2 Tested Console">
-    <div class="name">PS2 Tested Console</div>
-    <div class="price">£95</div>
-    <p>Get a reliable PS2 experience with this tested console, ensuring all components work perfectly. Ideal for players looking for a functional unit for gaming, modding, or as a backup. Fully verified and ready to play straight out of the box.</p>
-    <div id="paypal-tested"></div>
-  </div>
+    <div class="product-card">
+      <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png" alt="PS2 Tested Console">
+      <div class="name">PS2 Tested Console</div>
+      <div class="price">£95</div>
+      <p>Tested console for reliable gaming or modding. Fully verified and ready to play.</p>
+      <div id="paypal-tested"></div>
+    </div>
 
-  <div class="product-card">
-    <img src="assets/PS2_MODDED_REAR.jpg" alt="Modded PS2">
-    <div class="name">Modded Bundle (HDD)</div>
-    <div class="price">£250</div>
-    <p>Upgrade your retro gaming with this professionally modded PS2 bundle. Features include HDD setup for preloaded games and homebrew support. Perfect for enthusiasts wanting a ready-to-go library and enhanced functionality, all on a clean, tested console.</p>
-    <div id="paypal-modded"></div>
-  </div>
-</section>
+    <div class="product-card">
+      <img src="assets/PS2_MODDED_REAR.jpg" alt="Modded PS2">
+      <div class="name">Modded Bundle (HDD)</div>
+      <div class="price">£250</div>
+      <p>Professionally modded PS2 bundle with HDD and homebrew support. Ready-to-go library included.</p>
+      <div id="paypal-modded"></div>
+    </div>
+  </section>
   
-<footer>
-  <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
-  <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
-</footer>
+  <footer>
+    <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
+    <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
+  </footer>
+
+</div>
 
 <!-- PayPal SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=AYXmDuhylfxtnuRz3E2EzoyXNO0HnxJAXr_DQauHlsoawJjLKel8W17luzhp1_52OlIh9qjJYDggdf8o&currency=GBP"></script>
@@ -202,6 +174,5 @@ products.forEach(p=>{
 });
 </script>
 
-</div>
 </body>
 </html>

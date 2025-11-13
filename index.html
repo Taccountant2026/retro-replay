@@ -14,9 +14,7 @@
     margin: 0;
     padding: 0;
   }
-
   .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
-
   header {
     display:flex;
     justify-content:space-between;
@@ -24,17 +22,12 @@
     flex-wrap: wrap;
     margin-bottom:2rem;
   }
-
-  .logo-container img { height:120px; width:auto; }
-
+  .logo { height:120px; width:auto; }
   nav { display:flex; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; gap:1rem; }
   nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
   nav a:hover, nav a.active { text-decoration:underline; }
 
-  .hero {
-    text-align:center;
-    margin-bottom:2rem;
-  }
+  .hero { text-align:center; margin-bottom:2rem; }
   .hero .logo { max-width:90%; height:auto; margin-bottom:1rem; }
   .hero-secondary { max-width:50%; height:auto; display:block; margin:0 auto 1rem; }
   .boot-caption { font-size:1rem; margin-top:0.5rem; }
@@ -69,14 +62,12 @@
 
   footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
 
-  /* Mobile tweaks */
   @media screen and (max-width:768px){ .hero-secondary { max-width:70%; } }
   @media screen and (max-width:480px){ 
     .section-title { font-size:1.5rem; } 
     .product-card .price { font-size:1rem; } 
   }
 
-  /* Ambient effect */
   .ambient {
     position:fixed; top:0; left:0; width:100%; height:100%;
     background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
@@ -93,21 +84,18 @@
 
 <header>
   <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
-  <nav class="navbar">
-    <div class="nav-logo">RetroReplay</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="info.html">PS2 History</a></li>
-      <li><a href="buying-guide.html">Buying Guide</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="mods-upgrades.html">Mods & Upgrades</a></li>
-      <li><a href="how-we-refurbish.html">How We Refurbish</a></li>
-      <li><a href="trade-in.html">Trade-In</a></li>
-      <li><a href="warranties.html">Warranties</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="info.html">PS2 History</a>
+    <a href="buying-guide.html">Buying Guide</a>
+    <a href="products.html">Products</a>
+    <a href="mods-upgrades.html">Mods & Upgrades</a>
+    <a href="how-we-refurbish.html">How We Refurbish</a>
+    <a href="trade-in.html">Trade-In</a>
+    <a href="warranties.html">Warranties</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
@@ -165,7 +153,6 @@
 
 </div>
 
-<!-- PayPal SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=AYXmDuhylfxtnuRz3E2EzoyXNO0HnxJAXr_DQauHlsoawJjLKel8W17luzhp1_52OlIh9qjJYDggdf8o&currency=GBP"></script>
 <script>
 const products = [

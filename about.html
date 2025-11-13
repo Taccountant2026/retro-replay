@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>About — Retro Replay</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 <style>
   body {
     font-family: 'Orbitron', sans-serif;
@@ -27,9 +27,9 @@
 
   .logo { max-height:120px; width:auto; }
 
-  .nav { display:flex; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; }
-  .nav a { margin:0.5rem 1rem; color:#e3e7ed; text-decoration:none; font-weight:bold; transition:0.2s; }
-  .nav a:hover, .nav a.active { text-decoration:underline; }
+  nav { display:flex; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; }
+  nav a { margin:0.5rem 1rem; color:#e3e7ed; text-decoration:none; font-weight:bold; transition:0.2s; }
+  nav a:hover, nav a.active { text-decoration:underline; }
 
   .about-section {
     background:#22262f;
@@ -77,7 +77,6 @@
   }
   @keyframes pulse {0%,100%{opacity:0.02;}50%{opacity:0.04;}}
 
-  /* Mobile tweaks */
   @media screen and (max-width:768px){
     .section-title { font-size:1.7rem; }
   }
@@ -85,61 +84,59 @@
     .section-title { font-size:1.4rem; }
   }
 </style>
-  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 </head>
 <body>
+
 <div class="ambient"></div>
 
 <div class="wrap">
-<header>
-  <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
-  <nav class="navbar">
-    <div class="nav-logo">RetroReplay</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="info.html">PS2 History</a></li>
-      <li><a href="buying-guide.html">Buying Guide</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="mods-upgrades.html">Mods & Upgrades</a></li>
-      <li><a href="how-we-refurbish.html">How We Refurbish</a></li>
-      <li><a href="trade-in.html">Trade-In</a></li>
-      <li><a href="warranties.html">Warranties</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="info.html">PS2 History</a>
+      <a href="buying-guide.html">Buying Guide</a>
+      <a href="products.html">Products</a>
+      <a href="mods-upgrades.html">Mods & Upgrades</a>
+      <a href="how-we-refurbish.html">How We Refurbish</a>
+      <a href="trade-in.html">Trade-In</a>
+      <a href="warranties.html">Warranties</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<section class="about-section">
-  <h2 class="section-title">About Retro Replay</h2>
-  <p>Retro Replay is your destination for <strong>PlayStation 2 nostalgia</strong>. We refurbish consoles, offer professional modifications, and bring classic retro gaming back to life.</p>
-  <p>All consoles are fully tested, cleaned, and cosmetically refreshed. Whether you're rediscovering the PS2 or exploring it for the first time, we provide a premium gaming experience.</p>
-  <p>Our modded systems include <strong>HDD setups, homebrew support, and media playback</strong>, ensuring your retro adventure is smooth and fun.</p>
-</section>
+  <section class="about-section">
+    <h2 class="section-title">About Retro Replay</h2>
+    <p>Retro Replay is your destination for <strong>PlayStation 2 nostalgia</strong>. We refurbish consoles, offer professional modifications, and bring classic retro gaming back to life.</p>
+    <p>All consoles are fully tested, cleaned, and cosmetically refreshed. Whether you're rediscovering the PS2 or exploring it for the first time, we provide a premium gaming experience.</p>
+    <p>Our modded systems include <strong>HDD setups, homebrew support, and media playback</strong>, ensuring your retro adventure is smooth and fun.</p>
+  </section>
 
-<section class="testimonials">
-  <h2 class="section-title">What Our Customers Say</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial">
-      <p>"The refurbished PS2 Fat I bought works perfectly! Feels brand new and looks amazing on my shelf."</p>
-      <div class="author">— Alex R.</div>
+  <section class="testimonials">
+    <h2 class="section-title">What Our Customers Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <p>"The refurbished PS2 Fat I bought works perfectly! Feels brand new and looks amazing on my shelf."</p>
+        <div class="author">— Alex R.</div>
+      </div>
+      <div class="testimonial">
+        <p>"Customer support was incredible, and the modded bundle was ready to play straight away. Highly recommend Retro Replay!"</p>
+        <div class="author">— Jamie L.</div>
+      </div>
+      <div class="testimonial">
+        <p>"Fast shipping, beautifully restored consoles, and professional setup of the HDD. My retro gaming setup is complete!"</p>
+        <div class="author">— Sam K.</div>
+      </div>
     </div>
-    <div class="testimonial">
-      <p>"Customer support was incredible, and the modded bundle was ready to play straight away. Highly recommend Retro Replay!"</p>
-      <div class="author">— Jamie L.</div>
-    </div>
-    <div class="testimonial">
-      <p>"Fast shipping, beautifully restored consoles, and professional setup of the HDD. My retro gaming setup is complete!"</p>
-      <div class="author">— Sam K.</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
-  <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
-</footer>
+  <footer>
+    <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
+    <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
+  </footer>
 </div>
+
 </body>
 </html>

@@ -6,13 +6,14 @@
 <title>Services — Retro Replay</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+
 <style>
   body {
     font-family: 'Orbitron', sans-serif;
-    background: #181b23;
-    color: #e3e7ed;
-    margin: 0;
-    padding: 0;
+    background:#181b23;
+    color:#e3e7ed;
+    margin:0;
+    padding:0;
   }
 
   .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
@@ -21,11 +22,11 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
     margin-bottom:3rem;
   }
 
-  .logo-container img { height:120px; width:auto; }
+  .logo { max-height:60px; }
 
   nav {
     display:flex;
@@ -33,8 +34,17 @@
     justify-content:center;
     gap:1rem;
   }
-  nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
-  nav a:hover, nav a.active { text-decoration:underline; }
+
+  nav a {
+    color:#6db8ff;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.2s;
+  }
+
+  nav a:hover, nav a.active {
+    text-decoration:underline;
+  }
 
   .section-box {
     background:#22262f;
@@ -42,7 +52,12 @@
     border-radius:10px;
     margin-bottom:3rem;
   }
-  .section-title { text-align:center; font-size:2rem; margin-bottom:1.5rem; }
+
+  .section-title {
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:1.5rem;
+  }
 
   .service { margin-bottom:1.8rem; }
   .service h3 { margin-bottom:0.5rem; }
@@ -52,11 +67,13 @@
     border-collapse:collapse;
     margin-top:1.5rem;
   }
+
   .pricing-table th, .pricing-table td {
     border:1px solid #3a3f4a;
     padding:0.8rem;
     text-align:left;
   }
+
   .pricing-table th { background:#181b23; }
 
   .btn {
@@ -70,40 +87,45 @@
     font-weight:bold;
     transition:0.2s;
   }
+
   .btn:hover { background:#3b3f4a; }
 
-  /* Ambient effect */
+  /* Ambient glow background */
   .ambient {
     position:fixed;
-    top:0; left:0; width:100%; height:100%;
+    top:0; left:0;
+    width:100%; height:100%;
     background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
     pointer-events:none;
     z-index:0;
-    animation: pulse 5s infinite;
+    animation:pulse 5s infinite;
   }
+
   @keyframes pulse { 0%,100%{opacity:0.02;} 50%{opacity:0.04;} }
 
-  /* Mobile responsiveness */
   @media(max-width:768px){
     .wrap { padding:1.2rem; }
     header { flex-direction:column; gap:1rem; }
-    .logo-container img { height:80px; }
+    .logo { max-height:50px; }
     .section-title { font-size:1.5rem; }
   }
 </style>
 </head>
+
 <body>
 
 <div class="ambient"></div>
 
 <div class="wrap">
+
 <header>
   <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
+
   <nav class="navbar">
     <div class="nav-logo">RetroReplay</div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
       <li><a href="info.html">PS2 History</a></li>
       <li><a href="buying-guide.html">Buying Guide</a></li>
       <li><a href="products.html">Products</a></li>
@@ -117,47 +139,48 @@
   </nav>
 </header>
 
-  <section class="section-box">
-    <h2 class="section-title">Our Services</h2>
+<section class="section-box">
+  <h2 class="section-title">Our Services</h2>
 
-    <div class="service">
-      <h3>🔧 Full PS2 Refurbishment</h3>
-      <p>Deep-clean, polish, laser tune, thermal refresh, and full testing. Ideal for collectors wanting original hardware restored to premium condition.</p>
-    </div>
+  <div class="service">
+    <h3>🔧 Full PS2 Refurbishment</h3>
+    <p>Deep-clean, polish, laser tune, thermal refresh, and full testing.</p>
+  </div>
 
-    <div class="service">
-      <h3>💽 HDD Modding & OPL Setup</h3>
-      <p>We install a SATA network adapter, format the HDD, and configure OPL for fast loading. Perfect for enthusiasts wanting the best PS2 experience.</p>
-    </div>
+  <div class="service">
+    <h3>💽 HDD Modding & OPL Setup</h3>
+    <p>SATA network adapter install, HDD formatting, and full OPL configuration.</p>
+  </div>
 
-    <div class="service">
-      <h3>✨ Cosmetic Restoration</h3>
-      <p>Exterior deep cleaning, plastic refreshing, label restoration, and optional custom detailing.</p>
-    </div>
+  <div class="service">
+    <h3>✨ Cosmetic Restoration</h3>
+    <p>Exterior detailing, plastic refreshing, and optional custom work.</p>
+  </div>
 
-    <div class="service">
-      <h3>🛠 Diagnostics & Repair</h3>
-      <p>Laser replacement, disc read troubleshooting, PSU issues, overheating fixes, fan noise repairs, and more.</p>
-    </div>
+  <div class="service">
+    <h3>🛠 Diagnostics & Repair</h3>
+    <p>Laser fixes, fan repairs, PSU issues, overheating, and more.</p>
+  </div>
 
-    <h3 class="section-title" style="margin-top:2rem;">Pricing Guide</h3>
+  <h3 class="section-title" style="margin-top:2rem;">Pricing Guide</h3>
 
-    <table class="pricing-table">
-      <tr><th>Service</th><th>Price</th></tr>
-      <tr><td>Full Refurbishment</td><td>£350–£500</td></tr>
-      <tr><td>HDD Mod (Inc. Setup)</td><td>£80–£200</td></tr>
-      <tr><td>SATA Network Adapter Install</td><td>£35</td></tr>
-      <tr><td>Laser Replacement</td><td>£80–£100</td></tr>
-      <tr><td>General Diagnostics</td><td>£25</td></tr>
-    </table>
+  <table class="pricing-table">
+    <tr><th>Service</th><th>Price</th></tr>
+    <tr><td>Full Refurbishment</td><td>£350–£500</td></tr>
+    <tr><td>HDD Mod (Inc. Setup)</td><td>£80–£200</td></tr>
+    <tr><td>SATA Network Adapter Install</td><td>£35</td></tr>
+    <tr><td>Laser Replacement</td><td>£80–£100</td></tr>
+    <tr><td>General Diagnostics</td><td>£25</td></tr>
+  </table>
 
-    <a href="mailto:retro.replay.orders@gmail.com" class="btn">Book a Service</a>
-  </section>
+  <a href="mailto:retro.replay.orders@gmail.com" class="btn">Book a Service</a>
+</section>
 
-  <footer>
-    <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
-    <small>Not affiliated with Sony.</small>
-  </footer>
+<footer>
+  <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
+  <small>Not affiliated with Sony.</small>
+</footer>
+
 </div>
 
 </body>

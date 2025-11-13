@@ -1,38 +1,135 @@
-<!-- ===================== CONTACT PAGE ===================== -->
-<div class="section" id="contact-page">
-   <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
-<h1>Contact RetroReplay</h1>
-<p>Have a question about an order, refurbishing, or stock? We usually reply within 12–24 hours.</p>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Retro Replay</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    font-family: 'Orbitron', sans-serif;
+    background:#181b23;
+    color:#e3e7ed;
+    margin:0;
+    padding:0;
+    line-height:1.6;
+  }
 
+  .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
 
-<h3>Email</h3>
-<p>support@retroreplay.co.uk</p>
+  header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap: wrap;
+    margin-bottom:3rem;
+  }
 
+  .logo { max-height:60px; }
 
-<h3>WhatsApp</h3>
-<p>Click to chat instantly: <strong>+44 7xxx xxx xxx</strong></p>
+  nav {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:1rem;
+  }
+  nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
+  nav a:hover, nav a.active { text-decoration:underline; }
 
+  .section-box {
+    background:#22262f;
+    padding:2rem;
+    border-radius:10px;
+    margin-bottom:3rem;
+  }
+  .section-title { text-align:center; font-size:2rem; margin-bottom:1.5rem; }
 
-<h3>Contact Form</h3>
-<form>
-<input type="text" placeholder="Your Name" required><br><br>
-<input type="email" placeholder="Your Email" required><br><br>
-<textarea placeholder="Your Message" rows="6" required></textarea><br><br>
-<button>Send Message</button>
-</form>
+  h3 { color:#6db8ff; margin-bottom:0.5rem; }
+  p { margin-bottom:1rem; }
+
+  form input, form textarea, form button {
+    width:100%;
+    padding:0.8rem;
+    margin-bottom:1rem;
+    border-radius:6px;
+    border:none;
+    font-family:'Orbitron', sans-serif;
+    font-size:1rem;
+  }
+
+  form button {
+    background:#0f62fe;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+  }
+  form button:hover { background:#0653c8; }
+
+  .ambient {
+    position:fixed;
+    top:0; left:0; width:100%; height:100%;
+    background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
+    pointer-events:none;
+    z-index:0;
+    animation: pulse 5s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:0.02;} 50%{opacity:0.04;} }
+
+  @media(max-width:768px){
+    .wrap { padding:1.2rem; }
+    header { flex-direction:column; gap:1rem; }
+    .logo { max-height:50px; }
+    .section-title { font-size:1.5rem; }
+  }
+</style>
+<link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<div class="wrap">
+<header>
+  <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="info.html">PS2 History</a>
+    <a href="buying-guide.html">Buying Guide</a>
+    <a href="mods-upgrades.html">Mods & Upgrades</a>
+    <a href="how-we-refurbish.html">How We Refurbish</a>
+    <a href="trade-in.html">Trade-In</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+</header>
+
+<section class="section-box">
+  <h2 class="section-title">Contact Retro Replay</h2>
+  <p>Have a question about an order, refurbishment, or stock? We usually reply within 12–24 hours.</p>
+
+  <h3>Email</h3>
+  <p><a href="mailto:support@retroreplay.co.uk" style="color:#6db8ff;">support@retroreplay.co.uk</a></p>
+
+  <h3>WhatsApp</h3>
+  <p>Click to chat instantly: <strong>+44 7xxx xxx xxx</strong></p>
+
+  <h3>Contact Form</h3>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="6" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
+  <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
+</footer>
+
 </div>
-<img src="assets/logo.png" alt="Retro Replay logo">
-<nav class="navbar">
-<div class="nav-logo">RetroReplay</div>
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="info.html">PS2 History</a></li>
-<li><a href="buying-guide.html">Buying Guide</a></li>
-<li><a href="mods-upgrades.html">Mods & Upgrades</a></li>
-<li><a href="how-we-refurbish.html">How We Refurbish</a></li>
-<li><a href="trade-in.html">Trade-In</a></li>
-<li><a href="faq.html">FAQ</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
+</body>
+</html>

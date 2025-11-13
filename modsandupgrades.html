@@ -1,27 +1,131 @@
-<!-- ===================== MODS & UPGRADES PAGE ===================== -->
-<div class="section" id="mods-upgrades-page">
-<h1>Mods & Upgrades</h1>
-<ul>
-<li>FreeMcBoot Install</li>
-<li>Internal HDD & Network Adapter Upgrade</li>
-<li>Laser Calibration</li>
-<li>Fan Cleaning / Replacement</li>
-<li>Shell Replacements</li>
-<li>HDMI Output Adapter</li>
-</ul>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PS2 Mods & Upgrades — Retro Replay</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    font-family: 'Orbitron', sans-serif;
+    background:#181b23;
+    color:#e3e7ed;
+    margin:0;
+    padding:0;
+    line-height:1.6;
+  }
+
+  .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
+
+  header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap: wrap;
+    margin-bottom:3rem;
+  }
+
+  .logo { max-height:60px; }
+
+  nav {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:1rem;
+  }
+  nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
+  nav a:hover, nav a.active { text-decoration:underline; }
+
+  .section-box {
+    background:#22262f;
+    padding:2rem;
+    border-radius:10px;
+    margin-bottom:3rem;
+  }
+  .section-title { text-align:center; font-size:2rem; margin-bottom:1.5rem; }
+  .section-box h3 { margin-bottom:0.5rem; color:#6db8ff; }
+
+  ul { padding-left:1.2rem; }
+  li { margin-bottom:0.5rem; }
+
+  .ambient {
+    position:fixed;
+    top:0; left:0; width:100%; height:100%;
+    background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
+    pointer-events:none;
+    z-index:0;
+    animation: pulse 5s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:0.02;} 50%{opacity:0.04;} }
+
+  @media(max-width:768px){
+    .wrap { padding:1.2rem; }
+    header { flex-direction:column; gap:1rem; }
+    .logo { max-height:50px; }
+    .section-title { font-size:1.5rem; }
+  }
+
+  a.inline-link { color:#6db8ff; text-decoration:none; font-weight:bold; }
+  a.inline-link:hover { text-decoration:underline; }
+</style>
+<link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<div class="wrap">
+<header>
+  <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="info.html">PS2 History</a>
+    <a href="buying-guide.html">Buying Guide</a>
+    <a href="mods-upgrades.html" class="active">Mods & Upgrades</a>
+    <a href="how-we-refurbish.html">How We Refurbish</a>
+    <a href="trade-in.html">Trade-In</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="section-box">
+  <h2 class="section-title">PS2 Mods & Upgrades</h2>
+
+  <p>Retro Replay offers professional modifications and upgrades to enhance your PS2 experience. Whether you want faster load times, modern video outputs, or cosmetic enhancements, we handle it all while preserving the classic charm of the console.</p>
+
+  <h3>Popular Upgrades</h3>
+  <ul>
+    <li><strong>Free McBoot Install:</strong> Turn your PS2 into a homebrew-capable machine, enabling game backups, emulators, and media playback.</li>
+    <li><strong>Internal HDD & Network Adapter Upgrade:</strong> Expand storage and add OPL support for preloaded games or media. Perfect for plug-and-play convenience.</li>
+    <li><strong>Laser Calibration & Replacement:</strong> Improve disc reading reliability for older or worn consoles. Essential for smooth gameplay with original discs.</li>
+    <li><strong>Fan Cleaning / Replacement:</strong> Reduce noise and overheating risks. Our service ensures a quiet, efficient system.</li>
+    <li><strong>Shell Replacements:</strong> Restore or customize your console's appearance with clean, crisp casing. Retro aesthetics with modern polish.</li>
+    <li><strong>HDMI Output Adapter:</strong> Upgrade to digital video output for crisp visuals on modern TVs without losing the PS2’s nostalgic feel.</li>
+  </ul>
+
+  <h3>Advanced Modding Options</h3>
+  <p>For enthusiasts seeking maximum performance and functionality, we offer:</p>
+  <ul>
+    <li>Preloaded HDD with selected games or homebrew applications</li>
+    <li>Memory card enhancements for instant game saves</li>
+    <li>Custom cosmetic modifications, including LED accents and painted shells</li>
+    <li>Optimized OPL setups for seamless game loading</li>
+  </ul>
+
+  <h3>Why Upgrade?</h3>
+  <p>Classic consoles are incredible, but modern upgrades can improve reliability, usability, and enjoyment. With Retro Replay, every mod is performed carefully to maintain authenticity while extending the life and functionality of your PS2.</p>
+
+  <p>Interested in upgrading your console? <a href="contact.html" class="inline-link">Get in touch</a> and let us help you bring your PS2 to peak condition.</p>
+</section>
+
+<footer>
+  <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
+  <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
+</footer>
+
 </div>
-<img src="assets/logo.png" alt="Retro Replay logo">
-<nav class="navbar">
-<div class="nav-logo">RetroReplay</div>
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="info.html">PS2 History</a></li>
-<li><a href="buying-guide.html">Buying Guide</a></li>
-<li><a href="mods-upgrades.html">Mods & Upgrades</a></li>
-<li><a href="how-we-refurbish.html">How We Refurbish</a></li>
-<li><a href="trade-in.html">Trade-In</a></li>
-<li><a href="faq.html">FAQ</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
+</body>
+</html>

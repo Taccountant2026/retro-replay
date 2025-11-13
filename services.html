@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Services — Retro Replay</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    font-family: 'Orbitron', sans-serif;
+    background:#181b23;
+    color:#e3e7ed;
+    margin:0;
+    padding:0;
+  }
+  .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
+  header { display:flex; justify-content:space-between; align-items:center; margin-bottom:3rem; }
+  .logo { max-height:60px; }
+  .nav a { margin-left:1rem; color:#e3e7ed; text-decoration:none; font-weight:bold; }
+  .nav a:hover, .nav a.active { text-decoration:underline; }
+
+  .section-box {
+    background:#22262f;
+    padding:2rem;
+    border-radius:10px;
+    margin-bottom:3rem;
+  }
+  .section-title { text-align:center; font-size:2rem; margin-bottom:1.5rem; }
+
+  .service { margin-bottom:1.8rem; }
+  .service h3 { margin-bottom:0.5rem; }
+
+  .pricing-table {
+    width:100%;
+    border-collapse:collapse;
+    margin-top:1.5rem;
+  }
+  .pricing-table th, .pricing-table td {
+    border:1px solid #3a3f4a;
+    padding:0.8rem;
+    text-align:left;
+  }
+  .pricing-table th {
+    background:#181b23;
+  }
+
+  .btn {
+    display:inline-block;
+    margin-top:1rem;
+    background:#0f62fe;
+    color:#fff;
+    padding:0.8rem 1.2rem;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+  }
+
+  .ambient {
+    position:fixed;
+    top:0; left:0; width:100%; height:100%;
+    background:radial-gradient(circle at center, rgba(255,255,255,0.03), transparent 70%);
+    pointer-events:none;
+    z-index:0;
+    animation: pulse 5s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:0.02;} 50%{opacity:0.04;} }
+
+  @media(max-width:700px){
+    .wrap { padding:1.2rem; }
+    header { flex-direction:column; gap:1rem; }
+    .logo { max-height:50px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<div class="wrap">
+<header>
+  <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="info.html">Information</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<section class="section-box">
+  <h2 class="section-title">Our Services</h2>
+
+  <div class="service">
+    <h3>🔧 Full PS2 Refurbishment</h3>
+    <p>Deep-clean, polish, laser tune, thermal refresh and full testing. Ideal for collectors wanting original hardware restored to premium condition.</p>
+  </div>
+
+  <div class="service">
+    <h3>💽 HDD Modding & OPL Setup</h3>
+    <p>We install a SATA network adapter, format the HDD, and configure OPL for fast loading. Perfect for enthusiasts wanting the best PS2 experience.</p>
+  </div>
+
+  <div class="service">
+    <h3>✨ Cosmetic Restoration</h3>
+    <p>Exterior deep cleaning, plastic refreshing, label restoration, and optional custom detailing.</p>
+  </div>
+
+  <div class="service">
+    <h3>🛠 Diagnostics & Repair</h3>
+    <p>Laser replacement, disc read troubleshooting, PSU issues, overheating fixes, fan noise repairs and more.</p>
+  </div>
+
+  <h3 class="section-title" style="margin-top:2rem;">Pricing Guide</h3>
+
+  <table class="pricing-table">
+    <tr><th>Service</th><th>Price</th></tr>
+    <tr><td>Full Refurbishment</td><td>£35–£50</td></tr>
+    <tr><td>HDD Mod (Inc. Setup)</td><td>£45–£70</td></tr>
+    <tr><td>SATA Network Adapter Install</td><td>£25</td></tr>
+    <tr><td>Laser Replacement</td><td>£20–£35</td></tr>
+    <tr><td>General Diagnostics</td><td>£10</td></tr>
+  </table>
+
+  <a href="mailto:retro.replay.orders@gmail.com" class="btn">Book a Service</a>
+</section>
+
+<footer>
+  <div>© Retro Replay — Featuring PlayStation 2</div>
+  <small>Not affiliated with Sony.</small>
+</footer>
+
+</div>
+</body>
+</html>

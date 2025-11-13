@@ -29,19 +29,21 @@
 
   .logo { max-height:60px; }
 
-  nav {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:1rem;
-  }
-
-  nav a {
-    color:#6db8ff;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.2s;
-  }
+nav {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:1rem;
+}
+nav a {
+  color:#6db8ff;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.2s;
+}
+nav a:hover, nav a.active {
+  text-decoration:underline;
+}
 
   nav a:hover, nav a.active {
     text-decoration:underline;

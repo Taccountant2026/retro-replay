@@ -49,30 +49,16 @@
   ul { padding-left:1.2rem; }
   li { margin-bottom:0.5rem; }
 
-  form {
-    display:flex;
-    flex-direction:column;
-    gap:1rem;
-    margin-top:1rem;
+  .contact-info {
+    background:#2a2f3a;
+    padding:1.5rem;
+    border-radius:8px;
+    max-width:500px;
+    margin:1rem auto;
+    text-align:center;
+    font-size:1.05rem;
   }
-  input, textarea, button {
-    padding:0.8rem;
-    border-radius:6px;
-    border:none;
-    font-family: 'Orbitron', sans-serif;
-    font-size:1rem;
-  }
-  input, textarea { width:100%; max-width:500px; }
-  textarea { min-height:100px; resize:vertical; }
-  button {
-    background:#6db8ff;
-    color:#181b23;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.2s;
-    max-width:200px;
-  }
-  button:hover { background:#5296e0; }
+  .contact-info strong { color:#6db8ff; }
 
   .ambient {
     position:fixed;
@@ -128,15 +114,13 @@
   </ul>
 
   <h3>How It Works</h3>
-  <p>Send us details about your console using the form below. Include model, condition, any included accessories, and photos if possible. We’ll respond with a fair quote, reflecting the potential for refurbishment or resale.</p>
+  <p>Send us details about your console via the contact information below. Include model, condition, any included accessories, and photos if possible. We’ll respond with a fair quote, reflecting the potential for refurbishment or resale.</p>
 
-  <h3>Trade-In Quote Form</h3>
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="text" placeholder="Contact Details (email or phone)" required>
-    <textarea placeholder="Describe the console condition, model, accessories, and any issues" required></textarea>
-    <button type="submit">Get Quote</button>
-  </form>
+  <div class="contact-info">
+    <p><strong>Email:</strong> hello@retroreplay.co.uk</p>
+    <p><strong>Phone / WhatsApp:</strong> +44 1234 567890</p>
+    <p><strong>Instagram / Social:</strong> @RetroReplay</p>
+  </div>
 
   <p>By trading in with Retro Replay, you’re helping preserve PlayStation 2 history and giving your console a second chance to delight gamers and collectors alike.</p>
 </section>

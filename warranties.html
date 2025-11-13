@@ -6,6 +6,8 @@
 <title>Warranties — Retro Replay</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+
 <style>
   body {
     font-family: 'Orbitron', sans-serif;
@@ -34,7 +36,12 @@
     justify-content:center;
     gap:1rem;
   }
-  nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
+  nav a { 
+    color:#6db8ff; 
+    text-decoration:none; 
+    font-weight:bold; 
+    transition:0.2s; 
+  }
   nav a:hover, nav a.active { text-decoration:underline; }
 
   .section-box {
@@ -43,21 +50,20 @@
     border-radius:10px;
     margin-bottom:3rem;
   }
-  .section-title { text-align:center; font-size:2rem; margin-bottom:1.5rem; }
-  .section-box h3 { margin-bottom:0.5rem; color:#6db8ff; }
+
+  .section-title { 
+    text-align:center; 
+    font-size:2rem; 
+    margin-bottom:1.5rem; 
+  }
+
+  .section-box h3 { 
+    margin-bottom:0.5rem; 
+    color:#6db8ff; 
+  }
 
   ul { padding-left:1.2rem; }
   li { margin-bottom:0.5rem; }
-
-  .ambient {
-    position:fixed;
-    top:0; left:0; width:100%; height:100%;
-    background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
-    pointer-events:none;
-    z-index:0;
-    animation: pulse 5s infinite;
-  }
-  @keyframes pulse { 0%,100%{opacity:0.02;} 50%{opacity:0.04;} }
 
   .contact-info {
     background:#2a2f3a;
@@ -70,6 +76,16 @@
   }
   .contact-info strong { color:#6db8ff; }
 
+  .ambient {
+    position:fixed;
+    top:0; left:0; width:100%; height:100%;
+    background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
+    pointer-events:none;
+    z-index:0;
+    animation: pulse 5s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:0.02;} 50%{opacity:0.04;} }
+
   @media(max-width:768px){
     .wrap { padding:1.2rem; }
     header { flex-direction:column; gap:1rem; }
@@ -77,15 +93,17 @@
     .section-title { font-size:1.5rem; }
   }
 </style>
-<link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 </head>
+
 <body>
 
 <div class="ambient"></div>
 
 <div class="wrap">
+
 <header>
   <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
+
   <nav class="navbar">
     <div class="nav-logo">RetroReplay</div>
     <ul class="nav-links">
@@ -97,7 +115,7 @@
       <li><a href="mods-upgrades.html">Mods & Upgrades</a></li>
       <li><a href="how-we-refurbish.html">How We Refurbish</a></li>
       <li><a href="trade-in.html">Trade-In</a></li>
-      <li><a href="warranties.html">Warranties</a></li>
+      <li><a href="warranties.html" class="active">Warranties</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -107,7 +125,7 @@
 <section class="section-box">
   <h2 class="section-title">Warranties & Coverage</h2>
 
-  <p>All Retro Replay devices are pre-tested and refurbished to work reliably. Due to the age of these consoles and accessories, our warranty covers only the bare minimum to ensure fair replacement in the rare case of faults.</p>
+  <p>All Retro Replay devices are pre-tested and refurbished to work reliably. Due to the age of these consoles and accessories, our warranty covers only the minimum to ensure fair replacement in the rare case of faults.</p>
 
   <h3>What’s Covered</h3>
   <ul>
@@ -128,7 +146,7 @@
   <p>If you receive a device with a defect covered under warranty, please contact us immediately with your order details, photos, and a description of the issue. We’ll arrange a replacement where applicable.</p>
 
   <div class="contact-info">
-    <p><strong>Email:</strong> retroreplay@gmai.com</p>
+    <p><strong>Email:</strong> retroreplay2026@gmail.com</p>
     <p><strong>Phone / WhatsApp:</strong> +44 7399261624</p>
     <p><strong>Instagram / Social:</strong> @RetroReplay</p>
   </div>

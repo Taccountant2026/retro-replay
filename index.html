@@ -15,7 +15,9 @@
     padding: 0;
     overflow-x: hidden;
   }
+
   .wrap { max-width:1200px; margin:0 auto; padding:2rem; position:relative; z-index:1; }
+
   header {
     display:flex;
     justify-content:space-between;
@@ -24,31 +26,34 @@
     margin-bottom:2rem;
     position:relative; z-index:2;
   }
+
   .logo { height:120px; width:auto; z-index:2; }
+
   nav { display:flex; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; gap:1rem; z-index:2; }
   nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
   nav a:hover, nav a.active { text-decoration:underline; }
 
   /* Hero Section */
-  .hero { text-align:center; margin-bottom:2rem; position:relative; z-index:2; }
+  .hero { text-align:center; margin-bottom:2rem; position:relative; z-index:2; min-height:400px; }
+
   .hero .logo { max-width:90%; height:auto; margin-bottom:1rem; position:relative; z-index:2; }
   .hero-secondary { max-width:50%; height:auto; display:block; margin:0 auto 1rem; position:relative; z-index:2; }
   .boot-caption { font-size:1rem; margin-top:0.5rem; position:relative; z-index:2; }
 
   /* Edge characters */
-  .hero img.edge-left,
-  .hero img.edge-right {
+  .hero img.edge-left, .hero img.edge-right {
     position:absolute;
     bottom:0;
-    max-height:100%;
+    max-height:90%;
+    object-fit:contain;
     z-index:0;
   }
   .hero img.edge-left.edge1 { left:0; }
-  .hero img.edge-left.edge2 { left:20px; opacity:0.85; }
+  .hero img.edge-left.edge2 { left:60px; }
   .hero img.edge-right.edge1 { right:0; }
-  .hero img.edge-right.edge2 { right:20px; opacity:0.85; }
+  .hero img.edge-right.edge2 { right:60px; }
 
-  /* Logo accent images */
+  /* Logo accents */
   .hero img.accent {
     position:absolute;
     top:20px;
@@ -56,8 +61,8 @@
     opacity:0.7;
     z-index:1;
   }
-  .hero img.accent-left { left:35%; transform:translateX(-50%); }
-  .hero img.accent-right { left:65%; transform:translateX(-50%); }
+  .hero img.accent-left { left:40%; transform:translateX(-50%); }
+  .hero img.accent-right { left:60%; transform:translateX(-50%); }
 
   .about-section {
     background:#22262f;
@@ -91,10 +96,14 @@
 
   footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; position:relative; z-index:2; }
 
-  @media screen and (max-width:768px){ .hero-secondary { max-width:70%; } }
+  @media screen and (max-width:768px){ 
+    .hero-secondary { max-width:70%; }
+    .hero img.edge-left, .hero img.edge-right { max-height:60%; }
+  }
   @media screen and (max-width:480px){ 
     .section-title { font-size:1.5rem; } 
     .product-card .price { font-size:1rem; } 
+    .hero img.edge-left, .hero img.edge-right { display:none; }
   }
 
   .ambient {
@@ -130,12 +139,12 @@
 
 <section class="hero">
   <!-- Left Edge Characters -->
-  <img src="assets/pacman-4121590_1920.png" alt="Pacman Left" class="edge-left edge1">
-  <img src="assets/playstation-2669393_1920.png" alt="PlayStation Left" class="edge-left edge2">
+  <img src="assets/star-wars-left.jpg" alt="Star Wars Left" class="edge-left edge1">
+  <img src="assets/b1-4934716_1920.png" alt="B1 Left" class="edge-left edge2">
 
   <!-- Right Edge Characters -->
-  <img src="assets/sony-playstation-4003974_1280.png" alt="Sony Right" class="edge-right edge1">
-  <img src="assets/super-mario-2663951_1920.jpg" alt="Super Mario Right" class="edge-right edge2">
+  <img src="assets/HALO-right.jpg" alt="Halo Right" class="edge-right edge1">
+  <img src="assets/luigi-2663929_1920.jpg" alt="Luigi Right" class="edge-right edge2">
 
   <!-- Center Logo -->
   <img class="logo" src="assets/logo.png" alt="Retro Replay Logo">
@@ -143,10 +152,6 @@
   <div class="subtag">Featuring</div>
   <img class="hero-secondary" src="assets/PLAYSTATION_LOGO_EDITED.png" alt="PlayStation Logo">
   <div class="boot-caption">Classic PS2 experience — refurbished consoles & curated bundles</div>
-
-  <!-- Logo Accent Images -->
-  <img src="assets/warrior-8285489_1920.jpg" alt="Warrior Accent" class="accent accent-left">
-  <img src="assets/atx2-950511_1920.png" alt="ATX Accent" class="accent accent-right">
 </section>
 
 <section class="about-section">

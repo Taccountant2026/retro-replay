@@ -6,6 +6,7 @@
 <title>Products — Retro Replay</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+
 <style>
   body {
     font-family:'Orbitron',sans-serif;
@@ -28,23 +29,21 @@
 
   .logo { max-height:120px; width:auto; }
 
-nav {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:1rem;
-}
-nav a {
-  color:#6db8ff;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.2s;
-}
-nav a:hover, nav a.active {
-  text-decoration:underline;
-}
-
-  nav a.active, nav a:hover { text-decoration:underline; }
+  nav {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:1rem;
+  }
+  nav a {
+    color:#6db8ff;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.2s;
+  }
+  nav a:hover, nav a.active {
+    text-decoration:underline;
+  }
 
   .filter {
     display:flex;
@@ -140,8 +139,146 @@ nav a:hover, nav a.active {
 </div>
 
 <!-- Product Grid -->
-<div class="product-grid" id="product-grid">
-  <!-- Product cards inserted here (same as your original) -->
+<div class="product-grid">
+
+  <!-- Consoles -->
+  <div class="product-card" data-category="consoles">
+    <img src="assets/ps2-fat.jpg">
+    <div class="name">PS2 Fat – Console Only</div>
+    <div class="price">£130</div>
+    <div id="paypal-ps2fat-clean"></div>
+  </div>
+
+  <div class="product-card" data-category="consoles">
+    <img src="assets/ps2-fat-bundle.jpg">
+    <div class="name">PS2 Fat – Plug & Play Bundle</div>
+    <div class="price">£180</div>
+    <div id="paypal-ps2fat-bundle"></div>
+  </div>
+
+  <div class="product-card" data-category="consoles">
+    <img src="assets/ps2-fat-refurb.jpg">
+    <div class="name">PS2 Fat – Refurbished Console</div>
+    <div class="price">£200</div>
+    <div id="paypal-ps2fat-refurbished"></div>
+  </div>
+
+  <div class="product-card" data-category="consoles">
+    <img src="assets/ps2-fat-refurb-bundle.jpg">
+    <div class="name">PS2 Fat – Refurbished Bundle</div>
+    <div class="price">£250</div>
+    <div id="paypal-ps2fat-refurbished-bundle"></div>
+  </div>
+
+  <!-- Controllers -->
+  <div class="product-card" data-category="controllers">
+    <img src="assets/controller-official.jpg">
+    <div class="name">Official PS2 Controller</div>
+    <div class="price">£55</div>
+    <div id="paypal-controller-official"></div>
+  </div>
+
+  <div class="product-card" data-category="controllers">
+    <img src="assets/controller-wired.jpg">
+    <div class="name">Wired Controller</div>
+    <div class="price">£35</div>
+    <div id="paypal-controller-wired"></div>
+  </div>
+
+  <div class="product-card" data-category="controllers">
+    <img src="assets/controller-wireless.jpg">
+    <div class="name">Wireless Controller</div>
+    <div class="price">£50</div>
+    <div id="paypal-controller-wireless"></div>
+  </div>
+
+  <!-- Memory Cards -->
+  <div class="product-card" data-category="memory">
+    <img src="assets/memory8.jpg">
+    <div class="name">Memory Card 8MB</div>
+    <div class="price">£30</div>
+    <div id="paypal-memory8"></div>
+  </div>
+
+  <div class="product-card" data-category="memory">
+    <img src="assets/memory16.jpg">
+    <div class="name">Memory Card 16MB</div>
+    <div class="price">£28</div>
+    <div id="paypal-memory16"></div>
+  </div>
+
+  <div class="product-card" data-category="memory">
+    <img src="assets/memory32.jpg">
+    <div class="name">Memory Card 32MB</div>
+    <div class="price">£42</div>
+    <div id="paypal-memory32"></div>
+  </div>
+
+  <div class="product-card" data-category="memory">
+    <img src="assets/memory64.jpg">
+    <div class="name">Memory Card 64MB</div>
+    <div class="price">£48</div>
+    <div id="paypal-memory64"></div>
+  </div>
+
+  <div class="product-card" data-category="memory">
+    <img src="assets/memory128.jpg">
+    <div class="name">Memory Card 128MB</div>
+    <div class="price">£85</div>
+    <div id="paypal-memory128"></div>
+  </div>
+
+  <!-- Cables -->
+  <div class="product-card" data-category="cables">
+    <img src="assets/av-cable.jpg">
+    <div class="name">AV Multi Cable</div>
+    <div class="price">£9</div>
+    <div id="paypal-avcable"></div>
+  </div>
+
+  <div class="product-card" data-category="cables">
+    <img src="assets/hdmi-cable.jpg">
+    <div class="name">HDMI Cable – 1M</div>
+    <div class="price">£12</div>
+    <div id="paypal-hdmicable"></div>
+  </div>
+
+  <div class="product-card" data-category="cables">
+    <img src="assets/power-cable.jpg">
+    <div class="name">PS2 Power Cable</div>
+    <div class="price">£8</div>
+    <div id="paypal-powercable"></div>
+  </div>
+
+  <div class="product-card" data-category="cables">
+    <img src="assets/adapter.jpg">
+    <div class="name">HDMI–AV Adapter</div>
+    <div class="price">£15</div>
+    <div id="paypal-hdmivadapter"></div>
+  </div>
+
+  <!-- Modding -->
+  <div class="product-card" data-category="modding">
+    <img src="assets/hdd.jpg">
+    <div class="name">Preloaded HDD</div>
+    <div class="price">£80</div>
+    <div id="paypal-preloaded-hdd"></div>
+  </div>
+
+  <div class="product-card" data-category="modding">
+    <img src="assets/preloaded-memory.jpg">
+    <div class="name">Preloaded Memory Card</div>
+    <div class="price">£30</div>
+    <div id="paypal-preloaded-mem"></div>
+  </div>
+
+  <div class="product-card" data-category="modding">
+    <img src="assets/modding.jpg">
+    <div class="name">Custom Modding Service</div>
+    <div class="price">£150</div>
+    <div id="paypal-custom-modding"></div>
+  </div>
+
 </div>
 
 <footer>
@@ -152,19 +289,19 @@ nav a:hover, nav a.active {
 <!-- PayPal SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=AYXmDuhylfxtnuRz3E2EzoyXNO0HnxJAXr_DQauHlsoawJjLKel8W17luzhp1_52OlIh9qjJYDggdf8o&currency=GBP"></script>
 <script>
-// Function to render PayPal buttons
 function renderButton(id, desc, price){
   paypal.Buttons({
-    style:{layout:'vertical',color:'gold',shape:'rect',label:'buynow'},
+    style:{ layout:'vertical', color:'gold', shape:'rect', label:'buynow' },
     createOrder:(data,actions)=>actions.order.create({
-      purchase_units:[{description:desc,amount:{currency_code:'GBP',value:price}}]
+      purchase_units:[{ description:desc, amount:{ currency_code:'GBP', value:price } }]
     }),
-    onApprove:(data,actions)=>actions.order.capture().then(()=>{window.location.href="checkout-success.html";}),
-    onError:err=>{console.error(err);}
+    onApprove:(data,actions)=>actions.order.capture().then(()=>{
+      window.location.href="checkout-success.html";
+    }),
+    onError:err=>console.error(err)
   }).render('#'+id);
 }
 
-// Product data
 const products = [
   ['paypal-ps2fat-clean','PS2 Fat – Console Only','130'],
   ['paypal-ps2fat-bundle','PS2 Fat – Plug & Play Bundle','180'],
@@ -187,10 +324,9 @@ const products = [
   ['paypal-custom-modding','Custom Modding Service','150']
 ];
 
-// Render all PayPal buttons
 products.forEach(p=>renderButton(...p));
 
-// Filter functionality
+// Filtering
 const filterButtons = document.querySelectorAll('.filter-btn');
 const productCards = document.querySelectorAll('.product-card');
 
@@ -200,10 +336,11 @@ filterButtons.forEach(btn=>{
     btn.classList.add('active');
     const cat = btn.dataset.category;
     productCards.forEach(card=>{
-      card.style.display = (cat==='all'||card.dataset.category===cat)?'flex':'none';
+      card.style.display = (cat==='all' || card.dataset.category===cat) ? 'flex' : 'none';
     });
   });
 });
 </script>
+
 </body>
 </html>

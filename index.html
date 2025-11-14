@@ -6,16 +6,19 @@
 <title>Retro Replay — Featuring PlayStation 2</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+
 <style>
   body {
     font-family: 'Orbitron', sans-serif;
-    background: #181b23;
-    color: #e3e7ed;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+    background:#181b23;
+    color:#e3e7ed;
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
   }
+
   .wrap { max-width:1200px; margin:0 auto; padding:2rem; position:relative; z-index:1; }
+
   header {
     display:flex;
     justify-content:space-between;
@@ -29,23 +32,41 @@
   nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
   nav a:hover, nav a.active { text-decoration:underline; }
 
-  /* Hero Section */
-  .hero { text-align:center; margin-bottom:2rem; position:relative; z-index:2; }
+  /* Ambient background */
+  .ambient {
+    position:fixed; top:0; left:0; width:100%; height:100%;
+    background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
+    pointer-events:none; z-index:0;
+    animation: pulse 5s infinite;
+  }
+  @keyframes pulse {0%,100%{opacity:0.02;}50%{opacity:0.04;}}
+
+  /* Hero section */
+  .hero {
+    text-align:center;
+    margin-bottom:2rem;
+    position:relative;
+    z-index:2;
+  }
   .hero .logo { max-width:90%; height:auto; margin-bottom:1rem; position:relative; z-index:2; }
   .hero-secondary { max-width:50%; height:auto; display:block; margin:0 auto 1rem; position:relative; z-index:2; }
   .boot-caption { font-size:1rem; margin-top:0.5rem; position:relative; z-index:2; }
 
   /* Edge characters */
-  .hero img.edge-left, .hero img.edge-right {
+  .hero img.edge-left,
+  .hero img.edge-right {
     position:absolute;
     bottom:0;
     height:100%;
     z-index:0;
   }
-  .hero img.edge-left { left:0; }
-  .hero img.edge-right { right:0; }
+  /* Stack multiple edge images with offsets */
+  .hero img.edge-left.edge1 { left:0; }
+  .hero img.edge-left.edge2 { left:30px; opacity:0.85; }
+  .hero img.edge-right.edge1 { right:0; }
+  .hero img.edge-right.edge2 { right:30px; opacity:0.85; }
 
-  /* Logo accents */
+  /* Logo accent images */
   .hero img.accent {
     position:absolute;
     top:20px;
@@ -56,6 +77,7 @@
   .hero img.accent-left { left:40%; transform:translateX(-100%); }
   .hero img.accent-right { left:60%; transform:translateX(0); }
 
+  /* About section */
   .about-section {
     background:#22262f;
     padding:2rem;
@@ -66,6 +88,7 @@
   .section-title { font-size:2rem; margin-bottom:1rem; }
   .about-section p { font-size:1.05rem; line-height:1.6; }
 
+  /* Product grid */
   .product-grid {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -86,26 +109,41 @@
   .product-card .price { font-size:1.2rem; font-weight:bold; margin-bottom:0.5rem; }
   .product-card p { font-size:0.95rem; line-height:1.4; }
 
+  /* Footer */
   footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; position:relative; z-index:2; }
 
+  /* Responsive */
   @media screen and (max-width:768px){ .hero-secondary { max-width:70%; } }
   @media screen and (max-width:480px){ 
     .section-title { font-size:1.5rem; } 
     .product-card .price { font-size:1rem; } 
+    .hero img.edge-left, .hero img.edge-right { display:none; } /* hide tall edges on mobile */
   }
 
-  .ambient {
-    position:fixed; top:0; left:0; width:100%; height:100%;
-    background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
-    pointer-events:none; z-index:0;
-    animation: pulse 5s infinite;
+  /* Background themed images behind hero */
+  body::before {
+    content:'';
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:
+      url("assets/pacman-4121590_1920.png") top left no-repeat,
+      url("assets/playstation-2669393_1920.png") top right no-repeat,
+      url("assets/sony-playstation-4003974_1280.png") bottom left no-repeat,
+      url("assets/super-mario-2663951_1920.jpg") bottom right no-repeat,
+      url("assets/atx2-950511_1920.png") center top no-repeat;
+    background-size:15% auto,15% auto,15% auto,15% auto,20% auto;
+    z-index:0;
+    opacity:0.15;
+    pointer-events:none;
   }
-  @keyframes pulse {0%,100%{opacity:0.02;}50%{opacity:0.04;}}
+
 </style>
 </head>
 <body>
 
 <div class="ambient"></div>
+
 <div class="wrap">
 
 <header>
@@ -126,18 +164,25 @@
 </header>
 
 <section class="hero">
-  <!-- Edge characters -->
-  <img src="assets/star-wars-left.jpg" alt="Left Character" class="edge-left">
-  <img src="assets/nature-3340430_1280.jpg" alt="Left Character" class="edge-left">
-  <img src="assets/luigi-2663929_1920.jpg" alt="Right Character" class="edge-right">
-  <img src="assets/HALO-right.jpg" alt="Right Character" class="edge-right">
+  <!-- Left Edge Characters -->
+  <img src="assets/star-wars-7710344_1280.jpg" alt="Star Wars Left" class="edge-left edge1">
+  <img src="assets/nature-3340430_1280.jpg" alt="Nature Left" class="edge-left edge2">
+
+  <!-- Right Edge Characters -->
+  <img src="assets/luigi-2663929_1920.jpg" alt="Luigi Right" class="edge-right edge1">
+  <img src="assets/atx2-950511_1920.png" alt="ATX Right" class="edge-right edge2">
 
   <!-- Center Logo -->
   <img class="logo" src="assets/logo.png" alt="Retro Replay Logo">
 
+  <!-- Subtag & PS Logo -->
   <div class="subtag">Featuring</div>
   <img class="hero-secondary" src="assets/PLAYSTATION_LOGO_EDITED.png" alt="PlayStation Logo">
   <div class="boot-caption">Classic PS2 experience — refurbished consoles & curated bundles</div>
+
+  <!-- Logo Accent Images -->
+  <img src="assets/cassette-8628442_1280.png" alt="Cassette Accent" class="accent accent-left">
+  <img src="assets/controller-161579_1920.png" alt="Controller Accent" class="accent accent-right">
 </section>
 
 <section class="about-section">

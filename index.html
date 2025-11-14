@@ -40,29 +40,17 @@
   .hero-secondary { max-width:50%; height:auto; display:block; margin:0 auto 1rem; position:relative; z-index:2; }
   .boot-caption { font-size:1rem; margin-top:0.5rem; position:relative; z-index:2; }
 
-  /* Edge characters */
-  .hero img.edge-left, .hero img.edge-right {
+  /* Edge image */
+  .hero img.edge {
     position:absolute;
-    bottom:0;
-    max-height:90%;
-    object-fit:contain;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0.1;
     z-index:0;
   }
-  .hero img.edge-left.edge1 { left:0; }
-  .hero img.edge-left.edge2 { left:60px; }
-  .hero img.edge-right.edge1 { right:0; }
-  .hero img.edge-right.edge2 { right:60px; }
-
-  /* Logo accents */
-  .hero img.accent {
-    position:absolute;
-    top:20px;
-    height:120px;
-    opacity:0.7;
-    z-index:1;
-  }
-  .hero img.accent-left { left:40%; transform:translateX(-50%); }
-  .hero img.accent-right { left:60%; transform:translateX(-50%); }
 
   .about-section {
     background:#22262f;
@@ -98,12 +86,10 @@
 
   @media screen and (max-width:768px){ 
     .hero-secondary { max-width:70%; }
-    .hero img.edge-left, .hero img.edge-right { max-height:60%; }
   }
   @media screen and (max-width:480px){ 
     .section-title { font-size:1.5rem; } 
     .product-card .price { font-size:1rem; } 
-    .hero img.edge-left, .hero img.edge-right { display:none; }
   }
 
   .ambient {
@@ -138,13 +124,8 @@
 </header>
 
 <section class="hero">
-  <!-- Left Edge Characters -->
-  <img src="assets/star-wars-left.jpg" alt="Star Wars Left" class="edge-left edge1">
-  <img src="assets/b1-4934716_1920.png" alt="B1 Left" class="edge-left edge2">
-
-  <!-- Right Edge Characters -->
-  <img src="assets/HALO-right.jpg" alt="Halo Right" class="edge-right edge1">
-  <img src="assets/luigi-2663929_1920.jpg" alt="Luigi Right" class="edge-right edge2">
+  <!-- Single background edge image -->
+  <img src="assets/nature-3340430_1280.jpg" alt="Nature Background" class="edge">
 
   <!-- Center Logo -->
   <img class="logo" src="assets/logo.png" alt="Retro Replay Logo">

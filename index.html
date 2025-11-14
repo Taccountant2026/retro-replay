@@ -13,24 +13,48 @@
     color: #e3e7ed;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
-  .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
+  .wrap { max-width:1200px; margin:0 auto; padding:2rem; position:relative; z-index:1; }
   header {
     display:flex;
     justify-content:space-between;
     align-items:center;
     flex-wrap: wrap;
     margin-bottom:2rem;
+    position:relative; z-index:2;
   }
-  .logo { height:120px; width:auto; }
-  nav { display:flex; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; gap:1rem; }
+  .logo { height:120px; width:auto; z-index:2; }
+  nav { display:flex; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; gap:1rem; z-index:2; }
   nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
   nav a:hover, nav a.active { text-decoration:underline; }
 
-  .hero { text-align:center; margin-bottom:2rem; }
-  .hero .logo { max-width:90%; height:auto; margin-bottom:1rem; }
-  .hero-secondary { max-width:50%; height:auto; display:block; margin:0 auto 1rem; }
-  .boot-caption { font-size:1rem; margin-top:0.5rem; }
+  /* Hero Section */
+  .hero { text-align:center; margin-bottom:2rem; position:relative; z-index:2; }
+  .hero .logo { max-width:90%; height:auto; margin-bottom:1rem; position:relative; z-index:2; }
+  .hero-secondary { max-width:50%; height:auto; display:block; margin:0 auto 1rem; position:relative; z-index:2; }
+  .boot-caption { font-size:1rem; margin-top:0.5rem; position:relative; z-index:2; }
+
+  /* Edge characters */
+  .hero img.edge-left, .hero img.edge-right {
+    position:absolute;
+    bottom:0;
+    height:100%;
+    z-index:0;
+  }
+  .hero img.edge-left { left:0; }
+  .hero img.edge-right { right:0; }
+
+  /* Logo accents */
+  .hero img.accent {
+    position:absolute;
+    top:20px;
+    height:120px;
+    opacity:0.7;
+    z-index:1;
+  }
+  .hero img.accent-left { left:40%; transform:translateX(-100%); }
+  .hero img.accent-right { left:60%; transform:translateX(0); }
 
   .about-section {
     background:#22262f;
@@ -46,6 +70,7 @@
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:1.5rem;
+    position:relative; z-index:2;
   }
   .product-card {
     background:#22262f;
@@ -54,13 +79,14 @@
     text-align:center;
     display:flex;
     flex-direction:column;
+    position:relative;
   }
   .product-card img { max-width:100%; margin-bottom:0.5rem; border-radius:4px; }
   .product-card .name { font-weight:600; margin-bottom:0.3rem; }
   .product-card .price { font-size:1.2rem; font-weight:bold; margin-bottom:0.5rem; }
   .product-card p { font-size:0.95rem; line-height:1.4; }
 
-  footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
+  footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; position:relative; z-index:2; }
 
   @media screen and (max-width:768px){ .hero-secondary { max-width:70%; } }
   @media screen and (max-width:480px){ 
@@ -100,7 +126,17 @@
 </header>
 
 <section class="hero">
+  <!-- Edge characters -->
+  <img src="assets/super-mario-2663951_1920.jpg" alt="Left Character" class="edge-left">
+  <img src="assets/luigi-2663929_1920.jpg" alt="Right Character" class="edge-right">
+
+  <!-- Center Logo -->
   <img class="logo" src="assets/logo.png" alt="Retro Replay Logo">
+
+  <!-- Logo accent images -->
+  <img src="assets/playstation-2669393_1920.png" alt="" class="accent accent-left">
+  <img src="assets/sony-playstation-4003974_1280.png" alt="" class="accent accent-right">
+
   <div class="subtag">Featuring</div>
   <img class="hero-secondary" src="assets/PLAYSTATION_LOGO_EDITED.png" alt="PlayStation Logo">
   <div class="boot-caption">Classic PS2 experience — refurbished consoles & curated bundles</div>

@@ -6,19 +6,147 @@
 <title>Retro Replay — PlayStation Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed;}
-nav { background:#0a0a0a; padding:16px; text-align:center; }
-nav a { color:#6db8ff; margin:0 10px; text-decoration:none; font-weight:700;}
-nav a:hover { color:#8ec5ff; }
-header { text-align:center; padding:60px 20px; }
-h1 { color:#6db8ff; margin-bottom:10px; }
-.hero-sub { font-size:1.2rem; opacity:0.8; }
-.section { padding:40px 10%; max-width:1200px; margin:0 auto; }
-footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0;}
+/* ---------- GLOBAL ---------- */
+body {
+    margin:0;
+    font-family:'Orbitron',sans-serif;
+    background:#181b23;
+    color:#e3e7ed;
+    overflow-x:hidden;
+}
+
+/* ---------- NAVIGATION ---------- */
+nav {
+    background:#0a0a0a;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    padding:15px 10%;
+    gap:10px;
+    z-index:1000;
+    position:sticky;
+    top:0;
+}
+nav a {
+    color:#6db8ff;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.3s;
+}
+nav a:hover { 
+    color:#00d4ff;
+    text-shadow:0 0 8px #00d4ff;
+}
+
+/* ---------- HERO ---------- */
+header.hero {
+    text-align:center;
+    padding:100px 20px 60px;
+    position:relative;
+    background:linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    overflow:hidden;
+}
+header.hero::before {
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: radial-gradient(circle at center, rgba(109,184,255,0.05), transparent 70%);
+    z-index:0;
+}
+header.hero h1 {
+    font-size:3rem;
+    color:#6db8ff;
+    margin-bottom:10px;
+    position:relative;
+    z-index:1;
+}
+.hero-sub {
+    font-size:1.3rem;
+    opacity:0.8;
+    position:relative;
+    z-index:1;
+}
+
+/* Particle Canvas */
+#particle-canvas {
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index:0;
+    pointer-events:none;
+}
+
+/* ---------- GRID OF CONSOLES ---------- */
+.section {
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 10%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    position:relative;
+    z-index:1;
+}
+
+.console-tile {
+    background:#111;
+    border-radius:18px;
+    padding:30px 20px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.3s, box-shadow 0.4s, transform 0.4s;
+    position:relative;
+}
+.console-tile img {
+    width:80px;
+    margin-bottom:15px;
+    transition:transform 0.3s;
+}
+.console-tile h3 {
+    font-size:1.5rem;
+    color:#6db8ff;
+    margin-bottom:8px;
+}
+.console-tile p {
+    font-size:0.95rem;
+    opacity:0.85;
+}
+
+/* Hover Effects with PlayStation Colors */
+.console-tile:hover {
+    background:#0051ff;
+    transform:scale(1.05);
+    box-shadow:0 0 15px #ff0055,0 0 35px #00ff99,0 0 25px #ffd700,0 0 40px #6db8ff;
+}
+.console-tile:hover img { transform:scale(1.15) rotate(-5deg); }
+
+/* ---------- FOOTER ---------- */
+footer {
+    background:#0b0f18;
+    padding:40px 10%;
+    margin-top:60px;
+    text-align:center;
+    color:#9fbbe0;
+}
+footer a { color:#6db8ff; text-decoration:none; margin:0 8px; }
+footer a:hover { color:white; }
+
+/* ---------- RESPONSIVE ---------- */
+@media screen and (max-width:768px){
+    header.hero h1 { font-size:2.2rem; }
+    .hero-sub { font-size:1.1rem; }
+    .section { padding:0 5%; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
+}
+@media screen and (max-width:480px){
+    header.hero h1 { font-size:1.8rem; }
+    .hero-sub { font-size:1rem; }
+}
 </style>
 </head>
 <body>
 
+<!-- Navigation -->
 <nav>
     <a href="index.html">Home</a>
     <a href="history.html">History</a>
@@ -31,23 +159,97 @@ footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; c
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
     <a href="products.html">Products</a>
-    <a href="products/ps1.html">PS1</a>
-    <a href="products/ps2.html">PS2</a>
-    <a href="products/ps3.html">PS3</a>
 </nav>
 
-<header>
+<!-- Hero -->
+<header class="hero">
+    <canvas id="particle-canvas"></canvas>
     <h1>PlayStation Collection</h1>
-    <div class="hero-sub">Restored consoles, tested & ready to play</div>
+    <div class="hero-sub">Fully Refurbished & Tested Consoles — PS1 to PS3</div>
 </header>
 
-<div class="section">
-    <p>Explore our collection of PlayStation consoles, from PS1 to PS3. Each unit is fully refurbished and tested for quality and reliability.</p>
-</div>
+<!-- Console Grid -->
+<section class="section">
+    <a href="products/ps1.html" class="console-tile">
+        <img src="assets/ps1-logo.png" alt="PS1">
+        <h3>PlayStation 1</h3>
+        <p>Classic first-gen PlayStation consoles</p>
+    </a>
+    <a href="products/ps2.html" class="console-tile">
+        <img src="assets/ps2-logo.png" alt="PS2">
+        <h3>PlayStation 2</h3>
+        <p>Retro favorites with HDD & softmod options</p>
+    </a>
+    <a href="products/ps3.html" class="console-tile">
+        <img src="assets/ps3-logo.png" alt="PS3">
+        <h3>PlayStation 3</h3>
+        <p>PS3 Fat & Slim fully tested consoles</p>
+    </a>
+</section>
 
+<!-- Footer -->
 <footer>
     <p>© 2025 Retro Replay — PlayStation Division</p>
+    <p>
+        <a href="index.html">Home</a> •
+        <a href="history.html">History</a> •
+        <a href="buying-guide.html">Buying Guide</a> •
+        <a href="mods-upgrades.html">Mods & Upgrades</a> •
+        <a href="contact.html">Contact</a>
+    </p>
 </footer>
+
+<script>
+// Particle System for Hero
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = document.querySelector('.hero').offsetHeight;
+
+const colors = ['#0060ff','#ff0055','#00ff99','#ffd700']; // PlayStation colors: Blue, Pink, Green, Yellow
+
+let particlesArray = [];
+class Particle {
+    constructor(){
+        this.x = Math.random()*canvas.width;
+        this.y = Math.random()*canvas.height;
+        this.size = Math.random()*2 + 1;
+        this.color = colors[Math.floor(Math.random()*colors.length)];
+        this.speedX = (Math.random()-0.5)*0.5;
+        this.speedY = (Math.random()-0.5)*0.5;
+    }
+    update(){
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if(this.x < 0 || this.x > canvas.width) this.speedX*=-1;
+        if(this.y < 0 || this.y > canvas.height) this.speedY*=-1;
+    }
+    draw(){
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+        ctx.fill();
+    }
+}
+
+function initParticles(){
+    particlesArray = [];
+    for(let i=0;i<120;i++){ particlesArray.push(new Particle()); }
+}
+function animateParticles(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particlesArray.forEach(p=>{ p.update(); p.draw(); });
+    requestAnimationFrame(animateParticles);
+}
+initParticles();
+animateParticles();
+
+window.addEventListener('resize',()=>{
+    canvas.width = window.innerWidth;
+    canvas.height = document.querySelector('.hero').offsetHeight;
+    initParticles();
+});
+</script>
 
 </body>
 </html>

@@ -6,113 +6,248 @@
 <title>Retro Replay — Home</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-    /* Base Styles */
-    body {
-        margin:0;
-        font-family:'Orbitron', sans-serif;
-        background:#0a0a0a;
-        color:white;
-        text-align:center;
-    }
+/* --- Base Styles --- */
+body {
+    margin:0;
+    font-family:'Orbitron', sans-serif;
+    background:#0a0a0a;
+    color:white;
+    scroll-behavior: smooth;
+    overflow-x:hidden;
+}
 
-    header {
-        padding:60px 20px 20px;
-    }
+a { text-decoration:none; color:inherit; }
 
-    header img {
-        width:180px;
-        margin-bottom:15px;
-    }
+/* --- Sticky Header --- */
+header {
+    position:sticky;
+    top:0;
+    background:rgba(10,10,10,0.95);
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 10%;
+    border-bottom:2px solid #1f1f1f;
+    backdrop-filter: blur(5px);
+}
 
-    header h1 {
-        font-size:2.5rem;
-        margin-bottom:10px;
-        color:#6db8ff;
-    }
+header img.logo {
+    height:60px;
+}
 
-    header p {
-        font-size:1.2rem;
-        opacity:0.8;
-    }
+nav a {
+    margin-left:20px;
+    font-weight:bold;
+    color:#6db8ff;
+    transition:0.2s;
+}
 
-    /* Grid Tiles */
-    .grid {
-        display:grid;
-        grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-        gap:25px;
-        padding:40px 10%;
-    }
+nav a:hover { color:#ffffff; }
 
-    .tile {
-        background:#111;
-        border:2px solid #1f1f1f;
-        padding:30px 20px;
-        border-radius:15px;
-        transition:0.3s;
-        cursor:pointer;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-    }
+/* --- Hero Section --- */
+.hero {
+    position:relative;
+    padding:120px 20px 80px;
+    text-align:center;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    overflow:hidden;
+}
 
-    .tile img {
-        width:80px;
-        margin-bottom:15px;
-    }
+.hero::before {
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
+    z-index:0;
+}
 
-    .tile h3 {
-        margin:0 0 10px 0;
-        font-size:1.5rem;
-        color:#6db8ff;
-    }
+.hero img.logo-hero {
+    width:180px;
+    margin-bottom:20px;
+    position:relative;
+    z-index:1;
+}
 
-    .tile p {
-        margin:0;
-        font-size:1rem;
-        opacity:0.8;
-    }
+.hero h1 {
+    font-size:3rem;
+    color:#6db8ff;
+    margin-bottom:15px;
+    position:relative; z-index:1;
+}
 
-    .tile:hover {
-        background:#0051ff;
-        transform:scale(1.05);
-    }
+.hero p {
+    font-size:1.3rem;
+    opacity:0.85;
+    margin-bottom:30px;
+    position:relative; z-index:1;
+}
 
-    a {
-        text-decoration:none;
-        color:white;
-    }
+.cta-btn {
+    background:#0051ff;
+    color:white;
+    padding:15px 30px;
+    font-size:1.15rem;
+    font-weight:bold;
+    border-radius:12px;
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
+    display:inline-block;
+    position:relative; z-index:1;
+}
 
-    /* Footer */
-    footer {
-        background:#0b0f18;
-        padding:25px 10%;
-        margin-top:40px;
-        font-size:0.9rem;
-        color:#9fbbe0;
-        text-align:center;
-    }
+.cta-btn:hover {
+    background:#0070ff;
+    transform:scale(1.05);
+}
 
-    /* Responsive */
-    @media screen and (max-width:480px) {
-        header h1 { font-size:2rem; }
-        header p { font-size:1rem; }
-        .grid { padding:20px 5%; gap:15px; }
-        .tile { padding:20px 15px; }
-        .tile img { width:60px; margin-bottom:10px; }
-        .tile h3 { font-size:1.2rem; }
-        .tile p { font-size:0.9rem; }
-    }
+/* --- Particle Canvas --- */
+#particle-canvas {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    pointer-events:none;
+}
+
+/* --- Console Grid --- */
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:25px;
+    padding:60px 10%;
+}
+
+.tile {
+    background:#111;
+    border:2px solid #1f1f1f;
+    padding:35px 20px;
+    border-radius:20px;
+    transition:0.3s, box-shadow 0.4s;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.4);
+    position:relative;
+    animation:float 4s ease-in-out infinite;
+}
+
+.tile::before {
+    content:"";
+    position:absolute;
+    top:-5px; left:-5px;
+    width:calc(100% + 10px);
+    height:calc(100% + 10px);
+    border-radius:22px;
+    background:linear-gradient(45deg,#0051ff,#00ffd0,#6db8ff,#ff00ff);
+    opacity:0;
+    z-index:-1;
+    filter:blur(20px);
+    transition:0.3s;
+}
+
+.tile:hover::before { opacity:0.5; }
+
+.tile img {
+    width:80px;
+    margin-bottom:15px;
+    transition:0.3s;
+}
+
+.tile h3 {
+    margin:0 0 10px 0;
+    font-size:1.5rem;
+    color:#6db8ff;
+}
+
+.tile p {
+    margin:0;
+    font-size:1rem;
+    opacity:0.8;
+    text-align:center;
+}
+
+.tile:hover {
+    background:#0051ff;
+    transform:scale(1.05);
+}
+
+.tile:hover img {
+    transform:rotate(-10deg) scale(1.1);
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+/* --- Footer --- */
+footer {
+    background:#0b0f18;
+    padding:40px 10%;
+    margin-top:60px;
+    font-size:0.9rem;
+    color:#9fbbe0;
+    text-align:center;
+}
+
+footer a {
+    color:#6db8ff;
+    margin:0 8px;
+    transition:0.2s;
+}
+
+footer a:hover { color:#ffffff; }
+
+/* --- Responsive --- */
+@media screen and (max-width:768px) {
+    header { flex-direction:column; gap:10px; padding:15px 5%; }
+    nav a { margin:0 10px; }
+}
+
+@media screen and (max-width:480px) {
+    .hero h1 { font-size:2rem; }
+    .hero p { font-size:1rem; }
+    .cta-btn { padding:12px 25px; font-size:1rem; }
+    .grid { padding:40px 5%; gap:15px; }
+    .tile { padding:25px 15px; }
+    .tile img { width:60px; margin-bottom:10px; }
+    .tile h3 { font-size:1.2rem; }
+    .tile p { font-size:0.9rem; }
+}
 </style>
 </head>
 <body>
 
+<!-- Header / Navigation -->
 <header>
-    <img src="assets/logo.png" alt="Retro Replay Logo">
-    <h1>Welcome to Retro Replay</h1>
-    <p>Your Home for Refurbished & Restored Retro Consoles</p>
+    <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
+    <nav>
+        <a href="#console-grid">Consoles</a>
+        <a href="buying-guide.html">Buying Guide</a>
+        <a href="mods-upgrades.html">Mods & Upgrades</a>
+        <a href="how-we-refurbish.html">How We Refurbish</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+    </nav>
 </header>
 
-<div class="grid">
+<!-- Hero Section -->
+<section class="hero">
+    <canvas id="particle-canvas"></canvas>
+    <img src="assets/logo.png" alt="Retro Replay Logo" class="logo-hero">
+    <h1>Restore Your Classics</h1>
+    <p>Refurbished consoles, curated games, and professional upgrades for retro gamers.</p>
+    <a href="#console-grid" class="cta-btn">Shop Now</a>
+</section>
+
+<!-- Console Tiles -->
+<section id="console-grid" class="grid">
     <a href="playstation/index.html">
         <div class="tile">
             <img src="assets/playstation-logo.png" alt="PlayStation Logo">
@@ -160,11 +295,74 @@
             <p>Learn about Retro Replay’s identity & design</p>
         </div>
     </a>
-</div>
+</section>
 
+<!-- Footer -->
 <footer>
-    © 2025 Retro Replay — Restoring Classics for Modern Gamers
+    <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="buying-guide.html">Buying Guide</a> |
+        <a href="mods-upgrades.html">Mods & Upgrades</a> |
+        <a href="how-we-refurbish.html">How We Refurbish</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="faq.html">FAQ</a>
+    </p>
 </footer>
+
+<!-- Particle Script -->
+<script>
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+
+class Particle {
+    constructor(){
+        this.x = Math.random()*canvas.width;
+        this.y = Math.random()*canvas.height;
+        this.size = Math.random()*2 + 1;
+        this.speedX = (Math.random()-0.5)*0.5;
+        this.speedY = (Math.random()-0.5)*0.5;
+    }
+    update(){
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if(this.x<0 || this.x>canvas.width) this.speedX*=-1;
+        if(this.y<0 || this.y>canvas.height) this.speedY*=-1;
+    }
+    draw(){
+        ctx.fillStyle = 'rgba(109,184,255,0.5)';
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+        ctx.fill();
+    }
+}
+
+function init(){
+    particlesArray=[];
+    for(let i=0;i<100;i++){
+        particlesArray.push(new Particle());
+    }
+}
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particlesArray.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
+}
+
+init();
+animate();
+
+window.addEventListener('resize',()=>{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    init();
+});
+</script>
 
 </body>
 </html>

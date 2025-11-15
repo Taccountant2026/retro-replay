@@ -35,7 +35,7 @@ nav a:hover, nav a.active { text-decoration:underline; color:#8ec5ff; }
 .product-card .name { font-weight:600; margin-bottom:0.3rem; color:var(--muted); }
 .product-card .price { font-size:1.2rem; font-weight:bold; margin-bottom:0.5rem; color:#fff; }
 .product-card p { font-size:0.95rem; line-height:1.4; color:#cbd3dd; }
-.product-actions { margin-top:auto; display:flex; gap:8px; justify-content:center; align-items:center; padding-top:10px; }
+.product-actions { margin-top:auto; display:flex; gap:8px; justify-content:center; align-items:center; padding-top:10px; flex-wrap:wrap; }
 .btn { display:inline-block; background:var(--panel-2); color:var(--muted); padding:0.6rem 0.9rem; border-radius:8px; text-decoration:none; font-weight:bold; border:1px solid rgba(255,255,255,0.03); cursor:pointer; }
 .btn.alt { background:transparent; color:var(--accent); border:1px solid rgba(109,184,255,0.14); }
 .btn.small { padding:0.4rem 0.6rem; font-size:0.95rem; }
@@ -72,19 +72,10 @@ nav a:hover, nav a.active { text-decoration:underline; color:#8ec5ff; }
   <header>
     <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
     <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="history.html">PS2 History</a>
-      <a href="buying-guide.html">Buying Guide</a>
+      <a href="index.html" class="active">Home</a>
       <a href="products.html">Products</a>
       <a href="mods-upgrades.html">Mods & Upgrades</a>
-      <a href="how-we-refurbish.html">How We Refurbish</a>
-      <a href="trade-in.html">Trade-In</a>
-      <a href="delivery.html">Shipping & Delivery</a>
-      <a href="warranties.html">Warranties</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-      <a href="checkout.html">Checkout</a>
+      <a href="checkout.html">Checkout <span id="cart-count-js">(0)</span></a>
     </nav>
   </header>
 
@@ -101,87 +92,52 @@ nav a:hover, nav a.active { text-decoration:underline; color:#8ec5ff; }
   <section class="about-section">
     <h2 class="section-title">Welcome to Retro Replay</h2>
     <p>Dive into the iconic world of PlayStation 2! Refurbished consoles, homebrew-ready modifications, and curated collections of retro games.</p>
-    <p>Relive nostalgia or explore retro gaming for the first time — Retro Replay ensures every console works perfectly and looks great.</p>
-  </section>
-
-  <!-- Trust -->
-  <section class="trust">
-    <div class="trust-box">
-      <h3>✔ Product Warranty</h3>
-      <p>14-Day Quality Assurance — every console is fully tested, and we’re here to help if anything isn’t right.</p>
-    </div>
-    <div class="trust-box">
-      <h3>✔ Cleaned & Tested</h3>
-      <p>Every system is cleaned, laser-checked, and tested for multiple games before shipping. We don't ship untested units.</p>
-    </div>
-    <div class="trust-box">
-      <h3>✔ Secure Checkout</h3>
-      <p>Payments via PayPal & major cards. Secure and tracked dispatch on all orders.</p>
-    </div>
   </section>
 
   <!-- Products -->
   <section class="product-grid">
-    <div class="product-card">
+    <!-- Product Card Template -->
+    <div class="product-card" data-name="Refurbished PS2 Fat" data-base="150">
       <img src="assets/PS2_REFURBED_BUNDLE.jpg" alt="Refurbished PS2 Fat">
       <div class="name">Refurbished PS2 Fat</div>
       <div class="price">£150</div>
-      <p>Fully refurbished PS2 Fat console, cleaned, tested, and cosmetically restored for reliable performance.</p>
+      <p>Fully refurbished PS2 Fat console, cleaned, tested, and cosmetically restored.</p>
       <div class="product-actions">
-        <button class="btn" onclick="openUpgradeModal('Refurbished PS2 Fat',150)">Choose Upgrades</button>
-        <div id="paypal-ps2fat"></div>
+        <button class="btn" onclick="openUpgradeModal(this)">Choose Upgrades</button>
+        <button class="btn alt" onclick="RetroCart.addItem('ps2-fat','Refurbished PS2 Fat',150,'assets/PS2_REFURBED_BUNDLE.jpg')">Add to Basket</button>
       </div>
     </div>
-    <div class="product-card">
+
+    <div class="product-card" data-name="Plug & Play Bundle" data-base="185">
       <img src="assets/Console_Bundle.jpg" alt="Plug & Play Bundle">
       <div class="name">Plug & Play Bundle</div>
       <div class="price">£185</div>
       <p>Includes console, controller, AV cables, and curated games — ready to play instantly.</p>
       <div class="product-actions">
-        <button class="btn" onclick="openUpgradeModal('Plug & Play Bundle',185)">Choose Upgrades</button>
-        <div id="paypal-bundle"></div>
+        <button class="btn" onclick="openUpgradeModal(this)">Choose Upgrades</button>
+        <button class="btn alt" onclick="RetroCart.addItem('plug-play','Plug & Play Bundle',185,'assets/Console_Bundle.jpg')">Add to Basket</button>
       </div>
     </div>
-    <div class="product-card">
+
+    <div class="product-card" data-name="PS2 Tested Console" data-base="95">
       <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png" alt="PS2 Tested Console">
       <div class="name">PS2 Tested Console</div>
       <div class="price">£95</div>
       <p>Tested console for reliable gaming or modding. Fully verified and ready to play.</p>
       <div class="product-actions">
-        <button class="btn" onclick="openUpgradeModal('PS2 Tested Console',95)">Choose Upgrades</button>
-        <div id="paypal-tested"></div>
+        <button class="btn" onclick="openUpgradeModal(this)">Choose Upgrades</button>
+        <button class="btn alt" onclick="RetroCart.addItem('ps2-tested','PS2 Tested Console',95,'assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png')">Add to Basket</button>
       </div>
     </div>
-    <div class="product-card">
+
+    <div class="product-card" data-name="Modded Bundle (HDD)" data-base="250">
       <img src="assets/PS2_MODDED_REAR.jpg" alt="Modded PS2">
       <div class="name">Modded Bundle (HDD)</div>
       <div class="price">£250</div>
       <p>Professionally modded PS2 bundle with HDD and homebrew support. Ready-to-go library included.</p>
       <div class="product-actions">
-        <button class="btn" onclick="openUpgradeModal('Modded Bundle (HDD)',250)">Choose Upgrades</button>
-        <div id="paypal-modded"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reviews -->
-  <section class="reviews">
-    <h2>Customer Reviews</h2>
-    <div class="review-grid">
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>Absolutely love my refurbished PS2! Looks and feels brand new.</p>
-        <span>- Alex H.</span>
-      </div>
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>Fast shipping and the console was perfectly cleaned. Highly recommend!</p>
-        <span>- Sarah K.</span>
-      </div>
-      <div class="review">
-        <div class="stars">★★★★☆</div>
-        <p>The modded bundle was amazing, easy to set up, and ready to play.</p>
-        <span>- Jason P.</span>
+        <button class="btn" onclick="openUpgradeModal(this)">Choose Upgrades</button>
+        <button class="btn alt" onclick="RetroCart.addItem('modded-hdd','Modded Bundle (HDD)',250,'assets/PS2_MODDED_REAR.jpg')">Add to Basket</button>
       </div>
     </div>
   </section>
@@ -193,27 +149,23 @@ nav a:hover, nav a.active { text-decoration:underline; color:#8ec5ff; }
       <p id="upgradeProduct">Select upgrades for: <strong></strong></p>
       <div class="upgrade-list">
         <div class="upgrade-item">
-          <label><input type="checkbox" name="upgrade" data-price="25"> Refurbishment Package — +£25
-          <div style="font-size:0.9rem;color:#bcdcff;">Internal clean, laser check, thermal refresh, drive lube.</div></label>
+          <label><input type="checkbox" name="upgrade" data-price="25"> Refurbishment Package — +£25</label>
         </div>
         <div class="upgrade-item">
-          <label><input type="checkbox" name="upgrade" data-price="18"> HDMI Upgrade — +£18
-          <div style="font-size:0.9rem;color:#bcdcff;">Modern TV support, plug-and-play adapter.</div></label>
+          <label><input type="checkbox" name="upgrade" data-price="18"> HDMI Upgrade — +£18</label>
         </div>
         <div class="upgrade-item">
-          <label><input type="checkbox" name="upgrade" data-price="15"> Softmod (FMCB) — +£15
-          <div style="font-size:0.9rem;color:#bcdcff;">FreeMCBoot installed, USB/HDD launcher ready.</div></label>
+          <label><input type="checkbox" name="upgrade" data-price="15"> Softmod (FMCB) — +£15</label>
         </div>
         <div class="upgrade-item">
-          <label><input type="checkbox" name="upgrade" data-price="55"> Premium Bundle — +£55
-          <div style="font-size:0.9rem;color:#bcdcff;">Full refurb + HDMI + Softmod + 32GB USB (empty).</div></label>
+          <label><input type="checkbox" name="upgrade" data-price="55"> Premium Bundle — +£55</label>
         </div>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;">
         <div>Total: £<span id="upgradeTotal">0</span></div>
         <div class="upgrade-actions">
           <button class="btn small alt" onclick="closeUpgradeModal()">Cancel</button>
-          <button class="btn small" id="applyUpgradesBtn">Apply & Continue</button>
+          <button class="btn small" id="applyUpgradesBtn">Add Upgraded Product</button>
         </div>
       </div>
     </div>
@@ -224,67 +176,45 @@ nav a:hover, nav a.active { text-decoration:underline; color:#8ec5ff; }
     <div class="footer-grid">
       <div>
         <h4>RetroReplay</h4>
-        <p>Specialist in refurbished and upgraded PlayStation 2 consoles. Cleaned, tested & shipped with care.</p>
+        <p>Specialist in refurbished PlayStation 2 consoles.</p>
       </div>
       <div>
         <h4>Navigation</h4>
         <a href="index.html">Home</a>
-        <a href="about.html">About</a>
         <a href="products.html">Products</a>
-        <a href="mods-upgrades.html">Mods & Upgrades</a>
-      </div>
-      <div>
-        <h4>Policies & Help</h4>
-        <a href="warranties.html">Returns & Warranty</a>
-        <a href="shipping.html">Shipping</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
       </div>
     </div>
-    <p style="text-align:center;margin-top:12px;color:#8daed3;">© <strong>Retro Replay</strong> — Featuring PlayStation 2 • Not affiliated with Sony</p>
   </div>
 
 </div>
 
 <!-- Scripts -->
+<script src="cart.js"></script>
 <script>
-let currentProduct = {name:'', price:0};
-function openUpgradeModal(name, price){
-  currentProduct.name = name; currentProduct.price = price;
-  document.getElementById('upgradeModal').classList.add('active');
-  document.querySelector('#upgradeProduct strong').innerText = name;
-  document.querySelectorAll('input[name="upgrade"]').forEach(cb => cb.checked=false);
+let currentBasePrice = 0;
+let currentProductName = '';
+function openUpgradeModal(btn){
+  const card = btn.closest('.product-card');
+  currentBasePrice = Number(card.dataset.base);
+  currentProductName = card.dataset.name;
+  document.getElementById('upgradeProduct').querySelector('strong').textContent = currentProductName;
+  document.querySelectorAll('#upgradeModal input[name="upgrade"]').forEach(ch => ch.checked=false);
   updateUpgradeTotal();
+  document.getElementById('upgradeModal').classList.add('active');
 }
 function closeUpgradeModal(){ document.getElementById('upgradeModal').classList.remove('active'); }
 function updateUpgradeTotal(){
-  let total = currentProduct.price;
-  document.querySelectorAll('input[name="upgrade"]:checked').forEach(cb=>total+=parseFloat(cb.dataset.price));
-  document.getElementById('upgradeTotal').innerText = total.toFixed(2);
+  let total = currentBasePrice;
+  document.querySelectorAll('#upgradeModal input[name="upgrade"]:checked').forEach(cb=>total+=Number(cb.dataset.price));
+  document.getElementById('upgradeTotal').textContent = total.toFixed(0);
 }
-document.querySelectorAll('input[name="upgrade"]').forEach(cb=>cb.addEventListener('change',updateUpgradeTotal));
-document.getElementById('applyUpgradesBtn').addEventListener('click',()=>{
-  alert(`Total for ${currentProduct.name}: £${document.getElementById('upgradeTotal').innerText}`);
+document.querySelectorAll('#upgradeModal input[name="upgrade"]').forEach(cb=>cb.addEventListener('change', updateUpgradeTotal));
+document.getElementById('applyUpgradesBtn').addEventListener('click', ()=>{
+  let total = Number(document.getElementById('upgradeTotal').textContent);
+  RetroCart.addItem(currentProductName.replace(/\s+/g,'-').toLowerCase(), currentProductName, total,'');
   closeUpgradeModal();
 });
+window.addEventListener('DOMContentLoaded',()=>{RetroCart.loadCart()});
 </script>
-
-<!-- PayPal SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=GBP"></script>
-<script>
-  // Example button render
-  paypal.Buttons({
-    createOrder: function(data, actions) {
-      return actions.order.create({ purchase_units: [{ amount: { value: '150.00' } }] });
-    },
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-        alert('Transaction completed by ' + details.payer.name.given_name);
-      });
-    }
-  }).render('#paypal-ps2fat');
-  // Similarly add for other product containers
-</script>
-
 </body>
 </html>

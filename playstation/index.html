@@ -9,139 +9,140 @@
 /* ---------- GLOBAL ---------- */
 body {
     margin:0;
-    font-family:'Orbitron',sans-serif;
+    font-family:'Orbitron', sans-serif;
     background:#181b23;
     color:#e3e7ed;
     overflow-x:hidden;
 }
+a { text-decoration:none; color:inherit; }
+h1,h2,h3 { margin:0; }
 
 /* ---------- NAVIGATION ---------- */
 nav {
     background:#0a0a0a;
+    padding:15px 10%;
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    padding:15px 10%;
-    gap:10px;
-    z-index:1000;
-    position:sticky;
-    top:0;
+    gap:15px;
+    border-bottom:2px solid #1f1f1f;
 }
 nav a {
     color:#6db8ff;
-    text-decoration:none;
     font-weight:700;
-    transition:0.3s;
+    transition:0.2s;
 }
-nav a:hover { 
-    color:#00d4ff;
-    text-shadow:0 0 8px #00d4ff;
-}
+nav a:hover { color:#ffffff; }
 
 /* ---------- HERO ---------- */
-header.hero {
-    text-align:center;
-    padding:100px 20px 60px;
+.hero {
     position:relative;
-    background:linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    padding:100px 20px 60px;
+    text-align:center;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
     overflow:hidden;
 }
-header.hero::before {
+.hero::before {
     content:"";
     position:absolute;
     top:0; left:0;
     width:100%; height:100%;
-    background: radial-gradient(circle at center, rgba(109,184,255,0.05), transparent 70%);
+    background: radial-gradient(circle at center, rgba(109,184,255,0.1), transparent 70%);
     z-index:0;
 }
-header.hero h1 {
+.hero img.logo-hero {
+    width:200px;
+    margin-bottom:20px;
+    position:relative;
+    z-index:1;
+}
+.hero h1 {
     font-size:3rem;
     color:#6db8ff;
-    margin-bottom:10px;
+    margin-bottom:15px;
     position:relative;
     z-index:1;
 }
-.hero-sub {
+.hero p {
     font-size:1.3rem;
-    opacity:0.8;
+    opacity:0.85;
+    margin-bottom:30px;
     position:relative;
     z-index:1;
 }
-
-/* Particle Canvas */
-#particle-canvas {
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    z-index:0;
-    pointer-events:none;
+.cta-btn {
+    background:#0051ff; color:white; padding:15px 35px; font-size:1.15rem; font-weight:bold;
+    border-radius:12px; border:none; cursor:pointer; transition:0.4s;
 }
+.cta-btn:hover { background:#0070ff; transform:scale(1.05); }
 
-/* ---------- GRID OF CONSOLES ---------- */
-.section {
-    max-width:1200px;
-    margin:40px auto;
-    padding:0 10%;
+/* ---------- PRODUCT GRID ---------- */
+.grid {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:25px;
-    position:relative;
-    z-index:1;
+    padding:60px 10%;
 }
-
-.console-tile {
+.tile {
     background:#111;
-    border-radius:18px;
-    padding:30px 20px;
+    border-radius:15px;
+    padding:25px 15px;
     text-align:center;
     cursor:pointer;
-    transition:0.3s, box-shadow 0.4s, transform 0.4s;
-    position:relative;
+    box-shadow:0 0 5px #0051ff,0 0 15px #00ffd0;
+    transition:0.3s, transform 0.4s;
+    opacity:0;
+    transform: translateY(30px);
 }
-.console-tile img {
-    width:80px;
-    margin-bottom:15px;
-    transition:transform 0.3s;
-}
-.console-tile h3 {
-    font-size:1.5rem;
+.tile.visible { opacity:1; transform:translateY(0); transition:0.6s ease-out; }
+.tile img { width:80px; margin-bottom:15px; transition:0.3s; }
+.tile h3 { font-size:1.3rem; color:#6db8ff; margin-bottom:5px; }
+.tile p { font-size:0.95rem; opacity:0.85; }
+.tile:hover { transform:scale(1.08); box-shadow:0 0 15px #00ffd0,0 0 40px #6db8ff; }
+.tile:hover img { transform:scale(1.1) rotate(-5deg); }
+
+/* ---------- SECTION TITLES ---------- */
+.section-title {
+    font-size:2rem;
     color:#6db8ff;
-    margin-bottom:8px;
-}
-.console-tile p {
-    font-size:0.95rem;
-    opacity:0.85;
+    text-align:center;
+    margin-bottom:30px;
 }
 
-/* Hover Effects with PlayStation Colors */
-.console-tile:hover {
-    background:#0051ff;
-    transform:scale(1.05);
-    box-shadow:0 0 15px #ff0055,0 0 35px #00ff99,0 0 25px #ffd700,0 0 40px #6db8ff;
+/* ---------- SERVICES ---------- */
+.services {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    padding:40px 10%;
 }
-.console-tile:hover img { transform:scale(1.15) rotate(-5deg); }
+
+/* ---------- INFO BLOCK ---------- */
+.info-block {
+    background:#111;
+    border-radius:15px;
+    padding:30px 25px;
+    margin:40px 10%;
+    text-align:center;
+    box-shadow:0 0 15px rgba(0,255,208,0.2);
+}
+.info-block h3 { color:#00ffd0; margin-bottom:10px; }
+.info-block p { font-size:1rem; opacity:0.85; }
 
 /* ---------- FOOTER ---------- */
 footer {
     background:#0b0f18;
     padding:40px 10%;
     margin-top:60px;
-    text-align:center;
+    font-size:0.9rem;
     color:#9fbbe0;
+    text-align:center;
 }
-footer a { color:#6db8ff; text-decoration:none; margin:0 8px; }
-footer a:hover { color:white; }
+footer a { color:#6db8ff; margin:0 8px; transition:0.2s; }
+footer a:hover { color:#ffffff; }
 
 /* ---------- RESPONSIVE ---------- */
-@media screen and (max-width:768px){
-    header.hero h1 { font-size:2.2rem; }
-    .hero-sub { font-size:1.1rem; }
-    .section { padding:0 5%; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
-}
-@media screen and (max-width:480px){
-    header.hero h1 { font-size:1.8rem; }
-    .hero-sub { font-size:1rem; }
-}
+@media(max-width:768px){ .hero h1{ font-size:2.2rem;} .grid, .services{ padding:30px 5%; } }
 </style>
 </head>
 <body>
@@ -149,106 +150,104 @@ footer a:hover { color:white; }
 <!-- Navigation -->
 <nav>
     <a href="index.html">Home</a>
-    <a href="history.html">History</a>
-    <a href="buying-guide.html">Buying Guide</a>
-    <a href="mods-upgrades.html">Mods & Upgrades</a>
-    <a href="how-we-refurbish.html">Refurb Process</a>
-    <a href="trade-in.html">Trade-In</a>
-    <a href="delivery.html">Shipping</a>
-    <a href="warranties.html">Warranties</a>
-    <a href="faq.html">FAQ</a>
+    <a href="products.html">Products & Services</a>
+    <a href="guides.html">Guides & Info</a>
     <a href="contact.html">Contact</a>
-    <a href="products.html">Products</a>
 </nav>
 
 <!-- Hero -->
-<header class="hero">
+<section class="hero">
     <canvas id="particle-canvas"></canvas>
+    <img src="assets/playstation-logo.png" class="logo-hero" alt="PlayStation Logo">
     <h1>PlayStation Collection</h1>
-    <div class="hero-sub">Fully Refurbished & Tested Consoles — PS1 to PS3</div>
-</header>
-
-<!-- Console Grid -->
-<section class="section">
-    <a href="products/ps1.html" class="console-tile">
-        <img src="assets/ps1-logo.png" alt="PS1">
-        <h3>PlayStation 1</h3>
-        <p>Classic first-gen PlayStation consoles</p>
-    </a>
-    <a href="products/ps2.html" class="console-tile">
-        <img src="assets/ps2-logo.png" alt="PS2">
-        <h3>PlayStation 2</h3>
-        <p>Retro favorites with HDD & softmod options</p>
-    </a>
-    <a href="products/ps3.html" class="console-tile">
-        <img src="assets/ps3-logo.png" alt="PS3">
-        <h3>PlayStation 3</h3>
-        <p>PS3 Fat & Slim fully tested consoles</p>
-    </a>
+    <p>Fully refurbished consoles, mods & rare editions. PS1, PS2, PS3 — ready to play!</p>
+    <a href="#products" class="cta-btn">Explore Consoles</a>
 </section>
+
+<!-- Products Showcase -->
+<section id="products" class="grid">
+    <div class="tile">
+        <img src="assets/ps1.png" alt="PS1">
+        <h3>PlayStation 1</h3>
+        <p>Refurbished PS1 consoles with optional mods and accessories.</p>
+    </div>
+    <div class="tile">
+        <img src="assets/ps2.png" alt="PS2">
+        <h3>PlayStation 2</h3>
+        <p>Fully tested PS2 units with HDD mods, RGB, fan upgrades & softmods.</p>
+    </div>
+    <div class="tile">
+        <img src="assets/ps3.png" alt="PS3">
+        <h3>PlayStation 3</h3>
+        <p>Refurbished PS3 consoles ready for homebrew and media features.</p>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="section-title">Our Services</section>
+<section class="services">
+    <div class="tile">
+        <img src="assets/refurbish.png" alt="Refurbish">
+        <h3>Full Refurbishment</h3>
+        <p>Cleaning, testing, laser alignment & thermal refresh.</p>
+    </div>
+    <div class="tile">
+        <img src="assets/hdd.png" alt="HDD Mods">
+        <h3>HDD & Softmods</h3>
+        <p>Drive installs, OPL setup, homebrew ready.</p>
+    </div>
+    <div class="tile">
+        <img src="assets/cosmetic.png" alt="Cosmetic">
+        <h3>Cosmetic Restoration</h3>
+        <p>Polishing, detailing, label restoration, deep-clean.</p>
+    </div>
+    <div class="tile">
+        <img src="assets/repair.png" alt="Repair">
+        <h3>Diagnostics & Repair</h3>
+        <p>PSU, laser fixes, fan upgrades, overheating solutions.</p>
+    </div>
+</section>
+
+<!-- Trust / Promo Info -->
+<div class="info-block">
+    <h3>Why Buy From Us?</h3>
+    <p>All consoles come with a 6-month warranty, professional refurbishment, and optional mods. Eco-friendly, reliable, and fully tested for hours of gaming nostalgia.</p>
+</div>
+
+<div class="info-block">
+    <h3>Trade-In & Rare Editions</h3>
+    <p>Trade in your old consoles for discounts or grab rare PS editions. Limited stock — act fast!</p>
+</div>
 
 <!-- Footer -->
 <footer>
     <p>© 2025 Retro Replay — PlayStation Division</p>
     <p>
         <a href="index.html">Home</a> •
-        <a href="history.html">History</a> •
-        <a href="buying-guide.html">Buying Guide</a> •
-        <a href="mods-upgrades.html">Mods & Upgrades</a> •
+        <a href="products.html">Products & Services</a> •
+        <a href="guides.html">Guides & Info</a> •
         <a href="contact.html">Contact</a>
     </p>
 </footer>
 
+<!-- Particle Script -->
 <script>
-// Particle System for Hero
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = document.querySelector('.hero').offsetHeight;
+let particlesArray=[];
+class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedX=(Math.random()-0.5)*0.5;this.speedY=(Math.random()-0.5)*0.5;}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvas.width)this.speedX*=-1;if(this.y<0||this.y>canvas.height)this.speedY*=-1;}draw(){ctx.fillStyle='rgba(109,184,255,0.5)';ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}
+function initParticles(){particlesArray=[];for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
+function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+initParticles();animateParticles();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=document.querySelector('.hero').offsetHeight;initParticles();});
 
-const colors = ['#0060ff','#ff0055','#00ff99','#ffd700']; // PlayStation colors: Blue, Pink, Green, Yellow
-
-let particlesArray = [];
-class Particle {
-    constructor(){
-        this.x = Math.random()*canvas.width;
-        this.y = Math.random()*canvas.height;
-        this.size = Math.random()*2 + 1;
-        this.color = colors[Math.floor(Math.random()*colors.length)];
-        this.speedX = (Math.random()-0.5)*0.5;
-        this.speedY = (Math.random()-0.5)*0.5;
-    }
-    update(){
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if(this.x < 0 || this.x > canvas.width) this.speedX*=-1;
-        if(this.y < 0 || this.y > canvas.height) this.speedY*=-1;
-    }
-    draw(){
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-        ctx.fill();
-    }
-}
-
-function initParticles(){
-    particlesArray = [];
-    for(let i=0;i<120;i++){ particlesArray.push(new Particle()); }
-}
-function animateParticles(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    particlesArray.forEach(p=>{ p.update(); p.draw(); });
-    requestAnimationFrame(animateParticles);
-}
-initParticles();
-animateParticles();
-
-window.addEventListener('resize',()=>{
-    canvas.width = window.innerWidth;
-    canvas.height = document.querySelector('.hero').offsetHeight;
-    initParticles();
-});
+// Scroll Reveal
+const tiles = document.querySelectorAll('.tile');
+function revealOnScroll(){const triggerBottom = window.innerHeight*0.85;tiles.forEach(tile=>{if(tile.getBoundingClientRect().top<triggerBottom){tile.classList.add('visible');}});}
+window.addEventListener('scroll',revealOnScroll);
+revealOnScroll();
 </script>
 
 </body>

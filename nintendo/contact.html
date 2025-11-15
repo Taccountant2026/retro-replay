@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nintendo Contact — Retro Replay</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+body { margin:0; font-family:'Orbitron',sans-serif; background:#1b0a0a; color:#fff;}
+nav { background:#0a0a0a; padding:16px; text-align:center; }
+nav a { color:#ff3333; margin:0 10px; text-decoration:none; font-weight:700;}
+nav a:hover { color:#ff6666; }
+header { text-align:center; padding:50px 20px; }
+h1 { color:#ff3333; margin-bottom:10px; }
+.section { padding:40px 10%; max-width:800px; margin:0 auto; }
+form { display:flex; flex-direction:column; gap:15px; }
+input, textarea { padding:12px; border-radius:8px; border:1px solid #3a3f4a; background:#111; color:#fff; font-family:'Orbitron',sans-serif; }
+input[type="submit"] { background:#ff3333; color:#111; font-weight:700; cursor:pointer; transition:0.3s; border:none; }
+input[type="submit"]:hover { background:#ff6666; }
+footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0; }
+footer a { color:#ff3333; margin:0 8px; text-decoration:none; }
+footer a:hover { color:#ff6666; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Nintendo Home</a>
+  <a href="products.html">Products</a>
+  <a href="guides.html">Guides</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<header>
+  <h1>Contact Nintendo Division</h1>
+  <p>Questions or support requests? Reach out to us today.</p>
+</header>
+
+<section class="section">
+  <form action="#" method="post">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="text" name="subject" placeholder="Subject" required>
+    <textarea name="message" placeholder="Your Message..." rows="6" required></textarea>
+    <input type="submit" value="Send Message">
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Retro Replay — Nintendo Division</p>
+  <p>
+    <a href="index.html">Nintendo Home</a> •
+    <a href="products.html">Products</a> •
+    <a href="guides.html">Guides</a> •
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>

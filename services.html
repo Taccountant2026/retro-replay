@@ -5,18 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services — Retro Replay</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 <style>
+/* --- Base Styles --- */
 body {
     margin:0;
     font-family:'Orbitron', sans-serif;
     background:#0a0a0a;
     color:white;
-    scroll-behavior: smooth;
+    scroll-behavior:smooth;
+    overflow-x:hidden;
 }
 a { text-decoration:none; color:inherit; }
 
-/* --- Header --- */
+/* --- Sticky Header --- */
 header {
     position:sticky;
     top:0;
@@ -25,17 +26,26 @@ header {
     display:flex;
     justify-content:space-between;
     align-items:center;
-    flex-wrap:wrap;
     padding:15px 10%;
     border-bottom:2px solid #1f1f1f;
     backdrop-filter: blur(5px);
 }
 header img.logo { height:60px; }
-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
-nav a { margin:5px 10px; font-weight:bold; color:#6db8ff; transition:0.2s; }
-nav a:hover, nav a.active { color:#ffffff; }
+nav {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+}
+nav a {
+    margin:5px 10px;
+    font-weight:bold;
+    color:#6db8ff;
+    transition:0.2s;
+}
+nav a:hover { color:#ffffff; }
 
-/* --- Hero --- */
+/* --- Hero Section --- */
 .hero {
     position:relative;
     padding:120px 20px 80px;
@@ -51,33 +61,56 @@ nav a:hover, nav a.active { color:#ffffff; }
     background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
     z-index:0;
 }
-.hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:1; }
-.hero h1 { font-size:3rem; color:#6db8ff; margin-bottom:15px; position:relative; z-index:1; }
-.hero p { font-size:1.3rem; opacity:0.85; margin-bottom:30px; position:relative; z-index:1; }
+.hero img.logo-hero {
+    width:180px;
+    margin-bottom:20px;
+    position:relative;
+    z-index:1;
+}
+.hero h1 {
+    font-size:3rem;
+    color:#6db8ff;
+    margin-bottom:15px;
+    position:relative; z-index:1;
+}
+.hero p {
+    font-size:1.3rem;
+    opacity:0.85;
+    margin-bottom:30px;
+    position:relative; z-index:1;
+}
 .cta-btn {
-    background:#0051ff; color:white; padding:15px 30px; font-size:1.15rem; font-weight:bold;
-    border-radius:12px; border:none; cursor:pointer; transition:0.4s; display:inline-block; position:relative; z-index:1;
+    background:#0051ff;
+    color:white;
+    padding:15px 30px;
+    font-size:1.15rem;
+    font-weight:bold;
+    border-radius:12px;
+    border:none;
+    cursor:pointer;
+    transition:0.4s;
+    display:inline-block;
+    position:relative; z-index:1;
     box-shadow:0 0 10px #0051ff, 0 0 30px #00ffd0;
 }
-.cta-btn:hover { background:#0070ff; transform:scale(1.08); box-shadow:0 0 20px #6db8ff, 0 0 50px #00ffd0; }
+.cta-btn:hover {
+    background:#0070ff;
+    transform:scale(1.08);
+    box-shadow:0 0 20px #6db8ff, 0 0 50px #00ffd0;
+}
 
-/* --- Particle Canvas --- */
-#particle-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
-
-/* --- Sections --- */
-.section { max-width:1200px; margin:0 auto; padding:60px 10%; text-align:center; }
-.section h2 { font-size:2.5rem; margin-bottom:30px; color:#6db8ff; }
-
-/* --- Service Tiles --- */
+/* --- Grid Tiles --- */
 .grid {
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
     gap:25px;
+    padding:40px 10%;
 }
 .tile {
     background:#111;
-    border-radius:20px;
+    border:2px solid #1f1f1f;
     padding:35px 20px;
+    border-radius:20px;
     transition:0.3s, box-shadow 0.4s, transform 0.4s;
     cursor:pointer;
     display:flex;
@@ -85,151 +118,171 @@ nav a:hover, nav a.active { color:#ffffff; }
     align-items:center;
     box-shadow:0 4px 12px rgba(0,0,0,0.4);
     position:relative;
+    animation:float 4s ease-in-out infinite;
     opacity:0;
     transform: translateY(30px);
 }
-.tile.visible { opacity:1; transform:translateY(0); transition:0.6s ease-out; }
+.tile.visible { opacity:1; transform:translateY(0px); transition:0.6s ease-out; }
 .tile img { width:80px; margin-bottom:15px; transition:0.3s; }
-.tile h3 { margin:0 0 10px 0; font-size:1.5rem; color:#6db8ff; }
-.tile p { margin:0; font-size:1rem; opacity:0.85; text-align:center; }
+.tile h3 { margin:0 0 10px 0; font-size:1.5rem; color:#6db8ff; text-align:center; }
+.tile p { margin:0; font-size:1rem; opacity:0.8; text-align:center; }
 .tile:hover { background:#0051ff; transform:scale(1.08); box-shadow:0 0 15px #00ffd0, 0 0 40px #6db8ff; }
 .tile:hover img { transform:rotate(-10deg) scale(1.1); }
+@keyframes float { 0%,100%{transform: translateY(0px);} 50%{transform: translateY(-5px);} }
+
+/* --- Section Titles --- */
+.section-title { font-size:2rem; margin-bottom:1.5rem; text-align:center; color:#6db8ff; }
 
 /* --- Pricing Table --- */
-.pricing-table { width:100%; border-collapse:collapse; margin-top:2rem; }
-.pricing-table th, .pricing-table td { border:1px solid #3a3f4a; padding:0.8rem; text-align:left; }
-.pricing-table th { background:#181b23; }
-.pricing-table tr:hover { background:rgba(109,184,255,0.1); }
+.pricing-table {
+    width:100%;
+    border-collapse:collapse;
+    margin-top:1.5rem;
+}
+.pricing-table th, .pricing-table td {
+    border:1px solid #3a3f4a;
+    padding:0.8rem;
+    text-align:left;
+}
+.pricing-table th {
+    background:#111;
+    color:#6db8ff;
+}
 
 /* --- Footer --- */
-footer { background:#0b0f18; padding:40px 10%; margin-top:60px; font-size:0.9rem; color:#9fbbe0; text-align:center; }
+footer {
+    background:#0b0f18;
+    padding:40px 10%;
+    margin-top:60px;
+    font-size:0.9rem;
+    color:#9fbbe0;
+    text-align:center;
+}
 footer a { color:#6db8ff; margin:0 8px; transition:0.2s; }
 footer a:hover { color:#ffffff; }
 
 /* --- Responsive --- */
 @media screen and (max-width:768px){
-    .hero h1 { font-size:2.2rem; }
-    .hero p { font-size:1rem; }
-    .tile img { width:70px; }
-}
-@media screen and (max-width:480px){
+    header { flex-direction:column; gap:10px; }
     .tile { padding:25px 15px; }
-    .tile img { width:60px; }
-    .tile h3 { font-size:1.2rem; }
+    .tile img { width:60px; margin-bottom:10px; }
+    .tile h3 { font-size:1.3rem; }
     .tile p { font-size:0.9rem; }
+    .section-title { font-size:1.5rem; }
 }
 </style>
 </head>
 <body>
 
+<!-- Header -->
 <header>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="consoles.html">Consoles</a>
-        <a href="services.html" class="active">Services</a>
-        <a href="mods-upgrades.html">Mods & Upgrades</a>
-        <a href="how-we-refurbish.html">How We Refurbish</a>
-        <a href="contact.html">Contact</a>
-        <a href="faq.html">FAQ</a>
+        <a href="index.html">Retro Home</a>
+        <a href="about.html">About RetroReplay</a>
+        <a href="consoles.html">Consoles & Products</a>
+        <a href="services.html">Services We Provide</a>
+        <a href="faq.html">FAQ's</a>
+        <a href="contact.html">Contact Us</a>
     </nav>
 </header>
 
+<!-- Hero -->
 <section class="hero">
-    <canvas id="particle-canvas"></canvas>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo-hero">
     <h1>Our Services</h1>
-    <p>Refurbishment, Repairs, Modifications & Upgrades for Retro Consoles.</p>
-    <a href="#services-grid" class="cta-btn">Explore Services</a>
+    <p>Professional refurbishments, repairs, and modifications for retro consoles.</p>
 </section>
 
-<section class="section" id="services-grid">
-    <h2>Premium Services for Retro Gamers</h2>
-    <div class="grid">
-        <div class="tile">
-            <img src="assets/ps2.png" alt="PS2 Refurb">
-            <h3>🔧 Full PS2 Refurbishment</h3>
-            <p>Deep-clean, polish, laser tune, thermal refresh, and full testing for collectors.</p>
-        </div>
-        <div class="tile">
-            <img src="assets/hdd.png" alt="HDD Mod">
-            <h3>💽 HDD & OPL Setup</h3>
-            <p>Install SATA adapters, format HDD, configure OPL for instant gameplay.</p>
-        </div>
-        <div class="tile">
-            <img src="assets/cosmetic.png" alt="Cosmetic">
-            <h3>✨ Cosmetic Restoration</h3>
-            <p>Plastic cleaning, label refresh, color correction, and optional custom detailing.</p>
-        </div>
-        <div class="tile">
-            <img src="assets/repair.png" alt="Repair">
-            <h3>🛠 Diagnostics & Repair</h3>
-            <p>Laser replacement, disc read issues, PSU, fan repairs, overheating solutions, and more.</p>
-        </div>
-        <div class="tile">
-            <img src="assets/mod.png" alt="Mods">
-            <h3>⚡ Modifications & Upgrades</h3>
-            <p>Hardware mods, performance upgrades, homebrew installations, and memory expansions.</p>
-        </div>
+<!-- Services Tiles -->
+<section class="grid">
+    <div class="tile">
+        <img src="assets/refurbish.png" alt="Full Refurbishment">
+        <h3>🔧 Full Console Refurbishment</h3>
+        <p>Deep-clean, laser tune, thermal refresh, and full testing for premium restoration.</p>
     </div>
+    <div class="tile">
+        <img src="assets/hdd.png" alt="HDD Mod">
+        <h3>💽 HDD Mod & OPL Setup</h3>
+        <p>Install SATA adapter, format drives, and configure OPL for instant game loading.</p>
+    </div>
+    <div class="tile">
+        <img src="assets/cosmetic.png" alt="Cosmetic Restoration">
+        <h3>✨ Cosmetic Restoration</h3>
+        <p>Plastic polish, label refresh, deep cleaning, and optional custom detailing.</p>
+    </div>
+    <div class="tile">
+        <img src="assets/repair.png" alt="Diagnostics & Repair">
+        <h3>🛠 Diagnostics & Repair</h3>
+        <p>Laser replacements, disc read fixes, overheating solutions, PSU & fan repairs.</p>
+    </div>
+</section>
 
-    <h2 style="margin-top:3rem;">Pricing Guide</h2>
+<!-- Pricing Table -->
+<section class="section">
+    <h2 class="section-title">Pricing Guide</h2>
     <table class="pricing-table">
         <tr><th>Service</th><th>Price</th></tr>
         <tr><td>Full Refurbishment</td><td>£350–£500</td></tr>
-        <tr><td>HDD Mod & OPL Setup</td><td>£80–£200</td></tr>
+        <tr><td>HDD Mod (Inc. Setup)</td><td>£80–£200</td></tr>
         <tr><td>SATA Network Adapter Install</td><td>£35</td></tr>
         <tr><td>Laser Replacement</td><td>£80–£100</td></tr>
         <tr><td>General Diagnostics</td><td>£25</td></tr>
-        <tr><td>Custom Cosmetic Detailing</td><td>£50–£120</td></tr>
     </table>
-
-    <a href="mailto:retroreplay2026@gmail.com" class="cta-btn" style="margin-top:30px;">Book a Service</a>
 </section>
 
+<!-- Why Choose Retro Replay -->
+<section class="grid">
+    <div class="tile">
+        <img src="assets/warranty.png" alt="Warranty">
+        <h3>🛡 Warranties & Peace of Mind</h3>
+        <p>All consoles come with a warranty to ensure reliable performance and playability.</p>
+    </div>
+    <div class="tile">
+        <img src="assets/returns.png" alt="Returns">
+        <h3>↩ Easy Returns & Support</h3>
+        <p>Hassle-free returns and support if your console isn’t perfect.</p>
+    </div>
+    <div class="tile">
+        <img src="assets/packaging.png" alt="Packaging">
+        <h3>📦 Secure Packaging</h3>
+        <p>Carefully packaged to protect your console during shipping.</p>
+    </div>
+    <div class="tile">
+        <img src="assets/delivery.png" alt="Delivery">
+        <h3>🚚 Fast & Reliable Delivery</h3>
+        <p>Trusted couriers with tracking ensure safe, on-time delivery.</p>
+    </div>
+    <div class="tile">
+        <img src="assets/services.png" alt="Service Expertise">
+        <h3>🔧 Full Service Expertise</h3>
+        <p>From repairs to mods and cosmetic upgrades, our team handles it all.</p>
+    </div>
+</section>
+
+<!-- Footer -->
 <footer>
     <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
-    <p><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="faq.html">FAQ</a></p>
+    <p>
+        <a href="index.html">Retro Home</a> |
+        <a href="about.html">About RetroReplay</a> |
+        <a href="consoles.html">Consoles & Products</a> |
+        <a href="services.html">Services We Provide</a> |
+        <a href="faq.html">FAQ's</a> |
+        <a href="contact.html">Contact Us</a>
+    </p>
 </footer>
 
+<!-- Scroll Reveal -->
 <script>
-// --- Particle System ---
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-let particlesArray=[];
-class Particle{
-    constructor(){
-        this.x=Math.random()*canvas.width;
-        this.y=Math.random()*canvas.height;
-        this.size=Math.random()*2+1;
-        this.speedX=(Math.random()-0.5)*0.5;
-        this.speedY=(Math.random()-0.5)*0.5;
-    }
-    update(){
-        this.x+=this.speedX; this.y+=this.speedY;
-        if(this.x<0||this.x>canvas.width)this.speedX*=-1;
-        if(this.y<0||this.y>canvas.height)this.speedY*=-1;
-    }
-    draw(){
-        ctx.fillStyle='rgba(109,184,255,0.5)';
-        ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill();
-    }
-}
-function initParticles(){particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
-function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animateParticles);}
-initParticles(); animateParticles();
-window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; initParticles();});
-
-// Scroll Reveal Tiles
 const tiles = document.querySelectorAll('.tile');
 const revealOnScroll = () => {
     const triggerBottom = window.innerHeight * 0.85;
     tiles.forEach(tile=>{
         const tileTop = tile.getBoundingClientRect().top;
-        if(tileTop < triggerBottom){ tile.classList.add('visible'); }
+        if(tileTop < triggerBottom){
+            tile.classList.add('visible');
+        }
     });
 };
 window.addEventListener('scroll', revealOnScroll);

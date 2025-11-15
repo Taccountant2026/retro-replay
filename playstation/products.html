@@ -2,257 +2,68 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retro Replay — Products</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
-<link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#181b23;
-  --panel:#22262f;
-  --muted:#e3e7ed;
-  --accent:#6db8ff;
-  --panel-2:#2a2f3a;
-  --card-border:#1463ff;
-}
-html,body{height:100%; margin:0; padding:0;}
-body{
-  font-family:'Orbitron',sans-serif;
-  background:var(--bg);
-  color:var(--muted);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-.wrap{ max-width:1200px; margin:0 auto; padding:2rem; position:relative; z-index:1; }
-header{
-  display:flex; justify-content:space-between; align-items:center;
-  flex-wrap: wrap; margin-bottom:2rem;
-}
-.logo{ height:120px; width:auto; z-index:2; }
-nav{ display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; z-index:2; }
-nav a{ color:var(--accent); text-decoration:none; font-weight:bold; transition:0.15s; }
-nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
-.section-title{ font-size:2rem; margin-bottom:1rem; color:var(--accent); text-align:center; }
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:1.5rem;
-  margin-bottom:2rem;
-}
-.product-card{
-  background:var(--panel);
-  padding:1rem;
-  border-radius:8px;
-  text-align:center;
-  display:flex; flex-direction:column;
-  border:1px solid rgba(255,255,255,0.02);
-}
-.product-card img{ max-width:100%; margin-bottom:0.5rem; border-radius:4px; }
-.product-card .name{ font-weight:600; margin-bottom:0.3rem; color:var(--muted); }
-.product-card .price{ font-size:1.2rem; font-weight:bold; margin-bottom:0.5rem; color:#fff; }
-.product-card p{ font-size:0.95rem; line-height:1.4; color:#cbd3dd; }
-.product-actions{
-  margin-top:auto;
-  display:flex;
-  gap:8px;
-  justify-content:center;
-  flex-wrap:wrap;
-  padding-top:10px;
-}
-.btn{
-  display:inline-block;
-  background:var(--panel-2);
-  color:var(--muted);
-  padding:0.6rem 0.9rem;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-  border:1px solid rgba(255,255,255,0.03);
-  cursor:pointer;
-}
-.btn.alt{ background:transparent; color:var(--accent); border:1px solid rgba(109,184,255,0.14); }
-.btn.small{ padding:0.4rem 0.6rem; font-size:0.95rem; }
-.modal{
-  position:fixed; left:0; top:0; right:0; bottom:0;
-  background: rgba(0,0,0,0.6);
-  display:none; align-items:center; justify-content:center; z-index:9999;
-  padding:20px;
-}
-.modal.active{ display:flex; }
-.modal-panel{
-  width:100%; max-width:760px;
-  background: linear-gradient(180deg, rgba(34,38,47,0.98), rgba(20,24,31,0.98));
-  padding:20px;
-  border-radius:10px;
-  border:1px solid rgba(109,184,255,0.06);
-}
-.modal-panel h3{ color:var(--accent); margin-top:0; }
-.upgrade-list{ display:flex; flex-direction:column; gap:10px; margin:10px 0 18px; }
-.upgrade-item{ display:flex; justify-content:space-between; align-items:center; padding:10px; border-radius:8px; background: rgba(255,255,255,0.02); }
-.upgrade-item label{ cursor:pointer; }
-.upgrade-actions{ display:flex; gap:10px; justify-content:flex-end; }
-
-/* Footer */
-footer{
-  background:var(--panel); 
-  padding:2rem 1rem; 
-  margin-top:2rem; 
-  border-top:1px solid rgba(255,255,255,0.05);
-}
-footer div{ max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;}
-footer h4{ color:var(--accent); margin-bottom:1rem; }
-footer a{ color:var(--accent); text-decoration:none; margin-right:1rem; margin-bottom:0.5rem; display:inline-block; }
-footer p{ color:#cbd3dd; font-size:0.85rem; margin-top:1rem; text-align:center; width:100%; }
+body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed;}
+nav { background:#0a0a0a; padding:16px; text-align:center; }
+nav a { color:#6db8ff; margin:0 10px; text-decoration:none; font-weight:700;}
+nav a:hover { color:#8ec5ff; }
+header { text-align:center; padding:60px 20px; }
+h1 { color:#6db8ff; margin-bottom:10px; }
+.hero-sub { font-size:1.2rem; opacity:0.8; }
+.section { padding:40px 10%; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px;}
+.product-card { background:#22262f; padding:20px; border-radius:10px; text-align:center; }
+.product-card img { max-width:100%; border-radius:6px; margin-bottom:12px;}
+footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0;}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <!-- Header -->
-  <header>
-    <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="history.html">PS2 History</a>
-      <a href="buying-guide.html">Buying Guide</a>
-      <a href="products.html" class="active">Products</a>
-      <a href="mods-upgrades.html">Mods & Upgrades</a>
-      <a href="how-we-refurbish.html">How We Refurbish</a>
-      <a href="trade-in.html">Trade-In</a>
-      <a href="delivery.html">Shipping & Delivery</a>
-      <a href="warranties.html">Warranties</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-      <a href="checkout.html">Checkout</a>
-    </nav>
-  </header>
 
-  <h2 class="section-title">Our Full Catalog</h2>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="buying-guide.html">Buying Guide</a>
+    <a href="mods-upgrades.html">Mods & Upgrades</a>
+    <a href="how-we-refurbish.html">Refurb Process</a>
+    <a href="trade-in.html">Trade-In</a>
+    <a href="delivery.html">Shipping</a>
+    <a href="warranties.html">Warranties</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="products.html">Products</a>
+    <a href="products/ps1.html">PS1</a>
+    <a href="products/ps2.html">PS2</a>
+    <a href="products/ps3.html">PS3</a>
+</nav>
 
-  <section class="product-grid" aria-label="Products">
-    <!-- Product cards (example, add more as needed) -->
-    <div class="product-card" data-base="150" data-name="Refurbished PS2 Fat">
-      <img src="assets/PS2_REFURBED_BUNDLE.jpg" alt="Refurbished PS2 Fat">
-      <div class="name">Refurbished PS2 Fat</div>
-      <div class="price">£150</div>
-      <p>Fully refurbished PS2 Fat console, cleaned, tested, cosmetically restored.</p>
-      <div class="product-actions">
-        <button class="btn" onclick="addBaseProductToBasket('Refurbished PS2 Fat',150)">Add to Basket</button>
-        <button class="btn alt" onclick="openUpgradeModal(this)">Choose Upgrades</button>
-      </div>
+<header>
+    <h1>Products</h1>
+    <div class="hero-sub">Browse all PlayStation consoles and bundles</div>
+</header>
+
+<div class="section">
+    <div class="product-card">
+        <img src="products/ps1.jpg" alt="PS1 Console">
+        <h3>PlayStation 1</h3>
+        <p>Refurbished PS1 consoles with tested hardware and optional bundles.</p>
     </div>
-    <!-- Add other product cards here, same format -->
-  </section>
+    <div class="product-card">
+        <img src="products/ps2.jpg" alt="PS2 Console">
+        <h3>PlayStation 2</h3>
+        <p>Fully refurbished PS2 consoles with optional softmods and HDD packages.</p>
+    </div>
+    <div class="product-card">
+        <img src="products/ps3.jpg" alt="PS3 Console">
+        <h3>PlayStation 3</h3>
+        <p>Refurbished PS3 units, tested and ready for gaming or media playback.</p>
+    </div>
 </div>
 
-<!-- Upgrade Modal -->
-<div id="upgradeModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="upgradeTitle">
-  <div class="modal-panel" role="document">
-    <h3 id="upgradeTitle">Upgrade Options</h3>
-    <p id="upgradeProduct" style="color:#cfe8ff;margin-bottom:8px;">Select upgrades for: <strong></strong></p>
-    <div class="upgrade-list">
-      <div class="upgrade-item">
-        <label><input type="checkbox" name="upgrade" value="refurb" data-price="25"><strong>Refurbishment</strong> — +£25</label>
-      </div>
-      <div class="upgrade-item">
-        <label><input type="checkbox" name="upgrade" value="hdmi" data-price="18"><strong>HDMI Upgrade</strong> — +£18</label>
-      </div>
-      <div class="upgrade-item">
-        <label><input type="checkbox" name="upgrade" value="softmod" data-price="15"><strong>Softmod (FMCB)</strong> — +£15</label>
-      </div>
-      <div class="upgrade-item">
-        <label><input type="checkbox" name="upgrade" value="premium" data-price="55"><strong>Premium Bundle</strong> — +£55</label>
-      </div>
-    </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;">
-      <div style="color:#cbd3dd;">Total: £<span id="upgradeTotal">0</span></div>
-      <div class="upgrade-actions">
-        <button class="btn small alt" onclick="closeUpgradeModal()">Cancel</button>
-        <button class="btn small" id="applyUpgradesBtn">Add to Basket</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-let currentBasePrice = 0;
-let currentProductName = '';
-
-function openUpgradeModal(btn){
-  const card = btn.closest('.product-card');
-  currentBasePrice = Number(card.dataset.base);
-  currentProductName = card.dataset.name;
-  document.getElementById('upgradeProduct').querySelector('strong').textContent = currentProductName + ' — base £' + currentBasePrice;
-  document.querySelectorAll('#upgradeModal input[name="upgrade"]').forEach(ch=>ch.checked=false);
-  updateUpgradeTotal();
-  document.getElementById('upgradeModal').classList.add('active');
-}
-
-function closeUpgradeModal(){ 
-  document.getElementById('upgradeModal').classList.remove('active'); 
-}
-
-function updateUpgradeTotal(){
-  const checked = Array.from(document.querySelectorAll('#upgradeModal input[name="upgrade"]:checked'));
-  const add = checked.reduce((sum, el)=>sum+Number(el.dataset.price||0),0);
-  document.getElementById('upgradeTotal').textContent=(currentBasePrice+add).toFixed(0);
-}
-
-document.addEventListener('change', function(e){ 
-  if(e.target.name==='upgrade'){ updateUpgradeTotal(); } 
-});
-document.getElementById('upgradeModal').addEventListener('click', function(e){ 
-  if(e.target===this) closeUpgradeModal(); 
-});
-
-document.getElementById('applyUpgradesBtn').addEventListener('click', function(){
-  const checked = Array.from(document.querySelectorAll('#upgradeModal input[name="upgrade"]:checked'));
-  const upgrades = checked.map(ch=>({id: ch.value, price: Number(ch.dataset.price)}));
-  const total = Number(document.getElementById('upgradeTotal').textContent);
-  const order = encodeURIComponent(JSON.stringify({
-    product: currentProductName,
-    base: currentBasePrice,
-    upgrades,
-    total
-  }));
-  window.location.href = `checkout.html?order=${order}`;
-});
-
-function addBaseProductToBasket(name, basePrice){
-  const order = encodeURIComponent(JSON.stringify({
-    product: name,
-    base: basePrice,
-    upgrades: [],
-    total: basePrice
-  }));
-  window.location.href = `checkout.html?order=${order}`;
-}
-</script>
-
-<!-- Footer -->
 <footer>
-  <div>
-    <div>
-      <h4>Retro Replay</h4>
-      <p>Specialist in refurbished and upgraded PlayStation 2 consoles. Cleaned, tested & shipped with care.</p>
-    </div>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="history.html">PS2 History</a>
-      <a href="buying-guide.html">Buying Guide</a>
-      <a href="products.html">Products</a>
-      <a href="mods-upgrades.html">Mods & Upgrades</a>
-      <a href="how-we-refurbish.html">How We Refurbish</a>
-      <a href="trade-in.html">Trade-In</a>
-      <a href="delivery.html">Shipping & Delivery</a>
-      <a href="warranties.html">Warranties</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-      <a href="checkout.html">Checkout</a>
-    </div>
-  </div>
-  <p>© Retro Replay — Featuring PlayStation 2 • Not affiliated with Sony</p>
+    <p>© 2025 Retro Replay — PlayStation Division</p>
 </footer>
+
 </body>
 </html>

@@ -109,7 +109,7 @@ nav a:hover { color:#ffffff; }
     pointer-events:none;
 }
 
-/* --- About Sections --- */
+/* --- Sections --- */
 .section {
     max-width:1200px;
     margin:0 auto;
@@ -128,24 +128,17 @@ nav a:hover { color:#ffffff; }
     opacity:0.9;
 }
 
-/* --- Story & Craftsmanship Section --- */
-.founder-bio {
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    justify-content:center;
-    gap:30px;
-    margin-top:30px;
-    position:relative;
-}
-.founder-bio img {
-    max-width:400px;
+/* --- Info Sections --- */
+.info-box {
+    background:#111;
+    margin:40px 0;
+    padding:30px;
     border-radius:15px;
-    box-shadow:0 0 30px #0051ff,0 0 60px #00ffd0;
+    box-shadow:0 0 15px rgba(0,255,208,0.2);
+    text-align:left;
 }
-.bio-text { max-width:600px; text-align:left; }
-.bio-text h3 { font-size:1.8rem; margin-bottom:15px; color:#00ffd0; }
-.bio-text p { font-size:1.05rem; line-height:1.5; }
+.info-box h3 { color:#00ffd0; margin-bottom:15px; }
+.info-box p { font-size:1.05rem; line-height:1.5; opacity:0.9; }
 
 /* --- Grid Tiles --- */
 .grid {
@@ -191,8 +184,8 @@ footer a:hover { color:#ffffff; }
 
 /* --- Responsive --- */
 @media screen and (max-width:768px) {
-    .founder-bio { flex-direction:column; }
-    .bio-text { text-align:center; }
+    .info-box { text-align:center; }
+    .tile img { width:70px; }
 }
 @media screen and (max-width:480px) {
     .hero h1 { font-size:2rem; }
@@ -225,22 +218,42 @@ footer a:hover { color:#ffffff; }
     <canvas id="particle-canvas"></canvas>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo-hero">
     <h1>About Retro Replay</h1>
-    <p>Our mission is to restore classic consoles and elevate your retro gaming experience.</p>
+    <p>Restoring classic consoles, providing expert modifications, and delivering exceptional service for retro gamers.</p>
     <a href="#our-story" class="cta-btn">Discover Our Craft</a>
 </section>
 
-<!-- Story & Craftsmanship -->
+<!-- Our Story -->
 <section class="section" id="our-story">
     <h2>Our Story & Craftsmanship</h2>
     <div class="founder-bio">
         <img src="assets/console-restored.jpg" alt="Restored Console">
         <div class="bio-text">
             <h3>Reviving Classics with Care</h3>
-            <p>At <strong>Retro Replay</strong>, we take pride in bringing retro consoles back to life. Every system is meticulously cleaned, repaired, and tested to ensure optimal performance.</p>
-            <p>We combine professional refurbishment techniques with modern modifications, offering HDD setups, homebrew support, and media playback. Our consoles are designed for nostalgia and reliability.</p>
-            <p>From PlayStation to Nintendo and beyond, our goal is to preserve gaming history while giving players a smooth, enjoyable experience.</p>
+            <p>At <strong>Retro Replay</strong>, every console is cleaned, repaired, and tested to ensure peak performance. Our team specializes in professional refurbishments, HDD setups, homebrew support, and optional modifications to enhance your gaming experience.</p>
+            <p>We preserve gaming history while delivering nostalgia, reliability, and modern convenience for your retro systems.</p>
         </div>
     </div>
+</section>
+
+<!-- Warranties & Returns -->
+<section class="info-box">
+    <h3>Warranties & Returns</h3>
+    <p>All our refurbished consoles come with a full warranty to guarantee quality and peace of mind. If a console arrives with any defect, we provide easy returns and replacements within the warranty period.</p>
+    <p>Our customer-first approach ensures that every order meets expectations and arrives in perfect working condition.</p>
+</section>
+
+<!-- Packaging & Delivery -->
+<section class="info-box">
+    <h3>Packaging & Delivery</h3>
+    <p>Every console is carefully packaged to prevent damage during transit. We use sturdy boxes, protective foam, and secure wrapping to ensure safe delivery.</p>
+    <p>We offer fast, reliable, and trackable shipping. International and domestic orders are handled with the same care and attention to detail.</p>
+</section>
+
+<!-- Promoting Services -->
+<section class="info-box">
+    <h3>Repairs, Modifications & Upgrades</h3>
+    <p>Beyond refurbishing, we provide professional repair services for malfunctioning systems, hardware modifications, and performance upgrades. This includes HDD installs, memory expansions, cosmetic restoration, and homebrew installations.</p>
+    <p>Learn more about our services and all the modifications we offer on the <a href="services.html" style="color:#00ffd0; font-weight:bold;">Services page</a>.</p>
 </section>
 
 <!-- Showcase Tiles -->
@@ -301,7 +314,7 @@ footer a:hover { color:#ffffff; }
 
 <!-- Particle Script + Scroll Reveal -->
 <script>
-// --- Particle System ---
+// Particle System
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -329,11 +342,11 @@ class Particle{
     }
 }
 function initParticles(){particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
-function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animateParticles);}
 initParticles(); animateParticles();
 window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; initParticles();});
 
-// --- Scroll Reveal for Tiles ---
+// Scroll Reveal for Tiles
 const tiles = document.querySelectorAll('.tile');
 const revealOnScroll = () => {
     const triggerBottom = window.innerHeight * 0.85;

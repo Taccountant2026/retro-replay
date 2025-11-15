@@ -7,46 +7,55 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-/* --- Base Styles --- */
+/* ---------- GLOBAL ---------- */
 body {
     margin:0;
     font-family:'Orbitron', sans-serif;
-    background:#0a0a0a;
-    color:white;
+    background:#0c0f17;
+    color:#e3e7ed;
     scroll-behavior:smooth;
     overflow-x:hidden;
     position:relative;
 }
 
-/* --- Blue Neon Particle Background --- */
-.bg-dots {
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    z-index:-1;
-    pointer-events:none;
+/* ---------- FLOATING NEON PARTICLES ---------- */
+.particles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.dot {
-    position:absolute;
-    width:4px;
-    height:4px;
-    background:#6db8ff;
-    border-radius:50%;
-    opacity:0.2;
-    animation: float 6s infinite ease-in-out;
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #6db8ff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #6db8ff;
+    opacity: 0.7;
+    animation: floatParticle linear infinite;
+    filter: blur(1px);
 }
 
-@keyframes float {
-    0% { transform:translateY(0) scale(1); opacity:0.15; }
-    50% { transform:translateY(-20px) scale(1.3); opacity:0.4; }
-    100% { transform:translateY(0) scale(1); opacity:0.2; }
+@keyframes floatParticle {
+    from {
+        transform: translateY(110vh) translateX(0);
+        opacity: 0.2;
+    }
+    to {
+        transform: translateY(-10vh) translateX(20px);
+        opacity: 0.8;
+    }
 }
 
-/* --- Sticky Header --- */
+/* Random variations */
+.particle:nth-child(odd) { animation-duration: 16s; width: 6px; height: 6px; opacity: 0.5; }
+.particle:nth-child(even){ animation-duration: 22s; width: 10px; height: 10px; opacity: 0.8; }
+.particle:nth-child(3n){ animation-duration: 28s; width: 7px; height: 7px; opacity: 0.6; }
+
+/* ---------- HEADER ---------- */
 header {
     position:sticky;
     top:0;
@@ -75,24 +84,14 @@ nav a {
 }
 nav a:hover { color:#ffffff; }
 
-/* --- Hero Section --- */
+/* ---------- HERO ---------- */
 .hero {
     position:relative;
     padding:120px 20px 80px;
     text-align:center;
     background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
     overflow:hidden;
-}
-
-.hero::before {
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
-    z-index:0;
+    z-index:1;
 }
 
 .hero img.logo-hero {
@@ -134,12 +133,14 @@ nav a:hover { color:#ffffff; }
     box-shadow:0 0 20px #6db8ff, 0 0 40px #00ffd0;
 }
 
-/* --- Grid Tiles --- */
+/* ---------- GRID TILES ---------- */
 .grid {
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
     gap:25px;
     padding:40px 10%;
+    position:relative;
+    z-index:1;
 }
 
 .tile {
@@ -152,7 +153,6 @@ nav a:hover { color:#ffffff; }
     display:flex;
     flex-direction:column;
     align-items:center;
-    position:relative;
     opacity:0;
     transform: translateY(30px);
 }
@@ -169,7 +169,7 @@ nav a:hover { color:#ffffff; }
 }
 .tile:hover img { transform:scale(1.1); }
 
-/* --- Pricing Table --- */
+/* ---------- PRICING ---------- */
 .section-title {
     font-size:2rem;
     text-align:center;
@@ -191,7 +191,7 @@ nav a:hover { color:#ffffff; }
     color:#6db8ff;
 }
 
-/* --- Footer --- */
+/* ---------- FOOTER ---------- */
 footer {
     background:#0b0f18;
     padding:40px 10%;
@@ -199,11 +199,13 @@ footer {
     font-size:0.9rem;
     color:#9fbbe0;
     text-align:center;
+    position:relative;
+    z-index:1;
 }
 footer a { color:#6db8ff; }
 footer a:hover { color:#ffffff; }
 
-/* --- Responsive --- */
+/* ---------- RESPONSIVE ---------- */
 @media screen and (max-width:768px){
     header { flex-direction:column; }
 }
@@ -212,21 +214,20 @@ footer a:hover { color:#ffffff; }
 
 <body>
 
-<!-- 🔵 Animated Blue Neon Dots -->
-<div class="bg-dots" id="bg-dots"></div>
-
-<script>
-// Auto-generate background dots (50 total)
-const dotsContainer = document.getElementById("bg-dots");
-for (let i = 0; i < 50; i++) {
-    const dot = document.createElement("div");
-    dot.classList.add("dot");
-    dot.style.top = Math.random() * 100 + "%";
-    dot.style.left = Math.random() * 100 + "%";
-    dot.style.animationDuration = (4 + Math.random() * 6) + "s";
-    dotsContainer.appendChild(dot);
-}
-</script>
+<!-- 🔵 Floating Neon Particles -->
+<div class="particles">
+    <div class="particle" style="left:5%; animation-delay:0s;"></div>
+    <div class="particle" style="left:12%; animation-delay:2s;"></div>
+    <div class="particle" style="left:20%; animation-delay:4s;"></div>
+    <div class="particle" style="left:30%; animation-delay:1s;"></div>
+    <div class="particle" style="left:38%; animation-delay:3s;"></div>
+    <div class="particle" style="left:45%; animation-delay:5s;"></div>
+    <div class="particle" style="left:55%; animation-delay:2s;"></div>
+    <div class="particle" style="left:63%; animation-delay:4s;"></div>
+    <div class="particle" style="left:72%; animation-delay:6s;"></div>
+    <div class="particle" style="left:82%; animation-delay:1s;"></div>
+    <div class="particle" style="left:90%; animation-delay:3s;"></div>
+</div>
 
 <!-- Header -->
 <header>
@@ -309,6 +310,7 @@ for (let i = 0; i < 50; i++) {
     </div>
 </section>
 
+<!-- Footer -->
 <footer>
     <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
     <p>
@@ -322,7 +324,7 @@ for (let i = 0; i < 50; i++) {
 </footer>
 
 <script>
-/* Scroll Reveal */
+/* Scroll Reveal Tiles */
 const tiles = document.querySelectorAll('.tile');
 const revealOnScroll = () => {
     const triggerBottom = window.innerHeight * 0.85;

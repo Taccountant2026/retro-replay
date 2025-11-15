@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout — Retro Replay</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+<style>
+  body {
+    font-family:'Orbitron',sans-serif;
+    background:#181b23;
+    color:#e3e7ed;
+    margin:0;
+    padding:0;
+  }
+  .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
+  header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:2rem; }
+  .logo { height:100px; width:auto; }
+  nav { display:flex; flex-wrap:wrap; gap:1rem; }
+  nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
+  nav a:hover, nav a.active { text-decoration:underline; }
+
+  .checkout-section {
+    background:#22262f;
+    padding:2rem;
+    border-radius:10px;
+    margin-bottom:2rem;
+  }
+  h2 { font-size:2rem; margin-bottom:1rem; text-align:center; }
+  .order-summary { margin-bottom:2rem; }
+  .order-summary ul { list-style:none; padding:0; }
+  .order-summary li { margin-bottom:1rem; font-size:1.05rem; display:flex; justify-content:space-between; }
+  .total { font-weight:bold; font-size:1.2rem; border-top:1px solid #6db8ff; padding-top:0.5rem; margin-top:0.5rem; }
+
+  .paypal-button-container { text-align:center; margin-top:2rem; }
+  footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
+
+  @media screen and (max-width:768px){
+    .order-summary li { flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="shipping.html">Shipping</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="checkout-section">
+  <h2>Checkout</h2>
+  <div class="order-summary">
+    <ul>
+      <li>Base PS2 Console <span>£95</span></li>
+      <li>Refurbishment Package <span>+£30</span></li>
+      <li>HDMI Upgrade <span>+£25</span></li>
+      <li>Softmod (FMCB) <span>+£20</span></li>
+      <li class="total">Total <span>£170</span></li>
+    </ul>
+  </div>
+
+  <div class="paypal-button-container" id="paypal-checkout"></div>
+</section>
+
+<footer>
+  <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
+  <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
+</footer>
+
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AYXmDuhylfxtnuRz3E2EzoyXNO0HnxJAXr_DQauHlsoawJjLKel8W17luzhp1_52OlIh9qjJYDggdf8o&currency=GBP"></script>
+<script>
+paypal.Buttons({
+  style:{layout:'vertical',color:'gold',shape:'rect',label:'buynow'},
+  createOrder:(data,actions)=>actions.order.create({
+    purchase_units:[{
+      description:'PS2 Base + Upgrades',
+      amount:{currency_code:'GBP',value:'170'}
+    }]
+  }),
+  onApprove:(data,actions)=>actions.order.capture().then(()=>{window.location.href="checkout-success.html";}),
+  onError:err=>{console.error(err);}
+}).render('#paypal-checkout');
+</script>
+
+</body>
+</html>

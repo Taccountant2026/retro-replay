@@ -17,17 +17,15 @@ body {
     overflow-x:hidden;
 }
 
-/* ---------- NEON BLUE DOT GRID ---------- */
-body::before {
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-        radial-gradient(#6db8ff55 1px, transparent 1px) 0 0 / 35px 35px,
-        radial-gradient(#6db8ff30 1px, transparent 1px) 17px 17px / 35px 35px;
-    opacity:0.35;
-    pointer-events:none;
+/* --- Particle Canvas --- */
+#particle-canvas {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
     z-index:0;
+    pointer-events:none;
 }
 
 /* ---------- NAVIGATION ---------- */

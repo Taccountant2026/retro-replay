@@ -1,131 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FAQ — Retro Replay</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
-<link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retro Replay — FAQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-  body {
-    font-family: 'Orbitron', sans-serif;
-    background:#181b23;
-    color:#e3e7ed;
-    margin:0;
-    padding:0;
-    line-height:1.6;
-  }
-
-  .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
-
-  header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap: wrap;
-    margin-bottom:3rem;
-  }
-
-  .logo { max-height:60px; }
-
-  nav {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:1rem;
-  }
-  nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
-  nav a:hover, nav a.active { text-decoration:underline; }
-
-  .section-box {
-    background:#22262f;
-    padding:2rem;
-    border-radius:10px;
-    margin-bottom:3rem;
-  }
-  .section-title { text-align:center; font-size:2rem; margin-bottom:1.5rem; }
-
-  h3 { color:#6db8ff; margin-bottom:0.5rem; }
-  p { margin-bottom:1rem; }
-
-  a.inline-link { color:#6db8ff; text-decoration:none; }
-  a.inline-link:hover { text-decoration:underline; }
-
-  .ambient {
-    position:fixed;
-    top:0; left:0; width:100%; height:100%;
-    background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
-    pointer-events:none;
-    z-index:0;
-    animation: pulse 5s infinite;
-  }
-  @keyframes pulse { 0%,100%{opacity:0.02;} 50%{opacity:0.04;} }
-
-  @media(max-width:768px){
-    .wrap { padding:1.2rem; }
-    header { flex-direction:column; gap:1rem; }
-    .logo { max-height:50px; }
-    .section-title { font-size:1.5rem; }
-  }
+body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed;}
+nav { background:#0a0a0a; padding:16px; text-align:center; }
+nav a { color:#6db8ff; margin:0 10px; text-decoration:none; font-weight:700;}
+nav a:hover { color:#8ec5ff; }
+header { text-align:center; padding:60px 20px; }
+h1 { color:#6db8ff; margin-bottom:10px; }
+.hero-sub { font-size:1.2rem; opacity:0.8; }
+.section { padding:40px 10%; max-width:1200px; margin:0 auto; }
+.section h3 { color:#6db8ff; margin-top:20px; }
+footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0;}
 </style>
 </head>
 <body>
 
-<div class="ambient"></div>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="buying-guide.html">Buying Guide</a>
+    <a href="mods-upgrades.html">Mods & Upgrades</a>
+    <a href="how-we-refurbish.html">Refurb Process</a>
+    <a href="trade-in.html">Trade-In</a>
+    <a href="delivery.html">Shipping</a>
+    <a href="warranties.html">Warranties</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="products.html">Products</a>
+    <a href="products/ps1.html">PS1</a>
+    <a href="products/ps2.html">PS2</a>
+    <a href="products/ps3.html">PS3</a>
+</nav>
 
-<div class="wrap">
-  <!-- Header (preserved) -->
-  <header>
-    <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="histroy.html">PS2 History</a>
-      <a href="buying-guide.html">Buying Guide</a>
-      <a href="products.html">Products</a>
-      <a href="mods-upgrades.html">Mods & Upgrades</a>
-      <a href="how-we-refurbish.html">How We Refurbish</a>
-      <a href="trade-in.html">Trade-In</a>
-      <a href="delivery.html">Shipping & Delivery</a>
-      <a href="warranties.html">Warranties</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-      <a href="checkout.html">Checkout</a>
-    </nav>
-  </header>
+<header>
+    <h1>FAQ</h1>
+    <div class="hero-sub">Frequently Asked Questions</div>
+</header>
 
-  <section class="section-box">
-    <h2 class="section-title">Frequently Asked Questions</h2>
+<div class="section">
+    <h3>Do you offer warranties on refurbished consoles?</h3>
+    <p>Yes, every refurbished console comes with a 6-month warranty covering hardware and functional defects.</p>
 
-    <h3>Do your consoles work with modern TVs?</h3>
-    <p>Yes! Our PS2s are fully compatible with SCART, component cables, or HDMI adapters. You can enjoy crisp visuals whether on classic CRTs or modern HD displays.</p>
+    <h3>Can I trade in my old PlayStation?</h3>
+    <p>Yes, visit our Trade-In page for details on how to submit your console for valuation.</p>
 
-    <h3>Do they play PS1 games?</h3>
-    <p>All PS2 models support PS1 discs flawlessly, allowing you to relive classic PlayStation titles with perfect compatibility.</p>
-
-    <h3>What condition are your consoles in?</h3>
-    <p>Every console is fully refurbished and tested. Exteriors are cleaned and polished, lasers are calibrated, and minor age marks are noted honestly. Each unit is ready to play or display for collectors.</p>
-
-    <h3>Can I mod or upgrade my console?</h3>
-    <p>Yes! We offer upgrades including FreeMcBoot, HDD setup, OPL, and cosmetic restoration. Modded consoles are fully tested for safe and reliable use.</p>
-
-    <h3>Do you offer warranty?</h3>
-    <p>All refurbished consoles come with a standard Retro Replay warranty covering functionality. Modded units have warranty terms on software and hardware upgrades.</p>
-
-    <h3>How do I buy or trade in my PS2?</h3>
-    <p>Check our <a href="trade-in.html" class="inline-link">Trade-In page</a> to send us your console for a fair quote, or visit our <a href="buying-guide.html" class="inline-link">Buying Guide</a> to choose the right model for you.</p>
-
-    <h3>Are your products authentic?</h3>
-    <p>All consoles are original PlayStation 2 hardware, sourced responsibly. Retro Replay is not affiliated with Sony, but we take pride in preserving authentic PS2 gaming experiences.</p>
-
-    <h3>Do you ship internationally?</h3>
-    <p>Yes! We carefully package consoles and accessories to ensure they arrive safely anywhere in the world.</p>
-  </section>
-
-  <footer>
-    <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
-    <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
-  </footer>
+    <h3>Are your consoles modded?</h3>
+    <p>Some bundles include optional mods, such as homebrew support or HDD installation. See the Mods & Upgrades page.</p>
 </div>
+
+<footer>
+    <p>© 2025 Retro Replay — PlayStation Division</p>
+</footer>
+
 </body>
 </html>

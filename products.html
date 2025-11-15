@@ -8,115 +8,41 @@
 <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 
 <style>
-  body {
-    font-family:'Orbitron',sans-serif;
-    background:#181b23;
-    color:#e3e7ed;
-    margin:0;
-    padding:0;
-  }
-
-  .ambient {
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
-    pointer-events:none;
-    z-index:0;
-    animation:pulse 5s infinite;
-  }
+  body { font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed; margin:0; padding:0; }
+  .ambient { position:fixed; top:0; left:0; width:100%; height:100%; background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%); pointer-events:none; z-index:0; animation:pulse 5s infinite; }
   @keyframes pulse {0%,100%{opacity:0.02;}50%{opacity:0.04;}}
-
   .wrap { max-width:1200px; margin:0 auto; padding:2rem; position:relative; z-index:2; }
-
-  header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    margin-bottom:2rem;
-  }
+  header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:2rem; }
   .logo { height:120px; width:auto; }
-
-  nav {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:1rem;
-    margin-top:0.5rem;
-  }
-  nav a {
-    color:#6db8ff;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.2s;
-  }
+  nav { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin-top:0.5rem; }
+  nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
   nav a:hover, nav a.active { text-decoration:underline; }
-
   .section-title { font-size:2rem; text-align:center; margin-bottom:1rem; }
 
-  /* Filter Buttons */
-  .filter {
-    text-align:center;
-    margin-bottom:2rem;
-  }
-  .filter button {
-    background:#22262f;
-    color:#e3e7ed;
-    border:none;
-    padding:0.6rem 1.3rem;
-    border-radius:6px;
-    margin:0.3rem;
-    cursor:pointer;
-    font-weight:bold;
-    transition:0.2s;
-  }
-  .filter button.active {
-    background:#2a2f3a;
-    text-decoration:underline;
-  }
+  /* FILTER */
+  .filter { text-align:center; margin-bottom:2rem; }
+  .filter button { background:#22262f; color:#e3e7ed; border:none; padding:0.6rem 1.3rem; border-radius:6px; margin:0.3rem; cursor:pointer; font-weight:bold; transition:0.2s; }
+  .filter button.active { background:#2a2f3a; text-decoration:underline; }
 
-  /* Product Grid */
-  .product-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:1.5rem;
-  }
-  .product-card {
-    background:#22262f;
-    padding:1rem;
-    border-radius:10px;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-  }
-  .product-card img {
-    max-width:100%;
-    height:auto;
-    border-radius:6px;
-    margin-bottom:0.7rem;
-  }
-  .product-card .name {
-    font-weight:700;
-    margin-bottom:0.4rem;
-  }
-  .product-card .price {
-    font-size:1.2rem;
-    font-weight:bold;
-    margin-bottom:0.6rem;
-  }
-  .product-card p {
-    font-size:0.95rem;
-    line-height:1.5;
-    margin-bottom:0.7rem;
-  }
+  /* PRODUCT GRID */
+  .product-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; }
+  .product-card { background:#22262f; padding:1rem; border-radius:10px; text-align:center; display:flex; flex-direction:column; position:relative; }
+  .product-card img { max-width:100%; height:auto; border-radius:6px; margin-bottom:0.7rem; }
+  .product-card .name { font-weight:700; margin-bottom:0.4rem; }
+  .product-card .price { font-size:1.2rem; font-weight:bold; margin-bottom:0.6rem; }
+  .product-card p { font-size:0.95rem; line-height:1.5; margin-bottom:0.7rem; }
+  .product-card select, .product-card button { margin-top:0.5rem; padding:0.5rem; border-radius:5px; border:none; cursor:pointer; font-weight:bold; }
+  .product-card button { background:#6db8ff; color:#181b23; transition:0.2s; }
+  .product-card button:hover { background:#5aa0e0; }
 
-  footer {
-    text-align:center;
-    font-size:0.8rem;
-    margin-top:3rem;
-    color:#999;
-  }
+  /* Basket */
+  #basket { background:#22262f; padding:1rem; border-radius:10px; margin:2rem 0; }
+  #basket h3 { color:#6db8ff; margin-bottom:1rem; }
+  #basket ul { list-style:none; padding-left:0; }
+  #basket li { display:flex; justify-content:space-between; margin-bottom:0.5rem; }
+  #basket-total { font-weight:bold; margin-top:1rem; text-align:right; }
+
+  footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
 </style>
 </head>
 
@@ -125,266 +51,21 @@
 <div class="ambient"></div>
 <div class="wrap">
 
-  <!-- Header (preserved) -->
-  <header>
-    <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="histroy.html">PS2 History</a>
-      <a href="buying-guide.html">Buying Guide</a>
-      <a href="products.html">Products</a>
-      <a href="mods-upgrades.html">Mods & Upgrades</a>
-      <a href="how-we-refurbish.html">How We Refurbish</a>
-      <a href="trade-in.html">Trade-In</a>
-      <a href="delivery.html">Shipping & Delivery</a>
-      <a href="warranties.html">Warranties</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-      <a href="checkout.html">Checkout</a>
-    </nav>
-  </header>
-
-<h2 class="section-title">Our Products</h2>
-
-<!-- FILTER -->
-<div class="filter">
-  <button class="filter-btn active" data-category="all">All</button>
-  <button class="filter-btn" data-category="consoles">Consoles</button>
-  <button class="filter-btn" data-category="controllers">Controllers</button>
-  <button class="filter-btn" data-category="memory">Memory Cards</button>
-  <button class="filter-btn" data-category="cables">Cables & Accessories</button>
-  <button class="filter-btn" data-category="modding">Custom / Modding</button>
-</div>
-
-<!-- PRODUCTS -->
-<div class="product-grid">
-  
-  <!-- CONSOLES -->
-  <div class="product-card" data-category="consoles">
-    <img src="assets/PS2_REFURBED_BUNDLE.jpg">
-    <div class="name">PS2 Fat – Console Only</div>
-    <div class="price">£130</div>
-    <p>Cleaned and tested PS2 Fat console — console only.</p>
-    <div id="paypal-ps2fat-clean"></div>
-  </div>
-
-  <div class="product-card" data-category="consoles">
-    <img src="assets/PS2_REFURBED_BUNDLE.jpg">
-    <div class="name">PS2 Fat – Plug & Play Bundle</div>
-    <div class="price">£180</div>
-    <p>Console, controller, cables — ready to play.</p>
-    <div id="paypal-ps2fat-bundle"></div>
-  </div>
-
-  <div class="product-card" data-category="consoles">
-    <img src="assets/PS2_REFURBED_BUNDLE.jpg">
-    <div class="name">PS2 Fat – Refurbished Console</div>
-    <div class="price">£200</div>
-    <p>Fully refurbished, restored and tested.</p>
-    <div id="paypal-ps2fat-refurbished"></div>
-  </div>
-
-  <div class="product-card" data-category="consoles">
-    <img src="assets/PS2_REFURBED_BUNDLE.jpg">
-    <div class="name">PS2 Fat – Refurbished Bundle</div>
-    <div class="price">£250</div>
-    <p>Full refurb bundle with accessories.</p>
-    <div id="paypal-ps2fat-refurbished-bundle"></div>
-  </div>
-
-  <!-- CONTROLLERS -->
-  <div class="product-card" data-category="controllers">
-    <img src="assets/Console_Bundle.jpg">
-    <div class="name">PS2 Controller – Official</div>
-    <div class="price">£55</div>
-    <p>Original Sony DualShock 2 controller.</p>
-    <div id="paypal-controller-official"></div>
-  </div>
-
-  <div class="product-card" data-category="controllers">
-    <img src="assets/Console_Bundle.jpg">
-    <div class="name">PS2 Controller – Wired</div>
-    <div class="price">£35</div>
-    <p>High-quality wired third-party controller.</p>
-    <div id="paypal-controller-wired"></div>
-  </div>
-
-  <div class="product-card" data-category="controllers">
-    <img src="assets/Console_Bundle.jpg">
-    <div class="name">PS2 Controller – Wireless</div>
-    <div class="price">£50</div>
-    <p>Wireless controller with receiver.</p>
-    <div id="paypal-controller-wireless"></div>
-  </div>
-
-  <!-- MEMORY CARDS -->
-  <div class="product-card" data-category="memory">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">Memory Card – 8MB</div>
-    <div class="price">£30</div>
-    <p>Standard memory card for game saves.</p>
-    <div id="paypal-memory8"></div>
-  </div>
-
-  <div class="product-card" data-category="memory">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">Memory Card – 16MB</div>
-    <div class="price">£28</div>
-    <p>More storage for large save libraries.</p>
-    <div id="paypal-memory16"></div>
-  </div>
-
-  <div class="product-card" data-category="memory">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">Memory Card – 32MB</div>
-    <div class="price">£42</div>
-    <p>High capacity for long-term use.</p>
-    <div id="paypal-memory32"></div>
-  </div>
-
-  <div class="product-card" data-category="memory">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">Memory Card – 64MB</div>
-    <div class="price">£48</div>
-    <p>Extended save storage for many games.</p>
-    <div id="paypal-memory64"></div>
-  </div>
-
-  <div class="product-card" data-category="memory">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">Memory Card – 128MB</div>
-    <div class="price">£85</div>
-    <p>Ultimate storage capacity card.</p>
-    <div id="paypal-memory128"></div>
-  </div>
-
-  <!-- CABLES -->
-  <div class="product-card" data-category="cables">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">AV Multi Cable</div>
-    <div class="price">£9</div>
-    <p>Standard AV output cable.</p>
-    <div id="paypal-avcable"></div>
-  </div>
-
-  <div class="product-card" data-category="cables">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">HDMI Cable – 1M</div>
-    <div class="price">£12</div>
-    <p>High-quality HDMI cable.</p>
-    <div id="paypal-hdmicable"></div>
-  </div>
-
-  <div class="product-card" data-category="cables">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">PS2 Power Cable</div>
-    <div class="price">£8</div>
-    <p>Replacement AC power cable.</p>
-    <div id="paypal-powercable"></div>
-  </div>
-
-  <div class="product-card" data-category="cables">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">HDMI–AV Adapter</div>
-    <div class="price">£15</div>
-    <p>Convert PS2 AV output to HDMI.</p>
-    <div id="paypal-hdmivadapter"></div>
-  </div>
-
-  <!-- MODDING -->
-  <div class="product-card" data-category="modding">
-    <img src="assets/PS2_MODDED_REAR.jpg">
-    <div class="name">Preloaded HDD</div>
-    <div class="price">£80</div>
-    <p>Preconfigured HDD ready for homebrew.</p>
-    <div id="paypal-preloaded-hdd"></div>
-  </div>
-
-  <div class="product-card" data-category="modding">
-    <img src="assets/PS2_MODDED_REAR.jpg">
-    <div class="name">Preloaded Memory Card</div>
-    <div class="price">£30</div>
-    <p>FMCB and homebrew-ready card.</p>
-    <div id="paypal-preloaded-mem"></div>
-  </div>
-
-  <div class="product-card" data-category="modding">
-    <img src="assets/PS2_MODDED_REAR.jpg">
-    <div class="name">Custom Modding Service</div>
-    <div class="price">£150</div>
-    <p>Professional console modding service.</p>
-    <div id="paypal-custom-modding"></div>
-  </div>
-
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
-  <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
-</footer>
-
-</div>
-
-<!-- PAYPAL SCRIPT -->
-<script src="https://www.paypal.com/sdk/js?client-id=AYXmDuhylfxtnuRz3E2EzoyXNO0HnxJAXr_DQauHlsoawJjLKel8W17luzhp1_52OlIh9qjJYDggdf8o&currency=GBP"></script>
-
-<script>
-// PAYPAL BUTTON RENDERING
-const products = [
-  ['paypal-ps2fat-clean','PS2 Fat – Console Only','130'],
-  ['paypal-ps2fat-bundle','PS2 Fat – Plug & Play Bundle','180'],
-  ['paypal-ps2fat-refurbished','PS2 Fat – Refurbished Console','200'],
-  ['paypal-ps2fat-refurbished-bundle','PS2 Fat – Refurbished Bundle','250'],
-
-  ['paypal-controller-official','PS2 Controller – Official','55'],
-  ['paypal-controller-wired','PS2 Controller – Wired','35'],
-  ['paypal-controller-wireless','PS2 Controller – Wireless','50'],
-
-  ['paypal-memory8','Memory Card – 8MB','30'],
-  ['paypal-memory16','Memory Card – 16MB','28'],
-  ['paypal-memory32','Memory Card – 32MB','42'],
-  ['paypal-memory64','Memory Card – 64MB','48'],
-  ['paypal-memory128','Memory Card – 128MB','85'],
-
-  ['paypal-avcable','AV Multi Cable','9'],
-  ['paypal-hdmicable','HDMI Cable – 1M','12'],
-  ['paypal-powercable','PS2 Power Cable','8'],
-  ['paypal-hdmivadapter','HDMI–AV Adapter','15'],
-
-  ['paypal-preloaded-hdd','Preloaded HDD','80'],
-  ['paypal-preloaded-mem','Preloaded Memory Card','30'],
-  ['paypal-custom-modding','Custom Modding Service','150']
-];
-
-products.forEach(p=>{
-  paypal.Buttons({
-    style:{ layout:'vertical', color:'gold', shape:'rect', label:'buynow' },
-    createOrder:(data, actions)=>actions.order.create({
-      purchase_units:[{ description:p[1], amount:{ currency_code:'GBP', value:p[2] } }]
-    }),
-    onApprove:(data, actions)=> actions.order.capture().then(()=>{
-      window.location.href="checkout-success.html";
-    }),
-    onError:err=>{ console.error(err); }
-  }).render('#'+p[0]);
-});
-
-// FILTER FUNCTIONALITY
-document.querySelectorAll('.filter-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.querySelector('.filter-btn.active').classList.remove('active');
-    btn.classList.add('active');
-    const cat = btn.dataset.category;
-
-    document.querySelectorAll('.product-card').forEach(card=>{
-      card.style.display = 
-        (cat === 'all' || card.dataset.category === cat) ? 'flex' : 'none';
-    });
-  });
-});
-</script>
-
-</body>
-</html>
+<header>
+  <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="histroy.html">PS2 History</a>
+    <a href="buying-guide.html">Buying Guide</a>
+    <a href="products.html">Products</a>
+    <a href="mods-upgrades.html">Mods & Upgrades</a>
+    <a href="how-we-refurbish.html">How We Refurbish</a>
+    <a href="trade-in.html">Trade-In</a>
+    <a href="delivery.html">Shipping & Delivery</a>
+    <a href="warranties.html">Warranties</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="checkout.html">Checkout</a>
+  </nav>
+</header>

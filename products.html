@@ -15,7 +15,7 @@
   --panel-2:#2a2f3a;
   --card-border:#1463ff;
 }
-html,body{height:100%}
+html,body{height:100%;}
 body{
   font-family:'Orbitron',sans-serif;
   background:var(--bg);
@@ -109,7 +109,7 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
 <h2 class="section-title">Our Full Catalog</h2>
 
 <section class="product-grid" aria-label="Products">
-  <!-- Product List Start -->
+  <!-- Product Card Template -->
   <div class="product-card" data-base="150" data-name="Refurbished PS2 Fat">
     <img src="assets/PS2_REFURBED_BUNDLE.jpg" alt="Refurbished PS2 Fat">
     <div class="name">Refurbished PS2 Fat</div>
@@ -117,7 +117,6 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <p>Fully refurbished PS2 Fat console, cleaned, tested, cosmetically restored.</p>
     <div class="product-actions">
       <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
-      <div class="paypal-container"></div>
     </div>
   </div>
 
@@ -128,7 +127,6 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <p>Console, controller, AV cables, curated games — ready to play instantly.</p>
     <div class="product-actions">
       <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
-      <div class="paypal-container"></div>
     </div>
   </div>
 
@@ -139,7 +137,6 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <p>Tested console for reliable gaming or modding. Fully verified and ready to play.</p>
     <div class="product-actions">
       <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
-      <div class="paypal-container"></div>
     </div>
   </div>
 
@@ -150,7 +147,6 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <p>Professionally modded PS2 bundle with HDD and homebrew support. Ready-to-go library included.</p>
     <div class="product-actions">
       <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
-      <div class="paypal-container"></div>
     </div>
   </div>
 
@@ -161,7 +157,6 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <p>Fully refurbished PS2 Slim console, tested and cleaned for optimal performance.</p>
     <div class="product-actions">
       <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
-      <div class="paypal-container"></div>
     </div>
   </div>
 
@@ -172,7 +167,6 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <p>PS2 with Softmod installed, ready for homebrew and USB/HDD apps.</p>
     <div class="product-actions">
       <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
-      <div class="paypal-container"></div>
     </div>
   </div>
 
@@ -183,10 +177,8 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <p>Refurb + HDMI + Softmod + empty 32GB USB for a complete setup.</p>
     <div class="product-actions">
       <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
-      <div class="paypal-container"></div>
     </div>
   </div>
-  <!-- Product List End -->
 </section>
 </div>
 
@@ -213,13 +205,11 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
       <div style="color:#cbd3dd;">Total: £<span id="upgradeTotal">0</span></div>
       <div class="upgrade-actions">
         <button class="btn small alt" onclick="closeUpgradeModal()">Cancel</button>
-        <div id="paypalButtonContainer"></div>
+        <button id="applyUpgradesBtn" class="btn small">Add to Basket / Checkout</button>
       </div>
     </div>
   </div>
 </div>
-
-<!-- Only the <script> part changes, rest stays the same -->
 
 <script>
 let currentBasePrice = 0;
@@ -249,16 +239,16 @@ function updateUpgradeTotal(){
 document.addEventListener('change', function(e){ 
   if(e.target.name==='upgrade'){ updateUpgradeTotal(); } 
 });
+
 document.getElementById('upgradeModal').addEventListener('click', function(e){ 
   if(e.target===this) closeUpgradeModal(); 
 });
 
-document.getElementById('applyUpgradesBtn')?.addEventListener('click', function(){
+document.getElementById('applyUpgradesBtn').addEventListener('click', function(){
   const checked = Array.from(document.querySelectorAll('#upgradeModal input[name="upgrade"]:checked'));
   const upgrades = checked.map(ch=>({id: ch.value, price: Number(ch.dataset.price)}));
   const total = Number(document.getElementById('upgradeTotal').textContent);
   
-  // Encode product + upgrades into query string
   const order = encodeURIComponent(JSON.stringify({
     product: currentProductName,
     base: currentBasePrice,
@@ -266,7 +256,6 @@ document.getElementById('applyUpgradesBtn')?.addEventListener('click', function(
     total
   }));
 
-  // Redirect to checkout page
   window.location.href = `checkout.html?order=${order}`;
 });
 </script>

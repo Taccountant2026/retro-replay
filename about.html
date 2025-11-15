@@ -16,6 +16,7 @@ body {
 }
 a { text-decoration:none; color:inherit; }
 
+/* Header */
 header {
     position:sticky;
     top:0;
@@ -33,6 +34,7 @@ nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
 nav a { margin:5px 10px; font-weight:bold; color:#6db8ff; transition:0.2s; }
 nav a:hover { color:#ffffff; }
 
+/* Hero Section */
 .hero {
     position:relative;
     padding:120px 20px 80px;
@@ -49,21 +51,63 @@ nav a:hover { color:#ffffff; }
     z-index:0;
 }
 .hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:1; }
-.hero h1 { font-size:3rem; color:#6db8ff; margin-bottom:15px; position:relative; z-index:1; }
+.hero h1 { font-size:3rem; color:#6db8ff; margin-bottom:15px; position:relative; z-index:1; text-shadow:0 0 10px #0051ff; }
 .hero p { font-size:1.3rem; opacity:0.85; margin-bottom:30px; position:relative; z-index:1; }
-
-.founder-section {
-    padding:60px 10%;
-    text-align:center;
-    background:#111;
-    border-radius:20px;
-    margin:40px auto;
-    position:relative;
+.cta-btn {
+    background:#0051ff;
+    color:white;
+    padding:15px 30px;
+    font-size:1.15rem;
+    font-weight:bold;
+    border-radius:12px;
+    border:none;
+    cursor:pointer;
+    transition:0.4s;
+    display:inline-block;
+    position:relative; z-index:1;
+    box-shadow:0 0 10px #0051ff, 0 0 30px #00ffd0;
 }
-.founder-section h2 { font-size:2.5rem; color:#6db8ff; margin-bottom:20px; text-shadow:0 0 8px #0051ff; }
-.founder-section p { font-size:1.2rem; line-height:1.7; max-width:900px; margin:10px auto; opacity:0.9; }
-.founder-section .highlight { color:#00ffd0; font-weight:bold; }
+.cta-btn:hover {
+    background:#0070ff;
+    transform:scale(1.08);
+    box-shadow:0 0 20px #6db8ff, 0 0 50px #00ffd0;
+}
 
+/* Ambient Particles */
+#particle-canvas {
+    position:absolute;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    pointer-events:none;
+}
+
+/* Section Styles */
+.section {
+    padding:60px 10%;
+    border-radius:15px;
+    margin:40px auto;
+    background:#111;
+    position:relative;
+    box-shadow:0 0 40px rgba(0,0,0,0.7);
+}
+.section h2 {
+    font-size:2.5rem;
+    color:#6db8ff;
+    text-align:center;
+    margin-bottom:25px;
+    text-shadow:0 0 8px #0051ff;
+}
+.section p {
+    font-size:1.1rem;
+    line-height:1.7;
+    max-width:900px;
+    margin:10px auto;
+    opacity:0.9;
+}
+
+/* Founder Bio */
 .founder-bio {
     display:flex;
     flex-wrap:wrap;
@@ -74,7 +118,7 @@ nav a:hover { color:#ffffff; }
     position:relative;
 }
 .founder-bio img {
-    width:200px;
+    width:220px;
     border-radius:50%;
     border:3px solid #6db8ff;
     transition:0.3s;
@@ -85,6 +129,43 @@ nav a:hover { color:#ffffff; }
 .founder-bio .bio-text h3 { font-size:1.8rem; color:#ffd700; margin-bottom:10px; text-shadow:0 0 6px #ffa500; }
 .founder-bio .bio-text p { font-size:1.05rem; line-height:1.6; opacity:0.9; }
 
+/* Services Highlights */
+.services-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+.service-tile {
+    background:#1a1a1a;
+    padding:25px 20px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.4s;
+    box-shadow:0 0 20px rgba(0,0,0,0.7);
+}
+.service-tile h3 { color:#00ffd0; margin-bottom:10px; }
+.service-tile p { opacity:0.85; font-size:1rem; }
+.service-tile:hover { transform:scale(1.05); box-shadow:0 0 40px #00ffd0; }
+
+/* Testimonials */
+.testimonials-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+.testimonial {
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.6);
+}
+.testimonial p { font-size:1rem; line-height:1.4; }
+.testimonial .author { margin-top:10px; font-weight:bold; color:#ffd700; }
+
+/* Orbit Canvas */
 #orbit-canvas {
     position:absolute;
     top:0; left:0;
@@ -94,6 +175,7 @@ nav a:hover { color:#ffffff; }
     pointer-events:none;
 }
 
+/* Footer */
 footer {
     background:#0b0f18;
     padding:40px 10%;
@@ -105,6 +187,7 @@ footer {
 footer a { color:#6db8ff; margin:0 8px; transition:0.2s; }
 footer a:hover { color:#ffffff; }
 
+/* Responsive */
 @media screen and (max-width:768px) {
     header { flex-direction:column; gap:10px; padding:15px 5%; }
     nav a { margin:5px; }
@@ -114,7 +197,6 @@ footer a:hover { color:#ffffff; }
 @media screen and (max-width:480px) {
     .hero h1 { font-size:2rem; }
     .hero p { font-size:1rem; }
-    .founder-section h2 { font-size:2rem; }
     .founder-bio img { width:150px; }
 }
 </style>
@@ -133,26 +215,75 @@ footer a:hover { color:#ffffff; }
     </nav>
 </header>
 
+<!-- Hero -->
 <section class="hero">
     <canvas id="particle-canvas"></canvas>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo-hero">
     <h1>About Retro Replay</h1>
-    <p>Discover the passion, story, and mission behind restoring classic consoles.</p>
+    <p>Discover the story, mission, and passion behind restoring classic consoles.</p>
+    <a href="#founder" class="cta-btn">Meet the Founder</a>
 </section>
 
-<section class="founder-section">
+<!-- Founder Section -->
+<section class="section" id="founder">
     <h2>Meet the Founder</h2>
-    <p>Hello! I’m <span class="highlight">Leighton Hepworth</span>, the founder of <span class="highlight">Retro Replay</span>. Currently pursuing a degree in <span class="highlight">Computer Science & Technology</span>, my passion for consoles and technology has been with me since childhood.</p>
-    <p>Retro Replay is my way of combining my love for gaming, hardware restoration, and modding, providing retro enthusiasts with refurbished consoles, curated games, and professional upgrades.</p>
-
     <div class="founder-bio">
         <img src="assets/founder.jpg" alt="Leighton Hepworth">
         <div class="bio-text">
-            <h3>My Journey</h3>
-            <p>From playing classic consoles in my youth to studying technology at university, I’ve dedicated myself to understanding gaming hardware inside and out. Every console restored and every mod crafted reflects this passion.</p>
-            <p>Through Retro Replay, I aim to deliver not just consoles, but experiences—nostalgia, craftsmanship, and quality for gamers worldwide.</p>
+            <h3>Leighton Hepworth</h3>
+            <p>Hello! I’m <strong>Leighton Hepworth</strong>, founder of <strong>Retro Replay</strong>. Currently pursuing a degree in <strong>Computer Science & Technology</strong>, I’ve been passionate about consoles and tech from childhood.</p>
+            <p>Retro Replay was born from my love for gaming hardware, restoration, and creative mods. Every console refurbished and every bundle curated reflects this dedication.</p>
         </div>
         <canvas id="orbit-canvas"></canvas>
+    </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="section">
+    <h2>Our Mission & Vision</h2>
+    <p>We aim to bring retro consoles back to life, giving both nostalgia lovers and new gamers a high-quality experience. Every product is tested, cleaned, and upgraded where possible, ensuring it exceeds expectations.</p>
+    <p>Our vision is to become the premier destination for retro gaming, offering not just consoles, but experiences—memories, craftsmanship, and reliability.</p>
+</section>
+
+<!-- Services Highlights -->
+<section class="section">
+    <h2>What We Offer</h2>
+    <div class="services-grid">
+        <div class="service-tile">
+            <h3>Refurbished Consoles</h3>
+            <p>PS1, PS2, PS3, Xbox, Nintendo & more, all restored to like-new condition.</p>
+        </div>
+        <div class="service-tile">
+            <h3>Modifications & Upgrades</h3>
+            <p>HDD installs, homebrew setup, cosmetic mods, and media enhancements.</p>
+        </div>
+        <div class="service-tile">
+            <h3>Trade-Ins & Warranties</h3>
+            <p>Exchange old consoles for credit, and enjoy full warranty support on all purchases.</p>
+        </div>
+        <div class="service-tile">
+            <h3>Global Shipping</h3>
+            <p>Secure, fast, and trackable delivery worldwide for all consoles and accessories.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section">
+    <h2>Customer Praise</h2>
+    <div class="testimonials-grid">
+        <div class="testimonial">
+            <p>"The refurbished PS2 I bought works perfectly! Feels brand new and looks amazing on my shelf."</p>
+            <div class="author">— Alex R.</div>
+        </div>
+        <div class="testimonial">
+            <p>"Customer support was incredible, and the modded bundle was ready to play straight away. Highly recommend Retro Replay!"</p>
+            <div class="author">— Jamie L.</div>
+        </div>
+        <div class="testimonial">
+            <p>"Fast shipping, beautifully restored consoles, and professional setup of the HDD. My retro gaming setup is complete!"</p>
+            <div class="author">— Sam K.</div>
+        </div>
     </div>
 </section>
 
@@ -173,7 +304,7 @@ function animateParticles(){ctxParticles.clearRect(0,0,canvasParticles.width,can
 initParticles(); animateParticles();
 window.addEventListener('resize',()=>{canvasParticles.width=window.innerWidth; canvasParticles.height=window.innerHeight; initParticles();});
 
-// Orbiting Consoles with Color Trails
+// Orbiting Consoles
 const orbitCanvas = document.getElementById('orbit-canvas');
 const ctxOrbit = orbitCanvas.getContext('2d');
 function resizeOrbit(){ orbitCanvas.width = orbitCanvas.offsetWidth; orbitCanvas.height = orbitCanvas.offsetHeight; }
@@ -193,16 +324,12 @@ const orbitIcons = [
 function animateOrbit(){
     ctxOrbit.fillStyle='rgba(10,10,10,0.2)';
     ctxOrbit.fillRect(0,0,orbitCanvas.width, orbitCanvas.height);
-
     orbitIcons.forEach(icon=>{
         icon.angle += icon.speed;
         const x=centerX() + Math.cos(icon.angle)*icon.radius;
         const y=centerY() + Math.sin(icon.angle)*icon.radius;
-
         icon.trail.push({x,y});
         if(icon.trail.length>12) icon.trail.shift();
-
-        // Draw trail with color
         for(let i=0;i<icon.trail.length;i++){
             const t=icon.trail[i];
             ctxOrbit.beginPath();
@@ -210,15 +337,11 @@ function animateOrbit(){
             ctxOrbit.fillStyle=icon.color + (i/18);
             ctxOrbit.fill();
         }
-
-        // Draw icon
         ctxOrbit.drawImage(icon.img,x-20,y-20,40,40);
     });
-
     requestAnimationFrame(animateOrbit);
 }
 animateOrbit();
 </script>
-
 </body>
 </html>

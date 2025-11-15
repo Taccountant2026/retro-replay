@@ -18,26 +18,38 @@ body {
     position:relative;
 }
 
-/* --- Blue Neon Particle Background --- */
-.bg-dots {
-    position:fixed;
+/* --- Blue Neon Particle Background inside Hero --- */
+.hero {
+    text-align:center;
+    padding:120px 20px 60px;
+    background:linear-gradient(180deg, #0a0a0a, #111);
+    position:relative;
+    z-index:1;
+    overflow:hidden;
+}
+
+.bg-dots-hero {
+    position:absolute;
     top:0;
     left:0;
     width:100%;
     height:100%;
     overflow:hidden;
-    z-index:-1;
+    z-index:0;
     pointer-events:none;
 }
-.dot {
+
+.bg-dots-hero .dot {
     position:absolute;
     width:4px;
     height:4px;
     background:#6db8ff;
     border-radius:50%;
     opacity:0.2;
+    filter:blur(2px);
     animation: float 6s infinite ease-in-out;
 }
+
 @keyframes float {
     0% { transform:translateY(0) scale(1); opacity:0.15; }
     50% { transform:translateY(-20px) scale(1.3); opacity:0.4; }
@@ -81,15 +93,7 @@ nav a:hover {
     text-shadow:0 0 10px #6db8ff;
 }
 
-/* ---------- HERO ---------- */
-.hero {
-    text-align:center;
-    padding:120px 20px 60px;
-    background:linear-gradient(180deg, #0a0a0a, #111);
-    position:relative;
-    z-index:1;
-}
-
+/* ---------- HERO CONTENT ---------- */
 .hero img {
     width:180px;
     margin-bottom:25px;
@@ -205,22 +209,6 @@ footer {
 
 <body>
 
-<!-- 🔵 Animated Blue Neon Dots -->
-<div class="bg-dots" id="bg-dots"></div>
-
-<script>
-// Auto-generate 50 blue neon dots
-const dotsContainer = document.getElementById("bg-dots");
-for (let i = 0; i < 50; i++) {
-    const dot = document.createElement("div");
-    dot.classList.add("dot");
-    dot.style.top = Math.random() * 100 + "%";
-    dot.style.left = Math.random() * 100 + "%";
-    dot.style.animationDuration = (4 + Math.random() * 6) + "s";
-    dotsContainer.appendChild(dot);
-}
-</script>
-
 <!-- Header -->
 <header>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
@@ -236,10 +224,26 @@ for (let i = 0; i < 50; i++) {
 
 <!-- Hero -->
 <section class="hero">
+    <!-- 🔵 Blue Neon Dots -->
+    <div class="bg-dots-hero" id="bg-dots-hero"></div>
+
     <img src="assets/logo.png" alt="Retro Replay Logo">
     <h1>Contact Retro Replay</h1>
     <div class="hero-sub">We're Here to Help — Reach Out Anytime</div>
 </section>
+
+<script>
+// Generate 30 blue neon dots inside hero
+const heroDotsContainer = document.getElementById("bg-dots-hero");
+for (let i = 0; i < 30; i++) {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    dot.style.top = Math.random() * 100 + "%";
+    dot.style.left = Math.random() * 100 + "%";
+    dot.style.animationDuration = (4 + Math.random() * 6) + "s";
+    heroDotsContainer.appendChild(dot);
+}
+</script>
 
 <!-- CONTACT CONTENT -->
 <div class="section">

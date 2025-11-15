@@ -8,124 +8,81 @@
 <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 
 <style>
-  body {
+body {
     font-family:'Orbitron',sans-serif;
     background:#181b23;
     color:#e3e7ed;
-    margin:0;
-    padding:0;
-  }
-
-  .ambient {
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
+    margin:0; padding:0;
+}
+.ambient {
+    position:fixed; top:0; left:0; width:100%; height:100%;
     background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
-    pointer-events:none;
-    z-index:0;
-    animation:pulse 5s infinite;
-  }
-  @keyframes pulse {0%,100%{opacity:0.02;}50%{opacity:0.04;}}
+    pointer-events:none; z-index:0; animation:pulse 5s infinite;
+}
+@keyframes pulse {0%,100%{opacity:0.02;}50%{opacity:0.04;}}
+.wrap { max-width:1200px; margin:0 auto; padding:2rem; position:relative; z-index:2; }
+header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:2rem; }
+.logo { height:120px; width:auto; }
+nav { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin-top:0.5rem; }
+nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
+nav a:hover, nav a.active { text-decoration:underline; }
 
-  .wrap { max-width:1200px; margin:0 auto; padding:2rem; position:relative; z-index:2; }
+.section-title { font-size:2rem; text-align:center; margin-bottom:1rem; }
 
-  header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    margin-bottom:2rem;
-  }
-  .logo { height:120px; width:auto; }
+.filter { text-align:center; margin-bottom:2rem; }
+.filter button {
+    background:#22262f; color:#e3e7ed; border:none; padding:0.6rem 1.3rem; border-radius:6px;
+    margin:0.3rem; cursor:pointer; font-weight:bold; transition:0.2s;
+}
+.filter button.active { background:#2a2f3a; text-decoration:underline; }
 
-  nav {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:1rem;
-    margin-top:0.5rem;
-  }
-  nav a {
-    color:#6db8ff;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.2s;
-  }
-  nav a:hover, nav a.active { text-decoration:underline; }
+.product-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5rem;
+}
+.product-card {
+    background:#22262f; padding:1rem; border-radius:10px; text-align:center;
+    display:flex; flex-direction:column; position:relative;
+}
+.product-card img { max-width:100%; height:auto; border-radius:6px; margin-bottom:0.7rem; }
+.product-card .name { font-weight:700; margin-bottom:0.4rem; }
+.product-card .price { font-size:1.2rem; font-weight:bold; margin-bottom:0.6rem; }
+.product-card p { font-size:0.95rem; line-height:1.5; margin-bottom:0.7rem; }
+.product-actions { display:flex; flex-direction:column; gap:6px; margin-top:auto; }
 
-  .section-title { font-size:2rem; text-align:center; margin-bottom:1rem; }
-
-  /* Filter Buttons */
-  .filter {
-    text-align:center;
-    margin-bottom:2rem;
-  }
-  .filter button {
-    background:#22262f;
-    color:#e3e7ed;
-    border:none;
-    padding:0.6rem 1.3rem;
-    border-radius:6px;
-    margin:0.3rem;
+.btn {
+    display:inline-block; background:#2a2f3a; color:#6db8ff; padding:0.6rem 0.9rem;
+    border-radius:8px; text-decoration:none; font-weight:bold; border:1px solid rgba(109,184,255,0.14);
     cursor:pointer;
-    font-weight:bold;
-    transition:0.2s;
-  }
-  .filter button.active {
-    background:#2a2f3a;
-    text-decoration:underline;
-  }
+}
+.btn.alt { background:transparent; color:#6db8ff; border:1px solid rgba(109,184,255,0.14); }
+.btn.small { padding:0.4rem 0.6rem; font-size:0.95rem; }
 
-  /* Product Grid */
-  .product-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:1.5rem;
-  }
-  .product-card {
-    background:#22262f;
-    padding:1rem;
-    border-radius:10px;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-  }
-  .product-card img {
-    max-width:100%;
-    height:auto;
-    border-radius:6px;
-    margin-bottom:0.7rem;
-  }
-  .product-card .name {
-    font-weight:700;
-    margin-bottom:0.4rem;
-  }
-  .product-card .price {
-    font-size:1.2rem;
-    font-weight:bold;
-    margin-bottom:0.6rem;
-  }
-  .product-card p {
-    font-size:0.95rem;
-    line-height:1.5;
-    margin-bottom:0.7rem;
-  }
+footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
 
-  footer {
-    text-align:center;
-    font-size:0.8rem;
-    margin-top:3rem;
-    color:#999;
-  }
+/* Upgrade Modal */
+.modal {
+    position:fixed; left:0; top:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.6); display:none; align-items:center; justify-content:center;
+    z-index:9999; padding:20px;
+}
+.modal.active { display:flex; }
+.modal-panel {
+    width:100%; max-width:760px; background: linear-gradient(180deg, rgba(34,38,47,0.98), rgba(20,24,31,0.98));
+    padding:20px; border-radius:10px; border:1px solid rgba(109,184,255,0.06);
+}
+.modal-panel h3 { color:#6db8ff; margin-top:0; }
+.upgrade-list { display:flex; flex-direction:column; gap:10px; margin:10px 0 18px; }
+.upgrade-item { display:flex; justify-content:space-between; align-items:center; padding:10px; border-radius:8px; background: rgba(255,255,255,0.02); }
+.upgrade-item label { cursor:pointer; }
+.upgrade-actions { display:flex; gap:10px; justify-content:flex-end; }
 </style>
 </head>
-
 <body>
 
 <div class="ambient"></div>
 <div class="wrap">
 
-  <header>
+<header>
     <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
     <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
@@ -142,11 +99,10 @@
       <a href="contact.html">Contact</a>
       <a href="checkout.html">Checkout</a>
     </nav>
-  </header>
+</header>
 
 <h2 class="section-title">Our Products</h2>
 
-<!-- FILTER -->
 <div class="filter">
   <button class="filter-btn active" data-category="all">All</button>
   <button class="filter-btn" data-category="consoles">Consoles</button>
@@ -156,205 +112,207 @@
   <button class="filter-btn" data-category="modding">Custom / Modding</button>
 </div>
 
-<!-- PRODUCTS -->
 <div class="product-grid">
   <!-- CONSOLES -->
   <div class="product-card" data-category="consoles">
     <img src="assets/PS2_REFURBED_BUNDLE.jpg">
-    <div class="name">PS2 Fat – Console Only</div>
-    <div class="price">£130</div>
-    <p>Cleaned and tested PS2 Fat console — console only.</p>
-    <div id="paypal-ps2fat-clean"></div>
+    <div class="name">Refurbished PS2 Fat</div>
+    <div class="price">£150</div>
+    <p>Fully refurbished PS2 Fat console, cleaned, tested, and cosmetically restored.</p>
+    <div class="product-actions">
+      <button class="btn" onclick="openUpgradeModal('Refurbished PS2 Fat',150,'paypal-ps2fat')">Add to Basket / Upgrades</button>
+      <div id="paypal-ps2fat"></div>
+    </div>
   </div>
 
   <div class="product-card" data-category="consoles">
-    <img src="assets/PS2_REFURBED_BUNDLE.jpg">
-    <div class="name">PS2 Fat – Plug & Play Bundle</div>
-    <div class="price">£180</div>
-    <p>Console, controller, cables — ready to play.</p>
-    <div id="paypal-ps2fat-bundle"></div>
+    <img src="assets/Console_Bundle.jpg">
+    <div class="name">Plug & Play Bundle</div>
+    <div class="price">£185</div>
+    <p>Console, controller, AV cables, and curated games ready to play.</p>
+    <div class="product-actions">
+      <button class="btn" onclick="openUpgradeModal('Plug & Play Bundle',185,'paypal-bundle')">Add to Basket / Upgrades</button>
+      <div id="paypal-bundle"></div>
+    </div>
   </div>
 
   <div class="product-card" data-category="consoles">
-    <img src="assets/PS2_REFURBED_BUNDLE.jpg">
-    <div class="name">PS2 Fat – Refurbished Console</div>
-    <div class="price">£200</div>
-    <p>Fully refurbished, restored and tested.</p>
-    <div id="paypal-ps2fat-refurbished"></div>
-  </div>
-
-  <div class="product-card" data-category="consoles">
-    <img src="assets/PS2_REFURBED_BUNDLE.jpg">
-    <div class="name">PS2 Fat – Refurbished Bundle</div>
-    <div class="price">£250</div>
-    <p>Full refurb bundle with accessories.</p>
-    <div id="paypal-ps2fat-refurbished-bundle"></div>
+    <img src="assets/PS2_SLIM_CONSOLE.jpg">
+    <div class="name">Refurbished PS2 Slim</div>
+    <div class="price">£120</div>
+    <p>Fully tested PS2 Slim console, cleaned and ready for retro gaming.</p>
+    <div class="product-actions">
+      <button class="btn" onclick="openUpgradeModal('Refurbished PS2 Slim',120,'paypal-ps2slim')">Add to Basket / Upgrades</button>
+      <div id="paypal-ps2slim"></div>
+    </div>
   </div>
 
   <!-- CONTROLLERS -->
   <div class="product-card" data-category="controllers">
-    <img src="assets/Console_Bundle.jpg">
-    <div class="name">PS2 Controller – Official</div>
-    <div class="price">£55</div>
-    <p>Original Sony DualShock 2 controller.</p>
-    <div id="paypal-controller-official"></div>
+    <img src="assets/DUALSHOCK2_BLACK.jpg">
+    <div class="name">DualShock 2 Controller</div>
+    <div class="price">£25</div>
+    <p>Official Sony PS2 controller, black, tested for perfect responsiveness.</p>
+    <div class="product-actions">
+      <button class="btn" onclick="openUpgradeModal('DualShock 2 Controller',25,'paypal-controller1')">Add to Basket / Upgrades</button>
+      <div id="paypal-controller1"></div>
+    </div>
   </div>
 
   <div class="product-card" data-category="controllers">
-    <img src="assets/Console_Bundle.jpg">
-    <div class="name">PS2 Controller – Wired</div>
-    <div class="price">£35</div>
-    <p>High-quality wired third-party controller.</p>
-    <div id="paypal-controller-wired"></div>
-  </div>
-
-  <div class="product-card" data-category="controllers">
-    <img src="assets/Console_Bundle.jpg">
-    <div class="name">PS2 Controller – Wireless</div>
-    <div class="price">£50</div>
-    <p>Wireless controller with receiver.</p>
-    <div id="paypal-controller-wireless"></div>
+    <img src="assets/DUALSHOCK2_BLUE.jpg">
+    <div class="name">DualShock 2 Controller Blue</div>
+    <div class="price">£28</div>
+    <p>Official blue DualShock 2, fully tested.</p>
+    <div class="product-actions">
+      <button class="btn" onclick="openUpgradeModal('DualShock 2 Controller Blue',28,'paypal-controller2')">Add to Basket / Upgrades</button>
+      <div id="paypal-controller2"></div>
+    </div>
   </div>
 
   <!-- MEMORY CARDS -->
   <div class="product-card" data-category="memory">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">Memory Card – 8MB</div>
-    <div class="price">£30</div>
-    <p>Standard memory card for game saves.</p>
-    <div id="paypal-memory8"></div>
-  </div>
-
-  <div class="product-card" data-category="memory">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">Memory Card – 16MB</div>
-    <div class="price">£28</div>
-    <p>More storage for large save libraries.</p>
-    <div id="paypal-memory16"></div>
-  </div>
-
-  <div class="product-card" data-category="memory">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">Memory Card – 32MB</div>
-    <div class="price">£42</div>
-    <p>High capacity for long-term use.</p>
-    <div id="paypal-memory32"></div>
-  </div>
-
-  <div class="product-card" data-category="memory">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">Memory Card – 64MB</div>
-    <div class="price">£48</div>
-    <p>Extended save storage for many games.</p>
-    <div id="paypal-memory64"></div>
-  </div>
-
-  <div class="product-card" data-category="memory">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">Memory Card – 128MB</div>
-    <div class="price">£85</div>
-    <p>Ultimate storage capacity card.</p>
-    <div id="paypal-memory128"></div>
-  </div>
-
-  <!-- CABLES -->
-  <div class="product-card" data-category="cables">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">AV Multi Cable</div>
-    <div class="price">£9</div>
-    <p>Standard AV output cable.</p>
-    <div id="paypal-avcable"></div>
-  </div>
-
-  <div class="product-card" data-category="cables">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">HDMI Cable – 1M</div>
-    <div class="price">£12</div>
-    <p>High-quality HDMI cable.</p>
-    <div id="paypal-hdmicable"></div>
-  </div>
-
-  <div class="product-card" data-category="cables">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">PS2 Power Cable</div>
+    <img src="assets/MEMORY8.jpg">
+    <div class="name">Memory Card 8MB</div>
     <div class="price">£8</div>
-    <p>Replacement AC power cable.</p>
-    <div id="paypal-powercable"></div>
+    <p>Original PS2 memory card, 8MB capacity.</p>
+    <div class="product-actions">
+      <button class="btn" onclick="openUpgradeModal('Memory Card 8MB',8,'paypal-memory8')">Add to Basket</button>
+      <div id="paypal-memory8"></div>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="memory">
+    <img src="assets/MEMORY16.jpg">
+    <div class="name">Memory Card 16MB</div>
+    <div class="price">£12</div>
+    <p>16MB memory card, compatible with all PS2 consoles.</p>
+    <div class="product-actions">
+      <button class="btn" onclick="openUpgradeModal('Memory Card 16MB',12,'paypal-memory16')">Add to Basket</button>
+      <div id="paypal-memory16"></div>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="memory">
+    <img src="assets/MEMORY32.jpg">
+    <div class="name">Memory Card 32MB</div>
+    <div class="price">£20</div>
+    <p>32MB memory card for larger game storage.</p>
+    <div class="product-actions">
+      <button class="btn" onclick="openUpgradeModal('Memory Card 32MB',20,'paypal-memory32')">Add to Basket</button>
+      <div id="paypal-memory32"></div>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="memory">
+    <img src="assets/MEMORY64.jpg">
+    <div class="name">Memory Card 64MB</div>
+    <div class="price">£28</div>
+    <p>High-capacity 64MB memory card for PS2 saves.</p>
+    <div class="product-actions">
+      <button class="btn" onclick="openUpgradeModal('Memory Card 64MB',28,'paypal-memory64')">Add to Basket</button>
+      <div id="paypal-memory64"></div>
+    </div>
+  </div>
+
+  <!-- CABLES & ACCESSORIES -->
+  <div class="product-card" data-category="cables">
+    <img src="assets/AV_CABLES.jpg">
+    <div class="name">AV Cables</div>
+    <div class="price">£10</div>
+    <p>Standard audio/video cables for PS2.</p>
+    <div class="product-actions">
+      <button class="btn" onclick="openUpgradeModal('AV Cables',10,'paypal-av')">Add to Basket</button>
+      <div id="paypal-av"></div>
+    </div>
   </div>
 
   <div class="product-card" data-category="cables">
-    <img src="assets/PS2_CONSOLE_ONLY_FRONT_FLAT.png">
-    <div class="name">HDMI–AV Adapter</div>
-    <div class="price">£15</div>
-    <p>Convert PS2 AV output to HDMI.</p>
-    <div id="paypal-hdmivadapter"></div>
-  </div>
-
-  <!-- MODDING -->
-  <div class="product-card" data-category="modding">
-    <img src="assets/PS2_MODDED_REAR.jpg">
-    <div class="name">Preloaded HDD</div>
-    <div class="price">£80</div>
-    <p>Preconfigured HDD ready for homebrew.</p>
-    <div id="paypal-preloaded-hdd"></div>
+    <img src="assets/HDMI_ADAPTER.jpg">
+    <div class="name">HDMI Adapter</div>
+    <div class="price">£18</div>
+    <p>Plug & play HDMI adapter for modern TVs.</p>
+    <div class="product-actions">
+      <button class="btn" onclick="openUpgradeModal('HDMI Adapter',18,'paypal-hdmi')">Add to Basket</button>
+      <div id="paypal-hdmi"></div>
+    </div>
   </div>
 
   <div class="product-card" data-category="modding">
     <img src="assets/PS2_MODDED_REAR.jpg">
-    <div class="name">Preloaded Memory Card</div>
-    <div class="price">£30</div>
-    <p>FMCB and homebrew-ready card.</p>
-    <div id="paypal-preloaded-mem"></div>
+    <div class="name">Modded Bundle (HDD)</div>
+    <div class="price">£250</div>
+    <p>Professionally modded PS2 bundle with HDD and homebrew support.</p>
+    <div class="product-actions">
+      <button class="btn" onclick="openUpgradeModal('Modded Bundle (HDD)',250,'paypal-modded')">Add to Basket / Upgrades</button>
+      <div id="paypal-modded"></div>
+    </div>
   </div>
+</div>
 
-  <div class="product-card" data-category="modding">
-    <img src="assets/PS2_MODDED_REAR.jpg">
-    <div class="name">Custom Modding Service</div>
-    <div class="price">£150</div>
-    <p>Professional console modding service.</p>
-    <div id="paypal-custom-modding"></div>
+<!-- Upgrade Modal -->
+<div id="upgradeModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="upgradeTitle">
+  <div class="modal-panel" role="document">
+    <h3 id="upgradeTitle">Upgrade Options</h3>
+    <p id="upgradeProduct">Select upgrades for: <strong></strong></p>
+
+    <div class="upgrade-list">
+      <div class="upgrade-item">
+        <label>
+          <input type="checkbox" name="upgrade" data-price="25"> Refurbishment Package — +£25
+        </label>
+      </div>
+      <div class="upgrade-item">
+        <label>
+          <input type="checkbox" name="upgrade" data-price="18"> HDMI Upgrade — +£18
+        </label>
+      </div>
+      <div class="upgrade-item">
+        <label>
+          <input type="checkbox" name="upgrade" data-price="15"> Softmod (FMCB) — +£15
+        </label>
+      </div>
+      <div class="upgrade-item">
+        <label>
+          <input type="checkbox" name="upgrade" data-price="55"> Premium Bundle — +£55
+        </label>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div>Total: £<span id="upgradeTotal">0</span></div>
+      <div class="upgrade-actions">
+        <button class="btn small alt" onclick="closeUpgradeModal()">Cancel</button>
+        <button class="btn small" id="applyUpgradesBtn">Add to Basket</button>
+      </div>
+    </div>
   </div>
-
 </div>
 
 <footer>
   <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
-  <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
+  <small>Retro Replay is not affiliated with Sony</small>
 </footer>
 
-</div>
-
-<!-- PAYPAL SCRIPT -->
 <script src="https://www.paypal.com/sdk/js?client-id=AYXmDuhylfxtnuRz3E2EzoyXNO0HnxJAXr_DQauHlsoawJjLKel8W17luzhp1_52OlIh9qjJYDggdf8o&currency=GBP"></script>
 
 <script>
-const products = [
-  ['paypal-ps2fat-clean','PS2 Fat – Console Only','130'],
-  ['paypal-ps2fat-bundle','PS2 Fat – Plug & Play Bundle','180'],
-  ['paypal-ps2fat-refurbished','PS2 Fat – Refurbished Console','200'],
-  ['paypal-ps2fat-refurbished-bundle','PS2 Fat – Refurbished Bundle','250'],
-
-  ['paypal-controller-official','PS2 Controller – Official','55'],
-  ['paypal-controller-wired','PS2 Controller – Wired','35'],
-  ['paypal-controller-wireless','PS2 Controller – Wireless','50'],
-
-  ['paypal-memory8','Memory Card – 8MB','30'],
-  ['paypal-memory16','Memory Card – 16MB','28'],
-  ['paypal-memory32','Memory Card – 32MB','42'],
-  ['paypal-memory64','Memory Card – 64MB','48'],
-  ['paypal-memory128','Memory Card – 128MB','85'],
-
-  ['paypal-avcable','AV Multi Cable','9'],
-  ['paypal-hdmicable','HDMI Cable – 1M','12'],
-  ['paypal-powercable','PS2 Power Cable','8'],
-  ['paypal-hdmivadapter','HDMI–AV Adapter','15'],
-
-  ['paypal-preloaded-hdd','Preloaded HDD','80'],
-  ['paypal-preloaded-mem','Preloaded Memory Card','30'],
-  ['paypal-custom-modding','Custom Modding Service','150']
+// PAYPAL BUTTONS
+const productsList = [
+  ['paypal-ps2fat','Refurbished PS2 Fat','150'],
+  ['paypal-bundle','Plug & Play Bundle','185'],
+  ['paypal-ps2slim','Refurbished PS2 Slim','120'],
+  ['paypal-controller1','DualShock 2 Controller','25'],
+  ['paypal-controller2','DualShock 2 Controller Blue','28'],
+  ['paypal-memory8','Memory Card 8MB','8'],
+  ['paypal-memory16','Memory Card 16MB','12'],
+  ['paypal-memory32','Memory Card 32MB','20'],
+  ['paypal-memory64','Memory Card 64MB','28'],
+  ['paypal-av','AV Cables','10'],
+  ['paypal-hdmi','HDMI Adapter','18'],
+  ['paypal-modded','Modded Bundle (HDD)','250']
 ];
-
-products.forEach(p=>{
+productsList.forEach(p=>{
   paypal.Buttons({
     style:{ layout:'vertical', color:'gold', shape:'rect', label:'buynow' },
     createOrder:(data, actions)=>actions.order.create({
@@ -365,18 +323,50 @@ products.forEach(p=>{
   }).render('#'+p[0]);
 });
 
-// FILTER FUNCTIONALITY
+// FILTER
 document.querySelectorAll('.filter-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     document.querySelector('.filter-btn.active').classList.remove('active');
     btn.classList.add('active');
     const cat = btn.dataset.category;
-
     document.querySelectorAll('.product-card').forEach(card=>{
       card.style.display = (cat==='all' || card.dataset.category === cat) ? 'flex' : 'none';
     });
   });
 });
+
+// UPGRADE MODAL
+let currentBase = 0;
+let currentProduct = '';
+let currentPayPalId = '';
+
+function openUpgradeModal(name, base, paypalId){
+  currentBase = base;
+  currentProduct = name;
+  currentPayPalId = paypalId;
+  document.getElementById('upgradeProduct').querySelector('strong').textContent = `${name} — base £${base}`;
+  document.querySelectorAll('#upgradeModal input[name="upgrade"]').forEach(ch=>ch.checked=false);
+  updateUpgradeTotal();
+  document.getElementById('upgradeModal').classList.add('active');
+}
+
+function closeUpgradeModal(){ document.getElementById('upgradeModal').classList.remove('active'); }
+function updateUpgradeTotal(){
+  const add = Array.from(document.querySelectorAll('#upgradeModal input[name="upgrade"]:checked')).reduce((sum,el)=>sum+Number(el.dataset.price),0);
+  document.getElementById('upgradeTotal').textContent = (currentBase + add).toFixed(0);
+}
+document.addEventListener('change', e=>{ if(e.target.name==='upgrade') updateUpgradeTotal(); });
+
+document.getElementById('applyUpgradesBtn').addEventListener('click', ()=>{
+  const checked = Array.from(document.querySelectorAll('#upgradeModal input[name="upgrade"]:checked'));
+  const upgrades = checked.map(c=>({id:c.value, price:c.dataset.price}));
+  const total = document.getElementById('upgradeTotal').textContent;
+  closeUpgradeModal();
+  const q = encodeURIComponent(JSON.stringify({product: currentProduct, base:currentBase, upgrades}));
+  window.location.href = `contact.html?order=${q}`;
+});
+
+document.getElementById('upgradeModal').addEventListener('click', e=>{ if(e.target===document.getElementById('upgradeModal')) closeUpgradeModal(); });
 </script>
 
 </body>

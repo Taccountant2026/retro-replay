@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retro Replay — Xbox Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+body { margin:0; font-family:'Orbitron',sans-serif; background:#0b0f0c; color:#e3e7ed;}
+nav { background:#0a0a0a; padding:16px; text-align:center; }
+nav a { color:#00ff6a; margin:0 10px; text-decoration:none; font-weight:700;}
+nav a:hover { color:#66ff90; }
+header { text-align:center; padding:60px 20px; }
+h1 { color:#00ff6a; margin-bottom:10px; }
+.hero-sub { font-size:1.2rem; opacity:0.85; margin-bottom:30px; }
+.section { padding:40px 10%; max-width:1200px; margin:0 auto; }
+
+/* --- Grid Tiles --- */
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; }
+.tile { background:#111; border-radius:15px; padding:25px 15px; text-align:center; transition:0.3s, transform 0.3s; cursor:pointer; }
+.tile img { width:80px; margin-bottom:15px; transition:0.3s; }
+.tile h3 { color:#00ff6a; margin-bottom:8px; }
+.tile p { opacity:0.85; font-size:0.95rem; }
+.tile:hover { transform:scale(1.05); box-shadow:0 0 15px #00ff6a,0 0 40px #66ff90; }
+.tile:hover img { transform:scale(1.1); }
+
+/* --- Footer --- */
+footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0; }
+footer a { color:#00ff6a; margin:0 8px; text-decoration:none; }
+footer a:hover { color:#66ff90; }
+
+@media screen and (max-width:768px) { .grid { grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px; } }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="../../index.html">Main Home</a>
+  <a href="../index.html">Xbox Home</a>
+  <a href="xbox-original.html">Original Xbox</a>
+  <a href="xbox-360.html">Xbox 360</a>
+  <a href="mods-upgrades.html">Mods & Upgrades</a>
+  <a href="trade-in.html">Trade-In</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- Hero -->
+<header>
+  <h1>Xbox Collection</h1>
+  <div class="hero-sub">Refurbished consoles ready for action — Original Xbox & 360</div>
+</header>
+
+<!-- Promo Grid -->
+<section class="grid">
+  <div class="tile">
+    <img src="assets/xbox-original-logo.png" alt="Original Xbox">
+    <h3>Original Xbox</h3>
+    <p>Fully refurbished, tested, and ready to play your classics.</p>
+  </div>
+  <div class="tile">
+    <img src="assets/xbox-360-logo.png" alt="Xbox 360">
+    <h3>Xbox 360</h3>
+    <p>Elite & Slim models, fully tested with optional mods.</p>
+  </div>
+  <div class="tile">
+    <img src="assets/hdd-mod.png" alt="HDD Mods">
+    <h3>HDD Mods & OPL Setup</h3>
+    <p>Install, configure, and enjoy your game library hassle-free.</p>
+  </div>
+  <div class="tile">
+    <img src="assets/cosmetic.png" alt="Cosmetic Restoration">
+    <h3>Cosmetic Restoration</h3>
+    <p>Polishing, deep clean, and detail for that like-new feel.</p>
+  </div>
+</section>
+
+<!-- Info Section -->
+<section class="section">
+  <h2>Why Choose Retro Replay Xbox Division?</h2>
+  <p>All consoles are refurbished by our professional team, tested for performance, and optionally upgraded for storage and gaming experience. We combine eco-friendly refurbishing with nostalgia for the ultimate Xbox experience.</p>
+  <p>Secure, tracked shipping and optional warranty included. Reserve your console today!</p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Retro Replay — Xbox Division</p>
+  <p>
+    <a href="../../index.html">Main Home</a> •
+    <a href="../index.html">Xbox Home</a> •
+    <a href="xbox-original.html">Original Xbox</a> •
+    <a href="xbox-360.html">Xbox 360</a> •
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>
 

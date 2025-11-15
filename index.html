@@ -5,37 +5,71 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retro Replay — Home</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-
 <style>
+    /* Base Styles */
     body {
+        margin:0;
+        font-family:'Orbitron', sans-serif;
         background:#0a0a0a;
         color:white;
-        font-family:'Orbitron', sans-serif;
-        margin:0;
         text-align:center;
+    }
+
+    header {
+        padding:60px 20px 20px;
     }
 
     header img {
         width:180px;
-        margin-top:30px;
+        margin-bottom:15px;
     }
 
-    h1 { margin-top:10px; font-size:2.2rem; }
+    header h1 {
+        font-size:2.5rem;
+        margin-bottom:10px;
+        color:#6db8ff;
+    }
 
+    header p {
+        font-size:1.2rem;
+        opacity:0.8;
+    }
+
+    /* Grid Tiles */
     .grid {
         display:grid;
         grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-        gap:20px;
-        padding:40px;
+        gap:25px;
+        padding:40px 10%;
     }
 
     .tile {
         background:#111;
         border:2px solid #1f1f1f;
-        padding:40px 20px;
+        padding:30px 20px;
         border-radius:15px;
         transition:0.3s;
         cursor:pointer;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .tile img {
+        width:80px;
+        margin-bottom:15px;
+    }
+
+    .tile h3 {
+        margin:0 0 10px 0;
+        font-size:1.5rem;
+        color:#6db8ff;
+    }
+
+    .tile p {
+        margin:0;
+        font-size:1rem;
+        opacity:0.8;
     }
 
     .tile:hover {
@@ -47,43 +81,90 @@
         text-decoration:none;
         color:white;
     }
+
+    /* Footer */
+    footer {
+        background:#0b0f18;
+        padding:25px 10%;
+        margin-top:40px;
+        font-size:0.9rem;
+        color:#9fbbe0;
+        text-align:center;
+    }
+
+    /* Responsive */
+    @media screen and (max-width:480px) {
+        header h1 { font-size:2rem; }
+        header p { font-size:1rem; }
+        .grid { padding:20px 5%; gap:15px; }
+        .tile { padding:20px 15px; }
+        .tile img { width:60px; margin-bottom:10px; }
+        .tile h3 { font-size:1.2rem; }
+        .tile p { font-size:0.9rem; }
+    }
 </style>
 </head>
-
 <body>
+
 <header>
     <img src="assets/logo.png" alt="Retro Replay Logo">
     <h1>Welcome to Retro Replay</h1>
-    <p>Your Home for Restored Retro Consoles</p>
+    <p>Your Home for Refurbished & Restored Retro Consoles</p>
 </header>
 
 <div class="grid">
-
     <a href="playstation/index.html">
-        <div class="tile">PlayStation</div>
+        <div class="tile">
+            <img src="assets/playstation-logo.png" alt="PlayStation Logo">
+            <h3>PlayStation</h3>
+            <p>PS1, PS2 & PS3 refurbished consoles</p>
+        </div>
     </a>
 
     <a href="xbox/index.html">
-        <div class="tile">Xbox</div>
+        <div class="tile">
+            <img src="assets/xbox-logo.png" alt="Xbox Logo">
+            <h3>Xbox</h3>
+            <p>Original & Xbox 360 refurbished consoles</p>
+        </div>
     </a>
 
     <a href="nintendo/index.html">
-        <div class="tile">Nintendo</div>
+        <div class="tile">
+            <img src="assets/nintendo-logo.png" alt="Nintendo Logo">
+            <h3>Nintendo</h3>
+            <p>NES, SNES, N64 & Switch retro consoles</p>
+        </div>
     </a>
 
     <a href="sega/index.html">
-        <div class="tile">SEGA</div>
+        <div class="tile">
+            <img src="assets/sega-logo.png" alt="SEGA Logo">
+            <h3>SEGA</h3>
+            <p>Genesis, Mega Drive & Saturn refurbished</p>
+        </div>
     </a>
 
     <a href="atari/index.html">
-        <div class="tile">Atari</div>
+        <div class="tile">
+            <img src="assets/atari-logo.png" alt="Atari Logo">
+            <h3>Atari</h3>
+            <p>Classic 2600 & 7800 restored consoles</p>
+        </div>
     </a>
 
     <a href="branding.html">
-        <div class="tile">Branding</div>
+        <div class="tile">
+            <img src="assets/logo.png" alt="Branding Logo">
+            <h3>Branding</h3>
+            <p>Learn about Retro Replay’s identity & design</p>
+        </div>
     </a>
-
 </div>
+
+<footer>
+    © 2025 Retro Replay — Restoring Classics for Modern Gamers
+</footer>
 
 </body>
 </html>

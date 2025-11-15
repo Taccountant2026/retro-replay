@@ -12,85 +12,110 @@
 body {
     margin:0;
     font-family:'Orbitron', sans-serif;
-    background:#11131a;
-    color:#e3e7ed;
+    background:#0a0a0a;
+    color:white;
     overflow-x:hidden;
 }
 
-/* ------------------- Navigation ------------------- */
-nav {
-    background:#0a0a0d;
-    padding:18px 10px;
+/* --- Blue Particle Background --- */
+.particles {
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index:-1;
+    pointer-events:none;
+    background:
+        radial-gradient(circle, rgba(109,184,255,0.12) 2px, transparent 3px) 0 0 / 70px 70px,
+        radial-gradient(circle, rgba(0,255,208,0.08) 2px, transparent 3px) 35px 35px / 90px 90px;
+    opacity:0.35;
+}
+
+/* ------------------- Navigation (Matches Index) ------------------- */
+header {
+    position:sticky;
+    top:0;
+    background:rgba(10,10,10,0.95);
+    z-index:1000;
     display:flex;
-    justify-content:center;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 10%;
+    border-bottom:2px solid #1f1f1f;
+    backdrop-filter: blur(5px);
+}
+
+header img.logo {
+    height:60px;
+}
+
+nav {
+    display:flex;
     flex-wrap:wrap;
-    gap:18px;
-    border-bottom:2px solid #1f2a40;
-    box-shadow:0 0 15px #000;
+    justify-content:center;
+    gap:15px;
 }
 
 nav a {
-    color:#6db8ff;
-    text-decoration:none;
+    margin:5px 10px;
     font-weight:700;
-    font-size:0.95rem;
-    transition:0.3s;
-    padding:6px 10px;
-    border-radius:6px;
+    color:#6db8ff;
+    font-size:1rem;
+    transition:0.25s;
 }
 
 nav a:hover {
-    background:#0f1724;
-    color:#9cd1ff;
-    text-shadow:0 0 6px #6db8ff;
+    color:white;
+    text-shadow:0 0 10px #6db8ff;
 }
 
-/* ------------------- Header ------------------- */
-header {
+/* ------------------- Hero ------------------- */
+.hero {
     text-align:center;
-    padding:70px 20px;
-    background:linear-gradient(180deg, #0d1118, #121722);
-    border-bottom:1px solid #1c2638;
+    padding:120px 20px 60px;
+    background:linear-gradient(180deg, #0a0a0a, #111);
+    position:relative;
 }
-
-h1 {
+.hero img {
+    width:180px;
+    margin-bottom:25px;
+}
+.hero h1 {
     font-size:3rem;
     color:#6db8ff;
     text-shadow:0 0 10px #326fa8;
 }
-
 .hero-sub {
     font-size:1.25rem;
-    margin-top:10px;
     opacity:0.8;
+    margin-top:10px;
 }
 
-/* ------------------- FAQ Section ------------------- */
+/* ------------------- FAQ ------------------- */
 .section {
     max-width:1200px;
     margin:40px auto;
-    padding:0 20px 80px;
+    padding:0 10% 100px;
 }
 
 .accordion {
-    background:#141820;
-    border:1px solid #233047;
+    background:#111;
+    border:2px solid #1f1f1f;
     margin-bottom:20px;
-    padding:20px;
-    border-radius:12px;
+    padding:22px;
+    border-radius:16px;
     cursor:pointer;
     transition:0.3s;
-    box-shadow:0 0 10px #000;
+    box-shadow:0 4px 12px rgba(0,0,0,0.4);
 }
 
 .accordion:hover {
     border-color:#6db8ff;
-    box-shadow:0 0 12px #6db8ff50;
+    box-shadow:0 0 12px #6db8ff, 0 0 40px #00ffd0;
 }
 
 .accordion h3 {
     margin:0;
-    font-size:1.2rem;
+    font-size:1.25rem;
     color:#6db8ff;
 }
 
@@ -98,23 +123,36 @@ h1 {
     max-height:0;
     overflow:hidden;
     transition:max-height 0.4s ease;
-    padding-left:5px;
 }
 
 .panel p {
-    margin:15px 0;
+    margin:18px 0;
     line-height:1.6;
+    opacity:0.85;
 }
 
-/* ------------------- Footer ------------------- */
+/* ------------------- Footer (Matches Index) ------------------- */
 footer {
-    text-align:center;
-    padding:35px;
     background:#0b0f18;
-    color:#9fbbe0;
-    margin-top:40px;
+    padding:40px 10%;
+    margin-top:60px;
     font-size:0.9rem;
-    border-top:1px solid #1c2638;
+    color:#9fbbe0;
+    text-align:center;
+}
+footer a {
+    color:#6db8ff;
+    margin:0 8px;
+    transition:0.2s;
+}
+footer a:hover { color:white; }
+
+/* ------------------- Responsive ------------------- */
+@media (max-width:768px) {
+    header { flex-direction:column; gap:10px; }
+    nav { gap:10px; }
+    .hero img { width:150px; }
+    .hero h1 { font-size:2.3rem; }
 }
 </style>
 
@@ -124,8 +162,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (let i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-
             let panel = this.nextElementSibling;
 
             if (panel.style.maxHeight) {
@@ -140,73 +176,76 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </head>
 <body>
-    
+
+<div class="particles"></div>
+
 <!-- Header -->
 <header>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
-<!-- Navigation -->
-<nav>
-    <a href="index.html">Retro Home</a>
-    <a href="about.html">About RetroReplay</a>
-    <a href="products.html">Consoles & Products</a>
-    <a href="services.html">Services We Provide</a>
-    <a href="faq.html">FAQ's</a>
-    <a href="contact.html">Contact Us</a>
-</nav>
+
+    <nav>
+        <a href="index.html">Retro Home</a>
+        <a href="about.html">About RetroReplay</a>
+        <a href="products.html">Consoles & Products</a>
+        <a href="services.html">Services We Provide</a>
+        <a href="faq.html">FAQ's</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <img src="assets/logo.png" alt="Retro Replay Logo">
     <h1>Frequently Asked Questions</h1>
     <div class="hero-sub">Everything You Need to Know Before You Buy</div>
-</header>
+</section>
 
 <!-- FAQ Content -->
 <div class="section">
 
-    <!-- QUESTION 1 -->
     <div class="accordion"><h3>What warranty do your refurbished consoles come with?</h3></div>
     <div class="panel">
-        <p>Every console includes a <strong>6-month hardware warranty</strong> covering faults, failures, and defective parts.  
-        Optional extended warranties are available on the Warranties page.</p>
+        <p>Every console includes a <strong>6-month hardware warranty</strong> covering faults, failures, and defective parts.</p>
     </div>
 
-    <!-- QUESTION 2 -->
     <div class="accordion"><h3>How do your refurbishments work?</h3></div>
     <div class="panel">
-        <p>Each console undergoes a <strong>full 15-step refurbishment process</strong>: deep cleaning, thermal renewal, laser rebalancing, PSU testing, pad rebuilds, cosmetic refresh, full diagnostics, and more.</p>
-        <p>Visit <a href="how-we-refurbish.html" style="color:#6db8ff;">our full refurb process</a> for detailed steps.</p>
+        <p>Each console undergoes a <strong>full 15-step refurbishment</strong> including cleaning, thermal renewal, PSU testing, laser tuning & more.</p>
     </div>
 
-    <!-- QUESTION 3 -->
     <div class="accordion"><h3>Can I trade in my old console?</h3></div>
     <div class="panel">
-        <p>Yes! You can trade in PS1/PS2/PS3 consoles and accessories.  
-        Visit the Trade-In page to submit details and receive a valuation.</p>
+        <p>Yes — PS1, PS2, PS3 and accessories accepted.</p>
     </div>
 
-    <!-- QUESTION 4 -->
     <div class="accordion"><h3>Do you offer modifications or upgrades?</h3></div>
     <div class="panel">
-        <p>Yes — from HDD upgrades to fan mods, RGB improvements, custom shells, softmods, and full restoration packages.</p>
-        <p>See the <a href="mods-upgrades.html" style="color:#6db8ff;">Mods & Upgrades page</a> for all available options.</p>
+        <p>Yes — HDD mods, RGB upgrades, custom shells, fan mods & softmods.</p>
     </div>
 
-    <!-- QUESTION 5 -->
     <div class="accordion"><h3>How long does shipping take?</h3></div>
     <div class="panel">
-        <p>UK delivery is typically <strong>1–3 business days</strong> via tracked services.  
-        Worldwide shipping is available on request.</p>
+        <p>UK delivery is typically <strong>1–3 business days</strong> with tracking.</p>
     </div>
 
-    <!-- QUESTION 6 -->
     <div class="accordion"><h3>Do you accept returns?</h3></div>
     <div class="panel">
-        <p>Yes — returns are accepted within <strong>14 days</strong> if the device is in the same condition received.  
-        Warranty returns are handled separately under our repair guarantee.</p>
+        <p>Yes, within 14 days if the device is in the same condition.</p>
     </div>
 
 </div>
 
 <!-- Footer -->
 <footer>
-    © 2025 Retro Replay — PlayStation Division
+    <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
+    <p>
+        <a href="index.html">Retro Home</a> |
+        <a href="about.html">About RetroReplay</a> |
+        <a href="products.html">Consoles & Products</a> |
+        <a href="services.html">Services We Provide</a> |
+        <a href="faq.html">FAQ's</a> |
+        <a href="contact.html">Contact Us</a>
+    </p>
 </footer>
 
 </body>

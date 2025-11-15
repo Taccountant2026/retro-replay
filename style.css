@@ -1,165 +1,40 @@
-/* --- Reset --- */
-* {margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%}
-body{
-  font-family:'Orbitron',system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  background: radial-gradient(1000px 500px at 10% 10%, rgba(0,82,168,0.06), transparent),
-              linear-gradient(180deg,#000 0%, #020407 40%, #001229 100%);
-  color:#e9eef7;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  overflow-x:hidden;
-  line-height:1.45;
+.tile {
+    background:#111;
+    border:2px solid #1f1f1f;
+    padding:35px 20px;
+    border-radius:20px;
+    transition:0.3s, box-shadow 0.4s, transform 0.4s;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    box-shadow:0 0 5px #0051ff, 0 0 10px #00ffd0;
+    position:relative;
+    animation:float 4s ease-in-out infinite;
+    opacity:0;
+    transform: translateY(30px);
 }
 
-/* --- Ambient / Scanlines --- */
-.ambient{position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:radial-gradient(400px 200px at 85% 12%, rgba(0,82,168,0.03), transparent),
-            radial-gradient(300px 150px at 15% 80%, rgba(0,51,128,0.03), transparent);
-  mix-blend-mode:screen;animation:ambientShift 12s linear infinite alternate}
-@keyframes ambientShift{0%{transform:translateY(0) scale(1)}100%{transform:translateY(-18px) scale(1.02)}}
-
-.scanlines{position:fixed;inset:0;z-index:0;opacity:.06;
-  background-image:repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 4px);
+/* Neon glow animation */
+@keyframes neon-pulse {
+    0%, 100% { box-shadow: 0 0 8px #0051ff, 0 0 16px #00ffd0, 0 0 24px #6db8ff; }
+    50% { box-shadow: 0 0 16px #0051ff, 0 0 32px #00ffd0, 0 0 48px #6db8ff; }
 }
 
-.wrap{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:28px 20px 80px;}
-
-header{display:flex;align-items:center;justify-content:space-between;padding:18px 12px;color:#dfe9f8;letter-spacing:1px}
-.nav{display:flex;gap:18px;font-weight:700;font-size:0.95rem;color:rgba(233,238,247,0.9)}
-.nav a{color:inherit;text-decoration:none;opacity:.85}
-.nav a.active,.nav a:hover{opacity:1;text-decoration:underline}
-
-/* --- Hero --- */
-.hero{min-height:65vh;display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;gap:18px;padding:60px 20px}
-.hero .logo{max-width:560px;width:78%;height:auto;display:block;filter:drop-shadow(0 20px 40px rgba(0,50,140,0.45))}
-.hero .subtag{font-size:1.05rem;font-weight:700;color:#e6eefc;opacity:.95;letter-spacing:1px;text-transform:uppercase;text-shadow:0 6px 28px rgba(0,82,168,0.12)}
-.hero .boot-bar {
-    width: 72%;
-    max-width: 720px;
-    height: 8px;
-    border-radius: 6px;
-    margin-top: 18px;
-    background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.03);
-    position: relative;
+.tile.visible { 
+    opacity:1; 
+    transform:translateY(0px); 
+    animation: neon-pulse 2s infinite alternate, float 4s ease-in-out infinite; 
 }
 
-.hero .boot-bar > i {
-    display: block;
-    height: 100%;
-    width: 20%; /* blue bar width */
-    background: linear-gradient(90deg, #004a99, #0066cc 60%, #66a8ff);
-    box-shadow: 0 6px 18px rgba(0,102,204,0.25);
-    position: absolute;
-    left: -20%; /* start fully left outside */
-    animation: bootPulse 4s linear infinite; /* adjust speed here */
+.tile:hover { 
+    background:#0051ff; 
+    transform:scale(1.08); 
+    box-shadow:0 0 20px #00ffd0, 0 0 50px #6db8ff; 
 }
 
-@keyframes bootPulse {
-    0% { left: -20%; }
-    100% { left: 100%; }
-}
+/* Tile images pop with rotation and scale */
+.tile:hover img { transform:rotate(-10deg) scale(1.15); }
 
-/* --- Section Titles --- */
-.section-title{font-size:2rem;font-weight:900;color:#dbe8ff;margin-bottom:12px;text-align:center;letter-spacing:1px;text-shadow:0 0 6px #00bcd4}
-.section-sub{color:rgba(220,230,255,0.8);text-align:center;margin-bottom:24px}
-
-/* --- Product / Feature Cards --- */
-.feature-grid,
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.feature-card,
-.product-card {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0.01));
-    border: 1px solid rgba(0, 82, 168, 0.08);
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-height: 340px; /* fixed height for uniformity */
-}
-
-.feature-card:hover,
-.product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(0, 60, 140, 0.15);
-}
-
-/* --- Images inside cards --- */
-.feature-card img,
-.product-card img {
-    width: 160px;       /* fixed width */
-    height: 120px;      /* fixed height */
-    object-fit: contain; /* preserves aspect ratio */
-    border-radius: 8px;
-    margin-bottom: 12px;
-}
-
-/* --- Name & Price --- */
-.feature-card .name,
-.product-card .name {
-    font-weight: 800;
-    font-size: 1.05rem;
-    color: #eaf3ff;
-    margin-bottom: 6px;
-    text-align: center;
-}
-
-.product-card .price {
-    font-weight: 900;
-    color: #7fc0ff;
-    font-size: 1.1rem;
-    margin-bottom: 6px;
-}
-
-/* --- Buttons --- */
-.feature-card .btn,
-.product-card .btn {
-    margin-top: auto;
-    width: 90%;
-    text-align: center;
-}
-
-/* --- Footer --- */
-footer{margin-top:28px;padding:28px;text-align:center;color:rgba(220,235,255,0.75);font-size:.95rem;border-top:1px solid rgba(255,255,255,0.02)}
-footer small{display:block;margin-top:6px;color:rgba(200,215,235,0.55)}
-
-/* --- Responsive --- */
-@media (max-width:880px){.hero{padding:40px 20px}}
-@media (max-width:520px){.hero h1{font-size:2.2rem}}
-
-/* Header logo container */
-.logo-container {
-  display: flex;
-  flex-direction: column; /* stack images vertically */
-  align-items: flex-start; /* keep aligned to left */
-  gap: 8px; /* spacing between main logo and secondary image */
-  padding: 8px 0;
-}
-
-.logo-container .logo {
-  max-height: 60px;
-}
-
-.logo-container .logo-secondary {
-  max-height: 40px; /* adjust to fit */
-}
-
-/* Extra image under hero logo */
-.hero-secondary {
-  max-width: 280px;       /* adjust as needed */
-  width: 60%;
-  height: auto;
-  display: block;
-  margin: 12px auto 0;    /* centers under main logo */
-  filter: drop-shadow(0 12px 28px rgba(0,50,140,0.35));
-}
+/* Floating effect */
+@keyframes float { 0%,100%{transform: translateY(0px);} 50%{transform: translateY(-5px);} }

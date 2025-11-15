@@ -152,103 +152,55 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     </div>
   </section>
 
-  <!-- Product Grid (all products) -->
-  <section class="product-grid" aria-label="Products">
-    <!-- Duplicate all your product cards from products.html -->
-    <!-- Example Product Card -->
-    <div class="product-card" data-base="150" data-name="Refurbished PS2 Fat">
-      <img src="assets/PS2_REFURBED_BUNDLE.jpg" alt="Refurbished PS2 Fat">
-      <div class="name">Refurbished PS2 Fat</div>
-      <div class="price">£150</div>
-      <p>Fully refurbished PS2 Fat console, cleaned, tested, cosmetically restored.</p>
-      <div class="product-actions">
-        <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
-      </div>
-    </div>
-
-    <!-- Add the rest of your products here as in products.html -->
-  </section>
-
-  <!-- Reviews -->
-  <section class="reviews" aria-label="Customer reviews">
-    <h2>What Our Customers Say</h2>
-    <div class="review-grid" role="list">
-      <div class="review" role="listitem">
-        <div class="stars">★★★★★</div>
-        <p>“Console arrived spotless, works like new. Fast delivery and great communication.”</p>
-        <span>- James P.</span>
-      </div>
-      <div class="review" role="listitem">
-        <div class="stars">★★★★★</div>
-        <p>“Bought the plug-and-play bundle… literally plugged it in and was gaming in minutes!”</p>
-        <span>- Danielle R.</span>
-      </div>
-      <div class="review" role="listitem">
-        <div class="stars">★★★★★</div>
-        <p>“Refurbished PS2 feels brand new. HDMI upgrade is 100% worth it.”</p>
-        <span>- Michael L.</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Upgrade Modal -->
-  <div id="upgradeModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="upgradeTitle">
-    <div class="modal-panel" role="document">
-      <h3 id="upgradeTitle">Upgrade Options</h3>
-      <p id="upgradeProduct" style="color:#cfe8ff;margin-bottom:8px;">Select upgrades for: <strong></strong></p>
-      <div class="upgrade-list">
-        <div class="upgrade-item">
-          <label><input type="checkbox" name="upgrade" value="refurb" data-price="25"><strong>Refurbishment</strong> — +£25</label>
-        </div>
-        <div class="upgrade-item">
-          <label><input type="checkbox" name="upgrade" value="hdmi" data-price="18"><strong>HDMI Upgrade</strong> — +£18</label>
-        </div>
-        <div class="upgrade-item">
-          <label><input type="checkbox" name="upgrade" value="softmod" data-price="15"><strong>Softmod (FMCB)</strong> — +£15</label>
-        </div>
-        <div class="upgrade-item">
-          <label><input type="checkbox" name="upgrade" value="premium" data-price="55"><strong>Premium Bundle</strong> — +£55</label>
-        </div>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;">
-        <div style="color:#cbd3dd;">Total: £<span id="upgradeTotal">0</span></div>
-        <div class="upgrade-actions">
-          <button class="btn small alt" onclick="closeUpgradeModal()">Cancel</button>
-          <button class="btn small" id="applyUpgradesBtn">Add to Basket / Checkout</button>
-        </div>
-      </div>
+ <!-- Product Grid -->
+<section class="product-grid" aria-label="Products">
+  <!-- Example Product Card -->
+  <div class="product-card" data-base="150" data-name="Refurbished PS2 Fat">
+    <img src="assets/PS2_REFURBED_BUNDLE.jpg" alt="Refurbished PS2 Fat">
+    <div class="name">Refurbished PS2 Fat</div>
+    <div class="price">£150</div>
+    <p>Fully refurbished PS2 Fat console, cleaned, tested, cosmetically restored.</p>
+    <div class="product-actions">
+      <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
     </div>
   </div>
+  <!-- Repeat for all products -->
+</section>
 
-  <!-- Footer -->
-  <div class="site-footer" role="contentinfo">
-    <div class="footer-grid">
-      <div>
-        <h4>RetroReplay</h4>
-        <p>Specialist in refurbished and upgraded PlayStation 2 consoles. Cleaned, tested & shipped with care.</p>
+<!-- Upgrade Modal -->
+<div id="upgradeModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="upgradeTitle">
+  <div class="modal-panel" role="document">
+    <h3 id="upgradeTitle">Upgrade Options</h3>
+    <p id="upgradeProduct" style="color:#cfe8ff;margin-bottom:8px;">Select upgrades for: <strong></strong></p>
+    <div class="upgrade-list">
+      <div class="upgrade-item">
+        <label><input type="checkbox" name="upgrade" value="refurb" data-price="25"><strong>Refurbishment</strong> — +£25</label>
       </div>
-      <div>
-        <h4>Navigation</h4>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="products.html">Products</a>
-        <a href="mods-upgrades.html">Mods & Upgrades</a>
+      <div class="upgrade-item">
+        <label><input type="checkbox" name="upgrade" value="hdmi" data-price="18"><strong>HDMI Upgrade</strong> — +£18</label>
       </div>
-      <div>
-        <h4>Policies & Help</h4>
-        <a href="warranties.html">Returns & Warranty</a>
-        <a href="shipping.html">Shipping</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
+      <div class="upgrade-item">
+        <label><input type="checkbox" name="upgrade" value="softmod" data-price="15"><strong>Softmod (FMCB)</strong> — +£15</label>
+      </div>
+      <div class="upgrade-item">
+        <label><input type="checkbox" name="upgrade" value="premium" data-price="55"><strong>Premium Bundle</strong> — +£55</label>
       </div>
     </div>
-    <p style="text-align:center;margin-top:12px;color:#8daed3;">© <strong>Retro Replay</strong> — Featuring PlayStation 2 • Not affiliated with Sony</p>
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div style="color:#cbd3dd;">Total: £<span id="upgradeTotal">0</span></div>
+      <div class="upgrade-actions">
+        <button class="btn small alt" onclick="closeUpgradeModal()">Cancel</button>
+        <button class="btn small" id="addToBasketBtn">Add to Basket</button>
+        <button class="btn small" id="checkoutBtn">Checkout</button>
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
 let currentBasePrice = 0;
 let currentProductName = '';
+let cart = JSON.parse(localStorage.getItem('cart') || '[]');
 
 function openUpgradeModal(btn){
   const card = btn.closest('.product-card');
@@ -271,7 +223,18 @@ function updateUpgradeTotal(){
 document.addEventListener('change', function(e){ if(e.target.name==='upgrade'){ updateUpgradeTotal(); } });
 document.getElementById('upgradeModal').addEventListener('click', function(e){ if(e.target===this) closeUpgradeModal(); });
 
-document.getElementById('applyUpgradesBtn').addEventListener('click', function(){
+// Add to Basket
+document.getElementById('addToBasketBtn').addEventListener('click', function(){
+  const checked = Array.from(document.querySelectorAll('#upgradeModal input[name="upgrade"]:checked'));
+  const upgrades = checked.map(ch=>({id: ch.value, price: Number(ch.dataset.price)}));
+  cart.push({product: currentProductName, base: currentBasePrice, upgrades, total: Number(document.getElementById('upgradeTotal').textContent)});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(currentProductName + " added to basket!");
+  closeUpgradeModal();
+});
+
+// Checkout
+document.getElementById('checkoutBtn').addEventListener('click', function(){
   const checked = Array.from(document.querySelectorAll('#upgradeModal input[name="upgrade"]:checked'));
   const upgrades = checked.map(ch=>({id: ch.value, price: Number(ch.dataset.price)}));
   const total = Number(document.getElementById('upgradeTotal').textContent);

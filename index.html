@@ -82,11 +82,16 @@ nav a:hover { color:#ffffff; }
     border-radius:12px;
     border:none;
     cursor:pointer;
-    transition:0.3s;
+    transition:0.4s;
     display:inline-block;
     position:relative; z-index:1;
+    box-shadow:0 0 10px #0051ff, 0 0 30px #00ffd0;
 }
-.cta-btn:hover { background:#0070ff; transform:scale(1.05); }
+.cta-btn:hover {
+    background:#0070ff;
+    transform:scale(1.08);
+    box-shadow:0 0 20px #6db8ff, 0 0 50px #00ffd0;
+}
 
 /* --- Particle Canvas --- */
 #particle-canvas {
@@ -111,7 +116,7 @@ nav a:hover { color:#ffffff; }
     border:2px solid #1f1f1f;
     padding:35px 20px;
     border-radius:20px;
-    transition:0.3s, box-shadow 0.4s;
+    transition:0.3s, box-shadow 0.4s, transform 0.4s;
     cursor:pointer;
     display:flex;
     flex-direction:column;
@@ -119,7 +124,10 @@ nav a:hover { color:#ffffff; }
     box-shadow:0 4px 12px rgba(0,0,0,0.4);
     position:relative;
     animation:float 4s ease-in-out infinite;
+    opacity:0;
+    transform: translateY(30px);
 }
+.tile.visible { opacity:1; transform:translateY(0px); transition:0.6s ease-out; }
 .tile::before {
     content:"";
     position:absolute;
@@ -137,7 +145,7 @@ nav a:hover { color:#ffffff; }
 .tile img { width:80px; margin-bottom:15px; transition:0.3s; }
 .tile h3 { margin:0 0 10px 0; font-size:1.5rem; color:#6db8ff; }
 .tile p { margin:0; font-size:1rem; opacity:0.8; text-align:center; }
-.tile:hover { background:#0051ff; transform:scale(1.05); }
+.tile:hover { background:#0051ff; transform:scale(1.08); box-shadow:0 0 15px #00ffd0, 0 0 40px #6db8ff; }
 .tile:hover img { transform:rotate(-10deg) scale(1.1); }
 @keyframes float { 0%,100%{transform: translateY(0px);} 50%{transform: translateY(-5px);} }
 
@@ -279,8 +287,9 @@ footer a:hover { color:#ffffff; }
     </p>
 </footer>
 
-<!-- Particle Script -->
+<!-- Particle Script + Scroll Reveal -->
 <script>
+// --- Particle System ---
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -307,10 +316,24 @@ class Particle{
         ctx.fill();
     }
 }
-function init(){particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
-function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
-init();animate();
-window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;init();});
+function initParticles(){particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
+function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+initParticles(); animateParticles();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; initParticles();});
+
+// --- Scroll Reveal for Tiles ---
+const tiles = document.querySelectorAll('.tile');
+const revealOnScroll = () => {
+    const triggerBottom = window.innerHeight * 0.85;
+    tiles.forEach(tile=>{
+        const tileTop = tile.getBoundingClientRect().top;
+        if(tileTop < triggerBottom){
+            tile.classList.add('visible');
+        }
+    });
+};
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
 </script>
 
 </body>

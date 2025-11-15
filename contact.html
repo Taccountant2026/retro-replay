@@ -3,58 +3,221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Contact</title>
+<title>Retro Replay — Contact Us</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
 <style>
-body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed;}
-nav { background:#0a0a0a; padding:16px; text-align:center; }
-nav a { color:#6db8ff; margin:0 10px; text-decoration:none; font-weight:700;}
-nav a:hover { color:#8ec5ff; }
-header { text-align:center; padding:60px 20px; }
-h1 { color:#6db8ff; margin-bottom:10px; }
-.hero-sub { font-size:1.2rem; opacity:0.8; }
-.section { padding:40px 10%; max-width:800px; margin:0 auto; }
-footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0;}
-form input, form textarea { width:100%; margin-bottom:12px; padding:10px; border-radius:6px; border:none; }
-form button { padding:12px 20px; background:#6db8ff; color:#000; font-weight:700; border:none; border-radius:6px; cursor:pointer; }
-form button:hover { background:#1463ff; }
+/* ---------- GLOBAL ---------- */
+body {
+    margin:0;
+    font-family:'Orbitron', sans-serif;
+    background:#11131a;
+    color:#e3e7ed;
+    overflow-x:hidden;
+}
+
+/* ---------- NAVIGATION ---------- */
+nav {
+    background:#0a0a0d;
+    padding:18px 10px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:18px;
+    border-bottom:2px solid #1f2a40;
+    box-shadow:0 0 15px #000;
+}
+
+nav a {
+    color:#6db8ff;
+    text-decoration:none;
+    font-weight:700;
+    font-size:0.95rem;
+    transition:0.3s;
+    padding:6px 10px;
+    border-radius:6px;
+}
+
+nav a:hover {
+    background:#0f1724;
+    color:#9cd1ff;
+    text-shadow:0 0 6px #6db8ff;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    text-align:center;
+    padding:80px 20px 60px;
+    background:linear-gradient(180deg, #0d1118, #121722);
+}
+
+h1 {
+    font-size:3rem;
+    color:#6db8ff;
+    text-shadow:0 0 10px #326fa8;
+}
+
+.hero-sub {
+    font-size:1.2rem;
+    opacity:0.8;
+    margin-top:8px;
+}
+
+/* ---------- CONTACT SECTION ---------- */
+.section {
+    max-width:1000px;
+    margin:40px auto 80px;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:40px;
+}
+
+.contact-card {
+    background:#141820;
+    border:1px solid #233047;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 0 15px #000;
+    transition:0.3s;
+}
+
+.contact-card:hover {
+    border-color:#6db8ff;
+    box-shadow:0 0 15px #6db8ff50;
+}
+
+.contact-card h2 {
+    color:#6db8ff;
+    margin-bottom:15px;
+    text-shadow:0 0 6px #6db8ff;
+}
+
+.info-line {
+    margin:10px 0;
+    opacity:0.9;
+    font-size:0.95rem;
+}
+
+.info-line span {
+    color:#6db8ff;
+}
+
+/* ---------- FORM ---------- */
+form {
+    background:#141820;
+    border:1px solid #233047;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 0 15px #000;
+    transition:0.3s;
+}
+
+form:hover {
+    border-color:#6db8ff;
+    box-shadow:0 0 15px #6db8ff50;
+}
+
+form input,
+form textarea {
+    width:100%;
+    margin-bottom:15px;
+    padding:12px;
+    border-radius:8px;
+    border:none;
+    background:#0f131a;
+    color:#e3e7ed;
+    font-family:'Orbitron';
+    font-size:0.95rem;
+}
+
+form input:focus,
+form textarea:focus {
+    outline:2px solid #6db8ff;
+    box-shadow:0 0 10px #6db8ff60;
+}
+
+form button {
+    padding:14px 20px;
+    background:#6db8ff;
+    color:#000;
+    font-weight:700;
+    border:none;
+    width:100%;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:1rem;
+}
+
+form button:hover {
+    background:#8fc7ff;
+    box-shadow:0 0 10px #6db8ff80;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    text-align:center;
+    padding:35px;
+    background:#0b0f18;
+    color:#9fbbe0;
+    font-size:0.9rem;
+    border-top:1px solid #1c2638;
+    margin-top:40px;
+}
 </style>
 </head>
 <body>
 
+<!-- Navigation -->
 <nav>
-    <a href="index.html">Home</a>
-    <a href="history.html">History</a>
-    <a href="buying-guide.html">Buying Guide</a>
-    <a href="mods-upgrades.html">Mods & Upgrades</a>
-    <a href="how-we-refurbish.html">Refurb Process</a>
-    <a href="trade-in.html">Trade-In</a>
-    <a href="delivery.html">Shipping</a>
-    <a href="warranties.html">Warranties</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html">Contact</a>
-    <a href="products.html">Products</a>
-    <a href="products/ps1.html">PS1</a>
-    <a href="products/ps2.html">PS2</a>
-    <a href="products/ps3.html">PS3</a>
+    <a href="index.html">Retro Home</a>
+    <a href="about.html">About RetroReplay</a>
+    <a href="products.html">Consoles & Products</a>
+    <a href="services.html">Services We Provide</a>
+    <a href="faq.html">FAQ's</a>
+    <a href="contact.html">Contact Us</a>
 </nav>
 
+<!-- Header -->
 <header>
     <h1>Contact Retro Replay</h1>
-    <div class="hero-sub">Get in touch with us</div>
+    <div class="hero-sub">We're Here to Help — Reach Out Anytime</div>
 </header>
 
+<!-- CONTACT CONTENT -->
 <div class="section">
+
+    <!-- LEFT: CONTACT INFO -->
+    <div class="contact-card">
+        <h2>Contact Information</h2>
+
+        <p class="info-line"><span>Email:</span> support@retro-replay.co.uk</p>
+        <p class="info-line"><span>Response Time:</span> 24–48 Hours</p>
+        <p class="info-line"><span>Business Hours:</span> Mon–Sat, 9am–6pm</p>
+        <p class="info-line"><span>Location:</span> UK Based — Shipping Worldwide</p>
+
+        <p style="margin-top:20px; opacity:0.75;">
+            For order help, trade-ins, console advice, or custom builds — just drop us a message below.
+        </p>
+    </div>
+
+    <!-- RIGHT: CONTACT FORM -->
     <form>
+        <h2 style="color:#6db8ff; text-shadow:0 0 6px #6db8ff; margin-bottom:20px;">Send Us a Message</h2>
+
         <input type="text" placeholder="Your Name" required>
         <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <textarea rows="6" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
     </form>
+
 </div>
 
+<!-- Footer -->
 <footer>
-    <p>© 2025 Retro Replay — PlayStation Division</p>
+    © 2025 Retro Replay — PlayStation Division
 </footer>
 
 </body>

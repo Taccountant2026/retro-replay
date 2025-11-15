@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retro Replay — Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        background:#0a0a0a;
+        color:white;
+        font-family:'Orbitron', sans-serif;
+        margin:0;
+        text-align:center;
+    }
+
+    header img {
+        width:180px;
+        margin-top:30px;
+    }
+
+    h1 { margin-top:10px; font-size:2.2rem; }
+
+    .grid {
+        display:grid;
+        grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+        gap:20px;
+        padding:40px;
+    }
+
+    .tile {
+        background:#111;
+        border:2px solid #1f1f1f;
+        padding:40px 20px;
+        border-radius:15px;
+        transition:0.3s;
+        cursor:pointer;
+    }
+
+    .tile:hover {
+        background:#0051ff;
+        transform:scale(1.05);
+    }
+
+    a {
+        text-decoration:none;
+        color:white;
+    }
+</style>
+</head>
+
+<body>
+<header>
+    <img src="assets/logo.png" alt="Retro Replay Logo">
+    <h1>Welcome to Retro Replay</h1>
+    <p>Your Home for Restored Retro Consoles</p>
+</header>
+
+<div class="grid">
+
+    <a href="playstation/index.html">
+        <div class="tile">PlayStation</div>
+    </a>
+
+    <a href="xbox/index.html">
+        <div class="tile">Xbox</div>
+    </a>
+
+    <a href="nintendo/index.html">
+        <div class="tile">Nintendo</div>
+    </a>
+
+    <a href="sega/index.html">
+        <div class="tile">SEGA</div>
+    </a>
+
+    <a href="atari/index.html">
+        <div class="tile">Atari</div>
+    </a>
+
+    <a href="branding.html">
+        <div class="tile">Branding</div>
+    </a>
+
+</div>
+
+</body>
+</html>

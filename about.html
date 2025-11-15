@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — Retro Replay</title>
+<title>About Retro Replay — Restoring Classics</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 body {
@@ -16,7 +16,7 @@ body {
 }
 a { text-decoration:none; color:inherit; }
 
-/* Header */
+/* --- Sticky Header --- */
 header {
     position:sticky;
     top:0;
@@ -30,11 +30,21 @@ header {
     backdrop-filter: blur(5px);
 }
 header img.logo { height:60px; }
-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
-nav a { margin:5px 10px; font-weight:bold; color:#6db8ff; transition:0.2s; }
+nav {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+}
+nav a {
+    margin:5px 10px;
+    font-weight:bold;
+    color:#6db8ff;
+    transition:0.2s;
+}
 nav a:hover { color:#ffffff; }
 
-/* Hero Section */
+/* --- Hero Section --- */
 .hero {
     position:relative;
     padding:120px 20px 80px;
@@ -50,9 +60,24 @@ nav a:hover { color:#ffffff; }
     background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
     z-index:0;
 }
-.hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:1; }
-.hero h1 { font-size:3rem; color:#6db8ff; margin-bottom:15px; position:relative; z-index:1; text-shadow:0 0 10px #0051ff; }
-.hero p { font-size:1.3rem; opacity:0.85; margin-bottom:30px; position:relative; z-index:1; }
+.hero img.logo-hero {
+    width:180px;
+    margin-bottom:20px;
+    position:relative;
+    z-index:1;
+}
+.hero h1 {
+    font-size:3rem;
+    color:#6db8ff;
+    margin-bottom:15px;
+    position:relative; z-index:1;
+}
+.hero p {
+    font-size:1.3rem;
+    opacity:0.85;
+    margin-bottom:30px;
+    position:relative; z-index:1;
+}
 .cta-btn {
     background:#0051ff;
     color:white;
@@ -73,109 +98,86 @@ nav a:hover { color:#ffffff; }
     box-shadow:0 0 20px #6db8ff, 0 0 50px #00ffd0;
 }
 
-/* Ambient Particles */
+/* --- Particle Canvas --- */
 #particle-canvas {
     position:absolute;
-    top:0; left:0;
+    top:0;
+    left:0;
     width:100%;
     height:100%;
     z-index:0;
     pointer-events:none;
 }
 
-/* Section Styles */
+/* --- About Sections --- */
 .section {
+    max-width:1200px;
+    margin:0 auto;
     padding:60px 10%;
-    border-radius:15px;
-    margin:40px auto;
-    background:#111;
-    position:relative;
-    box-shadow:0 0 40px rgba(0,0,0,0.7);
+    text-align:center;
 }
 .section h2 {
     font-size:2.5rem;
+    margin-bottom:20px;
     color:#6db8ff;
-    text-align:center;
-    margin-bottom:25px;
-    text-shadow:0 0 8px #0051ff;
 }
 .section p {
     font-size:1.1rem;
-    line-height:1.7;
-    max-width:900px;
-    margin:10px auto;
+    line-height:1.6;
+    margin-bottom:15px;
     opacity:0.9;
 }
 
-/* Founder Bio */
+/* --- Story & Craftsmanship Section --- */
 .founder-bio {
     display:flex;
     flex-wrap:wrap;
-    justify-content:center;
     align-items:center;
-    gap:40px;
-    margin-top:40px;
+    justify-content:center;
+    gap:30px;
+    margin-top:30px;
     position:relative;
 }
 .founder-bio img {
-    width:220px;
-    border-radius:50%;
-    border:3px solid #6db8ff;
-    transition:0.3s;
-    z-index:2;
-}
-.founder-bio img:hover { transform:scale(1.05) rotate(5deg); }
-.founder-bio .bio-text { max-width:600px; text-align:left; z-index:2; position:relative; }
-.founder-bio .bio-text h3 { font-size:1.8rem; color:#ffd700; margin-bottom:10px; text-shadow:0 0 6px #ffa500; }
-.founder-bio .bio-text p { font-size:1.05rem; line-height:1.6; opacity:0.9; }
-
-/* Services Highlights */
-.services-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    margin-top:40px;
-}
-.service-tile {
-    background:#1a1a1a;
-    padding:25px 20px;
+    max-width:400px;
     border-radius:15px;
-    text-align:center;
-    transition:0.4s;
-    box-shadow:0 0 20px rgba(0,0,0,0.7);
+    box-shadow:0 0 30px #0051ff,0 0 60px #00ffd0;
 }
-.service-tile h3 { color:#00ffd0; margin-bottom:10px; }
-.service-tile p { opacity:0.85; font-size:1rem; }
-.service-tile:hover { transform:scale(1.05); box-shadow:0 0 40px #00ffd0; }
+.bio-text { max-width:600px; text-align:left; }
+.bio-text h3 { font-size:1.8rem; margin-bottom:15px; color:#00ffd0; }
+.bio-text p { font-size:1.05rem; line-height:1.5; }
 
-/* Testimonials */
-.testimonials-grid {
+/* --- Grid Tiles --- */
+.grid {
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    margin-top:20px;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:25px;
+    padding:40px 10%;
 }
-.testimonial {
+.tile {
     background:#111;
-    padding:20px;
-    border-radius:10px;
-    text-align:center;
-    box-shadow:0 0 20px rgba(0,0,0,0.6);
+    border:2px solid #1f1f1f;
+    padding:35px 20px;
+    border-radius:20px;
+    transition:0.3s, box-shadow 0.4s, transform 0.4s;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.4);
+    position:relative;
+    animation:float 4s ease-in-out infinite;
+    opacity:0;
+    transform: translateY(30px);
 }
-.testimonial p { font-size:1rem; line-height:1.4; }
-.testimonial .author { margin-top:10px; font-weight:bold; color:#ffd700; }
+.tile.visible { opacity:1; transform:translateY(0px); transition:0.6s ease-out; }
+.tile img { width:80px; margin-bottom:15px; transition:0.3s; }
+.tile h3 { margin:0 0 10px 0; font-size:1.5rem; color:#6db8ff; }
+.tile p { margin:0; font-size:1rem; opacity:0.8; text-align:center; }
+.tile:hover { background:#0051ff; transform:scale(1.08); box-shadow:0 0 15px #00ffd0, 0 0 40px #6db8ff; }
+.tile:hover img { transform:rotate(-10deg) scale(1.1); }
 
-/* Orbit Canvas */
-#orbit-canvas {
-    position:absolute;
-    top:0; left:0;
-    width:100%;
-    height:100%;
-    z-index:1;
-    pointer-events:none;
-}
-
-/* Footer */
+/* --- Footer --- */
 footer {
     background:#0b0f18;
     padding:40px 10%;
@@ -187,29 +189,32 @@ footer {
 footer a { color:#6db8ff; margin:0 8px; transition:0.2s; }
 footer a:hover { color:#ffffff; }
 
-/* Responsive */
+/* --- Responsive --- */
 @media screen and (max-width:768px) {
-    header { flex-direction:column; gap:10px; padding:15px 5%; }
-    nav a { margin:5px; }
-    .founder-bio { flex-direction:column; text-align:center; }
-    .founder-bio .bio-text { text-align:center; }
+    .founder-bio { flex-direction:column; }
+    .bio-text { text-align:center; }
 }
 @media screen and (max-width:480px) {
     .hero h1 { font-size:2rem; }
     .hero p { font-size:1rem; }
-    .founder-bio img { width:150px; }
+    .cta-btn { padding:12px 25px; font-size:1rem; }
+    .tile { padding:25px 15px; }
+    .tile img { width:60px; margin-bottom:10px; }
+    .tile h3 { font-size:1.2rem; }
+    .tile p { font-size:0.9rem; }
 }
 </style>
 </head>
 <body>
 
+<!-- Header -->
 <header>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
     <nav>
-        <a href="index.html">Home</a>
+        <a href="index.html">Retro Home</a>
         <a href="about.html">About RetroReplay</a>
         <a href="consoles.html">Consoles & Products</a>
-        <a href="services.html">Services</a>
+        <a href="services.html">Services We Provide</a>
         <a href="faq.html">FAQ's</a>
         <a href="contact.html">Contact Us</a>
     </nav>
@@ -220,128 +225,128 @@ footer a:hover { color:#ffffff; }
     <canvas id="particle-canvas"></canvas>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo-hero">
     <h1>About Retro Replay</h1>
-    <p>Discover the story, mission, and passion behind restoring classic consoles.</p>
-    <a href="#founder" class="cta-btn">Meet the Founder</a>
+    <p>Our mission is to restore classic consoles and elevate your retro gaming experience.</p>
+    <a href="#our-story" class="cta-btn">Discover Our Craft</a>
 </section>
 
-<!-- Founder Section -->
-<section class="section" id="founder">
-    <h2>Meet the Founder</h2>
+<!-- Story & Craftsmanship -->
+<section class="section" id="our-story">
+    <h2>Our Story & Craftsmanship</h2>
     <div class="founder-bio">
-        <img src="assets/founder.jpg" alt="Leighton Hepworth">
+        <img src="assets/console-restored.jpg" alt="Restored Console">
         <div class="bio-text">
-            <h3>Leighton Hepworth</h3>
-            <p>Hello! I’m <strong>Leighton Hepworth</strong>, founder of <strong>Retro Replay</strong>. Currently pursuing a degree in <strong>Computer Science & Technology</strong>, I’ve been passionate about consoles and tech from childhood.</p>
-            <p>Retro Replay was born from my love for gaming hardware, restoration, and creative mods. Every console refurbished and every bundle curated reflects this dedication.</p>
-        </div>
-        <canvas id="orbit-canvas"></canvas>
-    </div>
-</section>
-
-<!-- Mission & Vision -->
-<section class="section">
-    <h2>Our Mission & Vision</h2>
-    <p>We aim to bring retro consoles back to life, giving both nostalgia lovers and new gamers a high-quality experience. Every product is tested, cleaned, and upgraded where possible, ensuring it exceeds expectations.</p>
-    <p>Our vision is to become the premier destination for retro gaming, offering not just consoles, but experiences—memories, craftsmanship, and reliability.</p>
-</section>
-
-<!-- Services Highlights -->
-<section class="section">
-    <h2>What We Offer</h2>
-    <div class="services-grid">
-        <div class="service-tile">
-            <h3>Refurbished Consoles</h3>
-            <p>PS1, PS2, PS3, Xbox, Nintendo & more, all restored to like-new condition.</p>
-        </div>
-        <div class="service-tile">
-            <h3>Modifications & Upgrades</h3>
-            <p>HDD installs, homebrew setup, cosmetic mods, and media enhancements.</p>
-        </div>
-        <div class="service-tile">
-            <h3>Trade-Ins & Warranties</h3>
-            <p>Exchange old consoles for credit, and enjoy full warranty support on all purchases.</p>
-        </div>
-        <div class="service-tile">
-            <h3>Global Shipping</h3>
-            <p>Secure, fast, and trackable delivery worldwide for all consoles and accessories.</p>
+            <h3>Reviving Classics with Care</h3>
+            <p>At <strong>Retro Replay</strong>, we take pride in bringing retro consoles back to life. Every system is meticulously cleaned, repaired, and tested to ensure optimal performance.</p>
+            <p>We combine professional refurbishment techniques with modern modifications, offering HDD setups, homebrew support, and media playback. Our consoles are designed for nostalgia and reliability.</p>
+            <p>From PlayStation to Nintendo and beyond, our goal is to preserve gaming history while giving players a smooth, enjoyable experience.</p>
         </div>
     </div>
 </section>
 
-<!-- Testimonials -->
-<section class="section">
-    <h2>Customer Praise</h2>
-    <div class="testimonials-grid">
-        <div class="testimonial">
-            <p>"The refurbished PS2 I bought works perfectly! Feels brand new and looks amazing on my shelf."</p>
-            <div class="author">— Alex R.</div>
+<!-- Showcase Tiles -->
+<section class="grid">
+    <a href="playstation/index.html">
+        <div class="tile">
+            <img src="assets/playstation-logo.png" alt="PlayStation Logo">
+            <h3>PlayStation</h3>
+            <p>PS1, PS2 & PS3 refurbished consoles</p>
         </div>
-        <div class="testimonial">
-            <p>"Customer support was incredible, and the modded bundle was ready to play straight away. Highly recommend Retro Replay!"</p>
-            <div class="author">— Jamie L.</div>
+    </a>
+    <a href="xbox/index.html">
+        <div class="tile">
+            <img src="assets/xbox-logo.png" alt="Xbox Logo">
+            <h3>Xbox</h3>
+            <p>Original & Xbox 360 refurbished consoles</p>
         </div>
-        <div class="testimonial">
-            <p>"Fast shipping, beautifully restored consoles, and professional setup of the HDD. My retro gaming setup is complete!"</p>
-            <div class="author">— Sam K.</div>
+    </a>
+    <a href="nintendo/index.html">
+        <div class="tile">
+            <img src="assets/nintendo-logo.png" alt="Nintendo Logo">
+            <h3>Nintendo</h3>
+            <p>NES, SNES, N64 & Switch retro consoles</p>
         </div>
-    </div>
+    </a>
+    <a href="sega/index.html">
+        <div class="tile">
+            <img src="assets/sega-logo.png" alt="SEGA Logo">
+            <h3>SEGA</h3>
+            <p>Genesis, Mega Drive & Saturn refurbished</p>
+        </div>
+    </a>
+    <a href="atari/index.html">
+        <div class="tile">
+            <img src="assets/atari-logo.png" alt="Atari Logo">
+            <h3>Atari</h3>
+            <p>Classic 2600 & 7800 restored consoles</p>
+        </div>
+    </a>
 </section>
 
+<!-- Footer -->
 <footer>
     <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="buying-guide.html">Buying Guide</a> |
+        <a href="services.html">Services</a> |
+        <a href="mods-upgrades.html">Mods & Upgrades</a> |
+        <a href="how-we-refurbish.html">How We Refurbish</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="delivery.html">Shipping & Delivery</a> |
+        <a href="faq.html">FAQ</a> |
+        <a href="warranties.html">Warranties</a>
+    </p>
 </footer>
 
+<!-- Particle Script + Scroll Reveal -->
 <script>
-// Particle System
-const canvasParticles = document.getElementById('particle-canvas');
-const ctxParticles = canvasParticles.getContext('2d');
-canvasParticles.width = window.innerWidth;
-canvasParticles.height = window.innerHeight;
+// --- Particle System ---
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 let particlesArray=[];
-class Particle{constructor(){this.x=Math.random()*canvasParticles.width;this.y=Math.random()*canvasParticles.height;this.size=Math.random()*2+1;this.speedX=(Math.random()-0.5)*0.5;this.speedY=(Math.random()-0.5)*0.5;}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvasParticles.width)this.speedX*=-1;if(this.y<0||this.y>canvasParticles.height)this.speedY*=-1;}draw(){ctxParticles.fillStyle='rgba(109,184,255,0.5)';ctxParticles.beginPath();ctxParticles.arc(this.x,this.y,this.size,0,Math.PI*2);ctxParticles.fill();}}
-function initParticles(){particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
-function animateParticles(){ctxParticles.clearRect(0,0,canvasParticles.width,canvasParticles.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
-initParticles(); animateParticles();
-window.addEventListener('resize',()=>{canvasParticles.width=window.innerWidth; canvasParticles.height=window.innerHeight; initParticles();});
-
-// Orbiting Consoles
-const orbitCanvas = document.getElementById('orbit-canvas');
-const ctxOrbit = orbitCanvas.getContext('2d');
-function resizeOrbit(){ orbitCanvas.width = orbitCanvas.offsetWidth; orbitCanvas.height = orbitCanvas.offsetHeight; }
-resizeOrbit(); window.addEventListener('resize', resizeOrbit);
-
-const centerX = () => orbitCanvas.width/2;
-const centerY = () => orbitCanvas.height/2;
-
-const orbitIcons = [
-    {src:'assets/playstation-logo.png', color:'#0051ff', radius:100, angle:0.2, speed:0.015},
-    {src:'assets/xbox-logo.png', color:'#00ff51', radius:140, angle:1.2, speed:0.012},
-    {src:'assets/nintendo-logo.png', color:'#ff1a1a', radius:180, angle:2.2, speed:0.01},
-    {src:'assets/sega-logo.png', color:'#00ffd0', radius:220, angle:3.2, speed:0.013},
-    {src:'assets/atari-logo.png', color:'#aa00ff', radius:260, angle:4.2, speed:0.011},
-].map(o=>{ const img=new Image(); img.src=o.src; return {...o,img,trail:[]}; });
-
-function animateOrbit(){
-    ctxOrbit.fillStyle='rgba(10,10,10,0.2)';
-    ctxOrbit.fillRect(0,0,orbitCanvas.width, orbitCanvas.height);
-    orbitIcons.forEach(icon=>{
-        icon.angle += icon.speed;
-        const x=centerX() + Math.cos(icon.angle)*icon.radius;
-        const y=centerY() + Math.sin(icon.angle)*icon.radius;
-        icon.trail.push({x,y});
-        if(icon.trail.length>12) icon.trail.shift();
-        for(let i=0;i<icon.trail.length;i++){
-            const t=icon.trail[i];
-            ctxOrbit.beginPath();
-            ctxOrbit.arc(t.x,t.y,20*(i/12),0,Math.PI*2);
-            ctxOrbit.fillStyle=icon.color + (i/18);
-            ctxOrbit.fill();
-        }
-        ctxOrbit.drawImage(icon.img,x-20,y-20,40,40);
-    });
-    requestAnimationFrame(animateOrbit);
+class Particle{
+    constructor(){
+        this.x=Math.random()*canvas.width;
+        this.y=Math.random()*canvas.height;
+        this.size=Math.random()*2+1;
+        this.speedX=(Math.random()-0.5)*0.5;
+        this.speedY=(Math.random()-0.5)*0.5;
+    }
+    update(){
+        this.x+=this.speedX;
+        this.y+=this.speedY;
+        if(this.x<0||this.x>canvas.width)this.speedX*=-1;
+        if(this.y<0||this.y>canvas.height)this.speedY*=-1;
+    }
+    draw(){
+        ctx.fillStyle='rgba(109,184,255,0.5)';
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+        ctx.fill();
+    }
 }
-animateOrbit();
+function initParticles(){particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
+function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+initParticles(); animateParticles();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; initParticles();});
+
+// --- Scroll Reveal for Tiles ---
+const tiles = document.querySelectorAll('.tile');
+const revealOnScroll = () => {
+    const triggerBottom = window.innerHeight * 0.85;
+    tiles.forEach(tile=>{
+        const tileTop = tile.getBoundingClientRect().top;
+        if(tileTop < triggerBottom){
+            tile.classList.add('visible');
+        }
+    });
+};
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
 </script>
+
 </body>
 </html>

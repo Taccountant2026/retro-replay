@@ -4,43 +4,133 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retro Replay — Consoles</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-body { background:#0a0a0a; color:white; font-family:'Orbitron',sans-serif; margin:0; text-align:center; }
-header img.logo { width:140px; margin-top:20px; }
-h1 { margin-top:20px; color:#6db8ff; }
+body { 
+    margin:0; 
+    font-family:'Orbitron',sans-serif; 
+    background:#0a0a0a; 
+    color:white; 
+    scroll-behavior:smooth; 
+    overflow-x:hidden;
+}
+a { text-decoration:none; color:inherit; }
+
+/* --- Sticky Header --- */
+header { 
+    position:sticky; top:0; z-index:1000; 
+    background:rgba(10,10,10,0.95); 
+    display:flex; justify-content:space-between; align-items:center; 
+    padding:15px 10%; border-bottom:2px solid #1f1f1f; backdrop-filter: blur(5px);
+}
+header img.logo { height:60px; }
+nav { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+nav a { margin:5px 10px; font-weight:bold; color:#6db8ff; transition:0.2s; }
+nav a:hover { color:#ffffff; }
+
+/* --- Hero Section --- */
+.hero {
+    position:relative; padding:120px 20px 80px; text-align:center;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    overflow:hidden;
+}
+.hero::before {
+    content:""; position:absolute; top:0; left:0; width:100%; height:100%;
+    background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
+    z-index:0;
+}
+.hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:1; }
+.hero h1 { font-size:3rem; color:#6db8ff; margin-bottom:15px; position:relative; z-index:1; }
+.hero p { font-size:1.3rem; opacity:0.85; margin-bottom:30px; position:relative; z-index:1; }
+.cta-btn {
+    background:#0051ff; color:white; padding:15px 30px; font-size:1.15rem; font-weight:bold;
+    border-radius:12px; border:none; cursor:pointer; transition:0.4s; display:inline-block; 
+    position:relative; z-index:1; box-shadow:0 0 10px #0051ff,0 0 30px #00ffd0;
+}
+.cta-btn:hover { background:#0070ff; transform:scale(1.08); box-shadow:0 0 20px #6db8ff,0 0 50px #00ffd0; }
+
+/* --- Particle Canvas --- */
+#particle-canvas {
+    position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;
+}
+
+/* --- Grid Tiles --- */
 .grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
-    gap:25px;
-    padding:40px 10%;
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; padding:60px 10%;
 }
 .tile {
-    background:#111;
-    border-radius:15px;
-    padding:30px 15px;
-    transition:0.3s;
-    cursor:pointer;
-    box-shadow:0 0 5px #0051ff,0 0 10px #00ffd0;
+    background:#111; border-radius:15px; padding:30px 15px; cursor:pointer;
+    box-shadow:0 0 5px #0051ff,0 0 10px #00ffd0; display:flex; flex-direction:column;
+    align-items:center; text-align:center; position:relative;
+    transition:0.3s, box-shadow 0.4s, transform 0.4s;
+    opacity:0; transform: translateY(30px);
 }
-.tile:hover {
-    background:#0051ff;
-    transform:scale(1.05);
-    box-shadow:0 0 15px #00ffd0,0 0 40px #6db8ff;
+.tile.visible { opacity:1; transform:translateY(0); transition:0.6s ease-out; }
+.tile::before {
+    content:""; position:absolute; top:-5px; left:-5px; width:calc(100% + 10px); height:calc(100% + 10px);
+    border-radius:22px; background:linear-gradient(45deg,#0051ff,#00ffd0,#6db8ff,#ff00ff);
+    opacity:0; z-index:-1; filter:blur(20px); transition:0.3s;
 }
-.tile img { width:70px; margin-bottom:10px; }
+.tile:hover::before { opacity:0.5; }
+.tile img { width:70px; margin-bottom:10px; transition:0.3s; }
 .tile h3 { margin:0; color:#6db8ff; }
-.tile p { margin-top:5px; font-size:0.9rem; opacity:0.8; }
-a { text-decoration:none; color:inherit; }
+.tile p { margin-top:5px; font-size:0.9rem; opacity:0.85; }
+.tile:hover { background:#0051ff; transform:scale(1.08); box-shadow:0 0 15px #00ffd0,0 0 40px #6db8ff; }
+.tile:hover img { transform:rotate(-10deg) scale(1.1); }
+
+/* --- Info Section --- */
+.console-info {
+    background:#111; margin:40px 10%; padding:30px; border-radius:15px; box-shadow:0 0 15px rgba(0,255,208,0.2);
+    text-align:left;
+}
+.console-info h3 { color:#00ffd0; margin-bottom:10px; }
+.console-info p { font-size:1rem; opacity:0.9; line-height:1.5; }
+
+/* --- Footer --- */
+footer {
+    background:#0b0f18; padding:30px 10%; margin-top:40px; font-size:0.9rem; color:#9fbbe0;
+    text-align:center;
+}
+footer a { color:#6db8ff; margin:0 8px; transition:0.2s; }
+footer a:hover { color:#ffffff; }
+
+@media screen and (max-width:768px) {
+    header { flex-direction:column; gap:10px; padding:15px 5%; }
+    .hero h1 { font-size:2rem; }
+    .hero p { font-size:1rem; }
+    .grid { padding:40px 5%; gap:15px; }
+    .tile { padding:25px 15px; }
+    .tile img { width:60px; margin-bottom:10px; }
+}
+@media screen and (max-width:480px) {
+    .hero h1 { font-size:1.6rem; }
+    .hero p { font-size:0.9rem; }
+}
 </style>
 </head>
 <body>
+
 <header>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
+    <nav>
+        <a href="index.html">Retro Home</a>
+        <a href="about.html">About RetroReplay</a>
+        <a href="consoles.html">Consoles & Products</a>
+        <a href="services.html">Services</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 </header>
 
-<h1>Choose Your Console</h1>
-<div class="grid">
+<section class="hero">
+    <canvas id="particle-canvas"></canvas>
+    <img src="assets/logo.png" alt="Retro Replay Logo" class="logo-hero">
+    <h1>Choose Your Console</h1>
+    <p>Refurbished classics brought back to life. PS2 nostalgia, Xbox originals, Nintendo, SEGA & Atari retro gaming.</p>
+    <a href="#console-grid" class="cta-btn">Explore Consoles</a>
+</section>
+
+<section id="console-grid" class="grid">
     <a href="playstation/index.html">
         <div class="tile">
             <img src="assets/playstation-logo.png" alt="PlayStation">
@@ -76,6 +166,47 @@ a { text-decoration:none; color:inherit; }
             <p>2600 & 7800</p>
         </div>
     </a>
-</div>
+</section>
+
+<section class="console-info">
+    <h3>Why Buy Refurbished Consoles?</h3>
+    <p>All consoles are professionally cleaned, tested, and cosmetically refreshed. You get full functionality, reliability, and optional mods like HDD setups and homebrew support.</p>
+    <p>Purchasing refurbished consoles is eco-friendly, budget-conscious, and ensures you own a piece of gaming history with peace of mind, backed by warranty.</p>
+</section>
+
+<footer>
+    <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="consoles.html">Consoles</a> |
+        <a href="services.html">Services</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+</footer>
+
+<script>
+// Particle System
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+let particlesArray=[];
+class Particle {
+    constructor() { this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.size=Math.random()*2+1; this.speedX=(Math.random()-0.5)*0.5; this.speedY=(Math.random()-0.5)*0.5; }
+    update(){ this.x+=this.speedX; this.y+=this.speedY; if(this.x<0||this.x>canvas.width)this.speedX*=-1; if(this.y<0||this.y>canvas.height)this.speedY*=-1; }
+    draw(){ ctx.fillStyle='rgba(109,184,255,0.5)'; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); }
+}
+function initParticles(){ particlesArray=[]; for(let i=0;i<120;i++){ particlesArray.push(new Particle()); } }
+function animateParticles(){ ctx.clearRect(0,0,canvas.width,canvas.height); particlesArray.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animateParticles); }
+initParticles(); animateParticles();
+window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; initParticles(); });
+
+// Scroll reveal for tiles
+const tiles = document.querySelectorAll('.tile');
+const revealOnScroll = () => { const triggerBottom = window.innerHeight*0.85; tiles.forEach(tile=>{ const tileTop = tile.getBoundingClientRect().top; if(tileTop<triggerBottom){ tile.classList.add('visible'); } }); };
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+</script>
+
 </body>
 </html>

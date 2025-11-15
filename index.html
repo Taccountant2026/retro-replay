@@ -31,8 +31,14 @@ header {
     backdrop-filter: blur(5px);
 }
 header img.logo { height:60px; }
+nav {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+}
 nav a {
-    margin-left:20px;
+    margin:5px 10px;
     font-weight:bold;
     color:#6db8ff;
     transition:0.2s;
@@ -164,7 +170,7 @@ footer a:hover { color:#ffffff; }
 /* --- Responsive --- */
 @media screen and (max-width:768px) {
     header { flex-direction:column; gap:10px; padding:15px 5%; }
-    nav a { margin:0 10px; }
+    nav a { margin:5px; }
 }
 @media screen and (max-width:480px) {
     .hero h1 { font-size:2rem; }
@@ -184,13 +190,18 @@ footer a:hover { color:#ffffff; }
 <header>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
     <nav>
-        <a href="#console-grid">Consoles</a>
-        <a href="#services-grid">Services</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
         <a href="buying-guide.html">Buying Guide</a>
+        <a href="services.html">Services</a>
         <a href="mods-upgrades.html">Mods & Upgrades</a>
         <a href="how-we-refurbish.html">How We Refurbish</a>
         <a href="contact.html">Contact</a>
+        <a href="delivery.html">Shipping & Delivery</a>
         <a href="faq.html">FAQ</a>
+        <a href="warranties.html">Warranties</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="checkout-success.html">Order Success</a>
     </nav>
 </header>
 
@@ -279,11 +290,17 @@ footer a:hover { color:#ffffff; }
     <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
     <p>
         <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
         <a href="buying-guide.html">Buying Guide</a> |
+        <a href="services.html">Services</a> |
         <a href="mods-upgrades.html">Mods & Upgrades</a> |
         <a href="how-we-refurbish.html">How We Refurbish</a> |
         <a href="contact.html">Contact</a> |
-        <a href="faq.html">FAQ</a>
+        <a href="delivery.html">Shipping & Delivery</a> |
+        <a href="faq.html">FAQ</a> |
+        <a href="warranties.html">Warranties</a> |
+        <a href="checkout.html">Checkout</a> |
+        <a href="checkout-success.html">Order Success</a>
     </p>
 </footer>
 

@@ -18,42 +18,24 @@ body {
     position:relative;
 }
 
-/* ---------- FLOATING NEON PARTICLES ---------- */
-.particles {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 0;
+/* ---------- NEON BLUE DOT GRID (MATCH INDEX) ---------- */
+body::before {
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(#6db8ff55 1px, transparent 1px) 0 0 / 35px 35px,
+        radial-gradient(#6db8ff30 1px, transparent 1px) 17px 17px / 35px 35px;
+    opacity:0.35;
+    pointer-events:none;
+    animation:fadeDots 12s infinite alternate;
+    z-index:0;
 }
 
-.particle {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: #6db8ff;
-    border-radius: 50%;
-    box-shadow: 0 0 12px #6db8ff;
-    opacity: 0.7;
-    animation: floatParticle linear infinite;
-    filter: blur(1px);
+@keyframes fadeDots {
+    from { opacity:0.25; }
+    to { opacity:0.45; }
 }
-
-@keyframes floatParticle {
-    from {
-        transform: translateY(110vh) translateX(0);
-        opacity: 0.2;
-    }
-    to {
-        transform: translateY(-10vh) translateX(20px);
-        opacity: 0.8;
-    }
-}
-
-/* Randomized particle variations */
-.particle:nth-child(odd) { animation-duration: 16s; width: 6px; height: 6px; opacity: 0.5; }
-.particle:nth-child(even){ animation-duration: 22s; width: 10px; height: 10px; opacity: 0.8; }
-.particle:nth-child(3n){ animation-duration: 28s; width: 7px; height: 7px; opacity: 0.6; }
 
 /* ---------- NAVIGATION ---------- */
 header {
@@ -69,9 +51,7 @@ header {
     backdrop-filter: blur(5px);
 }
 
-header img.logo {
-    height:60px;
-}
+header img.logo { height:60px; }
 
 nav {
     display:flex;
@@ -88,10 +68,7 @@ nav a {
     transition:0.25s;
 }
 
-nav a:hover {
-    color:white;
-    text-shadow:0 0 10px #6db8ff;
-}
+nav a:hover { color:white; text-shadow:0 0 10px #6db8ff; }
 
 /* ---------- HERO ---------- */
 .hero {
@@ -101,15 +78,18 @@ nav a:hover {
     position:relative;
     z-index:1;
 }
+
 .hero img {
     width:180px;
     margin-bottom:25px;
 }
+
 .hero h1 {
     font-size:3rem;
     color:#6db8ff;
     text-shadow:0 0 10px #326fa8;
 }
+
 .hero-sub {
     font-size:1.25rem;
     opacity:0.8;
@@ -170,11 +150,13 @@ footer {
     position:relative;
     z-index:1;
 }
+
 footer a {
     color:#6db8ff;
     margin:0 8px;
     transition:0.2s;
 }
+
 footer a:hover { color:white; }
 
 /* ---------- RESPONSIVE ---------- */
@@ -193,7 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function () {
             let panel = this.nextElementSibling;
-
             if (panel.style.maxHeight) {
                 panel.style.maxHeight = null;
             } else {
@@ -204,27 +185,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 </head>
-<body>
 
-<!-- Floating Particles -->
-<div class="particles">
-    <div class="particle" style="left:5%; animation-delay:0s;"></div>
-    <div class="particle" style="left:12%; animation-delay:2s;"></div>
-    <div class="particle" style="left:20%; animation-delay:4s;"></div>
-    <div class="particle" style="left:30%; animation-delay:1s;"></div>
-    <div class="particle" style="left:38%; animation-delay:3s;"></div>
-    <div class="particle" style="left:45%; animation-delay:5s;"></div>
-    <div class="particle" style="left:55%; animation-delay:2s;"></div>
-    <div class="particle" style="left:63%; animation-delay:4s;"></div>
-    <div class="particle" style="left:72%; animation-delay:6s;"></div>
-    <div class="particle" style="left:82%; animation-delay:1s;"></div>
-    <div class="particle" style="left:90%; animation-delay:3s;"></div>
-</div>
+<body>
 
 <!-- Header -->
 <header>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
-
     <nav>
         <a href="index.html">Retro Home</a>
         <a href="about.html">About RetroReplay</a>
@@ -244,7 +210,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <!-- FAQ Content -->
 <div class="section">
-
     <div class="accordion"><h3>What warranty do your refurbished consoles come with?</h3></div>
     <div class="panel">
         <p>Every console includes a <strong>6-month hardware warranty</strong> covering faults, failures, and defective parts.</p>
@@ -274,7 +239,6 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="panel">
         <p>Yes, within 14 days if the device is in the same condition.</p>
     </div>
-
 </div>
 
 <!-- Footer -->

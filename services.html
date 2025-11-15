@@ -13,47 +13,27 @@ body {
     font-family:'Orbitron', sans-serif;
     background:#0c0f17;
     color:#e3e7ed;
-    scroll-behavior:smooth;
     overflow-x:hidden;
     position:relative;
 }
 
-/* ---------- FLOATING NEON PARTICLES ---------- */
-.particles {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 0;
+/* ---------- NEON BLUE DOT GRID (MATCH INDEX) ---------- */
+body::before {
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(#6db8ff55 1px, transparent 1px) 0 0 / 35px 35px,
+        radial-gradient(#6db8ff30 1px, transparent 1px) 17px 17px / 35px 35px;
+    opacity:0.35;
+    pointer-events:none;
+    animation:fadeDots 12s infinite alternate;
+    z-index:0;
 }
-
-.particle {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: #6db8ff;
-    border-radius: 50%;
-    box-shadow: 0 0 12px #6db8ff;
-    opacity: 0.7;
-    animation: floatParticle linear infinite;
-    filter: blur(1px);
+@keyframes fadeDots {
+    from { opacity:0.25; }
+    to { opacity:0.45; }
 }
-
-@keyframes floatParticle {
-    from {
-        transform: translateY(110vh) translateX(0);
-        opacity: 0.2;
-    }
-    to {
-        transform: translateY(-10vh) translateX(20px);
-        opacity: 0.8;
-    }
-}
-
-/* Random variations */
-.particle:nth-child(odd) { animation-duration: 16s; width: 6px; height: 6px; opacity: 0.5; }
-.particle:nth-child(even){ animation-duration: 22s; width: 10px; height: 10px; opacity: 0.8; }
-.particle:nth-child(3n){ animation-duration: 28s; width: 7px; height: 7px; opacity: 0.6; }
 
 /* ---------- HEADER ---------- */
 header {
@@ -70,6 +50,7 @@ header {
 }
 header img.logo { height:60px; }
 
+/* ---------- NAV ---------- */
 nav {
     display:flex;
     flex-wrap:wrap;
@@ -90,47 +71,21 @@ nav a:hover { color:#ffffff; }
     padding:120px 20px 80px;
     text-align:center;
     background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
-    overflow:hidden;
     z-index:1;
 }
-
 .hero img.logo-hero {
     width:180px;
     margin-bottom:20px;
-    position:relative;
-    z-index:1;
 }
 .hero h1 {
     font-size:3rem;
     color:#6db8ff;
     margin-bottom:15px;
-    position:relative; z-index:1;
 }
 .hero p {
     font-size:1.3rem;
     opacity:0.85;
     margin-bottom:30px;
-    position:relative; z-index:1;
-}
-
-.cta-btn {
-    background:#0051ff;
-    color:white;
-    padding:15px 30px;
-    font-size:1.15rem;
-    font-weight:bold;
-    border-radius:12px;
-    border:none;
-    cursor:pointer;
-    transition:0.4s;
-    display:inline-block;
-    position:relative;
-    z-index:1;
-}
-.cta-btn:hover {
-    background:#0070ff;
-    transform:scale(1.08);
-    box-shadow:0 0 20px #6db8ff, 0 0 40px #00ffd0;
 }
 
 /* ---------- GRID TILES ---------- */
@@ -213,21 +168,6 @@ footer a:hover { color:#ffffff; }
 </head>
 
 <body>
-
-<!-- 🔵 Floating Neon Particles -->
-<div class="particles">
-    <div class="particle" style="left:5%; animation-delay:0s;"></div>
-    <div class="particle" style="left:12%; animation-delay:2s;"></div>
-    <div class="particle" style="left:20%; animation-delay:4s;"></div>
-    <div class="particle" style="left:30%; animation-delay:1s;"></div>
-    <div class="particle" style="left:38%; animation-delay:3s;"></div>
-    <div class="particle" style="left:45%; animation-delay:5s;"></div>
-    <div class="particle" style="left:55%; animation-delay:2s;"></div>
-    <div class="particle" style="left:63%; animation-delay:4s;"></div>
-    <div class="particle" style="left:72%; animation-delay:6s;"></div>
-    <div class="particle" style="left:82%; animation-delay:1s;"></div>
-    <div class="particle" style="left:90%; animation-delay:3s;"></div>
-</div>
 
 <!-- Header -->
 <header>

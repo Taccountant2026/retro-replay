@@ -2,103 +2,114 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Checkout — Retro Replay</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+
 <style>
-  body {
-    font-family:'Orbitron',sans-serif;
-    background:#181b23;
-    color:#e3e7ed;
-    margin:0;
-    padding:0;
-  }
-  .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
+  body { font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed; margin:0; padding:0; }
+  .ambient { position:fixed; top:0; left:0; width:100%; height:100%; background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%); pointer-events:none; z-index:0; animation:pulse 5s infinite; }
+  @keyframes pulse {0%,100%{opacity:0.02;}50%{opacity:0.04;}}
+  .wrap { max-width:800px; margin:0 auto; padding:2rem; position:relative; z-index:2; }
   header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:2rem; }
-  .logo { height:100px; width:auto; }
-  nav { display:flex; flex-wrap:wrap; gap:1rem; }
+  .logo { height:120px; width:auto; }
+  nav { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin-top:0.5rem; }
   nav a { color:#6db8ff; text-decoration:none; font-weight:bold; transition:0.2s; }
   nav a:hover, nav a.active { text-decoration:underline; }
+  .section-title { font-size:2rem; text-align:center; margin-bottom:1rem; }
 
-  .checkout-section {
-    background:#22262f;
-    padding:2rem;
-    border-radius:10px;
-    margin-bottom:2rem;
-  }
-  h2 { font-size:2rem; margin-bottom:1rem; text-align:center; }
-  .order-summary { margin-bottom:2rem; }
-  .order-summary ul { list-style:none; padding:0; }
-  .order-summary li { margin-bottom:1rem; font-size:1.05rem; display:flex; justify-content:space-between; }
-  .total { font-weight:bold; font-size:1.2rem; border-top:1px solid #6db8ff; padding-top:0.5rem; margin-top:0.5rem; }
+  #checkout-items { background:#22262f; padding:1rem; border-radius:10px; margin-bottom:2rem; }
+  #checkout-items ul { list-style:none; padding-left:0; }
+  #checkout-items li { display:flex; justify-content:space-between; margin-bottom:0.5rem; }
+  #checkout-total { font-weight:bold; margin-top:1rem; text-align:right; font-size:1.2rem; }
 
-  .paypal-button-container { text-align:center; margin-top:2rem; }
+  #paypal-button-container { margin-top:2rem; text-align:center; }
+
   footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
-
-  @media screen and (max-width:768px){
-    .order-summary li { flex-direction:column; align-items:flex-start; }
-  }
 </style>
 </head>
 <body>
+
+<div class="ambient"></div>
 <div class="wrap">
 
-  <!-- Header (preserved) -->
-  <header>
-    <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="histroy.html">PS2 History</a>
-      <a href="buying-guide.html">Buying Guide</a>
-      <a href="products.html">Products</a>
-      <a href="mods-upgrades.html">Mods & Upgrades</a>
-      <a href="how-we-refurbish.html">How We Refurbish</a>
-      <a href="trade-in.html">Trade-In</a>
-      <a href="delivery.html">Shipping & Delivery</a>
-      <a href="warranties.html">Warranties</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-      <a href="checkout.html">Checkout</a>
-    </nav>
-  </header>
+<header>
+  <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="histroy.html">PS2 History</a>
+    <a href="buying-guide.html">Buying Guide</a>
+    <a href="products.html">Products</a>
+    <a href="mods-upgrades.html">Mods & Upgrades</a>
+    <a href="how-we-refurbish.html">How We Refurbish</a>
+    <a href="trade-in.html">Trade-In</a>
+    <a href="delivery.html">Shipping & Delivery</a>
+    <a href="warranties.html">Warranties</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="checkout.html" class="active">Checkout</a>
+  </nav>
+</header>
 
-<section class="checkout-section">
-  <h2>Checkout</h2>
-  <div class="order-summary">
-    <ul>
-      <li>Base PS2 Console <span>£95</span></li>
-      <li>Refurbishment Package <span>+£30</span></li>
-      <li>HDMI Upgrade <span>+£25</span></li>
-      <li>Softmod (FMCB) <span>+£20</span></li>
-      <li class="total">Total <span>£170</span></li>
-    </ul>
-  </div>
+<h2 class="section-title">Checkout</h2>
 
-  <div class="paypal-button-container" id="paypal-checkout"></div>
-</section>
+<div id="checkout-items">
+  <h3>Order Summary</h3>
+  <ul id="order-list"></ul>
+  <div id="checkout-total">Total: £0</div>
+</div>
+
+<div id="paypal-button-container"></div>
 
 <footer>
   <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
   <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
 </footer>
 
-</div>
-
 <script src="https://www.paypal.com/sdk/js?client-id=AYXmDuhylfxtnuRz3E2EzoyXNO0HnxJAXr_DQauHlsoawJjLKel8W17luzhp1_52OlIh9qjJYDggdf8o&currency=GBP"></script>
+
 <script>
+// Load basket from localStorage
+let basket = JSON.parse(localStorage.getItem('retroBasket')) || [];
+const orderList = document.getElementById('order-list');
+const totalDiv = document.getElementById('checkout-total');
+
+function renderOrder(){
+  orderList.innerHTML = '';
+  let total = 0;
+  basket.forEach(item=>{
+    const li = document.createElement('li');
+    li.textContent = `${item.name} ${item.upgrade? '('+item.upgrade+')':''} - £${item.price}`;
+    orderList.appendChild(li);
+    total += item.price;
+  });
+  totalDiv.textContent = `Total: £${total}`;
+  return total;
+}
+
+const totalAmount = renderOrder();
+
+// PAYPAL BUTTON
 paypal.Buttons({
-  style:{layout:'vertical',color:'gold',shape:'rect',label:'buynow'},
-  createOrder:(data,actions)=>actions.order.create({
-    purchase_units:[{
-      description:'PS2 Base + Upgrades',
-      amount:{currency_code:'GBP',value:'170'}
-    }]
+  style:{ layout:'vertical', color:'gold', shape:'rect', label:'pay' },
+  createOrder: (data, actions) => {
+    return actions.order.create({
+      purchase_units: [{
+        description: 'Retro Replay Order',
+        amount: { value: totalAmount, currency_code: 'GBP' }
+      }]
+    });
+  },
+  onApprove: (data, actions) => actions.order.capture().then(()=>{
+    // Clear basket after payment
+    localStorage.removeItem('retroBasket');
+    alert('Payment successful! Thank you for your order.');
+    window.location.href = 'index.html';
   }),
-  onApprove:(data,actions)=>actions.order.capture().then(()=>{window.location.href="checkout-success.html";}),
-  onError:err=>{console.error(err);}
-}).render('#paypal-checkout');
+  onError: err => console.error(err)
+}).render('#paypal-button-container');
 </script>
 
 </body>

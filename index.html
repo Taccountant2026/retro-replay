@@ -15,7 +15,6 @@ body {
     scroll-behavior: smooth;
     overflow-x:hidden;
 }
-
 a { text-decoration:none; color:inherit; }
 
 /* --- Sticky Header --- */
@@ -31,18 +30,13 @@ header {
     border-bottom:2px solid #1f1f1f;
     backdrop-filter: blur(5px);
 }
-
-header img.logo {
-    height:60px;
-}
-
+header img.logo { height:60px; }
 nav a {
     margin-left:20px;
     font-weight:bold;
     color:#6db8ff;
     transition:0.2s;
 }
-
 nav a:hover { color:#ffffff; }
 
 /* --- Hero Section --- */
@@ -53,7 +47,6 @@ nav a:hover { color:#ffffff; }
     background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
     overflow:hidden;
 }
-
 .hero::before {
     content:"";
     position:absolute;
@@ -62,28 +55,24 @@ nav a:hover { color:#ffffff; }
     background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
     z-index:0;
 }
-
 .hero img.logo-hero {
     width:180px;
     margin-bottom:20px;
     position:relative;
     z-index:1;
 }
-
 .hero h1 {
     font-size:3rem;
     color:#6db8ff;
     margin-bottom:15px;
     position:relative; z-index:1;
 }
-
 .hero p {
     font-size:1.3rem;
     opacity:0.85;
     margin-bottom:30px;
     position:relative; z-index:1;
 }
-
 .cta-btn {
     background:#0051ff;
     color:white;
@@ -97,11 +86,7 @@ nav a:hover { color:#ffffff; }
     display:inline-block;
     position:relative; z-index:1;
 }
-
-.cta-btn:hover {
-    background:#0070ff;
-    transform:scale(1.05);
-}
+.cta-btn:hover { background:#0070ff; transform:scale(1.05); }
 
 /* --- Particle Canvas --- */
 #particle-canvas {
@@ -114,14 +99,13 @@ nav a:hover { color:#ffffff; }
     pointer-events:none;
 }
 
-/* --- Console Grid --- */
+/* --- Grid Tiles --- */
 .grid {
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
     gap:25px;
     padding:60px 10%;
 }
-
 .tile {
     background:#111;
     border:2px solid #1f1f1f;
@@ -136,7 +120,6 @@ nav a:hover { color:#ffffff; }
     position:relative;
     animation:float 4s ease-in-out infinite;
 }
-
 .tile::before {
     content:"";
     position:absolute;
@@ -150,41 +133,13 @@ nav a:hover { color:#ffffff; }
     filter:blur(20px);
     transition:0.3s;
 }
-
 .tile:hover::before { opacity:0.5; }
-
-.tile img {
-    width:80px;
-    margin-bottom:15px;
-    transition:0.3s;
-}
-
-.tile h3 {
-    margin:0 0 10px 0;
-    font-size:1.5rem;
-    color:#6db8ff;
-}
-
-.tile p {
-    margin:0;
-    font-size:1rem;
-    opacity:0.8;
-    text-align:center;
-}
-
-.tile:hover {
-    background:#0051ff;
-    transform:scale(1.05);
-}
-
-.tile:hover img {
-    transform:rotate(-10deg) scale(1.1);
-}
-
-@keyframes float {
-    0%,100% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
-}
+.tile img { width:80px; margin-bottom:15px; transition:0.3s; }
+.tile h3 { margin:0 0 10px 0; font-size:1.5rem; color:#6db8ff; }
+.tile p { margin:0; font-size:1rem; opacity:0.8; text-align:center; }
+.tile:hover { background:#0051ff; transform:scale(1.05); }
+.tile:hover img { transform:rotate(-10deg) scale(1.1); }
+@keyframes float { 0%,100%{transform: translateY(0px);} 50%{transform: translateY(-5px);} }
 
 /* --- Footer --- */
 footer {
@@ -195,13 +150,7 @@ footer {
     color:#9fbbe0;
     text-align:center;
 }
-
-footer a {
-    color:#6db8ff;
-    margin:0 8px;
-    transition:0.2s;
-}
-
+footer a { color:#6db8ff; margin:0 8px; transition:0.2s; }
 footer a:hover { color:#ffffff; }
 
 /* --- Responsive --- */
@@ -209,7 +158,6 @@ footer a:hover { color:#ffffff; }
     header { flex-direction:column; gap:10px; padding:15px 5%; }
     nav a { margin:0 10px; }
 }
-
 @media screen and (max-width:480px) {
     .hero h1 { font-size:2rem; }
     .hero p { font-size:1rem; }
@@ -224,11 +172,12 @@ footer a:hover { color:#ffffff; }
 </head>
 <body>
 
-<!-- Header / Navigation -->
+<!-- Header -->
 <header>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
     <nav>
         <a href="#console-grid">Consoles</a>
+        <a href="#services-grid">Services</a>
         <a href="buying-guide.html">Buying Guide</a>
         <a href="mods-upgrades.html">Mods & Upgrades</a>
         <a href="how-we-refurbish.html">How We Refurbish</a>
@@ -237,7 +186,7 @@ footer a:hover { color:#ffffff; }
     </nav>
 </header>
 
-<!-- Hero Section -->
+<!-- Hero -->
 <section class="hero">
     <canvas id="particle-canvas"></canvas>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo-hero">
@@ -255,7 +204,6 @@ footer a:hover { color:#ffffff; }
             <p>PS1, PS2 & PS3 refurbished consoles</p>
         </div>
     </a>
-
     <a href="xbox/index.html">
         <div class="tile">
             <img src="assets/xbox-logo.png" alt="Xbox Logo">
@@ -263,7 +211,6 @@ footer a:hover { color:#ffffff; }
             <p>Original & Xbox 360 refurbished consoles</p>
         </div>
     </a>
-
     <a href="nintendo/index.html">
         <div class="tile">
             <img src="assets/nintendo-logo.png" alt="Nintendo Logo">
@@ -271,7 +218,6 @@ footer a:hover { color:#ffffff; }
             <p>NES, SNES, N64 & Switch retro consoles</p>
         </div>
     </a>
-
     <a href="sega/index.html">
         <div class="tile">
             <img src="assets/sega-logo.png" alt="SEGA Logo">
@@ -279,7 +225,6 @@ footer a:hover { color:#ffffff; }
             <p>Genesis, Mega Drive & Saturn refurbished</p>
         </div>
     </a>
-
     <a href="atari/index.html">
         <div class="tile">
             <img src="assets/atari-logo.png" alt="Atari Logo">
@@ -287,12 +232,36 @@ footer a:hover { color:#ffffff; }
             <p>Classic 2600 & 7800 restored consoles</p>
         </div>
     </a>
-
     <a href="branding.html">
         <div class="tile">
             <img src="assets/logo.png" alt="Branding Logo">
             <h3>Branding</h3>
             <p>Learn about Retro Replay’s identity & design</p>
+        </div>
+    </a>
+</section>
+
+<!-- Services / Policies Tiles -->
+<section id="services-grid" class="grid">
+    <a href="trade-in.html">
+        <div class="tile">
+            <img src="assets/trade-in-icon.png" alt="Trade-In Icon">
+            <h3>Trade-In</h3>
+            <p>Exchange your old consoles for store credit or discounts</p>
+        </div>
+    </a>
+    <a href="delivery.html">
+        <div class="tile">
+            <img src="assets/shipping-icon.png" alt="Shipping Icon">
+            <h3>Shipping</h3>
+            <p>Fast, reliable, and secure delivery for all orders</p>
+        </div>
+    </a>
+    <a href="warranties.html">
+        <div class="tile">
+            <img src="assets/warranty-icon.png" alt="Warranties Icon">
+            <h3>Warranties</h3>
+            <p>All refurbished consoles come with a full warranty</p>
         </div>
     </a>
 </section>
@@ -316,52 +285,32 @@ const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
-let particlesArray = [];
-
-class Particle {
+let particlesArray=[];
+class Particle{
     constructor(){
-        this.x = Math.random()*canvas.width;
-        this.y = Math.random()*canvas.height;
-        this.size = Math.random()*2 + 1;
-        this.speedX = (Math.random()-0.5)*0.5;
-        this.speedY = (Math.random()-0.5)*0.5;
+        this.x=Math.random()*canvas.width;
+        this.y=Math.random()*canvas.height;
+        this.size=Math.random()*2+1;
+        this.speedX=(Math.random()-0.5)*0.5;
+        this.speedY=(Math.random()-0.5)*0.5;
     }
     update(){
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if(this.x<0 || this.x>canvas.width) this.speedX*=-1;
-        if(this.y<0 || this.y>canvas.height) this.speedY*=-1;
+        this.x+=this.speedX;
+        this.y+=this.speedY;
+        if(this.x<0||this.x>canvas.width)this.speedX*=-1;
+        if(this.y<0||this.y>canvas.height)this.speedY*=-1;
     }
     draw(){
-        ctx.fillStyle = 'rgba(109,184,255,0.5)';
+        ctx.fillStyle='rgba(109,184,255,0.5)';
         ctx.beginPath();
         ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
         ctx.fill();
     }
 }
-
-function init(){
-    particlesArray=[];
-    for(let i=0;i<100;i++){
-        particlesArray.push(new Particle());
-    }
-}
-
-function animate(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    particlesArray.forEach(p => { p.update(); p.draw(); });
-    requestAnimationFrame(animate);
-}
-
-init();
-animate();
-
-window.addEventListener('resize',()=>{
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    init();
-});
+function init(){particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
+init();animate();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;init();});
 </script>
 
 </body>

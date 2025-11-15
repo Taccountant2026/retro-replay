@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nintendo Products — Retro Replay</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+body { margin:0; font-family:'Orbitron',sans-serif; background:#1b0a0a; color:#fff;}
+nav { background:#0a0a0a; padding:16px; text-align:center; }
+nav a { color:#ff3333; margin:0 10px; text-decoration:none; font-weight:700;}
+nav a:hover { color:#ff6666; }
+header { text-align:center; padding:50px 20px; }
+h1 { color:#ff3333; margin-bottom:10px; }
+.section { padding:40px 10%; max-width:1200px; margin:0 auto; }
+
+/* --- Product Tiles --- */
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; }
+.tile { background:#111; border-radius:15px; padding:25px 15px; text-align:center; transition:0.3s, transform 0.3s; cursor:pointer; }
+.tile img { width:80px; margin-bottom:15px; transition:0.3s; }
+.tile h3 { color:#ff3333; margin-bottom:8px; }
+.tile p { opacity:0.85; font-size:0.95rem; }
+.tile:hover { transform:scale(1.05); box-shadow:0 0 15px #ff3333,0 0 40px #ff6666; }
+.tile:hover img { transform:scale(1.1); }
+
+footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0; }
+footer a { color:#ff3333; margin:0 8px; text-decoration:none; }
+footer a:hover { color:#ff6666; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Nintendo Home</a>
+  <a href="products.html">Products</a>
+  <a href="guides.html">Guides</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<header>
+  <h1>Nintendo Products</h1>
+  <p>Explore our refurbished Nintendo consoles and accessories.</p>
+</header>
+
+<section class="grid">
+  <div class="tile">
+    <img src="assets/nes.png" alt="NES">
+    <h3>Nintendo NES</h3>
+    <p>Classic NES consoles, controllers, and AV cables restored.</p>
+  </div>
+  <div class="tile">
+    <img src="assets/snes.png" alt="SNES">
+    <h3>Super Nintendo (SNES)</h3>
+    <p>16-bit classic SNES consoles, tested and ready to play.</p>
+  </div>
+  <div class="tile">
+    <img src="assets/n64.png" alt="N64">
+    <h3>Nintendo 64</h3>
+    <p>Refurbished N64 units with expansion packs and controllers.</p>
+  </div>
+  <div class="tile">
+    <img src="assets/switch.png" alt="Switch">
+    <h3>Nintendo Switch</h3>
+    <p>Modern Switch consoles with tested functionality and optional accessories.</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Retro Replay — Nintendo Division</p>
+  <p>
+    <a href="index.html">Nintendo Home</a> •
+    <a href="products.html">Products</a> •
+    <a href="guides.html">Guides</a> •
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>

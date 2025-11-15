@@ -8,31 +8,56 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-/* ------------------- Global ------------------- */
+/* ---------- GLOBAL ---------- */
 body {
     margin:0;
     font-family:'Orbitron', sans-serif;
-    background:#0a0a0a;
-    color:white;
+    background:#0c0f17;
+    color:#e3e7ed;
     overflow-x:hidden;
+    position:relative;
 }
 
-/* --- Blue Particle Background --- */
+/* ---------- FLOATING NEON PARTICLES ---------- */
 .particles {
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    z-index:-1;
-    pointer-events:none;
-    background:
-        radial-gradient(circle, rgba(109,184,255,0.12) 2px, transparent 3px) 0 0 / 70px 70px,
-        radial-gradient(circle, rgba(0,255,208,0.08) 2px, transparent 3px) 35px 35px / 90px 90px;
-    opacity:0.35;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* ------------------- Navigation (Matches Index) ------------------- */
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #6db8ff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #6db8ff;
+    opacity: 0.7;
+    animation: floatParticle linear infinite;
+    filter: blur(1px);
+}
+
+@keyframes floatParticle {
+    from {
+        transform: translateY(110vh) translateX(0);
+        opacity: 0.2;
+    }
+    to {
+        transform: translateY(-10vh) translateX(20px);
+        opacity: 0.8;
+    }
+}
+
+/* Randomized particle variations */
+.particle:nth-child(odd) { animation-duration: 16s; width: 6px; height: 6px; opacity: 0.5; }
+.particle:nth-child(even){ animation-duration: 22s; width: 10px; height: 10px; opacity: 0.8; }
+.particle:nth-child(3n){ animation-duration: 28s; width: 7px; height: 7px; opacity: 0.6; }
+
+/* ---------- NAVIGATION ---------- */
 header {
-    position:sticky;
+    position: sticky;
     top:0;
     background:rgba(10,10,10,0.95);
     z-index:1000;
@@ -68,12 +93,13 @@ nav a:hover {
     text-shadow:0 0 10px #6db8ff;
 }
 
-/* ------------------- Hero ------------------- */
+/* ---------- HERO ---------- */
 .hero {
     text-align:center;
     padding:120px 20px 60px;
     background:linear-gradient(180deg, #0a0a0a, #111);
     position:relative;
+    z-index:1;
 }
 .hero img {
     width:180px;
@@ -90,11 +116,13 @@ nav a:hover {
     margin-top:10px;
 }
 
-/* ------------------- FAQ ------------------- */
+/* ---------- FAQ SECTION ---------- */
 .section {
     max-width:1200px;
     margin:40px auto;
     padding:0 10% 100px;
+    position:relative;
+    z-index:1;
 }
 
 .accordion {
@@ -131,7 +159,7 @@ nav a:hover {
     opacity:0.85;
 }
 
-/* ------------------- Footer (Matches Index) ------------------- */
+/* ---------- FOOTER ---------- */
 footer {
     background:#0b0f18;
     padding:40px 10%;
@@ -139,6 +167,8 @@ footer {
     font-size:0.9rem;
     color:#9fbbe0;
     text-align:center;
+    position:relative;
+    z-index:1;
 }
 footer a {
     color:#6db8ff;
@@ -147,7 +177,7 @@ footer a {
 }
 footer a:hover { color:white; }
 
-/* ------------------- Responsive ------------------- */
+/* ---------- RESPONSIVE ---------- */
 @media (max-width:768px) {
     header { flex-direction:column; gap:10px; }
     nav { gap:10px; }
@@ -173,11 +203,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 </script>
-
 </head>
 <body>
 
-<div class="particles"></div>
+<!-- Floating Particles -->
+<div class="particles">
+    <div class="particle" style="left:5%; animation-delay:0s;"></div>
+    <div class="particle" style="left:12%; animation-delay:2s;"></div>
+    <div class="particle" style="left:20%; animation-delay:4s;"></div>
+    <div class="particle" style="left:30%; animation-delay:1s;"></div>
+    <div class="particle" style="left:38%; animation-delay:3s;"></div>
+    <div class="particle" style="left:45%; animation-delay:5s;"></div>
+    <div class="particle" style="left:55%; animation-delay:2s;"></div>
+    <div class="particle" style="left:63%; animation-delay:4s;"></div>
+    <div class="particle" style="left:72%; animation-delay:6s;"></div>
+    <div class="particle" style="left:82%; animation-delay:1s;"></div>
+    <div class="particle" style="left:90%; animation-delay:3s;"></div>
+</div>
 
 <!-- Header -->
 <header>

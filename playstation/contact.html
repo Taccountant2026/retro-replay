@@ -3,50 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Trade-In</title>
+<title>Retro Replay — Contact PlayStation Division</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed;}
+body { margin:0; font-family:'Orbitron',sans-serif; background:#12151f; color:#e3e7ed;}
 nav { background:#0a0a0a; padding:16px; text-align:center; }
-nav a { color:#6db8ff; margin:0 10px; text-decoration:none; font-weight:700;}
+nav a { color:#6db8ff; margin:0 10px; font-weight:700; text-decoration:none; }
 nav a:hover { color:#8ec5ff; }
 header { text-align:center; padding:60px 20px; }
 h1 { color:#6db8ff; margin-bottom:10px; }
-.hero-sub { font-size:1.2rem; opacity:0.8; }
-.section { padding:40px 10%; max-width:1200px; margin:0 auto; }
-footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0;}
+.hero-sub { font-size:1.2rem; opacity:0.85; margin-bottom:30px; }
+.section { padding:40px 10%; max-width:800px; margin:0 auto; }
+form { display:flex; flex-direction:column; gap:20px; }
+input, textarea { padding:12px; border-radius:10px; border:1px solid #3a3f4a; background:#111; color:#e3e7ed; font-family:'Orbitron',sans-serif; }
+input:focus, textarea:focus { outline:none; border-color:#6db8ff; box-shadow:0 0 8px #6db8ff; }
+button { background:#0051ff; color:white; padding:12px 24px; font-weight:bold; border-radius:12px; border:none; cursor:pointer; transition:0.3s; }
+button:hover { background:#0070ff; transform:scale(1.05); box-shadow:0 0 12px #00ffd0; }
+footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0; }
 </style>
 </head>
 <body>
 
+<!-- Navigation -->
 <nav>
-  <!-- Main site -->
-  <a href="../index.html">Main Home</a>  <!-- from /playstation/index.html -->
-
-  <!-- Subsite home -->
-  <a href="index.html">PlayStation Home</a>
-
-  <!-- Products -->
-  <a href="products/ps1.html">PS1</a>
-  <a href="products/ps2.html">PS2</a>
-  <a href="products/ps3.html">PS3</a>
-
-  <!-- Guides/Info -->
-  <a href="guides.html">Guides & Info</a>
+  <a href="../../index.html">Main Home</a>
+  <a href="../index.html">PlayStation Home</a>
+  <a href="ps1.html">PS1</a>
+  <a href="ps2.html">PS2</a>
+  <a href="ps3.html">PS3</a>
   <a href="contact.html">Contact</a>
 </nav>
 
+<!-- Hero -->
 <header>
-    <h1>Trade-In</h1>
-    <div class="hero-sub">Sell your old PlayStation console to us</div>
+  <h1>Contact PlayStation Division</h1>
+  <div class="hero-sub">Questions, orders, or support — we’re here to help</div>
 </header>
 
-<div class="section">
-    <p>Submit your old console for a valuation. We accept PS1, PS2, and PS3 units. Trade-in value depends on cosmetic condition, functionality, and bundled accessories.</p>
-</div>
+<!-- Contact Form -->
+<section class="section">
+  <form action="mailto:info@retroreplay.com" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="text" name="subject" placeholder="Subject" required>
+    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
 
+<!-- Contact Info & Promo -->
+<section class="section">
+  <h2>Other Ways to Reach Us</h2>
+  <p>Email: <a href="mailto:ps@retroreplay.com">ps@retroreplay.com</a></p>
+  <p>Phone: +44 1234 567890</p>
+  <p>Visit our main Retro Replay site for full services, products, and guides: <a href="../../index.html">Retro Replay Main Site</a></p>
+  <p><strong>Limited PS2 and PS3 stock available — contact now to reserve!</strong></p>
+</section>
+
+<!-- Footer -->
 <footer>
-    <p>© 2025 Retro Replay — PlayStation Division</p>
+  <p>© 2025 Retro Replay — PlayStation Division</p>
 </footer>
 
 </body>

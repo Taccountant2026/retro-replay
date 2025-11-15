@@ -219,26 +219,26 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
   </div>
 </div>
 
-<script src="https://www.paypal.com/sdk/js?client-id=AYXmDuhylfxtnuRz3E2EzoyXNO0HnxJAXr_DQauHlsoawJjLKel8W17luzhp1_52OlIh9qjJYDggdf8o&currency=GBP"></script>
+<!-- Only the <script> part changes, rest stays the same -->
+
 <script>
 let currentBasePrice = 0;
 let currentProductName = '';
-let currentPayPalContainer = null;
 
 function openUpgradeModal(btn){
   const card = btn.closest('.product-card');
   currentBasePrice = Number(card.dataset.base);
   currentProductName = card.dataset.name;
-  currentPayPalContainer = card.querySelector('.paypal-container');
 
   document.getElementById('upgradeProduct').querySelector('strong').textContent = currentProductName + ' — base £' + currentBasePrice;
   document.querySelectorAll('#upgradeModal input[name="upgrade"]').forEach(ch=>ch.checked=false);
   updateUpgradeTotal();
-  renderPayPalButton();
   document.getElementById('upgradeModal').classList.add('active');
 }
 
-function closeUpgradeModal(){ document.getElementById('upgradeModal').classList.remove('active'); }
+function closeUpgradeModal(){ 
+  document.getElementById('upgradeModal').classList.remove('active'); 
+}
 
 function updateUpgradeTotal(){
   const checked = Array.from(document.querySelectorAll('#upgradeModal input[name="upgrade"]:checked'));
@@ -246,21 +246,29 @@ function updateUpgradeTotal(){
   document.getElementById('upgradeTotal').textContent=(currentBasePrice+add).toFixed(0);
 }
 
-document.addEventListener('change', function(e){ if(e.target.name==='upgrade'){ updateUpgradeTotal(); renderPayPalButton(); } });
-document.getElementById('upgradeModal').addEventListener('click', function(e){ if(e.target===this) closeUpgradeModal(); });
+document.addEventListener('change', function(e){ 
+  if(e.target.name==='upgrade'){ updateUpgradeTotal(); } 
+});
+document.getElementById('upgradeModal').addEventListener('click', function(e){ 
+  if(e.target===this) closeUpgradeModal(); 
+});
 
-function renderPayPalButton(){
-  const container = document.getElementById('paypalButtonContainer');
-  container.innerHTML='';
+document.getElementById('applyUpgradesBtn')?.addEventListener('click', function(){
+  const checked = Array.from(document.querySelectorAll('#upgradeModal input[name="upgrade"]:checked'));
+  const upgrades = checked.map(ch=>({id: ch.value, price: Number(ch.dataset.price)}));
   const total = Number(document.getElementById('upgradeTotal').textContent);
-  paypal.Buttons({
-    style:{layout:'vertical',color:'gold',shape:'rect',label:'buynow'},
-    createOrder:(data,actions)=>actions.order.create({
-      purchase_units:[{description:currentProductName, amount:{currency_code:'GBP', value:total}}]
-    }),
-    onApprove:(data,actions)=>actions.order.capture().then(()=>{ alert(`Thank you! ${currentProductName} purchased for £${total}`); closeUpgradeModal(); })
-  }).render('#paypalButtonContainer');
-}
+  
+  // Encode product + upgrades into query string
+  const order = encodeURIComponent(JSON.stringify({
+    product: currentProductName,
+    base: currentBasePrice,
+    upgrades,
+    total
+  }));
+
+  // Redirect to checkout page
+  window.location.href = `checkout.html?order=${order}`;
+});
 </script>
 </body>
 </html>

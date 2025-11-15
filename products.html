@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Products — Retro Replay</title>
+<title>Checkout — Retro Replay</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 
@@ -11,7 +11,7 @@
   body { font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed; margin:0; padding:0; }
   .ambient { position:fixed; top:0; left:0; width:100%; height:100%; background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%); pointer-events:none; z-index:0; animation:pulse 5s infinite; }
   @keyframes pulse {0%,100%{opacity:0.02;}50%{opacity:0.04;}}
-  .wrap { max-width:1200px; margin:0 auto; padding:2rem; position:relative; z-index:2; }
+  .wrap { max-width:800px; margin:0 auto; padding:2rem; position:relative; z-index:2; }
   header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:2rem; }
   .logo { height:120px; width:auto; }
   nav { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin-top:0.5rem; }
@@ -19,33 +19,16 @@
   nav a:hover, nav a.active { text-decoration:underline; }
   .section-title { font-size:2rem; text-align:center; margin-bottom:1rem; }
 
-  /* FILTER */
-  .filter { text-align:center; margin-bottom:2rem; }
-  .filter button { background:#22262f; color:#e3e7ed; border:none; padding:0.6rem 1.3rem; border-radius:6px; margin:0.3rem; cursor:pointer; font-weight:bold; transition:0.2s; }
-  .filter button.active { background:#2a2f3a; text-decoration:underline; }
+  #checkout-items { background:#22262f; padding:1rem; border-radius:10px; margin-bottom:2rem; }
+  #checkout-items ul { list-style:none; padding-left:0; }
+  #checkout-items li { display:flex; justify-content:space-between; margin-bottom:0.5rem; }
+  #checkout-total { font-weight:bold; margin-top:1rem; text-align:right; font-size:1.2rem; }
 
-  /* PRODUCT GRID */
-  .product-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; }
-  .product-card { background:#22262f; padding:1rem; border-radius:10px; text-align:center; display:flex; flex-direction:column; position:relative; }
-  .product-card img { max-width:100%; height:auto; border-radius:6px; margin-bottom:0.7rem; }
-  .product-card .name { font-weight:700; margin-bottom:0.4rem; }
-  .product-card .price { font-size:1.2rem; font-weight:bold; margin-bottom:0.6rem; }
-  .product-card p { font-size:0.95rem; line-height:1.5; margin-bottom:0.7rem; }
-  .product-card select, .product-card button { margin-top:0.5rem; padding:0.5rem; border-radius:5px; border:none; cursor:pointer; font-weight:bold; }
-  .product-card button { background:#6db8ff; color:#181b23; transition:0.2s; }
-  .product-card button:hover { background:#5aa0e0; }
-
-  /* Basket */
-  #basket { background:#22262f; padding:1rem; border-radius:10px; margin:2rem 0; }
-  #basket h3 { color:#6db8ff; margin-bottom:1rem; }
-  #basket ul { list-style:none; padding-left:0; }
-  #basket li { display:flex; justify-content:space-between; margin-bottom:0.5rem; }
-  #basket-total { font-weight:bold; margin-top:1rem; text-align:right; }
+  #paypal-button-container { margin-top:2rem; text-align:center; }
 
   footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
 </style>
 </head>
-
 <body>
 
 <div class="ambient"></div>
@@ -66,6 +49,68 @@
     <a href="warranties.html">Warranties</a>
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
-    <a href="checkout.html">Checkout</a>
+    <a href="checkout.html" class="active">Checkout</a>
   </nav>
 </header>
+
+<h2 class="section-title">Checkout</h2>
+
+<div id="checkout-items">
+  <h3>Order Summary</h3>
+  <ul id="order-list"></ul>
+  <div id="checkout-total">Total: £0</div>
+</div>
+
+<div id="paypal-button-container"></div>
+
+<footer>
+  <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
+  <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
+</footer>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AYXmDuhylfxtnuRz3E2EzoyXNO0HnxJAXr_DQauHlsoawJjLKel8W17luzhp1_52OlIh9qjJYDggdf8o&currency=GBP"></script>
+
+<script>
+// Load basket from localStorage
+let basket = JSON.parse(localStorage.getItem('retroBasket')) || [];
+const orderList = document.getElementById('order-list');
+const totalDiv = document.getElementById('checkout-total');
+
+function renderOrder(){
+  orderList.innerHTML = '';
+  let total = 0;
+  basket.forEach(item=>{
+    const li = document.createElement('li');
+    li.textContent = `${item.name} ${item.upgrade? '('+item.upgrade+')':''} - £${item.price}`;
+    orderList.appendChild(li);
+    total += item.price;
+  });
+  totalDiv.textContent = `Total: £${total}`;
+  return total;
+}
+
+const totalAmount = renderOrder();
+
+// PAYPAL BUTTON
+paypal.Buttons({
+  style:{ layout:'vertical', color:'gold', shape:'rect', label:'pay' },
+  createOrder: (data, actions) => {
+    return actions.order.create({
+      purchase_units: [{
+        description: 'Retro Replay Order',
+        amount: { value: totalAmount, currency_code: 'GBP' }
+      }]
+    });
+  },
+  onApprove: (data, actions) => actions.order.capture().then(()=>{
+    // Clear basket after payment
+    localStorage.removeItem('retroBasket');
+    alert('Payment successful! Thank you for your order.');
+    window.location.href = 'index.html';
+  }),
+  onError: err => console.error(err)
+}).render('#paypal-button-container');
+</script>
+
+</body>
+</html>

@@ -18,22 +18,42 @@ body {
     position:relative;
 }
 
-/* BLUE NEON DOT PARTICLES */
-body::before {
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-        radial-gradient(#6db8ff55 1px, transparent 1px) 0 0 / 35px 35px,
-        radial-gradient(#6db8ff30 1px, transparent 1px) 15px 15px / 35px 35px;
-    opacity:0.35;
-    pointer-events:none;
-    animation:fadeDots 12s infinite alternate;
+/* ---------- FLOATING NEON PARTICLES ---------- */
+.particles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
 }
-@keyframes fadeDots {
-    from { opacity:0.25; }
-    to { opacity:0.45; }
+
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #6db8ff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #6db8ff;
+    opacity: 0.7;
+    animation: floatParticle linear infinite;
+    filter: blur(1px);
 }
+
+@keyframes floatParticle {
+    from {
+        transform: translateY(110vh) translateX(0);
+        opacity: 0.2;
+    }
+    to {
+        transform: translateY(-10vh) translateX(20px);
+        opacity: 0.8;
+    }
+}
+
+/* Randomised particles */
+.particle:nth-child(odd) { animation-duration: 16s; width: 6px; height: 6px; opacity: 0.5; }
+.particle:nth-child(even){ animation-duration: 22s; width: 10px; height: 10px; opacity: 0.8; }
+.particle:nth-child(3n){ animation-duration: 28s; width: 7px; height: 7px; opacity: 0.6; }
 
 /* ---------- NAVIGATION ---------- */
 nav {
@@ -45,6 +65,8 @@ nav {
     gap:18px;
     border-bottom:2px solid #1f2a40;
     box-shadow:0 0 15px #000;
+    position: relative;
+    z-index: 2;
 }
 
 nav a {
@@ -68,6 +90,8 @@ header {
     text-align:center;
     padding:70px 20px 50px;
     background:linear-gradient(180deg,#0d1118,#121722);
+    position: relative;
+    z-index: 1;
 }
 
 header img.logo {
@@ -96,6 +120,8 @@ h1 {
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:40px;
+    position: relative;
+    z-index: 1;
 }
 
 @media (max-width:850px) {
@@ -181,10 +207,27 @@ footer {
     font-size:0.9rem;
     border-top:1px solid #1c2638;
     margin-top:40px;
+    position: relative;
+    z-index: 1;
 }
 </style>
 </head>
 <body>
+
+<!-- Floating Particles -->
+<div class="particles">
+    <div class="particle" style="left:5%; animation-delay:0s;"></div>
+    <div class="particle" style="left:12%; animation-delay:2s;"></div>
+    <div class="particle" style="left:20%; animation-delay:4s;"></div>
+    <div class="particle" style="left:30%; animation-delay:1s;"></div>
+    <div class="particle" style="left:38%; animation-delay:3s;"></div>
+    <div class="particle" style="left:45%; animation-delay:5s;"></div>
+    <div class="particle" style="left:55%; animation-delay:2s;"></div>
+    <div class="particle" style="left:63%; animation-delay:4s;"></div>
+    <div class="particle" style="left:72%; animation-delay:6s;"></div>
+    <div class="particle" style="left:82%; animation-delay:1s;"></div>
+    <div class="particle" style="left:90%; animation-delay:3s;"></div>
+</div>
 
 <!-- Navigation -->
 <nav>
@@ -209,12 +252,10 @@ footer {
     <!-- CONTACT INFO -->
     <div class="card">
         <h2>Contact Information</h2>
-
         <p class="info-line"><span>Email:</span> support@retro-replay.co.uk</p>
         <p class="info-line"><span>Response Time:</span> 24–48 Hours</p>
         <p class="info-line"><span>Business Hours:</span> Mon–Sat, 9am–6pm</p>
         <p class="info-line"><span>Location:</span> UK Based — Shipping Worldwide</p>
-
         <p style="margin-top:20px; opacity:0.75;">
             For order help, trade-ins, console advice, repairs, or custom builds — send us a message below.
         </p>
@@ -223,7 +264,6 @@ footer {
     <!-- CONTACT FORM -->
     <form class="card">
         <h2>Send Us a Message</h2>
-
         <input type="text" placeholder="Your Name" required>
         <input type="email" placeholder="Your Email" required>
         <textarea rows="6" placeholder="Your Message" required></textarea>

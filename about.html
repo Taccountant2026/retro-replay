@@ -1,145 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Retro Replay</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
-<link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-  body {
-    font-family: 'Orbitron', sans-serif;
-    background:#181b23;
-    color:#e3e7ed;
+body {
     margin:0;
-    padding:0;
-  }
+    font-family:'Orbitron', sans-serif;
+    background:#0a0a0a;
+    color:white;
+    scroll-behavior: smooth;
+    overflow-x:hidden;
+}
+a { text-decoration:none; color:inherit; }
 
-  .wrap { max-width:1200px; margin:0 auto; padding:2rem; }
-
-  header {
+header {
+    position:sticky;
+    top:0;
+    background:rgba(10,10,10,0.95);
+    z-index:1000;
     display:flex;
     justify-content:space-between;
-    flex-wrap:wrap;
     align-items:center;
-    margin-bottom:3rem;
-  }
+    padding:15px 10%;
+    border-bottom:2px solid #1f1f1f;
+    backdrop-filter: blur(5px);
+}
+header img.logo { height:60px; }
+nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+nav a { margin:5px 10px; font-weight:bold; color:#6db8ff; transition:0.2s; }
+nav a:hover { color:#ffffff; }
 
-  .logo { max-height:120px; width:auto; }
-
-  nav { display:flex; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; }
-  nav a { margin:0.5rem 1rem; color:#e3e7ed; text-decoration:none; font-weight:bold; transition:0.2s; }
-  nav a:hover, nav a.active { text-decoration:underline; }
-
-  .about-section {
-    background:#22262f;
-    padding:2rem;
-    border-radius:10px;
-    margin-bottom:2rem;
+.hero {
+    position:relative;
+    padding:120px 20px 80px;
     text-align:center;
-  }
-
-  .section-title { font-size:2rem; margin-bottom:1.5rem; }
-  .about-section p { font-size:1.05rem; line-height:1.6; margin-bottom:1rem; }
-
-  /* Testimonials Section */
-  .testimonials {
-    background:#22262f;
-    padding:2rem;
-    border-radius:10px;
-    margin-bottom:2rem;
-  }
-  .testimonials-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:1.5rem;
-    margin-top:1rem;
-  }
-  .testimonial {
-    background:#181b23;
-    padding:1rem;
-    border-radius:8px;
-    text-align:center;
-  }
-  .testimonial p { font-size:1rem; line-height:1.4; margin-bottom:0.5rem; }
-  .testimonial .author { font-weight:700; margin-top:0.5rem; color:#ffd700; }
-
-  footer { text-align:center; font-size:0.8rem; margin-top:3rem; color:#999; }
-
-  .ambient {
-    position:fixed;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    overflow:hidden;
+}
+.hero::before {
+    content:"";
+    position:absolute;
     top:0; left:0;
     width:100%; height:100%;
-    background:radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 70%);
-    pointer-events:none;
+    background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
     z-index:0;
-    animation: pulse 5s infinite;
-  }
-  @keyframes pulse {0%,100%{opacity:0.02;}50%{opacity:0.04;}}
+}
+.hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:1; }
+.hero h1 { font-size:3rem; color:#6db8ff; margin-bottom:15px; position:relative; z-index:1; }
+.hero p { font-size:1.3rem; opacity:0.85; margin-bottom:30px; position:relative; z-index:1; }
 
-  @media screen and (max-width:768px){
-    .section-title { font-size:1.7rem; }
-  }
-  @media screen and (max-width:480px){
-    .section-title { font-size:1.4rem; }
-  }
+.founder-section {
+    padding:60px 10%;
+    text-align:center;
+    background:#111;
+    border-radius:20px;
+    margin:40px auto;
+    position:relative;
+}
+.founder-section h2 { font-size:2.5rem; color:#6db8ff; margin-bottom:20px; text-shadow:0 0 8px #0051ff; }
+.founder-section p { font-size:1.2rem; line-height:1.7; max-width:900px; margin:10px auto; opacity:0.9; }
+.founder-section .highlight { color:#00ffd0; font-weight:bold; }
+
+.founder-bio {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    margin-top:40px;
+    position:relative;
+}
+.founder-bio img {
+    width:200px;
+    border-radius:50%;
+    border:3px solid #6db8ff;
+    transition:0.3s;
+    z-index:2;
+}
+.founder-bio img:hover { transform:scale(1.05) rotate(5deg); }
+.founder-bio .bio-text { max-width:600px; text-align:left; z-index:2; position:relative; }
+.founder-bio .bio-text h3 { font-size:1.8rem; color:#ffd700; margin-bottom:10px; text-shadow:0 0 6px #ffa500; }
+.founder-bio .bio-text p { font-size:1.05rem; line-height:1.6; opacity:0.9; }
+
+#orbit-canvas {
+    position:absolute;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+    pointer-events:none;
+}
+
+footer {
+    background:#0b0f18;
+    padding:40px 10%;
+    margin-top:60px;
+    font-size:0.9rem;
+    color:#9fbbe0;
+    text-align:center;
+}
+footer a { color:#6db8ff; margin:0 8px; transition:0.2s; }
+footer a:hover { color:#ffffff; }
+
+@media screen and (max-width:768px) {
+    header { flex-direction:column; gap:10px; padding:15px 5%; }
+    nav a { margin:5px; }
+    .founder-bio { flex-direction:column; text-align:center; }
+    .founder-bio .bio-text { text-align:center; }
+}
+@media screen and (max-width:480px) {
+    .hero h1 { font-size:2rem; }
+    .hero p { font-size:1rem; }
+    .founder-section h2 { font-size:2rem; }
+    .founder-bio img { width:150px; }
+}
 </style>
 </head>
 <body>
 
-<div class="ambient"></div>
-
-<div class="wrap">
-  <!-- Header (preserved) -->
-  <header>
-    <img src="assets/logo.png" alt="Retro Replay logo" class="logo">
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="histroy.html">PS2 History</a>
-      <a href="buying-guide.html">Buying Guide</a>
-      <a href="products.html">Products</a>
-      <a href="mods-upgrades.html">Mods & Upgrades</a>
-      <a href="how-we-refurbish.html">How We Refurbish</a>
-      <a href="trade-in.html">Trade-In</a>
-      <a href="delivery.html">Shipping & Delivery</a>
-      <a href="warranties.html">Warranties</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-      <a href="checkout.html">Checkout</a>
+<header>
+    <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About RetroReplay</a>
+        <a href="consoles.html">Consoles & Products</a>
+        <a href="services.html">Services</a>
+        <a href="faq.html">FAQ's</a>
+        <a href="contact.html">Contact Us</a>
     </nav>
-  </header>
+</header>
 
-  <section class="about-section">
-    <h2 class="section-title">About Retro Replay</h2>
-    <p>Retro Replay is your destination for <strong>PlayStation 2 nostalgia</strong>. We refurbish consoles, offer professional modifications, and bring classic retro gaming back to life.</p>
-    <p>All consoles are fully tested, cleaned, and cosmetically refreshed. Whether you're rediscovering the PS2 or exploring it for the first time, we provide a premium gaming experience.</p>
-    <p>Our modded systems include <strong>HDD setups, homebrew support, and media playback</strong>, ensuring your retro adventure is smooth and fun.</p>
-  </section>
+<section class="hero">
+    <canvas id="particle-canvas"></canvas>
+    <img src="assets/logo.png" alt="Retro Replay Logo" class="logo-hero">
+    <h1>About Retro Replay</h1>
+    <p>Discover the passion, story, and mission behind restoring classic consoles.</p>
+</section>
 
-  <section class="testimonials">
-    <h2 class="section-title">What Our Customers Say</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial">
-        <p>"The refurbished PS2 Fat I bought works perfectly! Feels brand new and looks amazing on my shelf."</p>
-        <div class="author">— Alex R.</div>
-      </div>
-      <div class="testimonial">
-        <p>"Customer support was incredible, and the modded bundle was ready to play straight away. Highly recommend Retro Replay!"</p>
-        <div class="author">— Jamie L.</div>
-      </div>
-      <div class="testimonial">
-        <p>"Fast shipping, beautifully restored consoles, and professional setup of the HDD. My retro gaming setup is complete!"</p>
-        <div class="author">— Sam K.</div>
-      </div>
+<section class="founder-section">
+    <h2>Meet the Founder</h2>
+    <p>Hello! I’m <span class="highlight">Leighton Hepworth</span>, the founder of <span class="highlight">Retro Replay</span>. Currently pursuing a degree in <span class="highlight">Computer Science & Technology</span>, my passion for consoles and technology has been with me since childhood.</p>
+    <p>Retro Replay is my way of combining my love for gaming, hardware restoration, and modding, providing retro enthusiasts with refurbished consoles, curated games, and professional upgrades.</p>
+
+    <div class="founder-bio">
+        <img src="assets/founder.jpg" alt="Leighton Hepworth">
+        <div class="bio-text">
+            <h3>My Journey</h3>
+            <p>From playing classic consoles in my youth to studying technology at university, I’ve dedicated myself to understanding gaming hardware inside and out. Every console restored and every mod crafted reflects this passion.</p>
+            <p>Through Retro Replay, I aim to deliver not just consoles, but experiences—nostalgia, craftsmanship, and quality for gamers worldwide.</p>
+        </div>
+        <canvas id="orbit-canvas"></canvas>
     </div>
-  </section>
+</section>
 
-  <footer>
-    <div>© <strong>Retro Replay</strong> — Featuring PlayStation 2</div>
-    <small>PlayStation and PS2 are trademarks of Sony Interactive Entertainment. Retro Replay is not affiliated with Sony.</small>
-  </footer>
-</div>
+<footer>
+    <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
+</footer>
+
+<script>
+// Particle System
+const canvasParticles = document.getElementById('particle-canvas');
+const ctxParticles = canvasParticles.getContext('2d');
+canvasParticles.width = window.innerWidth;
+canvasParticles.height = window.innerHeight;
+let particlesArray=[];
+class Particle{constructor(){this.x=Math.random()*canvasParticles.width;this.y=Math.random()*canvasParticles.height;this.size=Math.random()*2+1;this.speedX=(Math.random()-0.5)*0.5;this.speedY=(Math.random()-0.5)*0.5;}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvasParticles.width)this.speedX*=-1;if(this.y<0||this.y>canvasParticles.height)this.speedY*=-1;}draw(){ctxParticles.fillStyle='rgba(109,184,255,0.5)';ctxParticles.beginPath();ctxParticles.arc(this.x,this.y,this.size,0,Math.PI*2);ctxParticles.fill();}}
+function initParticles(){particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
+function animateParticles(){ctxParticles.clearRect(0,0,canvasParticles.width,canvasParticles.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+initParticles(); animateParticles();
+window.addEventListener('resize',()=>{canvasParticles.width=window.innerWidth; canvasParticles.height=window.innerHeight; initParticles();});
+
+// Orbiting Consoles with Color Trails
+const orbitCanvas = document.getElementById('orbit-canvas');
+const ctxOrbit = orbitCanvas.getContext('2d');
+function resizeOrbit(){ orbitCanvas.width = orbitCanvas.offsetWidth; orbitCanvas.height = orbitCanvas.offsetHeight; }
+resizeOrbit(); window.addEventListener('resize', resizeOrbit);
+
+const centerX = () => orbitCanvas.width/2;
+const centerY = () => orbitCanvas.height/2;
+
+const orbitIcons = [
+    {src:'assets/playstation-logo.png', color:'#0051ff', radius:100, angle:0.2, speed:0.015},
+    {src:'assets/xbox-logo.png', color:'#00ff51', radius:140, angle:1.2, speed:0.012},
+    {src:'assets/nintendo-logo.png', color:'#ff1a1a', radius:180, angle:2.2, speed:0.01},
+    {src:'assets/sega-logo.png', color:'#00ffd0', radius:220, angle:3.2, speed:0.013},
+    {src:'assets/atari-logo.png', color:'#aa00ff', radius:260, angle:4.2, speed:0.011},
+].map(o=>{ const img=new Image(); img.src=o.src; return {...o,img,trail:[]}; });
+
+function animateOrbit(){
+    ctxOrbit.fillStyle='rgba(10,10,10,0.2)';
+    ctxOrbit.fillRect(0,0,orbitCanvas.width, orbitCanvas.height);
+
+    orbitIcons.forEach(icon=>{
+        icon.angle += icon.speed;
+        const x=centerX() + Math.cos(icon.angle)*icon.radius;
+        const y=centerY() + Math.sin(icon.angle)*icon.radius;
+
+        icon.trail.push({x,y});
+        if(icon.trail.length>12) icon.trail.shift();
+
+        // Draw trail with color
+        for(let i=0;i<icon.trail.length;i++){
+            const t=icon.trail[i];
+            ctxOrbit.beginPath();
+            ctxOrbit.arc(t.x,t.y,20*(i/12),0,Math.PI*2);
+            ctxOrbit.fillStyle=icon.color + (i/18);
+            ctxOrbit.fill();
+        }
+
+        // Draw icon
+        ctxOrbit.drawImage(icon.img,x-20,y-20,40,40);
+    });
+
+    requestAnimationFrame(animateOrbit);
+}
+animateOrbit();
+</script>
 
 </body>
 </html>

@@ -15,7 +15,7 @@
   --panel-2:#2a2f3a;
   --card-border:#1463ff;
 }
-html,body{height:100%;}
+html,body{height:100%}
 body{
   font-family:'Orbitron',sans-serif;
   background:var(--bg);
@@ -57,7 +57,7 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
   display:flex;
   gap:8px;
   justify-content:center;
-  align-items:center;
+  flex-wrap:wrap;
   padding-top:10px;
 }
 .btn{
@@ -109,6 +109,7 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
 <h2 class="section-title">Our Full Catalog</h2>
 
 <section class="product-grid" aria-label="Products">
+
   <!-- Product Card Template -->
   <div class="product-card" data-base="150" data-name="Refurbished PS2 Fat">
     <img src="assets/PS2_REFURBED_BUNDLE.jpg" alt="Refurbished PS2 Fat">
@@ -116,7 +117,8 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <div class="price">£150</div>
     <p>Fully refurbished PS2 Fat console, cleaned, tested, cosmetically restored.</p>
     <div class="product-actions">
-      <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
+      <button class="btn" onclick="addBaseProductToBasket('Refurbished PS2 Fat', 150)">Add to Basket</button>
+      <button class="btn alt" onclick="openUpgradeModal(this)">Choose Upgrades</button>
     </div>
   </div>
 
@@ -126,7 +128,8 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <div class="price">£185</div>
     <p>Console, controller, AV cables, curated games — ready to play instantly.</p>
     <div class="product-actions">
-      <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
+      <button class="btn" onclick="addBaseProductToBasket('Plug & Play Bundle', 185)">Add to Basket</button>
+      <button class="btn alt" onclick="openUpgradeModal(this)">Choose Upgrades</button>
     </div>
   </div>
 
@@ -136,7 +139,8 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <div class="price">£95</div>
     <p>Tested console for reliable gaming or modding. Fully verified and ready to play.</p>
     <div class="product-actions">
-      <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
+      <button class="btn" onclick="addBaseProductToBasket('PS2 Tested Console', 95)">Add to Basket</button>
+      <button class="btn alt" onclick="openUpgradeModal(this)">Choose Upgrades</button>
     </div>
   </div>
 
@@ -146,7 +150,8 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <div class="price">£250</div>
     <p>Professionally modded PS2 bundle with HDD and homebrew support. Ready-to-go library included.</p>
     <div class="product-actions">
-      <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
+      <button class="btn" onclick="addBaseProductToBasket('Modded Bundle (HDD)', 250)">Add to Basket</button>
+      <button class="btn alt" onclick="openUpgradeModal(this)">Choose Upgrades</button>
     </div>
   </div>
 
@@ -156,7 +161,8 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <div class="price">£135</div>
     <p>Fully refurbished PS2 Slim console, tested and cleaned for optimal performance.</p>
     <div class="product-actions">
-      <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
+      <button class="btn" onclick="addBaseProductToBasket('Refurbished PS2 Slim', 135)">Add to Basket</button>
+      <button class="btn alt" onclick="openUpgradeModal(this)">Choose Upgrades</button>
     </div>
   </div>
 
@@ -166,7 +172,8 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <div class="price">£200</div>
     <p>PS2 with Softmod installed, ready for homebrew and USB/HDD apps.</p>
     <div class="product-actions">
-      <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
+      <button class="btn" onclick="addBaseProductToBasket('Softmod Bundle', 200)">Add to Basket</button>
+      <button class="btn alt" onclick="openUpgradeModal(this)">Choose Upgrades</button>
     </div>
   </div>
 
@@ -176,9 +183,11 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
     <div class="price">£300</div>
     <p>Refurb + HDMI + Softmod + empty 32GB USB for a complete setup.</p>
     <div class="product-actions">
-      <button class="btn" onclick="openUpgradeModal(this)">Add to Basket / Choose Upgrades</button>
+      <button class="btn" onclick="addBaseProductToBasket('Premium Bundle', 300)">Add to Basket</button>
+      <button class="btn alt" onclick="openUpgradeModal(this)">Choose Upgrades</button>
     </div>
   </div>
+
 </section>
 </div>
 
@@ -205,7 +214,7 @@ nav a:hover, nav a.active{ text-decoration:underline; color:#8ec5ff; }
       <div style="color:#cbd3dd;">Total: £<span id="upgradeTotal">0</span></div>
       <div class="upgrade-actions">
         <button class="btn small alt" onclick="closeUpgradeModal()">Cancel</button>
-        <button id="applyUpgradesBtn" class="btn small">Add to Basket / Checkout</button>
+        <button class="btn small" id="applyUpgradesBtn">Add to Basket</button>
       </div>
     </div>
   </div>
@@ -239,7 +248,6 @@ function updateUpgradeTotal(){
 document.addEventListener('change', function(e){ 
   if(e.target.name==='upgrade'){ updateUpgradeTotal(); } 
 });
-
 document.getElementById('upgradeModal').addEventListener('click', function(e){ 
   if(e.target===this) closeUpgradeModal(); 
 });
@@ -258,6 +266,18 @@ document.getElementById('applyUpgradesBtn').addEventListener('click', function()
 
   window.location.href = `checkout.html?order=${order}`;
 });
+
+// NEW FUNCTION: Add base product directly
+function addBaseProductToBasket(name, basePrice){
+  const order = encodeURIComponent(JSON.stringify({
+    product: name,
+    base: basePrice,
+    upgrades: [],
+    total: basePrice
+  }));
+  window.location.href = `checkout.html?order=${order}`;
+}
 </script>
+
 </body>
 </html>

@@ -3,50 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — PlayStation History</title>
+<title>PlayStation Guides & Info — Retro Replay</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed;}
-nav { background:#0a0a0a; padding:16px; text-align:center; }
-nav a { color:#6db8ff; margin:0 10px; text-decoration:none; font-weight:700;}
-nav a:hover { color:#8ec5ff; }
+body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed; }
+nav { background:#0a0a0a; padding:15px 10%; display:flex; flex-wrap:wrap; justify-content:center; gap:15px; border-bottom:2px solid #1f1f1f; }
+nav a { color:#6db8ff; font-weight:700; transition:0.2s; }
+nav a:hover { color:#ffffff; }
 header { text-align:center; padding:60px 20px; }
-h1 { color:#6db8ff; margin-bottom:10px; }
-.hero-sub { font-size:1.2rem; opacity:0.8; }
+h1,h2,h3 { margin:0; }
 .section { padding:40px 10%; max-width:1200px; margin:0 auto; }
-footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0;}
+.section-title { font-size:2rem; color:#6db8ff; text-align:center; margin-bottom:30px; }
+.guide { background:#111; border-radius:15px; padding:25px; margin-bottom:25px; box-shadow:0 0 10px #0051ff,0 0 25px #00ffd0; transition:0.3s; }
+.guide:hover { transform:scale(1.02); }
+.guide h3 { color:#6db8ff; margin-bottom:10px; }
+.guide p { opacity:0.85; }
+footer { background:#0b0f18; padding:40px 10%; margin-top:60px; font-size:0.9rem; color:#9fbbe0; text-align:center; }
+footer a { color:#6db8ff; margin:0 8px; transition:0.2s; }
+footer a:hover { color:#ffffff; }
 </style>
 </head>
 <body>
 
 <nav>
     <a href="index.html">Home</a>
-    <a href="history.html">History</a>
-    <a href="buying-guide.html">Buying Guide</a>
-    <a href="mods-upgrades.html">Mods & Upgrades</a>
-    <a href="how-we-refurbish.html">Refurb Process</a>
-    <a href="trade-in.html">Trade-In</a>
-    <a href="delivery.html">Shipping</a>
-    <a href="warranties.html">Warranties</a>
-    <a href="faq.html">FAQ</a>
+    <a href="products.html">Products & Services</a>
+    <a href="guides.html">Guides & Info</a>
     <a href="contact.html">Contact</a>
-    <a href="products.html">Products</a>
-    <a href="products/ps1.html">PS1</a>
-    <a href="products/ps2.html">PS2</a>
-    <a href="products/ps3.html">PS3</a>
 </nav>
 
 <header>
-    <h1>PlayStation History</h1>
-    <div class="hero-sub">Timeline of PlayStation consoles & milestones</div>
+    <h1>PlayStation Guides & Info</h1>
+    <p>Learn everything about our refurbishments, trade-ins, and modding services</p>
 </header>
 
-<div class="section">
-    <p>From the original PS1 in 1994 to the PS3, PlayStation has shaped gaming history. Explore key releases, innovations, and iconic hardware designs.</p>
-</div>
+<section class="section">
+    <h2 class="section-title">Refurbishment Process</h2>
+    <div class="guide">
+        <h3>Step-by-Step Refurb</h3>
+        <p>Deep-cleaning, laser alignment, thermal refresh, cosmetic restoration, and full QA testing to ensure your console is as close to new as possible.</p>
+    </div>
+    <div class="guide">
+        <h3>HDD & Softmod Setup</h3>
+        <p>Install HDDs, configure OPL, enable homebrew apps, and optimize for gaming performance.</p>
+    </div>
+    <div class="guide">
+        <h3>Trade-In & Rare Editions</h3>
+        <p>Maximize value on your old consoles. Trade-in discounts plus limited edition PS consoles for collectors.</p>
+    </div>
+    <div class="guide">
+        <h3>Buying Guide</h3>
+        <p>Tips on selecting the right PlayStation, understanding model differences, and identifying console conditions.</p>
+    </div>
+    <div class="guide">
+        <h3>Warranty & Support</h3>
+        <p>All refurbished consoles come with a 6-month warranty, and our support team is always available for troubleshooting and guidance.</p>
+    </div>
+</section>
 
 <footer>
     <p>© 2025 Retro Replay — PlayStation Division</p>
+    <p>
+        <a href="index.html">Home</a> •
+        <a href="products.html">Products & Services</a> •
+        <a href="guides.html">Guides & Info</a> •
+        <a href="contact.html">Contact</a>
+    </p>
 </footer>
 
 </body>

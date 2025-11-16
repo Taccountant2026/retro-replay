@@ -1,94 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Retro Replay — PS1 Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-body { margin:0; font-family:'Orbitron',sans-serif; background:#12151f; color:#e3e7ed; }
-nav { background:#0a0a0a; padding:16px; text-align:center; }
-nav a { color:#6db8ff; margin:0 10px; font-weight:700; text-decoration:none; }
-nav a:hover { color:#8ec5ff; }
-header { text-align:center; padding:60px 20px; position:relative; }
-header img { width:200px; margin-bottom:20px; }
-h1 { color:#6db8ff; margin-bottom:10px; }
-.hero-sub { font-size:1.2rem; opacity:0.85; margin-bottom:30px; }
-.section { padding:40px 10%; max-width:1200px; margin:0 auto; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; margin-top:30px; }
-.tile { background:#111; border-radius:15px; padding:20px; text-align:center; transition:0.3s; cursor:pointer; box-shadow:0 0 8px #6db8ff; }
-.tile img { width:120px; margin-bottom:15px; }
-.tile h3 { color:#6db8ff; margin-bottom:8px; }
-.tile p { opacity:0.85; font-size:0.95rem; }
-.tile:hover { transform:scale(1.05); box-shadow:0 0 15px #00ffd0; }
-footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0; }
-
-/* Buttons */
-.cta-btn {
-    background:#0051ff; color:white; padding:12px 28px; font-weight:bold; border-radius:12px;
-    text-decoration:none; display:inline-block; margin-top:15px;
-    transition:0.3s;
+/* ------------------ Globals ------------------ */
+:root{
+  --bg:#0c0f17;
+  --panel:#0f131a;
+  --accent:#6db8ff;
+  --accent-strong:#0051ff;
+  --muted:#9fbbe0;
+  --card:#101217;
 }
-.cta-btn:hover { background:#0070ff; transform:scale(1.05); box-shadow:0 0 15px #00ffd0; }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Orbitron",sans-serif;
+  background:var(--bg);
+  color:#e3e7ed;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
 
-/* Responsive */
-@media(max-width:768px){ .grid { grid-template-columns:1fr 1fr; } }
-@media(max-width:480px){ .grid { grid-template-columns:1fr; } header img { width:150px; } }
+/* ---------- NAV ---------- */
+nav{
+  background:#0a0a0a;
+  padding:14px 6%;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+  border-bottom:2px solid #1f1f1f;
+  position:sticky;
+  top:0;
+  z-index:1200;
+}
+nav a{
+  color:var(--accent);
+  font-weight:700;
+  text-decoration:none;
+  padding:6px 10px;
+  border-radius:6px;
+  transition:all .18s ease;
+}
+nav a:hover{ color:#ffffff; transform:translateY(-2px); }
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  padding:90px 18px 60px;
+  text-align:center;
+  overflow:hidden;
+  background:linear-gradient(180deg,#0a0a0a 0%, #0f1216 100%);
+  border-bottom:1px solid rgba(255,255,255,0.02);
+}
+.hero .logo-hero{
+  width:170px;
+  margin:0 auto 18px;
+  display:block;
+  position:relative;
+  z-index:3;
+  filter:drop-shadow(0 6px 18px rgba(109,184,255,0.08));
+}
+.hero h1{
+  color:var(--accent);
+  margin:8px 0;
+  font-size:2.6rem;
+  z-index:3;
+  position:relative;
+}
+.hero p{
+  margin:6px 0 22px;
+  font-size:1.1rem;
+  opacity:.88;
+  z-index:3;
+  position:relative;
+}
+
+/* particle canvas sits behind hero content */
+#particle-canvas{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+}
+
+/* CTA */
+.cta-row{ position:relative; z-index:3; display:inline-flex; gap:12px; margin-top:10px;}
+.cta{
+  background:var(--accent-strong);
+  color:#000;
+  padding:12px 26px;
+  font-weight:800;
+  border-radius:12px;
+  text-decoration:none;
+  box-shadow:0 6px 24px rgba(0,81,255,0.08), 0 0 10px rgba(109,184,255,0.04);
+  transition:transform .16s ease, box-shadow .16s ease;
+}
+.cta:hover{ transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,113,255,0.14) }
+
+/* ---------- CONTENT LAYOUT ---------- */
+.container{ max-width:1200px; margin:30px auto; padding:0 18px; }
+
+/* ---------- PRODUCT GRID ---------- */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap:26px;
+  margin-top:18px;
+}
+.card{
+  background:var(--card);
+  border-radius:14px;
+  padding:20px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.03);
+  box-shadow:0 8px 28px rgba(0,0,0,0.45);
+  transform:translateY(24px);
+  opacity:0;
+  transition:all .6s cubic-bezier(.2,.9,.3,1);
+  cursor:default;
+}
+.card.visible{ transform:none; opacity:1; }
+.card a.full-link{ position:absolute; inset:0; border-radius:14px; }
+
+/* card internals */
+.card img{
+  width:110px;
+  height:auto;
+  margin-bottom:12px;
+  display:block;
+  margin-left:auto;margin-right:auto;
+  transition:transform .28s ease;
+}
+.card h3{ color:var(--accent); margin:8px 0; font-size:1.15rem; }
+.card p{ color:rgba(227,231,237,0.9); font-size:0.95rem; margin:0 0 12px; line-height:1.4 }
+.card .btn-mini{
+  display:inline-block;
+  background:var(--accent);
+  color:#000;
+  padding:8px 14px;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none;
+  transition:transform .16s ease;
+}
+.card:hover img{ transform:scale(1.06) rotate(-2deg) }
+.card:hover .btn-mini{ transform:translateY(-3px) }
+
+/* ---------- INFO BLOCKS ---------- */
+.info{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(109,184,255,0.04);
+  padding:22px;
+  border-radius:12px;
+  margin:26px 0;
+  color:var(--muted);
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;
+  padding:36px 12px;
+  color:var(--muted);
+  margin-top:30px;
+  border-top:1px solid rgba(255,255,255,0.02);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .hero{ padding:72px 18px 46px; }
+  .hero h1{ font-size:2.1rem; }
+}
+@media(max-width:520px){
+  .hero{ padding:56px 14px 40px; }
+  nav{ padding:12px 4% }
+  .cta{ padding:10px 18px }
+}
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
+<!-- NAV -->
 <nav>
-  <a href="../../index.html">Main Home</a>
-  <a href="../index.html">PlayStation Home</a>
-  <a href="ps1.html">PS1</a>
-  <a href="ps2.html">PS2</a>
-  <a href="ps3.html">PS3</a>
-  <a href="../guides.html">Guides & Info</a>
-  <a href="../contact.html">Contact</a>
+  <!-- main root -->
+  <a href="/index.html">Main Home</a>
+  <!-- playstation subsite root -->
+  <a href="/playstation/index.html">PlayStation Home</a>
+
+  <!-- product quick links -->
+  <a href="/playstation/products/ps1.html">PS1</a>
+  <a href="/playstation/products/ps2.html">PS2</a>
+  <a href="/playstation/products/ps3.html">PS3</a>
+
+  <a href="/playstation/guides.html">Guides</a>
+  <a href="/playstation/contact.html">Contact</a>
 </nav>
 
-<!-- Hero -->
-<header>
-  <img src="../assets/ps1logo.png" alt="PS1 Console">
-  <h1>PlayStation 1</h1>
-  <div class="hero-sub">Classic gaming reborn — fully refurbished and tested</div>
-  <a href="#products" class="cta-btn">View Available Units</a>
-</header>
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-<!-- About -->
-<section class="section">
-  <h2>About PS1</h2>
-  <p>The original PlayStation revolutionized gaming in the 90s. Our PS1 consoles are fully refurbished, tested, and ready to play with your favorite classics.</p>
-</section>
+  <!-- logo inside playstation folder -->
+  <img src="../assets/ps1logo.png" alt="PlayStation logo" class="logo-hero">
+  <h1 id="hero-title">PlayStation – PS1 Collection</h1>
+  <p>Classic PS1 consoles restored to mint condition — tested, cleaned, optionally modded and ready for retro play.</p>
 
-<!-- Products -->
-<section id="products" class="grid">
-  <div class="tile">
-    <img src="../assets/ps1-grey.png" alt="PS1 Grey">
-    <h3>PS1 Grey Console</h3>
-    <p>Fully tested, minor cosmetic wear, 6-month warranty.</p>
-    <a href="#" class="cta-btn">Buy Now</a>
-  </div>
-  <div class="tile">
-    <img src="../assets/ps1-slate.png" alt="PS1 Slate">
-    <h3>PS1 Slate Console</h3>
-    <p>Refurbished, top-loading model, includes controller & cables.</p>
-    <a href="#" class="cta-btn">Buy Now</a>
+  <div class="cta-row">
+    <a class="cta" href="#products">View Units</a>
+    <a class="cta" href="/playstation/guides.html">PS1 Guides</a>
   </div>
 </section>
 
-<!-- Services -->
-<section class="section">
-  <h2>Services for PS1</h2>
-  <p>We offer console refurbishments, laser cleaning, cosmetic restoration, and optional mods like memory card expansion or controllers.</p>
-</section>
+<!-- MAIN CONTENT -->
+<main class="container">
 
-<!-- Footer -->
+  <!-- about -->
+  <section class="info" aria-label="About PS1">
+    <strong style="color:var(--accent);">About the PS1:</strong>
+    <p style="margin-top:8px;">
+      The original PlayStation changed gaming forever. Our PS1 units are professionally refurbished:
+      laser cleaning, optical alignment, power supply checks, controller testing and cosmetic refresh.
+      Each unit ships boxed with tested controllers and a 6-month hardware warranty.
+    </p>
+  </section>
+
+  <!-- products grid -->
+  <section id="products" class="grid" aria-label="Available PS1 units">
+    <!-- Tile 1 -->
+    <article class="card" data-link="../ps1/ps1-grey.html">
+      <img src="../assets/ps1-grey.png" alt="PS1 Grey console">
+      <h3>PS1 — Grey (Standard)</h3>
+      <p>Classic grey shell, tested laser, comes with 1x controller & composite cables. <strong>6 months warranty.</strong></p>
+      <a class="btn-mini" href="../ps1/ps1-grey.html">View / Buy</a>
+    </article>
+
+    <!-- Tile 2 -->
+    <article class="card" data-link="../ps1/ps1-slate.html">
+      <img src="../assets/ps1-slate.png" alt="PS1 Slate console">
+      <h3>PS1 — Slate (Top-Loader)</h3>
+      <p>Top-loading variant, cosmetically restored and cleaned. Ideal for collectors and playback reliability.</p>
+      <a class="btn-mini" href="../ps1/ps1-slate.html">View / Buy</a>
+    </article>
+
+    <!-- Tile 3 (example modded unit) -->
+    <article class="card" data-link="../ps1/ps1-modded.html">
+      <img src="../assets/ps1-modded.png" alt="PS1 Modded">
+      <h3>PS1 — Modded (Region-free)</h3>
+      <p>Softmodded, region-free playback and optional memory expansion. Perfect for homebrew or multi-region libraries.</p>
+      <a class="btn-mini" href="../ps1/ps1-modded.html">View / Buy</a>
+    </article>
+
+    <!-- Tile 4 (service) -->
+    <article class="card" data-link="../services.html">
+      <img src="../assets/refurbish.png" alt="Refurbish service">
+      <h3>Refurbishment Service</h3>
+      <p>Send us your own PS1 for a full 15-step refurb: cleaning, laser re-calibration, PSU check & cosmetic restore.</p>
+      <a class="btn-mini" href="/playstation/services.html">Book Service</a>
+    </article>
+  </section>
+
+  <section class="info" aria-label="Support and Trade-in">
+    <h3 style="color:var(--accent); margin-bottom:8px;">Support & Trade-In</h3>
+    <p>
+      We accept trade-ins and offer store credit toward refurbished units. All purchases include support and simple returns — see our
+      <a href="/playstation/warranties.html" style="color:var(--accent); text-decoration:underline;">warranty & returns</a> page for details.
+    </p>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 Retro Replay — PlayStation Division</p>
+  <div>© 2025 Retro Replay — PlayStation Division</div>
+  <div style="margin-top:8px;">
+    <a href="/playstation/index.html">Home</a> •
+    <a href="/playstation/products/ps1.html">Products</a> •
+    <a href="/playstation/guides.html">Guides</a> •
+    <a href="/playstation/contact.html">Contact</a>
+  </div>
 </footer>
+
+<!-- ---------------- JS: particles + reveal + card linking ---------------- -->
+<script>
+/* ---------- particles (hero only) ---------- */
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+
+function setCanvasSize(){
+  canvas.width = window.innerWidth;
+  // limit height to the hero element so dots don't float across whole page
+  const hero = document.querySelector('.hero');
+  canvas.height = hero ? hero.offsetHeight : window.innerHeight * 0.5;
+}
+setCanvasSize();
+
+let particles = [];
+class P {
+  constructor(){
+    this.x = Math.random()*canvas.width;
+    this.y = Math.random()*canvas.height;
+    this.r = Math.random()*1.8 + 0.6;
+    this.vx = (Math.random()-0.5)*0.35;
+    this.vy = (Math.random()-0.5)*0.35;
+    this.alpha = 0.25 + Math.random()*0.5;
+  }
+  update(){
+    this.x += this.vx;
+    this.y += this.vy;
+    if(this.x < 0 || this.x > canvas.width) this.vx *= -1;
+    if(this.y < 0 || this.y > canvas.height) this.vy *= -1;
+  }
+  draw(){
+    ctx.beginPath();
+    ctx.fillStyle = 'rgba(109,184,255,'+this.alpha+')';
+    ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+    ctx.fill();
+  }
+}
+
+function initParticles(n=110){
+  particles = [];
+  for(let i=0;i<n;i++) particles.push(new P());
+}
+function frame(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{ p.update(); p.draw(); });
+  requestAnimationFrame(frame);
+}
+window.addEventListener('resize', ()=>{ setCanvasSize(); initParticles(); });
+initParticles();
+frame();
+
+/* ---------- scroll reveal for cards ---------- */
+const cards = document.querySelectorAll('.card');
+function reveal(){
+  const trigger = window.innerHeight * 0.85;
+  cards.forEach(c=>{
+    const rect = c.getBoundingClientRect();
+    if(rect.top < trigger) c.classList.add('visible');
+  });
+}
+window.addEventListener('scroll', reveal);
+window.addEventListener('load', reveal);
+
+/* ---------- clickable whole-card (accessible) ---------- */
+cards.forEach(card=>{
+  const link = card.getAttribute('data-link');
+  if(link){
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', ()=> window.location.href = link );
+    // keyboard support
+    card.setAttribute('tabindex','0');
+    card.addEventListener('keydown', e=>{ if(e.key === 'Enter' || e.key === ' ') window.location.href = link; });
+  }
+});
+</script>
 
 </body>
 </html>

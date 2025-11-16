@@ -6,17 +6,12 @@
 <title>Retro Replay — PS2 Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-/* ───────── GLOBAL ───────── */
 body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed; overflow-x:hidden; }
 a { text-decoration:none; }
 h1,h2,h3 { margin:0; }
-
-/* ───────── NAVIGATION ───────── */
 nav { background:#0a0a0a; padding:15px 8%; display:flex; flex-wrap:wrap; justify-content:center; gap:18px; border-bottom:2px solid #1f1f1f; }
 nav a { color:#6db8ff; font-weight:700; transition:0.25s; }
-nav a:hover { color:#ffffff; }
-
-/* ───────── HERO ───────── */
+nav a:hover { color:white; }
 .hero { position:relative; padding:120px 20px 80px; text-align:center; background:linear-gradient(180deg,#0a0a0a 0%,#121212 100%); overflow:hidden; }
 #particle-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
 .hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:2; }
@@ -24,34 +19,25 @@ nav a:hover { color:#ffffff; }
 .hero p { font-size:1.3rem; opacity:0.85; position:relative; z-index:2; margin-bottom:35px; }
 .cta-btn { position:relative; z-index:2; background:#0051ff; color:white; padding:15px 35px; font-size:1.15rem; border-radius:12px; border:none; cursor:pointer; font-weight:bold; transition:0.3s; }
 .cta-btn:hover { background:#0070ff; transform:scale(1.07); }
-
-/* ───────── PRODUCT GRID ───────── */
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:35px; padding:70px 10%; }
 .tile { background:#101014; border-radius:16px; padding:30px 20px; text-align:center; cursor:pointer; box-shadow:0 0 12px #003780,0 0 25px #0057ff55; transition:transform 0.35s, box-shadow 0.35s; opacity:0; transform:translateY(40px); }
 .tile.visible { opacity:1; transform:translateY(0); transition:0.7s ease-out; }
 .tile img { width:90px; margin-bottom:12px; transition:0.3s; }
 .tile h3 { font-size:1.4rem; color:#6db8ff; margin-bottom:10px; }
-.tile p { font-size:0.95rem; opacity:0.85; }
+.tile p { font-size:0.95rem; opacity:0.85; margin-bottom:10px; }
 .tile:hover { transform:scale(1.08); box-shadow:0 0 20px #00e1ff,0 0 45px #008cff; }
 .tile:hover img { transform:scale(1.1) rotate(-3deg); }
-
-/* ───────── INFO BLOCKS ───────── */
 .info-block { background:#101014; margin:40px 10%; padding:35px 25px; border-radius:16px; box-shadow:0 0 15px #0099bb44; text-align:center; }
 .info-block h3 { color:#00d0ff; margin-bottom:10px; }
 .info-block p { opacity:0.85; line-height:1.5rem; }
-
-/* ───────── FOOTER ───────── */
 footer { background:#0b0f18; padding:45px 10%; margin-top:70px; text-align:center; color:#9fbbe0; }
 footer a { color:#6db8ff; margin:0 8px; }
 footer a:hover { color:white; }
-
-/* ───────── MOBILE ───────── */
 @media(max-width:768px){ .hero h1{font-size:2.3rem;} .hero p{font-size:1.1rem;} .grid{padding:45px 5%;} }
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
 <nav>
   <a href="../../index.html">Main Home</a>
   <a href="../index.html">PlayStation Home</a>
@@ -62,7 +48,6 @@ footer a:hover { color:white; }
   <a href="../contact.html">Contact</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <canvas id="particle-canvas"></canvas>
   <img src="../assets/ps2logo.png" class="logo-hero" alt="PS2 Logo">
@@ -71,26 +56,44 @@ footer a:hover { color:white; }
   <a href="#products" class="cta-btn">Explore Consoles</a>
 </section>
 
-<!-- PRODUCTS -->
 <section id="products" class="grid">
+  <!-- PS2 Fat -->
   <div class="tile">
     <img src="../assets/ps2-fat.png" alt="PS2 Fat">
     <h3>PS2 Fat</h3>
     <p>Original design, cleaned, tested, includes controller & cables.</p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_FAT">
+      <input type="submit" class="cta-btn" value="Buy Now">
+    </form>
   </div>
+
+  <!-- PS2 Slim -->
   <div class="tile">
     <img src="../assets/ps2-slim.png" alt="PS2 Slim">
     <h3>PS2 Slim</h3>
     <p>Refurbished slim model, minimal wear, includes controller & cables.</p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_SLIM">
+      <input type="submit" class="cta-btn" value="Buy Now">
+    </form>
   </div>
+
+  <!-- PS2 Modded -->
   <div class="tile">
     <img src="../assets/ps2-mod.png" alt="PS2 Modded">
     <h3>PS2 Modded</h3>
     <p>HDD/FMCB setup, cosmetic upgrades, fully tested.</p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_MOD">
+      <input type="submit" class="cta-btn" value="Buy Now">
+    </form>
   </div>
 </section>
 
-<!-- INFO BLOCKS -->
 <div class="info-block">
   <h3>Why Choose Retro Replay?</h3>
   <p>Full refurbishment process: cleaning, testing, thermal refresh, fan tuning & cosmetic restoration.</p>
@@ -100,32 +103,23 @@ footer a:hover { color:white; }
   <p>HDD mods, FMCB installation, cooling upgrades, cosmetic restoration, and optional customizations.</p>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2025 Retro Replay — PlayStation Division</p>
 </footer>
 
-<!-- PARTICLE SCRIPT -->
 <script>
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-function resizeCanvas(){ canvas.width=window.innerWidth; canvas.height=document.querySelector('.hero').offsetHeight; }
+const canvas=document.getElementById('particle-canvas');const ctx=canvas.getContext('2d');
+function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=document.querySelector('.hero').offsetHeight;}
 resizeCanvas();
 let particlesArray=[];
-class Particle{ constructor(){ this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.size=Math.random()*2+1; this.speedX=(Math.random()-0.5)*0.4; this.speedY=(Math.random()-0.5)*0.4; }
-update(){ this.x+=this.speedX; this.y+=this.speedY; if(this.x<0||this.x>canvas.width)this.speedX*=-1; if(this.y<0||this.y>canvas.height)this.speedY*=-1; }
-draw(){ ctx.fillStyle="rgba(109,184,255,0.45)"; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); } }
-function initParticles(){ particlesArray=[]; for(let i=0;i<120;i++)particlesArray.push(new Particle()); }
-function animateParticles(){ ctx.clearRect(0,0,canvas.width,canvas.height); particlesArray.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animateParticles); }
-window.addEventListener('resize',()=>{ resizeCanvas(); initParticles(); });
-initParticles();
-animateParticles();
-/* Scroll animation */
-const tiles = document.querySelectorAll('.tile');
-function revealOnScroll(){ const trigger=window.innerHeight*0.85; tiles.forEach(tile=>{ if(tile.getBoundingClientRect().top<trigger){ tile.classList.add('visible'); } }); }
-window.addEventListener('scroll',revealOnScroll);
-revealOnScroll();
+class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedX=(Math.random()-0.5)*0.4;this.speedY=(Math.random()-0.5)*0.4;}
+update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvas.width)this.speedX*=-1;if(this.y<0||this.y>canvas.height)this.speedY*=-1;}
+draw(){ctx.fillStyle="rgba(109,184,255,0.45)";ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}
+function initParticles(){particlesArray=[];for(let i=0;i<120;i++)particlesArray.push(new Particle());}
+function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+window.addEventListener('resize',()=>{resizeCanvas();initParticles();});initParticles();animateParticles();
+const tiles=document.querySelectorAll('.tile');function revealOnScroll(){const trigger=window.innerHeight*0.85;tiles.forEach(tile=>{if(tile.getBoundingClientRect().top<trigger){tile.classList.add('visible');}})}
+window.addEventListener('scroll',revealOnScroll);revealOnScroll();
 </script>
-
 </body>
 </html>

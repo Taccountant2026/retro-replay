@@ -6,81 +6,101 @@
 <title>Retro Replay — PS3 Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-body { margin:0; font-family:'Orbitron',sans-serif; background:#12151f; color:#e3e7ed;}
-nav { background:#0a0a0a; padding:16px; text-align:center; }
-nav a { color:#6db8ff; margin:0 10px; font-weight:700; text-decoration:none; }
-nav a:hover { color:#8ec5ff; }
-header { text-align:center; padding:60px 20px; position:relative; }
-header img { width:220px; margin-bottom:20px; }
-h1 { color:#6db8ff; margin-bottom:10px; }
-.hero-sub { font-size:1.2rem; opacity:0.85; margin-bottom:30px; }
-.section { padding:40px 10%; max-width:1200px; margin:0 auto; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; margin-top:30px; }
-.tile { background:#111; border-radius:15px; padding:20px; text-align:center; transition:0.3s; cursor:pointer; box-shadow:0 0 8px #6db8ff; }
-.tile img { width:140px; margin-bottom:15px; }
-.tile h3 { color:#6db8ff; margin-bottom:8px; }
-.tile p { opacity:0.85; font-size:0.95rem; }
-.tile:hover { transform:scale(1.05); box-shadow:0 0 15px #00ffd0; }
-footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0; }
-.cta-btn { background:#0051ff; color:white; padding:12px 28px; font-weight:bold; border-radius:12px; text-decoration:none; display:inline-block; margin-top:15px; transition:0.3s; }
-.cta-btn:hover { background:#0070ff; transform:scale(1.05); box-shadow:0 0 15px #00ffd0; }
-@media(max-width:768px){ .grid { grid-template-columns:1fr 1fr; } }
-@media(max-width:480px){ .grid { grid-template-columns:1fr; } header img { width:180px; } }
+/* ───────── GLOBAL ───────── */
+body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed; overflow-x:hidden; }
+a { text-decoration:none; }
+h1,h2,h3 { margin:0; }
+nav { background:#0a0a0a; padding:15px 8%; display:flex; flex-wrap:wrap; justify-content:center; gap:18px; border-bottom:2px solid #1f1f1f; }
+nav a { color:#6db8ff; font-weight:700; transition:0.25s; }
+nav a:hover { color:#ffffff; }
+.hero { position:relative; padding:120px 20px 80px; text-align:center; background:linear-gradient(180deg,#0a0a0a 0%,#121212 100%); overflow:hidden; }
+#particle-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:2; }
+.hero h1 { font-size:3rem; color:#6db8ff; margin-bottom:10px; position:relative; z-index:2; }
+.hero p { font-size:1.3rem; opacity:0.85; position:relative; z-index:2; margin-bottom:35px; }
+.cta-btn { position:relative; z-index:2; background:#0051ff; color:white; padding:15px 35px; font-size:1.15rem; border-radius:12px; border:none; cursor:pointer; font-weight:bold; transition:0.3s; }
+.cta-btn:hover { background:#0070ff; transform:scale(1.07); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:35px; padding:70px 10%; }
+.tile { background:#101014; border-radius:16px; padding:30px 20px; text-align:center; cursor:pointer; box-shadow:0 0 12px #003780,0 0 25px #0057ff55; transition:transform 0.35s, box-shadow 0.35s; opacity:0; transform:translateY(40px); }
+.tile.visible { opacity:1; transform:translateY(0); transition:0.7s ease-out; }
+.tile img { width:90px; margin-bottom:12px; transition:0.3s; }
+.tile h3 { font-size:1.4rem; color:#6db8ff; margin-bottom:10px; }
+.tile p { font-size:0.95rem; opacity:0.85; }
+.tile:hover { transform:scale(1.08); box-shadow:0 0 20px #00e1ff,0 0 45px #008cff; }
+.tile:hover img { transform:scale(1.1) rotate(-3deg); }
+.info-block { background:#101014; margin:40px 10%; padding:35px 25px; border-radius:16px; box-shadow:0 0 15px #0099bb44; text-align:center; }
+.info-block h3 { color:#00d0ff; margin-bottom:10px; }
+.info-block p { opacity:0.85; line-height:1.5rem; }
+footer { background:#0b0f18; padding:45px 10%; margin-top:70px; text-align:center; color:#9fbbe0; }
+footer a { color:#6db8ff; margin:0 8px; }
+footer a:hover { color:white; }
+@media(max-width:768px){ .hero h1{font-size:2.3rem;} .hero p{font-size:1.1rem;} .grid{padding:45px 5%;} }
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
 <nav>
   <a href="../../index.html">Main Home</a>
   <a href="../index.html">PlayStation Home</a>
   <a href="ps1.html">PS1</a>
   <a href="ps2.html">PS2</a>
   <a href="ps3.html">PS3</a>
-  <a href="../guides.html">Guides & Info</a>
+  <a href="../guides.html">Guides</a>
   <a href="../contact.html">Contact</a>
 </nav>
 
-<!-- Hero -->
-<header>
-  <img src="../assets/ps3logo.jpg" alt="PS3 Console">
+<section class="hero">
+  <canvas id="particle-canvas"></canvas>
+  <img src="../assets/ps3logo.png" class="logo-hero" alt="PS3 Logo">
   <h1>PlayStation 3</h1>
-  <div class="hero-sub">HD gaming, network support, and classic PlayStation experiences</div>
-  <a href="#products" class="cta-btn">View Available Units</a>
-</header>
-
-<!-- About -->
-<section class="section">
-  <h2>About PS3</h2>
-  <p>The PS3 introduced HD gaming and online play. Our refurbished PS3 consoles are tested, restored, and ready to bring your favorite HD classics back to life.</p>
+  <p>Refurbished, modded, and media-ready</p>
+  <a href="#products" class="cta-btn">Explore Consoles</a>
 </section>
 
-<!-- Products -->
 <section id="products" class="grid">
   <div class="tile">
-    <img src="../assets/ps3-slim.png" alt="PS3 Slim">
-    <h3>PS3 Slim Console</h3>
-    <p>Refurbished slim model, tested, includes controller, HDMI ready.</p>
-    <a href="#" class="cta-btn">Buy Now</a>
+    <img src="../assets/ps3-phat.png" alt="PS3 Phat">
+    <h3>PS3 Phat</h3>
+    <p>Original model, cleaned, tested, includes controller & cables.</p>
   </div>
   <div class="tile">
-    <img src="../assets/ps3-fat.png" alt="PS3 Fat">
-    <h3>PS3 Fat Console</h3>
-    <p>Original fat model, fully tested, minor cosmetic wear, 6-month warranty.</p>
-    <a href="#" class="cta-btn">Buy Now</a>
+    <img src="../assets/ps3-slim.png" alt="PS3 Slim">
+    <h3>PS3 Slim</h3>
+    <p>Refurbished slim model, minimal wear, includes controller & cables.</p>
+  </div>
+  <div class="tile">
+    <img src="../assets/ps3-superslim.png" alt="PS3 Super Slim">
+    <h3>PS3 Super Slim</h3>
+    <p>Super Slim model, cleaned, tested, optional mods available.</p>
   </div>
 </section>
 
-<!-- Services -->
-<section class="section">
-  <h2>Services for PS3</h2>
-  <p>We offer hard drive mods, custom firmware setup, cosmetic restoration, and network support to ensure your PS3 plays perfectly.</p>
-</section>
+<div class="info-block">
+  <h3>Why Choose Retro Replay?</h3>
+  <p>Full refurbishment process: cleaning, testing, thermal refresh, fan tuning & cosmetic restoration.</p>
+</div>
+<div class="info-block">
+  <h3>Services & Upgrades</h3>
+  <p>Laser lens cleaning, fan upgrades, media readiness, cosmetic restoration, and optional custom mods.</p>
+</div>
 
-<!-- Footer -->
 <footer>
   <p>© 2025 Retro Replay — PlayStation Division</p>
 </footer>
+
+<script>
+const canvas=document.getElementById('particle-canvas');const ctx=canvas.getContext('2d');
+function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=document.querySelector('.hero').offsetHeight;}
+resizeCanvas();let particlesArray=[];
+class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedX=(Math.random()-0.5)*0.4;this.speedY=(Math.random()-0.5)*0.4;}
+update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvas.width)this.speedX*=-1;if(this.y<0||this.y>canvas.height)this.speedY*=-1;}
+draw(){ctx.fillStyle="rgba(109,184,255,0.45)";ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}
+function initParticles(){particlesArray=[];for(let i=0;i<120;i++)particlesArray.push(new Particle());}
+function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+window.addEventListener('resize',()=>{resizeCanvas();initParticles();});initParticles();animateParticles();
+const tiles=document.querySelectorAll('.tile');function revealOnScroll(){const trigger=window.innerHeight*0.85;tiles.forEach(tile=>{if(tile.getBoundingClientRect().top<trigger){tile.classList.add('visible');}})}
+window.addEventListener('scroll',revealOnScroll);revealOnScroll();
+</script>
 
 </body>
 </html>

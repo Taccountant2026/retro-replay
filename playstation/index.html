@@ -16,7 +16,7 @@ body {
     color: #e3e7ed;
     overflow-x: hidden;
 }
-a { text-decoration: none; }
+a { text-decoration: none; color: inherit; }
 h1, h2, h3 { margin: 0; }
 
 /* ───────── NAVIGATION ───────── */
@@ -45,7 +45,6 @@ nav a:hover { color: #ffffff; }
     overflow: hidden;
 }
 
-/* Proper canvas placement */
 #particle-canvas {
     position:absolute;
     top:0; left:0;
@@ -73,9 +72,9 @@ nav a:hover { color: #ffffff; }
 .hero p {
     font-size: 1.3rem;
     opacity: 0.85;
+    margin-bottom: 35px;
     position: relative;
     z-index: 2;
-    margin-bottom: 35px;
 }
 
 .cta-btn {
@@ -100,6 +99,9 @@ nav a:hover { color: #ffffff; }
     gap: 35px;
     padding: 70px 10%;
 }
+
+/* CLICKABLE TILE FIX */
+.grid a { display: block; }
 
 .tile {
     background: #101014;
@@ -134,15 +136,6 @@ nav a:hover { color: #ffffff; }
 }
 .tile:hover img {
     transform: scale(1.1) rotate(-3deg);
-}
-
-/* ───────── SECTION TITLE ───────── */
-.section-title {
-    font-size: 2rem;
-    text-align: center;
-    color: #6db8ff;
-    margin-top: 50px;
-    margin-bottom: 25px;
 }
 
 /* ───────── INFO BLOCKS ───────── */
@@ -210,23 +203,31 @@ footer a:hover { color:white; }
 
 <!-- ───────── PRODUCT GRID ───────── -->
 <section id="products" class="grid">
-    <div class="tile">
-        <img src="assets/ps1logo.png">
-        <h3>PlayStation 1</h3>
-        <p>Premium refurbished classics with optional mods.</p>
-    </div>
 
-    <div class="tile">
-        <img src="assets/ps2logo.png">
-        <h3>PlayStation 2</h3>
-        <p>HDD mods, FMCB setups, cooling upgrades & restorations.</p>
-    </div>
+    <a href="/playstation/products/ps1.html">
+        <div class="tile">
+            <img src="assets/ps1logo.png">
+            <h3>PlayStation 1</h3>
+            <p>Premium refurbished classics with optional mods.</p>
+        </div>
+    </a>
 
-    <div class="tile">
-        <img src="assets/ps3logo.jpg">
-        <h3>PlayStation 3</h3>
-        <p>Refurbished, deep cleaned & media-ready PS3 systems.</p>
-    </div>
+    <a href="/playstation/products/ps2.html">
+        <div class="tile">
+            <img src="assets/ps2logo.png">
+            <h3>PlayStation 2</h3>
+            <p>HDD mods, FMCB setups, cooling upgrades & restorations.</p>
+        </div>
+    </a>
+
+    <a href="/playstation/products/ps3.html">
+        <div class="tile">
+            <img src="assets/ps3logo.jpg">
+            <h3>PlayStation 3</h3>
+            <p>Refurbished, deep cleaned & media-ready PS3 systems.</p>
+        </div>
+    </a>
+
 </section>
 
 <!-- ───────── INFO BLOCKS ───────── -->

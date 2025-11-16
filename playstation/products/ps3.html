@@ -3,16 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — PS3 Collection</title>
+<title>Retro Replay — PS2 Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-/* ───────── GLOBAL ───────── */
 body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed; overflow-x:hidden; }
 a { text-decoration:none; }
 h1,h2,h3 { margin:0; }
 nav { background:#0a0a0a; padding:15px 8%; display:flex; flex-wrap:wrap; justify-content:center; gap:18px; border-bottom:2px solid #1f1f1f; }
 nav a { color:#6db8ff; font-weight:700; transition:0.25s; }
-nav a:hover { color:#ffffff; }
+nav a:hover { color:white; }
 .hero { position:relative; padding:120px 20px 80px; text-align:center; background:linear-gradient(180deg,#0a0a0a 0%,#121212 100%); overflow:hidden; }
 #particle-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
 .hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:2; }
@@ -25,7 +24,7 @@ nav a:hover { color:#ffffff; }
 .tile.visible { opacity:1; transform:translateY(0); transition:0.7s ease-out; }
 .tile img { width:90px; margin-bottom:12px; transition:0.3s; }
 .tile h3 { font-size:1.4rem; color:#6db8ff; margin-bottom:10px; }
-.tile p { font-size:0.95rem; opacity:0.85; }
+.tile p { font-size:0.95rem; opacity:0.85; margin-bottom:10px; }
 .tile:hover { transform:scale(1.08); box-shadow:0 0 20px #00e1ff,0 0 45px #008cff; }
 .tile:hover img { transform:scale(1.1) rotate(-3deg); }
 .info-block { background:#101014; margin:40px 10%; padding:35px 25px; border-radius:16px; box-shadow:0 0 15px #0099bb44; text-align:center; }
@@ -51,27 +50,47 @@ footer a:hover { color:white; }
 
 <section class="hero">
   <canvas id="particle-canvas"></canvas>
-  <img src="../assets/ps3logo.png" class="logo-hero" alt="PS3 Logo">
-  <h1>PlayStation 3</h1>
-  <p>Refurbished, modded, and media-ready</p>
+  <img src="../assets/ps2logo.png" class="logo-hero" alt="PS2 Logo">
+  <h1>PlayStation 2</h1>
+  <p>Refurbished, modded, and ready to play</p>
   <a href="#products" class="cta-btn">Explore Consoles</a>
 </section>
 
 <section id="products" class="grid">
+  <!-- PS2 Fat -->
   <div class="tile">
-    <img src="../assets/ps3-phat.png" alt="PS3 Phat">
-    <h3>PS3 Phat</h3>
-    <p>Original model, cleaned, tested, includes controller & cables.</p>
+    <img src="../assets/ps2-fat.png" alt="PS2 Fat">
+    <h3>PS2 Fat</h3>
+    <p>Original design, cleaned, tested, includes controller & cables.</p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_FAT">
+      <input type="submit" class="cta-btn" value="Buy Now">
+    </form>
   </div>
+
+  <!-- PS2 Slim -->
   <div class="tile">
-    <img src="../assets/ps3-slim.png" alt="PS3 Slim">
-    <h3>PS3 Slim</h3>
+    <img src="../assets/ps2-slim.png" alt="PS2 Slim">
+    <h3>PS2 Slim</h3>
     <p>Refurbished slim model, minimal wear, includes controller & cables.</p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_SLIM">
+      <input type="submit" class="cta-btn" value="Buy Now">
+    </form>
   </div>
+
+  <!-- PS2 Modded -->
   <div class="tile">
-    <img src="../assets/ps3-superslim.png" alt="PS3 Super Slim">
-    <h3>PS3 Super Slim</h3>
-    <p>Super Slim model, cleaned, tested, optional mods available.</p>
+    <img src="../assets/ps2-mod.png" alt="PS2 Modded">
+    <h3>PS2 Modded</h3>
+    <p>HDD/FMCB setup, cosmetic upgrades, fully tested.</p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_MOD">
+      <input type="submit" class="cta-btn" value="Buy Now">
+    </form>
   </div>
 </section>
 
@@ -81,7 +100,7 @@ footer a:hover { color:white; }
 </div>
 <div class="info-block">
   <h3>Services & Upgrades</h3>
-  <p>Laser lens cleaning, fan upgrades, media readiness, cosmetic restoration, and optional custom mods.</p>
+  <p>HDD mods, FMCB installation, cooling upgrades, cosmetic restoration, and optional customizations.</p>
 </div>
 
 <footer>
@@ -91,7 +110,8 @@ footer a:hover { color:white; }
 <script>
 const canvas=document.getElementById('particle-canvas');const ctx=canvas.getContext('2d');
 function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=document.querySelector('.hero').offsetHeight;}
-resizeCanvas();let particlesArray=[];
+resizeCanvas();
+let particlesArray=[];
 class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedX=(Math.random()-0.5)*0.4;this.speedY=(Math.random()-0.5)*0.4;}
 update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvas.width)this.speedX*=-1;if(this.y<0||this.y>canvas.height)this.speedY*=-1;}
 draw(){ctx.fillStyle="rgba(109,184,255,0.45)";ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}
@@ -101,6 +121,5 @@ window.addEventListener('resize',()=>{resizeCanvas();initParticles();});initPart
 const tiles=document.querySelectorAll('.tile');function revealOnScroll(){const trigger=window.innerHeight*0.85;tiles.forEach(tile=>{if(tile.getBoundingClientRect().top<trigger){tile.classList.add('visible');}})}
 window.addEventListener('scroll',revealOnScroll);revealOnScroll();
 </script>
-
 </body>
 </html>

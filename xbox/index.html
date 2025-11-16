@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Xbox Collection</title>
+<title>Retro Replay — Xbox Original Products</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 body { margin:0; font-family:'Orbitron',sans-serif; background:#111210; color:#e3e7ed;}
@@ -12,83 +12,60 @@ nav a { color:#32cd32; margin:0 10px; text-decoration:none; font-weight:700;}
 nav a:hover { color:#7cff7c; }
 header { text-align:center; padding:60px 20px; }
 h1 { color:#32cd32; margin-bottom:10px; }
-.hero-sub { font-size:1.2rem; opacity:0.85; margin-bottom:30px; }
-.section { padding:40px 10%; max-width:1200px; margin:0 auto; }
-
-/* --- Grid Tiles --- */
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; }
-.tile { background:#111; border-radius:15px; padding:25px 15px; text-align:center; transition:0.3s, transform 0.3s; cursor:pointer; }
-.tile img { width:80px; margin-bottom:15px; transition:0.3s; }
-.tile h3 { color:#32cd32; margin-bottom:8px; }
-.tile p { opacity:0.85; font-size:0.95rem; }
-.tile:hover { transform:scale(1.05); box-shadow:0 0 15px #32cd32,0 0 40px #7cff7c; }
-.tile:hover img { transform:scale(1.1); }
-
-/* --- Footer --- */
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; padding:0 10%; }
+.card { background:#111; border-radius:15px; padding:25px; text-align:center; transition:0.3s; border:1px solid rgba(50,205,50,0.2);}
+.card img { width:120px; margin-bottom:15px; }
+.card h3 { color:#32cd32; margin-bottom:8px; }
+.card p { font-size:0.95rem; opacity:0.85; }
+.btn-mini { display:inline-block; background:#32cd32; color:#000; padding:10px 18px; border-radius:10px; font-weight:700; text-decoration:none; margin-top:10px; }
+.card:hover { transform:scale(1.03); box-shadow:0 0 15px #32cd32,0 0 40px #7cff7c; }
 footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0; }
 footer a { color:#32cd32; margin:0 8px; text-decoration:none; }
 footer a:hover { color:#7cff7c; }
-
-@media screen and (max-width:768px) { .grid { grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px; } }
 </style>
 </head>
 <body>
 
 <!-- Navigation -->
 <nav>
-  <a href="../../index.html">Main Home</a>
+  <a href="../index.html">Main Home</a>
   <a href="../index.html">Xbox Home</a>
-  <a href="products.html">Products</a>
-  <a href="guides.html">Guides</a>
-  <a href="contact.html">Contact</a>
+  <a href="xbox.html">Xbox</a>
+  <a href="xbox-360.html">Xbox 360</a>
+  <a href="../guides.html">Guides</a>
+  <a href="../contact.html">Contact</a>
 </nav>
 
-<!-- Hero -->
 <header>
-  <h1>Xbox Collection</h1>
-  <div class="hero-sub">Refurbished Xbox consoles, accessories & upgrades, fully tested</div>
+  <h1>Xbox Original Products</h1>
+  <p>Fully refurbished original Xbox consoles, tested and ready to play.</p>
 </header>
 
-<!-- Promo Grid -->
 <section class="grid">
-  <div class="tile">
-    <img src="assets/xboxlogo.png" alt="Xbox Original">
-    <h3>Xbox Original</h3>
-    <p>Classic Xbox fully refurbished, ready for your favorite retro games.</p>
+  <div class="card">
+    <img src="../assets/xboxlogo.png" alt="Xbox Original Console">
+    <h3>Xbox Original Console</h3>
+    <p>Refurbished Xbox Original console with 2 controllers.</p>
+    <a href="#" class="btn-mini">Buy Now via PayPal</a>
   </div>
-  <div class="tile">
-    <img src="assets/xbox-360.png" alt="Xbox 360">
-    <h3>Xbox 360</h3>
-    <p>Original 360 consoles restored, tested, and optionally upgraded.</p>
-  </div>
-  <div class="tile">
-    <img src="assets/hdd-mod.png" alt="HDD & Mods">
-    <h3>HDD & Storage Mods</h3>
-    <p>Extra storage, OPL setup, and optional homebrew configuration.</p>
-  </div>
-  <div class="tile">
-    <img src="assets/cosmetic.png" alt="Cosmetic">
-    <h3>Cosmetic Restoration</h3>
-    <p>Cleaning, polishing, shell replacement, and label refresh.</p>
+
+  <div class="card">
+    <img src="../assets/xbox-controller.png" alt="Xbox Controller">
+    <h3>Xbox Controller</h3>
+    <p>Original Xbox controllers, tested and in good condition.</p>
+    <a href="#" class="btn-mini">Buy Now via PayPal</a>
   </div>
 </section>
 
-<!-- Info Section -->
-<section class="section">
-  <h2>Why Choose Retro Replay Xbox Division?</h2>
-  <p>All Xbox consoles are fully refurbished, tested, and optionally upgraded. Enjoy classic Xbox or 360 gaming with confidence.</p>
-  <p>Tracked shipping, eco-friendly refurbishment, and warranty options available. Own a piece of Xbox history today!</p>
-</section>
-
-<!-- Footer -->
 <footer>
   <p>© 2025 Retro Replay — Xbox Division</p>
   <p>
-    <a href="../../index.html">Main Home</a> •
+    <a href="../index.html">Main Home</a> •
     <a href="../index.html">Xbox Home</a> •
-    <a href="products.html">Products</a> •
-    <a href="guides.html">Guides</a> •
-    <a href="contact.html">Contact</a>
+    <a href="xbox.html">Xbox</a> •
+    <a href="xbox-360.html">Xbox 360</a> •
+    <a href="../guides.html">Guides</a> •
+    <a href="../contact.html">Contact</a>
   </p>
 </footer>
 

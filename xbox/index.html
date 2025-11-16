@@ -3,71 +3,310 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Xbox Original Products</title>
+<title>Retro Replay — Xbox Collection</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
 <style>
-body { margin:0; font-family:'Orbitron',sans-serif; background:#111210; color:#e3e7ed;}
-nav { background:#0a0a0a; padding:16px; text-align:center; }
-nav a { color:#32cd32; margin:0 10px; text-decoration:none; font-weight:700;}
-nav a:hover { color:#7cff7c; }
-header { text-align:center; padding:60px 20px; }
-h1 { color:#32cd32; margin-bottom:10px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; padding:0 10%; }
-.card { background:#111; border-radius:15px; padding:25px; text-align:center; transition:0.3s; border:1px solid rgba(50,205,50,0.2);}
-.card img { width:120px; margin-bottom:15px; }
-.card h3 { color:#32cd32; margin-bottom:8px; }
-.card p { font-size:0.95rem; opacity:0.85; }
-.btn-mini { display:inline-block; background:#32cd32; color:#000; padding:10px 18px; border-radius:10px; font-weight:700; text-decoration:none; margin-top:10px; }
-.card:hover { transform:scale(1.03); box-shadow:0 0 15px #32cd32,0 0 40px #7cff7c; }
-footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0; }
-footer a { color:#32cd32; margin:0 8px; text-decoration:none; }
-footer a:hover { color:#7cff7c; }
+/* ───────── GLOBAL ───────── */
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: #181b23;
+    color: #e3e7ed;
+    overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+h1, h2, h3 { margin: 0; }
+
+/* ───────── NAVIGATION ───────── */
+nav {
+    background: #0a0a0a;
+    padding: 15px 8%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    border-bottom: 2px solid #1f1f1f;
+}
+nav a {
+    color: #32cd32;
+    font-weight: 700;
+    transition: 0.25s;
+}
+nav a:hover { color: #7cff7c; }
+
+/* ───────── HERO ───────── */
+.hero {
+    position: relative;
+    padding: 120px 20px 80px;
+    text-align: center;
+    background: linear-gradient(180deg, #0a0a0a 0%, #121212 100%);
+    overflow: hidden;
+}
+
+#particle-canvas {
+    position:absolute;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    pointer-events:none;
+}
+
+.hero img.logo-hero {
+    width: 180px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: #32cd32;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    opacity: 0.85;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-btn {
+    position: relative;
+    z-index: 2;
+    background: #32cd32;
+    color: black;
+    padding: 15px 35px;
+    font-size: 1.15rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.cta-btn:hover { background:#7cff7c; transform:scale(1.07); }
+
+/* ───────── PRODUCT GRID ───────── */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    gap: 35px;
+    padding: 70px 10%;
+}
+
+/* CLICKABLE TILE FIX */
+.grid a { display: block; }
+
+.tile {
+    background: #101014;
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 0 12px #004f00, 0 0 25px #32cd3255;
+    transition: transform 0.35s, box-shadow 0.35s;
+    opacity: 0;
+    transform: translateY(40px);
+}
+.tile.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.7s ease-out;
+}
+.tile img {
+    width: 90px;
+    margin-bottom: 12px;
+    transition: 0.3s;
+}
+.tile h3 {
+    font-size: 1.4rem;
+    color: #32cd32;
+    margin-bottom: 10px;
+}
+.tile p { font-size: 0.95rem; opacity: 0.85; }
+.tile:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px #7cff7c, 0 0 45px #32cd32;
+}
+.tile:hover img {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+/* ───────── INFO BLOCKS ───────── */
+.info-block {
+    background: #101014;
+    margin: 40px 10%;
+    padding: 35px 25px;
+    border-radius: 16px;
+    box-shadow: 0 0 15px #00990044;
+    text-align: center;
+}
+.info-block h3 {
+    color: #32cd32;
+    margin-bottom: 10px;
+}
+.info-block p {
+    opacity: 0.85;
+    line-height: 1.5rem;
+}
+
+/* ───────── FOOTER ───────── */
+footer {
+    background: #0b0f18;
+    padding: 45px 10%;
+    margin-top: 70px;
+    text-align: center;
+    color: #9fbbe0;
+}
+footer a { color:#32cd32; margin:0 8px; }
+footer a:hover { color:white; }
+
+/* ───────── MOBILE ───────── */
+@media(max-width: 768px) {
+    .hero h1 { font-size: 2.3rem; }
+    .hero p { font-size: 1.1rem; }
+    .grid { padding: 45px 5%; }
+}
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
+<!-- ───────── NAVIGATION ───────── -->
 <nav>
-  <a href="../index.html">Main Home</a>
-  <a href="../index.html">Xbox Home</a>
-  <a href="xbox.html">Xbox</a>
-  <a href="xbox-360.html">Xbox 360</a>
-  <a href="../guides.html">Guides</a>
-  <a href="../contact.html">Contact</a>
+    <a href="/index.html">Main Home</a>
+    <a href="/xbox/index.html">Xbox Home</a>
+
+    <a href="/xbox/products/xbox.html">Xbox</a>
+    <a href="/xbox/products/xbox-360.html">Xbox 360</a>
+
+    <a href="/xbox/guides.html">Guides</a>
+    <a href="/xbox/contact.html">Contact</a>
 </nav>
 
-<header>
-  <h1>Xbox Original Products</h1>
-  <p>Fully refurbished original Xbox consoles, tested and ready to play.</p>
-</header>
+<!-- ───────── HERO ───────── -->
+<section class="hero">
+    <canvas id="particle-canvas"></canvas>
 
-<section class="grid">
-  <div class="card">
-    <img src="../assets/xboxlogo.png" alt="Xbox Original Console">
-    <h3>Xbox Original Console</h3>
-    <p>Refurbished Xbox Original console with 2 controllers.</p>
-    <a href="#" class="btn-mini">Buy Now via PayPal</a>
-  </div>
+    <img src="assets/xboxlogo.png" class="logo-hero" alt="Xbox Logo">
+    <h1>Xbox Collection</h1>
+    <p>Fully refurbished Xbox consoles, accessories & upgrades.</p>
 
-  <div class="card">
-    <img src="../assets/xbox-controller.png" alt="Xbox Controller">
-    <h3>Xbox Controller</h3>
-    <p>Original Xbox controllers, tested and in good condition.</p>
-    <a href="#" class="btn-mini">Buy Now via PayPal</a>
-  </div>
+    <a href="#products" class="cta-btn">Explore Consoles</a>
 </section>
 
+<!-- ───────── PRODUCT GRID ───────── -->
+<section id="products" class="grid">
+
+    <a href="/xbox/products/xbox.html">
+        <div class="tile">
+            <img src="assets/xboxlogo.png">
+            <h3>Xbox Original</h3>
+            <p>Premium refurbished original Xbox consoles.</p>
+        </div>
+    </a>
+
+    <a href="/xbox/products/xbox-360.html">
+        <div class="tile">
+            <img src="assets/xbox-360.png">
+            <h3>Xbox 360</h3>
+            <p>Refurbished Xbox 360 with optional upgrades & mods.</p>
+        </div>
+    </a>
+
+</section>
+
+<!-- ───────── INFO BLOCKS ───────── -->
+<div class="info-block">
+    <h3>Why Choose Retro Replay Xbox?</h3>
+    <p>Every Xbox console is fully refurbished: cleaned, tested, thermal refresh, fan tuning & cosmetic restoration.</p>
+</div>
+
+<div class="info-block">
+    <h3>Trade-Ins & Accessories</h3>
+    <p>Sell or trade old consoles and access limited-stock controllers, cables, and special editions.</p>
+</div>
+
+<!-- ───────── FOOTER ───────── -->
 <footer>
-  <p>© 2025 Retro Replay — Xbox Division</p>
-  <p>
-    <a href="../index.html">Main Home</a> •
-    <a href="../index.html">Xbox Home</a> •
-    <a href="xbox.html">Xbox</a> •
-    <a href="xbox-360.html">Xbox 360</a> •
-    <a href="../guides.html">Guides</a> •
-    <a href="../contact.html">Contact</a>
-  </p>
+    <p>© 2025 Retro Replay — Xbox Division</p>
+    <p>
+        <a href="/xbox/index.html">Home</a> •
+        <a href="/xbox/products/xbox.html">Xbox</a> •
+        <a href="/xbox/products/xbox-360.html">Xbox 360</a> •
+        <a href="/xbox/guides.html">Guides</a> •
+        <a href="/xbox/contact.html">Contact</a>
+    </p>
 </footer>
+
+<!-- ───────── PARTICLE SCRIPT ───────── -->
+<script>
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = document.querySelector('.hero').offsetHeight;
+}
+resizeCanvas();
+
+let particlesArray = [];
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.speedY = (Math.random() - 0.5) * 0.4;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    }
+    draw() {
+        ctx.fillStyle = "rgba(50,205,50,0.45)";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+function initParticles() {
+    particlesArray = [];
+    for (let i = 0; i < 120; i++) particlesArray.push(new Particle());
+}
+
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particlesArray.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animateParticles);
+}
+
+window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+initParticles();
+animateParticles();
+
+/* Scroll animation */
+const tiles = document.querySelectorAll('.tile');
+function revealOnScroll(){
+    const trigger = window.innerHeight * 0.85;
+    tiles.forEach(tile=>{
+        if(tile.getBoundingClientRect().top < trigger){
+            tile.classList.add('visible');
+        }
+    });
+}
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+</script>
 
 </body>
 </html>

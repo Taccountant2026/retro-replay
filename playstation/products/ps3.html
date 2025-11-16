@@ -1,125 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — PS2 Collection</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Retro Replay — PS3 Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed; overflow-x:hidden; }
-a { text-decoration:none; }
-h1,h2,h3 { margin:0; }
-nav { background:#0a0a0a; padding:15px 8%; display:flex; flex-wrap:wrap; justify-content:center; gap:18px; border-bottom:2px solid #1f1f1f; }
-nav a { color:#6db8ff; font-weight:700; transition:0.25s; }
-nav a:hover { color:white; }
-.hero { position:relative; padding:120px 20px 80px; text-align:center; background:linear-gradient(180deg,#0a0a0a 0%,#121212 100%); overflow:hidden; }
-#particle-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
-.hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:2; }
-.hero h1 { font-size:3rem; color:#6db8ff; margin-bottom:10px; position:relative; z-index:2; }
-.hero p { font-size:1.3rem; opacity:0.85; position:relative; z-index:2; margin-bottom:35px; }
-.cta-btn { position:relative; z-index:2; background:#0051ff; color:white; padding:15px 35px; font-size:1.15rem; border-radius:12px; border:none; cursor:pointer; font-weight:bold; transition:0.3s; }
-.cta-btn:hover { background:#0070ff; transform:scale(1.07); }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:35px; padding:70px 10%; }
-.tile { background:#101014; border-radius:16px; padding:30px 20px; text-align:center; cursor:pointer; box-shadow:0 0 12px #003780,0 0 25px #0057ff55; transition:transform 0.35s, box-shadow 0.35s; opacity:0; transform:translateY(40px); }
-.tile.visible { opacity:1; transform:translateY(0); transition:0.7s ease-out; }
-.tile img { width:90px; margin-bottom:12px; transition:0.3s; }
-.tile h3 { font-size:1.4rem; color:#6db8ff; margin-bottom:10px; }
-.tile p { font-size:0.95rem; opacity:0.85; margin-bottom:10px; }
-.tile:hover { transform:scale(1.08); box-shadow:0 0 20px #00e1ff,0 0 45px #008cff; }
-.tile:hover img { transform:scale(1.1) rotate(-3deg); }
-.info-block { background:#101014; margin:40px 10%; padding:35px 25px; border-radius:16px; box-shadow:0 0 15px #0099bb44; text-align:center; }
-.info-block h3 { color:#00d0ff; margin-bottom:10px; }
-.info-block p { opacity:0.85; line-height:1.5rem; }
-footer { background:#0b0f18; padding:45px 10%; margin-top:70px; text-align:center; color:#9fbbe0; }
-footer a { color:#6db8ff; margin:0 8px; }
-footer a:hover { color:white; }
-@media(max-width:768px){ .hero h1{font-size:2.3rem;} .hero p{font-size:1.1rem;} .grid{padding:45px 5%;} }
+:root{
+  --bg:#0c0f17; --panel:#0f131a; --accent:#6db8ff; --accent-strong:#0051ff;
+  --muted:#9fbbe0; --card:#101217;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0; font-family:"Orbitron",sans-serif; background:var(--bg); color:#e3e7ed; overflow-x:hidden;}
+nav{background:#0a0a0a; padding:14px 6%; display:flex; flex-wrap:wrap; gap:12px; justify-content:center; border-bottom:2px solid #1f1f1f; position:sticky; top:0; z-index:1200;}
+nav a{color:var(--accent); font-weight:700; text-decoration:none; padding:6px 10px; border-radius:6px; transition:all .18s ease;}
+nav a:hover{ color:#ffffff; transform:translateY(-2px); }
+.hero{position:relative; padding:90px 18px 60px; text-align:center; overflow:hidden; background:linear-gradient(180deg,#0a0a0a 0%, #0f1216 100%); border-bottom:1px solid rgba(255,255,255,0.02);}
+.hero .logo-hero{width:170px; margin:0 auto 18px; display:block; position:relative; z-index:3; filter:drop-shadow(0 6px 18px rgba(109,184,255,0.08));}
+.hero h1{color:var(--accent); margin:8px 0; font-size:2.6rem; z-index:3; position:relative;}
+.hero p{margin:6px 0 22px; font-size:1.1rem; opacity:.88; z-index:3; position:relative;}
+#particle-canvas{position:absolute; inset:0; z-index:1; pointer-events:none;}
+.cta-row{ position:relative; z-index:3; display:inline-flex; gap:12px; margin-top:10px;}
+.cta{background:var(--accent-strong); color:#000; padding:12px 26px; font-weight:800; border-radius:12px; text-decoration:none; box-shadow:0 6px 24px rgba(0,81,255,0.08), 0 0 10px rgba(109,184,255,0.04); transition:transform .16s ease, box-shadow .16s ease;}
+.cta:hover{ transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,113,255,0.14) }
+.container{ max-width:1200px; margin:30px auto; padding:0 18px; }
+.grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:26px; margin-top:18px; }
+.card{ background:var(--card); border-radius:14px; padding:20px; text-align:center; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 28px rgba(0,0,0,0.45); transform:translateY(24px); opacity:0; transition:all .6s cubic-bezier(.2,.9,.3,1); cursor:default; position:relative; }
+.card.visible{ transform:none; opacity:1; }
+.card img{ width:110px; margin-bottom:12px; display:block; margin-left:auto;margin-right:auto; transition:transform .28s ease; }
+.card h3{ color:var(--accent); margin:8px 0; font-size:1.15rem; }
+.card p{ color:rgba(227,231,237,0.9); font-size:0.95rem; margin:0 0 12px; line-height:1.4 }
+.card .btn-mini{ display:inline-block; background:var(--accent); color:#000; padding:8px 14px; border-radius:10px; font-weight:800; text-decoration:none; transition:transform .16s ease; }
+.card:hover img{ transform:scale(1.06) rotate(-2deg) }
+.card:hover .btn-mini{ transform:translateY(-3px) }
+.info{ background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(109,184,255,0.04); padding:22px; border-radius:12px; margin:26px 0; color:var(--muted);}
+footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
+@media(max-width:900px){ .hero{ padding:72px 18px 46px; } .hero h1{ font-size:2.1rem; } }
+@media(max-width:520px){ .hero{ padding:56px 14px 40px; } nav{ padding:12px 4% } .cta{ padding:10px 18px } }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="../../index.html">Main Home</a>
-  <a href="../index.html">PlayStation Home</a>
-  <a href="ps1.html">PS1</a>
-  <a href="ps2.html">PS2</a>
-  <a href="ps3.html">PS3</a>
-  <a href="../guides.html">Guides</a>
-  <a href="../contact.html">Contact</a>
+  <a href="/index.html">Main Home</a>
+  <a href="/playstation/index.html">PlayStation Home</a>
+  <a href="/playstation/products/ps1.html">PS1</a>
+  <a href="/playstation/products/ps2.html">PS2</a>
+  <a href="/playstation/products/ps3.html">PS3</a>
+  <a href="/playstation/guides.html">Guides</a>
+  <a href="/playstation/contact.html">Contact</a>
 </nav>
 
-<section class="hero">
-  <canvas id="particle-canvas"></canvas>
-  <img src="../assets/ps2logo.png" class="logo-hero" alt="PS2 Logo">
-  <h1>PlayStation 2</h1>
-  <p>Refurbished, modded, and ready to play</p>
-  <a href="#products" class="cta-btn">Explore Consoles</a>
-</section>
-
-<section id="products" class="grid">
-  <!-- PS2 Fat -->
-  <div class="tile">
-    <img src="../assets/ps2-fat.png" alt="PS2 Fat">
-    <h3>PS2 Fat</h3>
-    <p>Original design, cleaned, tested, includes controller & cables.</p>
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-      <input type="hidden" name="cmd" value="_s-xclick">
-      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_FAT">
-      <input type="submit" class="cta-btn" value="Buy Now">
-    </form>
-  </div>
-
-  <!-- PS2 Slim -->
-  <div class="tile">
-    <img src="../assets/ps2-slim.png" alt="PS2 Slim">
-    <h3>PS2 Slim</h3>
-    <p>Refurbished slim model, minimal wear, includes controller & cables.</p>
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-      <input type="hidden" name="cmd" value="_s-xclick">
-      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_SLIM">
-      <input type="submit" class="cta-btn" value="Buy Now">
-    </form>
-  </div>
-
-  <!-- PS2 Modded -->
-  <div class="tile">
-    <img src="../assets/ps2-mod.png" alt="PS2 Modded">
-    <h3>PS2 Modded</h3>
-    <p>HDD/FMCB setup, cosmetic upgrades, fully tested.</p>
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-      <input type="hidden" name="cmd" value="_s-xclick">
-      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_MOD">
-      <input type="submit" class="cta-btn" value="Buy Now">
-    </form>
+<section class="hero" aria-labelledby="hero-title">
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <img src="../assets/ps3logo.png" alt="PlayStation 3 logo" class="logo-hero">
+  <h1 id="hero-title">PlayStation – PS3 Collection</h1>
+  <p>Refurbished PS3 consoles, controllers, and essential accessories — tested and ready for modern retro gaming.</p>
+  <div class="cta-row">
+    <a class="cta" href="#products">View Units</a>
+    <a class="cta" href="/playstation/guides.html">PS3 Guides</a>
   </div>
 </section>
 
-<div class="info-block">
-  <h3>Why Choose Retro Replay?</h3>
-  <p>Full refurbishment process: cleaning, testing, thermal refresh, fan tuning & cosmetic restoration.</p>
-</div>
-<div class="info-block">
-  <h3>Services & Upgrades</h3>
-  <p>HDD mods, FMCB installation, cooling upgrades, cosmetic restoration, and optional customizations.</p>
-</div>
+<main class="container">
+  <section class="info" aria-label="About PS3">
+    <strong style="color:var(--accent);">About the PS3:</strong>
+    <p style="margin-top:8px;">
+      Our PS3 units are professionally refurbished: cleaned, tested, and include controllers and necessary cables. Optional features include internal storage checks and modded setups for game compatibility. Each purchase includes a 6-month warranty.
+    </p>
+  </section>
+
+  <section id="products" class="grid" aria-label="Available PS3 units">
+
+    <article class="card">
+      <img src="../assets/ps3-slim.png" alt="PS3 Slim Console">
+      <h3>PS3 Slim Console</h3>
+      <p>Refurbished Slim console, tested. Comes with 1 controller.</p>
+      <p><strong>Price: £139.99</strong></p>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_1">
+        <input type="submit" class="btn-mini" value="Buy Now via PayPal">
+      </form>
+    </article>
+
+    <article class="card">
+      <img src="../assets/ps3-superslim.png" alt="PS3 Super Slim Console">
+      <h3>PS3 Super Slim</h3>
+      <p>Refurbished Super Slim model, comes with 1 controller.</p>
+      <p><strong>Price: £149.99</strong></p>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_2">
+        <input type="submit" class="btn-mini" value="Buy Now via PayPal">
+      </form>
+    </article>
+
+    <article class="card">
+      <img src="../assets/ps3-controller.png" alt="DualShock 3 Controller">
+      <h3>DualShock 3 Controller</h3>
+      <p>Original DualShock 3 controller, tested and ready to use.</p>
+      <p><strong>Price: £15</strong></p>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_3">
+        <input type="submit" class="btn-mini" value="Buy Now via PayPal">
+      </form>
+    </article>
+
+    <article class="card">
+      <img src="../assets/ps3-hdmi.png" alt="PS3 HDMI Cable">
+      <h3>HDMI Cable</h3>
+      <p>High-definition HDMI cable for crisp video and audio output.</p>
+      <p><strong>Price: £6</strong></p>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_4">
+        <input type="submit" class="btn-mini" value="Buy Now via PayPal">
+      </form>
+    </article>
+
+  </section>
+
+  <section class="info" aria-label="Support and Trade-in">
+    <h3 style="color:var(--accent); margin-bottom:8px;">Support & Trade-In</h3>
+    <p>We accept trade-ins and offer store credit toward refurbished PS3 units. All purchases include support and a 6-month warranty. See our <a href="/playstation/warranties.html" style="color:var(--accent); text-decoration:underline;">warranty & returns</a> page.</p>
+  </section>
+</main>
 
 <footer>
-  <p>© 2025 Retro Replay — PlayStation Division</p>
+  <div>© 2025 Retro Replay — PlayStation Division</div>
+  <div style="margin-top:8px;">
+    <a href="/playstation/index.html">Home</a> •
+    <a href="/playstation/products/ps3.html">Products</a> •
+    <a href="/playstation/guides.html">Guides</a> •
+    <a href="/playstation/contact.html">Contact</a>
+  </div>
 </footer>
 
 <script>
-const canvas=document.getElementById('particle-canvas');const ctx=canvas.getContext('2d');
-function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=document.querySelector('.hero').offsetHeight;}
-resizeCanvas();
-let particlesArray=[];
-class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedX=(Math.random()-0.5)*0.4;this.speedY=(Math.random()-0.5)*0.4;}
-update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvas.width)this.speedX*=-1;if(this.y<0||this.y>canvas.height)this.speedY*=-1;}
-draw(){ctx.fillStyle="rgba(109,184,255,0.45)";ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}
-function initParticles(){particlesArray=[];for(let i=0;i<120;i++)particlesArray.push(new Particle());}
-function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
-window.addEventListener('resize',()=>{resizeCanvas();initParticles();});initParticles();animateParticles();
-const tiles=document.querySelectorAll('.tile');function revealOnScroll(){const trigger=window.innerHeight*0.85;tiles.forEach(tile=>{if(tile.getBoundingClientRect().top<trigger){tile.classList.add('visible');}})}
-window.addEventListener('scroll',revealOnScroll);revealOnScroll();
+// JS for particles and scroll reveal
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+function setCanvasSize(){ canvas.width = window.innerWidth; canvas.height = document.querySelector('.hero').offsetHeight; }
+setCanvasSize();
+let particles=[];
+class P{ constructor(){ this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.r=Math.random()*1.8+.6; this.vx=(Math.random()-0.5)*0.35; this.vy=(Math.random()-0.5)*0.35; this.alpha=0.25+Math.random()*0.5; } update(){ this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width) this.vx*=-1; if(this.y<0||this.y>canvas.height) this.vy*=-1; } draw(){ ctx.beginPath(); ctx.fillStyle='rgba(109,184,255,'+this.alpha+')'; ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fill(); } }
+function initParticles(n=110){ particles=[]; for(let i=0;i<n;i++) particles.push(new P()); }
+function frame(){ ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(frame); }
+window.addEventListener('resize',()=>{ setCanvasSize(); initParticles(); }); initParticles(); frame();
+const cards=document.querySelectorAll('.card');
+function reveal(){ const trigger=window.innerHeight*0.85; cards.forEach(c=>{ if(c.getBoundingClientRect().top<trigger) c.classList.add('visible'); }); }
+window.addEventListener('scroll',reveal); window.addEventListener('load',reveal);
 </script>
 </body>
 </html>

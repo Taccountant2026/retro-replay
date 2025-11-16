@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retro Replay — Xbox Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+body { margin:0; font-family:'Orbitron',sans-serif; background:#111210; color:#e3e7ed;}
+nav { background:#0a0a0a; padding:16px; text-align:center; }
+nav a { color:#32cd32; margin:0 10px; text-decoration:none; font-weight:700;}
+nav a:hover { color:#7cff7c; }
+header { text-align:center; padding:60px 20px; }
+h1 { color:#32cd32; margin-bottom:10px; }
+.hero-sub { font-size:1.2rem; opacity:0.85; margin-bottom:30px; }
+.section { padding:40px 10%; max-width:1200px; margin:0 auto; }
+
+/* --- Grid Tiles --- */
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; }
+.tile { background:#111; border-radius:15px; padding:25px 15px; text-align:center; transition:0.3s, transform 0.3s; cursor:pointer; }
+.tile img { width:80px; margin-bottom:15px; transition:0.3s; }
+.tile h3 { color:#32cd32; margin-bottom:8px; }
+.tile p { opacity:0.85; font-size:0.95rem; }
+.tile form { margin-top:10px; }
+.tile input[type="submit"] { background:#32cd32; color:#000; border:none; padding:8px 14px; font-weight:700; border-radius:8px; cursor:pointer; transition:0.2s; }
+.tile input[type="submit"]:hover { background:#7cff7c; }
+.tile:hover { transform:scale(1.05); box-shadow:0 0 15px #32cd32,0 0 40px #7cff7c; }
+.tile:hover img { transform:scale(1.1); }
+
+/* --- Footer --- */
+footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0; }
+footer a { color:#32cd32; margin:0 8px; text-decoration:none; }
+footer a:hover { color:#7cff7c; }
+
+@media screen and (max-width:768px) { .grid { grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px; } }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="../../index.html">Main Home</a>
+  <a href="../index.html">Xbox Home</a>
+  <a href="products.html">Products</a>
+  <a href="guides.html">Guides</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- Hero -->
+<header>
+  <h1>Xbox Collection</h1>
+  <div class="hero-sub">Refurbished Xbox consoles, accessories & upgrades, fully tested</div>
+</header>
+
+<!-- Product Grid -->
+<section class="grid">
+
+  <div class="tile">
+    <img src="assets/xbox-original.png" alt="Xbox Original Console">
+    <h3>Xbox Original</h3>
+    <p>Classic Xbox console, fully refurbished and tested. Comes with 1 controller.</p>
+    <p><strong>Price: £129.99</strong></p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_1">
+      <input type="submit" value="Buy Now via PayPal">
+    </form>
+  </div>
+
+  <div class="tile">
+    <img src="assets/xbox-360.png" alt="Xbox 360 Console">
+    <h3>Xbox 360</h3>
+    <p>Refurbished Xbox 360, tested with 1 controller. Optional cosmetic restoration available.</p>
+    <p><strong>Price: £149.99</strong></p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_2">
+      <input type="submit" value="Buy Now via PayPal">
+    </form>
+  </div>
+
+  <div class="tile">
+    <img src="assets/xbox-hdd.png" alt="HDD & Storage Mods">
+    <h3>HDD & Storage Mods</h3>
+    <p>Extra storage, OPL setup, and optional homebrew installation for Xbox consoles.</p>
+    <p><strong>Price: £29.99</strong></p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_3">
+      <input type="submit" value="Buy Now via PayPal">
+    </form>
+  </div>
+
+  <div class="tile">
+    <img src="assets/xbox-controller.png" alt="Xbox Controller">
+    <h3>Xbox Controller</h3>
+    <p>Original Xbox controller, tested and ready to use with all compatible consoles.</p>
+    <p><strong>Price: £12.99</strong></p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_4">
+      <input type="submit" value="Buy Now via PayPal">
+    </form>
+  </div>
+
+  <div class="tile">
+    <img src="assets/xbox-cosmetic.png" alt="Cosmetic Restoration">
+    <h3>Cosmetic Restoration</h3>
+    <p>Cleaning, polishing, shell replacement, and label refresh for Xbox consoles.</p>
+    <p><strong>Price: £19.99</strong></p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_5">
+      <input type="submit" value="Buy Now via PayPal">
+    </form>
+  </div>
+
+</section>
+
+<!-- Info Section -->
+<section class="section">
+  <h2>Why Choose Retro Replay Xbox Division?</h2>
+  <p>All Xbox consoles are fully refurbished, tested, and optionally upgraded. Enjoy classic Xbox or 360 gaming with confidence.</p>
+  <p>Tracked shipping, eco-friendly refurbishment, and warranty options available. Own a piece of Xbox history today!</p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Retro Replay — Xbox Division</p>
+  <p>
+    <a href="../../index.html">Main Home</a> •
+    <a href="../index.html">Xbox Home</a> •
+    <a href="products.html">Products</a> •
+    <a href="guides.html">Guides</a> •
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>
 

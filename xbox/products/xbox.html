@@ -1,156 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retro Replay — Xbox Collection</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
 <style>
-:root{
-  --bg:#0c0f17; --panel:#101214; --accent:#32cd32; --accent-strong:#00ff00;
-  --muted:#9fbbe0; --card:#101217;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0; font-family:"Orbitron",sans-serif; background:var(--bg); color:#e3e7ed; overflow-x:hidden;}
-nav{background:#0a0a0a; padding:14px 6%; display:flex; flex-wrap:wrap; gap:12px; justify-content:center; border-bottom:2px solid #1f1f1f; position:sticky; top:0; z-index:1200;}
-nav a{color:var(--accent); font-weight:700; text-decoration:none; padding:6px 10px; border-radius:6px; transition:all .18s ease;}
-nav a:hover{ color:#ffffff; transform:translateY(-2px); }
-.hero{position:relative; padding:90px 18px 60px; text-align:center; overflow:hidden; background:linear-gradient(180deg,#0a0a0a 0%, #0f1216 100%); border-bottom:1px solid rgba(255,255,255,0.02);}
-.hero .logo-hero{width:170px; margin:0 auto 18px; display:block; position:relative; z-index:3; filter:drop-shadow(0 6px 18px rgba(50,205,50,0.08));}
-.hero h1{color:var(--accent); margin:8px 0; font-size:2.6rem; z-index:3; position:relative;}
-.hero p{margin:6px 0 22px; font-size:1.1rem; opacity:.88; z-index:3; position:relative;}
-#particle-canvas{position:absolute; inset:0; z-index:1; pointer-events:none;}
-.cta-row{ position:relative; z-index:3; display:inline-flex; gap:12px; margin-top:10px;}
-.cta{background:var(--accent-strong); color:#000; padding:12px 26px; font-weight:800; border-radius:12px; text-decoration:none; box-shadow:0 6px 24px rgba(0,255,0,0.08), 0 0 10px rgba(50,205,50,0.04); transition:transform .16s ease, box-shadow .16s ease;}
-.cta:hover{ transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,255,0,0.14) }
-.container{ max-width:1200px; margin:30px auto; padding:0 18px; }
-.grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:26px; margin-top:18px; }
-.card{ background:var(--card); border-radius:14px; padding:20px; text-align:center; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 28px rgba(0,0,0,0.45); transform:translateY(24px); opacity:0; transition:all .6s cubic-bezier(.2,.9,.3,1); cursor:default; position:relative; }
-.card.visible{ transform:none; opacity:1; }
-.card img{ width:110px; margin-bottom:12px; display:block; margin-left:auto;margin-right:auto; transition:transform .28s ease; }
-.card h3{ color:var(--accent); margin:8px 0; font-size:1.15rem; }
-.card p{ color:rgba(227,231,237,0.9); font-size:0.95rem; margin:0 0 12px; line-height:1.4 }
-.card .btn-mini{ display:inline-block; background:var(--accent); color:#000; padding:8px 14px; border-radius:10px; font-weight:800; text-decoration:none; transition:transform .16s ease; }
-.card:hover img{ transform:scale(1.06) rotate(-2deg) }
-.card:hover .btn-mini{ transform:translateY(-3px) }
-.info{ background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(50,205,50,0.04); padding:22px; border-radius:12px; margin:26px 0; color:var(--muted);}
-footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
-@media(max-width:900px){ .hero{ padding:72px 18px 46px; } .hero h1{ font-size:2.1rem; } }
-@media(max-width:520px){ .hero{ padding:56px 14px 40px; } nav{ padding:12px 4% } .cta{ padding:10px 18px } }
+body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed; overflow-x:hidden; }
+a { text-decoration:none; color:inherit; }
+h1,h2,h3 { margin:0; }
+
+nav { background:#0a0a0a; padding:15px 8%; display:flex; flex-wrap:wrap; justify-content:center; gap:18px; border-bottom:2px solid #1f1f1f; }
+nav a { color:#32cd32; font-weight:700; transition:0.25s; }
+nav a:hover { color:#7cff7c; }
+
+.hero { position:relative; padding:120px 20px 80px; text-align:center; background:linear-gradient(180deg,#0a0a0a 0%, #121212 100%); overflow:hidden; }
+#particle-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:2; }
+.hero h1 { font-size:3rem; color:#32cd32; margin-bottom:10px; position:relative; z-index:2; }
+.hero p { font-size:1.3rem; opacity:0.85; margin-bottom:35px; position:relative; z-index:2; }
+.cta-btn { position:relative; z-index:2; background:#32cd32; color:black; padding:15px 35px; font-size:1.15rem; border-radius:12px; border:none; cursor:pointer; font-weight:bold; transition:0.3s; }
+.cta-btn:hover { background:#7cff7c; transform:scale(1.07); }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:35px; padding:70px 10%; }
+.grid a { display:block; }
+
+.tile { background:#101014; border-radius:16px; padding:30px 20px; text-align:center; cursor:pointer; box-shadow:0 0 12px #004f00,0 0 25px #32cd3255; transition:transform 0.35s, box-shadow 0.35s; opacity:0; transform:translateY(40px); }
+.tile.visible { opacity:1; transform:translateY(0); transition:0.7s ease-out; }
+.tile img { width:90px; margin-bottom:12px; transition:0.3s; }
+.tile h3 { font-size:1.4rem; color:#32cd32; margin-bottom:10px; }
+.tile p { font-size:0.95rem; opacity:0.85; }
+.tile:hover { transform:scale(1.08); box-shadow:0 0 20px #7cff7c,0 0 45px #32cd32; }
+.tile:hover img { transform:scale(1.1) rotate(-3deg); }
+
+.info-block { background:#101014; margin:40px 10%; padding:35px 25px; border-radius:16px; box-shadow:0 0 15px #00990044; text-align:center; }
+.info-block h3 { color:#32cd32; margin-bottom:10px; }
+.info-block p { opacity:0.85; line-height:1.5rem; }
+
+footer { background:#0b0f18; padding:45px 10%; margin-top:70px; text-align:center; color:#9fbbe0; }
+footer a { color:#32cd32; margin:0 8px; }
+footer a:hover { color:white; }
+
+@media(max-width:768px) { .hero h1 { font-size:2.3rem; } .hero p { font-size:1.1rem; } .grid { padding:45px 5%; } }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="/index.html">Main Home</a>
-  <a href="/xbox/index.html">Xbox Home</a>
-  <a href="/xbox/products/xbox.html">Xbox</a>
-  <a href="/xbox/products/xbox-360.html">Xbox 360</a>
-  <a href="/xbox/guides.html">Guides</a>
-  <a href="/xbox/contact.html">Contact</a>
+    <a href="/index.html">Main Home</a>
+    <a href="/xbox/index.html">Xbox Home</a>
+
+    <a href="xbox.html">Xbox</a>
+    <a href="xbox-360.html">Xbox 360</a>
+
+    <a href="/xbox/guides.html">Guides</a>
+    <a href="/xbox/contact.html">Contact</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero" aria-labelledby="hero-title">
-  <canvas id="particle-canvas" aria-hidden="true"></canvas>
-  <img src="../assets/xboxlogo.png" alt="Xbox logo" class="logo-hero">
-  <h1 id="hero-title">Xbox Original Collection</h1>
-  <p>Original Xbox consoles restored to mint condition — tested and ready for retro gaming.</p>
-  <div class="cta-row">
-    <a class="cta" href="#products">View Units</a>
-    <a class="cta" href="/xbox/guides.html">Xbox Guides</a>
-  </div>
+<section class="hero">
+    <canvas id="particle-canvas"></canvas>
+    <img src="assets/xboxlogo.png" class="logo-hero" alt="Xbox Logo">
+    <h1>Xbox Collection</h1>
+    <p>Fully refurbished Xbox consoles, accessories & upgrades.</p>
+    <a href="#products" class="cta-btn">Explore Consoles</a>
 </section>
 
-<main class="container">
-  <section class="info" aria-label="About Xbox">
-    <strong style="color:var(--accent);">About the Original Xbox:</strong>
-    <p style="margin-top:8px;">
-      The Xbox original is a classic console. Each unit is professionally refurbished: cleaned, tested, and ready to play. Includes controllers and cables with a 6-month warranty.
-    </p>
-  </section>
+<section id="products" class="grid">
+    <a href="xbox.html">
+        <div class="tile">
+            <img src="assets/xboxlogo.png" alt="Xbox Original Logo">
+            <h3>Xbox Original</h3>
+            <p>Premium refurbished original Xbox consoles.</p>
+        </div>
+    </a>
 
-  <section id="products" class="grid" aria-label="Available Xbox units">
+    <a href="xbox-360.html">
+        <div class="tile">
+            <img src="assets/xbox-360.png" alt="Xbox 360 Logo">
+            <h3>Xbox 360</h3>
+            <p>Refurbished Xbox 360 with optional upgrades & mods.</p>
+        </div>
+    </a>
+</section>
 
-    <article class="card" data-link="xbox-black.html">
-      <img src="../assets/xbox-black.png" alt="Xbox Black Console">
-      <h3>Xbox Black Console</h3>
-      <p>Refurbished black console, includes 1 controller and AV cable. <strong>6 months warranty.</strong></p>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_1">
-        <input type="submit" class="btn-mini" value="Buy Now via PayPal">
-      </form>
-    </article>
+<div class="info-block">
+    <h3>Why Choose Retro Replay Xbox?</h3>
+    <p>Every Xbox console is fully refurbished: cleaned, tested, thermal refresh, fan tuning & cosmetic restoration.</p>
+</div>
 
-    <article class="card" data-link="xbox-white.html">
-      <img src="../assets/xbox-white.png" alt="Xbox White Console">
-      <h3>Xbox White Console</h3>
-      <p>Refurbished white console, includes 1 controller and AV cable.</p>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_2">
-        <input type="submit" class="btn-mini" value="Buy Now via PayPal">
-      </form>
-    </article>
-
-    <article class="card" data-link="xbox-controller.html">
-      <img src="../assets/xbox-controller.png" alt="Xbox Controller">
-      <h3>Xbox Controller</h3>
-      <p>Original controller, tested and fully functional.</p>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_3">
-        <input type="submit" class="btn-mini" value="Buy Now via PayPal">
-      </form>
-    </article>
-
-    <article class="card" data-link="xbox-memory.html">
-      <img src="../assets/xbox-memory.png" alt="Xbox Memory Unit 8MB">
-      <h3>Memory Unit 8MB</h3>
-      <p>Tested memory unit compatible with all Xbox consoles.</p>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_4">
-        <input type="submit" class="btn-mini" value="Buy Now via PayPal">
-      </form>
-    </article>
-
-  </section>
-
-  <section class="info" aria-label="Support and Trade-in">
-    <h3 style="color:var(--accent); margin-bottom:8px;">Support & Trade-In</h3>
-    <p>We accept trade-ins and offer store credit toward refurbished Xbox units. All purchases include support and a 6-month warranty. See our <a href="/xbox/warranties.html" style="color:var(--accent); text-decoration:underline;">warranty & returns</a> page.</p>
-  </section>
-</main>
+<div class="info-block">
+    <h3>Trade-Ins & Accessories</h3>
+    <p>Sell or trade old consoles and access limited-stock controllers, cables, and special editions.</p>
+</div>
 
 <footer>
-  <div>© 2025 Retro Replay — Xbox Division</div>
-  <div style="margin-top:8px;">
-    <a href="/xbox/index.html">Home</a> •
-    <a href="/xbox/products/xbox.html">Products</a> •
-    <a href="/xbox/guides.html">Guides</a> •
-    <a href="/xbox/contact.html">Contact</a>
-  </div>
+    <p>© 2025 Retro Replay — Xbox Division</p>
+    <p>
+        <a href="/xbox/index.html">Home</a> •
+        <a href="xbox.html">Xbox</a> •
+        <a href="xbox-360.html">Xbox 360</a> •
+        <a href="/xbox/guides.html">Guides</a> •
+        <a href="/xbox/contact.html">Contact</a>
+    </p>
 </footer>
 
 <script>
-// Particles and scroll reveal JS (same as Xbox index page)
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
-function setCanvasSize(){ canvas.width = window.innerWidth; canvas.height = document.querySelector('.hero').offsetHeight; }
-setCanvasSize();
-let particles=[];
-class P{ constructor(){ this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.r=Math.random()*1.8+.6; this.vx=(Math.random()-0.5)*0.35; this.vy=(Math.random()-0.5)*0.35; this.alpha=0.25+Math.random()*0.5; } update(){ this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width) this.vx*=-1; if(this.y<0||this.y>canvas.height) this.vy*=-1; } draw(){ ctx.beginPath(); ctx.fillStyle='rgba(50,205,50,'+this.alpha+')'; ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fill(); } }
-function initParticles(n=110){ particles=[]; for(let i=0;i<n;i++) particles.push(new P()); }
-function frame(){ ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(frame); }
-window.addEventListener('resize',()=>{ setCanvasSize(); initParticles(); }); initParticles(); frame();
-const cards=document.querySelectorAll('.card');
-function reveal(){ const trigger=window.innerHeight*0.85; cards.forEach(c=>{ if(c.getBoundingClientRect().top<trigger) c.classList.add('visible'); }); }
-window.addEventListener('scroll',reveal); window.addEventListener('load',reveal);
-cards.forEach(card=>{ const link=card.getAttribute('data-link'); if(link){ card.style.cursor='pointer'; card.addEventListener('click',()=>window.location.href=link); card.setAttribute('tabindex','0'); card.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' ') window.location.href=link; }); }}); 
+
+function resizeCanvas() { canvas.width=window.innerWidth; canvas.height=document.querySelector('.hero').offsetHeight; }
+resizeCanvas();
+
+let particlesArray = [];
+class Particle {
+    constructor(){ this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.size=Math.random()*2+1; this.speedX=(Math.random()-0.5)*0.4; this.speedY=(Math.random()-0.5)*0.4; }
+    update(){ this.x+=this.speedX; this.y+=this.speedY; if(this.x<0||this.x>canvas.width)this.speedX*=-1; if(this.y<0||this.y>canvas.height)this.speedY*=-1; }
+    draw(){ ctx.fillStyle="rgba(50,205,50,0.45)"; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); }
+}
+
+function initParticles(){ particlesArray=[]; for(let i=0;i<120;i++) particlesArray.push(new Particle()); }
+function animateParticles(){ ctx.clearRect(0,0,canvas.width,canvas.height); particlesArray.forEach(p=>p.update(),p.draw()); requestAnimationFrame(animateParticles); }
+window.addEventListener('resize',()=>{ resizeCanvas(); initParticles(); });
+initParticles(); animateParticles();
+
+const tiles = document.querySelectorAll('.tile');
+function revealOnScroll(){ const trigger = window.innerHeight*0.85; tiles.forEach(tile=>{ if(tile.getBoundingClientRect().top<trigger) tile.classList.add('visible'); }); }
+window.addEventListener('scroll',revealOnScroll); revealOnScroll();
 </script>
 
 </body>

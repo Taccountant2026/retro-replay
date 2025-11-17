@@ -6,24 +6,34 @@
 <title>Retro Replay — Nintendo Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#1a1a26;--panel:#111;--accent:#ff4d4d;--accent-strong:#ff0000;--muted:#9fbbe0;}
-*{box-sizing:border-box}body{margin:0;font-family:'Orbitron',sans-serif;background:var(--bg);color:#e3e7ed;overflow-x:hidden}
+:root{--bg:#1a1a26;--panel:#111;--accent:#ff4d4d;--accent-strong:#ff0000;--muted:#9fbbe0;--card:#111}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;font-family:"Orbitron",sans-serif;background:var(--bg);color:#e3e7ed;overflow-x:hidden}
 nav{background:#0a0a0a;padding:14px 6%;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;border-bottom:2px solid #1f1f1f;position:sticky;top:0;z-index:1200;}
 nav a{color:var(--accent);font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .18s ease;}
 nav a:hover{ color:#ffffff; transform:translateY(-2px);}
-.hero{position:relative;padding:90px 18px 60px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);}
-.hero .logo-hero{width:170px;margin:0 auto 18px;display:block;position:relative;z-index:3;}
+.hero{position:relative;padding:90px 18px 60px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);border-bottom:1px solid rgba(255,255,255,0.02);}
+.hero .logo-hero{width:180px;margin:0 auto 18px;display:block;position:relative;z-index:3;}
 .hero h1{color:var(--accent);margin:8px 0;font-size:2.6rem;z-index:3;position:relative;}
 .hero p{margin:6px 0 22px;font-size:1.1rem;opacity:.88;z-index:3;position:relative;}
 #particle-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;margin-top:18px;padding:0 18px;}
-.card{background:var(--panel);border-radius:14px;padding:20px;text-align:center;cursor:pointer;border:1px solid rgba(255,255,255,0.03);opacity:0;transform:translateY(24px);transition:all .6s cubic-bezier(.2,.9,.3,1);}
-.card.visible{opacity:1;transform:none;}
-.card img{width:110px;margin-bottom:12px;transition:transform .28s ease;}
-.card h3{color:var(--accent);margin:8px 0;font-size:1.15rem;}
-.card p{color:rgba(227,231,237,0.9);font-size:0.95rem;margin:0 0 12px;line-height:1.4;}
-.card:hover img{transform:scale(1.06) rotate(-2deg);}
+.cta-row{ position:relative; z-index:3; display:inline-flex; gap:12px; margin-top:10px;}
+.cta{background:var(--accent-strong); color:#000; padding:12px 26px; font-weight:800; border-radius:12px; text-decoration:none; transition:transform .16s ease, box-shadow .16s ease;}
+.cta:hover{ transform:translateY(-4px) }
+.container{ max-width:1200px; margin:30px auto; padding:0 18px; }
+.grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:26px; margin-top:18px; }
+.card{ background:var(--card); border-radius:14px; padding:20px; text-align:center; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 28px rgba(0,0,0,0.45); transform:translateY(24px); opacity:0; transition:all .6s cubic-bezier(.2,.9,.3,1); cursor:pointer; position:relative; }
+.card.visible{ transform:none; opacity:1; }
+.card img{ width:110px; margin-bottom:12px; display:block; margin-left:auto;margin-right:auto; transition:transform .28s ease; }
+.card h3{ color:var(--accent); margin:8px 0; font-size:1.15rem; }
+.card p{ color:rgba(227,231,237,0.9); font-size:0.95rem; margin:0 0 12px; line-height:1.4 }
+.card .btn-mini{ display:inline-block; background:var(--accent); color:#000; padding:8px 14px; border-radius:10px; font-weight:800; text-decoration:none; transition:transform .16s ease; }
+.card:hover img{ transform:scale(1.06) rotate(-2deg) }
+.card:hover .btn-mini{ transform:translateY(-3px) }
+.info{ background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,77,77,0.1); padding:22px; border-radius:12px; margin:26px 0; color:var(--muted); text-align:center;}
 footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
+@media(max-width:900px){ .hero{ padding:72px 18px 46px; } .hero h1{ font-size:2.1rem; } }
+@media(max-width:520px){ .hero{ padding:56px 14px 40px; } nav{ padding:12px 4% } .cta{ padding:10px 18px } }
 </style>
 </head>
 <body>
@@ -40,32 +50,49 @@ footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30p
 
 <section class="hero">
   <canvas id="particle-canvas"></canvas>
-  <img src="assets/nintendologo.png" class="logo-hero" alt="Nintendo Logo">
-  <h1>Nintendo Collection</h1>
+  <img src="../../assets/nintendologo.png" alt="Nintendo Logo" class="logo-hero">
+  <h1>Retro Replay — Nintendo Collection</h1>
   <p>Classic & modern Nintendo consoles, fully refurbished and ready to play.</p>
+  <div class="cta-row">
+    <a class="cta" href="#products">View Consoles</a>
+  </div>
 </section>
 
-<main class="grid">
-  <a href="products/NES.html" class="card">
-    <img src="assets/nintendologo.png" alt="NES">
-    <h3>NES</h3>
-    <p>Classic Nintendo Entertainment System, cleaned and tested.</p>
-  </a>
-  <a href="products/SNES.html" class="card">
-    <img src="assets/snes-logo.png" alt="SNES">
-    <h3>SNES</h3>
-    <p>Super Nintendo, fully restored for retro gaming.</p>
-  </a>
-  <a href="products/N64.html" class="card">
-    <img src="assets/n64-logo.png" alt="N64">
-    <h3>N64</h3>
-    <p>Experience the golden era of 3D Nintendo gaming with refurbished consoles.</p>
-  </a>
+<main class="container">
+  <section id="products" class="grid">
+
+    <article class="card">
+      <img src="../../assets/nes.png" alt="NES Console">
+      <h3>NES</h3>
+      <p>Nintendo Entertainment System, refurbished and ready for retro gaming.</p>
+      <a href="products/NES.html" class="btn-mini">View Products</a>
+    </article>
+
+    <article class="card">
+      <img src="../../assets/snes.png" alt="SNES Console">
+      <h3>SNES</h3>
+      <p>Super Nintendo, fully refurbished, tested, with original controllers.</p>
+      <a href="products/SNES.html" class="btn-mini">View Products</a>
+    </article>
+
+    <article class="card">
+      <img src="../../assets/n64.png" alt="N64 Console">
+      <h3>N64</h3>
+      <p>Nintendo 64, cleaned, tested, and ready for nostalgic 3D gaming.</p>
+      <a href="products/N64.html" class="btn-mini">View Products</a>
+    </article>
+
+  </section>
+
+  <section class="info">
+    <h3 style="color:var(--accent);">Why Choose Retro Replay Nintendo?</h3>
+    <p>All Nintendo consoles are fully refurbished, tested, and optionally upgraded. Track shipping, optional warranties, and eco-friendly restoration ensure you get the best gaming experience.</p>
+  </section>
 </main>
 
 <footer>
-  <p>© 2025 Retro Replay — Nintendo Division</p>
-  <p>
+  <div>© 2025 Retro Replay — Nintendo Division</div>
+  <div style="margin-top:8px;">
     <a href="../../index.html">Main Home</a> •
     <a href="index.html">Nintendo Home</a> •
     <a href="products/NES.html">NES</a> •
@@ -73,20 +100,23 @@ footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30p
     <a href="products/N64.html">N64</a> •
     <a href="guides.html">Guides</a> •
     <a href="contact.html">Contact</a>
-  </p>
+  </div>
 </footer>
 
 <script>
 // Particle effect
 const canvas=document.getElementById('particle-canvas');const ctx=canvas.getContext('2d');
 function setCanvasSize(){canvas.width=window.innerWidth; canvas.height=document.querySelector('.hero').offsetHeight;}
-setCanvasSize();let particles=[];
+setCanvasSize();
+let particles=[];
 class P{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.r=Math.random()*1.8+.6;this.vx=(Math.random()-0.5)*0.35;this.vy=(Math.random()-0.5)*0.35;this.alpha=0.25+Math.random()*0.5;}update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>canvas.width)this.vx*=-1;if(this.y<0||this.y>canvas.height)this.vy*=-1;}draw(){ctx.beginPath();ctx.fillStyle='rgba(255,77,77,'+this.alpha+')';ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();}}
 function initParticles(n=110){particles=[];for(let i=0;i<n;i++)particles.push(new P());}
 function frame(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(frame);}
 window.addEventListener('resize',()=>{setCanvasSize();initParticles();}); initParticles(); frame();
+
 // Scroll reveal
-const cards=document.querySelectorAll('.card');function reveal(){const t=window.innerHeight*0.85;cards.forEach(c=>{if(c.getBoundingClientRect().top<t)c.classList.add('visible');});}
+const cards=document.querySelectorAll('.card');
+function reveal(){ const trigger=window.innerHeight*0.85; cards.forEach(c=>{ if(c.getBoundingClientRect().top<trigger) c.classList.add('visible'); }); }
 window.addEventListener('scroll',reveal); window.addEventListener('load',reveal);
 </script>
 

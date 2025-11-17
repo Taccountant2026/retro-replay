@@ -4,46 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retro Replay — Sega Contact</title>
-<link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1a26;--panel:#111;--accent:#00ffff;--accent-strong:#00e5e5;--muted:#9fbbe0;}
+*{box-sizing:border-box}html,body{height:100%;}
+body{margin:0;font-family:"Orbitron",sans-serif;background:var(--bg);color:#e3e7ed;overflow-x:hidden;}
+nav{background:#0a0a0a;padding:14px 6%;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;border-bottom:2px solid #1f1f1f;position:sticky;top:0;z-index:1200;}
+nav a{color:var(--accent);font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .18s ease;}
+nav a:hover{ color:#ffffff; transform:translateY(-2px);}
+.hero{position:relative;padding:90px 18px 60px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);border-bottom:1px solid rgba(255,255,255,0.02);}
+.hero h1{color:var(--accent);margin:8px 0;font-size:2.6rem;z-index:3;position:relative;}
+.hero p{margin:6px 0 22px;font-size:1.1rem;opacity:.88;z-index:3;position:relative;}
+#particle-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
+.container{ max-width:600px; margin:30px auto; padding:0 18px; }
+form{ display:flex; flex-direction:column; gap:16px; }
+input, textarea{ background:#111; border:1px solid rgba(255,255,255,0.03); border-radius:10px; padding:12px; color:#e3e7ed; font-family:'Orbitron',sans-serif; font-size:1rem;}
+button{background:var(--accent); color:#000; font-weight:700; padding:12px; border:none; border-radius:12px; cursor:pointer; transition:transform .16s ease;}
+button:hover{transform:translateY(-3px);}
+footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
+</style>
 </head>
 <body>
 
 <nav>
-  <a href="/index.html">Main Home</a>
-  <a href="/sega/index.html">Sega Home</a>
-  <a href="/sega/products/master-system.html">Master System</a>
-  <a href="/sega/products/mega-drive.html">Mega Drive</a>
-  <a href="/sega/products/sega-saturn.html">Sega Saturn</a>
-  <a href="/sega/products/dreamcast.html">Dreamcast</a>
-  <a href="/sega/guides.html">Guides</a>
-  <a href="/sega/contact.html">Contact</a>
+  <a href="../index.html">Main Home</a>
+  <a href="index.html">Sega Home</a>
+  <a href="products/mega-drive.html">Mega Drive</a>
+  <a href="products/genesis.html">Genesis</a>
+  <a href="products/saturn.html">Saturn</a>
+  <a href="products/dreamcast.html">Dreamcast</a>
+  <a href="guides.html">Guides</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
-<header>
+<section class="hero">
+  <canvas id="particle-canvas"></canvas>
   <h1>Contact Retro Replay — Sega Division</h1>
-  <p class="hero-sub">Questions or trade-ins? Reach out to our team!</p>
-</header>
-
-<section class="section">
-  <h2>Get in Touch</h2>
-  <p>Email: <a href="mailto:contact@retroreplay.uk">contact@retroreplay.uk</a></p>
-  <p>Phone: +44 123 456 789</p>
-  <p>Address: 42 Retro Lane, Gaming City, UK</p>
+  <p>Questions, support, or inquiries about Sega consoles and services? Reach out below.</p>
 </section>
 
+<main class="container">
+  <form action="#" method="post">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</main>
+
 <footer>
-    <p>© 2025 Retro Replay — Sega Division</p>
-    <p>
-        <a href="/index.html">Main Home</a> •
-        <a href="/sega/index.html">Sega Home</a> •
-        <a href="/sega/products/master-system.html">Master System</a> •
-        <a href="/sega/products/mega-drive.html">Mega Drive</a> •
-        <a href="/sega/products/sega-saturn.html">Sega Saturn</a> •
-        <a href="/sega/products/dreamcast.html">Dreamcast</a> •
-        <a href="/sega/guides.html">Guides</a> •
-        <a href="/sega/contact.html">Contact</a>
-    </p>
+  <div>© 2025 Retro Replay — Sega Division</div>
+  <div style="margin-top:8px;">
+    <a href="../index.html">Main Home</a> •
+    <a href="index.html">Sega Home</a> •
+    <a href="products/mega-drive.html">Mega Drive</a> •
+    <a href="products/genesis.html">Genesis</a> •
+    <a href="products/saturn.html">Saturn</a> •
+    <a href="products/dreamcast.html">Dreamcast</a> •
+    <a href="guides.html">Guides</a> •
+    <a href="contact.html">Contact</a>
+  </div>
 </footer>
+
+<script>
+// Particle effect
+const canvas=document.getElementById('particle-canvas');
+const ctx=canvas.getContext('2d');
+function resizeCanvas(){ canvas.width=window.innerWidth; canvas.height=document.querySelector('.hero').offsetHeight;}
+resizeCanvas();
+
+let particles=[];
+class Particle{
+  constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.r=Math.random()*1.8+.6;this.vx=(Math.random()-0.5)*0.35;this.vy=(Math.random()-0.5)*0.35;this.alpha=0.25+Math.random()*0.5;}
+  update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>canvas.width)this.vx*=-1;if(this.y<0||this.y>canvas.height)this.vy*=-1;}
+  draw(){ctx.beginPath();ctx.fillStyle=`rgba(0,255,255,${this.alpha})`;ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();}
+}
+
+function initParticles(count=110){ particles=[]; for(let i=0;i<count;i++) particles.push(new Particle()); }
+function animateParticles(){ ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animateParticles);}
+window.addEventListener('resize',()=>{resizeCanvas(); initParticles();});
+initParticles(); animateParticles();
+</script>
 
 </body>
 </html>

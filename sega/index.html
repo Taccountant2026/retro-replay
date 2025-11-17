@@ -4,97 +4,91 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retro Replay — Sega Collection</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#111122;--panel:#10101c;--accent:#00d8ff;--muted:#9fbbe0;}
-*{box-sizing:border-box}body{margin:0;font-family:'Orbitron',sans-serif;background:var(--bg);color:#e3e7ed;overflow-x:hidden}
-nav{background:#0a0a0a;padding:14px 6%;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;border-bottom:2px solid #1f1f1f;position:sticky;top:0;z-index:1200;}
-nav a{color:var(--accent);font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .18s ease;}
-nav a:hover{ color:#ffffff; transform:translateY(-2px);}
-.hero{position:relative;padding:90px 18px 60px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);}
-.hero .logo-hero{width:170px;margin:0 auto 18px;display:block;position:relative;z-index:3;}
-.hero h1{color:var(--accent);margin:8px 0;font-size:2.6rem;z-index:3;position:relative;}
-.hero p{margin:6px 0 22px;font-size:1.1rem;opacity:.88;z-index:3;position:relative;}
-#particle-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;margin-top:18px;padding:0 18px;}
-.card{background:var(--panel);border-radius:14px;padding:20px;text-align:center;cursor:pointer;border:1px solid rgba(255,255,255,0.03);opacity:0;transform:translateY(24px);transition:all .6s cubic-bezier(.2,.9,.3,1);}
-.card.visible{opacity:1;transform:none;}
-.card img{width:110px;margin-bottom:12px;transition:transform .28s ease;}
-.card h3{color:var(--accent);margin:8px 0;font-size:1.15rem;}
-.card p{color:rgba(227,231,237,0.9);font-size:0.95rem;margin:0 0 12px;line-height:1.4;}
-.card:hover img{transform:scale(1.06) rotate(-2deg);}
-footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
-</style>
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <a href="../../index.html">Main Home</a>
-  <a href="index.html">Sega Home</a>
-  <a href="products/master-system.html">Master System</a>
-  <a href="products/mega-drive.html">Mega Drive</a>
-  <a href="products/sega-saturn.html">Sega Saturn</a>
-  <a href="products/dreamcast.html">Dreamcast</a>
-  <a href="guides.html">Guides</a>
-  <a href="contact.html">Contact</a>
+  <a href="/index.html">Main Home</a>
+  <a href="/sega/index.html">Sega Home</a>
+  <a href="/sega/products/master-system.html">Master System</a>
+  <a href="/sega/products/mega-drive.html">Mega Drive</a>
+  <a href="/sega/products/sega-saturn.html">Sega Saturn</a>
+  <a href="/sega/products/dreamcast.html">Dreamcast</a>
+  <a href="/sega/guides.html">Guides</a>
+  <a href="/sega/contact.html">Contact</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <canvas id="particle-canvas"></canvas>
-  <img src="assets/sega-logo.png" class="logo-hero" alt="Sega Logo">
-  <h1>Sega Collection</h1>
-  <p>Classic Sega consoles, fully refurbished and ready for retro gaming.</p>
+    <canvas id="particle-canvas"></canvas>
+    <img src="assets/segalogo.png" class="logo-hero" alt="Sega Logo">
+    <h1>Sega Collection</h1>
+    <p>Classic Sega consoles fully refurbished and ready to play</p>
+    <a href="#products" class="cta-btn">Explore Consoles</a>
 </section>
 
-<main class="grid">
-  <a href="products/master-system.html" class="card">
-    <img src="assets/master-system.png" alt="Master System">
-    <h3>Master System</h3>
-    <p>Classic 8-bit Sega console, cleaned and tested for nostalgia.</p>
-  </a>
-  <a href="products/mega-drive.html" class="card">
-    <img src="assets/mega-drive.png" alt="Mega Drive">
-    <h3>Mega Drive</h3>
-    <p>16-bit Sega fun — fully restored with optional accessories.</p>
-  </a>
-  <a href="products/sega-saturn.html" class="card">
-    <img src="assets/sega-saturn.png" alt="Sega Saturn">
-    <h3>Sega Saturn</h3>
-    <p>Rare Sega console refurbished for classic CD gaming.</p>
-  </a>
-  <a href="products/dreamcast.html" class="card">
-    <img src="assets/dreamcast.png" alt="Dreamcast">
-    <h3>Dreamcast</h3>
-    <p>Modern retro classic — Dreamcast fully tested and ready.</p>
-  </a>
-</main>
+<!-- PRODUCTS GRID -->
+<section id="products" class="grid">
+    <a href="/sega/products/master-system.html">
+        <div class="tile">
+            <img src="assets/master-system.png" alt="Master System">
+            <h3>Master System</h3>
+            <p>Refurbished classic Sega Master System consoles.</p>
+        </div>
+    </a>
+    <a href="/sega/products/mega-drive.html">
+        <div class="tile">
+            <img src="assets/mega-drive.png" alt="Mega Drive">
+            <h3>Mega Drive</h3>
+            <p>Fully restored Sega Mega Drive, tested and cleaned.</p>
+        </div>
+    </a>
+    <a href="/sega/products/sega-saturn.html">
+        <div class="tile">
+            <img src="assets/sega-saturn.png" alt="Sega Saturn">
+            <h3>Sega Saturn</h3>
+            <p>Refurbished Sega Saturn consoles with controllers.</p>
+        </div>
+    </a>
+    <a href="/sega/products/dreamcast.html">
+        <div class="tile">
+            <img src="assets/dreamcast.png" alt="Dreamcast">
+            <h3>Dreamcast</h3>
+            <p>Fully tested Sega Dreamcast, including accessories.</p>
+        </div>
+    </a>
+</section>
 
+<!-- INFO BLOCKS -->
+<div class="info-block">
+    <h3>Why Choose Retro Replay Sega?</h3>
+    <p>All Sega consoles are professionally refurbished, tested, and optionally upgraded. Nostalgia meets reliability!</p>
+</div>
+
+<div class="info-block">
+    <h3>Trade-Ins & Accessories</h3>
+    <p>Trade your old consoles or collect rare Sega accessories and special editions.</p>
+</div>
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 Retro Replay — Sega Division</p>
-  <p>
-    <a href="index.html">Sega Home</a> •
-    <a href="products/master-system.html">Master System</a> •
-    <a href="products/mega-drive.html">Mega Drive</a> •
-    <a href="products/sega-saturn.html">Sega Saturn</a> •
-    <a href="products/dreamcast.html">Dreamcast</a> •
-    <a href="guides.html">Guides</a> •
-    <a href="contact.html">Contact</a>
-  </p>
+    <p>© 2025 Retro Replay — Sega Division</p>
+    <p>
+        <a href="/index.html">Main Home</a> •
+        <a href="/sega/index.html">Sega Home</a> •
+        <a href="/sega/products/master-system.html">Master System</a> •
+        <a href="/sega/products/mega-drive.html">Mega Drive</a> •
+        <a href="/sega/products/sega-saturn.html">Sega Saturn</a> •
+        <a href="/sega/products/dreamcast.html">Dreamcast</a> •
+        <a href="/sega/guides.html">Guides</a> •
+        <a href="/sega/contact.html">Contact</a>
+    </p>
 </footer>
 
-<script>
-// Particle effect
-const canvas=document.getElementById('particle-canvas');const ctx=canvas.getContext('2d');
-function setCanvasSize(){canvas.width=window.innerWidth; canvas.height=document.querySelector('.hero').offsetHeight;}
-setCanvasSize();let particles=[];
-class P{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.r=Math.random()*1.8+.6;this.vx=(Math.random()-0.5)*0.35;this.vy=(Math.random()-0.5)*0.35;this.alpha=0.25+Math.random()*0.5;}update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>canvas.width)this.vx*=-1;if(this.y<0||this.y>canvas.height)this.vy*=-1;}draw(){ctx.beginPath();ctx.fillStyle='rgba(0,216,255,'+this.alpha+')';ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();}}
-function initParticles(n=110){particles=[];for(let i=0;i<n;i++)particles.push(new P());}
-function frame(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(frame);}
-window.addEventListener('resize',()=>{setCanvasSize();initParticles();}); initParticles(); frame();
-// Scroll reveal
-const cards=document.querySelectorAll('.card');function reveal(){const t=window.innerHeight*0.85;cards.forEach(c=>{if(c.getBoundingClientRect().top<t)c.classList.add('visible');});}
-window.addEventListener('scroll',reveal); window.addEventListener('load',reveal);
-</script>
+<script src="../particles.js"></script>
+<script src="../scroll-reveal.js"></script>
 
 </body>
 </html>

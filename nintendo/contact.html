@@ -15,8 +15,9 @@ nav a:hover{ color:#ffffff; transform:translateY(-2px);}
 .hero{position:relative;padding:90px 18px 60px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);border-bottom:1px solid rgba(255,255,255,0.02);}
 .hero h1{color:var(--accent);margin:8px 0;font-size:2.6rem;z-index:3;position:relative;}
 .hero p{margin:6px 0 22px;font-size:1.1rem;opacity:.88;z-index:3;position:relative;}
+#particle-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
 .container{ max-width:600px; margin:30px auto; padding:0 18px; }
-form{ display:flex; flex-direction:column; gap:16px; }
+form{ display:flex; flex-direction:column; gap:16px; position:relative; z-index:2; }
 input, textarea{ background:#111; border:1px solid rgba(255,255,255,0.03); border-radius:10px; padding:12px; color:#e3e7ed; font-family:'Orbitron',sans-serif; font-size:1rem;}
 button{background:var(--accent); color:#000; font-weight:700; padding:12px; border:none; border-radius:12px; cursor:pointer; transition:transform .16s ease;}
 button:hover{transform:translateY(-3px);}
@@ -35,6 +36,7 @@ footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30p
 </nav>
 
 <section class="hero">
+  <canvas id="particle-canvas"></canvas>
   <h1>Contact Retro Replay</h1>
   <p>Questions, support, or inquiries about Nintendo consoles and services? Reach out below.</p>
 </section>
@@ -59,6 +61,58 @@ footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30p
     <a href="contact.html">Contact</a>
   </div>
 </footer>
+
+<script>
+// Particle effect
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = document.querySelector('.hero').offsetHeight;
+}
+resizeCanvas();
+
+let particles = [];
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 1.8 + 0.6;
+    this.speedX = (Math.random() - 0.5) * 0.35;
+    this.speedY = (Math.random() - 0.5) * 0.35;
+    this.alpha = 0.25 + Math.random() * 0.5;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if(this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+    if(this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.fillStyle = `rgba(255,77,77,${this.alpha})`;
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+    ctx.fill();
+  }
+}
+
+function initParticles(count=110) {
+  particles = [];
+  for(let i=0;i<count;i++) particles.push(new Particle());
+}
+
+function animateParticles() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p => { p.update(); p.draw(); });
+  requestAnimationFrame(animateParticles);
+}
+
+window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+initParticles();
+animateParticles();
+</script>
 
 </body>
 </html>

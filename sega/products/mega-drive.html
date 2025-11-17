@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Mega Drive</title>
-<link href="../../style.css" rel="stylesheet">
+<title>Retro Replay — Sega Mega Drive</title>
+<link rel="stylesheet" href="../../style.css">
 </head>
 <body>
+
 <nav>
-  <a href="../index.html">Sega Home</a>
+  <a href="/index.html">Main Home</a>
+  <a href="/sega/index.html">Sega Home</a>
   <a href="master-system.html">Master System</a>
   <a href="mega-drive.html">Mega Drive</a>
   <a href="sega-saturn.html">Sega Saturn</a>
@@ -18,29 +20,52 @@
 </nav>
 
 <section class="hero">
-  <img src="../../assets/mega-drive.png" class="logo-hero" alt="Mega Drive">
-  <h1>Mega Drive</h1>
-  <p>16-bit Sega console with classic titles — refurbished and upgraded.</p>
+    <canvas id="particle-canvas"></canvas>
+    <img src="../../assets/mega-drive.png" class="logo-hero" alt="Mega Drive">
+    <h1>Sega Mega Drive</h1>
+    <p>Fully restored Sega Mega Drive with original controller and AV cables included.</p>
+    <a href="#products" class="cta-btn">Explore Accessories</a>
 </section>
 
-<section class="grid">
-  <div class="tile">
-    <img src="../../assets/mega-drive.png" alt="Mega Drive">
-    <h3>Refurbished Consoles</h3>
-    <p>All Mega Drives cleaned, tested, and fully functional.</p>
-  </div>
-  <div class="tile">
-    <h3>Optional Mods</h3>
-    <p>AV upgrades, HDMI outputs, region mods, and cosmetic restoration.</p>
-  </div>
-  <div class="tile">
-    <h3>Accessories</h3>
-    <p>Controllers, power supplies, carts, and limited-stock add-ons.</p>
-  </div>
+<section id="products" class="grid">
+    <div class="tile">
+        <img src="../../assets/controller.png" alt="Controller">
+        <h3>Original Controller</h3>
+        <p>Cleaned and tested 3-button or 6-button Mega Drive controllers.</p>
+    </div>
+    <div class="tile">
+        <img src="../../assets/cartridge.png" alt="Game Cartridge">
+        <h3>Game Cartridges</h3>
+        <p>Pre-tested cartridges for reliable play.</p>
+    </div>
 </section>
+
+<div class="info-block">
+    <h3>About the Mega Drive</h3>
+    <p>The Sega Mega Drive defined retro 16-bit gaming. All units are cleaned, tested, and come with warranty.</p>
+</div>
+
+<div class="info-block">
+    <h3>Trade-Ins & Accessories</h3>
+    <p>We provide controllers, AV cables, and rare accessories for Mega Drive collectors.</p>
+</div>
 
 <footer>
-  <p>© 2025 Retro Replay — Sega Division</p>
+    <p>© 2025 Retro Replay — Sega Division</p>
+    <p>
+        <a href="/index.html">Main Home</a> •
+        <a href="/sega/index.html">Sega Home</a> •
+        <a href="master-system.html">Master System</a> •
+        <a href="mega-drive.html">Mega Drive</a> •
+        <a href="sega-saturn.html">Sega Saturn</a> •
+        <a href="dreamcast.html">Dreamcast</a> •
+        <a href="../guides.html">Guides</a> •
+        <a href="../contact.html">Contact</a>
+    </p>
 </footer>
+
+<script src="../../particles.js"></script>
+<script src="../../scroll-reveal.js"></script>
+
 </body>
 </html>

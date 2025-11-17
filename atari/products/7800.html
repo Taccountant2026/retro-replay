@@ -6,28 +6,27 @@
 <title>Retro Replay — Atari 7800</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#1a1a26;--panel:#111;--accent:#00ccff;--accent-strong:#00aaff;--muted:#9fbbe0;--card:#111}
+:root{--bg:#1a1a26;--panel:#111;--accent:#ffcc00;--accent-strong:#ffaa00;--muted:#9fbbe0;--card:#111;}
 *{box-sizing:border-box}html,body{height:100%;}
 body{margin:0;font-family:"Orbitron",sans-serif;background:var(--bg);color:#e3e7ed;overflow-x:hidden;}
 nav{background:#0a0a0a;padding:14px 6%;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;border-bottom:2px solid #1f1f1f;position:sticky;top:0;z-index:1200;}
 nav a{color:var(--accent);font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .18s ease;}
 nav a:hover{ color:#ffffff; transform:translateY(-2px);}
 .hero{position:relative;padding:90px 18px 60px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);border-bottom:1px solid rgba(255,255,255,0.02);}
-.hero .logo-hero{width:170px;margin:0 auto 18px;display:block;position:relative;z-index:3;}
+.hero .logo-hero{width:160px;margin:0 auto 18px;display:block;position:relative;z-index:3;}
 .hero h1{color:var(--accent);margin:8px 0;font-size:2.6rem;z-index:3;position:relative;}
 .hero p{margin:6px 0 22px;font-size:1.1rem;opacity:.88;z-index:3;position:relative;}
 #particle-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
 .container{ max-width:1200px; margin:30px auto; padding:0 18px; }
-.grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:26px; margin-top:18px; }
 .card{ background:var(--card); border-radius:14px; padding:20px; text-align:center; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 28px rgba(0,0,0,0.45); transform:translateY(24px); opacity:0; transition:all .6s cubic-bezier(.2,.9,.3,1); cursor:default; position:relative; }
 .card.visible{ transform:none; opacity:1; }
-.card img{ width:110px; margin-bottom:12px; display:block; margin-left:auto;margin-right:auto; transition:transform .28s ease; }
+.card img{ width:160px; margin-bottom:12px; display:block; margin-left:auto;margin-right:auto; transition:transform .28s ease; }
 .card h3{ color:var(--accent); margin:8px 0; font-size:1.15rem; }
 .card p{ color:rgba(227,231,237,0.9); font-size:0.95rem; margin:0 0 12px; line-height:1.4 }
 .card .btn-mini{ display:inline-block; background:var(--accent); color:#000; padding:8px 14px; border-radius:10px; font-weight:800; text-decoration:none; transition:transform .16s ease; }
 .card:hover img{ transform:scale(1.06) rotate(-2deg) }
 .card:hover .btn-mini{ transform:translateY(-3px) }
-.info{ background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(0,204,255,0.1); padding:22px; border-radius:12px; margin:26px 0; color:var(--muted);}
+.info{ background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,204,0,0.1); padding:22px; border-radius:12px; margin:26px 0; color:var(--muted);}
 footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
 @media(max-width:900px){ .hero{ padding:72px 18px 46px; } .hero h1{ font-size:2.1rem; } }
 @media(max-width:520px){ .hero{ padding:56px 14px 40px; } nav{ padding:12px 4% } }
@@ -36,60 +35,39 @@ footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30p
 <body>
 
 <nav>
-  <a href="index.html">Atari Home</a>
+  <a href="../index.html">Main Home</a>
+  <a href="../index.html">Atari Home</a>
   <a href="2600.html">2600</a>
   <a href="5200.html">5200</a>
   <a href="7800.html">7800</a>
-  <a href="guides.html">Guides</a>
-  <a href="contact.html">Contact</a>
+  <a href="../guides.html">Guides</a>
+  <a href="../contact.html">Contact</a>
 </nav>
 
 <section class="hero">
   <canvas id="particle-canvas"></canvas>
-  <img src="../assets/atari-7800-logo.png" alt="Atari 7800 Logo" class="logo-hero">
-  <h1>Atari — 7800 Collection</h1>
-  <p>Fully refurbished Atari 7800 consoles, controllers, and accessories ready to play.</p>
+  <img src="../assets/atari-7800.png" alt="Atari 7800" class="logo-hero">
+  <h1>Atari 7800</h1>
+  <p>Refurbished Atari 7800 console, fully tested and ready for retro gaming fun.</p>
 </section>
 
 <main class="container">
-  <section class="grid">
-    <article class="card">
-      <img src="../assets/7800-white.png" alt="Atari 7800 White Console">
-      <h3>Atari 7800 White</h3>
-      <p>Classic white 7800 console, fully tested and includes controller & cables.</p>
-      <a href="#" class="btn-mini">Buy Now</a>
-    </article>
-
-    <article class="card">
-      <img src="../assets/7800-black.png" alt="Atari 7800 Black Console">
-      <h3>Atari 7800 Black</h3>
-      <p>Black edition, professionally refurbished with controller & cables.</p>
-      <a href="#" class="btn-mini">Buy Now</a>
-    </article>
-
-    <article class="card">
-      <img src="../assets/7800-controller.png" alt="Atari 7800 Controller">
-      <h3>7800 Controller</h3>
-      <p>Original 7800 controller, fully tested and ready for retro gaming.</p>
-      <a href="#" class="btn-mini">Buy Now</a>
-    </article>
-  </section>
-
   <section class="info">
     <h3 style="color:var(--accent);">About Atari 7800</h3>
-    <p>All Atari 7800 consoles are professionally refurbished, cleaned, and tested. Optional warranties available. Each console comes with necessary controllers and cables for immediate gameplay.</p>
+    <p>The Atari 7800 is a retro classic. All units are refurbished, tested, and include joystick & cables. Optional warranty available for peace of mind.</p>
   </section>
 </main>
 
 <footer>
   <div>© 2025 Retro Replay — Atari Division</div>
   <div style="margin-top:8px;">
-    <a href="index.html">Atari Home</a> •
+    <a href="../index.html">Main Home</a> •
+    <a href="../index.html">Atari Home</a> •
     <a href="2600.html">2600</a> •
     <a href="5200.html">5200</a> •
     <a href="7800.html">7800</a> •
-    <a href="guides.html">Guides</a> •
-    <a href="contact.html">Contact</a>
+    <a href="../guides.html">Guides</a> •
+    <a href="../contact.html">Contact</a>
   </div>
 </footer>
 
@@ -102,15 +80,10 @@ setCanvas();
 let particles=[];
 class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.r=Math.random()*1.8+.6;this.vx=(Math.random()-0.5)*0.35;this.vy=(Math.random()-0.5)*0.35;this.alpha=0.25+Math.random()*0.5;}
 update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>canvas.width)this.vx*=-1;if(this.y<0||this.y>canvas.height)this.vy*=-1;}
-draw(){ctx.beginPath();ctx.fillStyle=`rgba(0,204,255,${this.alpha})`;ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();}}
+draw(){ctx.beginPath();ctx.fillStyle=`rgba(255,204,0,${this.alpha})`;ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();}}
 function initParticles(count=110){particles=[];for(let i=0;i<count;i++)particles.push(new Particle());}
 function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
 window.addEventListener('resize',()=>{setCanvas();initParticles();});initParticles();animate();
-
-// Scroll reveal
-const cards=document.querySelectorAll('.card');
-function reveal(){ const trigger=window.innerHeight*0.85; cards.forEach(c=>{ if(c.getBoundingClientRect().top<trigger) c.classList.add('visible'); }); }
-window.addEventListener('scroll',reveal); window.addEventListener('load',reveal);
 </script>
 
 </body>

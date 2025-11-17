@@ -3,42 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Contact Nintendo Division</title>
-<link rel="stylesheet" href="/style.css">
+<title>Retro Replay — Nintendo Contact</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1a26;--panel:#111;--accent:#ff4d4d;--muted:#9fbbe0;}
+body{margin:0;font-family:'Orbitron',sans-serif;background:var(--bg);color:#e3e7ed;overflow-x:hidden;}
+nav{background:#0a0a0a;padding:14px 6%;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;border-bottom:2px solid #1f1f1f;position:sticky;top:0;z-index:1200;}
+nav a{color:var(--accent);font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .18s ease;}
+nav a:hover{ color:#ffffff; transform:translateY(-2px);}
+.hero{position:relative;padding:90px 18px 60px;text-align:center;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);}
+.hero h1{color:var(--accent);margin:8px 0;font-size:2.6rem;}
+.hero p{margin:6px 0 22px;font-size:1.1rem;opacity:.88;}
+main{max-width:600px;margin:20px auto;padding:0 18px;line-height:1.5;color:var(--muted);}
+form{display:flex;flex-direction:column;gap:14px;}
+input,textarea{padding:10px;border-radius:8px;border:none;font-family:'Orbitron',sans-serif;}
+button{background:var(--accent);color:#000;padding:12px;font-weight:700;border:none;border-radius:10px;cursor:pointer;transition:0.2s;}
+button:hover{transform:translateY(-2px);}
+footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
+</style>
 </head>
-
 <body>
-
 <nav>
-  <a href="/index.html">Main Home</a>
-  <a href="/nintendo/index.html">Nintendo Home</a>
-  <a href="/nintendo/products/nes.html">NES</a>
-  <a href="/nintendo/products/snes.html">SNES</a>
-  <a href="/nintendo/products/n64.html">N64</a>
-  <a href="/nintendo/guides.html">Guides</a>
-  <a href="/nintendo/contact.html">Contact</a>
+  <a href="index.html">Nintendo Home</a>
+  <a href="products/nes.html">NES</a>
+  <a href="products/snes.html">SNES</a>
+  <a href="products/n64.html">N64</a>
+  <a href="guides.html">Guides</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
-<header class="page-header">
-  <h1>Contact Nintendo Support</h1>
-  <p class="sub">Questions? Repairs? Custom orders? We’re here to help.</p>
-</header>
-
-<section class="text-section">
-
-  <h2>Email</h2>
-  <p>support@retroreplay.co.uk</p>
-
-  <h2>Response Time</h2>
-  <p>We reply within 24 hours (usually much faster).</p>
-
-  <h2>Trade-In & Repairs</h2>
-  <p>Contact us for valuations, refurb quotes, or custom upgrade requests.</p>
-
+<section class="hero">
+  <h1>Contact Nintendo Division</h1>
+  <p>Have questions? Need support? Reach out to us today!</p>
 </section>
 
+<main>
+  <form>
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <textarea rows="5" placeholder="Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</main>
+
 <footer>
-  <p>© 2025 Retro Replay</p>
+  <p>© 2025 Retro Replay — Nintendo Division</p>
+  <p>
+    <a href="index.html">Nintendo Home</a> •
+    <a href="products/nes.html">NES</a> •
+    <a href="products/snes.html">SNES</a> •
+    <a href="products/n64.html">N64</a> •
+    <a href="guides.html">Guides</a>
+  </p>
 </footer>
 
 </body>

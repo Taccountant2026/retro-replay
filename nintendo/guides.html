@@ -4,42 +4,89 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retro Replay — Nintendo Guides</title>
-<link rel="stylesheet" href="/style.css">
+<link href="../style.css" rel="stylesheet">
 </head>
-
 <body>
 
+<!-- NAVIGATION -->
 <nav>
-  <a href="/index.html">Main Home</a>
-  <a href="/nintendo/index.html">Nintendo Home</a>
-  <a href="/nintendo/products/nes.html">NES</a>
-  <a href="/nintendo/products/snes.html">SNES</a>
-  <a href="/nintendo/products/n64.html">N64</a>
-  <a href="/nintendo/guides.html">Guides</a>
-  <a href="/nintendo/contact.html">Contact</a>
+  <a href="../../index.html">Main Home</a>
+  <a href="../index.html">Nintendo Home</a>
+  <a href="nes.html">NES</a>
+  <a href="snes.html">SNES</a>
+  <a href="n64.html">N64</a>
+  <a href="switch.html">Switch</a>
+  <a href="guides.html">Guides</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
-<header class="page-header">
-  <h1>Nintendo Guides</h1>
-  <p class="sub">Setup, troubleshooting, cleaning & upgrade guides</p>
-</header>
-
-<section class="text-section">
-
-  <h2>NES Setup Guide</h2>
-  <p>Learn how to connect your NES to modern TVs, clean cartridges and maintain hardware.</p>
-
-  <h2>SNES Maintenance</h2>
-  <p>Step-by-step cleaning, power troubleshooting and controller repair.</p>
-
-  <h2>N64 Controller Stick Repair</h2>
-  <p>How to fix stick drift, clean contacts and improve sensitivity.</p>
-
+<!-- HERO -->
+<section class="hero">
+    <canvas id="particle-canvas"></canvas>
+    <img src="../assets/nintendologo.png" class="logo-hero" alt="Nintendo Logo">
+    <h1>Nintendo Guides</h1>
+    <p>Step-by-step guides for setup, repairs, mods, and upgrades for all Nintendo consoles.</p>
 </section>
 
+<!-- GUIDE GRID -->
+<section class="grid">
+    <a href="nes.html">
+        <div class="tile">
+            <h3>NES Setup & Repair</h3>
+            <p>Instructions for cleaning, testing, and restoring your classic NES console.</p>
+        </div>
+    </a>
+    <a href="snes.html">
+        <div class="tile">
+            <h3>SNES Guides</h3>
+            <p>Step-by-step restoration and modding tips for your Super Nintendo console.</p>
+        </div>
+    </a>
+    <a href="n64.html">
+        <div class="tile">
+            <h3>N64 Guides</h3>
+            <p>Learn how to maintain, upgrade, and troubleshoot Nintendo 64 consoles.</p>
+        </div>
+    </a>
+    <a href="switch.html">
+        <div class="tile">
+            <h3>Switch Guides</h3>
+            <p>Official and optional setup, accessory, and modding tips for the Nintendo Switch.</p>
+        </div>
+    </a>
+</section>
+
+<!-- INFO BLOCK -->
+<div class="info-block">
+    <h3>Need Help?</h3>
+    <p>Our guides are designed for beginners and enthusiasts alike. Follow them carefully to enjoy your Nintendo consoles at peak performance.</p>
+</div>
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 Retro Replay</p>
+    <p>© 2025 Retro Replay — Nintendo Division</p>
+    <p>
+        <a href="../../index.html">Main Home</a> •
+        <a href="../index.html">Nintendo Home</a> •
+        <a href="nes.html">NES</a> •
+        <a href="snes.html">SNES</a> •
+        <a href="n64.html">N64</a> •
+        <a href="switch.html">Switch</a> •
+        <a href="guides.html">Guides</a> •
+        <a href="contact.html">Contact</a>
+    </p>
 </footer>
+
+<!-- PARTICLE SCRIPT -->
+<script>
+const canvas=document.getElementById('particle-canvas');const ctx=canvas.getContext('2d');
+function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=document.querySelector('.hero').offsetHeight;}resizeCanvas();
+let particlesArray=[];
+class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedX=(Math.random()-0.5)*0.4;this.speedY=(Math.random()-0.5)*0.4;}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvas.width)this.speedX*=-1;if(this.y<0||this.y>canvas.height)this.speedY*=-1;}draw(){ctx.fillStyle="rgba(255,77,77,0.45)";ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}
+function initParticles(){particlesArray=[];for(let i=0;i<120;i++)particlesArray.push(new Particle());}
+function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+window.addEventListener('resize',()=>{resizeCanvas();initParticles();});initParticles();animateParticles();
+</script>
 
 </body>
 </html>

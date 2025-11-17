@@ -15,7 +15,6 @@ h1 { color:#ff4d4d; margin-bottom:10px; }
 .hero-sub { font-size:1.2rem; opacity:0.85; margin-bottom:30px; }
 .section { padding:40px 10%; max-width:1200px; margin:0 auto; }
 
-/* --- Grid Tiles --- */
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; }
 .tile { background:#111; border-radius:15px; padding:25px 15px; text-align:center; transition:0.3s, transform 0.3s; cursor:pointer; }
 .tile img { width:80px; margin-bottom:15px; transition:0.3s; }
@@ -24,27 +23,28 @@ h1 { color:#ff4d4d; margin-bottom:10px; }
 .tile:hover { transform:scale(1.05); box-shadow:0 0 15px #ff4d4d,0 0 40px #ff8080; }
 .tile:hover img { transform:scale(1.1); }
 
-/* --- Footer --- */
 footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0; }
 footer a { color:#ff4d4d; margin:0 8px; text-decoration:none; }
 footer a:hover { color:#ff8080; }
 
-@media screen and (max-width:768px) { .grid { grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px; } }
+@media screen and (max-width:768px) {
+  .grid { grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px; }
+}
 </style>
 </head>
 <body>
 
 <!-- Navigation -->
 <nav>
-  <a href="../../index.html">Main Home</a>
-  <a href="../index.html">Nintendo Home</a>
-  <a href="nes.html">NES</a>
-  <a href="snes.html">SNES</a>
-  <a href="n64.html">N64</a>
-  <a href="switch.html">Switch</a>
-  <a href="mods-upgrades.html">Mods & Upgrades</a>
-  <a href="trade-in.html">Trade-In</a>
-  <a href="contact.html">Contact</a>
+  <a href="../index.html">Main Home</a>
+  <a href="index.html">Nintendo Home</a>
+  <a href="products/nes.html">NES</a>
+  <a href="products/snes.html">SNES</a>
+  <a href="products/n64.html">N64</a>
+  <a href="products/switch.html">Switch</a>
+  <a href="products/mods-upgrades.html">Mods & Upgrades</a>
+  <a href="products/trade-in.html">Trade-In</a>
+  <a href="products/contact.html">Contact</a>
 </nav>
 
 <!-- Hero -->
@@ -55,59 +55,77 @@ footer a:hover { color:#ff8080; }
 
 <!-- Promo Grid -->
 <section class="grid">
-  <div class="tile">
-    <img src="assets/nintendologo.png" alt="NES">
-    <h3>NES</h3>
-    <p>Classic Nintendo Entertainment System, cleaned and tested for nostalgia.</p>
-  </div>
-  <div class="tile">
-    <img src="assets/snes-logo.png" alt="SNES">
-    <h3>SNES</h3>
-    <p>Super Nintendo, fully restored and ready for your favorite retro games.</p>
-  </div>
-  <div class="tile">
-    <img src="assets/nintendologo.png" alt="N64">
-    <h3>N64</h3>
-    <p>Experience the golden era of 3D Nintendo gaming with refurbished consoles.</p>
-  </div>
-  <div class="tile">
-    <img src="assets/switch-logo.png" alt="Switch">
-    <h3>Switch</h3>
-    <p>Modern Nintendo fun — fully tested with optional accessories and mods.</p>
-  </div>
-  <div class="tile">
-    <img src="assets/hdd-mod.png" alt="HDD Mods">
-    <h3>HDD & Storage Upgrades</h3>
-    <p>Install additional storage for your game library and OPL setup.</p>
-  </div>
-  <div class="tile">
-    <img src="assets/cosmetic.png" alt="Cosmetic Restoration">
-    <h3>Cosmetic Restoration</h3>
-    <p>Polish, clean, and restore labels for that “like-new” feeling.</p>
-  </div>
+
+  <a href="products/nes.html">
+    <div class="tile">
+      <img src="../assets/nintendologo.png" alt="NES">
+      <h3>NES</h3>
+      <p>Classic Nintendo Entertainment System, cleaned and tested.</p>
+    </div>
+  </a>
+
+  <a href="products/snes.html">
+    <div class="tile">
+      <img src="../assets/snes-logo.png" alt="SNES">
+      <h3>SNES</h3>
+      <p>Super Nintendo, restored and ready for your favourite games.</p>
+    </div>
+  </a>
+
+  <a href="products/n64.html">
+    <div class="tile">
+      <img src="../assets/n64-logo.png" alt="N64">
+      <h3>N64</h3>
+      <p>The golden age of 3D Nintendo gaming — fully refurbished.</p>
+    </div>
+  </a>
+
+  <a href="products/switch.html">
+    <div class="tile">
+      <img src="../assets/switch-logo.png" alt="Switch">
+      <h3>Switch</h3>
+      <p>Modern Nintendo hardware with accessories & options.</p>
+    </div>
+  </a>
+
+  <a href="products/mods-upgrades.html">
+    <div class="tile">
+      <img src="../assets/hdd-mod.png" alt="Upgrades">
+      <h3>Mods & Upgrades</h3>
+      <p>Storage, HDMI, shell swaps, region mods & more.</p>
+    </div>
+  </a>
+
+  <a href="products/trade-in.html">
+    <div class="tile">
+      <img src="../assets/cosmetic.png" alt="Trade-In">
+      <h3>Trade-In Program</h3>
+      <p>Swap your console toward a refurbished Nintendo system.</p>
+    </div>
+  </a>
+
 </section>
 
-<!-- Info Section -->
+<!-- Info -->
 <section class="section">
   <h2>Why Choose Retro Replay Nintendo Division?</h2>
-  <p>All Nintendo consoles are professionally refurbished, tested, and optionally upgraded. Enjoy classic titles or modern Switch gaming with confidence.</p>
-  <p>Tracked shipping, eco-friendly restoration, and optional warranties available. Own a piece of Nintendo history today!</p>
+  <p>Every Nintendo console is professionally refurbished, cleaned and tested. Optional upgrades available for NES, SNES, N64 and Switch.</p>
+  <p>Tracked UK shipping, eco-friendly processes, and optional extended warranties.</p>
 </section>
 
 <!-- Footer -->
 <footer>
   <p>© 2025 Retro Replay — Nintendo Division</p>
   <p>
-    <a href="../../index.html">Main Home</a> •
-    <a href="../index.html">Nintendo Home</a> •
-    <a href="nes.html">NES</a> •
-    <a href="snes.html">SNES</a> •
-    <a href="n64.html">N64</a> •
-    <a href="switch.html">Switch</a> •
-    <a href="contact.html">Contact</a>
+    <a href="../index.html">Main Home</a> •
+    <a href="index.html">Nintendo Home</a> •
+    <a href="products/nes.html">NES</a> •
+    <a href="products/snes.html">SNES</a> •
+    <a href="products/n64.html">N64</a> •
+    <a href="products/switch.html">Switch</a> •
+    <a href="products/contact.html">Contact</a>
   </p>
 </footer>
 
 </body>
 </html>
-

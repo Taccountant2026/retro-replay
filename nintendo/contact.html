@@ -4,58 +4,78 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retro Replay — Nintendo Contact</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#1a1a26;--panel:#111;--accent:#ff4d4d;--muted:#9fbbe0;}
-body{margin:0;font-family:'Orbitron',sans-serif;background:var(--bg);color:#e3e7ed;overflow-x:hidden;}
-nav{background:#0a0a0a;padding:14px 6%;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;border-bottom:2px solid #1f1f1f;position:sticky;top:0;z-index:1200;}
-nav a{color:var(--accent);font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .18s ease;}
-nav a:hover{ color:#ffffff; transform:translateY(-2px);}
-.hero{position:relative;padding:90px 18px 60px;text-align:center;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);}
-.hero h1{color:var(--accent);margin:8px 0;font-size:2.6rem;}
-.hero p{margin:6px 0 22px;font-size:1.1rem;opacity:.88;}
-main{max-width:600px;margin:20px auto;padding:0 18px;line-height:1.5;color:var(--muted);}
-form{display:flex;flex-direction:column;gap:14px;}
-input,textarea{padding:10px;border-radius:8px;border:none;font-family:'Orbitron',sans-serif;}
-button{background:var(--accent);color:#000;padding:12px;font-weight:700;border:none;border-radius:10px;cursor:pointer;transition:0.2s;}
-button:hover{transform:translateY(-2px);}
-footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
-</style>
+<link href="../style.css" rel="stylesheet">
 </head>
 <body>
+
+<!-- NAVIGATION -->
 <nav>
-  <a href="index.html">Nintendo Home</a>
-  <a href="products/nes.html">NES</a>
-  <a href="products/snes.html">SNES</a>
-  <a href="products/n64.html">N64</a>
+  <a href="../../index.html">Main Home</a>
+  <a href="../index.html">Nintendo Home</a>
+  <a href="nes.html">NES</a>
+  <a href="snes.html">SNES</a>
+  <a href="n64.html">N64</a>
+  <a href="switch.html">Switch</a>
   <a href="guides.html">Guides</a>
   <a href="contact.html">Contact</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <h1>Contact Nintendo Division</h1>
-  <p>Have questions? Need support? Reach out to us today!</p>
+    <canvas id="particle-canvas"></canvas>
+    <img src="../assets/nintendologo.png" class="logo-hero" alt="Nintendo Logo">
+    <h1>Contact Nintendo Division</h1>
+    <p>Have questions or need support? Reach out to Retro Replay Nintendo Division today.</p>
 </section>
 
-<main>
-  <form>
-    <input type="text" placeholder="Full Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <textarea rows="5" placeholder="Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</main>
+<!-- CONTACT FORM -->
+<section class="grid">
+    <div class="tile">
+        <h3>Contact Form</h3>
+        <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required style="width:90%;padding:10px;margin:5px 0;border-radius:8px;border:none;">
+            <input type="email" name="email" placeholder="Your Email" required style="width:90%;padding:10px;margin:5px 0;border-radius:8px;border:none;">
+            <textarea name="message" placeholder="Your Message" rows="6" required style="width:90%;padding:10px;margin:5px 0;border-radius:8px;border:none;"></textarea>
+            <button type="submit" class="cta-btn">Send Message</button>
+        </form>
+    </div>
+</section>
 
+<!-- INFO BLOCK -->
+<div class="info-block">
+    <h3>Other Ways to Reach Us</h3>
+    <p>Email: support@retroreplay.uk</p>
+    <p>Phone: +44 1234 567890</p>
+    <p>Follow us on social media for updates and exclusive offers.</p>
+</div>
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 Retro Replay — Nintendo Division</p>
-  <p>
-    <a href="index.html">Nintendo Home</a> •
-    <a href="products/nes.html">NES</a> •
-    <a href="products/snes.html">SNES</a> •
-    <a href="products/n64.html">N64</a> •
-    <a href="guides.html">Guides</a>
-  </p>
+    <p>© 2025 Retro Replay — Nintendo Division</p>
+    <p>
+        <a href="../../index.html">Main Home</a> •
+        <a href="../index.html">Nintendo Home</a> •
+        <a href="nes.html">NES</a> •
+        <a href="snes.html">SNES</a> •
+        <a href="n64.html">N64</a> •
+        <a href="switch.html">Switch</a> •
+        <a href="guides.html">Guides</a> •
+        <a href="contact.html">Contact</a>
+    </p>
 </footer>
+
+<!-- PARTICLE SCRIPT -->
+<script>
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=document.querySelector('.hero').offsetHeight;}
+resizeCanvas();
+let particlesArray=[];
+class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedX=(Math.random()-0.5)*0.4;this.speedY=(Math.random()-0.5)*0.4;}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvas.width)this.speedX*=-1;if(this.y<0||this.y>canvas.height)this.speedY*=-1;}draw(){ctx.fillStyle="rgba(255,77,77,0.45)";ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}
+function initParticles(){particlesArray=[];for(let i=0;i<120;i++)particlesArray.push(new Particle());}
+function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+window.addEventListener('resize',()=>{resizeCanvas();initParticles();});initParticles();animateParticles();
+</script>
 
 </body>
 </html>

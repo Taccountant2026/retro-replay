@@ -3,12 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Master System</title>
-<link href="../../style.css" rel="stylesheet">
+<title>Retro Replay — Sega Master System</title>
+<link rel="stylesheet" href="../../style.css">
 </head>
 <body>
+
+<!-- NAV -->
 <nav>
-  <a href="../index.html">Sega Home</a>
+  <a href="/index.html">Main Home</a>
+  <a href="/sega/index.html">Sega Home</a>
   <a href="master-system.html">Master System</a>
   <a href="mega-drive.html">Mega Drive</a>
   <a href="sega-saturn.html">Sega Saturn</a>
@@ -17,31 +20,57 @@
   <a href="../contact.html">Contact</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <img src="../../assets/master-system.png" class="logo-hero" alt="Master System">
-  <h1>Master System</h1>
-  <p>Classic 8-bit Sega console — fully refurbished and tested.</p>
+    <canvas id="particle-canvas"></canvas>
+    <img src="../../assets/master-system.png" class="logo-hero" alt="Master System">
+    <h1>Sega Master System</h1>
+    <p>Classic Master System refurbished to mint condition. Includes controller and AV cable.</p>
+    <a href="#products" class="cta-btn">Explore Accessories</a>
 </section>
 
-<section class="grid">
-  <div class="tile">
-    <img src="../../assets/master-system.png" alt="Master System">
-    <h3>Refurbished Consoles</h3>
-    <p>All Master Systems cleaned, tested, and ready to play.</p>
-  </div>
-  <div class="tile">
-    <h3>Optional Mods</h3>
-    <p>Install AV upgrades, HDMI outputs, or cosmetic enhancements.</p>
-  </div>
-  <div class="tile">
-    <h3>Accessories</h3>
-    <p>Controllers, power supplies, cables, and limited-stock items.</p>
-  </div>
+<!-- PRODUCT GRID (optional accessories) -->
+<section id="products" class="grid">
+    <div class="tile">
+        <img src="../../assets/controller.png" alt="Controller">
+        <h3>Original Controller</h3>
+        <p>Cleaned and tested original Master System controller.</p>
+    </div>
+    <div class="tile">
+        <img src="../../assets/power-adapter.png" alt="Power Adapter">
+        <h3>Power Adapter</h3>
+        <p>Fully tested power adapter for safe play.</p>
+    </div>
 </section>
 
+<!-- INFO BLOCKS -->
+<div class="info-block">
+    <h3>About the Master System</h3>
+    <p>The Master System is a retro classic. Our refurbished units are cleaned, tested, and ready for play. Each comes with a 6-month warranty.</p>
+</div>
+
+<div class="info-block">
+    <h3>Trade-Ins & Accessories</h3>
+    <p>Trade your old consoles or collect rare Sega accessories and special editions.</p>
+</div>
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 Retro Replay — Sega Division</p>
+    <p>© 2025 Retro Replay — Sega Division</p>
+    <p>
+        <a href="/index.html">Main Home</a> •
+        <a href="/sega/index.html">Sega Home</a> •
+        <a href="master-system.html">Master System</a> •
+        <a href="mega-drive.html">Mega Drive</a> •
+        <a href="sega-saturn.html">Sega Saturn</a> •
+        <a href="dreamcast.html">Dreamcast</a> •
+        <a href="../guides.html">Guides</a> •
+        <a href="../contact.html">Contact</a>
+    </p>
 </footer>
+
+<script src="../../particles.js"></script>
+<script src="../../scroll-reveal.js"></script>
+
 </body>
 </html>
-

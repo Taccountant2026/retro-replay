@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Atari Contact</title>
+<title>Retro Replay — Contact</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#1a1a26;--panel:#111;--accent:#ffcc00;--accent-strong:#ffaa00;--muted:#9fbbe0;}
@@ -13,6 +13,7 @@ nav{background:#0a0a0a;padding:14px 6%;display:flex;flex-wrap:wrap;gap:12px;just
 nav a{color:var(--accent);font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .18s ease;}
 nav a:hover{ color:#ffffff; transform:translateY(-2px);}
 .hero{position:relative;padding:90px 18px 60px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);border-bottom:1px solid rgba(255,255,255,0.02);}
+.hero .logo-hero{width:160px;margin:0 auto 18px;display:block;position:relative;z-index:3;}
 .hero h1{color:var(--accent);margin:8px 0;font-size:2.6rem;z-index:3;position:relative;}
 .hero p{margin:6px 0 22px;font-size:1.1rem;opacity:.88;z-index:3;position:relative;}
 #particle-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
@@ -22,25 +23,24 @@ input, textarea{ background:#111; border:1px solid rgba(255,255,255,0.03); borde
 button{background:var(--accent); color:#000; font-weight:700; padding:12px; border:none; border-radius:12px; cursor:pointer; transition:transform .16s ease;}
 button:hover{transform:translateY(-3px);}
 footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
-@media(max-width:900px){ .hero{ padding:72px 18px 46px; } .hero h1{ font-size:2.1rem; } }
-@media(max-width:520px){ .hero{ padding:56px 14px 40px; } nav{ padding:12px 4% } }
 </style>
 </head>
 <body>
 
 <nav>
   <a href="index.html">Atari Home</a>
-  <a href="2600.html">2600</a>
-  <a href="5200.html">5200</a>
-  <a href="7800.html">7800</a>
+  <a href="products/2600.html">2600</a>
+  <a href="products/5200.html">5200</a>
+  <a href="products/7800.html">7800</a>
   <a href="guides.html">Guides</a>
   <a href="contact.html">Contact</a>
 </nav>
 
 <section class="hero">
   <canvas id="particle-canvas"></canvas>
-  <h1>Contact Retro Replay — Atari</h1>
-  <p>Questions, support, or inquiries about Atari consoles and services? Reach out to us below.</p>
+  <img src="assets/atari-logo.png" alt="Atari Logo" class="logo-hero">
+  <h1>Contact Retro Replay</h1>
+  <p>Questions, support, or inquiries about Atari consoles and services? Reach out below.</p>
 </section>
 
 <main class="container">
@@ -56,9 +56,9 @@ footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30p
   <div>© 2025 Retro Replay — Atari Division</div>
   <div style="margin-top:8px;">
     <a href="index.html">Atari Home</a> •
-    <a href="2600.html">2600</a> •
-    <a href="5200.html">5200</a> •
-    <a href="7800.html">7800</a> •
+    <a href="products/2600.html">2600</a> •
+    <a href="products/5200.html">5200</a> •
+    <a href="products/7800.html">7800</a> •
     <a href="guides.html">Guides</a> •
     <a href="contact.html">Contact</a>
   </div>
@@ -74,7 +74,7 @@ let particles=[];
 class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.r=Math.random()*1.8+.6;this.vx=(Math.random()-0.5)*0.35;this.vy=(Math.random()-0.5)*0.35;this.alpha=0.25+Math.random()*0.5;}
 update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>canvas.width)this.vx*=-1;if(this.y<0||this.y>canvas.height)this.vy*=-1;}
 draw(){ctx.beginPath();ctx.fillStyle=`rgba(255,204,0,${this.alpha})`;ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();}}
-function initParticles(count=90){particles=[];for(let i=0;i<count;i++)particles.push(new Particle());}
+function initParticles(count=110){particles=[];for(let i=0;i<count;i++)particles.push(new Particle());}
 function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
 window.addEventListener('resize',()=>{setCanvas();initParticles();});initParticles();animate();
 </script>

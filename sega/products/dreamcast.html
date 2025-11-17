@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Dreamcast</title>
-<link href="../../style.css" rel="stylesheet">
+<title>Retro Replay — Sega Dreamcast</title>
+<link rel="stylesheet" href="../../style.css">
 </head>
 <body>
+
 <nav>
-  <a href="../index.html">Sega Home</a>
+  <a href="/index.html">Main Home</a>
+  <a href="/sega/index.html">Sega Home</a>
   <a href="master-system.html">Master System</a>
   <a href="mega-drive.html">Mega Drive</a>
   <a href="sega-saturn.html">Sega Saturn</a>
@@ -18,29 +20,52 @@
 </nav>
 
 <section class="hero">
-  <img src="../../assets/dreamcast.png" class="logo-hero" alt="Dreamcast">
-  <h1>Dreamcast</h1>
-  <p>Classic Sega console — fully tested with VMU support and optional mods.</p>
+    <canvas id="particle-canvas"></canvas>
+    <img src="../../assets/dreamcast.png" class="logo-hero" alt="Dreamcast">
+    <h1>Sega Dreamcast</h1>
+    <p>Fully tested Sega Dreamcast console with controllers, VMU, and AV cables included.</p>
+    <a href="#products" class="cta-btn">Explore Accessories</a>
 </section>
 
-<section class="grid">
-  <div class="tile">
-    <img src="../../assets/dreamcast.png" alt="Dreamcast">
-    <h3>Refurbished Consoles</h3>
-    <p>All Dreamcast consoles fully cleaned, tested, and functional.</p>
-  </div>
-  <div class="tile">
-    <h3>Optional Mods</h3>
-    <p>VGA, HDMI, and cosmetic enhancements available for collectors.</p>
-  </div>
-  <div class="tile">
-    <h3>Accessories</h3>
-    <p>Controllers, VMUs, cables, and limited-stock peripherals.</p>
-  </div>
+<section id="products" class="grid">
+    <div class="tile">
+        <img src="../../assets/controller.png" alt="Controller">
+        <h3>Controller</h3>
+        <p>Original Dreamcast controllers tested for reliability.</p>
+    </div>
+    <div class="tile">
+        <img src="../../assets/vmu.png" alt="VMU">
+        <h3>VMU Memory Card</h3>
+        <p>Save your games with fully tested Visual Memory Units.</p>
+    </div>
 </section>
+
+<div class="info-block">
+    <h3>About the Dreamcast</h3>
+    <p>The Dreamcast is the ultimate retro-modern console. Each unit is cleaned, tested, and comes with warranty.</p>
+</div>
+
+<div class="info-block">
+    <h3>Trade-Ins & Accessories</h3>
+    <p>Collect rare Dreamcast controllers, memory cards, and peripherals.</p>
+</div>
 
 <footer>
-  <p>© 2025 Retro Replay — Sega Division</p>
+    <p>© 2025 Retro Replay — Sega Division</p>
+    <p>
+        <a href="/index.html">Main Home</a> •
+        <a href="/sega/index.html">Sega Home</a> •
+        <a href="master-system.html">Master System</a> •
+        <a href="mega-drive.html">Mega Drive</a> •
+        <a href="sega-saturn.html">Sega Saturn</a> •
+        <a href="dreamcast.html">Dreamcast</a> •
+        <a href="../guides.html">Guides</a> •
+        <a href="../contact.html">Contact</a>
+    </p>
 </footer>
+
+<script src="../../particles.js"></script>
+<script src="../../scroll-reveal.js"></script>
+
 </body>
 </html>

@@ -6,7 +6,7 @@
 <title>Retro Replay — Home</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-/* --- Base Styles --- */
+/* ----------------- Base ----------------- */
 body {
     margin:0;
     font-family:'Orbitron', sans-serif;
@@ -17,7 +17,7 @@ body {
 }
 a { text-decoration:none; color:inherit; }
 
-/* --- Sticky Header --- */
+/* ----------------- Header ----------------- */
 header {
     position:sticky;
     top:0;
@@ -45,10 +45,10 @@ nav a {
 }
 nav a:hover { color:#ffffff; }
 
-/* --- Hero Section --- */
+/* ----------------- Hero ----------------- */
 .hero {
     position:relative;
-    padding:120px 20px 80px;
+    padding:120px 20px 60px;
     text-align:center;
     background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
     overflow:hidden;
@@ -70,19 +70,26 @@ nav a:hover { color:#ffffff; }
 .hero h1 {
     font-size:3rem;
     color:#6db8ff;
-    margin-bottom:15px;
+    margin-bottom:10px;
     position:relative; z-index:1;
 }
 .hero p {
     font-size:1.3rem;
     opacity:0.85;
-    margin-bottom:30px;
+    margin-bottom:25px;
     position:relative; z-index:1;
+}
+.hero .hero-sub {
+    font-size:1rem;
+    opacity:0.6;
+    margin-bottom:30px;
+    z-index:1;
+    position:relative;
 }
 .cta-btn {
     background:#0051ff;
     color:white;
-    padding:15px 30px;
+    padding:15px 35px;
     font-size:1.15rem;
     font-weight:bold;
     border-radius:12px;
@@ -99,7 +106,7 @@ nav a:hover { color:#ffffff; }
     box-shadow:0 0 20px #6db8ff, 0 0 50px #00ffd0;
 }
 
-/* --- Particle Canvas --- */
+/* ----------------- Particle Canvas ----------------- */
 #particle-canvas {
     position:absolute;
     top:0;
@@ -110,7 +117,7 @@ nav a:hover { color:#ffffff; }
     pointer-events:none;
 }
 
-/* --- Product Grid --- */
+/* ----------------- Product Grid ----------------- */
 .grid {
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
@@ -122,7 +129,7 @@ nav a:hover { color:#ffffff; }
 .tile {
     background:#111;
     border:2px solid #1f1f1f;
-    padding:35px 20px;
+    padding:30px 20px;
     border-radius:20px;
     transition:0.3s, box-shadow 0.4s, transform 0.4s;
     cursor:pointer;
@@ -131,7 +138,6 @@ nav a:hover { color:#ffffff; }
     align-items:center;
     box-shadow:0 4px 12px rgba(0,0,0,0.4);
     position:relative;
-    animation:float 4s ease-in-out infinite;
     opacity:0;
     transform: translateY(30px);
 }
@@ -152,11 +158,11 @@ nav a:hover { color:#ffffff; }
 .tile:hover::before { opacity:0.5; }
 .tile img { width:80px; margin-bottom:15px; transition:0.3s; }
 .tile h3 { margin:0 0 10px 0; font-size:1.5rem; color:#6db8ff; }
-.tile p { margin:0; font-size:1rem; opacity:0.8; text-align:center; }
+.tile p { margin:0; font-size:1rem; opacity:0.85; text-align:center; }
 .tile:hover { background:#0051ff; transform:scale(1.08); box-shadow:0 0 15px #00ffd0, 0 0 40px #6db8ff; }
 .tile:hover img { transform:rotate(-10deg) scale(1.1); }
 
-/* --- Floating Badge / Featured --- */
+/* ----------------- Badge ----------------- */
 .badge {
     position:absolute;
     top:10px;
@@ -171,7 +177,31 @@ nav a:hover { color:#ffffff; }
     box-shadow:0 0 8px #ff004c;
 }
 
-/* --- Testimonials --- */
+/* ----------------- Marketing / Features ----------------- */
+.features-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    padding:60px 10%;
+    margin-top:40px;
+}
+.feature-card {
+    background:#111;
+    padding:25px 20px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 0 12px #00ffd044;
+    transition:transform 0.3s, box-shadow 0.3s;
+}
+.feature-card:hover {
+    transform:scale(1.05);
+    box-shadow:0 0 18px #00ffd088;
+}
+.feature-card img { width:50px; margin-bottom:15px; }
+.feature-card h3 { color:#6db8ff; margin-bottom:10px; font-size:1.3rem; }
+.feature-card p { font-size:0.95rem; opacity:0.85; }
+
+/* ----------------- Testimonials ----------------- */
 .testimonials {
     background:#111;
     padding:60px 10%;
@@ -197,7 +227,7 @@ nav a:hover { color:#ffffff; }
 .testimonial-card p { font-style:italic; opacity:0.85; margin-bottom:10px; }
 .testimonial-card span { font-weight:bold; color:#6db8ff; }
 
-/* --- FAQ Snippet --- */
+/* ----------------- FAQ ----------------- */
 .faq-section {
     background:#111;
     padding:50px 10%;
@@ -207,10 +237,11 @@ nav a:hover { color:#ffffff; }
 }
 .faq-section h2 { text-align:center; color:#00d0ff; margin-bottom:30px; }
 .faq-item { margin-bottom:20px; }
-.faq-item h4 { color:#6db8ff; cursor:pointer; margin-bottom:5px; }
+.faq-item h4 { color:#6db8ff; cursor:pointer; margin-bottom:5px; transition:0.2s; }
+.faq-item h4:hover { color:#00d0ff; }
 .faq-item p { margin:0; display:none; opacity:0.85; padding-left:10px; }
 
-/* --- Footer --- */
+/* ----------------- Footer ----------------- */
 footer {
     background:#0b0f18;
     padding:40px 10%;
@@ -222,14 +253,15 @@ footer {
 footer a { color:#6db8ff; margin:0 8px; transition:0.2s; }
 footer a:hover { color:#ffffff; }
 
-/* --- Responsive --- */
+/* ----------------- Responsive ----------------- */
 @media screen and (max-width:768px) {
     header { flex-direction:column; gap:10px; padding:15px 5%; }
     nav a { margin:5px; }
+    .features-grid { padding:40px 5%; gap:15px; }
 }
 @media screen and (max-width:480px) {
     .hero h1 { font-size:2rem; }
-    .hero p { font-size:1rem; }
+    .hero p, .hero .hero-sub { font-size:1rem; }
     .cta-btn { padding:12px 25px; font-size:1rem; }
     .grid { padding:40px 5%; gap:15px; }
     .tile { padding:25px 15px; }
@@ -245,11 +277,11 @@ footer a:hover { color:#ffffff; }
 <header>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
     <nav>
-        <a href="index.html">Retro Home</a>
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="consoles.html">Consoles & Products</a>
+        <a href="consoles.html">Consoles</a>
         <a href="services.html">Services</a>
-        <a href="faq.html">FAQ's</a>
+        <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
     </nav>
 </header>
@@ -260,10 +292,11 @@ footer a:hover { color:#ffffff; }
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo-hero">
     <h1>Restore Your Classics</h1>
     <p>Refurbished consoles, curated games, and professional upgrades for retro gamers.</p>
-    <a href="#console-grid" class="cta-btn">Shop Now</a>
+    <p class="hero-sub">Fast shipping • Trusted refurbishment • Premium quality</p>
+    <a href="#console-grid" class="cta-btn">Shop Consoles</a>
 </section>
 
-<!-- Featured Console Grid -->
+<!-- Console Grid -->
 <section id="console-grid" class="grid">
     <a href="playstation/index.html">
         <div class="tile">
@@ -302,13 +335,25 @@ footer a:hover { color:#ffffff; }
             <p>Classic 2600 & 7800 restored consoles</p>
         </div>
     </a>
-    <a href="branding.html">
-        <div class="tile">
-            <img src="assets/logo.png" alt="Branding Logo">
-            <h3>Branding</h3>
-            <p>Learn about Retro Replay’s identity & design</p>
-        </div>
-    </a>
+</section>
+
+<!-- Marketing / Features -->
+<section class="features-grid">
+    <div class="feature-card">
+        <img src="assets/trade-in-icon.png" alt="Trade-In Icon">
+        <h3>Trade-In</h3>
+        <p>Exchange your old consoles for store credit or discounts.</p>
+    </div>
+    <div class="feature-card">
+        <img src="assets/shipping-icon.png" alt="Shipping Icon">
+        <h3>Shipping</h3>
+        <p>Fast, reliable, and secure delivery for all orders.</p>
+    </div>
+    <div class="feature-card">
+        <img src="assets/warranty-icon.png" alt="Warranty Icon">
+        <h3>Warranties</h3>
+        <p>All refurbished consoles come with a full warranty.</p>
+    </div>
 </section>
 
 <!-- Testimonials -->
@@ -328,7 +373,7 @@ footer a:hover { color:#ffffff; }
     </div>
 </section>
 
-<!-- FAQ Snippet -->
+<!-- FAQ -->
 <section class="faq-section">
     <h2>Quick FAQs</h2>
     <div class="faq-item">
@@ -364,7 +409,7 @@ footer a:hover { color:#ffffff; }
     </p>
 </footer>
 
-<!-- Particle + Scroll Reveal Scripts -->
+<!-- Scripts -->
 <script>
 // Particle System
 const canvas = document.getElementById('particle-canvas');

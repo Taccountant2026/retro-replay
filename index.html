@@ -6,411 +6,465 @@
 <title>Retro Replay — Home</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-/* ------------------ BASE ------------------ */
-* { box-sizing: border-box; margin:0; padding:0; }
+/* ----------------- BASE ----------------- */
 body {
-    font-family:'Orbitron', sans-serif;
-    background:#0a0a0a;
-    color:white;
-    overflow-x:hidden;
-    scroll-behavior: smooth;
+  margin:0;
+  font-family:'Orbitron',sans-serif;
+  background:#0a0a0a;
+  color:white;
+  scroll-behavior: smooth;
+  overflow-x:hidden;
 }
 a { text-decoration:none; color:inherit; }
 
-/* ------------------ HEADER ------------------ */
+/* ----------------- HEADER ----------------- */
 header {
-    position: sticky;
-    top: 0;
-    background: rgba(10,10,10,0.95);
-    z-index: 1000;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 10%;
-    border-bottom:2px solid #1f1f1f;
-    backdrop-filter: blur(5px);
+  position:sticky;
+  top:0;
+  background:rgba(10,10,10,0.95);
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 10%;
+  border-bottom:2px solid #1f1f1f;
+  backdrop-filter: blur(5px);
 }
 header img.logo { height:60px; }
 nav {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
 }
 nav a {
-    margin:5px 10px;
-    font-weight:bold;
-    color:#6db8ff;
-    transition:0.2s;
+  margin:5px 10px;
+  font-weight:bold;
+  color:#6db8ff;
+  transition:0.2s;
 }
 nav a:hover { color:#ffffff; }
 
-/* ------------------ HERO ------------------ */
+/* ----------------- HERO ----------------- */
 .hero {
-    position: relative;
-    text-align:center;
-    padding: 120px 20px 80px;
-    background: linear-gradient(180deg,#0a0a0a 0%,#111 100%);
-    overflow:hidden;
+  position:relative;
+  padding:120px 20px 100px;
+  text-align:center;
+  background: linear-gradient(180deg,#0a0a0a 0%,#111 100%);
+  overflow:hidden;
 }
 .hero::before {
-    content:"";
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
-    z-index:0;
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
+  z-index:0;
 }
-.hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:1; animation:logoPop 1s ease forwards;}
-@keyframes logoPop { from {opacity:0; transform:scale(0.5);} to {opacity:1; transform:scale(1);} }
-.hero h1 { font-size:3rem; color:#6db8ff; margin-bottom:15px; position:relative; z-index:1; animation:fadeUp 1s ease forwards; }
-.hero p { font-size:1.3rem; opacity:0.85; margin-bottom:30px; position:relative; z-index:1; animation:fadeUp 1.2s ease forwards;}
-@keyframes fadeUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+.hero img.logo-hero {
+  width:180px;
+  margin-bottom:20px;
+  position:relative;
+  z-index:1;
+}
+.hero h1 {
+  font-size:3rem;
+  color:#6db8ff;
+  margin-bottom:10px;
+  position:relative; z-index:1;
+}
+.hero p {
+  font-size:1.25rem;
+  opacity:0.85;
+  margin-bottom:20px;
+  position:relative; z-index:1;
+}
+.hero .badges {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:30px;
+  position:relative; z-index:1;
+}
+.hero .badges span {
+  background:#0051ff33;
+  padding:5px 12px;
+  border-radius:12px;
+  font-size:0.85rem;
+  font-weight:bold;
+  color:#6db8ff;
+}
 .cta-btn {
-    background:#0051ff; color:white; padding:15px 30px;
-    font-size:1.15rem; font-weight:bold; border-radius:12px;
-    border:none; cursor:pointer; transition:0.4s; display:inline-block;
-    position:relative; z-index:1;
-    box-shadow:0 0 10px #0051ff,0 0 30px #00ffd0;
+  background:#0051ff;
+  color:white;
+  padding:15px 35px;
+  font-size:1.15rem;
+  font-weight:bold;
+  border-radius:12px;
+  border:none;
+  cursor:pointer;
+  transition:0.4s;
+  position:relative;
+  z-index:1;
+  box-shadow:0 0 10px #0051ff, 0 0 30px #00ffd0;
 }
-.cta-btn:hover { background:#0070ff; transform:scale(1.08); box-shadow:0 0 20px #6db8ff,0 0 50px #00ffd0; }
+.cta-btn:hover {
+  background:#0070ff;
+  transform:scale(1.08);
+  box-shadow:0 0 20px #6db8ff,0 0 50px #00ffd0;
+}
+#particle-canvas {
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  z-index:0;
+  pointer-events:none;
+}
 
-/* ------------------ FILTERS ------------------ */
-.filter-bar {
-    display:flex; justify-content:center; gap:15px; margin:50px 0 20px;
-    flex-wrap:wrap;
+/* ----------------- FILTER BAR ----------------- */
+#filter-bar {
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin:30px 0 0 0;
+  flex-wrap:wrap;
+  position:sticky;
+  top:80px;
+  z-index:900;
 }
-.filter-btn {
-    background:#111; border:2px solid #1f1f1f; color:#6db8ff;
-    padding:10px 20px; border-radius:20px; cursor:pointer; font-weight:bold; transition:0.3s;
+#filter-bar button {
+  background:#111;
+  border:2px solid #1f1f1f;
+  color:#6db8ff;
+  padding:8px 18px;
+  font-weight:bold;
+  border-radius:12px;
+  cursor:pointer;
+  transition:0.3s;
 }
-.filter-btn.active, .filter-btn:hover { background:#0051ff; color:white; }
+#filter-bar button:hover, #filter-bar button.active {
+  background:#0051ff;
+  color:white;
+}
 
-/* ------------------ PRODUCT GRID ------------------ */
+/* ----------------- PRODUCT GRID ----------------- */
 .grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
-    padding:20px 10%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  padding:50px 10%;
 }
 .tile {
-    background:#111;
-    border-radius:20px;
-    padding:20px;
-    perspective:1000px;
-    opacity:0; transform: translateY(40px);
-    transition: 0.6s ease-out;
+  perspective:1000px;
 }
-.tile.visible { opacity:1; transform: translateY(0); }
 .tile-inner {
-    position:relative;
-    width:100%;
-    height:100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+  position:relative;
+  width:100%;
+  height:100%;
+  transition: transform 0.8s;
+  transform-style:preserve-3d;
+  cursor:pointer;
 }
-.tile:hover .tile-inner { transform: rotateY(180deg) scale(1.05); }
+.tile:hover .tile-inner { transform:rotateY(180deg); }
 .tile-front, .tile-back {
-    position:absolute;
-    width:100%; height:100%;
-    backface-visibility:hidden;
-    border-radius:16px;
-    padding:15px;
-    display:flex; flex-direction:column; justify-content:center; align-items:center;
-    text-align:center;
-    box-shadow:0 4px 12px rgba(0,0,0,0.4);
+  position:absolute;
+  width:100%;
+  backface-visibility:hidden;
+  border-radius:20px;
+  padding:30px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 12px rgba(0,0,0,0.5);
 }
-.tile-front { background:#111; }
-.tile-front img { width:80px; margin-bottom:15px; transition:0.3s; }
-.tile-front h3 { margin-bottom:10px; color:#6db8ff; }
-.tile-front p { font-size:0.95rem; opacity:0.85; }
+.tile-front {
+  background:#111;
+  color:#6db8ff;
+}
+.tile-front img { width:90px; margin-bottom:15px; transition:0.3s; }
+.tile-front h3 { margin:0 0 10px; }
+.tile-front p { text-align:center; font-size:1rem; opacity:0.8; }
 .tile-back {
-    background:#0051ff;
-    color:white;
-    transform: rotateY(180deg);
-    padding:20px;
+  background:#0051ff;
+  color:white;
+  transform:rotateY(180deg);
+  text-align:center;
 }
-.tile-back h4 { margin-bottom:10px; font-size:1rem; }
-.tile-back p { font-size:0.9rem; line-height:1.4; }
-.tile-back .shop-btn {
-    margin-top:10px;
-    background:white; color:#0051ff; font-weight:bold;
-    padding:8px 20px; border-radius:12px;
-    text-decoration:none; transition:0.3s;
+.tile-back h3 { margin-bottom:12px; }
+.tile-back p { font-size:0.95rem; margin-bottom:12px; }
+.tile-back a {
+  display:inline-block;
+  background:white;
+  color:#0051ff;
+  padding:8px 20px;
+  border-radius:10px;
+  font-weight:bold;
+  transition:0.3s;
 }
-.tile-back .shop-btn:hover { background:#003780; color:white; }
+.tile-back a:hover { background:#00e1ff; color:#111; }
 
-/* ------------------ SERVICES / INFO ------------------ */
-.services-grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    padding:40px 10%;
+/* ----------------- SERVICES ----------------- */
+.services {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  padding:40px 10%;
+  margin-bottom:50px;
 }
-.service-card {
-    background:#101014;
-    border-radius:16px; padding:25px;
-    text-align:center;
-    transition:transform 0.3s, box-shadow 0.3s;
+.service-block {
+  background:#111;
+  padding:30px 20px;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:0 0 12px #0051ff44;
+  transition:0.3s;
 }
-.service-card:hover { transform: scale(1.05); box-shadow:0 0 20px #00e1ff; }
-.service-card img { width:60px; margin-bottom:15px; }
+.service-block:hover { transform:scale(1.05); box-shadow:0 0 25px #00ffd0; }
+.service-block h3 { color:#6db8ff; margin-bottom:10px; }
+.service-block p { font-size:0.95rem; opacity:0.85; }
 
-/* ------------------ FOOTER ------------------ */
+/* ----------------- FOOTER ----------------- */
 footer {
-    background:#0b0f18;
-    padding:50px 10%;
-    margin-top:60px;
-    text-align:center;
-    font-size:0.9rem;
-    color:#9fbbe0;
+  background:#0b0f18;
+  padding:40px 10%;
+  font-size:0.9rem;
+  color:#9fbbe0;
+  text-align:center;
 }
 footer a { color:#6db8ff; margin:0 8px; }
 footer a:hover { color:white; }
 
-/* ------------------ RESPONSIVE ------------------ */
-@media(max-width:768px) {
-    header { flex-direction:column; gap:10px; padding:15px 5%; }
-    nav a { margin:5px; }
-    .hero h1 { font-size:2.3rem; }
-    .hero p { font-size:1.1rem; }
-    .grid { padding:20px 5%; }
-}
-@media(max-width:480px) {
-    .hero h1 { font-size:1.8rem; }
-    .hero p { font-size:0.95rem; }
-    .cta-btn { padding:12px 25px; font-size:1rem; }
-    .tile-front img { width:60px; }
-    .tile-front h3 { font-size:1.1rem; }
-    .tile-front p { font-size:0.85rem; }
-}
+/* ----------------- ANIMATIONS ----------------- */
+@keyframes float { 0%,100%{transform: translateY(0px);} 50%{transform: translateY(-5px);} }
+.tile-front { animation:float 4s ease-in-out infinite; opacity:0; transform:translateY(30px);}
+.tile-front.visible { opacity:1; transform:translateY(0);}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <header>
-    <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
-    <nav>
-        <a href="index.html">Retro Home</a>
-        <a href="about.html">About</a>
-        <a href="consoles.html">Consoles & Products</a>
-        <a href="services.html">Services</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+  <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
+  <nav>
+    <a href="index.html">Retro Home</a>
+    <a href="about.html">About RetroReplay</a>
+    <a href="consoles.html">Consoles & Products</a>
+    <a href="services.html">Services</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-    <canvas id="particle-canvas"></canvas>
-    <img src="assets/logo.png" class="logo-hero" alt="Retro Replay Logo">
-    <h1>Restore Your Classics</h1>
-    <p>Refurbished consoles, curated games, and professional upgrades for retro gamers.</p>
-    <a href="#products" class="cta-btn">Shop Now</a>
+  <canvas id="particle-canvas"></canvas>
+  <img src="assets/logo.png" alt="Logo" class="logo-hero">
+  <h1>Restore Your Classics</h1>
+  <div class="badges">
+    <span>Refurbished</span>
+    <span>Mods</span>
+    <span>Rare Editions</span>
+  </div>
+  <p>Professional upgrades for retro gamers. Clean, tested & restored consoles.</p>
+  <a href="#console-grid" class="cta-btn">Shop Now</a>
 </section>
 
-<!-- FILTERS -->
-<div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="playstation">PlayStation</button>
-    <button class="filter-btn" data-filter="xbox">Xbox</button>
-    <button class="filter-btn" data-filter="nintendo">Nintendo</button>
-    <button class="filter-btn" data-filter="sega">SEGA</button>
-    <button class="filter-btn" data-filter="atari">Atari</button>
-    <button class="filter-btn" data-filter="branding">Branding</button>
+<!-- FILTER BAR -->
+<div id="filter-bar">
+  <button data-filter="all" class="active">All Consoles</button>
+  <button data-filter="playstation">PlayStation</button>
+  <button data-filter="xbox">Xbox</button>
+  <button data-filter="nintendo">Nintendo</button>
+  <button data-filter="sega">SEGA</button>
+  <button data-filter="atari">Atari</button>
 </div>
 
 <!-- PRODUCT GRID -->
-<section id="products" class="grid">
-    <!-- PlayStation -->
-    <div class="tile" data-category="playstation">
-        <div class="tile-inner">
-            <div class="tile-front">
-                <img src="assets/ps1logo.png" alt="PlayStation">
-                <h3>PlayStation</h3>
-                <p>PS1, PS2 & PS3 refurbished consoles</p>
-            </div>
-            <div class="tile-back">
-                <h4>Features:</h4>
-                <p>Full refurbishment, optional mods, upgrades & rare editions.</p>
-                <a href="playstation/index.html" class="shop-btn">Shop Now</a>
-            </div>
-        </div>
-    </div>
+<section id="console-grid" class="grid">
 
-    <!-- Xbox -->
-    <div class="tile" data-category="xbox">
-        <div class="tile-inner">
-            <div class="tile-front">
-                <img src="assets/xboxlogo.png" alt="Xbox">
-                <h3>Xbox</h3>
-                <p>Original & Xbox 360 refurbished consoles</p>
-            </div>
-            <div class="tile-back">
-                <h4>Features:</h4>
-                <p>Refurbished, tested, accessories included & optional mods.</p>
-                <a href="xbox/index.html" class="shop-btn">Shop Now</a>
-            </div>
-        </div>
+  <div class="tile" data-category="playstation">
+    <div class="tile-inner">
+      <div class="tile-front">
+        <img src="assets/ps1logo.png" alt="PlayStation">
+        <h3>PlayStation</h3>
+        <p>PS1, PS2 & PS3 refurbished consoles</p>
+      </div>
+      <div class="tile-back">
+        <h3>Explore PlayStation</h3>
+        <p>Full refurbishments, mods & upgrades available</p>
+        <a href="playstation/index.html">View</a>
+      </div>
     </div>
+  </div>
 
-    <!-- Nintendo -->
-    <div class="tile" data-category="nintendo">
-        <div class="tile-inner">
-            <div class="tile-front">
-                <img src="assets/nintendologo.png" alt="Nintendo">
-                <h3>Nintendo</h3>
-                <p>NES, SNES, N64 & Switch retro consoles</p>
-            </div>
-            <div class="tile-back">
-                <h4>Features:</h4>
-                <p>Classic consoles, full cleaning, restored & playable.</p>
-                <a href="nintendo/index.html" class="shop-btn">Shop Now</a>
-            </div>
-        </div>
+  <div class="tile" data-category="xbox">
+    <div class="tile-inner">
+      <div class="tile-front">
+        <img src="assets/xboxlogo.png" alt="Xbox">
+        <h3>Xbox</h3>
+        <p>Original & Xbox 360 refurbished consoles</p>
+      </div>
+      <div class="tile-back">
+        <h3>Explore Xbox</h3>
+        <p>Refurbished and upgraded systems ready for play</p>
+        <a href="xbox/index.html">View</a>
+      </div>
     </div>
+  </div>
 
-    <!-- SEGA -->
-    <div class="tile" data-category="sega">
-        <div class="tile-inner">
-            <div class="tile-front">
-                <img src="assets/segalogo.png" alt="SEGA">
-                <h3>SEGA</h3>
-                <p>Genesis, Mega Drive & Saturn refurbished</p>
-            </div>
-            <div class="tile-back">
-                <h4>Features:</h4>
-                <p>Restored, tested, optional mods and upgrades available.</p>
-                <a href="sega/index.html" class="shop-btn">Shop Now</a>
-            </div>
-        </div>
+  <div class="tile" data-category="nintendo">
+    <div class="tile-inner">
+      <div class="tile-front">
+        <img src="assets/nintendologo.png" alt="Nintendo">
+        <h3>Nintendo</h3>
+        <p>NES, SNES, N64 & Switch retro consoles</p>
+      </div>
+      <div class="tile-back">
+        <h3>Explore Nintendo</h3>
+        <p>Curated retro consoles & limited editions</p>
+        <a href="nintendo/index.html">View</a>
+      </div>
     </div>
+  </div>
 
-    <!-- Atari -->
-    <div class="tile" data-category="atari">
-        <div class="tile-inner">
-            <div class="tile-front">
-                <img src="assets/atarilogo.png" alt="Atari">
-                <h3>Atari</h3>
-                <p>Classic 2600 & 7800 restored consoles</p>
-            </div>
-            <div class="tile-back">
-                <h4>Features:</h4>
-                <p>Full restoration, tested & ready to play.</p>
-                <a href="atari/index.html" class="shop-btn">Shop Now</a>
-            </div>
-        </div>
+  <div class="tile" data-category="sega">
+    <div class="tile-inner">
+      <div class="tile-front">
+        <img src="assets/segalogo.png" alt="SEGA">
+        <h3>SEGA</h3>
+        <p>Genesis, Mega Drive & Saturn refurbished</p>
+      </div>
+      <div class="tile-back">
+        <h3>Explore SEGA</h3>
+        <p>Fully tested and cosmetically restored</p>
+        <a href="sega/index.html">View</a>
+      </div>
     </div>
+  </div>
 
-    <!-- Branding -->
-    <div class="tile" data-category="branding">
-        <div class="tile-inner">
-            <div class="tile-front">
-                <img src="assets/logo.png" alt="Branding">
-                <h3>Branding</h3>
-                <p>Learn about Retro Replay’s identity & design</p>
-            </div>
-            <div class="tile-back">
-                <h4>Explore:</h4>
-                <p>Logo, style, design philosophy & marketing features.</p>
-                <a href="branding.html" class="shop-btn">View</a>
-            </div>
-        </div>
+  <div class="tile" data-category="atari">
+    <div class="tile-inner">
+      <div class="tile-front">
+        <img src="assets/atarilogo.png" alt="Atari">
+        <h3>Atari</h3>
+        <p>Classic 2600 & 7800 restored consoles</p>
+      </div>
+      <div class="tile-back">
+        <h3>Explore Atari</h3>
+        <p>Restored consoles, fully tested and playable</p>
+        <a href="atari/index.html">View</a>
+      </div>
     </div>
+  </div>
+
+  <div class="tile" data-category="branding">
+    <div class="tile-inner">
+      <div class="tile-front">
+        <img src="assets/logo.png" alt="Branding">
+        <h3>Branding</h3>
+        <p>Learn about Retro Replay’s identity & design</p>
+      </div>
+      <div class="tile-back">
+        <h3>Branding</h3>
+        <p>All about our creative vision & design ethos</p>
+        <a href="branding.html">View</a>
+      </div>
+    </div>
+  </div>
+
 </section>
 
-<!-- SERVICES / POLICIES -->
-<section class="services-grid">
-    <div class="service-card">
-        <img src="assets/trade-in-icon.png" alt="Trade-In">
-        <h3>Trade-In</h3>
-        <p>Exchange your old consoles for store credit or discounts</p>
-    </div>
-    <div class="service-card">
-        <img src="assets/shipping-icon.png" alt="Shipping">
-        <h3>Shipping</h3>
-        <p>Fast, reliable, and secure delivery for all orders</p>
-    </div>
-    <div class="service-card">
-        <img src="assets/warranty-icon.png" alt="Warranty">
-        <h3>Warranties</h3>
-        <p>All refurbished consoles come with a full warranty</p>
-    </div>
+<!-- SERVICES BLOCK -->
+<section class="services">
+  <div class="service-block">
+    <h3>Trade-In</h3>
+    <p>Exchange your old consoles for store credit or discounts.</p>
+  </div>
+  <div class="service-block">
+    <h3>Shipping</h3>
+    <p>Fast, reliable, and secure delivery for all orders.</p>
+  </div>
+  <div class="service-block">
+    <h3>Warranties</h3>
+    <p>All refurbished consoles come with a full warranty.</p>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
-    <p>
-        <a href="index.html">Home</a> |
-        <a href="about.html">About</a> |
-        <a href="buying-guide.html">Buying Guide</a> |
-        <a href="services.html">Services</a> |
-        <a href="mods-upgrades.html">Mods & Upgrades</a> |
-        <a href="how-we-refurbish.html">How We Refurbish</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="delivery.html">Shipping & Delivery</a> |
-        <a href="faq.html">FAQ</a> |
-        <a href="warranties.html">Warranties</a>
-    </p>
+  <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
+  <p>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="buying-guide.html">Buying Guide</a> |
+    <a href="services.html">Services</a> |
+    <a href="mods-upgrades.html">Mods & Upgrades</a> |
+    <a href="how-we-refurbish.html">How We Refurbish</a> |
+    <a href="contact.html">Contact</a>
+  </p>
 </footer>
 
-<!-- PARTICLE SCRIPT -->
+<!-- ----------------- SCRIPT ----------------- -->
 <script>
+// ----------------- PARTICLES -----------------
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-let particlesArray = [];
-class Particle{
-    constructor(){
-        this.x=Math.random()*canvas.width;
-        this.y=Math.random()*canvas.height;
-        this.size=Math.random()*2+1;
-        this.speedX=(Math.random()-0.5)*0.5;
-        this.speedY=(Math.random()-0.5)*0.5;
-    }
-    update(){ this.x+=this.speedX; this.y+=this.speedY;
-        if(this.x<0||this.x>canvas.width) this.speedX*=-1;
-        if(this.y<0||this.y>canvas.height) this.speedY*=-1;
-    }
-    draw(){ ctx.fillStyle='rgba(109,184,255,0.5)';
-        ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill();
-    }
-}
-function initParticles(){ particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle()); } }
-function animateParticles(){ ctx.clearRect(0,0,canvas.width,canvas.height); particlesArray.forEach(p=>{p.update(); p.draw();}); requestAnimationFrame(animateParticles);}
-initParticles(); animateParticles();
-window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; initParticles(); });
 
-// ------------------ SCROLL REVEAL ------------------
-const tiles = document.querySelectorAll('.tile');
+let particlesArray=[];
+class Particle{
+  constructor(){
+    this.x=Math.random()*canvas.width;
+    this.y=Math.random()*canvas.height;
+    this.size=Math.random()*2+1;
+    this.speedX=(Math.random()-0.5)*0.5;
+    this.speedY=(Math.random()-0.5)*0.5;
+  }
+  update(){
+    this.x+=this.speedX;
+    this.y+=this.speedY;
+    if(this.x<0||this.x>canvas.width)this.speedX*=-1;
+    if(this.y<0||this.y>canvas.height)this.speedY*=-1;
+  }
+  draw(){
+    ctx.fillStyle='rgba(109,184,255,0.5)';
+    ctx.beginPath();
+    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+    ctx.fill();
+  }
+}
+function initParticles(){particlesArray=[];for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
+function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+initParticles(); animateParticles();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; initParticles();});
+
+// ----------------- SCROLL ANIMATION -----------------
+const tiles = document.querySelectorAll('.tile-front');
 function revealOnScroll(){
-    const trigger = window.innerHeight*0.85;
-    tiles.forEach(tile=>{
-        if(tile.getBoundingClientRect().top<trigger){
-            tile.classList.add('visible');
-        }
-    });
+  const trigger = window.innerHeight * 0.85;
+  tiles.forEach(tile=>{
+    if(tile.getBoundingClientRect().top < trigger){tile.classList.add('visible');}
+  });
 }
 window.addEventListener('scroll',revealOnScroll);
 revealOnScroll();
 
-// ------------------ FILTERS ------------------
-const filterBtns = document.querySelectorAll('.filter-btn');
-filterBtns.forEach(btn=>{
-    btn.addEventListener('click',()=>{
-        filterBtns.forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        tiles.forEach(tile=>{
-            if(filter==='all'||tile.dataset.category===filter){ tile.style.display='block'; }
-            else { tile.style.display='none'; }
-        });
+// ----------------- FILTER FUNCTION -----------------
+const filterButtons = document.querySelectorAll('#filter-bar button');
+filterButtons.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    filterButtons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const category = btn.getAttribute('data-filter');
+    document.querySelectorAll('#console-grid .tile').forEach(tile=>{
+      if(category==='all'||tile.getAttribute('data-category')===category){
+        tile.style.display='block';
+      }else tile.style.display='none';
     });
+  });
 });
 </script>
-
 </body>
 </html>

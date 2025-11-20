@@ -9,21 +9,22 @@
 /* ---------------- Base Styles ---------------- */
 body { margin:0; font-family:'Orbitron',sans-serif; background:#0a0a0a; color:white; scroll-behavior:smooth; overflow-x:hidden; }
 a { text-decoration:none; color:inherit; }
+
+/* ---------------- Header ---------------- */
 header { position:sticky; top:0; background:rgba(10,10,10,0.95); z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:15px 10%; border-bottom:2px solid #1f1f1f; backdrop-filter:blur(5px);}
 header img.logo { height:60px; }
 nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
 nav a { margin:5px 10px; font-weight:bold; color:#6db8ff; transition:0.2s; }
-nav a:hover { color:#ffffff; }
+nav a:hover { color:white; }
 
 /* ---------------- Hero Section ---------------- */
 .hero { position:relative; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; padding:120px 10%; gap:40px; background:linear-gradient(180deg,#0a0a0a 0%,#111 100%); overflow:hidden; }
-.hero-text { flex:1; min-width:280px; }
+#particle-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.hero-text { flex:1; min-width:280px; position:relative; z-index:1; }
 .hero h1 { font-size:3rem; color:#6db8ff; margin-bottom:20px; line-height:1.2; }
 .hero p { font-size:1.3rem; opacity:0.85; margin-bottom:30px; }
-.hero img { flex:1; max-width:350px; border-radius:20px; box-shadow:0 0 30px #0051ff88; transition:0.3s; }
+.hero img { flex:1; max-width:350px; border-radius:20px; box-shadow:0 0 30px #0051ff88; transition:0.3s; position:relative; z-index:1; }
 .hero img:hover { transform:scale(1.05) rotate(-2deg); }
-
-/* CTA Button */
 .cta-btn { background:#0051ff; color:white; padding:15px 35px; font-size:1.2rem; font-weight:bold; border-radius:12px; border:none; cursor:pointer; box-shadow:0 0 15px #0051ff, 0 0 35px #00ffd0; transition:0.4s; }
 .cta-btn:hover { background:#0070ff; transform:scale(1.08); box-shadow:0 0 25px #6db8ff,0 0 60px #00ffd0; }
 
@@ -34,6 +35,7 @@ nav a:hover { color:#ffffff; }
 .tile img { width:80px; margin-bottom:15px; transition:0.3s; }
 .tile h3 { margin-bottom:10px; font-size:1.5rem; color:#6db8ff; }
 .tile p { opacity:0.85; font-size:1rem; }
+.tile .badge { position:absolute; top:10px; right:10px; background:#00ffd0; color:#0a0a0a; padding:5px 10px; font-size:0.8rem; font-weight:bold; border-radius:12px; box-shadow:0 0 5px #00ffd0; }
 .tile:hover { transform:scale(1.08); box-shadow:0 0 20px #00ffd0, 0 0 50px #6db8ff; }
 .tile:hover img { transform:scale(1.1) rotate(-5deg); }
 
@@ -70,6 +72,7 @@ footer a:hover { color:white; }
 
 <!-- Hero -->
 <section class="hero">
+    <canvas id="particle-canvas"></canvas>
     <div class="hero-text">
         <h1>Restore Your Classics</h1>
         <p>Refurbished consoles, curated games, and professional upgrades for retro gamers.</p>
@@ -78,10 +81,27 @@ footer a:hover { color:white; }
     <img src="assets/hero-console.png" alt="Refurbished Console">
 </section>
 
+<!-- Info Blocks / Promotions -->
+<section class="info-blocks">
+    <div class="info-block">
+        <h3>Trade-In & Upgrades</h3>
+        <p>Exchange old consoles for store credit, upgrades, or discounts.</p>
+    </div>
+    <div class="info-block">
+        <h3>Limited Edition Releases</h3>
+        <p>Grab rare, fully restored consoles before they’re gone!</p>
+    </div>
+    <div class="info-block">
+        <h3>Fast Shipping</h3>
+        <p>All orders are packed securely and delivered quickly.</p>
+    </div>
+</section>
+
 <!-- Console Grid -->
 <section id="console-grid" class="grid">
     <a href="playstation/index.html">
         <div class="tile">
+            <div class="badge">Popular</div>
             <img src="assets/ps1logo.png" alt="PlayStation">
             <h3>PlayStation</h3>
             <p>PS1, PS2 & PS3 refurbished consoles</p>
@@ -89,6 +109,7 @@ footer a:hover { color:white; }
     </a>
     <a href="xbox/index.html">
         <div class="tile">
+            <div class="badge">New</div>
             <img src="assets/xboxlogo.png" alt="Xbox">
             <h3>Xbox</h3>
             <p>Original & Xbox 360 refurbished consoles</p>
@@ -117,22 +138,6 @@ footer a:hover { color:white; }
     </a>
 </section>
 
-<!-- Info Blocks -->
-<section class="info-blocks">
-    <div class="info-block">
-        <h3>Trade-In & Upgrades</h3>
-        <p>Exchange old consoles for store credit, upgrades, or discounts.</p>
-    </div>
-    <div class="info-block">
-        <h3>Quality Refurbishment</h3>
-        <p>Every console is cleaned, tested, fan tuned & cosmetically restored.</p>
-    </div>
-    <div class="info-block">
-        <h3>Fast Shipping</h3>
-        <p>All orders are packed securely and delivered quickly.</p>
-    </div>
-</section>
-
 <!-- Footer -->
 <footer>
     <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
@@ -145,16 +150,34 @@ footer a:hover { color:white; }
     </p>
 </footer>
 
+<!-- Particle Script & Scroll Reveal -->
 <script>
-// Scroll reveal tiles
-const tiles = document.querySelectorAll('.tile');
-function revealOnScroll() {
-    const trigger = window.innerHeight*0.85;
-    tiles.forEach(tile=>{
-        if(tile.getBoundingClientRect().top < trigger) tile.classList.add('visible');
-    });
+// Particle System
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=document.querySelector('.hero').offsetHeight;}
+resizeCanvas();
+window.addEventListener('resize',resizeCanvas);
+
+let particles=[];
+class Particle{
+    constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedX=(Math.random()-0.5)*0.4;this.speedY=(Math.random()-0.5)*0.4;}
+    update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvas.width)this.speedX*=-1;if(this.y<0||this.y>canvas.height)this.speedY*=-1;}
+    draw(){ctx.fillStyle='rgba(109,184,255,0.45)';ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}
 }
-window.addEventListener('scroll', revealOnScroll);
+function initParticles(){particles=[];for(let i=0;i<120;i++){particles.push(new Particle());}}
+function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+initParticles();animateParticles();
+
+// Scroll Reveal
+const tiles=document.querySelectorAll('.tile');
+const blocks=document.querySelectorAll('.info-block');
+function revealOnScroll(){
+    const trigger=window.innerHeight*0.85;
+    tiles.forEach(t=>{if(t.getBoundingClientRect().top<trigger)t.classList.add('visible');});
+    blocks.forEach(b=>{if(b.getBoundingClientRect().top<trigger)b.classList.add('visible');});
+}
+window.addEventListener('scroll',revealOnScroll);
 revealOnScroll();
 </script>
 

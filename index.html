@@ -6,40 +6,31 @@
 <title>Retro Replay — Home</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-/* --- Base Styles --- */
+/* ---------------- Base Styles ---------------- */
 body {
     margin:0;
     font-family:'Orbitron', sans-serif;
-    background:#0a0a0a;
-    color:white;
-    scroll-behavior: smooth;
+    background:#f0f4f8; /* lighter background */
+    color:#111;
+    scroll-behavior:smooth;
     overflow-x:hidden;
 }
 a { text-decoration:none; color:inherit; }
+h1,h2,h3,h4,h5 { margin:0; }
 
-/* --- Particle Canvas --- */
-#particle-canvas {
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:-1;
-    pointer-events:none;
-}
-
-/* --- Sticky Header --- */
+/* ---------------- Header ---------------- */
 header {
     position:sticky;
     top:0;
-    background:rgba(10,10,10,0.95);
+    background:rgba(255,255,255,0.95);
     z-index:1000;
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:15px 10%;
-    border-bottom:2px solid #1f1f1f;
+    border-bottom:2px solid #ddd;
     backdrop-filter: blur(5px);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
 }
 header img.logo { height:60px; }
 nav {
@@ -51,166 +42,195 @@ nav {
 nav a {
     margin:5px 10px;
     font-weight:bold;
-    color:#6db8ff;
+    color:#0051ff;
     transition:0.2s;
 }
-nav a:hover { color:#ffffff; }
+nav a:hover { color:#ff007f; }
 
-/* --- Hero Section --- */
+/* ---------------- Hero ---------------- */
 .hero {
     position:relative;
     padding:120px 20px 80px;
     text-align:center;
-    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    background: linear-gradient(135deg,#6db8ff 0%,#ffffff 100%);
     overflow:hidden;
+    border-bottom:3px solid #0051ff;
+}
+.hero::before {
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: radial-gradient(circle at center, rgba(0,80,255,0.08), transparent 70%);
+    z-index:0;
 }
 .hero img.logo-hero {
     width:180px;
     margin-bottom:20px;
+    position:relative;
+    z-index:1;
+    animation:logoFloat 6s ease-in-out infinite;
+}
+@keyframes logoFloat {
+    0%,100%{ transform:translateY(0);}
+    50%{ transform:translateY(-8px);}
 }
 .hero h1 {
     font-size:3rem;
-    color:#6db8ff;
+    color:#0051ff;
     margin-bottom:15px;
+    position:relative; z-index:1;
 }
 .hero p {
     font-size:1.3rem;
-    opacity:0.85;
+    opacity:0.9;
     margin-bottom:30px;
+    position:relative; z-index:1;
 }
 .cta-btn {
-    background:#0051ff;
+    background:#ff007f;
     color:white;
-    padding:15px 30px;
-    font-size:1.15rem;
+    padding:15px 35px;
+    font-size:1.2rem;
     font-weight:bold;
     border-radius:12px;
     border:none;
     cursor:pointer;
     transition:0.4s;
     display:inline-block;
-    box-shadow:0 0 10px #0051ff, 0 0 30px #00ffd0;
+    position:relative; z-index:1;
+    box-shadow:0 0 15px #ff007f44, 0 0 40px #ff00ff33;
 }
 .cta-btn:hover {
-    background:#0070ff;
     transform:scale(1.08);
-    box-shadow:0 0 20px #6db8ff, 0 0 50px #00ffd0;
+    box-shadow:0 0 25px #ff007f88, 0 0 60px #ff00ff55;
 }
 
-/* --- Product Grid --- */
+/* ---------------- Particle Canvas ---------------- */
+#particle-canvas {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    pointer-events:none;
+}
+
+/* ---------------- Product Grid ---------------- */
 .grid {
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-    gap:25px;
+    gap:30px;
     padding:60px 10%;
 }
 .grid a { display:block; }
 
 .tile {
-    background:#111;
-    border:2px solid #1f1f1f;
-    padding:35px 20px;
+    background:#ffffff;
     border-radius:20px;
+    padding:35px 20px;
     transition:0.3s, box-shadow 0.4s, transform 0.4s;
     cursor:pointer;
     display:flex;
     flex-direction:column;
     align-items:center;
-    box-shadow:0 4px 12px rgba(0,0,0,0.4);
+    box-shadow:0 6px 20px rgba(0,0,0,0.08);
     position:relative;
-    animation:float 4s ease-in-out infinite;
+    overflow:hidden;
     opacity:0;
-    transform: translateY(30px);
+    transform:translateY(40px);
 }
-.tile.visible { opacity:1; transform:translateY(0px); transition:0.6s ease-out; }
+.tile.visible { opacity:1; transform:translateY(0px); transition:0.7s ease-out; }
 .tile::before {
     content:"";
     position:absolute;
-    top:-5px; left:-5px;
-    width:calc(100% + 10px);
-    height:calc(100% + 10px);
-    border-radius:22px;
-    background:linear-gradient(45deg,#0051ff,#00ffd0,#6db8ff,#ff00ff);
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    border-radius:20px;
+    background: linear-gradient(135deg,#6db8ff,#ff00ff,#00ffd0);
     opacity:0;
-    z-index:-1;
-    filter:blur(20px);
-    transition:0.3s;
+    z-index:0;
+    filter:blur(25px);
+    transition:0.5s;
 }
-.tile:hover::before { opacity:0.5; }
-.tile img { width:80px; margin-bottom:15px; transition:0.3s; }
-.tile h3 { margin:0 0 10px 0; font-size:1.5rem; color:#6db8ff; }
-.tile p { margin:0; font-size:1rem; opacity:0.8; text-align:center; }
-.tile:hover { background:#0051ff; transform:scale(1.08); box-shadow:0 0 15px #00ffd0, 0 0 40px #6db8ff; }
-.tile:hover img { transform:rotate(-10deg) scale(1.1); }
-@keyframes float { 0%,100%{transform: translateY(0px);} 50%{transform: translateY(-5px);} }
+.tile:hover::before { opacity:0.3; }
+.tile img { width:100px; margin-bottom:15px; transition:0.4s; z-index:1; }
+.tile h3 { margin:0 0 10px 0; font-size:1.5rem; color:#0051ff; z-index:1; }
+.tile p { margin:0; font-size:1rem; opacity:0.8; text-align:center; z-index:1; }
+.tile:hover { transform:scale(1.05); box-shadow:0 0 25px #ff00ff66,0 0 60px #00ffd055; }
+.tile:hover img { transform:rotate(-8deg) scale(1.15); }
 
-/* --- Floating Badge / Featured --- */
+/* ---------------- Badge ---------------- */
 .badge {
     position:absolute;
-    top:10px;
-    right:10px;
-    background:#ff004c;
+    top:12px;
+    right:12px;
+    background:#ff007f;
     color:white;
     font-weight:bold;
-    padding:5px 10px;
-    border-radius:12px;
+    padding:6px 12px;
+    border-radius:14px;
     font-size:0.85rem;
     text-transform:uppercase;
-    box-shadow:0 0 8px #ff004c;
+    box-shadow:0 0 10px #ff007f77;
+    animation:badgePulse 2.5s infinite;
+}
+@keyframes badgePulse {
+    0%,100%{ transform:scale(1);}
+    50%{ transform:scale(1.1);}
 }
 
-/* --- Testimonials --- */
+/* ---------------- Testimonials ---------------- */
 .testimonials {
-    background:#111;
+    background:#ffffff;
     padding:60px 10%;
-    margin-top:60px;
+    margin:60px 0;
     border-radius:20px;
-    box-shadow:0 0 20px #0051ff44;
+    box-shadow:0 0 20px #0051ff22;
 }
-.testimonials h2 {
-    text-align:center;
-    color:#00d0ff;
-    margin-bottom:40px;
-}
+.testimonials h2 { text-align:center; color:#0051ff; margin-bottom:40px; }
 .testimonial-card {
-    background:#121212;
+    background:#f0f4f8;
     border-radius:16px;
     padding:20px;
     margin:10px;
-    box-shadow:0 0 12px #00d0ff44;
+    box-shadow:0 0 15px rgba(0,0,0,0.08);
     text-align:center;
     transition:transform 0.3s;
 }
 .testimonial-card:hover { transform:scale(1.03); }
 .testimonial-card p { font-style:italic; opacity:0.85; margin-bottom:10px; }
-.testimonial-card span { font-weight:bold; color:#6db8ff; }
+.testimonial-card span { font-weight:bold; color:#0051ff; }
 
-/* --- FAQ Snippet --- */
+/* ---------------- FAQ ---------------- */
 .faq-section {
-    background:#111;
+    background:#ffffff;
     padding:50px 10%;
     margin:60px 0;
     border-radius:20px;
-    box-shadow:0 0 20px #00ffd044;
+    box-shadow:0 0 20px #00ffd033;
 }
-.faq-section h2 { text-align:center; color:#00d0ff; margin-bottom:30px; }
+.faq-section h2 { text-align:center; color:#0051ff; margin-bottom:30px; }
 .faq-item { margin-bottom:20px; }
-.faq-item h4 { color:#6db8ff; cursor:pointer; margin-bottom:5px; }
+.faq-item h4 { color:#ff007f; cursor:pointer; margin-bottom:5px; }
 .faq-item p { margin:0; display:none; opacity:0.85; padding-left:10px; }
 
-/* --- Footer --- */
+/* ---------------- Footer ---------------- */
 footer {
-    background:#0b0f18;
+    background:#f0f4f8;
     padding:40px 10%;
     margin-top:60px;
     font-size:0.9rem;
-    color:#9fbbe0;
+    color:#111;
     text-align:center;
+    border-top:2px solid #0051ff;
 }
-footer a { color:#6db8ff; margin:0 8px; transition:0.2s; }
-footer a:hover { color:#ffffff; }
+footer a { color:#0051ff; margin:0 8px; transition:0.2s; }
+footer a:hover { color:#ff007f; }
 
-/* --- Responsive --- */
+/* ---------------- Responsive ---------------- */
 @media screen and (max-width:768px) {
     header { flex-direction:column; gap:10px; padding:15px 5%; }
     nav a { margin:5px; }
@@ -221,7 +241,7 @@ footer a:hover { color:#ffffff; }
     .cta-btn { padding:12px 25px; font-size:1rem; }
     .grid { padding:40px 5%; gap:15px; }
     .tile { padding:25px 15px; }
-    .tile img { width:60px; margin-bottom:10px; }
+    .tile img { width:70px; margin-bottom:10px; }
     .tile h3 { font-size:1.2rem; }
     .tile p { font-size:0.9rem; }
 }
@@ -229,30 +249,29 @@ footer a:hover { color:#ffffff; }
 </head>
 <body>
 
-<canvas id="particle-canvas"></canvas>
-
 <!-- Header -->
 <header>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
     <nav>
-        <a href="index.html">Retro Home</a>
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="consoles.html">Consoles & Products</a>
+        <a href="consoles.html">Consoles</a>
         <a href="services.html">Services</a>
-        <a href="faq.html">FAQ's</a>
+        <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
     </nav>
 </header>
 
 <!-- Hero -->
 <section class="hero">
+    <canvas id="particle-canvas"></canvas>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo-hero">
     <h1>Restore Your Classics</h1>
     <p>Refurbished consoles, curated games, and professional upgrades for retro gamers.</p>
     <a href="#console-grid" class="cta-btn">Shop Now</a>
 </section>
 
-<!-- Featured Console Grid -->
+<!-- Console Grid -->
 <section id="console-grid" class="grid">
     <a href="playstation/index.html">
         <div class="tile">
@@ -284,20 +303,6 @@ footer a:hover { color:#ffffff; }
             <p>Genesis, Mega Drive & Saturn refurbished</p>
         </div>
     </a>
-    <a href="atari/index.html">
-        <div class="tile">
-            <img src="assets/atarilogo.png" alt="Atari Logo">
-            <h3>Atari</h3>
-            <p>Classic 2600 & 7800 restored consoles</p>
-        </div>
-    </a>
-    <a href="branding.html">
-        <div class="tile">
-            <img src="assets/logo.png" alt="Branding Logo">
-            <h3>Branding</h3>
-            <p>Learn about Retro Replay’s identity & design</p>
-        </div>
-    </a>
 </section>
 
 <!-- Testimonials -->
@@ -317,7 +322,7 @@ footer a:hover { color:#ffffff; }
     </div>
 </section>
 
-<!-- FAQ Snippet -->
+<!-- FAQ -->
 <section class="faq-section">
     <h2>Quick FAQs</h2>
     <div class="faq-item">
@@ -340,83 +345,67 @@ footer a:hover { color:#ffffff; }
     <p>
         <a href="index.html">Home</a> |
         <a href="about.html">About</a> |
-        <a href="buying-guide.html">Buying Guide</a> |
+        <a href="consoles.html">Consoles</a> |
         <a href="services.html">Services</a> |
-        <a href="mods-upgrades.html">Mods & Upgrades</a> |
-        <a href="how-we-refurbish.html">How We Refurbish</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="delivery.html">Shipping & Delivery</a> |
         <a href="faq.html">FAQ</a> |
-        <a href="warranties.html">Warranties</a> |
-        <a href="checkout.html">Checkout</a> |
-        <a href="checkout-success.html">Order Success</a>
+        <a href="contact.html">Contact</a>
     </p>
 </footer>
 
+<!-- Scripts -->
 <script>
-// --- Particle System ---
+// ---------------- Particle System ----------------
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = document.body.scrollHeight;
-}
-window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
-resizeCanvas();
-
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
+let particlesArray=[];
+class Particle{
+    constructor(){
+        this.x=Math.random()*canvas.width;
+        this.y=Math.random()*canvas.height;
+        this.size=Math.random()*2+1.5;
+        this.speedX=(Math.random()-0.5)*0.7;
+        this.speedY=(Math.random()-0.5)*0.7;
     }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if(this.x<0||this.x>canvas.width) this.speedX*=-1;
-        if(this.y<0||this.y>canvas.height) this.speedY*=-1;
+    update(){
+        this.x+=this.speedX;
+        this.y+=this.speedY;
+        if(this.x<0||this.x>canvas.width)this.speedX*=-1;
+        if(this.y<0||this.y>canvas.height)this.speedY*=-1;
     }
     draw(){
-        ctx.fillStyle='rgba(109,184,255,0.5)';
+        ctx.fillStyle='rgba(0,80,255,0.4)';
         ctx.beginPath();
         ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
         ctx.fill();
     }
 }
+function initParticles(){particlesArray=[]; for(let i=0;i<180;i++){particlesArray.push(new Particle());}}
+function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+initParticles(); animateParticles();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; initParticles();});
 
-let particlesArray = [];
-function initParticles(){
-    particlesArray=[];
-    for(let i=0;i<180;i++){ particlesArray.push(new Particle()); }
-}
-function animateParticles(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    particlesArray.forEach(p=>{ p.update(); p.draw(); });
-    requestAnimationFrame(animateParticles);
-}
-initParticles();
-animateParticles();
-
-// Scroll Reveal Tiles
+// ---------------- Scroll Reveal Tiles ----------------
 const tiles = document.querySelectorAll('.tile');
-const revealOnScroll = () => {
+function revealOnScroll(){
     const triggerBottom = window.innerHeight * 0.85;
     tiles.forEach(tile=>{
         const tileTop = tile.getBoundingClientRect().top;
         if(tileTop < triggerBottom){ tile.classList.add('visible'); }
     });
-};
+}
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll();
 
-// FAQ Toggle
-document.querySelectorAll('.faq-item h4').forEach(item=>{
-    item.addEventListener('click', ()=>{
-        const content = item.nextElementSibling;
-        content.style.display = (content.style.display==='block')?'none':'block';
+// ---------------- FAQ Toggle ----------------
+const faqItems = document.querySelectorAll('.faq-item h4');
+faqItems.forEach(item=>{
+    item.addEventListener('click',()=>{
+        const content=item.nextElementSibling;
+        if(content.style.display==='block'){ content.style.display='none'; }
+        else{ content.style.display='block'; }
     });
 });
 </script>

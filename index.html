@@ -10,7 +10,7 @@
 body {
     margin:0;
     font-family:'Orbitron', sans-serif;
-    background:#0a0a0a;
+    background:#0b0b1a;
     color:white;
     scroll-behavior:smooth;
     overflow-x:hidden;
@@ -21,16 +21,16 @@ a { text-decoration:none; color:inherit; }
 header {
     position:sticky;
     top:0;
-    background:rgba(10,10,10,0.95);
+    background:rgba(15,15,30,0.95);
     z-index:1000;
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:15px 10%;
     border-bottom:2px solid #1f1f1f;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(6px);
 }
-header img.logo { height:60px; }
+header img.logo { height:60px; filter: drop-shadow(0 0 8px #00f); }
 nav {
     display:flex;
     flex-wrap:wrap;
@@ -40,17 +40,18 @@ nav {
 nav a {
     margin:5px 10px;
     font-weight:bold;
-    color:#6db8ff;
+    color:#00ffd0;
     transition:0.2s;
+    text-shadow:0 0 4px #00ffd0;
 }
-nav a:hover { color:#ffffff; }
+nav a:hover { color:#ffffff; text-shadow:0 0 10px #6db8ff; }
 
 /* --- HERO --- */
 .hero {
     position:relative;
     padding:120px 20px 80px;
     text-align:center;
-    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    background: linear-gradient(180deg, #0b0b1a 0%, #151526 100%);
     overflow:hidden;
 }
 .hero::before {
@@ -58,21 +59,31 @@ nav a:hover { color:#ffffff; }
     position:absolute;
     top:0; left:0;
     width:100%; height:100%;
-    background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
+    background: radial-gradient(circle at center, rgba(0,255,208,0.1), transparent 70%);
     z-index:0;
 }
-.hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:1; }
-.hero h1 { font-size:3rem; color:#6db8ff; margin-bottom:10px; position:relative; z-index:1; }
+.hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:1; filter: drop-shadow(0 0 12px #00ffd0); }
+.hero h1 { font-size:3rem; margin-bottom:10px; position:relative; z-index:1; background: linear-gradient(90deg,#00ffd0,#6db8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow:0 0 10px #00ffd0; }
 .hero p { font-size:1.3rem; opacity:0.85; margin-bottom:30px; position:relative; z-index:1; }
 .cta-btn {
-    background:#0051ff; color:white;
-    padding:15px 30px; font-size:1.2rem;
-    font-weight:bold; border-radius:12px; border:none;
-    cursor:pointer; transition:0.4s; display:inline-block;
-    position:relative; z-index:1;
-    box-shadow:0 0 15px #0051ff, 0 0 40px #00ffd0;
+    background:linear-gradient(135deg,#0051ff,#00ffd0);
+    color:white;
+    padding:15px 30px;
+    font-size:1.2rem;
+    font-weight:bold;
+    border-radius:12px;
+    border:none;
+    cursor:pointer;
+    transition:0.4s;
+    display:inline-block;
+    position:relative;
+    z-index:1;
+    box-shadow:0 0 20px #00ffd0, 0 0 50px #6db8ff;
 }
-.cta-btn:hover { background:#0070ff; transform:scale(1.08); box-shadow:0 0 25px #6db8ff, 0 0 60px #00ffd0; }
+.cta-btn:hover {
+    transform:scale(1.08);
+    box-shadow:0 0 30px #6db8ff, 0 0 60px #00ffd0, 0 0 80px #00ffd0aa inset;
+}
 
 /* --- PARTICLE CANVAS --- */
 #particle-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
@@ -86,18 +97,18 @@ nav a:hover { color:#ffffff; }
     padding:60px 10%;
 }
 .feature-card {
-    background:#111;
+    background:linear-gradient(145deg,#111,#222);
     border-radius:20px;
     width:280px;
     overflow:hidden;
     text-align:center;
     cursor:pointer;
-    box-shadow:0 5px 20px rgba(0,0,0,0.6);
+    box-shadow:0 5px 20px rgba(0,0,0,0.7),0 0 15px #00ffd0 inset;
     transition:transform 0.3s, box-shadow 0.3s;
 }
-.feature-card:hover { transform:scale(1.05); box-shadow:0 10px 30px #00ffd0,0 0 40px #6db8ff; }
-.feature-card img { width:120px; margin:25px auto 15px; }
-.feature-card h3 { color:#6db8ff; margin-bottom:10px; font-size:1.5rem; }
+.feature-card:hover { transform:scale(1.05); box-shadow:0 10px 40px #00ffd0,0 0 50px #6db8ff inset; }
+.feature-card img { width:120px; margin:25px auto 15px; filter: drop-shadow(0 0 8px #00ffd0); }
+.feature-card h3 { color:#6db8ff; margin-bottom:10px; font-size:1.5rem; text-shadow:0 0 6px #00ffd0; }
 .feature-card p { font-size:1rem; opacity:0.85; padding:0 10px; }
 
 /* --- PRODUCT GRID --- */
@@ -107,13 +118,11 @@ nav a:hover { color:#ffffff; }
     gap:25px;
     padding:60px 10%;
 }
-.tile {
-    perspective:1000px;
-}
+.tile { perspective:1200px; }
 .tile-inner {
     position:relative;
     width:100%; height:100%;
-    transition: transform 0.6s;
+    transition: transform 0.7s cubic-bezier(0.25,1,0.5,1);
     transform-style: preserve-3d;
 }
 .tile:hover .tile-inner { transform: rotateY(180deg); }
@@ -122,16 +131,16 @@ nav a:hover { color:#ffffff; }
     width:100%; height:100%;
     backface-visibility:hidden;
     border-radius:16px;
-    background:#111;
+    background:linear-gradient(145deg,#111,#222);
     display:flex; flex-direction:column;
     align-items:center; justify-content:center;
     padding:20px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.5);
+    box-shadow:0 5px 15px rgba(0,255,208,0.4),0 0 10px #00ffd0 inset;
 }
-.tile-front img { width:90px; margin-bottom:12px; }
-.tile-front h3 { color:#6db8ff; margin-bottom:8px; }
-.tile-front p { font-size:0.95rem; opacity:0.8; text-align:center; }
-.tile-back { transform:rotateY(180deg); color:#00ffd0; font-size:0.95rem; }
+.tile-front img { width:90px; margin-bottom:12px; filter:drop-shadow(0 0 6px #00ffd0); }
+.tile-front h3 { color:#6db8ff; margin-bottom:8px; text-shadow:0 0 6px #00ffd0; }
+.tile-front p { font-size:0.95rem; opacity:0.85; text-align:center; }
+.tile-back { transform:rotateY(180deg); color:#00ffd0; font-size:0.95rem; text-shadow:0 0 6px #00ffd0; }
 
 /* --- SERVICES / BENEFITS --- */
 .services {
@@ -143,30 +152,30 @@ nav a:hover { color:#ffffff; }
 }
 .service-card {
     width:250px;
-    background:#111;
+    background:linear-gradient(145deg,#111,#222);
     border-radius:20px;
     text-align:center;
     padding:25px 15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.5);
+    box-shadow:0 5px 15px rgba(0,255,208,0.3);
     transition:transform 0.3s, box-shadow 0.3s;
 }
-.service-card:hover { transform:scale(1.05); box-shadow:0 10px 30px #00ffd0,0 0 40px #6db8ff; }
-.service-card img { width:60px; margin-bottom:15px; }
-.service-card h3 { color:#6db8ff; margin-bottom:10px; }
+.service-card:hover { transform:scale(1.05); box-shadow:0 10px 30px #00ffd0,0 0 40px #6db8ff inset; }
+.service-card img { width:60px; margin-bottom:15px; filter: drop-shadow(0 0 6px #00ffd0); }
+.service-card h3 { color:#6db8ff; margin-bottom:10px; text-shadow:0 0 6px #00ffd0; }
 .service-card p { font-size:0.95rem; opacity:0.85; }
 
 /* --- CTA BLOCK --- */
 .cta-block {
-    background:#0051ff;
+    background:linear-gradient(135deg,#0051ff,#00ffd0);
     padding:50px 20px;
     text-align:center;
     margin:60px 0;
     border-radius:20px;
-    box-shadow:0 10px 30px #00ffd0,0 0 40px #6db8ff;
+    box-shadow:0 10px 40px #00ffd0,0 0 50px #6db8ff;
 }
-.cta-block h2 { font-size:2rem; margin-bottom:20px; color:white; }
+.cta-block h2 { font-size:2rem; margin-bottom:20px; color:white; text-shadow:0 0 10px #00ffd0; }
 .cta-block a { background:white; color:#0051ff; padding:15px 35px; border-radius:12px; font-weight:bold; font-size:1.1rem; transition:0.3s; display:inline-block; }
-.cta-block a:hover { background:#00ffd0; color:#001; }
+.cta-block a:hover { background:#00ffd0; color:#001; box-shadow:0 0 20px #0051ff; }
 
 /* --- FOOTER --- */
 footer {
@@ -177,8 +186,8 @@ footer {
     color:#9fbbe0;
     text-align:center;
 }
-footer a { color:#6db8ff; margin:0 8px; }
-footer a:hover { color:white; }
+footer a { color:#6db8ff; margin:0 8px; text-shadow:0 0 3px #00ffd0; }
+footer a:hover { color:white; text-shadow:0 0 6px #6db8ff; }
 
 /* --- RESPONSIVE --- */
 @media screen and (max-width:768px){
@@ -312,30 +321,24 @@ footer a:hover { color:white; }
 
 <script>
 // --- PARTICLES ---
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+const canvas=document.getElementById('particle-canvas');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
 let particlesArray=[];
 class Particle{
-    constructor(){
-        this.x=Math.random()*canvas.width;
-        this.y=Math.random()*canvas.height;
-        this.size=Math.random()*2+1;
-        this.speedX=(Math.random()-0.5)*0.5;
-        this.speedY=(Math.random()-0.5)*0.5;
-    }
-    update(){ this.x+=this.speedX; this.y+=this.speedY; if(this.x<0||this.x>canvas.width)this.speedX*=-1; if(this.y<0||this.y>canvas.height)this.speedY*=-1; }
-    draw(){ ctx.fillStyle='rgba(109,184,255,0.5)'; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); }
+    constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedX=(Math.random()-0.5)*0.5;this.speedY=(Math.random()-0.5)*0.5;}
+    update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvas.width)this.speedX*=-1;if(this.y<0||this.y>canvas.height)this.speedY*=-1;}
+    draw(){ctx.fillStyle='rgba(0,255,208,0.5)';ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}
 }
-function initParticles(){particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
+function initParticles(){particlesArray=[];for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
 function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
-initParticles(); animateParticles();
-window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; initParticles();});
+initParticles();animateParticles();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;initParticles();});
 
-// --- TILE SCROLL ANIMATION ---
+// --- TILE SCROLL ---
 const tiles=document.querySelectorAll('.tile');
-const revealOnScroll=()=>{ const triggerBottom=window.innerHeight*0.85; tiles.forEach(tile=>{ const tileTop=tile.getBoundingClientRect().top; if(tileTop<triggerBottom){tile.classList.add('visible');}}); };
+const revealOnScroll=()=>{ const triggerBottom=window.innerHeight*0.85; tiles.forEach(tile=>{ const tileTop=tile.getBoundingClientRect().top;if(tileTop<triggerBottom){tile.classList.add('visible');}});};
 window.addEventListener('scroll',revealOnScroll);
 revealOnScroll();
 </script>

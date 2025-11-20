@@ -6,27 +6,27 @@
 <title>Retro Replay — Home</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-/* --- Base Styles --- */
+/* ------------------ BASE ------------------ */
+* { box-sizing: border-box; margin:0; padding:0; }
 body {
-    margin:0;
     font-family:'Orbitron', sans-serif;
     background:#0a0a0a;
     color:white;
-    scroll-behavior: smooth;
     overflow-x:hidden;
+    scroll-behavior: smooth;
 }
 a { text-decoration:none; color:inherit; }
 
-/* --- Sticky Header --- */
+/* ------------------ HEADER ------------------ */
 header {
-    position:sticky;
-    top:0;
-    background:rgba(10,10,10,0.95);
-    z-index:1000;
+    position: sticky;
+    top: 0;
+    background: rgba(10,10,10,0.95);
+    z-index: 1000;
     display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 10%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
     border-bottom:2px solid #1f1f1f;
     backdrop-filter: blur(5px);
 }
@@ -45,12 +45,12 @@ nav a {
 }
 nav a:hover { color:#ffffff; }
 
-/* --- Hero Section --- */
+/* ------------------ HERO ------------------ */
 .hero {
-    position:relative;
-    padding:120px 20px 80px;
+    position: relative;
     text-align:center;
-    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    padding: 120px 20px 80px;
+    background: linear-gradient(180deg,#0a0a0a 0%,#111 100%);
     overflow:hidden;
 }
 .hero::before {
@@ -61,126 +61,134 @@ nav a:hover { color:#ffffff; }
     background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
     z-index:0;
 }
-.hero img.logo-hero {
-    width:180px;
-    margin-bottom:20px;
-    position:relative;
-    z-index:1;
-}
-.hero h1 {
-    font-size:3rem;
-    color:#6db8ff;
-    margin-bottom:15px;
-    position:relative; z-index:1;
-}
-.hero p {
-    font-size:1.3rem;
-    opacity:0.85;
-    margin-bottom:30px;
-    position:relative; z-index:1;
-}
+.hero img.logo-hero { width:180px; margin-bottom:20px; position:relative; z-index:1; animation:logoPop 1s ease forwards;}
+@keyframes logoPop { from {opacity:0; transform:scale(0.5);} to {opacity:1; transform:scale(1);} }
+.hero h1 { font-size:3rem; color:#6db8ff; margin-bottom:15px; position:relative; z-index:1; animation:fadeUp 1s ease forwards; }
+.hero p { font-size:1.3rem; opacity:0.85; margin-bottom:30px; position:relative; z-index:1; animation:fadeUp 1.2s ease forwards;}
+@keyframes fadeUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
 .cta-btn {
-    background:#0051ff;
-    color:white;
-    padding:15px 30px;
-    font-size:1.15rem;
-    font-weight:bold;
-    border-radius:12px;
-    border:none;
-    cursor:pointer;
-    transition:0.4s;
-    display:inline-block;
+    background:#0051ff; color:white; padding:15px 30px;
+    font-size:1.15rem; font-weight:bold; border-radius:12px;
+    border:none; cursor:pointer; transition:0.4s; display:inline-block;
     position:relative; z-index:1;
-    box-shadow:0 0 10px #0051ff, 0 0 30px #00ffd0;
+    box-shadow:0 0 10px #0051ff,0 0 30px #00ffd0;
 }
-.cta-btn:hover {
-    background:#0070ff;
-    transform:scale(1.08);
-    box-shadow:0 0 20px #6db8ff, 0 0 50px #00ffd0;
-}
+.cta-btn:hover { background:#0070ff; transform:scale(1.08); box-shadow:0 0 20px #6db8ff,0 0 50px #00ffd0; }
 
-/* --- Particle Canvas --- */
-#particle-canvas {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:0;
-    pointer-events:none;
+/* ------------------ FILTERS ------------------ */
+.filter-bar {
+    display:flex; justify-content:center; gap:15px; margin:50px 0 20px;
+    flex-wrap:wrap;
 }
+.filter-btn {
+    background:#111; border:2px solid #1f1f1f; color:#6db8ff;
+    padding:10px 20px; border-radius:20px; cursor:pointer; font-weight:bold; transition:0.3s;
+}
+.filter-btn.active, .filter-btn:hover { background:#0051ff; color:white; }
 
-/* --- Product Cards Slider --- */
-.product-slider {
-    display:flex;
-    overflow-x:auto;
+/* ------------------ PRODUCT GRID ------------------ */
+.grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
     gap:25px;
-    padding:50px 5%;
-    scroll-behavior:smooth;
+    padding:20px 10%;
 }
-.product-slider::-webkit-scrollbar { display:none; }
 .tile {
     background:#111;
     border-radius:20px;
-    padding:30px 20px;
-    text-align:center;
-    cursor:pointer;
-    flex:0 0 250px;
+    padding:20px;
+    perspective:1000px;
+    opacity:0; transform: translateY(40px);
+    transition: 0.6s ease-out;
+}
+.tile.visible { opacity:1; transform: translateY(0); }
+.tile-inner {
     position:relative;
-    box-shadow:0 4px 12px rgba(0,0,0,0.4);
-    transition:transform 0.4s, box-shadow 0.4s;
-    opacity:0;
-    transform: translateY(40px);
+    width:100%;
+    height:100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
-.tile.visible { opacity:1; transform:translateY(0); transition:0.7s ease-out; }
-.tile:hover { transform:scale(1.08); box-shadow:0 0 20px #00e1ff, 0 0 45px #008cff; }
-.tile img { width:80px; margin-bottom:15px; transition:0.3s; }
-.tile:hover img { transform:scale(1.1) rotate(-5deg); }
-.tile h3 { margin-bottom:10px; font-size:1.3rem; color:#6db8ff; }
-.tile p { font-size:0.95rem; opacity:0.85; }
-
-/* --- Optional Badge --- */
-.tile .badge {
+.tile:hover .tile-inner { transform: rotateY(180deg) scale(1.05); }
+.tile-front, .tile-back {
     position:absolute;
-    top:10px;
-    left:10px;
-    background:#ff0055;
-    color:white;
-    font-size:0.75rem;
-    padding:4px 8px;
-    border-radius:6px;
-    font-weight:bold;
+    width:100%; height:100%;
+    backface-visibility:hidden;
+    border-radius:16px;
+    padding:15px;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.4);
 }
+.tile-front { background:#111; }
+.tile-front img { width:80px; margin-bottom:15px; transition:0.3s; }
+.tile-front h3 { margin-bottom:10px; color:#6db8ff; }
+.tile-front p { font-size:0.95rem; opacity:0.85; }
+.tile-back {
+    background:#0051ff;
+    color:white;
+    transform: rotateY(180deg);
+    padding:20px;
+}
+.tile-back h4 { margin-bottom:10px; font-size:1rem; }
+.tile-back p { font-size:0.9rem; line-height:1.4; }
+.tile-back .shop-btn {
+    margin-top:10px;
+    background:white; color:#0051ff; font-weight:bold;
+    padding:8px 20px; border-radius:12px;
+    text-decoration:none; transition:0.3s;
+}
+.tile-back .shop-btn:hover { background:#003780; color:white; }
 
-/* --- Footer --- */
+/* ------------------ SERVICES / INFO ------------------ */
+.services-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:40px 10%;
+}
+.service-card {
+    background:#101014;
+    border-radius:16px; padding:25px;
+    text-align:center;
+    transition:transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover { transform: scale(1.05); box-shadow:0 0 20px #00e1ff; }
+.service-card img { width:60px; margin-bottom:15px; }
+
+/* ------------------ FOOTER ------------------ */
 footer {
     background:#0b0f18;
-    padding:40px 10%;
+    padding:50px 10%;
     margin-top:60px;
+    text-align:center;
     font-size:0.9rem;
     color:#9fbbe0;
-    text-align:center;
 }
-footer a { color:#6db8ff; margin:0 8px; transition:0.2s; }
-footer a:hover { color:#ffffff; }
+footer a { color:#6db8ff; margin:0 8px; }
+footer a:hover { color:white; }
 
-/* --- Responsive --- */
-@media screen and (max-width:768px) {
+/* ------------------ RESPONSIVE ------------------ */
+@media(max-width:768px) {
     header { flex-direction:column; gap:10px; padding:15px 5%; }
     nav a { margin:5px; }
-    .hero h1 { font-size:2.2rem; }
+    .hero h1 { font-size:2.3rem; }
     .hero p { font-size:1.1rem; }
-    .product-slider { gap:15px; padding:40px 5%; }
-    .tile { flex:0 0 200px; padding:25px 15px; }
-    .tile img { width:60px; margin-bottom:12px; }
-    .tile h3 { font-size:1.2rem; }
-    .tile p { font-size:0.9rem; }
+    .grid { padding:20px 5%; }
+}
+@media(max-width:480px) {
+    .hero h1 { font-size:1.8rem; }
+    .hero p { font-size:0.95rem; }
+    .cta-btn { padding:12px 25px; font-size:1rem; }
+    .tile-front img { width:60px; }
+    .tile-front h3 { font-size:1.1rem; }
+    .tile-front p { font-size:0.85rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- Header -->
+<!-- HEADER -->
 <header>
     <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
     <nav>
@@ -193,63 +201,145 @@ footer a:hover { color:#ffffff; }
     </nav>
 </header>
 
-<!-- Hero -->
+<!-- HERO -->
 <section class="hero">
     <canvas id="particle-canvas"></canvas>
-    <img src="assets/logo.png" alt="Retro Replay Logo" class="logo-hero">
+    <img src="assets/logo.png" class="logo-hero" alt="Retro Replay Logo">
     <h1>Restore Your Classics</h1>
     <p>Refurbished consoles, curated games, and professional upgrades for retro gamers.</p>
     <a href="#products" class="cta-btn">Shop Now</a>
 </section>
 
-<!-- Product Cards Slider -->
-<section id="products" class="product-slider">
-    <a href="playstation/index.html">
-        <div class="tile">
-            <div class="badge">Popular</div>
-            <img src="assets/ps1logo.png" alt="PlayStation Logo">
-            <h3>PlayStation</h3>
-            <p>PS1, PS2 & PS3 refurbished consoles</p>
+<!-- FILTERS -->
+<div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="playstation">PlayStation</button>
+    <button class="filter-btn" data-filter="xbox">Xbox</button>
+    <button class="filter-btn" data-filter="nintendo">Nintendo</button>
+    <button class="filter-btn" data-filter="sega">SEGA</button>
+    <button class="filter-btn" data-filter="atari">Atari</button>
+    <button class="filter-btn" data-filter="branding">Branding</button>
+</div>
+
+<!-- PRODUCT GRID -->
+<section id="products" class="grid">
+    <!-- PlayStation -->
+    <div class="tile" data-category="playstation">
+        <div class="tile-inner">
+            <div class="tile-front">
+                <img src="assets/ps1logo.png" alt="PlayStation">
+                <h3>PlayStation</h3>
+                <p>PS1, PS2 & PS3 refurbished consoles</p>
+            </div>
+            <div class="tile-back">
+                <h4>Features:</h4>
+                <p>Full refurbishment, optional mods, upgrades & rare editions.</p>
+                <a href="playstation/index.html" class="shop-btn">Shop Now</a>
+            </div>
         </div>
-    </a>
-    <a href="xbox/index.html">
-        <div class="tile">
-            <img src="assets/xboxlogo.png" alt="Xbox Logo">
-            <h3>Xbox</h3>
-            <p>Original & Xbox 360 refurbished consoles</p>
+    </div>
+
+    <!-- Xbox -->
+    <div class="tile" data-category="xbox">
+        <div class="tile-inner">
+            <div class="tile-front">
+                <img src="assets/xboxlogo.png" alt="Xbox">
+                <h3>Xbox</h3>
+                <p>Original & Xbox 360 refurbished consoles</p>
+            </div>
+            <div class="tile-back">
+                <h4>Features:</h4>
+                <p>Refurbished, tested, accessories included & optional mods.</p>
+                <a href="xbox/index.html" class="shop-btn">Shop Now</a>
+            </div>
         </div>
-    </a>
-    <a href="nintendo/index.html">
-        <div class="tile">
-            <img src="assets/nintendologo.png" alt="Nintendo Logo">
-            <h3>Nintendo</h3>
-            <p>NES, SNES, N64 & Switch retro consoles</p>
+    </div>
+
+    <!-- Nintendo -->
+    <div class="tile" data-category="nintendo">
+        <div class="tile-inner">
+            <div class="tile-front">
+                <img src="assets/nintendologo.png" alt="Nintendo">
+                <h3>Nintendo</h3>
+                <p>NES, SNES, N64 & Switch retro consoles</p>
+            </div>
+            <div class="tile-back">
+                <h4>Features:</h4>
+                <p>Classic consoles, full cleaning, restored & playable.</p>
+                <a href="nintendo/index.html" class="shop-btn">Shop Now</a>
+            </div>
         </div>
-    </a>
-    <a href="sega/index.html">
-        <div class="tile">
-            <img src="assets/segalogo.png" alt="SEGA Logo">
-            <h3>SEGA</h3>
-            <p>Genesis, Mega Drive & Saturn refurbished</p>
+    </div>
+
+    <!-- SEGA -->
+    <div class="tile" data-category="sega">
+        <div class="tile-inner">
+            <div class="tile-front">
+                <img src="assets/segalogo.png" alt="SEGA">
+                <h3>SEGA</h3>
+                <p>Genesis, Mega Drive & Saturn refurbished</p>
+            </div>
+            <div class="tile-back">
+                <h4>Features:</h4>
+                <p>Restored, tested, optional mods and upgrades available.</p>
+                <a href="sega/index.html" class="shop-btn">Shop Now</a>
+            </div>
         </div>
-    </a>
-    <a href="atari/index.html">
-        <div class="tile">
-            <img src="assets/atarilogo.png" alt="Atari Logo">
-            <h3>Atari</h3>
-            <p>Classic 2600 & 7800 restored consoles</p>
+    </div>
+
+    <!-- Atari -->
+    <div class="tile" data-category="atari">
+        <div class="tile-inner">
+            <div class="tile-front">
+                <img src="assets/atarilogo.png" alt="Atari">
+                <h3>Atari</h3>
+                <p>Classic 2600 & 7800 restored consoles</p>
+            </div>
+            <div class="tile-back">
+                <h4>Features:</h4>
+                <p>Full restoration, tested & ready to play.</p>
+                <a href="atari/index.html" class="shop-btn">Shop Now</a>
+            </div>
         </div>
-    </a>
-    <a href="branding.html">
-        <div class="tile">
-            <img src="assets/logo.png" alt="Branding Logo">
-            <h3>Branding</h3>
-            <p>Learn about Retro Replay’s identity & design</p>
+    </div>
+
+    <!-- Branding -->
+    <div class="tile" data-category="branding">
+        <div class="tile-inner">
+            <div class="tile-front">
+                <img src="assets/logo.png" alt="Branding">
+                <h3>Branding</h3>
+                <p>Learn about Retro Replay’s identity & design</p>
+            </div>
+            <div class="tile-back">
+                <h4>Explore:</h4>
+                <p>Logo, style, design philosophy & marketing features.</p>
+                <a href="branding.html" class="shop-btn">View</a>
+            </div>
         </div>
-    </a>
+    </div>
 </section>
 
-<!-- Footer -->
+<!-- SERVICES / POLICIES -->
+<section class="services-grid">
+    <div class="service-card">
+        <img src="assets/trade-in-icon.png" alt="Trade-In">
+        <h3>Trade-In</h3>
+        <p>Exchange your old consoles for store credit or discounts</p>
+    </div>
+    <div class="service-card">
+        <img src="assets/shipping-icon.png" alt="Shipping">
+        <h3>Shipping</h3>
+        <p>Fast, reliable, and secure delivery for all orders</p>
+    </div>
+    <div class="service-card">
+        <img src="assets/warranty-icon.png" alt="Warranty">
+        <h3>Warranties</h3>
+        <p>All refurbished consoles come with a full warranty</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
     <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
     <p>
@@ -262,15 +352,12 @@ footer a:hover { color:#ffffff; }
         <a href="contact.html">Contact</a> |
         <a href="delivery.html">Shipping & Delivery</a> |
         <a href="faq.html">FAQ</a> |
-        <a href="warranties.html">Warranties</a> |
-        <a href="checkout.html">Checkout</a> |
-        <a href="checkout-success.html">Order Success</a>
+        <a href="warranties.html">Warranties</a>
     </p>
 </footer>
 
-<!-- Particle + Scroll Reveal -->
+<!-- PARTICLE SCRIPT -->
 <script>
-// Particle System
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -284,36 +371,45 @@ class Particle{
         this.speedX=(Math.random()-0.5)*0.5;
         this.speedY=(Math.random()-0.5)*0.5;
     }
-    update(){
-        this.x+=this.speedX;
-        this.y+=this.speedY;
-        if(this.x<0||this.x>canvas.width)this.speedX*=-1;
-        if(this.y<0||this.y>canvas.height)this.speedY*=-1;
+    update(){ this.x+=this.speedX; this.y+=this.speedY;
+        if(this.x<0||this.x>canvas.width) this.speedX*=-1;
+        if(this.y<0||this.y>canvas.height) this.speedY*=-1;
     }
-    draw(){
-        ctx.fillStyle='rgba(109,184,255,0.5)';
-        ctx.beginPath();
-        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-        ctx.fill();
+    draw(){ ctx.fillStyle='rgba(109,184,255,0.5)';
+        ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill();
     }
 }
-function initParticles(){particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
-function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
+function initParticles(){ particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle()); } }
+function animateParticles(){ ctx.clearRect(0,0,canvas.width,canvas.height); particlesArray.forEach(p=>{p.update(); p.draw();}); requestAnimationFrame(animateParticles);}
 initParticles(); animateParticles();
-window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; initParticles();});
+window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; initParticles(); });
 
-// Scroll Reveal for Tiles
+// ------------------ SCROLL REVEAL ------------------
 const tiles = document.querySelectorAll('.tile');
 function revealOnScroll(){
-    const triggerBottom = window.innerHeight * 0.85;
-    tiles.forEach((tile,i)=>{
-        if(tile.getBoundingClientRect().top < triggerBottom){
-            setTimeout(()=>{tile.classList.add('visible');}, i*100); // staggered animation
+    const trigger = window.innerHeight*0.85;
+    tiles.forEach(tile=>{
+        if(tile.getBoundingClientRect().top<trigger){
+            tile.classList.add('visible');
         }
     });
 }
-window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('scroll',revealOnScroll);
 revealOnScroll();
+
+// ------------------ FILTERS ------------------
+const filterBtns = document.querySelectorAll('.filter-btn');
+filterBtns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        filterBtns.forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        tiles.forEach(tile=>{
+            if(filter==='all'||tile.dataset.category===filter){ tile.style.display='block'; }
+            else { tile.style.display='none'; }
+        });
+    });
+});
 </script>
 
 </body>

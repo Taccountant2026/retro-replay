@@ -1,27 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Order Success — Retro Replay</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
-<style>
-body { font-family: 'Orbitron', sans-serif; background:#181b23; color:#e3e7ed; margin:0; padding:0; display:flex; justify-content:center; align-items:center; min-height:100vh; }
-.container { text-align:center; background:#22262f; padding:3rem; border-radius:12px; max-width:500px; width:90%; box-shadow:0 4px 15px rgba(0,0,0,0.5); }
-h1 { font-size:2rem; margin-bottom:1rem; color:#3c414d; }
-p { font-size:1.1rem; margin-bottom:2rem; }
-.button { display:inline-block; background:#3c414d; color:#fff; text-decoration:none; padding:0.8rem 2rem; border-radius:6px; font-weight:600; transition:0.2s; }
-.button:hover { background:#555a69; }
-</style>
-  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Success | Retro Replay</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>✅ Order Successful</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div style="flex: 1;"></div>
+        <div class="header-actions"><a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+      </div>
+    </div>
+  </header>
 
-<div class="container">
-  <h1>✅ Thank you for your order!</h1>
-  <p>Your payment has been successfully processed via PayPal.</p>
-  <a href="products.html" class="button">Back to Products</a>
-</div>
+  <section class="hero" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); min-height: 60vh; display: flex; align-items: center;">
+    <div class="container" style="text-align: center;">
+      <div style="font-size: 5rem; margin-bottom: 2rem;">✅</div>
+      <h1 style="color: white; font-size: 2.5rem; margin-bottom: 1rem;">Thank You for Your Order!</h1>
+      <p style="color: white; font-size: 1.2rem; margin-bottom: 2rem;">Your order has been successfully processed. You should receive a confirmation email shortly.</p>
+      
+      <div style="background: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <h3 style="color: var(--primary); margin-top: 0;">What's Next?</h3>
+        <ul style="text-align: left; color: var(--dark); line-height: 2;">
+          <li>✓ Your console will be carefully prepared and tested</li>
+          <li>✓ You'll receive tracking information via email</li>
+          <li>✓ Your refurbished console arrives with 6-month warranty</li>
+          <li>✓ Secure packaging ensures safe delivery</li>
+        </ul>
+      </div>
 
+      <a href="index.html" class="btn btn-primary" style="margin-right: 1rem;">Back to Home</a>
+      <a href="contact.html" class="btn btn-secondary">Questions?</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section"><h3>Order Success</h3><p>Thank you for your purchase.</p></div>
+        <div class="footer-section"><h3>Support</h3><ul class="footer-links"><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script><script>RetroCart.loadCart();</script>
 </body>
 </html>

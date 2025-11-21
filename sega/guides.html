@@ -1,123 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Sega Guides</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#1a1a26;--panel:#111;--accent:#00ffff;--accent-strong:#00e5e5;--muted:#9fbbe0;--card:#111;}
-*{box-sizing:border-box}html,body{height:100%;}
-body{margin:0;font-family:"Orbitron",sans-serif;background:var(--bg);color:#e3e7ed;overflow-x:hidden;}
-nav{background:#0a0a0a;padding:14px 6%;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;border-bottom:2px solid #1f1f1f;position:sticky;top:0;z-index:1200;}
-nav a{color:var(--accent);font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .18s ease;}
-nav a:hover{ color:#ffffff; transform:translateY(-2px);}
-.hero{position:relative;padding:90px 18px 60px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);border-bottom:1px solid rgba(255,255,255,0.02);}
-.hero h1{color:var(--accent);margin:8px 0;font-size:2.6rem;z-index:3;position:relative;}
-.hero p{margin:6px 0 22px;font-size:1.1rem;opacity:.88;z-index:3;position:relative;}
-#particle-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
-.container{ max-width:1000px; margin:30px auto; padding:0 18px; }
-.grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:26px; margin-top:18px; }
-.card{ background:var(--card); border-radius:14px; padding:20px; text-align:center; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 28px rgba(0,0,0,0.45); transform:translateY(24px); opacity:0; transition:all .6s cubic-bezier(.2,.9,.3,1); cursor:default; position:relative; }
-.card.visible{ transform:none; opacity:1; }
-.card img{ width:110px; margin-bottom:12px; display:block; margin-left:auto;margin-right:auto; transition:transform .28s ease; }
-.card h3{ color:var(--accent); margin:8px 0; font-size:1.15rem; }
-.card p{ color:rgba(227,231,237,0.9); font-size:0.95rem; margin:0 0 12px; line-height:1.4 }
-.card .btn-mini{ display:inline-block; background:var(--accent); color:#000; padding:8px 14px; border-radius:10px; font-weight:800; text-decoration:none; transition:transform .16s ease; }
-.card:hover img{ transform:scale(1.06) rotate(-2deg) }
-.card:hover .btn-mini{ transform:translateY(-3px) }
-footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sega Guides | Retro Replay</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>📖 Sega Guides</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../index.html" class="site-logo"><img src="../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions"><a href="../contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="../checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+      </div>
+    </div>
+    <nav class="main-nav"><div class="container"><ul class="nav-list"><li><a href="../index.html">Home</a></li><li><a href="index.html">Sega</a></li><li><a href="../services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div></nav>
+  </header>
 
-<nav>
-  <a href="../index.html">Main Home</a>
-  <a href="index.html">Sega Home</a>
-  <a href="products/mega-drive.html">Mega Drive</a>
-  <a href="products/genesis.html">Genesis</a>
-  <a href="products/saturn.html">Saturn</a>
-  <a href="products/dreamcast.html">Dreamcast</a>
-  <a href="guides.html">Guides</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <section class="hero" style="background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);"><div class="container hero-content"><div class="hero-text"><h1>Sega Setup Guides</h1><p>Expert guides for Genesis, Mega Drive, Saturn, and Dreamcast consoles.</p></div></div></section>
 
-<section class="hero">
-  <canvas id="particle-canvas"></canvas>
-  <h1>Sega Guides</h1>
-  <p>Expert guides, tutorials, and tips for all your Sega consoles.</p>
-</section>
+  <section class="section" style="background: white;"><div class="container"><div class="section-header"><h2 class="section-title">Setup & Guides</h2></div><div class="product-grid"><div class="product-card"><div class="product-info"><h3 class="product-name">Mega Drive Setup</h3><p class="product-description">Learn how to connect, clean, and maintain your Mega Drive consoles.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Genesis Tips & Tricks</h3><p class="product-description">Step-by-step guide to enhance your Genesis gaming experience.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Saturn Maintenance</h3><p class="product-description">Full walkthrough on cleaning, repairing, and optimizing Saturn consoles.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Dreamcast Setup</h3><p class="product-description">Discover setup guides and enhancements for Dreamcast gaming.</p></div></div></div></div></section>
 
-<main class="container">
-  <section class="grid">
-    <article class="card">
-      <img src="../assets/mega-drive.png" alt="Mega Drive Guide">
-      <h3>Mega Drive Setup</h3>
-      <p>Learn how to connect, clean, and maintain your Mega Drive consoles.</p>
-      <a href="#" class="btn-mini">Read Guide</a>
-    </article>
+  <footer class="site-footer"><div class="container"><div class="footer-content"><div class="footer-section"><h3>Sega</h3><p>Setup guides and support.</p></div><div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Sega Home</a></li><li><a href="contact.html">Contact</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div></div></footer>
 
-    <article class="card">
-      <img src="../assets/genesis.png" alt="Genesis Guide">
-      <h3>Genesis Tips & Tricks</h3>
-      <p>Step-by-step guide to enhance your Genesis gaming experience.</p>
-      <a href="#" class="btn-mini">Read Guide</a>
-    </article>
-
-    <article class="card">
-      <img src="../assets/saturn.png" alt="Saturn Guide">
-      <h3>Sega Saturn Maintenance</h3>
-      <p>Full walkthrough on cleaning, repairing, and optimizing Saturn consoles.</p>
-      <a href="#" class="btn-mini">Read Guide</a>
-    </article>
-
-    <article class="card">
-      <img src="../assets/dreamcast.png" alt="Dreamcast Guide">
-      <h3>Dreamcast Tips</h3>
-      <p>Discover hidden features, mods, and enhancements for Dreamcast.</p>
-      <a href="#" class="btn-mini">Read Guide</a>
-    </article>
-  </section>
-</main>
-
-<footer>
-  <div>© 2025 Retro Replay — Sega Division</div>
-  <div style="margin-top:8px;">
-    <a href="../index.html">Main Home</a> •
-    <a href="index.html">Sega Home</a> •
-    <a href="products/mega-drive.html">Mega Drive</a> •
-    <a href="products/genesis.html">Genesis</a> •
-    <a href="products/saturn.html">Saturn</a> •
-    <a href="products/dreamcast.html">Dreamcast</a> •
-    <a href="guides.html">Guides</a> •
-    <a href="contact.html">Contact</a>
-  </div>
-</footer>
-
-<script>
-// Particle effect
-const canvas=document.getElementById('particle-canvas');
-const ctx=canvas.getContext('2d');
-function resizeCanvas(){ canvas.width=window.innerWidth; canvas.height=document.querySelector('.hero').offsetHeight;}
-resizeCanvas();
-
-let particles=[];
-class Particle{
-  constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.r=Math.random()*1.8+.6;this.vx=(Math.random()-0.5)*0.35;this.vy=(Math.random()-0.5)*0.35;this.alpha=0.25+Math.random()*0.5;}
-  update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>canvas.width)this.vx*=-1;if(this.y<0||this.y>canvas.height)this.vy*=-1;}
-  draw(){ctx.beginPath();ctx.fillStyle=`rgba(0,255,255,${this.alpha})`;ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();}
-}
-
-function initParticles(count=110){ particles=[]; for(let i=0;i<count;i++) particles.push(new Particle()); }
-function animateParticles(){ ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animateParticles);}
-window.addEventListener('resize',()=>{resizeCanvas(); initParticles();});
-initParticles(); animateParticles();
-
-// Scroll reveal
-const cards=document.querySelectorAll('.card');
-function reveal(){ const trigger=window.innerHeight*0.85; cards.forEach(c=>{ if(c.getBoundingClientRect().top<trigger) c.classList.add('visible');});}
-window.addEventListener('scroll',reveal); window.addEventListener('load',reveal);
-</script>
-
+  <script src="../cart.js"></script><script>RetroCart.loadCart();</script>
 </body>
 </html>

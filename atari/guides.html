@@ -1,115 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Guides</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#1a1a26;--panel:#111;--accent:#ffcc00;--accent-strong:#ffaa00;--muted:#9fbbe0;--card:#111;}
-*{box-sizing:border-box}html,body{height:100%;}
-body{margin:0;font-family:"Orbitron",sans-serif;background:var(--bg);color:#e3e7ed;overflow-x:hidden;}
-nav{background:#0a0a0a;padding:14px 6%;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;border-bottom:2px solid #1f1f1f;position:sticky;top:0;z-index:1200;}
-nav a{color:var(--accent);font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .18s ease;}
-nav a:hover{ color:#ffffff; transform:translateY(-2px);}
-.hero{position:relative;padding:90px 18px 60px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);border-bottom:1px solid rgba(255,255,255,0.02);}
-.hero .logo-hero{width:160px;margin:0 auto 18px;display:block;position:relative;z-index:3;}
-.hero h1{color:var(--accent);margin:8px 0;font-size:2.6rem;z-index:3;position:relative;}
-.hero p{margin:6px 0 22px;font-size:1.1rem;opacity:.88;z-index:3;position:relative;}
-#particle-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
-.container{ max-width:1200px; margin:30px auto; padding:0 18px; }
-.card{ background:var(--card); border-radius:14px; padding:20px; text-align:center; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 28px rgba(0,0,0,0.45); transform:translateY(24px); opacity:0; transition:all .6s cubic-bezier(.2,.9,.3,1); cursor:default; position:relative; }
-.card.visible{ transform:none; opacity:1; }
-.card img{ width:160px; margin-bottom:12px; display:block; margin-left:auto;margin-right:auto; transition:transform .28s ease; }
-.card h3{ color:var(--accent); margin:8px 0; font-size:1.15rem; }
-.card p{ color:rgba(227,231,237,0.9); font-size:0.95rem; margin:0 0 12px; line-height:1.4 }
-.card .btn-mini{ display:inline-block; background:var(--accent); color:#000; padding:8px 14px; border-radius:10px; font-weight:800; text-decoration:none; transition:transform .16s ease; }
-.card:hover img{ transform:scale(1.06) rotate(-2deg) }
-.card:hover .btn-mini{ transform:translateY(-3px) }
-.info{ background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,204,0,0.1); padding:22px; border-radius:12px; margin:26px 0; color:var(--muted);}
-footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
-@media(max-width:900px){ .hero{ padding:72px 18px 46px; } .hero h1{ font-size:2.1rem; } }
-@media(max-width:520px){ .hero{ padding:56px 14px 40px; } nav{ padding:12px 4% } }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atari Guides | Retro Replay</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>📖 Atari Guides</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../index.html" class="site-logo"><img src="../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions"><a href="../contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="../checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+      </div>
+    </div>
+    <nav class="main-nav"><div class="container"><ul class="nav-list"><li><a href="../index.html">Home</a></li><li><a href="index.html">Atari</a></li><li><a href="../services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div></nav>
+  </header>
 
-<nav>
-  <a href="index.html">Atari Home</a>
-  <a href="products/2600.html">2600</a>
-  <a href="products/5200.html">5200</a>
-  <a href="products/7800.html">7800</a>
-  <a href="guides.html">Guides</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <section class="hero" style="background: linear-gradient(135deg, #d62828 0%, #a61e1e 100%);"><div class="container hero-content"><div class="hero-text"><h1>Atari Setup Guides</h1><p>Step-by-step guides and maintenance for Atari 2600, 5200, and 7800.</p></div></div></section>
 
-<section class="hero">
-  <canvas id="particle-canvas"></canvas>
-  <img src="assets/atari-logo.png" alt="Atari Logo" class="logo-hero">
-  <h1>Atari Guides</h1>
-  <p>Step-by-step guides, tips, and maintenance instructions for your classic Atari consoles.</p>
-</section>
+  <section class="section" style="background: white;"><div class="container"><div class="section-header"><h2 class="section-title">Setup & Maintenance</h2></div><div class="product-grid"><div class="product-card"><div class="product-info"><h3 class="product-name">Atari 2600 Setup</h3><p class="product-description">Complete guide for setting up and testing your Atari 2600 console safely.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Atari 5200 Maintenance</h3><p class="product-description">Tips for cleaning, testing, and maintaining your Atari 5200 console.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Atari 7800 Guide</h3><p class="product-description">Step-by-step walkthrough for testing, setup, and enjoying your Atari 7800.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Game Compatibility</h3><p class="product-description">Learn about game compatibility across different Atari console models.</p></div></div></div></div></section>
 
-<main class="container">
+  <footer class="site-footer"><div class="container"><div class="footer-content"><div class="footer-section"><h3>Atari</h3><p>Setup guides and support.</p></div><div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Atari Home</a></li><li><a href="contact.html">Contact</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div></div></footer>
 
-  <section class="grid">
-    <article class="card">
-      <img src="assets/guide-2600.png" alt="Atari 2600 Guide">
-      <h3>Atari 2600 Setup Guide</h3>
-      <p>Complete guide for setting up and testing your Atari 2600 console safely.</p>
-    </article>
-
-    <article class="card">
-      <img src="assets/guide-5200.png" alt="Atari 5200 Guide">
-      <h3>Atari 5200 Maintenance</h3>
-      <p>Tips for cleaning, testing, and maintaining your Atari 5200 console.</p>
-    </article>
-
-    <article class="card">
-      <img src="assets/guide-7800.png" alt="Atari 7800 Guide">
-      <h3>Atari 7800 Full Guide</h3>
-      <p>Step-by-step walkthrough for testing, setting up, and enjoying your Atari 7800.</p>
-    </article>
-  </section>
-
-  <section class="info">
-    <h3 style="color:var(--accent);">About Guides</h3>
-    <p>All guides are written for retro gaming enthusiasts. Learn how to setup, clean, test, and maintain your Atari consoles safely and efficiently.</p>
-  </section>
-
-</main>
-
-<footer>
-  <div>© 2025 Retro Replay — Atari Division</div>
-  <div style="margin-top:8px;">
-    <a href="index.html">Atari Home</a> •
-    <a href="products/2600.html">2600</a> •
-    <a href="products/5200.html">5200</a> •
-    <a href="products/7800.html">7800</a> •
-    <a href="guides.html">Guides</a> •
-    <a href="contact.html">Contact</a>
-  </div>
-</footer>
-
-<script>
-// Particle effect
-const canvas=document.getElementById('particle-canvas');
-const ctx=canvas.getContext('2d');
-function setCanvas(){canvas.width=window.innerWidth; canvas.height=document.querySelector('.hero').offsetHeight;}
-setCanvas();
-let particles=[];
-class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.r=Math.random()*1.8+.6;this.vx=(Math.random()-0.5)*0.35;this.vy=(Math.random()-0.5)*0.35;this.alpha=0.25+Math.random()*0.5;}
-update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>canvas.width)this.vx*=-1;if(this.y<0||this.y>canvas.height)this.vy*=-1;}
-draw(){ctx.beginPath();ctx.fillStyle=`rgba(255,204,0,${this.alpha})`;ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();}}
-function initParticles(count=110){particles=[];for(let i=0;i<count;i++)particles.push(new Particle());}
-function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
-window.addEventListener('resize',()=>{setCanvas();initParticles();});initParticles();animate();
-
-// Scroll reveal
-const cards=document.querySelectorAll('.card');
-function reveal(){const t=window.innerHeight*0.85;cards.forEach(c=>{if(c.getBoundingClientRect().top<t)c.classList.add('visible');});}
-window.addEventListener('scroll',reveal);window.addEventListener('load',reveal);
-</script>
-
+  <script src="../cart.js"></script><script>RetroCart.loadCart();</script>
 </body>
 </html>

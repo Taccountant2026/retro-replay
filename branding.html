@@ -1,114 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Branding</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-
-<style>
-    body {
-        background:#0a0a0a;
-        color:white;
-        font-family:'Orbitron', sans-serif;
-        margin:0;
-        padding:0;
-    }
-
-    header {
-        text-align:center;
-        padding:40px 0;
-        border-bottom:2px solid #1d1d1d;
-    }
-
-    header img {
-        width:200px;
-        margin-bottom:20px;
-    }
-
-    h1 {
-        font-size:2.5rem;
-        margin-bottom:10px;
-    }
-
-    .section {
-        padding:60px 10%;
-        border-bottom:1px solid #1c1c1c;
-    }
-
-    .palette {
-        display:flex;
-        gap:20px;
-        margin-top:20px;
-    }
-
-    .colour {
-        width:120px;
-        height:120px;
-        border-radius:12px;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        font-size:0.9rem;
-        background:#111;
-        border:1px solid #333;
-    }
-
-    .download-btn {
-        display:inline-block;
-        margin-top:20px;
-        padding:12px 20px;
-        background:#0051ff;
-        border-radius:8px;
-        color:white;
-        text-decoration:none;
-        font-weight:700;
-        transition:0.2s;
-    }
-
-    .download-btn:hover {
-        background:#0037b8;
-    }
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Branding | Retro Replay</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<header>
-    <img src="assets/logo.png" alt="Retro Replay Logo">
-    <h1>Retro Replay — Branding Guidelines</h1>
-    <p>Official brand assets, colour palette, typography & usage rules.</p>
-</header>
-
-<section class="section">
-    <h2>Logo Usage</h2>
-    <p>Use the Retro Replay logo on all product listings, packaging & promotional materials.</p>
-
-    <a class="download-btn" href="assets/logo.png" download>Download Logo</a>
-</section>
-
-<section class="section">
-    <h2>Colour Palette</h2>
-
-    <div class="palette">
-        <div class="colour" style="background:#0051ff;">#0051ff</div>
-        <div class="colour" style="background:#0a0a0a;">#0a0a0a</div>
-        <div class="colour" style="background:#1c1c1c;">#1c1c1c</div>
-        <div class="colour" style="background:#cccccc; color:black;">#cccccc</div>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>🎨 Brand Guidelines</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions"><a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+      </div>
     </div>
-</section>
+    <nav class="main-nav"><div class="container"><ul class="nav-list"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="branding.html" class="active">Branding</a></li></ul></div></nav>
+  </header>
 
-<section class="section">
-    <h2>Typography</h2>
-    <p><strong>Primary Font:</strong> Orbitron (Bold, Black)</p>
-    <p><strong>Use For:</strong> Headings, logos, calls to action.</p>
-</section>
+  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);"><div class="container hero-content"><div class="hero-text"><h1>Brand Guidelines</h1><p>Retro Replay visual identity and design standards.</p></div></div></section>
 
-<section class="section">
-    <h2>Brand Voice</h2>
-    <p>Energetic, nostalgic, collector-focused, professional, clean.</p>
-</section>
+  <section class="section" style="background: white;">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header">
+        <h2 class="section-title">Color Palette</h2>
+      </div>
 
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+        <div style="background: #2563eb; padding: 2rem; border-radius: 12px; color: white; text-align: center;">
+          <strong>Primary Blue</strong><br>#2563eb
+        </div>
+        <div style="background: #10b981; padding: 2rem; border-radius: 12px; color: white; text-align: center;">
+          <strong>Success Green</strong><br>#10b981
+        </div>
+        <div style="background: #f59e0b; padding: 2rem; border-radius: 12px; color: white; text-align: center;">
+          <strong>Accent Orange</strong><br>#f59e0b
+        </div>
+        <div style="background: #f3f4f6; padding: 2rem; border-radius: 12px; color: var(--dark); text-align: center; border: 1px solid var(--gray-lighter);">
+          <strong>Light Gray</strong><br>#f3f4f6
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header">
+        <h2 class="section-title">Typography</h2>
+      </div>
+
+      <div class="product-grid" style="grid-template-columns: 1fr;">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name" style="font-family: 'Inter', sans-serif;">Font: Inter</h3>
+            <p class="product-description">Modern, clean typeface used for all website content. Available in weights: 400, 500, 600, 700, 800.</p>
+            <p style="font-size: 0.9rem; color: var(--gray);">Headlines: Weight 700-800<br>Body: Weight 400-500<br>Emphasis: Weight 600-700</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: white;">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header">
+        <h2 class="section-title">Logo Usage</h2>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <p style="color: var(--dark); line-height: 1.8;">The Retro Replay logo should be used consistently across all materials. Minimum size: 60px width. Always maintain proper spacing around the logo. Do not distort, rotate, or modify the logo design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section"><h3>Branding</h3><p>Visual identity guidelines.</p></div>
+        <div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script><script>RetroCart.loadCart();</script>
 </body>
 </html>

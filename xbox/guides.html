@@ -1,61 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xbox Guides — Retro Replay</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-body { margin:0; font-family:'Orbitron',sans-serif; background:#111210; color:#e3e7ed;}
-nav { background:#0a0a0a; padding:16px; text-align:center; }
-nav a { color:#32cd32; margin:0 10px; text-decoration:none; font-weight:700;}
-nav a:hover { color:#7cff7c; }
-header { text-align:center; padding:50px 20px; }
-h1 { color:#32cd32; margin-bottom:10px; }
-.section { padding:40px 10%; max-width:1200px; margin:0 auto; line-height:1.6; }
-.section h2 { color:#32cd32; margin-top:30px; }
-footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0; }
-footer a { color:#32cd32; margin:0 8px; text-decoration:none; }
-footer a:hover { color:#7cff7c; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xbox Guides | Retro Replay</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>📖 Xbox Guides</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../index.html" class="site-logo"><img src="../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions"><a href="../contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="../checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+      </div>
+    </div>
+    <nav class="main-nav"><div class="container"><ul class="nav-list"><li><a href="../index.html">Home</a></li><li><a href="index.html">Xbox</a></li><li><a href="../services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div></nav>
+  </header>
 
-<nav>
-  <a href="index.html">Xbox Home</a>
-  <a href="products.html">Products</a>
-  <a href="guides.html">Guides</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <section class="hero" style="background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);"><div class="container hero-content"><div class="hero-text"><h1>Xbox Setup Guides</h1><p>Professional guides for setup, configuration, and gaming optimization.</p></div></div></section>
 
-<header>
-  <h1>Xbox Guides</h1>
-  <p>Tips, tutorials, and guidance for your refurbished Xbox consoles.</p>
-</header>
+  <section class="section" style="background: white;"><div class="container"><div class="section-header"><h2 class="section-title">Refurbishment & Setup</h2></div><div class="product-grid"><div class="product-card"><div class="product-info"><h3 class="product-name">Refurbishment Guide</h3><p class="product-description">We professionally test, clean, and restore each console for full functionality and longevity.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Storage & HDD Mods</h3><p class="product-description">Upgrade with extra storage, OPL installation, and homebrew functionality.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Cosmetic & Repair</h3><p class="product-description">Learn how we restore shells, labels, and clean internal components safely.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Gaming Setup</h3><p class="product-description">Connect consoles, optimize AV cables, and pair controllers for the best experience.</p></div></div></div></div></section>
 
-<section class="section">
-  <h2>Refurbishment Guide</h2>
-  <p>We professionally test, clean, and restore each console. This ensures full functionality, reliability, and longevity.</p>
-  
-  <h2>Storage & HDD Mods</h2>
-  <p>Upgrade your Xbox or Xbox 360 with extra storage, install OPL for backups, and add homebrew functionality.</p>
-  
-  <h2>Cosmetic & Repair Tips</h2>
-  <p>Learn how we restore shells, labels, and clean internal components safely.</p>
-  
-  <h2>Gaming Setup</h2>
-  <p>Connect consoles, optimize AV cables, and pair controllers for the best retro experience.</p>
-</section>
+  <footer class="site-footer"><div class="container"><div class="footer-content"><div class="footer-section"><h3>Xbox</h3><p>Setup guides and support.</p></div><div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Xbox Home</a></li><li><a href="contact.html">Contact</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div></div></footer>
 
-<footer>
-  <p>© 2025 Retro Replay — Xbox Division</p>
-  <p>
-    <a href="index.html">Xbox Home</a> •
-    <a href="products.html">Products</a> •
-    <a href="guides.html">Guides</a> •
-    <a href="contact.html">Contact</a>
-  </p>
-</footer>
-
+  <script src="../cart.js"></script><script>RetroCart.loadCart();</script>
 </body>
 </html>

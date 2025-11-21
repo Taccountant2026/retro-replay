@@ -1,115 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — NES Collection</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#1a1a26;--panel:#111;--accent:#ff4d4d;--accent-strong:#ff0000;--muted:#9fbbe0;--card:#111}
-*{box-sizing:border-box}html,body{height:100%}
-body{margin:0;font-family:"Orbitron",sans-serif;background:var(--bg);color:#e3e7ed;overflow-x:hidden}
-nav{background:#0a0a0a;padding:14px 6%;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;border-bottom:2px solid #1f1f1f;position:sticky;top:0;z-index:1200;}
-nav a{color:var(--accent);font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .18s ease;}
-nav a:hover{ color:#ffffff; transform:translateY(-2px);}
-.hero{position:relative;padding:90px 18px 60px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);border-bottom:1px solid rgba(255,255,255,0.02);}
-.hero .logo-hero{width:170px;margin:0 auto 18px;display:block;position:relative;z-index:3;}
-.hero h1{color:var(--accent);margin:8px 0;font-size:2.6rem;z-index:3;position:relative;}
-.hero p{margin:6px 0 22px;font-size:1.1rem;opacity:.88;z-index:3;position:relative;}
-#particle-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
-.cta-row{ position:relative; z-index:3; display:inline-flex; gap:12px; margin-top:10px;}
-.cta{background:var(--accent-strong); color:#000; padding:12px 26px; font-weight:800; border-radius:12px; text-decoration:none; transition:transform .16s ease, box-shadow .16s ease;}
-.cta:hover{ transform:translateY(-4px) }
-.container{ max-width:1200px; margin:30px auto; padding:0 18px; }
-.grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:26px; margin-top:18px; }
-.card{ background:var(--card); border-radius:14px; padding:20px; text-align:center; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 28px rgba(0,0,0,0.45); transform:translateY(24px); opacity:0; transition:all .6s cubic-bezier(.2,.9,.3,1); cursor:pointer; position:relative; }
-.card.visible{ transform:none; opacity:1; }
-.card img{ width:110px; margin-bottom:12px; display:block; margin-left:auto;margin-right:auto; transition:transform .28s ease; }
-.card h3{ color:var(--accent); margin:8px 0; font-size:1.15rem; }
-.card p{ color:rgba(227,231,237,0.9); font-size:0.95rem; margin:0 0 12px; line-height:1.4 }
-.card .btn-mini{ display:inline-block; background:var(--accent); color:#000; padding:8px 14px; border-radius:10px; font-weight:800; text-decoration:none; transition:transform .16s ease; }
-.card:hover img{ transform:scale(1.06) rotate(-2deg) }
-.card:hover .btn-mini{ transform:translateY(-3px) }
-.info{ background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,77,77,0.1); padding:22px; border-radius:12px; margin:26px 0; color:var(--muted); text-align:center;}
-footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NES Console | Retro Replay</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>🎮 Nintendo NES Console</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../../index.html" class="site-logo"><img src="../../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions"><a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+      </div>
+    </div>
+    <nav class="main-nav"><div class="container"><ul class="nav-list"><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Nintendo</a></li><li><a href="NES.html" class="active">NES</a></li></ul></div></nav>
+  </header>
 
-<nav>
-  <a href="../../index.html">Main Home</a>
-  <a href="../index.html">Nintendo Home</a>
-  <a href="NES.html">NES</a>
-  <a href="SNES.html">SNES</a>
-  <a href="N64.html">N64</a>
-  <a href="../guides.html">Guides</a>
-  <a href="../contact.html">Contact</a>
-</nav>
+  <section class="hero" style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);"><div class="container hero-content"><div class="hero-text"><h1>Nintendo NES</h1><p>Classic Nintendo Entertainment System consoles, fully refurbished.</p></div></div></section>
 
-<section class="hero">
-  <canvas id="particle-canvas"></canvas>
-  <img src="../../assets/nes.png" alt="NES Logo" class="logo-hero">
-  <h1>Nintendo — NES Collection</h1>
-  <p>Classic Nintendo Entertainment System consoles, fully refurbished for retro gaming.</p>
-  <div class="cta-row">
-    <a class="cta" href="#products">View Units</a>
-  </div>
-</section>
+  <section class="section" style="background: white;"><div class="container"><div class="section-header"><h2 class="section-title">NES Console Models</h2></div><div class="product-grid"><div class="product-card"><div class="product-info"><h3 class="product-name">Grade A - Like New</h3><p class="product-description">Minimal cosmetic wear, fully functional.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Grade B - Excellent</h3><p class="product-description">Minor wear, fully functional. Best value.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Grade C - Good</h3><p class="product-description">Visible wear, fully functional gaming.</p></div></div></div></div></section>
 
-<main class="container">
-  <section id="products" class="grid">
+  <section class="section"><div class="container" style="max-width: 900px;"><div class="section-header"><h2 class="section-title">What's Included</h2></div><div class="product-card"><div class="product-info"><ul class="product-features" style="font-size: 1.05rem; line-height: 2; color: var(--dark);"><li>✓ Fully refurbished NES console</li><li>✓ 2 Original controllers</li><li>✓ AV cables and power supply</li><li>✓ Complete testing & verification</li><li>✓ 6-month warranty</li><li>✓ Free tracked shipping</li></ul></div></div></div></section>
 
-    <article class="card">
-      <img src="../../assets/nes-grey.png" alt="NES Grey Console">
-      <h3>NES Grey Console</h3>
-      <p>Original grey NES console, includes controller & cables, fully tested.</p>
-      <a href="#" class="btn-mini">Buy Now</a>
-    </article>
+  <footer class="site-footer"><div class="container"><div class="footer-content"><div class="footer-section"><h3>NES Console</h3><p>Professional restoration & support.</p></div><div class="footer-section"><h3>More</h3><ul class="footer-links"><li><a href="../index.html">Nintendo</a></li><li><a href="/contact.html">Contact</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div></div></footer>
 
-    <article class="card">
-      <img src="../../assets/nes-controller.png" alt="NES Controller">
-      <h3>NES Controller</h3>
-      <p>Original NES controller, cleaned and tested.</p>
-      <a href="#" class="btn-mini">Buy Now</a>
-    </article>
-
-  </section>
-
-  <section class="info">
-    <h3 style="color:var(--accent);">About NES</h3>
-    <p>All NES consoles are professionally refurbished, cleaned, and tested. Optional warranties available. Each console comes with necessary cables and controllers.</p>
-  </section>
-</main>
-
-<footer>
-  <div>© 2025 Retro Replay — Nintendo Division</div>
-  <div style="margin-top:8px;">
-    <a href="../../index.html">Main Home</a> •
-    <a href="../index.html">Nintendo Home</a> •
-    <a href="NES.html">NES</a> •
-    <a href="SNES.html">SNES</a> •
-    <a href="N64.html">N64</a> •
-    <a href="../guides.html">Guides</a> •
-    <a href="../contact.html">Contact</a>
-  </div>
-</footer>
-
-<script>
-// Particle effect
-const canvas=document.getElementById('particle-canvas');const ctx=canvas.getContext('2d');
-function setCanvasSize(){canvas.width=window.innerWidth; canvas.height=document.querySelector('.hero').offsetHeight;}
-setCanvasSize();
-let particles=[];
-class P{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.r=Math.random()*1.8+.6;this.vx=(Math.random()-0.5)*0.35;this.vy=(Math.random()-0.5)*0.35;this.alpha=0.25+Math.random()*0.5;}update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>canvas.width)this.vx*=-1;if(this.y<0||this.y>canvas.height)this.vy*=-1;}draw(){ctx.beginPath();ctx.fillStyle='rgba(255,77,77,'+this.alpha+')';ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();}}
-function initParticles(n=110){particles=[];for(let i=0;i<n;i++)particles.push(new P());}
-function frame(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(frame);}
-window.addEventListener('resize',()=>{setCanvasSize();initParticles();}); initParticles(); frame();
-
-// Scroll reveal
-const cards=document.querySelectorAll('.card');
-function reveal(){ const trigger=window.innerHeight*0.85; cards.forEach(c=>{ if(c.getBoundingClientRect().top<trigger) c.classList.add('visible'); }); }
-window.addEventListener('scroll',reveal); window.addEventListener('load',reveal);
-</script>
-
+  <script src="../../cart.js"></script><script>RetroCart.loadCart();</script>
 </body>
 </html>

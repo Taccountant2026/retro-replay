@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sega Products | Retro Replay</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>🎮 Sega Products</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../index.html" class="site-logo"><img src="../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions"><a href="../contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="../checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+      </div>
+    </div>
+    <nav class="main-nav"><div class="container"><ul class="nav-list"><li><a href="../index.html">Home</a></li><li><a href="index.html">Sega</a></li><li><a href="products.html" class="active">Products</a></li></ul></div></nav>
+  </header>
 
+  <section class="hero" style="background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);"><div class="container hero-content"><div class="hero-text"><h1>Sega Products</h1><p>Genesis, Mega Drive, Saturn, and Dreamcast refurbished consoles.</p></div></div></section>
+
+  <section class="section" style="background: white;"><div class="container"><div class="section-header"><h2 class="section-title">Sega Consoles</h2></div><div class="product-grid"><a href="products/genesis.html" style="text-decoration: none;"><div class="product-card"><div class="product-info"><h3 class="product-name">Genesis</h3><p class="product-description">Sega Genesis 16-bit gaming classics fully refurbished.</p></div></div></a><a href="products/mega-drive.html" style="text-decoration: none;"><div class="product-card"><div class="product-info"><h3 class="product-name">Mega Drive</h3><p class="product-description">European release Genesis with complete restoration.</p></div></div></a><a href="products/saturn.html" style="text-decoration: none;"><div class="product-card"><div class="product-info"><h3 class="product-name">Saturn</h3><p class="product-description">32-bit gaming. Fully tested and professionally refurbished.</p></div></div></a><a href="products/dreamcast.html" style="text-decoration: none;"><div class="product-card"><div class="product-info"><h3 class="product-name">Dreamcast</h3><p class="product-description">Final Sega console. Complete restoration with warranty.</p></div></div></a></div></div></section>
+
+  <footer class="site-footer"><div class="container"><div class="footer-content"><div class="footer-section"><h3>Sega Products</h3><p>Professional refurbishment & support.</p></div><div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Sega</a></li><li><a href="contact.html">Contact</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div></div></footer>
+
+  <script src="../cart.js"></script><script>RetroCart.loadCart();</script>
+</body>
+</html>

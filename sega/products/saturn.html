@@ -1,124 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Saturn Collection</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#1a1a26;--panel:#111;--accent:#00ffff;--accent-strong:#00e5e5;--muted:#9fbbe0;--card:#111;}
-*{box-sizing:border-box}html,body{height:100%;}
-body{margin:0;font-family:"Orbitron",sans-serif;background:var(--bg);color:#e3e7ed;overflow-x:hidden;}
-nav{background:#0a0a0a;padding:14px 6%;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;border-bottom:2px solid #1f1f1f;position:sticky;top:0;z-index:1200;}
-nav a{color:var(--accent);font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .18s ease;}
-nav a:hover{ color:#ffffff; transform:translateY(-2px);}
-.hero{position:relative;padding:90px 18px 60px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);border-bottom:1px solid rgba(255,255,255,0.02);}
-.hero .logo-hero{width:160px;margin:0 auto 18px;display:block;position:relative;z-index:3;}
-.hero h1{color:var(--accent);margin:8px 0;font-size:2.6rem;z-index:3;position:relative;}
-.hero p{margin:6px 0 22px;font-size:1.1rem;opacity:.88;z-index:3;position:relative;}
-#particle-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
-.container{ max-width:1200px; margin:30px auto; padding:0 18px; }
-.grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:26px; margin-top:18px; }
-.card{ background:var(--card); border-radius:14px; padding:20px; text-align:center; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 28px rgba(0,0,0,0.45); transform:translateY(24px); opacity:0; transition:all .6s cubic-bezier(.2,.9,.3,1); cursor:default; position:relative; }
-.card.visible{ transform:none; opacity:1; }
-.card img{ width:110px; margin-bottom:12px; display:block; margin-left:auto;margin-right:auto; transition:transform .28s ease; }
-.card h3{ color:var(--accent); margin:8px 0; font-size:1.15rem; }
-.card p{ color:rgba(227,231,237,0.9); font-size:0.95rem; margin:0 0 12px; line-height:1.4 }
-.card .btn-mini{ display:inline-block; background:var(--accent); color:#000; padding:8px 14px; border-radius:10px; font-weight:800; text-decoration:none; transition:transform .16s ease; }
-.card:hover img{ transform:scale(1.06) rotate(-2deg) }
-.card:hover .btn-mini{ transform:translateY(-3px) }
-.info{ background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(0,255,255,0.1); padding:22px; border-radius:12px; margin:26px 0; color:var(--muted);}
-footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
-@media(max-width:900px){ .hero{ padding:72px 18px 46px; } .hero h1{ font-size:2.1rem; } }
-@media(max-width:520px){ .hero{ padding:56px 14px 40px; } nav{ padding:12px 4% } }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sega Saturn | Retro Replay</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>🎮 Sega Saturn Console</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../../index.html" class="site-logo"><img src="../../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions"><a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+      </div>
+    </div>
+    <nav class="main-nav"><div class="container"><ul class="nav-list"><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Sega</a></li><li><a href="saturn.html" class="active">Saturn</a></li></ul></div></nav>
+  </header>
 
-<nav>
-  <a href="../index.html">Main Home</a>
-  <a href="../index.html">Sega Home</a>
-  <a href="mega-drive.html">Mega Drive</a>
-  <a href="genesis.html">Genesis</a>
-  <a href="saturn.html">Saturn</a>
-  <a href="dreamcast.html">Dreamcast</a>
-  <a href="../guides.html">Guides</a>
-  <a href="../contact.html">Contact</a>
-</nav>
+  <section class="hero" style="background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);"><div class="container hero-content"><div class="hero-text"><h1>Sega Saturn</h1><p>32-bit powerhouse, professionally refurbished with care.</p></div></div></section>
 
-<section class="hero">
-  <canvas id="particle-canvas"></canvas>
-  <img src="../assets/saturn-logo.png" alt="Saturn Logo" class="logo-hero">
-  <h1>Sega — Saturn Collection</h1>
-  <p>Classic Saturn consoles, fully refurbished and ready for retro gaming fun.</p>
-</section>
+  <section class="section" style="background: white;"><div class="container"><div class="section-header"><h2 class="section-title">Saturn Console Units</h2></div><div class="product-grid"><div class="product-card"><div class="product-info"><h3 class="product-name">Grade A - Like New</h3><p class="product-description">Excellent condition, perfect functionality.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Grade B - Excellent</h3><p class="product-description">Minor wear, flawless gaming performance.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Grade C - Good</h3><p class="product-description">Light cosmetic wear, fully functional.</p></div></div></div></div></section>
 
-<main class="container">
-  <section class="grid">
+  <section class="section"><div class="container" style="max-width: 900px;"><div class="section-header"><h2 class="section-title">What's Included</h2></div><div class="product-card"><div class="product-info"><ul class="product-features" style="font-size: 1.05rem; line-height: 2; color: var(--dark);"><li>✓ Fully refurbished Saturn console</li><li>✓ 2 Original controllers</li><li>✓ AV cables and power supply</li><li>✓ Complete system testing</li><li>✓ 6-month warranty coverage</li><li>✓ Secure tracked delivery</li></ul></div></div></div></section>
 
-    <article class="card">
-      <img src="../assets/saturn-black.png" alt="Saturn Black Console">
-      <h3>Saturn Black</h3>
-      <p>Original black Saturn with controller & cables, fully tested.</p>
-      <a href="#" class="btn-mini">Buy Now</a>
-    </article>
+  <footer class="site-footer"><div class="container"><div class="footer-content"><div class="footer-section"><h3>Sega Saturn</h3><p>Professional restoration & support.</p></div><div class="footer-section"><h3>More</h3><ul class="footer-links"><li><a href="../index.html">Sega</a></li><li><a href="/contact.html">Contact</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div></div></footer>
 
-    <article class="card">
-      <img src="../assets/saturn-white.png" alt="Saturn White Console">
-      <h3>Saturn White Edition</h3>
-      <p>Limited edition white Saturn, fully refurbished with accessories.</p>
-      <a href="#" class="btn-mini">Buy Now</a>
-    </article>
-
-    <article class="card">
-      <img src="../assets/saturn-controller.png" alt="Saturn Controller">
-      <h3>Saturn Controller</h3>
-      <p>Original controller, tested and in excellent condition.</p>
-      <a href="#" class="btn-mini">Buy Now</a>
-    </article>
-
-  </section>
-
-  <section class="info">
-    <h3 style="color:var(--accent);">About Saturn</h3>
-    <p>All Saturn consoles are professionally refurbished, cleaned, and tested. Each unit includes necessary cables and controllers. Optional warranties available.</p>
-  </section>
-</main>
-
-<footer>
-  <div>© 2025 Retro Replay — Sega Division</div>
-  <div style="margin-top:8px;">
-    <a href="../index.html">Main Home</a> •
-    <a href="../index.html">Sega Home</a> •
-    <a href="mega-drive.html">Mega Drive</a> •
-    <a href="genesis.html">Genesis</a> •
-    <a href="saturn.html">Saturn</a> •
-    <a href="dreamcast.html">Dreamcast</a> •
-    <a href="../guides.html">Guides</a> •
-    <a href="../contact.html">Contact</a>
-  </div>
-</footer>
-
-<script>
-// Particle effect
-const canvas=document.getElementById('particle-canvas');
-const ctx=canvas.getContext('2d');
-function setCanvas(){canvas.width=window.innerWidth; canvas.height=document.querySelector('.hero').offsetHeight;}
-setCanvas();
-
-let particles=[];
-class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.r=Math.random()*1.8+.6;this.vx=(Math.random()-0.5)*0.35;this.vy=(Math.random()-0.5)*0.35;this.alpha=0.25+Math.random()*0.5;}
-update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>canvas.width)this.vx*=-1;if(this.y<0||this.y>canvas.height)this.vy*=-1;}
-draw(){ctx.beginPath();ctx.fillStyle=`rgba(0,255,255,${this.alpha})`;ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();}}
-function initParticles(count=110){particles=[];for(let i=0;i<count;i++)particles.push(new Particle());}
-function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
-window.addEventListener('resize',()=>{setCanvas();initParticles();});initParticles();animate();
-
-// Scroll reveal
-const cards=document.querySelectorAll('.card');
-function reveal(){const t=window.innerHeight*0.85;cards.forEach(c=>{if(c.getBoundingClientRect().top<t)c.classList.add('visible');});}
-window.addEventListener('scroll',reveal);window.addEventListener('load',reveal);
-</script>
-
+  <script src="../../cart.js"></script><script>RetroCart.loadCart();</script>
 </body>
 </html>

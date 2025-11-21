@@ -1,83 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Contact</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#1a1a26;--panel:#111;--accent:#ffcc00;--accent-strong:#ffaa00;--muted:#9fbbe0;}
-*{box-sizing:border-box}html,body{height:100%;}
-body{margin:0;font-family:"Orbitron",sans-serif;background:var(--bg);color:#e3e7ed;overflow-x:hidden;}
-nav{background:#0a0a0a;padding:14px 6%;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;border-bottom:2px solid #1f1f1f;position:sticky;top:0;z-index:1200;}
-nav a{color:var(--accent);font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .18s ease;}
-nav a:hover{ color:#ffffff; transform:translateY(-2px);}
-.hero{position:relative;padding:90px 18px 60px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#0a0a0a 0%, #12121a 100%);border-bottom:1px solid rgba(255,255,255,0.02);}
-.hero .logo-hero{width:160px;margin:0 auto 18px;display:block;position:relative;z-index:3;}
-.hero h1{color:var(--accent);margin:8px 0;font-size:2.6rem;z-index:3;position:relative;}
-.hero p{margin:6px 0 22px;font-size:1.1rem;opacity:.88;z-index:3;position:relative;}
-#particle-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
-.container{ max-width:600px; margin:30px auto; padding:0 18px; }
-form{ display:flex; flex-direction:column; gap:16px; }
-input, textarea{ background:#111; border:1px solid rgba(255,255,255,0.03); border-radius:10px; padding:12px; color:#e3e7ed; font-family:'Orbitron',sans-serif; font-size:1rem;}
-button{background:var(--accent); color:#000; font-weight:700; padding:12px; border:none; border-radius:12px; cursor:pointer; transition:transform .16s ease;}
-button:hover{transform:translateY(-3px);}
-footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Atari Division | Retro Replay</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>📞 Atari Support</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../index.html" class="site-logo"><img src="../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions"><a href="../contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="../checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+      </div>
+    </div>
+    <nav class="main-nav"><div class="container"><ul class="nav-list"><li><a href="../index.html">Home</a></li><li><a href="index.html">Atari</a></li><li><a href="contact.html" class="active">Contact</a></li></ul></div></nav>
+  </header>
 
-<nav>
-  <a href="index.html">Atari Home</a>
-  <a href="products/2600.html">2600</a>
-  <a href="products/5200.html">5200</a>
-  <a href="products/7800.html">7800</a>
-  <a href="guides.html">Guides</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <section class="hero" style="background: linear-gradient(135deg, #d62828 0%, #a61e1e 100%);"><div class="container hero-content"><div class="hero-text"><h1>Contact Atari Division</h1><p>Questions about your Atari consoles? We're here to help.</p></div></div></section>
 
-<section class="hero">
-  <canvas id="particle-canvas"></canvas>
-  <img src="assets/atari-logo.png" alt="Atari Logo" class="logo-hero">
-  <h1>Contact Retro Replay</h1>
-  <p>Questions, support, or inquiries about Atari consoles and services? Reach out below.</p>
-</section>
+  <section class="section" style="background: white;"><div class="container" style="max-width: 600px;"><div class="section-header"><h2 class="section-title">Get in Touch</h2></div><form onsubmit="return handleContactForm(event)" style="background: #f9fafb; padding: 2rem; border-radius: 12px;"><div style="margin-bottom: 1rem;"><label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Name</label><input type="text" placeholder="Your name" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></div><div style="margin-bottom: 1rem;"><label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Email</label><input type="email" placeholder="your@email.com" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></div><div style="margin-bottom: 1rem;"><label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Subject</label><input type="text" placeholder="How can we help?" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></div><div style="margin-bottom: 1.5rem;"><label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Message</label><textarea placeholder="Tell us more..." rows="6" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></textarea></div><button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button></form><div style="background: #f0f4f8; padding: 1.5rem; border-radius: 12px; margin-top: 2rem;"><h3 style="color: var(--primary); margin-top: 0;">Other Ways to Reach Us</h3><p><strong>Email:</strong> atari@retroreplay.com</p><p><strong>Phone:</strong> +44 1234 567890</p></div></div></section>
 
-<main class="container">
-  <form action="#" method="post">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</main>
+  <footer class="site-footer"><div class="container"><div class="footer-content"><div class="footer-section"><h3>Atari Support</h3><p>Fast response & expert help.</p></div><div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Atari Home</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div></div></footer>
 
-<footer>
-  <div>© 2025 Retro Replay — Atari Division</div>
-  <div style="margin-top:8px;">
-    <a href="index.html">Atari Home</a> •
-    <a href="products/2600.html">2600</a> •
-    <a href="products/5200.html">5200</a> •
-    <a href="products/7800.html">7800</a> •
-    <a href="guides.html">Guides</a> •
-    <a href="contact.html">Contact</a>
-  </div>
-</footer>
-
-<script>
-// Particle effect
-const canvas=document.getElementById('particle-canvas');
-const ctx=canvas.getContext('2d');
-function setCanvas(){canvas.width=window.innerWidth; canvas.height=document.querySelector('.hero').offsetHeight;}
-setCanvas();
-let particles=[];
-class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.r=Math.random()*1.8+.6;this.vx=(Math.random()-0.5)*0.35;this.vy=(Math.random()-0.5)*0.35;this.alpha=0.25+Math.random()*0.5;}
-update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>canvas.width)this.vx*=-1;if(this.y<0||this.y>canvas.height)this.vy*=-1;}
-draw(){ctx.beginPath();ctx.fillStyle=`rgba(255,204,0,${this.alpha})`;ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();}}
-function initParticles(count=110){particles=[];for(let i=0;i<count;i++)particles.push(new Particle());}
-function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
-window.addEventListener('resize',()=>{setCanvas();initParticles();});initParticles();animate();
-</script>
-
+  <script src="../cart.js"></script><script>RetroCart.loadCart(); function handleContactForm(e){e.preventDefault(); alert('Thank you! We will respond shortly.'); e.target.reset(); return false;}</script>
 </body>
 </html>

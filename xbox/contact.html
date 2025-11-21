@@ -6,55 +6,27 @@
   <title>Contact Xbox Division | Retro Replay</title>
   <link rel="stylesheet" href="../style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-body { margin:0; font-family:'Orbitron',sans-serif; background:#111210; color:#e3e7ed;}
-nav { background:#0a0a0a; padding:16px; text-align:center; }
-nav a { color:#32cd32; margin:0 10px; text-decoration:none; font-weight:700;}
-nav a:hover { color:#7cff7c; }
-header { text-align:center; padding:50px 20px; }
-h1 { color:#32cd32; margin-bottom:10px; }
-.section { padding:40px 10%; max-width:800px; margin:0 auto; }
-form { display:flex; flex-direction:column; gap:15px; }
-input, textarea { padding:12px; border-radius:8px; border:1px solid #3a3f4a; background:#111; color:#e3e7ed; font-family:'Orbitron',sans-serif; }
-input[type="submit"] { background:#32cd32; color:#111; font-weight:700; cursor:pointer; transition:0.3s; border:none; }
-input[type="submit"]:hover { background:#7cff7c; }
-footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0; }
-footer a { color:#32cd32; margin:0 8px; text-decoration:none; }
-footer a:hover { color:#7cff7c; }
-</style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>📞 Xbox Support</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../index.html" class="site-logo"><img src="../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions"><a href="../contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="../checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+      </div>
+    </div>
+    <nav class="main-nav"><div class="container"><ul class="nav-list"><li><a href="../index.html">Home</a></li><li><a href="index.html">Xbox</a></li><li><a href="contact.html" class="active">Contact</a></li></ul></div></nav>
+  </header>
 
-<nav>
-  <a href="index.html">Xbox Home</a>
-  <a href="products.html">Products</a>
-  <a href="guides.html">Guides</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <section class="hero" style="background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);"><div class="container hero-content"><div class="hero-text"><h1>Contact Xbox Division</h1><p>Questions about your Xbox consoles? We're here to help.</p></div></div></section>
 
-<header>
-  <h1>Contact Xbox Division</h1>
-  <p>Have a question? Need support? Reach out to us today.</p>
-</header>
+  <section class="section" style="background: white;"><div class="container" style="max-width: 600px;"><div class="section-header"><h2 class="section-title">Get in Touch</h2></div><form onsubmit="return handleContactForm(event)" style="background: #f9fafb; padding: 2rem; border-radius: 12px;"><div style="margin-bottom: 1rem;"><label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Name</label><input type="text" placeholder="Your name" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></div><div style="margin-bottom: 1rem;"><label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Email</label><input type="email" placeholder="your@email.com" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></div><div style="margin-bottom: 1rem;"><label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Subject</label><input type="text" placeholder="How can we help?" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></div><div style="margin-bottom: 1.5rem;"><label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Message</label><textarea placeholder="Tell us more..." rows="6" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></textarea></div><button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button></form><div style="background: #f0f4f8; padding: 1.5rem; border-radius: 12px; margin-top: 2rem;"><h3 style="color: var(--primary); margin-top: 0;">Other Ways to Reach Us</h3><p><strong>Email:</strong> xbox@retroreplay.com</p><p><strong>Phone:</strong> +44 1234 567890</p></div></div></section>
 
-<section class="section">
-  <form action="#" method="post">
-    <input type="text" name="name" placeholder="Full Name" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <input type="text" name="subject" placeholder="Subject" required>
-    <textarea name="message" placeholder="Your Message..." rows="6" required></textarea>
-    <input type="submit" value="Send Message">
-  </form>
-</section>
+  <footer class="site-footer"><div class="container"><div class="footer-content"><div class="footer-section"><h3>Xbox Support</h3><p>Fast response & expert help.</p></div><div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Xbox Home</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div></div></footer>
 
-<footer>
-  <p>© 2025 Retro Replay — Xbox Division</p>
-  <p>
-    <a href="index.html">Xbox Home</a> •
-    <a href="products.html">Products</a> •
-    <a href="guides.html">Guides</a> •
-    <a href="contact.html">Contact</a>
+  <script src="../cart.js"></script><script>RetroCart.loadCart(); function handleContactForm(e){e.preventDefault(); alert('Thank you! We will respond shortly.'); e.target.reset(); return false;
   </p>
 </footer>
 

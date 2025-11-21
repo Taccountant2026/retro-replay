@@ -1,561 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Retro Replay — PS2 Premium Store</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-  /* ========== Variables & Reset ========== */
-  :root{
-    --bg:#07060a;            /* near-black */
-    --panel:rgba(10,11,14,0.55); /* translucent panels */
-    --glass:rgba(255,255,255,0.04);
-    --ps2-blue:#0051ff;
-    --cyan:#00d0ff;
-    --accent:#6db8ff;
-    --muted:#9fbbe0;
-    --hot:#ff3b7a;
-    --card-border:rgba(109,184,255,0.06);
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family:"Orbitron",system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-    background:var(--bg);
-    color:#eaf2ff;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    overflow-x:hidden;
-  }
-  a{color:inherit;text-decoration:none}
-  img{display:block;max-width:100%}
-
-  /* ========== Full-page particles canvas ========== */
-  #particle-canvas{
-    position:fixed; inset:0; width:100%; height:100%;
-    z-index:-1; pointer-events:none;
-    background:
-      radial-gradient(1200px 400px at 10% 10%, rgba(0,80,255,0.04), transparent 8%),
-      radial-gradient(800px 300px at 90% 80%, rgba(0,208,255,0.02), transparent 6%);
-    transition:background 0.4s;
-  }
-
-  /* ========== Header ========== */
-  .site-header{
-    position:sticky; top:0; z-index:1200;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:14px 6%;
-    background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.30));
-    border-bottom:1px solid rgba(255,255,255,0.03);
-    backdrop-filter: blur(6px);
-  }
-  .site-brand{display:flex;align-items:center;gap:14px}
-  .site-brand img{height:46px}
-  nav.main-nav{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
-  nav.main-nav a{
-    color:var(--accent); font-weight:700; padding:8px 12px; border-radius:8px;
-    transition:all .18s ease;
-  }
-  nav.main-nav a:hover{ color:#fff; transform:translateY(-3px); }
-
-  /* ====== Top Collections / Marquee ====== */
-  .top-collections {
-    padding:18px 6%;
-    display:flex; gap:18px; align-items:center; justify-content:space-between;
-  }
-  .collections-list{display:flex; gap:12px; flex-wrap:wrap}
-  .collection-pill{
-    background:linear-gradient(90deg, rgba(0,81,255,0.12), rgba(0,208,255,0.06));
-    color:var(--ps2-blue);
-    padding:8px 14px; border-radius:999px; font-weight:700; box-shadow:0 6px 24px rgba(0,81,255,0.03);
-  }
-  .site-marquee{
-    font-weight:700; color:var(--muted); font-size:0.95rem;
-    background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
-    padding:8px 12px; border-radius:10px;
-  }
-
-  /* ========== Hero ========== */
-  .hero{
-    display:grid;
-    grid-template-columns:1fr 480px;
-    gap:28px;
-    align-items:center;
-    padding:56px 6% 36px;
-    margin-top:6px;
-  }
-  .hero-left{max-width:720px}
-  .hero h1{font-size:clamp(30px,5vw,56px); line-height:1; margin:0 0 12px; color:var(--ps2-blue);
-    text-shadow:0 8px 30px rgba(0,81,255,0.08), 0 0 40px rgba(109,184,255,0.03)}
-  .hero p{margin:0 0 18px; color:var(--muted); font-size:1.05rem}
-  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-  .btn-primary{
-    background:linear-gradient(180deg,var(--ps2-blue), #0068ff); color:#001; font-weight:900;
-    padding:14px 22px;border-radius:12px; box-shadow:0 10px 40px rgba(0,81,255,0.12); border:none; cursor:pointer;
-    transition:transform .18s ease, box-shadow .18s ease;
-  }
-  .btn-primary:hover{ transform:translateY(-4px); box-shadow:0 20px 60px rgba(0,81,255,0.18) }
-  .btn-ghost{
-    background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); padding:12px 18px; border-radius:10px;
-  }
-
-  .hero-right{
-    display:flex; align-items:center; justify-content:center;
-    perspective:900px;
-  }
-  .hero-device{
-    width:420px; border-radius:18px; padding:18px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    box-shadow:0 40px 80px rgba(0,0,0,0.6), 0 8px 30px rgba(0,81,255,0.06);
-    transform:rotateY(-8deg) translateZ(0);
-  }
-  .hero-device img{width:100%; border-radius:12px}
-
-  /* ========== Collections quick-nav (grid) ========== */
-  .collections-grid{
-    display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;
-  }
-  .col-card{
-    min-width:180px;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    padding:12px 14px; border-radius:12px; border:1px solid var(--card-border); color:var(--muted);
-    display:flex; gap:12px; align-items:center;
-  }
-  .col-card img{width:48px; height:48px; object-fit:contain; opacity:0.95}
-
-  /* ========== Console Grid (Product cards) ========== */
-  .grid {
-    display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap:22px; padding:28px 6%;
-  }
-  .card{
-    background:var(--panel);
-    border-radius:14px; padding:18px; position:relative;
-    border:1px solid rgba(255,255,255,0.03);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
-    transition:transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s;
-    overflow:hidden;
-  }
-  .card:hover{ transform:translateY(-8px); box-shadow:0 28px 80px rgba(0,0,0,0.65) }
-  .card .media{display:flex; align-items:center; justify-content:center; padding:6px 0}
-  .card .media img{width:110px;height:auto;filter:drop-shadow(0 8px 30px rgba(0,81,255,0.06))}
-  .card h3{margin:10px 0 6px; color:var(--cyan); font-size:1.05rem}
-  .card p.desc{color:var(--muted); font-size:0.92rem; margin:0 0 12px}
-  .price-row{display:flex; align-items:center; justify-content:space-between; gap:10px}
-  .price{font-weight:900; color:#fff; font-size:1.02rem}
-  .stock{font-size:0.85rem; color:var(--muted)}
-  .card .btn-row{display:flex; gap:10px; margin-top:12px}
-  .btn-ghost-sm{padding:8px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:var(--muted)}
-  .btn-buy{background:linear-gradient(180deg,var(--ps2-blue),#0071ff); border:none; color:#001; padding:9px 14px; border-radius:10px; font-weight:900; cursor:pointer}
-
-  .ribbon{
-    position:absolute; left:12px; top:12px; background:linear-gradient(90deg,#ff5577,#ff3b7a); color:white; font-weight:800;
-    padding:6px 10px; border-radius:999px; font-size:0.78rem; box-shadow:0 8px 20px rgba(255,59,122,0.12)
-  }
-  .scarcity{position:absolute; right:12px; top:12px; background:rgba(0,0,0,0.45); padding:6px 10px; border-radius:8px; font-size:0.82rem; color:var(--muted)}
-
-  /* small meta row */
-  .meta-row{display:flex; gap:8px; align-items:center; color:var(--muted); font-size:0.9rem}
-
-  /* ========== Why us & refurbishment list ========== */
-  .why{
-    padding:40px 6%; display:grid; grid-template-columns: 1fr 420px; gap:28px; align-items:start;
-  }
-  .benefits{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
-  .benefit{
-    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));
-    padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.03)
-  }
-  .refurbish{
-    background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.28));
-    padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.02)
-  }
-  .refurbish ul{margin:8px 0 0;padding-left:18px; color:var(--muted)}
-  .refurbish li{margin:8px 0}
-
-  /* ========== Promo grid ========== */
-  .promo-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; padding:28px 6%}
-  .promo{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01)); padding:16px; border-radius:12px; border:1px solid rgba(109,184,255,0.03); text-align:center}
-  .promo h4{color:var(--cyan)}
-
-  /* ========== Testimonials carousel (simple) ========== */
-  .testimonials{padding:36px 6%; display:flex; gap:18px; overflow:auto}
-  .testimonial{min-width:280px; background:var(--panel); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.03)}
-  .testimonial p{margin:0 0 8px; color:var(--muted)}
-
-  /* ========== FAQ & Newsletter & Footer ========== */
-  .faq{padding:28px 6%}
-  .faq-item{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01)); padding:12px; border-radius:10px; margin-bottom:12px; border:1px solid rgba(255,255,255,0.02)}
-  .faq-item h4{margin:0; cursor:pointer; color:var(--accent)}
-  .faq-item p{margin:8px 0 0; color:var(--muted); display:none}
-  .newsletter{padding:28px 6%; display:flex; gap:14px; align-items:center; background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.28)); margin-top:10px; border-radius:12px; border:1px solid rgba(255,255,255,0.02)}
-  .newsletter input{flex:1;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04); background:transparent; color: #fff}
-  .newsletter button{padding:12px 20px;border-radius:10px;border:none;background:var(--ps2-blue); color:#001; font-weight:900;cursor:pointer}
-
-  footer{padding:26px 6%; color:var(--muted); border-top:1px solid rgba(255,255,255,0.02); text-align:center; margin-top:20px}
-
-  /* ========== Floating shop CTA ========== */
-  .floating-shop{
-    position:fixed; right:22px; bottom:22px; z-index:1400;
-  }
-
-  /* ========== Responsive ========== */
-  @media (max-width:1100px){
-    .hero{grid-template-columns:1fr 360px}
-    .why{grid-template-columns:1fr}
-  }
-  @media (max-width:820px){
-    .hero{grid-template-columns:1fr}
-    .hero-right{order:2}
-    .hero-left{order:1}
-    .collections-grid{overflow:auto}
-    .grid{padding:18px}
-  }
-  @media (max-width:480px){
-    nav.main-nav{display:none}
-    .site-header{padding:12px 4%}
-  }
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Replay — Premium Refurbished Gaming Consoles | PS2, Xbox, Nintendo & More</title>
+  <meta name="description" content="Professional refurbished PS2, Xbox, Nintendo, Atari & Sega consoles. 6-month warranty, expert mods, fast shipping.">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- particles canvas -->
-  <canvas id="particle-canvas" aria-hidden="true"></canvas>
-
-  <!-- HEADER -->
-  <header class="site-header" role="banner">
-    <div class="site-brand">
-      <a href="index.html"><img src="assets/logo.png" alt="Retro Replay logo"></a>
-      <div style="line-height:1">
-        <div style="font-weight:900; color:var(--ps2-blue)">Retro Replay</div>
-        <div style="font-size:12px; color:var(--muted)">Refurbished classics — pro serviced</div>
+  <!-- Header -->
+  <header class="site-header">
+    <!-- Top Bar -->
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo">
+          <span>🎮 New Stock: PS2 SCPH-50003 Restocked</span>
+          <span>📦 Free Setup Guide with HDD Mods</span>
+        </div>
+        <div class="header-links">
+          <a href="/about.html">About</a>
+          <a href="/delivery.html">Delivery</a>
+          <a href="/warranties.html">Warranty</a>
+        </div>
       </div>
     </div>
 
-    <nav class="main-nav" role="navigation" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="/playstation/index.html">PlayStation</a>
-      <a href="/xbox/index.html">Xbox</a>
-      <a href="/nintendo/index.html">Nintendo</a>
-      <a href="/atari/index.html">Atari</a>
-      <a href="/playstation/guides.html">Guides</a>
-      <a href="/playstation/contact.html">Contact</a>
+    <!-- Main Header -->
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="index.html" class="site-logo">
+          <img src="assets/logo.png" alt="Retro Replay Logo">
+          <span>Retro Replay</span>
+        </a>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <input type="search" placeholder="Search consoles, accessories..." aria-label="Search products">
+          <button class="search-btn">Search</button>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action">
+            <span>📞</span>
+            <span>Support</span>
+          </a>
+          <a href="/checkout.html" class="header-action">
+            <span>🛒</span>
+            <span>Cart</span>
+            <span class="cart-badge" id="cart-count-js">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+          <li><a href="/playstation/guides.html">Guides</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
-  <!-- TOP COLLECTIONS + MARQUEE -->
-  <div class="top-collections" role="region" aria-label="Top collections">
-    <div class="collections-list" aria-hidden="false">
-      <div class="collection-pill">PS2 Collections</div>
-      <div class="collection-pill">Mods & HDD Kits</div>
-      <div class="collection-pill">Controllers & Memory</div>
-      <div class="collection-pill">Rare & Collector</div>
-    </div>
-    <div class="site-marquee" aria-live="polite">New stock: PS2 SCPH-50003 restocked • Free setup guide with HDD mods • 6-month warranty</div>
-  </div>
-
-  <!-- HERO -->
-  <section class="hero" role="region" aria-label="Hero">
-    <div class="hero-left">
-      <h1>PS2-grade refurbishment, pro mods & collector stock</h1>
-      <p>We restore PlayStation classics — deep clean, new thermal refresh, laser checks, optional FMCB/HDD installs and cosmetic restoration. Built for players and collectors.</p>
-      <div class="hero-ctas">
-        <a class="btn-primary" href="/playstation/products/ps2.html">Shop PS2 Consoles</a>
-        <a class="btn-ghost" href="/playstation/guides.html">Read Setup Guides</a>
-      </div>
-
-      <!-- quick collections -->
-      <div class="collections-grid" aria-hidden="false" style="margin-top:16px">
-        <div class="col-card"><img src="assets/ps2logo.png" alt=""><div><strong>PS2</strong><div style="font-size:12px;color:var(--muted)">Fat & Slim</div></div></div>
-        <div class="col-card"><img src="assets/ps2-hdd-bracket.png" alt=""><div><strong>HDD Mods</strong><div style="font-size:12px;color:var(--muted)">SATA & HDD kits</div></div></div>
-        <div class="col-card"><img src="assets/ps2-fmcb.png" alt=""><div><strong>FMCB</strong><div style="font-size:12px;color:var(--muted)">Homebrew ready</div></div></div>
-        <div class="col-card"><img src="assets/ps2-laser.png" alt=""><div><strong>Repairs</strong><div style="font-size:12px;color:var(--muted)">Laser & Power</div></div></div>
-      </div>
-    </div>
-
-    <div class="hero-right" aria-hidden="false">
-      <div class="hero-device" role="img" aria-label="Refurbished PS2 image">
-        <img src="assets/PS2_BUNDLE_FRONT_UP.jpg" alt="Refurbished PS2 bundle">
-      </div>
-    </div>
-  </section>
-
-  <!-- TOP GRID - CONSOLES (immediately visible) -->
-  <section aria-label="Top collections quick shop" style="padding-top:6px">
-    <div class="grid" role="list">
-      <!-- PlayStation 2 -->
-      <article class="card" role="listitem" aria-label="PS2 Fat SCPH-50003 — Black">
-        <div class="ribbon">Best Seller</div>
-        <div class="media"><img src="assets/PS2_BUNDLE_FRONT_UP.jpg" alt="PS2 Fat"></div>
-        <h3>PS2 Fat — SCPH-50003 (Black)</h3>
-        <p class="desc">Professionally refurbished FAT PS2. Tested, cleaned, includes 2 controllers and AV cable. Optional softmod & HDD install.</p>
-        <div class="price-row">
-          <div class="price">£147.99</div>
-          <div class="meta-row"><span class="stock">Stock: 2</span></div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Professional Console Refurbishment & Retro Gaming</h1>
+        <p>We restore PlayStation, Xbox, Nintendo, and classic gaming consoles to like-new condition. Deep cleaning, laser calibration, mod options, and 6-month warranty on every unit.</p>
+        <div class="hero-cta">
+          <a href="/playstation/products/ps2.html" class="btn btn-primary">Shop PS2 Consoles</a>
+          <a href="/playstation/guides.html" class="btn btn-secondary">Setup Guides</a>
         </div>
-        <div class="btn-row">
-          <a class="btn-ghost-sm" href="/playstation/products/ps2.html">Details</a>
-          <button class="btn-buy" onclick="location.href='/playstation/checkout.html'">Buy Now</button>
-        </div>
-      </article>
-
-      <!-- Xbox -->
-      <article class="card" role="listitem" aria-label="Xbox listing">
-        <div class="media"><img src="assets/xboxlogo.png" alt="Xbox"></div>
-        <h3>Xbox Classics</h3>
-        <p class="desc">Original Xbox & 360 refurbished units — controllers, memory and AV ready.</p>
-        <div class="price-row"><div class="price">From £99.99</div><div class="meta-row"><span class="stock">Varies</span></div></div>
-        <div class="btn-row"><a class="btn-ghost-sm" href="/xbox/index.html">Shop</a><a class="btn-ghost-sm" href="/xbox/index.html">Details</a></div>
-      </article>
-
-      <!-- Nintendo -->
-      <article class="card" role="listitem" aria-label="Nintendo listing">
-        <div class="badge">Limited</div>
-        <div class="media"><img src="assets/nintendologo.png" alt="Nintendo"></div>
-        <h3>Nintendo — Retro Range</h3>
-        <p class="desc">NES / SNES / N64 & modern Switch restorations. Collector checks & cosmetic options available.</p>
-        <div class="price-row"><div class="price">From £59.99</div><div class="meta-row"><span class="stock">Limited</span></div></div>
-        <div class="btn-row"><a class="btn-ghost-sm" href="/nintendo/index.html">Shop</a><a class="btn-ghost-sm" href="/nintendo/index.html">Details</a></div>
-      </article>
-
-      <!-- SEGA -->
-      <article class="card" role="listitem" aria-label="SEGA listing">
-        <div class="media"><img src="assets/segalogo.png" alt="SEGA"></div>
-        <h3>SEGA Classics</h3>
-        <p class="desc">Genesis / Mega Drive & Saturn — restored and tested.</p>
-        <div class="price-row"><div class="price">From £49.99</div><div class="meta-row"><span class="stock">Varies</span></div></div>
-        <div class="btn-row"><a class="btn-ghost-sm" href="/sega/index.html">Shop</a><a class="btn-ghost-sm" href="/sega/index.html">Details</a></div>
-      </article>
-
-      <!-- restored Atari card (YOU SAID IT WAS MISSING) -->
-      <article class="card" role="listitem" aria-label="Atari classics — restored">
-        <div class="media"><img src="assets/atarilogo.png" alt="Atari"></div>
-        <h3>Atari — Restored Classics</h3>
-        <p class="desc">Atari 2600 & 7800 refurbished, cleaned cartridges, tested controllers and PSU checks.</p>
-        <div class="price-row"><div class="price">From £39.99</div><div class="meta-row"><span class="stock">Stock: 3</span></div></div>
-        <div class="btn-row"><a class="btn-ghost-sm" href="/atari/index.html">Visit Atari</a><a class="btn-ghost-sm" href="/atari/index.html">Details</a></div>
-      </article>
-    </div>
-  </section>
-
-  <!-- WHY US & REFURB LIST -->
-  <section class="why" aria-label="Why choose Retro Replay">
-    <div>
-      <h2 style="margin:0 0 10px; color:var(--cyan)">Why Retro Replay?</h2>
-      <p style="margin:0 0 16px; color:var(--muted)">We combine kit knowledge, professional refurbishment, and collector care — every unit is tested, tuned, and documented.</p>
-
-      <div class="benefits" role="list">
-        <div class="benefit"><strong>6-Month Warranty</strong><div style="color:var(--muted);font-size:0.92rem;margin-top:6px">Covers parts & performance</div></div>
-        <div class="benefit"><strong>Professional Repair</strong><div style="color:var(--muted);font-size:0.92rem;margin-top:6px">Laser swaps, power inspections & more</div></div>
-        <div class="benefit"><strong>Mod Options</strong><div style="color:var(--muted);font-size:0.92rem;margin-top:6px">FMCB, HDD installs & custom shells</div></div>
-        <div class="benefit"><strong>Collector Grading</strong><div style="color:var(--muted);font-size:0.92rem;margin-top:6px">A / B / C cosmetic grading</div></div>
+      </div>
+      <div class="hero-image">
+        <img src="assets/PS2_REFURBED_BUNDLE.jpg" alt="Refurbished PS2 Console Bundle">
       </div>
     </div>
-
-    <aside class="refurbish" aria-label="Refurbishment checklist">
-      <h4 style="color:var(--accent);margin:0 0 8px">Refurbishment checklist</h4>
-      <p style="margin:0;color:var(--muted)">Complete, documented process we run on every console:</p>
-      <ul>
-        <li>Disassemble & ultrasonic cleaning</li>
-        <li>Laser / optical calibration (new laser if needed)</li>
-        <li>Thermal refresh & fan tuning</li>
-        <li>Power supply inspection & caps check</li>
-        <li>Optional HDD + FMCB setup for PS2</li>
-        <li>Full playtest with original games</li>
-        <li>Packaging & secure shipping</li>
-      </ul>
-    </aside>
   </section>
 
-  <!-- PROMO GRID -->
-  <section class="promo-grid" aria-label="Promotions">
-    <div class="promo"><h4>Trade-In Programme</h4><p>Send us old consoles — get store credit towards refurbished units.</p></div>
-    <div class="promo"><h4>Fast & Tracked Shipping</h4><p>Signed, tracked delivery across the UK. International options available.</p></div>
-    <div class="promo"><h4>Collector Service</h4><p>Grading, cosmetic restoration and secure packaging for rare consoles.</p></div>
-  </section>
-
-  <!-- Testimonials -->
-  <section aria-label="Testimonials">
-    <h3 style="padding:0 6%; color:var(--cyan); margin:0 0 12px">What customers say</h3>
-    <div class="testimonials" role="list">
-      <div class="testimonial" role="listitem"><p>“PS2 arrived like new. HDD install was perfect.”</p><strong>— Sam L.</strong></div>
-      <div class="testimonial" role="listitem"><p>“Saved my retro collection, top service and fast shipping.”</p><strong>— Mel R.</strong></div>
-      <div class="testimonial" role="listitem"><p>“Collector grade restored — immaculate.”</p><strong>— Charlie P.</strong></div>
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <div class="trust-badge-icon">✓</div>
+          <h3>6-Month Warranty</h3>
+          <p>Parts & performance guaranteed</p>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">🔧</div>
+          <h3>Expert Refurbishment</h3>
+          <p>Professional repairs & mods</p>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">📦</div>
+          <h3>Fast Shipping</h3>
+          <p>Tracked delivery UK & Int'l</p>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">⭐</div>
+          <h3>Quality Grading</h3>
+          <p>A/B/C cosmetic ratings</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="faq" aria-label="FAQ">
-    <h3 style="color:var(--cyan); margin:0 0 12px">Quick FAQs</h3>
-    <div class="faq-item"><h4>How long does refurbishment take?</h4><p>Typically 5–10 business days depending on parts and mods requested.</p></div>
-    <div class="faq-item"><h4>Do you offer warranty?</h4><p>Yes — 6 months on parts and performance; extended options available at checkout.</p></div>
-    <div class="faq-item"><h4>Can I request specific mods?</h4><p>Yes — HDD installs, FMCB, replacement shells, and custom wiring supported.</p></div>
+  <!-- Shop by Console -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Shop by Console</h2>
+        <p class="section-subtitle">Professionally refurbished classic gaming consoles from all major brands</p>
+      </div>
+
+      <div class="category-grid">
+        <a href="/playstation/index.html" class="category-card">
+          <div class="category-icon">
+            <img src="assets/playstation-logo.png" alt="PlayStation">
+          </div>
+          <h3 class="category-name">PlayStation</h3>
+          <p class="category-count">PS1, PS2, PS3</p>
+        </a>
+
+        <a href="/xbox/index.html" class="category-card">
+          <div class="category-icon">
+            <img src="assets/xboxlogo.png" alt="Xbox">
+          </div>
+          <h3 class="category-name">Xbox</h3>
+          <p class="category-count">Original, 360</p>
+        </a>
+
+        <a href="/nintendo/index.html" class="category-card">
+          <div class="category-icon">
+            <img src="assets/nintendologo.png" alt="Nintendo">
+          </div>
+          <h3 class="category-name">Nintendo</h3>
+          <p class="category-count">NES, SNES, N64</p>
+        </a>
+
+        <a href="/atari/index.html" class="category-card">
+          <div class="category-icon">
+            <img src="assets/atarilogo.png" alt="Atari">
+          </div>
+          <h3 class="category-name">Atari</h3>
+          <p class="category-count">2600, 5200, 7800</p>
+        </a>
+
+        <a href="/sega/index.html" class="category-card">
+          <div class="category-icon">
+            <img src="assets/segalogo.png" alt="Sega">
+          </div>
+          <h3 class="category-name">Sega</h3>
+          <p class="category-count">Genesis, Saturn, Dreamcast</p>
+        </a>
+      </div>
+    </div>
   </section>
 
-  <!-- Newsletter -->
-  <section class="newsletter" role="region" aria-label="Newsletter signup">
-    <input type="email" id="newsletter-email" placeholder="you@example.com" aria-label="Email address">
-    <button id="newsletter-btn">Subscribe</button>
-    <div style="color:var(--muted); font-size:0.9rem; margin-left:12px">Get restock alerts, rare drops & exclusive discounts.</div>
+  <!-- Featured Products -->
+  <section class="section" style="background: white;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Products</h2>
+        <p class="section-subtitle">Our most popular refurbished consoles, ready to ship</p>
+      </div>
+
+      <div class="product-grid">
+        <!-- PS2 Fat -->
+        <article class="product-card">
+          <span class="product-badge sale">Best Seller</span>
+          <div class="product-image">
+            <img src="assets/PS2_BUNDLE_FRONT.jpg" alt="PS2 Fat SCPH-50003">
+          </div>
+          <div class="product-info">
+            <div class="product-category">PlayStation 2</div>
+            <h3 class="product-name">PS2 Fat — SCPH-50003 (Black)</h3>
+            <p class="product-description">Professionally refurbished FAT PS2. Deep cleaned, tested, includes 2 controllers and AV cable.</p>
+            <ul class="product-features">
+              <li>2 Controllers Included</li>
+              <li>AV & Power Cables</li>
+              <li>Optional FMCB/HDD Mod</li>
+              <li>6-Month Warranty</li>
+            </ul>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">£147.99</div>
+              </div>
+              <div class="product-rating">
+                ⭐⭐⭐⭐⭐ (4.9)
+              </div>
+            </div>
+            <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-50003','PS2 Fat SCPH-50003',147.99,'assets/PS2_BUNDLE_FRONT.jpg')">Add to Cart</button>
+          </div>
+        </article>
+
+        <!-- PS2 Modded Bundle -->
+        <article class="product-card">
+          <span class="product-badge new">New</span>
+          <div class="product-image">
+            <img src="assets/PS2_MODDED_BUNDLE.png" alt="PS2 Modded Bundle">
+          </div>
+          <div class="product-info">
+            <div class="product-category">PlayStation 2</div>
+            <h3 class="product-name">PS2 Modded Bundle — HDD + FMCB</h3>
+            <p class="product-description">Complete modded setup with 500GB HDD, FMCB pre-installed, ready for homebrew gaming.</p>
+            <ul class="product-features">
+              <li>500GB HDD Pre-loaded</li>
+              <li>FMCB Installed</li>
+              <li>2 Controllers + Memory</li>
+              <li>Complete Setup Guide</li>
+            </ul>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">£189.99</div>
+              </div>
+              <div class="product-rating">
+                ⭐⭐⭐⭐⭐ (5.0)
+              </div>
+            </div>
+            <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-modded-bundle','PS2 Modded Bundle',189.99,'assets/PS2_MODDED_BUNDLE.png')">Add to Cart</button>
+          </div>
+        </article>
+
+        <!-- Xbox Original -->
+        <article class="product-card">
+          <div class="product-image">
+            <img src="assets/xboxlogo.png" alt="Original Xbox">
+          </div>
+          <div class="product-info">
+            <div class="product-category">Xbox</div>
+            <h3 class="product-name">Xbox Original — Refurbished</h3>
+            <p class="product-description">Classic Xbox console, cleaned and tested. Includes controller and AV cable.</p>
+            <ul class="product-features">
+              <li>Original Controller</li>
+              <li>AV & Power Cables</li>
+              <li>Tested & Working</li>
+              <li>6-Month Warranty</li>
+            </ul>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">£99.99</div>
+              </div>
+              <div class="product-rating">
+                ⭐⭐⭐⭐⭐ (4.7)
+              </div>
+            </div>
+            <a href="/xbox/index.html" class="btn btn-outline btn-add-cart">View Details</a>
+          </div>
+        </article>
+
+        <!-- Nintendo N64 -->
+        <article class="product-card">
+          <div class="product-image">
+            <img src="assets/nintendologo.png" alt="Nintendo 64">
+          </div>
+          <div class="product-info">
+            <div class="product-category">Nintendo</div>
+            <h3 class="product-name">Nintendo 64 — Restored</h3>
+            <p class="product-description">Classic N64 console fully restored. Deep clean, tested, with controller and cables.</p>
+            <ul class="product-features">
+              <li>Original Controller</li>
+              <li>All Cables Included</li>
+              <li>Deep Cleaned</li>
+              <li>6-Month Warranty</li>
+            </ul>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">£89.99</div>
+              </div>
+              <div class="product-rating">
+                ⭐⭐⭐⭐ (4.5)
+              </div>
+            </div>
+            <a href="/nintendo/index.html" class="btn btn-outline btn-add-cart">View Details</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-lg">
+        <a href="/consoles.html" class="btn btn-primary">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Choose Retro Replay?</h2>
+        <p class="section-subtitle">Professional refurbishment, collector care, and documented quality</p>
+      </div>
+
+      <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="product-card" style="text-align: center;">
+          <div class="product-image" style="min-height: auto; padding: 2rem;">
+            <div style="font-size: 3rem;">🔧</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Professional Repair</h3>
+            <p class="product-description">Every console undergoes complete disassembly, ultrasonic cleaning, laser calibration, thermal refresh, and power supply inspection.</p>
+          </div>
+        </div>
+
+        <div class="product-card" style="text-align: center;">
+          <div class="product-image" style="min-height: auto; padding: 2rem;">
+            <div style="font-size: 3rem;">⚙️</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Mod Options</h3>
+            <p class="product-description">FMCB installation, HDD upgrades, custom shells, and homebrew setup available for supported consoles.</p>
+          </div>
+        </div>
+
+        <div class="product-card" style="text-align: center;">
+          <div class="product-image" style="min-height: auto; padding: 2rem;">
+            <div style="font-size: 3rem;">⭐</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Collector Grading</h3>
+            <p class="product-description">A/B/C cosmetic grading system ensures you know exactly what condition your console is in before purchase.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Refurbishment Process -->
+  <section class="section" style="background: white;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Refurbishment Process</h2>
+        <p class="section-subtitle">Complete, documented process for every console</p>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="product-card">
+          <div class="product-info">
+            <ul class="product-features" style="font-size: 1rem;">
+              <li>Complete disassembly & ultrasonic cleaning</li>
+              <li>Laser / optical drive calibration (new laser if needed)</li>
+              <li>Thermal paste refresh & fan tuning</li>
+              <li>Power supply inspection & capacitor checks</li>
+              <li>Optional HDD + FMCB setup for PS2</li>
+              <li>Full play-test with original games</li>
+              <li>Secure packaging & tracked shipping</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-subtitle">Real reviews from happy retro gamers</p>
+      </div>
+
+      <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="product-card">
+          <div class="product-info">
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <p class="product-description" style="font-size: 1rem; margin: 1rem 0;">"PS2 arrived like new. HDD install was perfect and the setup guide made everything easy. Highly recommend!"</p>
+            <div class="product-category">— Sam L.</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <p class="product-description" style="font-size: 1rem; margin: 1rem 0;">"Saved my retro collection. Top service, fast shipping, and the console works perfectly. Worth every penny."</p>
+            <div class="product-category">— Mel R.</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <div class="product-rating">⭐⭐⭐⭐⭐</div>
+            <p class="product-description" style="font-size: 1rem; margin: 1rem 0;">"Collector grade restoration was immaculate. Packaging was secure and communication was excellent throughout."</p>
+            <div class="product-category">— Charlie P.</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer role="contentinfo">
-    <div style="max-width:1100px;margin:0 auto">
-      <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px">
-        <img src="assets/playstation/playstation-logo.png" alt="" style="height:22px;opacity:0.9">
-        <img src="assets/ps2logo.png" alt="" style="height:20px;opacity:0.9">
-        <span style="color:var(--muted)">© 2025 Retro Replay — PlayStation Division</span>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Retro Replay</h3>
+          <p>Professional refurbished gaming consoles. PlayStation, Xbox, Nintendo, Atari & Sega restoration specialists.</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul class="footer-links">
+            <li><a href="/playstation/index.html">PlayStation</a></li>
+            <li><a href="/xbox/index.html">Xbox</a></li>
+            <li><a href="/nintendo/index.html">Nintendo</a></li>
+            <li><a href="/atari/index.html">Atari</a></li>
+            <li><a href="/sega/index.html">Sega</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="/playstation/guides.html">Setup Guides</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/warranties.html">Warranty Info</a></li>
+            <li><a href="/delivery.html">Shipping</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/how-we-refurbish.html">Our Process</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/branding.html">Branding</a></li>
+          </ul>
+        </div>
       </div>
-      <div style="color:var(--muted);font-size:0.92rem;margin-bottom:6px">Site links — <a href="index.html">Home</a> • <a href="/playstation/products/ps2.html">PS2</a> • <a href="/playstation/guides.html">Guides</a> • <a href="/playstation/contact.html">Contact</a></div>
-      <div style="color:var(--muted);font-size:0.85rem">Built with ❤️ — Retro Replay</div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Retro Replay. All rights reserved. Professional gaming console refurbishment & restoration.</p>
+      </div>
     </div>
   </footer>
 
-  <!-- Floating quick shop CTA -->
-  <div class="floating-shop" aria-hidden="false">
-    <button onclick="document.querySelector('#console-grid').scrollIntoView({behavior:'smooth'})" class="btn-primary" title="Shop Now">Shop Collections</button>
-  </div>
+  <!-- Cart Script -->
+  <script src="cart.js"></script>
+  <script>
+    // Initialize cart count on page load
+    RetroCart.loadCart();
+  </script>
 
-<script>
-/* ================= Particles (full page, mouse interactive) ================= */
-(() => {
-  const canvas = document.getElementById('particle-canvas');
-  const ctx = canvas.getContext('2d');
-  let W = canvas.width = window.innerWidth;
-  let H = canvas.height = window.innerHeight;
-  let particles = [];
-  const PARTICLE_COUNT = Math.max(120, Math.round((W*H)/90000)); // density scale
-
-  function rand(min,max){ return Math.random()*(max-min)+min }
-
-  class P {
-    constructor(){
-      this.reset();
-    }
-    reset(){
-      this.x = Math.random() * W;
-      this.y = Math.random() * H;
-      this.vx = (Math.random()-0.5) * rand(0.15,0.8);
-      this.vy = (Math.random()-0.5) * rand(0.15,0.8);
-      this.r = rand(0.6,2.2);
-      this.life = rand(80,220);
-      this.age = 0;
-      this.hue = rand(190,210); // cyan-blue
-      this.alpha = rand(0.12,0.55);
-    }
-    update(mouse){
-      this.x += this.vx;
-      this.y += this.vy;
-      this.age++;
-      if(this.x < -20 || this.x > W + 20 || this.y < -20 || this.y > H + 20 || this.age > this.life) this.reset();
-      // react to mouse: slight repulsion
-      if(mouse.active){
-        const dx = this.x - mouse.x, dy = this.y - mouse.y;
-        const d = Math.sqrt(dx*dx + dy*dy);
-        if(d < 120){
-          const push = (120 - d) / 120;
-          this.x += dx/d * push * 2;
-          this.y += dy/d * push * 2;
-        }
-      }
-    }
-    draw(){
-      ctx.beginPath();
-      ctx.fillStyle = `hsla(${this.hue},85%,60%,${this.alpha})`;
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
-      ctx.fill();
-    }
-  }
-
-  function init(){
-    particles = [];
-    for(let i=0;i<PARTICLE_COUNT;i++) particles.push(new P());
-  }
-
-  let mouse = { x: W/2, y: H/2, active:false };
-  canvas.addEventListener('mousemove', (e)=>{
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left; mouse.y = e.clientY - rect.top; mouse.active = true;
-  });
-  canvas.addEventListener('mouseleave', ()=>{ mouse.active = false; });
-
-  function resize(){
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-    init();
-  }
-  window.addEventListener('resize', resize);
-
-  function loop(){
-    ctx.clearRect(0,0,W,H);
-    // subtle background overlay to create trailing glow
-    ctx.fillStyle = 'rgba(4,6,10,0.12)';
-    ctx.fillRect(0,0,W,H);
-    // draw particles
-    particles.forEach(p=>{
-      p.update(mouse);
-      p.draw();
-    });
-    requestAnimationFrame(loop);
-  }
-
-  init(); loop();
-})();
-
-/* ================= Scroll reveal for cards and tiles ================= */
-(() => {
-  const revealEls = document.querySelectorAll('.card, .tile, .testimonial, .promo, .col-card');
-  function reveal(){
-    const trigger = window.innerHeight * 0.85;
-    revealEls.forEach(el=>{
-      const r = el.getBoundingClientRect();
-      if(r.top < trigger){
-        el.style.opacity = 1;
-        el.style.transform = el.style.transform || 'translateY(0)';
-        el.classList && el.classList.add('visible');
-      }
-    });
-  }
-  window.addEventListener('scroll', reveal);
-  window.addEventListener('load', reveal);
-  reveal();
-})();
-
-/* ================= FAQ toggles ================= */
-(() => {
-  const items = document.querySelectorAll('.faq-item');
-  items.forEach(it=>{
-    const h = it.querySelector('h4');
-    const p = it.querySelector('p');
-    h.addEventListener('click', ()=>{
-      if(p.style.display === 'block'){ p.style.display = 'none'; }
-      else{ p.style.display = 'block'; }
-    });
-  });
-})();
-
-/* ================= Newsletter dummy action ================= */
-document.getElementById('newsletter-btn').addEventListener('click', ()=>{
-  const email = document.getElementById('newsletter-email').value.trim();
-  if(!email || !email.includes('@')) {
-    alert('Please enter a valid email address.');
-    return;
-  }
-  // Dummy: you'd replace this with Mailchimp / ConvertKit / server endpoint
-  alert('Thanks — we\'ll email you when rare stock drops and new offers arrive.');
-  document.getElementById('newsletter-email').value = '';
-});
-
-/* ================= Small accessibility improvements ================= */
-(() => {
-  // allow keyboard focus to quick shop button
-  const shopBtn = document.querySelector('.floating-shop .btn-primary');
-  shopBtn && shopBtn.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') document.querySelector('#console-grid').scrollIntoView({behavior:'smooth'}) });
-})();
-
-</script>
 </body>
 </html>

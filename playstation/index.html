@@ -1,321 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — PlayStation Collection</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-
-<style>
-/* ───────── GLOBAL ───────── */
-body {
-    margin: 0;
-    font-family: 'Orbitron', sans-serif;
-    background: #181b23;
-    color: #e3e7ed;
-    overflow-x: hidden;
-}
-a { text-decoration: none; color: inherit; }
-h1, h2, h3 { margin: 0; }
-
-/* ───────── NAVIGATION ───────── */
-nav {
-    background: #0a0a0a;
-    padding: 15px 8%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 18px;
-    border-bottom: 2px solid #1f1f1f;
-}
-nav a {
-    color: #6db8ff;
-    font-weight: 700;
-    transition: 0.25s;
-}
-nav a:hover { color: #ffffff; }
-
-/* ───────── HERO ───────── */
-.hero {
-    position: relative;
-    padding: 120px 20px 80px;
-    text-align: center;
-    background: linear-gradient(180deg, #0a0a0a 0%, #121212 100%);
-    overflow: hidden;
-}
-
-#particle-canvas {
-    position:absolute;
-    top:0; left:0;
-    width:100%;
-    height:100%;
-    z-index:0;
-    pointer-events:none;
-}
-
-.hero img.logo-hero {
-    width: 180px;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 2;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    color: #6db8ff;
-    margin-bottom: 10px;
-    position: relative;
-    z-index: 2;
-}
-
-.hero p {
-    font-size: 1.3rem;
-    opacity: 0.85;
-    margin-bottom: 35px;
-    position: relative;
-    z-index: 2;
-}
-
-.cta-btn {
-    position: relative;
-    z-index: 2;
-    background: #0051ff;
-    color: white;
-    padding: 15px 35px;
-    font-size: 1.15rem;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-.cta-btn:hover { background:#0070ff; transform:scale(1.07); }
-
-/* ───────── PRODUCT GRID ───────── */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-    gap: 35px;
-    padding: 70px 10%;
-}
-
-/* CLICKABLE TILE FIX */
-.grid a { display: block; }
-
-.tile {
-    background: #101014;
-    border-radius: 16px;
-    padding: 30px 20px;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0 0 12px #003780, 0 0 25px #0057ff55;
-    transition: transform 0.35s, box-shadow 0.35s;
-    opacity: 0;
-    transform: translateY(40px);
-}
-.tile.visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: 0.7s ease-out;
-}
-.tile img {
-    width: 90px;
-    margin-bottom: 12px;
-    transition: 0.3s;
-}
-.tile h3 {
-    font-size: 1.4rem;
-    color: #6db8ff;
-    margin-bottom: 10px;
-}
-.tile p { font-size: 0.95rem; opacity: 0.85; }
-.tile:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 20px #00e1ff, 0 0 45px #008cff;
-}
-.tile:hover img {
-    transform: scale(1.1) rotate(-3deg);
-}
-
-/* ───────── INFO BLOCKS ───────── */
-.info-block {
-    background: #101014;
-    margin: 40px 10%;
-    padding: 35px 25px;
-    border-radius: 16px;
-    box-shadow: 0 0 15px #0099bb44;
-    text-align: center;
-}
-.info-block h3 {
-    color: #00d0ff;
-    margin-bottom: 10px;
-}
-.info-block p {
-    opacity: 0.85;
-    line-height: 1.5rem;
-}
-
-/* ───────── FOOTER ───────── */
-footer {
-    background: #0b0f18;
-    padding: 45px 10%;
-    margin-top: 70px;
-    text-align: center;
-    color: #9fbbe0;
-}
-footer a { color:#6db8ff; margin:0 8px; }
-footer a:hover { color:white; }
-
-/* ───────── MOBILE ───────── */
-@media(max-width: 768px) {
-    .hero h1 { font-size: 2.3rem; }
-    .hero p { font-size: 1.1rem; }
-    .grid { padding: 45px 5%; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayStation Collection | Retro Replay</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- ───────── NAVIGATION ───────── -->
-<nav>
-    <a href="/index.html">Main Home</a>
-    <a href="/playstation/index.html">PlayStation Home</a>
-
-    <a href="/playstation/products/ps1.html">PS1</a>
-    <a href="/playstation/products/ps2.html">PS2</a>
-    <a href="/playstation/products/ps3.html">PS3</a>
-
-    <a href="/playstation/guides.html">Guides</a>
-    <a href="/playstation/contact.html">Contact</a>
-</nav>
-
-<!-- ───────── HERO ───────── -->
-<section class="hero">
-    <canvas id="particle-canvas"></canvas>
-
-    <img src="assets/ps1logo.png" class="logo-hero" alt="PS Logo">
-    <h1>PlayStation Collection</h1>
-    <p>Fully refurbished consoles, upgrades, mods & rare editions.</p>
-
-    <a href="#products" class="cta-btn">Explore Consoles</a>
-</section>
-
-<!-- ───────── PRODUCT GRID ───────── -->
-<section id="products" class="grid">
-
-    <a href="/playstation/products/ps1.html">
-        <div class="tile">
-            <img src="assets/ps1logo.png">
-            <h3>PlayStation 1</h3>
-            <p>Premium refurbished classics with optional mods.</p>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo">
+          <span>🎮 PlayStation Collection</span>
         </div>
-    </a>
-
-    <a href="/playstation/products/ps2.html">
-        <div class="tile">
-            <img src="assets/ps2logo.png">
-            <h3>PlayStation 2</h3>
-            <p>HDD mods, FMCB setups, cooling upgrades & restorations.</p>
+        <div class="header-links">
+          <a href="/about.html">About</a>
+          <a href="/warranties.html">Warranty</a>
         </div>
-    </a>
+      </div>
+    </div>
 
-    <a href="/playstation/products/ps3.html">
-        <div class="tile">
-            <img src="assets/ps3logo.jpg">
-            <h3>PlayStation 3</h3>
-            <p>Refurbished, deep cleaned & media-ready PS3 systems.</p>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../index.html" class="site-logo">
+          <img src="../assets/logo.png" alt="Retro Replay">
+          <span>Retro Replay</span>
+        </a>
+
+        <div class="search-bar">
+          <input type="search" placeholder="Search PlayStation products..." aria-label="Search">
+          <button class="search-btn">Search</button>
         </div>
-    </a>
 
-</section>
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action">
+            <span>📞</span>
+            <span>Support</span>
+          </a>
+          <a href="/checkout.html" class="header-action">
+            <span>🛒</span>
+            <span>Cart</span>
+            <span class="cart-badge" id="cart-count-js">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
-<!-- ───────── INFO BLOCKS ───────── -->
-<div class="info-block">
-    <h3>Why Choose Retro Replay?</h3>
-    <p>Every console goes through a full refurbishment process:  
-       cleaning, testing, thermal refresh, fan tuning & cosmetic restoration.</p>
-</div>
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="../index.html">Main Home</a></li>
+          <li><a href="/playstation/index.html" class="active">PlayStation</a></li>
+          <li><a href="/playstation/products/ps1.html">PS1</a></li>
+          <li><a href="/playstation/products/ps2.html">PS2</a></li>
+          <li><a href="/playstation/products/ps3.html">PS3</a></li>
+          <li><a href="/playstation/guides.html">Guides</a></li>
+          <li><a href="/playstation/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-<div class="info-block">
-    <h3>Trade-Ins & Rare Editions</h3>
-    <p>Sell or trade your old consoles and access limited-stock special editions.</p>
-</div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>PlayStation Collection</h1>
+        <p>Professionally refurbished PS1, PS2, and PS3 consoles. Deep cleaning, laser calibration, mod options, and 6-month warranty.</p>
+        <div class="hero-cta">
+          <a href="/playstation/products/ps2.html" class="btn btn-primary">Shop PS2</a>
+          <a href="/playstation/guides.html" class="btn btn-secondary">Setup Guides</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="../assets/PS2_REFURBED_BUNDLE.jpg" alt="PlayStation Consoles">
+      </div>
+    </div>
+  </section>
 
-<!-- ───────── FOOTER ───────── -->
-<footer>
-    <p>© 2025 Retro Replay — PlayStation Division</p>
-    <p>
-        <a href="/playstation/index.html">Home</a> •
-        <a href="/playstation/products/ps1.html">Products</a> •
-        <a href="/playstation/guides.html">Guides</a> •
-        <a href="/playstation/contact.html">Contact</a>
-    </p>
-</footer>
+  <!-- Products -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Browse PlayStation Consoles</h2>
+        <p class="section-subtitle">All models professionally refurbished with warranty</p>
+      </div>
 
-<!-- ───────── PARTICLE SCRIPT ───────── -->
-<script>
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
+      <div class="category-grid">
+        <a href="/playstation/products/ps1.html" class="category-card">
+          <div class="category-icon">
+            <img src="assets/ps1logo.png" alt="PS1">
+          </div>
+          <h3 class="category-name">PlayStation 1</h3>
+          <p class="category-count">Classic PS1 consoles</p>
+        </a>
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = document.querySelector('.hero').offsetHeight;
-}
-resizeCanvas();
+        <a href="/playstation/products/ps2.html" class="category-card">
+          <div class="category-icon">
+            <img src="assets/ps2logo.png" alt="PS2">
+          </div>
+          <h3 class="category-name">PlayStation 2</h3>
+          <p class="category-count">Fat & Slim models</p>
+        </a>
 
-let particlesArray = [];
+        <a href="/playstation/products/ps3.html" class="category-card">
+          <div class="category-icon">
+            <img src="assets/ps3logo.jpg" alt="PS3">
+          </div>
+          <h3 class="category-name">PlayStation 3</h3>
+          <p class="category-count">Various models</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.4;
-        this.speedY = (Math.random() - 0.5) * 0.4;
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-    }
-    draw() {
-        ctx.fillStyle = "rgba(109,184,255,0.45)";
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
+  <!-- Why Choose Us -->
+  <section class="section" style="background: white;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Choose Retro Replay PlayStation?</h2>
+        <p class="section-subtitle">Professional refurbishment & mod expertise</p>
+      </div>
 
-function initParticles() {
-    particlesArray = [];
-    for (let i = 0; i < 120; i++) particlesArray.push(new Particle());
-}
+      <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Complete Refurbishment</h3>
+            <p class="product-description">Every PlayStation console undergoes deep cleaning, laser calibration, thermal refresh, and power supply inspection.</p>
+          </div>
+        </div>
 
-function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particlesArray.forEach(p => { p.update(); p.draw(); });
-    requestAnimationFrame(animateParticles);
-}
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Mod Options</h3>
+            <p class="product-description">FMCB installation, HDD upgrades, and homebrew setup available for PS2 consoles.</p>
+          </div>
+        </div>
 
-window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
-initParticles();
-animateParticles();
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">6-Month Warranty</h3>
+            <p class="product-description">All consoles include a 6-month warranty covering parts and performance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* Scroll animation */
-const tiles = document.querySelectorAll('.tile');
-function revealOnScroll(){
-    const trigger = window.innerHeight * 0.85;
-    tiles.forEach(tile=>{
-        if(tile.getBoundingClientRect().top < trigger){
-            tile.classList.add('visible');
-        }
-    });
-}
-window.addEventListener('scroll', revealOnScroll);
-revealOnScroll();
-</script>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>PlayStation Collection</h3>
+          <p>Professional refurbished PlayStation consoles - PS1, PS2, PS3.</p>
+        </div>
 
+        <div class="footer-section">
+          <h3>Products</h3>
+          <ul class="footer-links">
+            <li><a href="/playstation/products/ps1.html">PlayStation 1</a></li>
+            <li><a href="/playstation/products/ps2.html">PlayStation 2</a></li>
+            <li><a href="/playstation/products/ps3.html">PlayStation 3</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="/playstation/guides.html">Setup Guides</a></li>
+            <li><a href="/playstation/contact.html">Contact</a></li>
+            <li><a href="/warranties.html">Warranty</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>More Consoles</h3>
+          <ul class="footer-links">
+            <li><a href="/xbox/index.html">Xbox</a></li>
+            <li><a href="/nintendo/index.html">Nintendo</a></li>
+            <li><a href="/atari/index.html">Atari</a></li>
+            <li><a href="/sega/index.html">Sega</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Retro Replay - PlayStation Division. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../cart.js"></script>
+  <script>RetroCart.loadCart();</script>
 </body>
 </html>

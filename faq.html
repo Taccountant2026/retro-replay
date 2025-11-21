@@ -1,308 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — FAQ</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-
-<style>
-/* ---------- GLOBAL ---------- */
-body {
-    margin:0;
-    font-family:'Orbitron', sans-serif;
-    background:#0c0f17;
-    color:#e3e7ed;
-    overflow-x:hidden;
-    position:relative;
-}
-
-/* ---------- NAVIGATION ---------- */
-header {
-    position: sticky;
-    top:0;
-    background:rgba(10,10,10,0.95);
-    z-index:1000;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 10%;
-    border-bottom:2px solid #1f1f1f;
-    backdrop-filter: blur(5px);
-}
-
-header img.logo { height:60px; }
-
-nav {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-}
-
-nav a {
-    margin:5px 10px;
-    font-weight:700;
-    color:#6db8ff;
-    font-size:1rem;
-    transition:0.25s;
-}
-
-nav a:hover { color:white; text-shadow:0 0 10px #6db8ff; }
-
-/* ---------- HERO ---------- */
-.hero {
-    text-align:center;
-    padding:120px 20px 60px;
-    background:linear-gradient(180deg, #0a0a0a, #111);
-    position:relative;
-    z-index:1;
-    overflow:hidden;
-}
-
-/* --- Radial glow behind particles --- */
-.hero::before {
-    content:"";
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
-    z-index:0;
-}
-
-.hero img {
-    width:180px;
-    margin-bottom:25px;
-    position:relative;
-    z-index:1;
-}
-
-.hero h1 {
-    font-size:3rem;
-    color:#6db8ff;
-    text-shadow:0 0 10px #326fa8;
-    position:relative;
-    z-index:1;
-}
-
-.hero-sub {
-    font-size:1.25rem;
-    opacity:0.8;
-    margin-top:10px;
-    position:relative;
-    z-index:1;
-}
-
-/* ---------- FAQ SECTION ---------- */
-.section {
-    max-width:1200px;
-    margin:40px auto;
-    padding:0 10% 100px;
-    position:relative;
-    z-index:1;
-}
-
-.accordion {
-    background:#111;
-    border:2px solid #1f1f1f;
-    margin-bottom:20px;
-    padding:22px;
-    border-radius:16px;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 4px 12px rgba(0,0,0,0.4);
-}
-
-.accordion:hover {
-    border-color:#6db8ff;
-    box-shadow:0 0 12px #6db8ff, 0 0 40px #00ffd0;
-}
-
-.accordion h3 {
-    margin:0;
-    font-size:1.25rem;
-    color:#6db8ff;
-}
-
-.panel {
-    max-height:0;
-    overflow:hidden;
-    transition:max-height 0.4s ease;
-}
-
-.panel p {
-    margin:18px 0;
-    line-height:1.6;
-    opacity:0.85;
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-    background:#0b0f18;
-    padding:40px 10%;
-    margin-top:60px;
-    font-size:0.9rem;
-    color:#9fbbe0;
-    text-align:center;
-    position:relative;
-    z-index:1;
-}
-
-footer a {
-    color:#6db8ff;
-    margin:0 8px;
-    transition:0.2s;
-}
-
-footer a:hover { color:white; }
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width:768px) {
-    header { flex-direction:column; gap:10px; }
-    nav { gap:10px; }
-    .hero img { width:150px; }
-    .hero h1 { font-size:2.3rem; }
-}
-
-/* ---------- PARTICLE CANVAS ---------- */
-#particle-canvas {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:0;
-    pointer-events:none;
-}
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const acc = document.getElementsByClassName("accordion");
-
-    for (let i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            let panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-        });
-    }
-});
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ | Retro Replay</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
-<!-- Header -->
-<header>
-    <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
-    <nav>
-        <a href="index.html">Retro Home</a>
-        <a href="about.html">About RetroReplay</a>
-        <a href="consoles.html">Consoles & Products</a>
-        <a href="services.html">Services We Provide</a>
-        <a href="faq.html">FAQ's</a>
-        <a href="contact.html">Contact Us</a>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>❓ Frequently Asked Questions</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions">
+          <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+          <a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
+        </div>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="container"><ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+        <li><a href="warranties.html">Warranty</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
     </nav>
-</header>
-<!-- Hero -->
-<section class="hero">
-    <!-- Canvas for particles -->
-    <canvas id="particle-canvas"></canvas>
+  </header>
 
-    <img src="assets/logo.png" alt="Retro Replay Logo">
-    <h1>Frequently Asked Questions</h1>
-    <div class="hero-sub">Everything You Need to Know Before You Buy</div>
-</section>
-
-<!-- FAQ Content -->
-<div class="section">
-    <div class="accordion"><h3>What warranty do your refurbished consoles come with?</h3></div>
-    <div class="panel">
-        <p>Every console includes a <strong>6-month hardware warranty</strong> covering faults, failures, and defective parts.</p>
+  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about our refurbished consoles and services.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="accordion"><h3>How do your refurbishments work?</h3></div>
-    <div class="panel">
-        <p>Each console undergoes a <strong>full 15-step refurbishment</strong> including cleaning, thermal renewal, PSU testing, laser tuning & more.</p>
+  <section class="section" style="background: white;">
+    <div class="container" style="max-width: 800px;">
+      <div class="section-header">
+        <h2 class="section-title">Our FAQs</h2>
+      </div>
+
+      <div style="background: #f9fafb; border-radius: 12px; margin-bottom: 1rem; padding: 1.5rem; border-left: 4px solid var(--primary);">
+        <h3 style="color: var(--dark); margin-top: 0;">What is a refurbished console?</h3>
+        <p style="margin: 0; color: var(--gray);">A refurbished console has been professionally cleaned, tested, and restored to working order. All our consoles come with a 6-month warranty.</p>
+      </div>
+
+      <div style="background: #f9fafb; border-radius: 12px; margin-bottom: 1rem; padding: 1.5rem; border-left: 4px solid var(--primary);">
+        <h3 style="color: var(--dark); margin-top: 0;">How long does delivery take?</h3>
+        <p style="margin: 0; color: var(--gray);">UK orders typically arrive within 3-5 business days. International orders may take 7-14 days depending on your location.</p>
+      </div>
+
+      <div style="background: #f9fafb; border-radius: 12px; margin-bottom: 1rem; padding: 1.5rem; border-left: 4px solid var(--primary);">
+        <h3 style="color: var(--dark); margin-top: 0;">Do you offer international shipping?</h3>
+        <p style="margin: 0; color: var(--gray);">Yes! We ship worldwide. Shipping costs and times vary by location. Check your cart for exact rates.</p>
+      </div>
+
+      <div style="background: #f9fafb; border-radius: 12px; margin-bottom: 1rem; padding: 1.5rem; border-left: 4px solid var(--primary);">
+        <h3 style="color: var(--dark); margin-top: 0;">What's your return policy?</h3>
+        <p style="margin: 0; color: var(--gray);">We offer a 30-day returns policy for peace of mind. If you're not satisfied, we'll refund or exchange your console.</p>
+      </div>
+
+      <div style="background: #f9fafb; border-radius: 12px; margin-bottom: 1rem; padding: 1.5rem; border-left: 4px solid var(--primary);">
+        <h3 style="color: var(--dark); margin-top: 0;">Do you offer mods and upgrades?</h3>
+        <p style="margin: 0; color: var(--gray);">Yes! We offer HDD installations, softmods, FMCB setup, and other customizations. Select these options when ordering or contact us for details.</p>
+      </div>
+
+      <div style="background: #f0f4f8; padding: 1.5rem; border-radius: 12px; margin-top: 2rem;">
+        <p style="margin: 0; color: var(--gray);">Still have questions? <a href="contact.html" style="color: var(--primary); font-weight: 600;">Contact us</a> for more help!</p>
+      </div>
     </div>
+  </section>
 
-    <div class="accordion"><h3>Can I trade in my old console?</h3></div>
-    <div class="panel">
-        <p>Yes — PS1, PS2, PS3 and accessories accepted.</p>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section"><h3>Help</h3><p>Find answers and support.</p></div>
+        <div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="contact.html">Contact</a></li><li><a href="warranties.html">Warranty</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div>
     </div>
+  </footer>
 
-    <div class="accordion"><h3>Do you offer modifications or upgrades?</h3></div>
-    <div class="panel">
-        <p>Yes — HDD mods, RGB upgrades, custom shells, fan mods & softmods.</p>
-    </div>
-
-    <div class="accordion"><h3>How long does shipping take?</h3></div>
-    <div class="panel">
-        <p>UK delivery is typically <strong>1–3 business days</strong> with tracking.</p>
-    </div>
-
-    <div class="accordion"><h3>Do you accept returns?</h3></div>
-    <div class="panel">
-        <p>Yes, within 14 days if the device is in the same condition.</p>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer>
-    <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
-    <p>
-        <a href="index.html">Retro Home</a> |
-        <a href="about.html">About RetroReplay</a> |
-        <a href="products.html">Consoles & Products</a> |
-        <a href="services.html">Services We Provide</a> |
-        <a href="faq.html">FAQ's</a> |
-        <a href="contact.html">Contact Us</a>
-    </p>
-</footer>
-
-<!-- Particle Script -->
-<script>
-// --- Particle System (match index) ---
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = document.querySelector('.hero').offsetHeight;
-
-let particlesArray = [];
-class Particle{
-    constructor(){
-        this.x=Math.random()*canvas.width;
-        this.y=Math.random()*canvas.height;
-        this.size=Math.random()*2+1;
-        this.speedX=(Math.random()-0.5)*0.5;
-        this.speedY=(Math.random()-0.5)*0.5;
-    }
-    update(){
-        this.x+=this.speedX;
-        this.y+=this.speedY;
-        if(this.x<0||this.x>canvas.width) this.speedX*=-1;
-        if(this.y<0||this.y>canvas.height) this.speedY*=-1;
-    }
-    draw(){
-        ctx.fillStyle='rgba(109,184,255,0.5)';
-        ctx.beginPath();
-        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-        ctx.fill();
-    }
-}
-function initParticles(){particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
-function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
-initParticles(); animateParticles();
-window.addEventListener('resize',()=>{
-    canvas.width=window.innerWidth;
-    canvas.height=document.querySelector('.hero').offsetHeight;
-    initParticles();
-});
-</script>
-
+  <script src="cart.js"></script>
+  <script>RetroCart.loadCart();</script>
 </body>
 </html>

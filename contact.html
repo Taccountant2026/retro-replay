@@ -1,305 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Contact Us</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-
-<style>
-/* ---------- GLOBAL ---------- */
-body {
-    margin:0;
-    font-family:'Orbitron', sans-serif;
-    background:#0a0a0a;
-    color:white;
-    overflow-x:hidden;
-    position:relative;
-}
-
-/* ---------- NAVIGATION ---------- */
-header {
-    position:sticky;
-    top:0;
-    background:rgba(10,10,10,0.95);
-    z-index:1000;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 10%;
-    border-bottom:2px solid #1f1f1f;
-    backdrop-filter: blur(5px);
-}
-
-header img.logo { height:60px; }
-
-nav {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-    z-index:1;
-}
-
-nav a {
-    margin:5px 10px;
-    font-weight:700;
-    color:#6db8ff;
-    font-size:1rem;
-    transition:0.25s;
-}
-
-nav a:hover {
-    color:white;
-    text-shadow:0 0 10px #6db8ff;
-}
-
-/* ---------- HERO ---------- */
-.hero {
-    text-align:center;
-    padding:120px 20px 60px;
-    background:linear-gradient(180deg, #0a0a0a, #111);
-    position:relative;
-    z-index:1;
-    overflow:hidden;
-}
-
-/* --- Glow behind particles --- */
-.hero::before {
-    content:"";
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
-    z-index:0;
-}
-
-.hero img {
-    width:180px;
-    margin-bottom:25px;
-    position:relative;
-    z-index:1;
-}
-
-.hero h1 {
-    font-size:3rem;
-    color:#6db8ff;
-    text-shadow:0 0 10px #326fa8;
-    position:relative;
-    z-index:1;
-}
-
-.hero-sub {
-    font-size:1.25rem;
-    opacity:0.8;
-    margin-top:10px;
-    position:relative;
-    z-index:1;
-}
-
-/* ---------- CONTACT SECTION ---------- */
-.section {
-    max-width:1000px;
-    margin:40px auto 80px;
-    padding:0 10%;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    position:relative;
-    z-index:1;
-}
-
-@media (max-width:850px) {
-    .section { grid-template-columns:1fr; }
-}
-
-.card {
-    background:#111;
-    border:2px solid #1f1f1f;
-    padding:30px;
-    border-radius:16px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.4);
-    transition:0.3s;
-}
-
-.card:hover {
-    border-color:#6db8ff;
-    box-shadow:0 0 12px #6db8ff, 0 0 40px #00ffd0;
-}
-
-.card h2 {
-    color:#6db8ff;
-    margin-bottom:15px;
-}
-
-.info-line {
-    margin:10px 0;
-    opacity:0.9;
-    font-size:0.95rem;
-}
-
-.info-line span { color:#6db8ff; }
-
-/* ---------- FORM ---------- */
-form input,
-form textarea {
-    width:100%;
-    margin-bottom:15px;
-    padding:12px;
-    border-radius:8px;
-    border:none;
-    background:#0f131a;
-    color:white;
-    font-family:'Orbitron';
-    font-size:0.95rem;
-}
-
-form input:focus,
-form textarea:focus {
-    outline:2px solid #6db8ff;
-    box-shadow:0 0 10px #6db8ff60;
-}
-
-form button {
-    padding:14px 20px;
-    background:#6db8ff;
-    color:#000;
-    font-weight:700;
-    border:none;
-    width:100%;
-    border-radius:8px;
-    cursor:pointer;
-    transition:0.3s;
-    font-size:1rem;
-}
-
-form button:hover {
-    background:#8fc7ff;
-    box-shadow:0 0 10px #6db8ff80;
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-    text-align:center;
-    padding:35px;
-    background:#0b0f18;
-    color:#9fbbe0;
-    font-size:0.9rem;
-    border-top:1px solid #1c2638;
-    margin-top:40px;
-    position:relative;
-    z-index:1;
-}
-
-/* ---------- PARTICLE CANVAS ---------- */
-#particle-canvas {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:0;
-    pointer-events:none;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Retro Replay</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-<!-- Header -->
-<header>
-    <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
-    <nav>
-        <a href="index.html">Retro Home</a>
-        <a href="about.html">About RetroReplay</a>
-        <a href="consoles.html">Consoles & Products</a>
-        <a href="services.html">Services We Provide</a>
-        <a href="faq.html">FAQ's</a>
-        <a href="contact.html">Contact Us</a>
-    </nav>
-</header>
-
-<!-- Hero -->
-<section class="hero">
-    <!-- Canvas for particles -->
-    <canvas id="particle-canvas"></canvas>
-
-    <img src="assets/logo.png" alt="Retro Replay Logo">
-    <h1>Contact Retro Replay</h1>
-    <div class="hero-sub">We're Here to Help — Reach Out Anytime</div>
-</section>
-
-<!-- CONTACT CONTENT -->
-<div class="section">
-
-    <!-- CONTACT INFO -->
-    <div class="card">
-        <h2>Contact Information</h2>
-        <p class="info-line"><span>Email:</span> support@retro-replay.co.uk</p>
-        <p class="info-line"><span>Response Time:</span> 24–48 Hours</p>
-        <p class="info-line"><span>Business Hours:</span> Mon–Sat, 9am–6pm</p>
-        <p class="info-line"><span>Location:</span> UK Based — Shipping Worldwide</p>
-        <p style="margin-top:20px; opacity:0.75;">
-            For order help, trade-ins, console advice, repairs, or custom builds — send us a message below.
-        </p>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>📞 Customer Support</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions">
+          <a href="contact.html" class="header-action" style="color: var(--primary);"><span>📞</span><span>Support</span></a>
+          <a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
+        </div>
+      </div>
     </div>
+    <nav class="main-nav">
+      <div class="container"><ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="playstation/index.html">PlayStation</a></li>
+        <li><a href="xbox/index.html">Xbox</a></li>
+        <li><a href="nintendo/index.html">Nintendo</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul></div>
+    </nav>
+  </header>
 
-    <!-- CONTACT FORM -->
-    <form class="card">
-        <h2>Send Us a Message</h2>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="6" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Get in Touch</h1>
+        <p>Questions about our refurbished consoles? We're here to help with orders, support, and more.</p>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <section class="section" style="background: white;">
+    <div class="container" style="max-width: 600px;">
+      <div class="section-header">
+        <h2 class="section-title">Contact Us</h2>
+      </div>
 
-<!-- Footer -->
-<footer>
-    © 2025 Retro Replay — Restoring Classics for Modern Gamers
-</footer>
+      <form onsubmit="return handleContactForm(event)" style="background: #f9fafb; padding: 2rem; border-radius: 12px;">
+        <div style="margin-bottom: 1rem;">
+          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Name</label>
+          <input type="text" placeholder="Your name" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;">
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Email</label>
+          <input type="email" placeholder="your@email.com" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;">
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Subject</label>
+          <input type="text" placeholder="How can we help?" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;">
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Message</label>
+          <textarea placeholder="Tell us more..." rows="6" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+      </form>
 
-<!-- Particle Script -->
-<script>
-// --- Particle System (match index) ---
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = document.querySelector('.hero').offsetHeight;
+      <div style="background: #f0f4f8; padding: 1.5rem; border-radius: 12px; margin-top: 2rem;">
+        <h3 style="color: var(--primary); margin-top: 0;">Other Ways to Reach Us</h3>
+        <p><strong>Email:</strong> info@retroreplay.com</p>
+        <p><strong>Phone:</strong> +44 1234 567890</p>
+        <p style="color: var(--gray); font-size: 0.9rem;">Response time: Usually within 24 hours</p>
+      </div>
+    </div>
+  </section>
 
-let particlesArray = [];
-class Particle{
-    constructor(){
-        this.x=Math.random()*canvas.width;
-        this.y=Math.random()*canvas.height;
-        this.size=Math.random()*2+1;
-        this.speedX=(Math.random()-0.5)*0.5;
-        this.speedY=(Math.random()-0.5)*0.5;
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section"><h3>Support</h3><p>Fast response & expert assistance.</p></div>
+        <div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script>
+    RetroCart.loadCart();
+    function handleContactForm(e) {
+      e.preventDefault();
+      alert('Thank you! We will respond shortly.');
+      e.target.reset();
+      return false;
     }
-    update(){
-        this.x+=this.speedX;
-        this.y+=this.speedY;
-        if(this.x<0||this.x>canvas.width) this.speedX*=-1;
-        if(this.y<0||this.y>canvas.height) this.speedY*=-1;
-    }
-    draw(){
-        ctx.fillStyle='rgba(109,184,255,0.5)';
-        ctx.beginPath();
-        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-        ctx.fill();
-    }
-}
-function initParticles(){particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
-function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
-initParticles(); animateParticles();
-window.addEventListener('resize',()=>{
-    canvas.width=window.innerWidth;
-    canvas.height=document.querySelector('.hero').offsetHeight;
-    initParticles();
-});
-</script>
-
+  </script>
 </body>
 </html>

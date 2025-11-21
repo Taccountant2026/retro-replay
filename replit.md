@@ -1,126 +1,146 @@
-# Retro Replay - Retro Gaming Console Store
+# Retro Replay - Retro Gaming Console Testing & Sales
 
 ## Overview
-This is a static HTML website for "Retro Replay," a professional retro gaming console refurbishment store. The site features PlayStation, Xbox, Nintendo, Atari, and Sega consoles with a modern ecommerce design.
+Professional gaming console testing and sales service. Retro Replay thoroughly tests all consoles with professional-grade equipment, provides printed test reports, external cleaning only. Refurbishment, internal cleaning, and mods are premium upsell options. Focuses on PS2 range.
 
-**Current State:** Fully redesigned with modern ecommerce standards, running on Replit with deployment configured.
+**Current State:** Modern ecommerce site with accurate business model. All products: Tested Console + External Clean + Printed Report (Base). Refurbishment & mods are upsell features.
+
+## Business Model
+
+### Core Service
+- **Product**: Tested Console (passes professional testing)
+- **Includes**: 
+  - Thorough professional testing with printed report
+  - External professional cleaning
+  - 2x Controllers & all necessary cables
+  - UK statutory warranty (6 months minimum)
+- **Cosmetic Grading**: A (Like New), B (Very Good), C (Good)
+
+### Upsell Options
+1. **Refurbishment (Internal Clean)** - Professional internal cleaning, laser recalibration (upsell feature)
+2. **Mods & Upgrades** - HDD installation, FMCB, custom shells, etc. (upsell feature)
+3. **Extended Services** - Setup assistance, delivery installation (upsell feature)
+
+### Pricing Strategy
+- Bare console: Tested + External Clean + Report + 2 Controllers + Cables
+- All mods: Additional cost add-ons
+- Prices in GBP (£)
+- Focus on PS2 range (Fat/Slim models, all variants)
+
+### Warranty
+- **Legal Minimum**: UK statutory rights (6 months for goods/services)
+- **Terms**: Covers defects in materials/workmanship
+- **Exclusions**: Cosmetic damage, misuse, intentional damage
+
+### Regional Focus
+- UK primary market
+- International shipping available (upsell)
 
 ## Recent Changes
-- **November 21, 2025**: Complete ecommerce redesign
-  - Implemented modern ecommerce CSS framework with mobile-first responsive design
-  - Redesigned homepage with professional layout, hero section, trust badges, and product grid
-  - Updated all console subsites (PlayStation, Xbox, Nintendo, Atari, Sega) with consistent modern design
-  - Enhanced cart.js with better UX, visual notifications, and improved functionality
-  - Maintained all existing site structure and console subsite organization
-  - Used clean, professional color scheme with proper typography (Inter font)
-  - Added proper ecommerce elements: search bar, cart badge, trust signals, footer navigation
+- **November 21, 2025**: Business model update
+  - Repositioned from "refurbished" to "tested + external clean"
+  - Refurbishment becomes premium upsell option
+  - Added printed test report to base offering
+  - Updated warranty to legal minimum protection
+  - All mods are now add-on features
+  - Focus on PS2 product line
 
-- **November 21, 2025**: Initial Replit setup
-  - Configured Node.js and http-server for static file serving
-  - Set up workflow to run on port 5000
-  - Configured static deployment settings
-  - Created .gitignore for Node.js dependencies
+- **November 21, 2025**: Design enhancement
+  - Applied modern 2025 theme with gradient effects and glassmorphism
+  - Added retro floating particle system throughout site
+  - Enhanced cart page design with better product cards
+  - Improved button interactions and visual hierarchy
 
 ## Project Architecture
 
 ### Technology Stack
 - **Frontend**: HTML5, CSS3 (Modern Ecommerce Framework), vanilla JavaScript
-- **Design**: Mobile-first responsive design, clean professional layout
-- **Typography**: Inter font family for modern, readable text
+- **Design**: Mobile-first responsive design, retro gaming aesthetic with modern execution
+- **Typography**: Inter font family
 - **Hosting**: Static file server (http-server via Node.js)
-- **Cart System**: Client-side localStorage-based shopping cart with notifications
+- **Cart System**: Client-side localStorage shopping cart
 
 ### Project Structure
 ```
 /
-├── index.html              # Homepage (redesigned with modern ecommerce layout)
-├── style.css               # Modern ecommerce CSS framework
-├── cart.js                 # Enhanced shopping cart with notifications
-├── assets/                 # Images and media files
-├── playstation/            # PlayStation console pages (redesigned)
-│   ├── index.html          # PlayStation hub page
-│   ├── products/           # PS1, PS2, PS3 product pages
-│   ├── guides.html         # Setup guides
-│   └── contact.html        # Contact page
-├── xbox/                   # Xbox console pages (redesigned)
-│   ├── index.html          # Xbox hub page
-│   ├── products/           # Xbox, Xbox 360 product pages
+├── index.html                      # Homepage
+├── style.css                       # Modern ecommerce CSS with gradients
+├── cart.js                         # Shopping cart system
+├── particles.js                    # Retro floating particles
+├── playstation/
+│   ├── products/ps2.html          # PS2 console listing (main focus)
+│   ├── products/ps1.html
+│   ├── products/ps3.html
+│   ├── index.html
 │   ├── guides.html
 │   └── contact.html
-├── nintendo/               # Nintendo console pages (redesigned)
-│   ├── index.html          # Nintendo hub page
-│   ├── products/           # NES, SNES, N64 product pages
-│   ├── guides.html
-│   └── contact.html
-├── atari/                  # Atari console pages (redesigned)
-│   ├── index.html          # Atari hub page
-│   ├── products/           # 2600, 5200, 7800 product pages
-│   ├── guides.html
-│   └── contact.html
-├── sega/                   # Sega console pages (redesigned)
-│   ├── index.html          # Sega hub page
-│   ├── products/           # Genesis, Mega Drive, Saturn, Dreamcast pages
-│   ├── guides.html
-│   └── contact.html
-├── about.html              # About page
-├── consoles.html           # Console overview
-├── checkout.html           # Checkout page
-├── contact.html            # Contact page
-└── [other pages]           # Various info pages
+├── xbox/, nintendo/, atari/, sega/ # Other console lines
+├── about.html                      # About page
+├── services.html                   # Services/mods page
+├── checkout.html                   # Cart & checkout
+└── assets/                         # Images & media
 ```
 
 ### Key Features
-1. **Modern Ecommerce Design**: Professional layout following 2025 ecommerce best practices
-2. **Shopping Cart**: Enhanced client-side cart with visual notifications and better UX
-3. **Multi-Console Support**: Dedicated subsites for PlayStation, Xbox, Nintendo, Atari, and Sega
-4. **Responsive Design**: Mobile-first design that works on all devices
-5. **Trust Signals**: Warranty badges, professional refurbishment messaging, customer testimonials
-6. **Product Cards**: Clean product presentation with features, pricing, and CTAs
-7. **Consistent Navigation**: Unified header/footer across all pages with search functionality
+1. **Tested Console Listings**: Clear distinction between base product and upsells
+2. **Cosmetic Grading**: A/B/C visual indicators for condition
+3. **Upsell Structure**: Mods & services clearly presented as add-ons
+4. **Test Report Included**: Every console comes with printed test documentation
+5. **Modern Design**: 2025 ecommerce standards with retro gaming vibe
+6. **Shopping Cart**: Full cart functionality with upsell suggestions
 
 ### Design System
-- **Primary Color**: #2563eb (Professional blue)
-- **Secondary Color**: #10b981 (Success green)
-- **Accent Color**: #f59e0b (Warning/highlight orange)
-- **Typography**: Inter font family
-- **Layout**: Container max-width 1200px, mobile-first responsive grid
-- **Shadows**: Multiple elevation levels for depth
-- **Border Radius**: Consistent rounded corners (0.375rem to 1rem)
+- **Primary**: #0066ff (Modern Blue)
+- **Secondary**: #00d084 (Success Green)
+- **Accent**: #ff6b35 (Retro Orange)
+- **Dark**: #0a0e27 (Deep Navy)
+- **Typography**: Inter 400-800 weights
+- **Effects**: Gradients, glassmorphism, shadow depth, floating particles
 
-### Missing Assets
-Some images referenced in HTML are missing from the assets folder but don't prevent functionality:
-- ps2logo.png
-- ps2-hdd-bracket.png
-- ps2-laser.png
-- ps2-fmcb.png
+## Product Information
 
-## Development
+### PS2 Range (Primary Focus)
+- **PS2 Fat SCPH-50003** (Black/Silver) - Classic original model
+- **PS2 Slim SCPH-70003** (All colors) - Compact revision
+- **Cosmetic Ratings Available**: A (Like New), B (Very Good), C (Good)
+- **Optional Mods**: HDD + FMCB, internal refurbishment, controllers upgrade
 
-### Running Locally
-The workflow "Start website" is configured to run:
-```bash
-npx http-server -p 5000 -a 0.0.0.0 --cors -c-1
-```
+### Upsell Services
+- Professional internal refurbishment
+- HDD installation (500GB-1TB options)
+- FMCB installation (Free McBoot)
+- Custom shell colors
+- Controller upgrades
+- Extended warranty options
+- International shipping
 
-This serves the static files on port 5000 with:
-- CORS enabled
-- Cache disabled (`-c-1`)
-- Listening on all interfaces (`0.0.0.0`)
+## Warranty & Legal
 
-### Deployment
-The site is configured for static deployment:
-- **Deployment Type**: Static
-- **Public Directory**: `.` (root directory)
+### UK Statutory Rights (Base Coverage)
+- 6 months for consumer goods/services
+- Covers defects in materials/workmanship
+- Professional testing documented via printed report
+- Right of return for defective products
+
+### What's NOT Covered
+- Cosmetic wear (grading system shows condition)
+- User-caused damage
+- Intentional misuse
+- Normal wear from gaming use
+- Cosmetic condition deterioration
 
 ## User Preferences
-- Modern ecommerce design standards (2025)
-- Maintain main site and subsite structure for all console brands
-- Clean, professional appearance
-- Keep all existing console pages and organization
+- Accurate business model representation
+- PS2 as primary product line
+- Legal minimum warranty protection
+- Clear upsell/add-on distinction
+- Professional testing emphasizes quality
+- Modern design with retro gaming charm
 
 ## Notes
-- The site uses localStorage for cart persistence
-- No backend server or database is required
-- All content is static HTML/CSS/JavaScript
-- Cart system includes visual notifications and improved UX
-- Design follows modern ecommerce best practices: mobile-first, trust signals, clear CTAs, professional layout
+- Printed test reports differentiate from competitors
+- Cosmetic grading helps manage expectations
+- Upsell model protects margins on base product
+- UK focus with international expansion possible
+- All pricing excludes upsell services
+- Static site - all products/pricing updatable via HTML

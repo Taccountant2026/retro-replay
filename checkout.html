@@ -38,7 +38,7 @@
       <div class="container">
         <ul class="nav-list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="/playstation/index.html">Shop</a></li>
+          <li><a href="index.html">Shop</a></li>
           <li><a href="checkout.html" class="active">Checkout</a></li>
         </ul>
       </div>
@@ -103,6 +103,15 @@
 
   <script src="cart.js"></script>
   <script>
+    function updateSubtotal() {
+      const subtotalEl = document.getElementById('cart-subtotal-js');
+      if(subtotalEl) {
+        const cart = RetroCart.getCart();
+        let subtotal = cart.reduce((sum,item)=>sum+item.price*item.qty,0);
+        subtotalEl.textContent = subtotal.toFixed(2);
+      }
+    }
+
     function renderCheckout() {
       RetroCart.loadCart();
       const container = document.getElementById('cart-items-js');
@@ -110,6 +119,7 @@
       
       if(cart.length === 0) {
         container.innerHTML = '<div style="text-align: center; padding: 2rem; background: #f9fafb; border-radius: 12px; color: var(--gray);">Your cart is empty. <a href="index.html" style="color: var(--primary); font-weight: 600;">Continue shopping</a></div>';
+        updateSubtotal();
         return;
       }
       
@@ -137,14 +147,23 @@
       });
       
       document.querySelectorAll('[data-action="qty-minus"]').forEach(btn => {
-        btn.addEventListener('click', () => updateQty(btn.dataset.id, -1));
+        btn.addEventListener('click', () => {
+          updateQty(btn.dataset.id, -1);
+        });
       });
       document.querySelectorAll('[data-action="qty-plus"]').forEach(btn => {
-        btn.addEventListener('click', () => updateQty(btn.dataset.id, 1));
+        btn.addEventListener('click', () => {
+          updateQty(btn.dataset.id, 1);
+        });
       });
       document.querySelectorAll('[data-action="remove"]').forEach(btn => {
-        btn.addEventListener('click', () => RetroCart.removeItem(btn.dataset.id));
+        btn.addEventListener('click', () => {
+          RetroCart.removeItem(btn.dataset.id);
+          renderCheckout();
+        });
       });
+      
+      updateSubtotal();
     }
 
     function updateQty(id, delta) {

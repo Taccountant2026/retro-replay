@@ -452,7 +452,9 @@
   <script src="cart.js"></script>
   <script>
     // Initialize cart count on page load
-    RetroCart.loadCart();
+    document.addEventListener('DOMContentLoaded', function() {
+      RetroCart.loadCart();
+    });
   </script>
 
 </body>

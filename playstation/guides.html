@@ -1,85 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PlayStation Guides & Info — Retro Replay</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed; }
-nav { background:#0a0a0a; padding:15px 10%; display:flex; flex-wrap:wrap; justify-content:center; gap:15px; border-bottom:2px solid #1f1f1f; }
-nav a { color:#6db8ff; font-weight:700; transition:0.2s; }
-nav a:hover { color:#ffffff; }
-header { text-align:center; padding:60px 20px; }
-h1,h2,h3 { margin:0; }
-.section { padding:40px 10%; max-width:1200px; margin:0 auto; }
-.section-title { font-size:2rem; color:#6db8ff; text-align:center; margin-bottom:30px; }
-.guide { background:#111; border-radius:15px; padding:25px; margin-bottom:25px; box-shadow:0 0 10px #0051ff,0 0 25px #00ffd0; transition:0.3s; }
-.guide:hover { transform:scale(1.02); }
-.guide h3 { color:#6db8ff; margin-bottom:10px; }
-.guide p { opacity:0.85; }
-footer { background:#0b0f18; padding:40px 10%; margin-top:60px; font-size:0.9rem; color:#9fbbe0; text-align:center; }
-footer a { color:#6db8ff; margin:0 8px; transition:0.2s; }
-footer a:hover { color:#ffffff; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayStation Guides | Retro Replay</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav>
-  <!-- Main site -->
-  <a href="../index.html">Main Home</a>  <!-- from /playstation/index.html -->
-
-  <!-- Subsite home -->
-  <a href="index.html">PlayStation Home</a>
-
-  <!-- Products -->
-  <a href="products/ps1.html">PS1</a>
-  <a href="products/ps2.html">PS2</a>
-  <a href="products/ps3.html">PS3</a>
-
-  <!-- Guides/Info -->
-  <a href="guides.html">Guides & Info</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-<header>
-    <h1>PlayStation Guides & Info</h1>
-    <p>Learn everything about our refurbishments, trade-ins, and modding services</p>
-</header>
-
-<section class="section">
-    <h2 class="section-title">Refurbishment Process</h2>
-    <div class="guide">
-        <h3>Step-by-Step Refurb</h3>
-        <p>Deep-cleaning, laser alignment, thermal refresh, cosmetic restoration, and full QA testing to ensure your console is as close to new as possible.</p>
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo"><span>📖 PlayStation Guides & Tutorials</span></div>
+      </div>
     </div>
-    <div class="guide">
-        <h3>HDD & Softmod Setup</h3>
-        <p>Install HDDs, configure OPL, enable homebrew apps, and optimize for gaming performance.</p>
-    </div>
-    <div class="guide">
-        <h3>Trade-In & Rare Editions</h3>
-        <p>Maximize value on your old consoles. Trade-in discounts plus limited edition PS consoles for collectors.</p>
-    </div>
-    <div class="guide">
-        <h3>Buying Guide</h3>
-        <p>Tips on selecting the right PlayStation, understanding model differences, and identifying console conditions.</p>
-    </div>
-    <div class="guide">
-        <h3>Warranty & Support</h3>
-        <p>All refurbished consoles come with a 6-month warranty, and our support team is always available for troubleshooting and guidance.</p>
-    </div>
-</section>
 
-<footer>
-    <p>© 2025 Retro Replay — PlayStation Division</p>
-    <p>
-        <a href="index.html">Home</a> •
-        <a href="products.html">Products & Services</a> •
-        <a href="guides.html">Guides & Info</a> •
-        <a href="contact.html">Contact</a>
-    </p>
-</footer>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../index.html" class="site-logo">
+          <img src="../assets/logo.png" alt="Retro Replay">
+          <span>Retro Replay</span>
+        </a>
+        <div class="search-bar">
+          <input type="search" placeholder="Search guides..." aria-label="Search">
+          <button class="search-btn">Search</button>
+        </div>
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+          <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
+        </div>
+      </div>
+    </div>
 
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="index.html">PlayStation</a></li>
+          <li><a href="guides.html" class="active">Guides</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>PlayStation Setup Guides</h1>
+        <p>Learn everything about our refurbishments, setup, modding, and trading in your old consoles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: white;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Setup & Refurbishment</h2>
+      </div>
+
+      <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Refurbishment Process</h3>
+            <p class="product-description">Complete step-by-step breakdown of our professional refurbishment process. Deep-cleaning, laser alignment, thermal refresh, cosmetic restoration, and full QA testing.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">HDD & Softmod Setup</h3>
+            <p class="product-description">Learn about HDD installation, OPL configuration, homebrew enablement, and gaming optimization for PS2.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Buying Guide</h3>
+            <p class="product-description">Tips on selecting the right PlayStation, understanding model differences, identifying console conditions, and what to look for in a refurbished unit.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Trade-In Program</h3>
+            <p class="product-description">Maximize value on your old consoles with our trade-in program. Get store credit towards new refurbished units.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Warranty & Support</h3>
+            <p class="product-description">All refurbished consoles come with 6-month warranty. Our support team is available for troubleshooting and guidance.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Collector Grading</h3>
+            <p class="product-description">Learn our A/B/C cosmetic grading system to understand exactly what condition your console is in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>PlayStation Guides</h3>
+          <p>Setup guides and refurbishment information.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">PlayStation Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Retro Replay. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../cart.js"></script>
+  <script>RetroCart.loadCart();</script>
 </body>
 </html>

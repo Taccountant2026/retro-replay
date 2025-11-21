@@ -1,557 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Retro Replay — PS2 Full Catalogue</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0c0f17; --panel:#0f131a; --accent:#6db8ff; --accent-strong:#0051ff;
-  --muted:#9fbbe0; --card:#101217;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0; font-family:"Orbitron",sans-serif; background:var(--bg); color:#e3e7ed; overflow-x:hidden;}
-nav{background:#0a0a0a; padding:14px 6%; display:flex; flex-wrap:wrap; gap:12px; justify-content:center; border-bottom:2px solid #1f1f1f; position:sticky; top:0; z-index:1200;}
-nav a{color:var(--accent); font-weight:700; text-decoration:none; padding:6px 10px; border-radius:6px; transition:all .18s ease;}
-nav a:hover{ color:#ffffff; transform:translateY(-2px); }
-.hero{position:relative; padding:90px 18px 60px; text-align:center; overflow:hidden; background:linear-gradient(180deg,#0a0a0a 0%, #0f1216 100%); border-bottom:1px solid rgba(255,255,255,0.02);}
-.hero .logo-hero{width:170px; margin:0 auto 18px; display:block; position:relative; z-index:3; filter:drop-shadow(0 6px 18px rgba(109,184,255,0.08));}
-.hero h1{color:var(--accent); margin:8px 0; font-size:2.6rem; z-index:3; position:relative;}
-.hero p{margin:6px 0 22px; font-size:1.1rem; opacity:.88; z-index:3; position:relative;}
-#particle-canvas{position:absolute; inset:0; z-index:1; pointer-events:none;}
-.cta-row{ position:relative; z-index:3; display:inline-flex; gap:12px; margin-top:10px;}
-.cta{background:var(--accent-strong); color:#000; padding:12px 26px; font-weight:800; border-radius:12px; text-decoration:none; box-shadow:0 6px 24px rgba(0,81,255,0.08), 0 0 10px rgba(109,184,255,0.04); transition:transform .16s ease, box-shadow .16s ease;}
-.cta:hover{ transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,113,255,0.14) }
-.container{ max-width:1200px; margin:30px auto; padding:0 18px; }
-.grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:26px; margin-top:18px; }
-.card{ background:var(--card); border-radius:14px; padding:20px; text-align:center; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 28px rgba(0,0,0,0.45); transform:translateY(24px); opacity:0; transition:all .6s cubic-bezier(.2,.9,.3,1); cursor:default; position:relative; }
-.card.visible{ transform:none; opacity:1; }
-.card img{ width:110px; margin-bottom:12px; display:block; margin-left:auto;margin-right:auto; transition:transform .28s ease; }
-.card h3{ color:var(--accent); margin:8px 0; font-size:1.15rem; }
-.card p{ color:rgba(227,231,237,0.9); font-size:0.95rem; margin:0 0 12px; line-height:1.4 }
-.card .btn-mini{ display:inline-block; background:var(--accent); color:#000; padding:8px 14px; border-radius:10px; font-weight:800; text-decoration:none; transition:transform .16s ease; }
-.card:hover img{ transform:scale(1.06) rotate(-2deg) }
-.card:hover .btn-mini{ transform:translateY(-3px) }
-.info{ background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(109,184,255,0.04); padding:22px; border-radius:12px; margin:26px 0; color:var(--muted);}
-footer{ text-align:center; padding:36px 12px; color:var(--muted); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02);}
-
-@media(max-width:900px){ .hero{ padding:72px 18px 46px; } .hero h1{ font-size:2.1rem; } }
-@media(max-width:520px){ .hero{ padding:56px 14px 40px; } nav{ padding:12px 4% } .cta{ padding:10px 18px } }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayStation 2 Products | Retro Replay</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav>
-  <a href="/index.html">Main Home</a>
-  <a href="/playstation/index.html">PlayStation Home</a>
-  <a href="/playstation/products/ps1.html">PS1</a>
-  <a href="/playstation/products/ps2.html">PS2</a>
-  <a href="/playstation/products/ps3.html">PS3</a>
-  <a href="/playstation/guides.html">Guides</a>
-  <a href="/playstation/contact.html">Contact</a>
-</nav>
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo">
+          <span>🎮 PlayStation 2 Products</span>
+        </div>
+      </div>
+    </div>
 
-<section class="hero" aria-labelledby="hero-title">
-  <canvas id="particle-canvas" aria-hidden="true"></canvas>
-  <img src="../assets/ps2logo.png" alt="PlayStation 2 logo" class="logo-hero">
-  <h1 id="hero-title">PlayStation – PS2 Full Catalogue</h1>
-  <p>All PS2 consoles, accessories, modifications, and games — tested and ready to play.</p>
-  <div class="cta-row">
-    <a class="cta" href="#consoles">Consoles</a>
-    <a class="cta" href="#accessories">Accessories</a>
-    <a class="cta" href="#mods">Mods & Upgrades</a>
-    <a class="cta" href="#games">Games & Media</a>
-  </div>
-</section>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../../index.html" class="site-logo">
+          <img src="../../assets/logo.png" alt="Retro Replay">
+          <span>Retro Replay</span>
+        </a>
+        <div class="search-bar">
+          <input type="search" placeholder="Search PS2 products..." aria-label="Search">
+          <button class="search-btn">Search</button>
+        </div>
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+          <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
+        </div>
+      </div>
+    </div>
 
-<main class="container">
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../index.html">PlayStation</a></li>
+          <li><a href="ps1.html">PS1</a></li>
+          <li><a href="ps2.html" class="active">PS2</a></li>
+          <li><a href="ps3.html">PS3</a></li>
+          <li><a href="../guides.html">Guides</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-<!-- CONSOLES -->
-<section id="consoles" class="info" aria-label="PS2 Consoles">
-<h2 style="color:var(--accent); margin-bottom:8px;">PS2 Consoles</h2>
-<p>Professionally refurbished PS2 consoles, tested, cleaned, and ready to play. All come with controllers and AV cables. Optional softmod & HDD upgrades available.</p>
-<div class="grid">
+  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>PlayStation 2 Consoles</h1>
+        <p>Professionally refurbished PS2 consoles in Fat and Slim models. All tested, cleaned, and ready to play with 6-month warranty.</p>
+        <div class="hero-cta">
+          <a href="#products" class="btn btn-primary">Browse PS2</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- SCPH-50003 Black -->
-<article class="card">
-  <img src="../assets/PS2_BUNDLE_FRONT_UP.jpg" alt="PS2 Fat SCPH-50003 Black">
-  <h3>PS2 Fat SCPH-50003 (Black)</h3>
-  <p>Standard Fat model, refurbished. Comes with 2 controllers & AV cables.</p>
-  <p><strong>Price: £147.99</strong></p>
-  <p><strong>Stock: 2</strong></p>
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_50003B">
-    <input type="submit" class="btn-mini" value="Buy Now via PayPal">
-  </form>
-</article>
+  <section class="section" id="products">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">PS2 Consoles in Stock</h2>
+        <p class="section-subtitle">All models professionally refurbished with warranty</p>
+      </div>
 
-<!-- SCPH-50003 Silver -->
-<article class="card">
-  <img src="../assets/PS2_BUNDLE_FRONT_UP.jpg" alt="PS2 Fat SCPH-50003 Silver">
-  <h3>PS2 Fat SCPH-50003 (Silver)</h3>
-  <p>Standard Fat model, refurbished. Comes with 2 controllers & AV cables.</p>
-  <p><strong>Price: £187.99</strong></p>
-  <p><strong>Stock: 2</strong></p>
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_50003S">
-    <input type="submit" class="btn-mini" value="Buy Now via PayPal">
-  </form>
-</article>
+      <div class="product-grid">
+        <article class="product-card">
+          <span class="product-badge sale">Best Seller</span>
+          <div class="product-image">
+            <img src="../../assets/PS2_BUNDLE_FRONT.jpg" alt="PS2 Fat SCPH-50003">
+          </div>
+          <div class="product-info">
+            <div class="product-category">PlayStation 2</div>
+            <h3 class="product-name">PS2 Fat SCPH-50003 (Black)</h3>
+            <p class="product-description">Standard Fat model, professionally refurbished. Includes 2 controllers, AV cables, and power supply.</p>
+            <ul class="product-features">
+              <li>2 DualShock 2 Controllers</li>
+              <li>AV & Power Cables</li>
+              <li>Tested & Working</li>
+              <li>6-Month Warranty</li>
+            </ul>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">£147.99</div>
+              </div>
+              <div class="product-rating">⭐⭐⭐⭐⭐ (4.9)</div>
+            </div>
+            <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-50003-bk','PS2 Fat SCPH-50003 Black',147.99,'../../assets/PS2_BUNDLE_FRONT.jpg')">Add to Cart</button>
+          </div>
+        </article>
 
-<!-- SCPH-39003 Black -->
-<article class="card">
-  <img src="../assets/PS2_BUNDLE_FRONT_UP.jpg" alt="PS2 Fat SCPH-39003 Black">
-  <h3>PS2 Fat SCPH-39003 (Black)</h3>
-  <p>Standard Fat model, refurbished. Comes with 2 controllers & AV cables.</p>
-  <p><strong>Price: £139.99</strong></p>
-  <p><strong>Stock: 5</strong></p>
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_39003">
-    <input type="submit" class="btn-mini" value="Buy Now via PayPal">
-  </form>
-</article>
+        <article class="product-card">
+          <div class="product-image">
+            <img src="../../assets/PS2_BUNDLE_FRONT.jpg" alt="PS2 Fat SCPH-50003 Silver">
+          </div>
+          <div class="product-info">
+            <div class="product-category">PlayStation 2</div>
+            <h3 class="product-name">PS2 Fat SCPH-50003 (Silver)</h3>
+            <p class="product-description">Silver Fat model, professionally refurbished. Includes 2 controllers, AV cables, and power supply.</p>
+            <ul class="product-features">
+              <li>2 DualShock 2 Controllers</li>
+              <li>AV & Power Cables</li>
+              <li>Tested & Working</li>
+              <li>6-Month Warranty</li>
+            </ul>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">£159.99</div>
+              </div>
+              <div class="product-rating">⭐⭐⭐⭐⭐ (4.8)</div>
+            </div>
+            <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-50003-sv','PS2 Fat SCPH-50003 Silver',159.99,'../../assets/PS2_BUNDLE_FRONT.jpg')">Add to Cart</button>
+          </div>
+        </article>
 
-<!-- SCPH-30003 Black -->
-<article class="card">
-  <img src="../assets/PS2_BUNDLE_FRONT_UP.jpg" alt="PS2 Fat SCPH-30003 Black">
-  <h3>PS2 Fat SCPH-30003 (Black)</h3>
-  <p>Standard Fat model, refurbished. Comes with 2 controllers & AV cables.</p>
-  <p><strong>Price: £119.99</strong></p>
-  <p><strong>Stock: 5</strong></p>
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_30003">
-    <input type="submit" class="btn-mini" value="Buy Now via PayPal">
-  </form>
-</article>
+        <article class="product-card">
+          <span class="product-badge new">Popular</span>
+          <div class="product-image">
+            <img src="../../assets/PS2_BUNDLE_FRONT.jpg" alt="PS2 Slim SCPH-70003">
+          </div>
+          <div class="product-info">
+            <div class="product-category">PlayStation 2</div>
+            <h3 class="product-name">PS2 Slim SCPH-70003 (Black)</h3>
+            <p class="product-description">Slim model, professionally refurbished. More compact and quieter. Includes controllers and cables.</p>
+            <ul class="product-features">
+              <li>2 DualShock 2 Controllers</li>
+              <li>AV & Power Cables</li>
+              <li>Compact Design</li>
+              <li>6-Month Warranty</li>
+            </ul>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">£129.99</div>
+              </div>
+              <div class="product-rating">⭐⭐⭐⭐⭐ (4.7)</div>
+            </div>
+            <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-slim-70003','PS2 Slim SCPH-70003',129.99,'../../assets/PS2_BUNDLE_FRONT.jpg')">Add to Cart</button>
+          </div>
+        </article>
 
-<!-- SCPH-35003 Black -->
-<article class="card">
-  <img src="../assets/PS2_BUNDLE_FRONT_UP.jpg" alt="PS2 Fat SCPH-35003 Black">
-  <h3>PS2 Fat SCPH-35003 (Black)</h3>
-  <p>Standard Fat model, refurbished. Comes with 2 controllers & AV cables.</p>
-  <p><strong>Price: £119.99</strong></p>
-  <p><strong>Stock: 1</strong></p>
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_35003">
-    <input type="submit" class="btn-mini" value="Buy Now via PayPal">
-  </form>
-</article>
+        <article class="product-card">
+          <div class="product-image">
+            <img src="../../assets/PS2_MODDED_BUNDLE.png" alt="PS2 Modded Bundle HDD">
+          </div>
+          <div class="product-info">
+            <div class="product-category">PlayStation 2</div>
+            <h3 class="product-name">PS2 Modded Bundle — HDD + FMCB</h3>
+            <p class="product-description">Complete modded setup with 500GB HDD, FMCB pre-installed. Ready for homebrew gaming.</p>
+            <ul class="product-features">
+              <li>500GB HDD Installed</li>
+              <li>FMCB Pre-loaded</li>
+              <li>2 Controllers</li>
+              <li>Setup Guide Included</li>
+            </ul>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">£189.99</div>
+              </div>
+              <div class="product-rating">⭐⭐⭐⭐⭐ (5.0)</div>
+            </div>
+            <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-modded-hdd','PS2 Modded Bundle HDD+FMCB',189.99,'../../assets/PS2_MODDED_BUNDLE.png')">Add to Cart</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<!-- Modded PS2 Black -->
-<article class="card">
-  <img src="../assets/PS2_BUNDLE_FRONT_UP.jpg" alt="Modded PS2 Black">
-  <h3>PS2 Fat Modded (Black)</h3>
-  <p>Softmodded with FMCB, optional HDD installation. Comes with 1 controller & AV cables.</p>
-  <p><strong>Price: £279.99</strong></p>
-  <p><strong>Stock: 1</strong></p>
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_MODDED_BLACK">
-    <input type="submit" class="btn-mini" value="Buy Now via PayPal">
-  </form>
-</article>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>PS2 Products</h3>
+          <p>All PlayStation 2 consoles professionally refurbished.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="../guides.html">Setup Guides</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/warranties.html">Warranty</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>More</h3>
+          <ul class="footer-links">
+            <li><a href="ps1.html">PS1</a></li>
+            <li><a href="ps3.html">PS3</a></li>
+            <li><a href="/xbox/index.html">Xbox</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Retro Replay. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-<!-- Modded PS2 Silver -->
-<article class="card">
-  <img src="../assets/PS2_BUNDLE_FRONT_UP.jpg" alt="Modded PS2 Silver">
-  <h3>PS2 Fat Modded (Silver)</h3>
-  <p>Softmodded with FMCB, optional HDD installation. Comes with 1 controller & AV cables.</p>
-  <p><strong>Price: £299.99</strong></p>
-  <p><strong>Stock: 1</strong></p>
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_MODDED_SILVER">
-    <input type="submit" class="btn-mini" value="Buy Now via PayPal">
-  </form>
-</article>
-
-<!-- Optional note for NTSC-J / 39004 if you keep it -->
-<article class="card">
-  <img src="../assets/PS2_BUNDLE_FRONT_UP.jpg" alt="PS2 Fat SCPH-39004 NTSC-J">
-  <h3>PS2 Fat SCPH-39004 (Black, NTSC-J) (Collectors Console)</h3>
-  <p>Japanese import (NTSC-J). Region-locked; requires modding for UK games. Comes with 2 controllers & AV cables.</p>
-  <p><strong>Price: £289.99</strong></p>
-  <p><strong>Stock: 1</strong></p>
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_39004">
-    <input type="submit" class="btn-mini" value="Buy Now via PayPal">
-  </form>
-</article>
-</div>
-</section>
-
-<!-- ACCESSORIES -->
-<section id="accessories" class="info" aria-label="PS2 Accessories">
-<h2 style="color:var(--accent); margin-bottom:8px;">PS2 Accessories</h2>
-<p>Controllers, memory cards, AV cables, multitaps, and other essential accessories for your PS2 experience.</p>
-<div class="grid">
-<article class="card">
-<img src="../assets/ps2-ds2-official.png" alt="DualShock 2 Controller">
-<h3>DualShock 2 Controller</h3>
-<p>Official Sony controller, vibration support. Compatible with all PS2 units.</p>
-<p><strong>Price: £62.00</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_DS2">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-memcard-8mb.png" alt="PS2 Memory Card 8MB">
-<h3>PS2 Memory Card 8MB</h3>
-<p>Official Sony memory card for saving games. Essential for all PS2 users.</p>
-<p><strong>Price: £16.00</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_MEMCARD">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-multitap-official.png" alt="PS2 Official Multitap">
-<h3>PS2 Official Multitap</h3>
-<p>4-player multitap for multiplayer games. Works on Fat and Slim consoles.</p>
-<p><strong>Price: £69.99</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_MULTITAP">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-av-standard.png" alt="PS2 AV Cable">
-<h3>PS2 AV Cable (Composite)</h3>
-<p>Standard Sony AV cable (Red/White/Yellow) for PS2, PS1, and PS3 backward compatibility.</p>
-<p><strong>Price: £7.99</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_AV">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-</div>
-</section>
-
-<!-- MODIFICATIONS & UPGRADES -->
-<section id="mods" class="info" aria-label="PS2 Modifications & Upgrades">
-<h2 style="color:var(--accent); margin-bottom:8px;">PS2 Modifications & Upgrades</h2>
-<p>Enhance your PS2 with FMCB softmods, HDD kits, network adapters, replacement lasers, shells, fans, buttons, and other upgrade components.</p>
-<div class="grid">
-
-<!-- FMCB Memory Card -->
-<article class="card">
-<img src="../assets/ps2-fmcb.png" alt="PS2 FMCB Card">
-<h3>FMCB Memory Card 8MB</h3>
-<p>Pre-installed FreeMCBoot for homebrew, game backups, and HDD support.</p>
-<p><strong>Price: £62.00</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_FMCB">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<!-- SATA Network Adapter -->
-<article class="card">
-<img src="../assets/ps2-sata-adapter.png" alt="PS2 SATA Network Adapter">
-<h3>PS2 SATA Network Adapter</h3>
-<p>Supports modern SATA HDDs for Fat PS2 consoles. Required for full HDD mods.</p>
-<p><strong>Price: £85.00</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_SATA">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<!-- HDD Bracket -->
-<article class="card">
-<img src="../assets/ps2-hdd-bracket.png" alt="PS2 HDD Bracket">
-<h3>PS2 HDD Mounting Bracket</h3>
-<p>Securely mounts 3.5" HDDs inside PS2 Fat consoles for stable mods.</p>
-<p><strong>Price: £132.99</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_HDD">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<!-- Replacement Laser -->
-<article class="card">
-<img src="../assets/ps2-laser.png" alt="PS2 Replacement Laser">
-<h3>PS2 Replacement Laser Unit</h3>
-<p>Replacement laser assembly for PS2 Fat/Slim. Tested and calibrated.</p>
-<p><strong>Price: £39.99.00</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_LASER">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<!-- Cooling Fan -->
-<article class="card">
-<img src="../assets/ps2-fan.png" alt="PS2 Cooling Fan">
-<h3>PS2 Cooling Fan Replacement</h3>
-<p>Replacement cooling fan to maintain optimal temperature and prevent overheating.</p>
-<p><strong>Price: £18.00</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_FAN">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<!-- Replacement Buttons -->
-<article class="card">
-<img src="../assets/ps2-buttons.png" alt="PS2 Replacement Buttons">
-<h3>PS2 Replacement Buttons Set</h3>
-<p>Power, eject, and reset button replacements for Fat or Slim PS2 consoles.</p>
-<p><strong>Price: £16.00</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_BUTTONS">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<!-- Replacement Shells -->
-<article class="card">
-<img src="../assets/ps2-shell.png" alt="PS2 Replacement Shell">
-<h3>PS2 Replacement Outer Shell</h3>
-<p>Outer casing for PS2 Fat or Slim. Choose color and model.</p>
-<p><strong>Price: £122.00</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_SHELL">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-</div>
-</section>
-
-<!-- GAMES & MEDIA -->
-<section id="games" class="info" aria-label="PS2 Games & Media">
-<h2 style="color:var(--accent); margin-bottom:8px;">PS2 Games & Media</h2>
-<p>Tested PS2 game discs, demo discs, and bundles. Original cases and manuals included where possible.</p>
-<div class="grid">
-
-<article class="card">
-<img src="../assets/ps2-game-shadow.png" alt="Shadow of the Colossus">
-<h3>Shadow of the Colossus</h3>
-<p>PS2 classic action-adventure. Disc tested, original case included.</p>
-<p><strong>Price: £14.99</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_SHADOW">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-game-gta.png" alt="GTA: San Andreas">
-<h3>Grand Theft Auto: San Andreas</h3>
-<p>Open-world crime adventure. Disc verified, original manual included.</p>
-<p><strong>Price: £12.50</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_GTA">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-game-demo.png" alt="PS2 Demo Disc">
-<h3>PS2 Demo Disc</h3>
-<p>Original demo disc with multiple playable titles. Tested on all PS2 models.</p>
-<p><strong>Price: £7.50</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_DEMO">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-game-finalfantasyx.png" alt="Final Fantasy X">
-<h3>Final Fantasy X</h3>
-<p>Epic JRPG adventure with fully voiced story. Tested disc, original case included.</p>
-<p><strong>Price: £15.00</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_FFX">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-game-metalgear.png" alt="Metal Gear Solid 3">
-<h3>Metal Gear Solid 3: Snake Eater</h3>
-<p>Stealth action classic. Disc tested, includes original manual.</p>
-<p><strong>Price: £14.50</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_MGS3">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-game-kingdomhearts.png" alt="Kingdom Hearts">
-<h3>Kingdom Hearts</h3>
-<p>Disney & Final Fantasy crossover RPG. Disc verified, original case included.</p>
-<p><strong>Price: £13.99</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_KH1">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-game-devilmaycry.png" alt="Devil May Cry">
-<h3>Devil May Cry</h3>
-<p>Action hack-and-slash classic. Disc tested, original case included.</p>
-<p><strong>Price: £12.00</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_DMC1">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-game-silent-hill2.png" alt="Silent Hill 2">
-<h3>Silent Hill 2</h3>
-<p>Psychological horror masterpiece. Tested disc, original case included.</p>
-<p><strong>Price: £11.99</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_SH2">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-game-grandia.png" alt="Grandia III">
-<h3>Grandia III</h3>
-<p>Classic turn-based JRPG. Tested disc, original case included.</p>
-<p><strong>Price: £13.50</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_GRANDIA3">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-game-ratchet-clank.png" alt="Ratchet & Clank">
-<h3>Ratchet & Clank</h3>
-<p>Platformer/shooter adventure. Disc tested, original case included.</p>
-<p><strong>Price: £10.99</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_RATCHET1">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-game-spyro.png" alt="Spyro: Enter the Dragonfly">
-<h3>Spyro: Enter the Dragonfly</h3>
-<p>3D platformer. Disc tested, original case included.</p>
-<p><strong>Price: £9.99</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_SPYRO">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-game-shadow.png" alt="Shadow of the Colossus">
-<h3>Shadow of the Colossus</h3>
-<p>PS2 classic action-adventure. Disc tested, original case included.</p>
-<p><strong>Price: £14.99</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_SHADOW">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-game-gta.png" alt="GTA: San Andreas">
-<h3>Grand Theft Auto: San Andreas</h3>
-<p>PS2 open-world classic. Disc verified, original manual included.</p>
-<p><strong>Price: £12.50</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_GTA">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-<article class="card">
-<img src="../assets/ps2-game-demo.png" alt="PS2 Demo Disc">
-<h3>PS2 Demo Disc</h3>
-<p>Original demo disc with multiple playable titles. Tested on all PS2 models.</p>
-<p><strong>Price: £7.50</strong></p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="PAYPAL_BUTTON_ID_DEMO">
-<input type="submit" class="btn-mini" value="Buy Now via PayPal">
-</form>
-</article>
-
-</div>
-</section>
-
-<section class="info" aria-label="Support and Trade-in">
-<h3 style="color:var(--accent); margin-bottom:8px;">Support & Trade-In</h3>
-<p>We accept trade-ins and offer store credit toward refurbished PS2 units. All purchases include support and a 6-month warranty. See our <a href="/playstation/warranties.html" style="color:var(--accent); text-decoration:underline;">warranty & returns</a> page.</p>
-</section>
-
-</main>
-
-<footer>
-<div>© 2025 Retro Replay — PlayStation Division</div>
-<div style="margin-top:8px;">
-<a href="/playstation/index.html">Home</a> •
-<a href="/playstation/products/ps2.html">Products</a> •
-<a href="/playstation/guides.html">Guides</a> •
-<a href="/playstation/contact.html">Contact</a>
-</div>
-</footer>
-
-<script>
-// JS for particles and scroll reveal
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-function setCanvasSize(){ canvas.width = window.innerWidth; canvas.height = document.querySelector('.hero').offsetHeight; }
-setCanvasSize();
-let particles=[];
-class P{ constructor(){ this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.r=Math.random()*1.8+.6; this.vx=(Math.random()-0.5)*0.35; this.vy=(Math.random()-0.5)*0.35; this.alpha=0.25+Math.random()*0.5; } update(){ this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width) this.vx*=-1; if(this.y<0||this.y>canvas.height) this.vy*=-1; } draw(){ ctx.beginPath(); ctx.fillStyle='rgba(109,184,255,'+this.alpha+')'; ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fill(); } }
-function initParticles(n=110){ particles=[]; for(let i=0;i<n;i++) particles.push(new P()); }
-function frame(){ ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(frame); }
-window.addEventListener('resize',()=>{ setCanvasSize(); initParticles(); }); initParticles(); frame();
-const cards=document.querySelectorAll('.card');
-function reveal(){ const trigger=window.innerHeight*0.85; cards.forEach(c=>{ if(c.getBoundingClientRect().top<trigger) c.classList.add('visible'); }); }
-window.addEventListener('scroll',reveal); window.addEventListener('load',reveal);
-</script>
-
+  <script src="../../cart.js"></script>
+  <script>RetroCart.loadCart();</script>
 </body>
 </html>

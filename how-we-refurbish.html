@@ -1,53 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Refurb Process</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed;}
-nav { background:#0a0a0a; padding:16px; text-align:center; }
-nav a { color:#6db8ff; margin:0 10px; text-decoration:none; font-weight:700;}
-nav a:hover { color:#8ec5ff; }
-header { text-align:center; padding:60px 20px; }
-h1 { color:#6db8ff; margin-bottom:10px; }
-.hero-sub { font-size:1.2rem; opacity:0.8; }
-.section { padding:40px 10%; max-width:1200px; margin:0 auto; }
-footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How We Refurbish | Retro Replay</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>🔧 Our Refurbishment Process</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions">
+          <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+          <a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
+        </div>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="container"><ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+    </nav>
+  </header>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="history.html">History</a>
-    <a href="buying-guide.html">Buying Guide</a>
-    <a href="mods-upgrades.html">Mods & Upgrades</a>
-    <a href="how-we-refurbish.html">Refurb Process</a>
-    <a href="trade-in.html">Trade-In</a>
-    <a href="delivery.html">Shipping</a>
-    <a href="warranties.html">Warranties</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html">Contact</a>
-    <a href="products.html">Products</a>
-    <a href="products/ps1.html">PS1</a>
-    <a href="products/ps2.html">PS2</a>
-    <a href="products/ps3.html">PS3</a>
-</nav>
+  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>How We Refurbish</h1>
+        <p>Complete, documented process for every console. Professional restoration to like-new condition.</p>
+      </div>
+    </div>
+  </section>
 
-<header>
-    <h1>How We Refurbish</h1>
-    <div class="hero-sub">Step-by-step refurbishing process</div>
-</header>
+  <section class="section" style="background: white;">
+    <div class="container" style="max-width: 900px;">
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name" style="color: var(--dark); text-align: center; margin-bottom: 2rem;">Our 7-Step Refurbishment Process</h3>
+          <ul class="product-features" style="font-size: 1.1rem; line-height: 2; color: var(--dark);">
+            <li><strong>1. Complete Disassembly</strong> - Carefully take apart console, noting each component for proper reassembly</li>
+            <li><strong>2. Ultrasonic Cleaning</strong> - Deep clean all internal components using ultrasonic technology to remove decades of dust and grime</li>
+            <li><strong>3. Laser/Optical Drive Calibration</strong> - Test and calibrate disc readers; replace laser if needed to ensure perfect disc reading</li>
+            <li><strong>4. Thermal Refresh</strong> - Replace thermal paste, tune fans, and ensure optimal cooling for longevity</li>
+            <li><strong>5. Power Supply Inspection</strong> - Check capacitors, test voltage output, and replace power supply if needed</li>
+            <li><strong>6. Play Testing</strong> - Full system test with original games to ensure everything works perfectly</li>
+            <li><strong>7. Secure Packaging</strong> - Carefully reassemble, package securely, and ship with tracking and insurance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="section">
-    <p>All PlayStation consoles go through cleaning, re-capping, laser calibration, and full functionality testing. Each console is then carefully packaged for delivery.</p>
-</div>
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Quality Standards</h2>
+      </div>
 
-<footer>
-    <p>© 2025 Retro Replay — PlayStation Division</p>
-</footer>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Grade A - Like New</h3>
+            <p class="product-description">Minimal cosmetic wear, looks nearly new. Best for collectors seeking pristine condition consoles.</p>
+          </div>
+        </div>
 
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Grade B - Excellent</h3>
+            <p class="product-description">Minor cosmetic wear but fully functional. Great balance of affordability and condition.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Grade C - Good</h3>
+            <p class="product-description">Visible cosmetic wear but fully functional. Perfect for gamers who prioritize gameplay.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section"><h3>Process</h3><p>Professional refurbishment standards.</p></div>
+        <div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script>RetroCart.loadCart();</script>
 </body>
 </html>

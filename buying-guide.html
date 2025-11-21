@@ -1,53 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Buying Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed;}
-nav { background:#0a0a0a; padding:16px; text-align:center; }
-nav a { color:#6db8ff; margin:0 10px; text-decoration:none; font-weight:700;}
-nav a:hover { color:#8ec5ff; }
-header { text-align:center; padding:60px 20px; }
-h1 { color:#6db8ff; margin-bottom:10px; }
-.hero-sub { font-size:1.2rem; opacity:0.8; }
-.section { padding:40px 10%; max-width:1200px; margin:0 auto; }
-footer { text-align:center; padding:30px; background:#0b0f18; margin-top:40px; color:#9fbbe0;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buying Guide | Retro Replay</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>🎯 Buying Guide</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions">
+          <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+          <a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
+        </div>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="container"><ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+    </nav>
+  </header>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="history.html">History</a>
-    <a href="buying-guide.html">Buying Guide</a>
-    <a href="mods-upgrades.html">Mods & Upgrades</a>
-    <a href="how-we-refurbish.html">Refurb Process</a>
-    <a href="trade-in.html">Trade-In</a>
-    <a href="delivery.html">Shipping</a>
-    <a href="warranties.html">Warranties</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html">Contact</a>
-    <a href="products.html">Products</a>
-    <a href="products/ps1.html">PS1</a>
-    <a href="products/ps2.html">PS2</a>
-    <a href="products/ps3.html">PS3</a>
-</nav>
+  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Buying Guide</h1>
+        <p>Tips for choosing the perfect refurbished console for your gaming needs.</p>
+      </div>
+    </div>
+  </section>
 
-<header>
-    <h1>Buying Guide</h1>
-    <div class="hero-sub">Tips to choose the right PlayStation console</div>
-</header>
+  <section class="section" style="background: white;">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header">
+        <h2 class="section-title">What to Consider</h2>
+      </div>
 
-<div class="section">
-    <p>Learn how to pick the perfect PlayStation console. Check laser function, fan noise, cosmetic condition, and compatibility with your favorite games.</p>
-</div>
+      <div class="product-grid" style="grid-template-columns: 1fr;">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">📋 Cosmetic Condition</h3>
+            <p class="product-description">We grade consoles A/B/C. Grade A is like-new, Grade B has minor wear, Grade C has visible wear but full functionality. Choose based on your preference—all are fully functional!</p>
+          </div>
+        </div>
 
-<footer>
-    <p>© 2025 Retro Replay — PlayStation Division</p>
-</footer>
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">🎮 Model Selection</h3>
+            <p class="product-description">Different models have different benefits. PS2 Fat vs Slim? Xbox vs 360? Research what games and features matter to you before purchasing.</p>
+          </div>
+        </div>
 
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">🔧 Modifications</h3>
+            <p class="product-description">Want mods? We offer FMCB setup, HDD installation, and custom configurations. Decide what extras you need before checkout.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">✓ Warranty Coverage</h3>
+            <p class="product-description">All consoles include 6-month warranty on parts and performance. This protects you if anything fails after purchase.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">💰 Budget Planning</h3>
+            <p class="product-description">Higher grades cost more but look better. Budget consoles still work perfectly—it's just cosmetics. Decide what matters most to you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header">
+        <h2 class="section-title">Quick Comparison</h2>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <table style="width: 100%; color: var(--dark); font-size: 1rem; line-height: 1.8;">
+            <tr style="border-bottom: 2px solid var(--gray-lighter);">
+              <th style="text-align: left; padding: 1rem; color: var(--primary);">Grade</th>
+              <th style="text-align: left; padding: 1rem; color: var(--primary);">Cosmetics</th>
+              <th style="text-align: left; padding: 1rem; color: var(--primary);">Functionality</th>
+              <th style="text-align: left; padding: 1rem; color: var(--primary);">Best For</th>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--gray-lighter);">
+              <td style="padding: 1rem;"><strong>Grade A</strong></td>
+              <td style="padding: 1rem;">Like new</td>
+              <td style="padding: 1rem;">Perfect</td>
+              <td style="padding: 1rem;">Collectors</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--gray-lighter);">
+              <td style="padding: 1rem;"><strong>Grade B</strong></td>
+              <td style="padding: 1rem;">Minor wear</td>
+              <td style="padding: 1rem;">Perfect</td>
+              <td style="padding: 1rem;">Mixed</td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem;"><strong>Grade C</strong></td>
+              <td style="padding: 1rem;">Visible wear</td>
+              <td style="padding: 1rem;">Perfect</td>
+              <td style="padding: 1rem;">Gamers</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section"><h3>Guide</h3><p>Choose the perfect console for you.</p></div>
+        <div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script>RetroCart.loadCart();</script>
 </body>
 </html>

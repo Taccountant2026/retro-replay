@@ -1,365 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Retro Replay — Restoring Classics</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-body {
-    margin:0;
-    font-family:'Orbitron', sans-serif;
-    background:#0a0a0a;
-    color:white;
-    scroll-behavior: smooth;
-    overflow-x:hidden;
-}
-a { text-decoration:none; color:inherit; }
-
-/* --- Sticky Header --- */
-header {
-    position:sticky;
-    top:0;
-    background:rgba(10,10,10,0.95);
-    z-index:1000;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 10%;
-    border-bottom:2px solid #1f1f1f;
-    backdrop-filter: blur(5px);
-}
-header img.logo { height:60px; }
-nav {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
-}
-nav a {
-    margin:5px 10px;
-    font-weight:bold;
-    color:#6db8ff;
-    transition:0.2s;
-}
-nav a:hover { color:#ffffff; }
-
-/* --- Hero Section --- */
-.hero {
-    position:relative;
-    padding:120px 20px 80px;
-    text-align:center;
-    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
-    overflow:hidden;
-}
-.hero::before {
-    content:"";
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: radial-gradient(circle at center, rgba(109,184,255,0.08), transparent 70%);
-    z-index:0;
-}
-.hero img.logo-hero {
-    width:180px;
-    margin-bottom:20px;
-    position:relative;
-    z-index:1;
-}
-.hero h1 {
-    font-size:3rem;
-    color:#6db8ff;
-    margin-bottom:15px;
-    position:relative; z-index:1;
-}
-.hero p {
-    font-size:1.3rem;
-    opacity:0.85;
-    margin-bottom:30px;
-    position:relative; z-index:1;
-}
-.cta-btn {
-    background:#0051ff;
-    color:white;
-    padding:15px 30px;
-    font-size:1.15rem;
-    font-weight:bold;
-    border-radius:12px;
-    border:none;
-    cursor:pointer;
-    transition:0.4s;
-    display:inline-block;
-    position:relative; z-index:1;
-    box-shadow:0 0 10px #0051ff, 0 0 30px #00ffd0;
-}
-.cta-btn:hover {
-    background:#0070ff;
-    transform:scale(1.08);
-    box-shadow:0 0 20px #6db8ff, 0 0 50px #00ffd0;
-}
-
-/* --- Particle Canvas --- */
-#particle-canvas {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:0;
-    pointer-events:none;
-}
-
-/* --- Sections --- */
-.section {
-    max-width:1200px;
-    margin:0 auto;
-    padding:60px 10%;
-    text-align:center;
-}
-.section h2 {
-    font-size:2.5rem;
-    margin-bottom:20px;
-    color:#6db8ff;
-}
-.section p {
-    font-size:1.1rem;
-    line-height:1.6;
-    margin-bottom:15px;
-    opacity:0.9;
-}
-
-/* --- Info Sections --- */
-.info-box {
-    background:#111;
-    margin:40px 0;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 0 15px rgba(0,255,208,0.2);
-    text-align:left;
-}
-.info-box h3 { color:#00ffd0; margin-bottom:15px; }
-.info-box p { font-size:1.05rem; line-height:1.5; opacity:0.9; }
-
-/* --- Grid Tiles --- */
-.grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-    gap:25px;
-    padding:40px 10%;
-}
-.tile {
-    background:#111;
-    border:2px solid #1f1f1f;
-    padding:35px 20px;
-    border-radius:20px;
-    transition:0.3s, box-shadow 0.4s, transform 0.4s;
-    cursor:pointer;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    box-shadow:0 4px 12px rgba(0,0,0,0.4);
-    position:relative;
-    animation:float 4s ease-in-out infinite;
-    opacity:0;
-    transform: translateY(30px);
-}
-.tile.visible { opacity:1; transform:translateY(0px); transition:0.6s ease-out; }
-.tile img { width:80px; margin-bottom:15px; transition:0.3s; }
-.tile h3 { margin:0 0 10px 0; font-size:1.5rem; color:#6db8ff; }
-.tile p { margin:0; font-size:1rem; opacity:0.8; text-align:center; }
-.tile:hover { background:#0051ff; transform:scale(1.08); box-shadow:0 0 15px #00ffd0, 0 0 40px #6db8ff; }
-.tile:hover img { transform:rotate(-10deg) scale(1.1); }
-
-/* --- Footer --- */
-footer {
-    background:#0b0f18;
-    padding:40px 10%;
-    margin-top:60px;
-    font-size:0.9rem;
-    color:#9fbbe0;
-    text-align:center;
-}
-footer a { color:#6db8ff; margin:0 8px; transition:0.2s; }
-footer a:hover { color:#ffffff; }
-
-/* --- Responsive --- */
-@media screen and (max-width:768px) {
-    .info-box { text-align:center; }
-    .tile img { width:70px; }
-}
-@media screen and (max-width:480px) {
-    .hero h1 { font-size:2rem; }
-    .hero p { font-size:1rem; }
-    .cta-btn { padding:12px 25px; font-size:1rem; }
-    .tile { padding:25px 15px; }
-    .tile img { width:60px; margin-bottom:10px; }
-    .tile h3 { font-size:1.2rem; }
-    .tile p { font-size:0.9rem; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Retro Replay | Professional Gaming Console Restoration</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<!-- Header -->
-<header>
-    <img src="assets/logo.png" alt="Retro Replay Logo" class="logo">
-    <nav>
-        <a href="index.html">Retro Home</a>
-        <a href="about.html">About RetroReplay</a>
-        <a href="consoles.html">Consoles & Products</a>
-        <a href="services.html">Services We Provide</a>
-        <a href="faq.html">FAQ's</a>
-        <a href="contact.html">Contact Us</a>
-    </nav>
-</header>
-
-<!-- Hero -->
-<section class="hero">
-    <canvas id="particle-canvas"></canvas>
-    <img src="assets/logo.png" alt="Retro Replay Logo" class="logo-hero">
-    <h1>About Retro Replay</h1>
-    <p>Restoring classic consoles, providing expert modifications, and delivering exceptional service for retro gamers.</p>
-    <a href="#our-story" class="cta-btn">Discover Our Craft</a>
-</section>
-
-<!-- Our Story -->
-<section class="section" id="our-story">
-    <h2>Our Story & Craftsmanship</h2>
-    <div class="founder-bio">
-        <img src="assets/console-restored.jpg" alt="Restored Console">
-        <div class="bio-text">
-            <h3>Reviving Classics with Care</h3>
-            <p>At <strong>Retro Replay</strong>, every console is cleaned, repaired, and tested to ensure peak performance. Our team specializes in professional refurbishments, HDD setups, homebrew support, and optional modifications to enhance your gaming experience.</p>
-            <p>We preserve gaming history while delivering nostalgia, reliability, and modern convenience for your retro systems.</p>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>📖 About Retro Replay</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions">
+          <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+          <a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
         </div>
+      </div>
     </div>
-</section>
+    <nav class="main-nav">
+      <div class="container"><ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+    </nav>
+  </header>
 
-<!-- Warranties & Returns -->
-<section class="info-box">
-    <h3>Warranties & Returns</h3>
-    <p>All our refurbished consoles come with a full warranty to guarantee quality and peace of mind. If a console arrives with any defect, we provide easy returns and replacements within the warranty period.</p>
-    <p>Our customer-first approach ensures that every order meets expectations and arrives in perfect working condition.</p>
-</section>
+  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>About Retro Replay</h1>
+        <p>Professional gaming console refurbishment specialists. We restore classic consoles to like-new condition with expert care and attention to detail.</p>
+      </div>
+    </div>
+  </section>
 
-<!-- Packaging & Delivery -->
-<section class="info-box">
-    <h3>Packaging & Delivery</h3>
-    <p>Every console is carefully packaged to prevent damage during transit. We use sturdy boxes, protective foam, and secure wrapping to ensure safe delivery.</p>
-    <p>We offer fast, reliable, and trackable shipping. International and domestic orders are handled with the same care and attention to detail.</p>
-</section>
+  <section class="section" style="background: white;">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header">
+        <h2 class="section-title">Our Story</h2>
+      </div>
+      <p style="font-size: 1.1rem; line-height: 1.8; color: var(--gray); margin-bottom: 2rem;">Retro Replay was founded with a passion for preserving classic gaming. We believe every console deserves a second life. Through professional refurbishment, we restore PlayStation, Xbox, Nintendo, Atari, and Sega systems to their former glory, ensuring they work perfectly for the next generation of retro gamers.</p>
+      
+      <p style="font-size: 1.1rem; line-height: 1.8; color: var(--gray);">Our commitment to quality means every console undergoes rigorous testing, cleaning, and restoration. We document the entire process and provide 6-month warranties on all systems, because we stand behind our work.</p>
+    </div>
+  </section>
 
-<!-- Promoting Services -->
-<section class="info-box">
-    <h3>Repairs, Modifications & Upgrades</h3>
-    <p>Beyond refurbishing, we provide professional repair services for malfunctioning systems, hardware modifications, and performance upgrades. This includes HDD installs, memory expansions, cosmetic restoration, and homebrew installations.</p>
-    <p>Learn more about our services and all the modifications we offer on the <a href="services.html" style="color:#00ffd0; font-weight:bold;">Services page</a>.</p>
-</section>
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Values</h2>
+      </div>
 
-<!-- Showcase Tiles -->
-<section class="grid">
-    <a href="playstation/index.html">
-        <div class="tile">
-            <img src="assets/playstation-logo.png" alt="PlayStation Logo">
-            <h3>PlayStation</h3>
-            <p>PS1, PS2 & PS3 refurbished consoles</p>
+      <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">🎮 Passion for Gaming</h3>
+            <p class="product-description">We love retro gaming and understand what collectors need. Every console is treated with the care it deserves.</p>
+          </div>
         </div>
-    </a>
-    <a href="xbox/index.html">
-        <div class="tile">
-            <img src="assets/xbox-logo.png" alt="Xbox Logo">
-            <h3>Xbox</h3>
-            <p>Original & Xbox 360 refurbished consoles</p>
-        </div>
-    </a>
-    <a href="nintendo/index.html">
-        <div class="tile">
-            <img src="assets/nintendo-logo.png" alt="Nintendo Logo">
-            <h3>Nintendo</h3>
-            <p>NES, SNES, N64 & Switch retro consoles</p>
-        </div>
-    </a>
-    <a href="sega/index.html">
-        <div class="tile">
-            <img src="assets/sega-logo.png" alt="SEGA Logo">
-            <h3>SEGA</h3>
-            <p>Genesis, Mega Drive & Saturn refurbished</p>
-        </div>
-    </a>
-    <a href="atari/index.html">
-        <div class="tile">
-            <img src="assets/atari-logo.png" alt="Atari Logo">
-            <h3>Atari</h3>
-            <p>Classic 2600 & 7800 restored consoles</p>
-        </div>
-    </a>
-</section>
 
-<!-- Footer -->
-<footer>
-    <p>© 2025 Retro Replay — Restoring Classics for Modern Gamers</p>
-    <p>
-        <a href="index.html">Home</a> |
-        <a href="about.html">About</a> |
-        <a href="buying-guide.html">Buying Guide</a> |
-        <a href="services.html">Services</a> |
-        <a href="mods-upgrades.html">Mods & Upgrades</a> |
-        <a href="how-we-refurbish.html">How We Refurbish</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="delivery.html">Shipping & Delivery</a> |
-        <a href="faq.html">FAQ</a> |
-        <a href="warranties.html">Warranties</a>
-    </p>
-</footer>
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">🔧 Expert Craftsmanship</h3>
+            <p class="product-description">Professional technicians with years of experience restore each console to working order and cosmetic perfection.</p>
+          </div>
+        </div>
 
-<!-- Particle Script + Scroll Reveal -->
-<script>
-// Particle System
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-let particlesArray=[];
-class Particle{
-    constructor(){
-        this.x=Math.random()*canvas.width;
-        this.y=Math.random()*canvas.height;
-        this.size=Math.random()*2+1;
-        this.speedX=(Math.random()-0.5)*0.5;
-        this.speedY=(Math.random()-0.5)*0.5;
-    }
-    update(){
-        this.x+=this.speedX;
-        this.y+=this.speedY;
-        if(this.x<0||this.x>canvas.width)this.speedX*=-1;
-        if(this.y<0||this.y>canvas.height)this.speedY*=-1;
-    }
-    draw(){
-        ctx.fillStyle='rgba(109,184,255,0.5)';
-        ctx.beginPath();
-        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-        ctx.fill();
-    }
-}
-function initParticles(){particlesArray=[]; for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
-function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particlesArray.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animateParticles);}
-initParticles(); animateParticles();
-window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; initParticles();});
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">✓ Quality Assurance</h3>
+            <p class="product-description">Rigorous testing ensures every console works perfectly. 6-month warranty backs up our commitment to quality.</p>
+          </div>
+        </div>
 
-// Scroll Reveal for Tiles
-const tiles = document.querySelectorAll('.tile');
-const revealOnScroll = () => {
-    const triggerBottom = window.innerHeight * 0.85;
-    tiles.forEach(tile=>{
-        const tileTop = tile.getBoundingClientRect().top;
-        if(tileTop < triggerBottom){
-            tile.classList.add('visible');
-        }
-    });
-};
-window.addEventListener('scroll', revealOnScroll);
-revealOnScroll();
-</script>
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">📦 Transparent Service</h3>
+            <p class="product-description">We clearly grade cosmetic condition using A/B/C ratings so you know exactly what you're getting.</p>
+          </div>
+        </div>
 
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">🌍 Accessible Pricing</h3>
+            <p class="product-description">Professional restoration shouldn't break the bank. We offer fair pricing on quality refurbished consoles.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">🚀 Fast Delivery</h3>
+            <p class="product-description">Quick turnaround and tracked shipping ensures your console arrives safely and quickly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section"><h3>About Retro Replay</h3><p>Professional gaming console restoration.</p></div>
+        <div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script>RetroCart.loadCart();</script>
 </body>
 </html>

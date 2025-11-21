@@ -1,9 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Mods & Upgrades</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mods & Upgrades | Retro Replay</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-top"><div class="container"><div class="header-promo"><span>⚙️ Mods & Upgrades</span></div></div></div>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
+        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+        <div class="header-actions">
+          <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+          <a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
+        </div>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="container"><ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+    </nav>
+  </header>
+
+  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Mods & Upgrades</h1>
+        <p>Enhance your console with professional modifications and upgrades.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: white;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Available Modifications</h2>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">🖥️ HDD Installation</h3>
+            <p class="product-description">Add 500GB or 1TB hard drive to PS2 for expanded storage and game compatibility.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">⚡ FMCB Setup</h3>
+            <p class="product-description">Free McBoot installation for PS2 allows homebrew games and custom configurations.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">🎮 Homebrew Configuration</h3>
+            <p class="product-description">Setup emulators and custom software for enhanced gaming possibilities.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">🎨 Custom Shells</h3>
+            <p class="product-description">Replace console shells with custom colors and designs for unique aesthetics.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">🔌 Power Upgrades</h3>
+            <p class="product-description">Enhanced power supplies for improved stability and reliability.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">🎯 Controller Mods</h3>
+            <p class="product-description">Custom controllers with ergonomic improvements and wireless options.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header">
+        <h2 class="section-title">How to Get Mods</h2>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <p style="font-size: 1.05rem; line-height: 1.8; color: var(--dark);">When ordering a console, you can select which modifications you'd like us to install. All mods are performed by experienced technicians and fully tested before shipment. Contact us if you need custom configurations not listed.</p>
+          <a href="contact.html" class="btn btn-primary" style="margin-top: 1rem;">Contact About Mods</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section"><h3>Mods</h3><p>Professional modifications and upgrades.</p></div>
+        <div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script>RetroCart.loadCart();</script>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 body { margin:0; font-family:'Orbitron',sans-serif; background:#181b23; color:#e3e7ed;}

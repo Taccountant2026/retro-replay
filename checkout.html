@@ -127,20 +127,36 @@
       cart.forEach(item => {
         const div = document.createElement('div');
         div.className = 'product-card';
-        div.style.cssText = 'display: flex; gap: 1.5rem; align-items: flex-start;';
+        div.style.cssText = 'display: flex; gap: 1.5rem; align-items: stretch; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid var(--gray-lighter); margin-bottom: 1rem;';
         div.innerHTML = `
-          <img src="${item.image}" alt="${item.name}" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px;">
-          <div style="flex: 1;">
-            <h3 style="margin: 0; font-size: 1.125rem; color: var(--dark);">${item.name}</h3>
-            <p style="color: var(--gray); margin: 0.5rem 0;">Price: £${item.price.toFixed(2)}</p>
-            <div style="display: flex; align-items: center; gap: 1rem; margin: 1rem 0;">
-              <span>Qty:</span>
-              <button class="btn" style="padding: 0.5rem 0.75rem;" data-action="qty-minus" data-id="${item.id}">-</button>
-              <span style="min-width: 40px; text-align: center;">${item.qty}</span>
-              <button class="btn" style="padding: 0.5rem 0.75rem;" data-action="qty-plus" data-id="${item.id}">+</button>
+          <div style="flex-shrink: 0;">
+            <img src="${item.image}" alt="${item.name}" style="width: 140px; height: 140px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          </div>
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem; font-weight: 600; color: var(--dark);">${item.name}</h3>
+              <div style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1rem;">
+                <span style="font-size: 1rem; color: var(--gray);">Unit Price:</span>
+                <span style="font-size: 1rem; font-weight: 600; color: var(--dark);">£${item.price.toFixed(2)}</span>
+              </div>
             </div>
-            <div style="color: var(--primary); font-weight: 700; font-size: 1.125rem;">£${(item.price * item.qty).toFixed(2)}</div>
-            <button class="btn btn-outline" style="margin-top: 1rem; padding: 0.5rem 1rem;" data-action="remove" data-id="${item.id}">Remove</button>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span style="font-size: 0.9rem; color: var(--gray); font-weight: 500;">Quantity:</span>
+                <div style="display: flex; align-items: center; gap: 0.5rem; background: #f3f4f6; border-radius: 6px; padding: 0.25rem;">
+                  <button class="btn" style="padding: 0.5rem 0.75rem; background: transparent; border: none; color: var(--primary); font-weight: 700; cursor: pointer; font-size: 1.1rem;" data-action="qty-minus" data-id="${item.id}">−</button>
+                  <span style="min-width: 40px; text-align: center; font-weight: 600; color: var(--dark);">${item.qty}</span>
+                  <button class="btn" style="padding: 0.5rem 0.75rem; background: transparent; border: none; color: var(--primary); font-weight: 700; cursor: pointer; font-size: 1.1rem;" data-action="qty-plus" data-id="${item.id}">+</button>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 2rem;">
+                <div style="text-align: right;">
+                  <div style="font-size: 0.875rem; color: var(--gray); margin-bottom: 0.25rem;">Subtotal</div>
+                  <div style="font-size: 1.5rem; font-weight: 800; color: var(--primary);">£${(item.price * item.qty).toFixed(2)}</div>
+                </div>
+                <button class="btn btn-outline" style="padding: 0.6rem 1.2rem; font-size: 0.9rem; white-space: nowrap;" data-action="remove" data-id="${item.id}">Remove</button>
+              </div>
+            </div>
           </div>
         `;
         container.appendChild(div);

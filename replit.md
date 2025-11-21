@@ -5,6 +5,77 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 
 **Current State:** Modern ecommerce site with accurate business model. All products: Tested Console + External Clean + Printed Report (Base). Refurbishment & mods are upsell features.
 
+## Product Structure
+
+### Base Product Tiers (All Include: Professional Testing + Printed Report + External Clean + UK 6-Month Warranty)
+
+**1. Console Only** (Bare Console)
+- Tested Console
+- Printed Test Report
+- External Professional Clean
+- 2x DualShock 2 Controllers
+- All Cables & Power Supply
+- 6-Month UK Statutory Warranty
+- Example: PS2 Fat A-Grade: £94.99
+
+**2. Console + Small Bundle** 
+- Everything in Console Only PLUS:
+- 1x Extra Controller
+- Protective Console Case
+- Example: PS2 Fat A-Grade + Small: £114.99
+
+**3. Console + Medium Bundle**
+- Everything in Console Only PLUS:
+- 2x Extra Controllers
+- Protective Console Case
+- Cleaning & Maintenance Kit
+- AV Cable Upgrade (RGB Option)
+- Example: PS2 Fat A-Grade + Medium: £134.99
+
+**4. Console + Large Bundle**
+- Everything in Console Only PLUS:
+- 2x Extra Controllers (4 total)
+- Premium Protective Case
+- Cleaning & Maintenance Kit
+- AV Cable Upgrade (RGB Option)
+- Curated Game Bundle (3-5 classic PS2 games)
+- Controller Charging Dock
+- Example: PS2 Fat A-Grade + Large: £179.99
+
+### Upsell Features & Services (Add to ANY Product Option)
+All available as add-ons at checkout:
+
+**Refurbishment Services**
+- Professional Internal Deep Clean: +£29.99
+- Laser Lens Cleaning & Calibration: +£19.99
+- Thermal Paste Replacement: +£14.99
+- Fan Cleaning & Lubrication: +£12.99
+
+**Hardware Mods & Upgrades**
+- HDD Installation (500GB): +£69.99
+- HDD Installation (1TB): +£89.99
+- FMCB Free McBoot Installation: +£24.99
+- Custom Shell Color: +£34.99
+- Premium Controller Upgrade: +£35.99 each
+- HDMI Mod Installation: +£59.99
+
+**Extended Coverage**
+- Extended 12-Month Warranty: +£29.99
+- Premium Packaging & Gift Wrap: +£9.99
+- Express Shipping (24-48hr): +£24.99
+
+### Cosmetic Grades (Available for All Products)
+- **A-Grade**: Like New (minimal wear)
+- **B-Grade**: Very Good (light wear)
+- **C-Grade**: Good (noticeable wear, fully functional)
+
+### Pricing Strategy
+- Bare console: Entry price point
+- Bundles: Increasing value at incremental prices
+- Upsells: Optional add-ons maximize revenue without forcing costs
+- All prices in GBP (£)
+- Focus: PS2 range (Fat/Slim models)
+
 ## Business Model
 
 ### Core Service
@@ -21,12 +92,6 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 2. **Mods & Upgrades** - HDD installation, FMCB, custom shells, etc. (upsell feature)
 3. **Extended Services** - Setup assistance, delivery installation (upsell feature)
 
-### Pricing Strategy
-- Bare console: Tested + External Clean + Report + 2 Controllers + Cables
-- All mods: Additional cost add-ons
-- Prices in GBP (£)
-- Focus on PS2 range (Fat/Slim models, all variants)
-
 ### Warranty
 - **Legal Minimum**: UK statutory rights (6 months for goods/services)
 - **Terms**: Covers defects in materials/workmanship
@@ -35,21 +100,6 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 ### Regional Focus
 - UK primary market
 - International shipping available (upsell)
-
-## Recent Changes
-- **November 21, 2025**: Business model update
-  - Repositioned from "refurbished" to "tested + external clean"
-  - Refurbishment becomes premium upsell option
-  - Added printed test report to base offering
-  - Updated warranty to legal minimum protection
-  - All mods are now add-on features
-  - Focus on PS2 product line
-
-- **November 21, 2025**: Design enhancement
-  - Applied modern 2025 theme with gradient effects and glassmorphism
-  - Added retro floating particle system throughout site
-  - Enhanced cart page design with better product cards
-  - Improved button interactions and visual hierarchy
 
 ## Project Architecture
 
@@ -60,35 +110,6 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 - **Hosting**: Static file server (http-server via Node.js)
 - **Cart System**: Client-side localStorage shopping cart
 
-### Project Structure
-```
-/
-├── index.html                      # Homepage
-├── style.css                       # Modern ecommerce CSS with gradients
-├── cart.js                         # Shopping cart system
-├── particles.js                    # Retro floating particles
-├── playstation/
-│   ├── products/ps2.html          # PS2 console listing (main focus)
-│   ├── products/ps1.html
-│   ├── products/ps3.html
-│   ├── index.html
-│   ├── guides.html
-│   └── contact.html
-├── xbox/, nintendo/, atari/, sega/ # Other console lines
-├── about.html                      # About page
-├── services.html                   # Services/mods page
-├── checkout.html                   # Cart & checkout
-└── assets/                         # Images & media
-```
-
-### Key Features
-1. **Tested Console Listings**: Clear distinction between base product and upsells
-2. **Cosmetic Grading**: A/B/C visual indicators for condition
-3. **Upsell Structure**: Mods & services clearly presented as add-ons
-4. **Test Report Included**: Every console comes with printed test documentation
-5. **Modern Design**: 2025 ecommerce standards with retro gaming vibe
-6. **Shopping Cart**: Full cart functionality with upsell suggestions
-
 ### Design System
 - **Primary**: #0066ff (Modern Blue)
 - **Secondary**: #00d084 (Success Green)
@@ -97,38 +118,6 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 - **Typography**: Inter 400-800 weights
 - **Effects**: Gradients, glassmorphism, shadow depth, floating particles
 
-## Product Information
-
-### PS2 Range (Primary Focus)
-- **PS2 Fat SCPH-50003** (Black/Silver) - Classic original model
-- **PS2 Slim SCPH-70003** (All colors) - Compact revision
-- **Cosmetic Ratings Available**: A (Like New), B (Very Good), C (Good)
-- **Optional Mods**: HDD + FMCB, internal refurbishment, controllers upgrade
-
-### Upsell Services
-- Professional internal refurbishment
-- HDD installation (500GB-1TB options)
-- FMCB installation (Free McBoot)
-- Custom shell colors
-- Controller upgrades
-- Extended warranty options
-- International shipping
-
-## Warranty & Legal
-
-### UK Statutory Rights (Base Coverage)
-- 6 months for consumer goods/services
-- Covers defects in materials/workmanship
-- Professional testing documented via printed report
-- Right of return for defective products
-
-### What's NOT Covered
-- Cosmetic wear (grading system shows condition)
-- User-caused damage
-- Intentional misuse
-- Normal wear from gaming use
-- Cosmetic condition deterioration
-
 ## User Preferences
 - Accurate business model representation
 - PS2 as primary product line
@@ -136,10 +125,12 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 - Clear upsell/add-on distinction
 - Professional testing emphasizes quality
 - Modern design with retro gaming charm
+- Clear product tier structure for customer choice
 
 ## Notes
 - Printed test reports differentiate from competitors
 - Cosmetic grading helps manage expectations
+- Bundle structure drives higher average order value
 - Upsell model protects margins on base product
 - UK focus with international expansion possible
 - All pricing excludes upsell services

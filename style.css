@@ -716,6 +716,35 @@ button {
   }
 }
 
+/* Retro Particle Animations */
+@keyframes particleFloat {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) rotate(360deg);
+  }
+}
+
+@keyframes particleGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px currentColor;
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 15px currentColor;
+    filter: brightness(1.5);
+  }
+}
+
+.retro-particle {
+  animation: particleFloat 3s ease-out forwards, particleGlow 2s ease-in-out infinite !important;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+  transition: all 0.1s linear;
+}
+
 /* Utility Classes */
 .text-center { text-align: center; }
 .text-primary { color: var(--primary); }

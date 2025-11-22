@@ -94,6 +94,79 @@ button {
   padding: 0 var(--spacing-md);
 }
 
+/* Product Carousel */
+.carousel-wrapper {
+  position: relative;
+  margin: 0 -1rem;
+}
+
+.product-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.product-carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.product-carousel .product-card {
+  flex: 0 0 320px;
+  min-width: 320px;
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid var(--primary);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.2);
+}
+
+.carousel-nav:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev {
+  left: 0;
+}
+
+.carousel-nav.next {
+  right: 0;
+}
+
+.carousel-nav svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 768px) {
+  .carousel-nav {
+    display: none;
+  }
+  
+  .product-carousel .product-card {
+    flex: 0 0 280px;
+    min-width: 280px;
+  }
+}
+
 /* Header & Navigation */
 .site-header {
   background: rgba(255, 255, 255, 0.95);

@@ -15,7 +15,7 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 - External Professional Clean
 - 6-Month UK Statutory Warranty
 - **NO Cables, NO Controllers, NO Memory Cards, NO Games**
-- Entry Price Point - Example: PS2 Fat A-Grade: £34.99
+- Entry Price Point - Example: PS2 Fat A-Grade: £95.00
 
 **2. Bundle 1** 
 - Everything in Console Only PLUS:
@@ -23,7 +23,7 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 - 1x 8MB Memory Card
 - AV & Power Cables
 - 1x Free Classic PS2 Game
-- Add +£25 - Example: PS2 Fat A-Grade + Bundle 1: £59.99
+- Example: PS2 Fat A-Grade + Bundle 1: £139.99
 
 **3. Bundle 2**
 - Everything in Console Only PLUS:
@@ -31,7 +31,7 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 - 1x 8MB Memory Card
 - AV & Power Cables
 - 3x Free Classic PS2 Games
-- Add +£50 - Example: PS2 Fat A-Grade + Bundle 2: £84.99
+- Example: PS2 Fat A-Grade + Bundle 2: £169.99
 
 **4. Bundle 3**
 - Everything in Console Only PLUS:
@@ -40,7 +40,7 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 - AV & Power Cables
 - 5x Free Classic PS2 Games
 - HDMI Upscaler Included
-- Add +£95 - Example: PS2 Fat A-Grade + Bundle 3: £129.99
+- Example: PS2 Fat A-Grade + Bundle 3: £279.99
 
 ### Upsell Features & Services (Add to ANY Product Option)
 All available as add-ons at checkout:
@@ -129,6 +129,12 @@ All available as add-ons at checkout:
 - Console Only = BARE console (absolutely nothing else)
 - Controllers are third-party wireless
 - Games are free/included in bundles
+
+## Pricing
+- Console Only: £95.00 (A-Grade reference)
+- Bundle 1: £139.99
+- Bundle 2: £169.99
+- Bundle 3: £279.99
 
 ## Notes
 - Printed test reports differentiate from competitors

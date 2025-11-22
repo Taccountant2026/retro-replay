@@ -13,38 +13,34 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 - Tested Console
 - Printed Test Report
 - External Professional Clean
-- All Cables & Power Supply
 - 6-Month UK Statutory Warranty
-- **NO Controllers, NO Memory Cards**
-- Entry Price Point - Example: PS2 Fat A-Grade: £49.99
+- **NO Cables, NO Controllers, NO Memory Cards, NO Games**
+- Entry Price Point - Example: PS2 Fat A-Grade: £34.99
 
-**2. Console + Small Bundle** 
+**2. Bundle 1** 
 - Everything in Console Only PLUS:
-- 2x DualShock 2 Controllers
+- 1x Wireless Controller (Third-Party)
 - 1x 8MB Memory Card
-- Basic Console Case
-- Add +£30 - Example: PS2 Fat A-Grade + Small: £79.99
+- AV & Power Cables
+- 1x Free Classic PS2 Game
+- Add +£25 - Example: PS2 Fat A-Grade + Bundle 1: £59.99
 
-**3. Console + Medium Bundle**
+**3. Bundle 2**
 - Everything in Console Only PLUS:
-- 4x DualShock 2 Controllers
-- 2x 8MB Memory Cards
-- Premium Console Case
-- Cleaning & Maintenance Kit
-- RGB AV Cable
-- Add +£50 - Example: PS2 Fat A-Grade + Medium: £99.99
+- 2x Wireless Controllers (Third-Party)
+- 1x 8MB Memory Card
+- AV & Power Cables
+- 3x Free Classic PS2 Games
+- Add +£50 - Example: PS2 Fat A-Grade + Bundle 2: £84.99
 
-**4. Console + Large Bundle**
+**4. Bundle 3**
 - Everything in Console Only PLUS:
-- 4x DualShock 2 Controllers
+- 2x Wireless Controllers (Third-Party)
 - 2x 8MB Memory Cards
-- Premium Flight Case
-- Cleaning & Maintenance Kit
-- RGB AV Cable
-- 3-5 Classic PS2 Games (Curated Bundle)
-- Controller Charging Dock
-- Extended Documentation
-- Add +£100 - Example: PS2 Fat A-Grade + Large: £149.99
+- AV & Power Cables
+- 5x Free Classic PS2 Games
+- HDMI Upscaler Included
+- Add +£95 - Example: PS2 Fat A-Grade + Bundle 3: £129.99
 
 ### Upsell Features & Services (Add to ANY Product Option)
 All available as add-ons at checkout:
@@ -60,7 +56,7 @@ All available as add-ons at checkout:
 - HDD Installation (1TB): +£89.99
 - FMCB Free McBoot Installation: +£24.99
 - Custom Shell Color: +£34.99
-- Premium Controller Upgrade: +£35.99 each
+- Premium OEM Controller Upgrade: +£35.99 each
 - HDMI Mod Installation: +£59.99
 
 **Extended Coverage**
@@ -74,8 +70,8 @@ All available as add-ons at checkout:
 - **C-Grade**: Good (noticeable wear, fully functional)
 
 ### Pricing Strategy
-- Bare console: Entry price point (no accessories)
-- Bundles: Increasing value at incremental prices
+- Bare console: Entry price point (absolute minimum)
+- Bundles: Increasing value with accessories and games
 - Upsells: Optional add-ons maximize revenue without forcing costs
 - All prices in GBP (£)
 - Focus: PS2 range (Fat/Slim models)
@@ -87,9 +83,8 @@ All available as add-ons at checkout:
 - **Includes**: 
   - Thorough professional testing with printed report
   - External professional cleaning
-  - All cables & power supply
   - UK statutory warranty (6 months minimum)
-  - **Does NOT include**: Controllers or memory cards
+  - **Does NOT include**: Cables, controllers, memory cards, or games
 - **Cosmetic Grading**: A (Like New), B (Very Good), C (Good)
 
 ### Upsell Options
@@ -131,7 +126,9 @@ All available as add-ons at checkout:
 - Professional testing emphasizes quality
 - Modern design with retro gaming charm
 - Clear product tier structure for customer choice
-- Console Only = BARE console (no controllers/memory cards)
+- Console Only = BARE console (absolutely nothing else)
+- Controllers are third-party wireless
+- Games are free/included in bundles
 
 ## Notes
 - Printed test reports differentiate from competitors

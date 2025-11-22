@@ -170,16 +170,66 @@
 
       <!-- CATEGORY FILTER -->
       <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-        <button style="padding: 0.6rem 1.2rem; background: var(--primary); color: white; border: none; border-radius: 0.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">All Products</button>
-        <button style="padding: 0.6rem 1.2rem; background: #f0f4ff; color: var(--primary); border: 2px solid var(--primary); border-radius: 0.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">Fat Models</button>
-        <button style="padding: 0.6rem 1.2rem; background: #f0f4ff; color: var(--primary); border: 2px solid var(--primary); border-radius: 0.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">Slim Models</button>
-        <button style="padding: 0.6rem 1.2rem; background: #f0f4ff; color: var(--primary); border: 2px solid var(--primary); border-radius: 0.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">A-Grade Only</button>
+        <button style="padding: 0.6rem 1.2rem; background: var(--primary); color: white; border: none; border-radius: 0.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">All</button>
+        <button style="padding: 0.6rem 1.2rem; background: #f0f4ff; color: var(--primary); border: 2px solid var(--primary); border-radius: 0.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">Standard</button>
+        <button style="padding: 0.6rem 1.2rem; background: #f0f4ff; color: var(--accent); border: 2px solid var(--accent); border-radius: 0.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">⚡ Modded</button>
+        <button style="padding: 0.6rem 1.2rem; background: #f0f4ff; color: var(--primary); border: 2px solid var(--primary); border-radius: 0.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">Accessories</button>
+        <button style="padding: 0.6rem 1.2rem; background: #f0f4ff; color: var(--primary); border: 2px solid var(--primary); border-radius: 0.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">Services</button>
+      </div>
+
+      <!-- MODDED CONSOLES CATEGORY -->
+      <div style="margin-bottom: 3rem; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); padding: 2rem; border-radius: 1rem; border: 2px solid var(--accent);">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.8rem; margin: 0; color: var(--dark);">⚡ MODDED CONSOLES</h2>
+          <span style="background: var(--accent); color: white; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600;">PRE-CONFIGURED</span>
+        </div>
+        <p style="color: var(--gray); margin: 0 0 1.5rem; font-size: 0.95rem;">Ready-to-play consoles with professional mods pre-installed. FMCB + HDD included. Choose your bundle.</p>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden; border: 2px solid var(--accent);">
+          <div style="position: relative; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); height: 200px; display: flex; align-items: center; justify-content: center;"><p style="font-size: 2.5rem;">⚡</p></div>
+          <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+            <p style="font-size: 0.75rem; color: var(--accent); margin: 0 0 0.5rem; text-transform: uppercase; font-weight: 600;">Modded Console</p>
+            <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">PS2 Modded Console Only</h3>
+            <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">FMCB softmod + 500GB HDD pre-installed. Ready to play immediately. No cables/controllers.</p>
+            <div style="border-top: 1px solid #eee; padding-top: 1rem;"><p style="font-size: 1.3rem; font-weight: 700; color: var(--accent); margin: 0 0 0.75rem;">£285.00</p><button class="btn btn-success" style="width: 100%; background: var(--accent);">Add to Cart</button></div>
+          </div>
+        </article>
+        <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden; border: 2px solid var(--accent);">
+          <div style="position: relative; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); height: 200px; display: flex; align-items: center; justify-content: center;"><p style="font-size: 2.5rem;">⚡</p></div>
+          <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+            <p style="font-size: 0.75rem; color: var(--accent); margin: 0 0 0.5rem; text-transform: uppercase; font-weight: 600;">Modded Bundle</p>
+            <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">PS2 Modded Bundle 1</h3>
+            <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">Modded console + 1 controller, memory card, cables, 1 free game. Complete setup.</p>
+            <div style="border-top: 1px solid #eee; padding-top: 1rem;"><p style="font-size: 1.3rem; font-weight: 700; color: var(--accent); margin: 0 0 0.75rem;">£329.99</p><button class="btn btn-success" style="width: 100%; background: var(--accent);">Add to Cart</button></div>
+          </div>
+        </article>
+        <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden; border: 2px solid var(--accent); box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);">
+          <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: white; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 700; z-index: 10;">BEST</div>
+          <div style="position: relative; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); height: 200px; display: flex; align-items: center; justify-content: center;"><p style="font-size: 2.5rem;">⚡</p></div>
+          <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+            <p style="font-size: 0.75rem; color: var(--accent); margin: 0 0 0.5rem; text-transform: uppercase; font-weight: 600;">Modded Bundle</p>
+            <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">PS2 Modded Bundle 2</h3>
+            <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">Modded console + 2 controllers, memory card, cables, 3 free games. Multiplayer ready.</p>
+            <div style="border-top: 1px solid #eee; padding-top: 1rem;"><p style="font-size: 1.3rem; font-weight: 700; color: var(--accent); margin: 0 0 0.75rem;">£359.99</p><button class="btn btn-success" style="width: 100%; background: var(--accent);">Add to Cart</button></div>
+          </div>
+        </article>
+        <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden; border: 2px solid var(--accent);">
+          <div style="position: relative; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); height: 200px; display: flex; align-items: center; justify-content: center;"><p style="font-size: 2.5rem;">⚡</p></div>
+          <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+            <p style="font-size: 0.75rem; color: var(--accent); margin: 0 0 0.5rem; text-transform: uppercase; font-weight: 600;">Modded Bundle</p>
+            <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">PS2 Modded Bundle 3</h3>
+            <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">Ultimate modded setup + 2 controllers, 2 memory cards, cables, 5 free games, HDMI upscaler.</p>
+            <div style="border-top: 1px solid #eee; padding-top: 1rem;"><p style="font-size: 1.3rem; font-weight: 700; color: var(--accent); margin: 0 0 0.75rem;">£469.99</p><button class="btn btn-success" style="width: 100%; background: var(--accent);">Add to Cart</button></div>
+          </div>
+        </article>
       </div>
 
       <!-- PS2 FAT MODELS CATEGORY -->
-      <div style="margin-bottom: 3rem;">
+      <div style="margin-bottom: 3rem; margin-top: 4rem;">
         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-          <h2 style="font-size: 1.8rem; margin: 0; color: var(--dark);">📦 FAT MODELS</h2>
+          <h2 style="font-size: 1.8rem; margin: 0; color: var(--dark);">📦 STANDARD CONSOLES - FAT MODELS</h2>
           <span style="background: #f0f4ff; color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600;">SCPH-50003</span>
         </div>
         <p style="color: var(--gray); margin: 0 0 1.5rem; font-size: 0.95rem;">Original design. Larger footprint. Better build quality. Perfect for collectors.</p>
@@ -263,7 +313,7 @@
       <!-- PS2 SLIM MODELS CATEGORY -->
       <div style="margin-bottom: 3rem; margin-top: 4rem;">
         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-          <h2 style="font-size: 1.8rem; margin: 0; color: var(--dark);">⚡ SLIM MODELS</h2>
+          <h2 style="font-size: 1.8rem; margin: 0; color: var(--dark);">📦 STANDARD CONSOLES - SLIM MODELS</h2>
           <span style="background: #f0fff7; color: var(--secondary); padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600;">SCPH-70003/77000/90000</span>
         </div>
         <p style="color: var(--gray); margin: 0 0 1.5rem; font-size: 0.95rem;">Compact design. Quieter operation. Improved reliability. Great value.</p>

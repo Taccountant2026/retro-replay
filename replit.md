@@ -46,23 +46,22 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 All available as add-ons at checkout:
 
 **Refurbishment Services**
-- Professional Internal Deep Clean: +£29.99
-- Laser Lens Cleaning & Calibration: +£19.99
-- Thermal Paste Replacement: +£14.99
-- Fan Cleaning & Lubrication: +£12.99
+- Professional Internal Deep Clean: +£89.99
+- Laser Calibration: +£39.99
+- Thermal Paste Replacement: +£44.99
+- Fan Cleaning & Lubrication: +£42.99
 
 **Hardware Mods & Upgrades**
-- HDD Installation (500GB): +£69.99
-- HDD Installation (1TB): +£89.99
-- FMCB Free McBoot Installation: +£24.99
-- Custom Shell Color: +£34.99
-- Premium OEM Controller Upgrade: +£35.99 each
-- HDMI Mod Installation: +£59.99
+- HDD Installation (500GB): +£89.99
+- HDD Installation (1TB): +£139.99
+- FMCB Free McBoot Installation: +£34.99
+- Custom Shell Color: +£164.99
 
 **Extended Coverage**
-- Extended 12-Month Warranty: +£29.99
+- Extended 12-Month Warranty: +£69.99
 - Premium Packaging & Gift Wrap: +£9.99
-- Express Shipping (24-48hr): +£24.99
+- Express Shipping (24-48hr): +£34.99
+- HDMI Mod Installation: +£99.99
 
 ### Cosmetic Grades (Available for All Products)
 - **A-Grade**: Like New (minimal wear)
@@ -135,6 +134,25 @@ All available as add-ons at checkout:
 - Bundle 1: £139.99
 - Bundle 2: £169.99
 - Bundle 3: £279.99
+
+## Service Pricing
+**Refurbishment:**
+- Deep Internal Clean: +£89.99
+- Laser Calibration: +£39.99
+- Thermal Paste: +£44.99
+- Fan Service: +£42.99
+
+**Hardware Mods:**
+- HDD 500GB: +£89.99
+- HDD 1TB: +£139.99
+- FMCB Install: +£34.99
+- Custom Shell: +£164.99
+
+**Premium Services:**
+- Extended Warranty: +£69.99
+- Premium Packaging: +£9.99
+- Express Shipping: +£34.99
+- HDMI Mod Install: +£99.99
 
 ## Notes
 - Printed test reports differentiate from competitors

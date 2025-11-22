@@ -948,6 +948,143 @@ details .accordion-content {
   }
 }
 
+/* === PROMOTIONAL FORMAT STYLES === */
+
+/* Promotional Category Cards - Hover Effects */
+.promo-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.promo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.promo-card:active {
+  transform: translateY(-4px);
+}
+
+/* Pulse Animation for Limited Stock Badges */
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 0.85; 
+    transform: scale(1.05); 
+  }
+}
+
+.pulse-badge {
+  animation: pulse 2s infinite;
+}
+
+/* Promotional Gradient Backgrounds */
+.promo-gradient-blue {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e0e9ff 100%);
+}
+
+.promo-gradient-orange {
+  background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%);
+}
+
+.promo-gradient-green {
+  background: linear-gradient(135deg, #f0fff7 0%, #e0f7f0 100%);
+}
+
+/* Enhanced Section Headers with Gradients */
+.promo-section-header {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(0, 102, 255, 0.04) 100%);
+  padding: 2rem;
+  border-radius: 1rem;
+  border-left: 4px solid var(--primary);
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.promo-section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.promo-section-subtitle {
+  font-size: 1.1rem;
+  color: var(--gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Promotional Card Grid Layout */
+.promo-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Promotional Card Components */
+.promo-card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.promo-card-title {
+  font-size: 1.3rem;
+  margin: 0 0 0.75rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.promo-card-description {
+  font-size: 0.9rem;
+  color: var(--dark);
+  margin: 0 0 1rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.promo-card-features {
+  background: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.promo-card-feature {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--dark);
+}
+
+.promo-card-cta {
+  text-align: center;
+  padding: 0.75rem;
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+/* Limited Stock Badge */
+.limited-stock-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #dc2626;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* === END PROMOTIONAL FORMAT STYLES === */
+
 /* Utility Classes */
 .text-center { text-align: center; }
 .text-primary { color: var(--primary); }

@@ -59,184 +59,148 @@
     </nav>
   </header>
 
-  <!-- Sticky Page Navigation -->
+  <!-- Simplified Sticky Navigation -->
   <nav class="page-nav" style="position: sticky; top: 185px; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 999; border-bottom: 2px solid var(--primary);">
     <div class="container">
-      <ul style="display: flex; list-style: none; margin: 0; padding: 0; gap: 0.5rem; overflow-x: auto;">
-        <li><a href="#overview" style="display: block; padding: 1rem 1.5rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;">Overview</a></li>
-        <li><a href="#bundles" style="display: block; padding: 1rem 1.5rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;">Bundles</a></li>
-        <li><a href="#consoles" style="display: block; padding: 1rem 1.5rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;">Consoles</a></li>
-        <li><a href="#modded" style="display: block; padding: 1rem 1.5rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;">Modded PS2</a></li>
-        <li><a href="#accessories" style="display: block; padding: 1rem 1.5rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;">Accessories</a></li>
-        <li><a href="#upgrades" style="display: block; padding: 1rem 1.5rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;">Upgrades</a></li>
-        <li><a href="#support" style="display: block; padding: 1rem 1.5rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;">Support</a></li>
+      <ul style="display: flex; list-style: none; margin: 0; padding: 0; gap: 1rem; overflow-x: auto; justify-content: center;">
+        <li><a href="#shop-consoles" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;"><span style="font-size: 1.2rem;">🎮</span> Shop Consoles</a></li>
+        <li><a href="#addons" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;"><span style="font-size: 1.2rem;">🛠️</span> Add-Ons</a></li>
+        <li><a href="#support" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;"><span style="font-size: 1.2rem;">💬</span> Support</a></li>
       </ul>
     </div>
   </nav>
 
-  <section class="hero" id="overview" style="background: linear-gradient(135deg, #0066ff 0%, #0052cc 50%, #7c3aed 100%);">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>PlayStation 2 — Professionally Tested</h1>
-        <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto 1.5rem;">Every PS2 thoroughly tested with printed reports, professional cleaning, and UK warranty. Choose your bundle or console below.</p>
+  <section class="hero" style="background: linear-gradient(135deg, #0066ff 0%, #0052cc 50%, #7c3aed 100%); padding: 3rem 0;">
+    <div class="container">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <h1 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem;">PlayStation 2 Consoles</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; color: rgba(255,255,255,0.95);">Professionally tested with printed reports and UK warranty</p>
         
-        <!-- Trust Badges -->
-        <div style="display: flex; gap: 1.5rem; margin: 1.5rem 0; flex-wrap: wrap; justify-content: center;">
-          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.6rem 1rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
+        <!-- Simplified Trust Badges -->
+        <div style="display: flex; gap: 1.5rem; margin: 0 auto 2rem; flex-wrap: wrap; justify-content: center; max-width: 650px;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
             <span style="font-size: 1.5rem;">⭐</span>
-            <div>
-              <div style="color: white; font-weight: 700; font-size: 0.95rem;">4.8/5 Rating</div>
-              <div style="color: rgba(255,255,255,0.9); font-size: 0.75rem;">1,200+ Reviews</div>
+            <div style="text-align: left;">
+              <div style="color: white; font-weight: 700; font-size: 1rem;">4.8/5 Rating</div>
+              <div style="color: rgba(255,255,255,0.9); font-size: 0.8rem;">1,200+ Reviews</div>
             </div>
           </div>
-          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.6rem 1rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
-            <span style="font-size: 1.5rem;">✓</span>
-            <div>
-              <div style="color: white; font-weight: 700; font-size: 0.95rem;">3,500+ Sold</div>
-              <div style="color: rgba(255,255,255,0.9); font-size: 0.75rem;">Since 2020</div>
-            </div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.6rem 1rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
+          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
             <span style="font-size: 1.5rem;">🛡️</span>
-            <div>
-              <div style="color: white; font-weight: 700; font-size: 0.95rem;">6-Month Warranty</div>
-              <div style="color: rgba(255,255,255,0.9); font-size: 0.75rem;">UK Statutory Rights</div>
+            <div style="text-align: left;">
+              <div style="color: white; font-weight: 700; font-size: 1rem;">6-Month Warranty</div>
+              <div style="color: rgba(255,255,255,0.9); font-size: 0.8rem;">UK Statutory</div>
             </div>
           </div>
-          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.6rem 1rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
+          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
             <span style="font-size: 1.5rem;">🔬</span>
-            <div>
-              <div style="color: white; font-weight: 700; font-size: 0.95rem;">12-Point Test</div>
-              <div style="color: rgba(255,255,255,0.9); font-size: 0.75rem;">Certified Technicians</div>
+            <div style="text-align: left;">
+              <div style="color: white; font-weight: 700; font-size: 1rem;">12-Point Test</div>
+              <div style="color: rgba(255,255,255,0.9); font-size: 0.8rem;">Every Console</div>
             </div>
           </div>
         </div>
         
-        <div class="hero-cta">
-          <a href="#bundles" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">View Bundles</a>
-          <a href="#consoles" class="btn btn-secondary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Browse Consoles</a>
-        </div>
+        <a href="#shop-consoles" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem; display: inline-block;">Shop Now</a>
       </div>
     </div>
   </section>
 
-  <!-- BUNDLES SECTION -->
-  <section class="section" id="bundles" style="background: white; scroll-margin-top: 60px;">
+  <!-- SHOP CONSOLES MEGA-SECTION -->
+  <section class="section" id="shop-consoles" style="background: #f8f9fa; scroll-margin-top: 240px; padding: 3rem 0;">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Choose Your PS2 Bundle</h2>
-        <p class="section-subtitle">Every console includes professional testing, printed report, external clean, and UK warranty. Select your bundle level below.</p>
+      <!-- Category Header -->
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <div style="display: inline-block; background: linear-gradient(135deg, var(--primary), var(--purple)); color: white; padding: 0.5rem 1.5rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">🎮 Shop PS2 Consoles</div>
+        <h2 style="font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 0.5rem; color: var(--dark);">Choose Your Option</h2>
+        <p style="font-size: 1rem; color: var(--gray); max-width: 600px; margin: 0 auto;">Every console tested, cleaned, and includes 6-month UK warranty</p>
       </div>
 
-      <!-- Customer Testimonial -->
-      <div style="background: #f0f4ff; padding: 1.5rem; border-radius: 1rem; margin-bottom: 2rem; border-left: 4px solid var(--primary);">
-        <div style="display: flex; gap: 1rem; align-items: center;">
-          <div style="color: #ffa500; font-size: 1.2rem;">⭐⭐⭐⭐⭐</div>
-          <div style="flex-grow: 1;">
-            <p style="margin: 0 0 0.5rem; color: var(--dark); font-style: italic;">"Bundle 2 had everything I needed - console works perfectly and the printed test report gave me total confidence. Worth every penny!"</p>
-            <p style="margin: 0; color: var(--gray); font-size: 0.85rem; font-weight: 600;">— James M., Manchester • Verified Purchase</p>
-          </div>
-        </div>
-      </div>
+      <!-- Bundles Subsection -->
+      <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--dark); text-align: center;">📦 Bundle Packages</h3>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
         <!-- Console Only -->
-        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 2px solid #eee; transition: all 0.3s ease;">
-          <div style="background: linear-gradient(135deg, #f5f7ff 0%, #f0f4ff 100%); padding: 1.5rem; border-bottom: 2px solid #eee;">
-            <h3 style="font-size: 1.2rem; margin: 0 0 0.25rem; color: var(--dark);">📦 Console Only</h3>
-            <p style="font-size: 0.8rem; margin: 0; color: var(--gray); font-weight: 600;">BARE CONSOLE</p>
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 2px solid #e0e0e0; transition: all 0.3s ease;">
+          <div style="background: #f5f5f5; padding: 1.25rem; text-align: center; border-bottom: 2px solid #e0e0e0;">
+            <h3 style="font-size: 1.1rem; margin: 0; color: var(--dark);">Console Only</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: var(--gray); font-weight: 600;">BARE CONSOLE</p>
           </div>
-          <div style="padding: 1.5rem;">
-            <div style="background: #fffaf0; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem; border: 1px dashed var(--accent);">
-              <p style="margin: 0; color: var(--accent); font-size: 0.85rem; font-weight: 600;">💡 Perfect for: Collectors with existing accessories</p>
-            </div>
-            <ul style="list-style: none; font-size: 0.9rem; color: var(--dark); margin: 0 0 1.5rem; padding: 0; line-height: 1.8;">
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.25rem; font-weight: 700; color: var(--dark); margin: 0 0 0.5rem;">£95</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Starting price</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
               <li>✓ Tested Console</li>
-              <li>✓ Printed Test Report</li>
-              <li>✓ External Clean</li>
+              <li>✓ Test Report</li>
+              <li>✓ Professional Clean</li>
               <li>✓ 6-Month Warranty</li>
-              <li style="color: var(--gray); font-size: 0.85rem; margin-top: 0.5rem;">⚠️ No cables, controllers, or memory cards</li>
             </ul>
-            <div style="border-top: 1px solid #eee; padding-top: 1rem;">
-              <p style="font-size: 2rem; font-weight: 700; color: var(--primary); margin: 0 0 1rem;">£95.00</p>
-              <button class="btn btn-outline" style="width: 100%;">Select Console</button>
-            </div>
+            <p style="font-size: 0.75rem; color: var(--gray); margin-bottom: 1rem;">No accessories included</p>
+            <button class="btn btn-outline" style="width: 100%;">Choose Model</button>
           </div>
         </div>
 
         <!-- Bundle 1 -->
         <div style="background: white; border-radius: 1rem; overflow: hidden; border: 2px solid var(--secondary); transition: all 0.3s ease;">
-          <div style="background: linear-gradient(135deg, #f0fff7 0%, #e6fff5 100%); padding: 1.5rem; border-bottom: 2px solid var(--secondary); position: relative;">
-            <div style="position: absolute; top: 0.75rem; right: 0.75rem; background: var(--secondary); color: white; padding: 0.3rem 0.6rem; border-radius: 0.25rem; font-size: 0.7rem; font-weight: 700;">BEST VALUE</div>
-            <h3 style="font-size: 1.2rem; margin: 0 0 0.25rem; color: var(--secondary);">🎮 Bundle 1</h3>
-            <p style="font-size: 0.8rem; margin: 0; color: var(--gray); font-weight: 600;">+£44.99 Total: £139.99</p>
+          <div style="background: var(--secondary); padding: 1.25rem; text-align: center; position: relative;">
+            <span style="position: absolute; top: 0.5rem; right: 0.5rem; background: rgba(255,255,255,0.3); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.65rem; font-weight: 700;">POPULAR</span>
+            <h3 style="font-size: 1.1rem; margin: 0; color: white;">Bundle 1</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: rgba(255,255,255,0.9); font-weight: 600;">READY TO PLAY</p>
           </div>
-          <div style="padding: 1.5rem;">
-            <div style="background: #f0fff7; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--secondary);">
-              <p style="margin: 0 0 0.3rem; color: var(--secondary); font-size: 0.85rem; font-weight: 600;">💰 Save £18 vs buying separately</p>
-              <p style="margin: 0; color: var(--gray); font-size: 0.8rem;">Perfect for: Solo players starting fresh</p>
-            </div>
-            <ul style="list-style: none; font-size: 0.9rem; color: var(--dark); margin: 0 0 1.5rem; padding: 0; line-height: 1.8;">
-              <li>✓ Everything in Console Only</li>
-              <li>✓ 1 Wireless Controller</li>
-              <li>✓ 8MB Memory Card</li>
-              <li>✓ AV & Power Cables</li>
-              <li>✓ 1 Free PS2 Game</li>
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.25rem; font-weight: 700; color: var(--secondary); margin: 0 0 0.5rem;">£140</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Save £18</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
+              <li>✓ Console + Warranty</li>
+              <li>✓ 1 Controller</li>
+              <li>✓ Memory Card</li>
+              <li>✓ All Cables</li>
+              <li>✓ 1 Free Game</li>
             </ul>
-            <div style="border-top: 1px solid #eee; padding-top: 1rem;">
-              <button class="btn btn-success" style="width: 100%; background: var(--secondary);">Get Bundle 1</button>
-            </div>
+            <button class="btn btn-success" style="width: 100%; background: var(--secondary);">Get Bundle 1</button>
           </div>
         </div>
 
         <!-- Bundle 2 (MOST POPULAR) -->
-        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 3px solid var(--primary); box-shadow: 0 8px 24px rgba(0, 102, 255, 0.15); transform: scale(1.02);">
-          <div style="background: linear-gradient(135deg, var(--primary) 0%, #0052cc 100%); padding: 1.5rem; border-bottom: none; position: relative;">
-            <span style="position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: white; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 700;">MOST POPULAR</span>
-            <h3 style="font-size: 1.2rem; margin: 0 0 0.25rem; color: white;">✨ Bundle 2</h3>
-            <p style="font-size: 0.8rem; margin: 0; color: rgba(255,255,255,0.9); font-weight: 600;">+£74.99 Total: £169.99</p>
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 3px solid var(--primary); box-shadow: 0 8px 20px rgba(0, 102, 255, 0.2); transform: scale(1.05);">
+          <div style="background: var(--primary); padding: 1.25rem; text-align: center; position: relative;">
+            <span style="position: absolute; top: 0.5rem; right: 0.5rem; background: var(--accent); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.65rem; font-weight: 700;">BEST SELLER</span>
+            <h3 style="font-size: 1.2rem; margin: 0; color: white;">Bundle 2</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: rgba(255,255,255,0.9); font-weight: 600;">MULTIPLAYER BUNDLE</p>
           </div>
-          <div style="padding: 1.5rem;">
-            <div style="background: #f0f4ff; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--primary);">
-              <p style="margin: 0 0 0.3rem; color: var(--primary); font-size: 0.85rem; font-weight: 600;">⭐ 67% of customers choose this bundle</p>
-              <p style="margin: 0; color: var(--gray); font-size: 0.8rem;">Perfect for: Families & multiplayer gaming</p>
-            </div>
-            <ul style="list-style: none; font-size: 0.9rem; color: var(--dark); margin: 0 0 1.5rem; padding: 0; line-height: 1.8;">
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin: 0 0 0.5rem;">£170</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Save £32</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
               <li>✓ Everything in Bundle 1</li>
-              <li>✓ 2nd Wireless Controller</li>
-              <li>✓ 2 More Free Games (3 total)</li>
+              <li>✓ 2nd Controller</li>
+              <li>✓ 3 Free Games Total</li>
               <li>✓ Multiplayer Ready</li>
             </ul>
-            <div style="border-top: 1px solid #eee; padding-top: 1rem;">
-              <button class="btn btn-success" style="width: 100%; background: var(--primary);">Get Bundle 2 — Most Popular</button>
-            </div>
+            <button class="btn btn-success" style="width: 100%; background: var(--primary); font-weight: 700;">Get Bundle 2</button>
           </div>
         </div>
 
         <!-- Bundle 3 -->
         <div style="background: white; border-radius: 1rem; overflow: hidden; border: 2px solid var(--accent); transition: all 0.3s ease;">
-          <div style="background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); padding: 1.5rem; border-bottom: 2px solid var(--accent); position: relative;">
-            <div style="position: absolute; top: 0.75rem; right: 0.75rem; background: var(--accent); color: white; padding: 0.3rem 0.6rem; border-radius: 0.25rem; font-size: 0.7rem; font-weight: 700;">PREMIUM</div>
-            <h3 style="font-size: 1.2rem; margin: 0 0 0.25rem; color: var(--accent);">🎉 Bundle 3</h3>
-            <p style="font-size: 0.8rem; margin: 0; color: var(--gray); font-weight: 600;">+£184.99 Total: £279.99</p>
+          <div style="background: var(--accent); padding: 1.25rem; text-align: center; position: relative;">
+            <span style="position: absolute; top: 0.5rem; right: 0.5rem; background: rgba(255,255,255,0.3); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.65rem; font-weight: 700;">PREMIUM</span>
+            <h3 style="font-size: 1.1rem; margin: 0; color: white;">Bundle 3</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: rgba(255,255,255,0.9); font-weight: 600;">ULTIMATE PACKAGE</p>
           </div>
-          <div style="padding: 1.5rem;">
-            <div style="background: #fff5f0; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--accent);">
-              <p style="margin: 0 0 0.3rem; color: var(--accent); font-size: 0.85rem; font-weight: 600;">🎬 Save £65+ vs buying separately</p>
-              <p style="margin: 0; color: var(--gray); font-size: 0.8rem;">Perfect for: Modern TVs & serious collectors</p>
-            </div>
-            <ul style="list-style: none; font-size: 0.9rem; color: var(--dark); margin: 0 0 1.5rem; padding: 0; line-height: 1.8;">
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.25rem; font-weight: 700; color: var(--accent); margin: 0 0 0.5rem;">£280</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Save £65+</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
               <li>✓ Everything in Bundle 2</li>
               <li>✓ 2nd Memory Card</li>
-              <li>✓ 2 More Free Games (5 total)</li>
-              <li>✓ HDMI Upscaler (£89 value)</li>
+              <li>✓ 5 Free Games Total</li>
+              <li>✓ HDMI Upscaler</li>
             </ul>
-            <div style="border-top: 1px solid #eee; padding-top: 1rem;">
-              <button class="btn btn-success" style="width: 100%; background: var(--accent);">Get Complete Bundle</button>
-            </div>
+            <button class="btn btn-success" style="width: 100%; background: var(--accent);">Get Bundle 3</button>
           </div>
         </div>
-        </div>
+      </div>
         <button class="carousel-nav next" onclick="scrollCarousel(this, 1)">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
         </button>
@@ -590,18 +554,14 @@
     </div>
   </section>
 
-  <!-- ACCESSORIES SECTION -->
-  <section class="section" id="accessories" style="background: white; scroll-margin-top: 60px;">
+  <!-- ADD-ONS MEGA-SECTION -->
+  <section class="section" id="addons" style="background: white; scroll-margin-top: 240px; padding: 3rem 0;">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">🎮 Accessories & Parts</h2>
-        <p class="section-subtitle">Build your perfect setup or source quality replacement parts</p>
-      </div>
-
-      <div style="margin-bottom: 2rem;">
-        <div style="background: #f0f4ff; padding: 1rem; border-radius: 0.75rem; border-left: 4px solid var(--primary);">
-          <p style="margin: 0; font-size: 0.9rem; color: var(--dark);"><strong>✓ Quality Guarantee:</strong> All accessories tested for compatibility • Same-day dispatch • 30-day returns</p>
-        </div>
+      <!-- Category Header -->
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <div style="display: inline-block; background: linear-gradient(135deg, var(--secondary), #00b877); color: white; padding: 0.5rem 1.5rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">🛠️ Add-Ons & Upgrades</div>
+        <h2 style="font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 0.5rem; color: var(--dark);">Enhance Your PS2</h2>
+        <p style="font-size: 1rem; color: var(--gray); max-width: 600px; margin: 0 auto;">Controllers, cables, mods, and professional services</p>
       </div>
 
       <!-- Controllers & Cables Accordion -->

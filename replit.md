@@ -10,7 +10,7 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 ### Base Product Tiers (All Include: Professional Testing + Printed Report + External Clean + UK 6-Month Warranty)
 
 **1. Console Only** (Bare Console)
-- Tested Console
+- Tested Console (fully inspected, components replaced if required)
 - Printed Test Report
 - External Professional Clean
 - 6-Month UK Statutory Warranty

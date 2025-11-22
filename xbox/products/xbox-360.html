@@ -3,31 +3,788 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xbox 360 | Retro Replay</title>
+  <title>Xbox 360 Tested Consoles | Retro Replay</title>
   <link rel="stylesheet" href="../../style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- 
+  PAGE STRUCTURE:
+  1. Overview Hero (concise, trust badges)
+  2. Bundles Overview
+  3. Modded Consoles Highlight 
+  4. Console Selector (Tabbed: Slim/E Models)
+  5. Accessories & Controllers (Accordion)
+  6. Mods & Services (Accordion)
+  7. Assurance & Support Hub (testimonials, guarantee, warranty)
+-->
+
   <header class="site-header">
-    <div class="header-top"><div class="container"><div class="header-promo"><span>🎮 Xbox 360 Console</span></div></div></div>
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="../../index.html" class="site-logo"><img src="../../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
-        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
-        <div class="header-actions"><a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo">
+          <span>🎮 Xbox 360 — Professionally Tested & Graded</span>
+        </div>
       </div>
     </div>
-    <nav class="main-nav"><div class="container"><ul class="nav-list"><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Xbox</a></li><li><a href="xbox-360.html" class="active">Xbox 360</a></li></ul></div></nav>
+
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../../index.html" class="site-logo">
+          <img src="../../assets/logo.png" alt="Retro Replay">
+          <span>Retro Replay</span>
+        </a>
+        <div class="search-bar">
+          <input type="search" placeholder="Search Xbox 360 products..." aria-label="Search">
+          <button class="search-btn">Search</button>
+        </div>
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+          <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../index.html">Xbox</a></li>
+          <li><a href="xbox.html">Xbox Original</a></li>
+          <li><a href="xbox-360.html" class="active">Xbox 360</a></li>
+          <li><a href="../guides.html">Guides</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
-  <section class="hero" style="background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);"><div class="container hero-content"><div class="hero-text"><h1>Xbox 360</h1><p>7th generation gaming. Fully tested and refurbished.</p></div></div></section>
+  <!-- Simplified Sticky Navigation -->
+  <nav class="page-nav" style="position: sticky; top: 185px; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 999; border-bottom: 2px solid var(--primary);">
+    <div class="container">
+      <ul style="display: flex; list-style: none; margin: 0; padding: 0; gap: 1rem; overflow-x: auto; justify-content: center;">
+        <li><a href="#shop-consoles" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;"><span style="font-size: 1.2rem;">🎮</span> Shop Consoles</a></li>
+        <li><a href="#addons" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;"><span style="font-size: 1.2rem;">🛠️</span> Add-Ons</a></li>
+        <li><a href="#support" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;"><span style="font-size: 1.2rem;">💬</span> Support</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <section class="section" style="background: white;"><div class="container"><div class="section-header"><h2 class="section-title">Xbox 360 Models</h2></div><div class="product-grid"><div class="product-card"><div class="product-info"><h3 class="product-name">Xbox 360 S (Slim)</h3><p class="product-description">Sleek design, improved cooling. Excellent condition.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Xbox 360 E</h3><p class="product-description">Latest iteration. Fully refurbished and tested.</p></div></div></div></div></section>
+  <section class="hero" style="background: linear-gradient(135deg, #16a34a 0%, #15803d 50%, #065f46 100%); padding: 3rem 0;">
+    <div class="container">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <h1 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem;">Xbox 360 Consoles</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; color: rgba(255,255,255,0.95);">Professionally tested with printed reports and UK warranty</p>
+        
+        <!-- Simplified Trust Badges -->
+        <div style="display: flex; gap: 1.5rem; margin: 0 auto 2rem; flex-wrap: wrap; justify-content: center; max-width: 650px;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
+            <span style="font-size: 1.5rem;">⭐</span>
+            <div style="text-align: left;">
+              <div style="color: white; font-weight: 700; font-size: 1rem;">4.8/5 Rating</div>
+              <div style="color: rgba(255,255,255,0.9); font-size: 0.8rem;">1,200+ Reviews</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
+            <span style="font-size: 1.5rem;">🛡️</span>
+            <div style="text-align: left;">
+              <div style="color: white; font-weight: 700; font-size: 1rem;">6-Month Warranty</div>
+              <div style="color: rgba(255,255,255,0.9); font-size: 0.8rem;">UK Statutory</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
+            <span style="font-size: 1.5rem;">🔬</span>
+            <div style="text-align: left;">
+              <div style="color: white; font-weight: 700; font-size: 1rem;">12-Point Test</div>
+              <div style="color: rgba(255,255,255,0.9); font-size: 0.8rem;">Every Console</div>
+            </div>
+          </div>
+        </div>
+        
+        <a href="#shop-consoles" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem; display: inline-block;">Shop Now</a>
+      </div>
+    </div>
+  </section>
 
-  <section class="section"><div class="container" style="max-width: 900px;"><div class="section-header"><h2 class="section-title">What's Included</h2></div><div class="product-card"><div class="product-info"><ul class="product-features" style="font-size: 1.05rem; line-height: 2; color: var(--dark);"><li>✓ Fully refurbished Xbox 360</li><li>✓ 2 Wireless controllers</li><li>✓ HDMI cable and power supply</li><li>✓ Complete thermal optimization</li><li>✓ Full function test</li><li>✓ 6-month warranty coverage</li></ul></div></div></div></section>
+  <!-- SHOP CONSOLES MEGA-SECTION -->
+  <section class="section" id="shop-consoles" style="background: #f8f9fa; scroll-margin-top: 240px; padding: 3rem 0;">
+    <div class="container">
+      <!-- Category Header -->
+      <div style="text-align: center; margin-bottom: 3rem; padding: 2rem 1rem; background: linear-gradient(135deg, #f0fff4 0%, #dcfce7 100%); border-radius: 1rem;">
+        <div style="display: inline-block; background: linear-gradient(135deg, #16a34a, #15803d); color: white; padding: 0.6rem 1.8rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);">🎮 Shop Xbox 360</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 0.75rem; color: var(--dark); font-weight: 800;">Find Your Perfect Console</h2>
+        <p style="font-size: 1.1rem; color: var(--gray); max-width: 700px; margin: 0 auto; line-height: 1.6;">Every console professionally tested with 12-point inspection, thermal optimization, printed report, and 6-month UK warranty included.</p>
+      </div>
 
-  <footer class="site-footer"><div class="container"><div class="footer-content"><div class="footer-section"><h3>Xbox 360</h3><p>Professional refurbishment & support.</p></div><div class="footer-section"><h3>More</h3><ul class="footer-links"><li><a href="../index.html">Xbox Home</a></li><li><a href="/contact.html">Contact</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div></div></footer>
+      <!-- Bundles Subsection -->
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem; color: var(--dark); font-weight: 700;">📦 Bundle Packages</h3>
+        <p style="font-size: 0.95rem; color: var(--gray);">Choose your bundle level — we'll build your complete setup</p>
+      </div>
 
-  <script src="../../cart.js"></script><script>RetroCart.loadCart();</script>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
+        <!-- Console Only -->
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 2px solid #e0e0e0; transition: all 0.3s ease;">
+          <div style="background: #f5f5f5; padding: 1.25rem; text-align: center; border-bottom: 2px solid #e0e0e0;">
+            <h3 style="font-size: 1.1rem; margin: 0; color: var(--dark);">Console Only</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: var(--gray); font-weight: 600;">BARE CONSOLE</p>
+          </div>
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.25rem; font-weight: 700; color: var(--dark); margin: 0 0 0.5rem;">£85</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Starting price</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
+              <li>✓ Tested Console</li>
+              <li>✓ Test Report</li>
+              <li>✓ Professional Clean</li>
+              <li>✓ 6-Month Warranty</li>
+            </ul>
+            <p style="font-size: 0.75rem; color: var(--gray); margin-bottom: 1rem;">No accessories included</p>
+            <button class="btn btn-outline" style="width: 100%;">Choose Model</button>
+          </div>
+        </div>
+
+        <!-- Bundle 1 -->
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 2px solid var(--secondary); transition: all 0.3s ease;">
+          <div style="background: var(--secondary); padding: 1.25rem; text-align: center; position: relative;">
+            <span style="position: absolute; top: 0.5rem; right: 0.5rem; background: rgba(255,255,255,0.3); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.65rem; font-weight: 700;">POPULAR</span>
+            <h3 style="font-size: 1.1rem; margin: 0; color: white;">Bundle 1</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: rgba(255,255,255,0.9); font-weight: 600;">READY TO PLAY</p>
+          </div>
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.25rem; font-weight: 700; color: var(--secondary); margin: 0 0 0.5rem;">£135</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Save £18</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
+              <li>✓ Console + Warranty</li>
+              <li>✓ 1 Wireless Controller</li>
+              <li>✓ HDMI Cable</li>
+              <li>✓ Power Supply</li>
+              <li>✓ 1 Free Game</li>
+            </ul>
+            <button class="btn btn-success" style="width: 100%; background: var(--secondary);">Get Bundle 1</button>
+          </div>
+        </div>
+
+        <!-- Bundle 2 (MOST POPULAR) -->
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 3px solid var(--primary); box-shadow: 0 8px 20px rgba(0, 102, 255, 0.2); transform: scale(1.05);">
+          <div style="background: var(--primary); padding: 1.25rem; text-align: center; position: relative;">
+            <span style="position: absolute; top: 0.5rem; right: 0.5rem; background: var(--accent); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.65rem; font-weight: 700;">BEST SELLER</span>
+            <h3 style="font-size: 1.2rem; margin: 0; color: white;">Bundle 2</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: rgba(255,255,255,0.9); font-weight: 600;">MULTIPLAYER BUNDLE</p>
+          </div>
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin: 0 0 0.5rem;">£165</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Save £32</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
+              <li>✓ Everything in Bundle 1</li>
+              <li>✓ 2nd Wireless Controller</li>
+              <li>✓ 3 Free Games Total</li>
+              <li>✓ Multiplayer Ready</li>
+            </ul>
+            <button class="btn btn-success" style="width: 100%; background: var(--primary); font-weight: 700;">Get Bundle 2</button>
+          </div>
+        </div>
+
+        <!-- Bundle 3 -->
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 2px solid var(--accent); transition: all 0.3s ease;">
+          <div style="background: var(--accent); padding: 1.25rem; text-align: center; position: relative;">
+            <span style="position: absolute; top: 0.5rem; right: 0.5rem; background: rgba(255,255,255,0.3); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.65rem; font-weight: 700;">PREMIUM</span>
+            <h3 style="font-size: 1.1rem; margin: 0; color: white;">Bundle 3</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: rgba(255,255,255,0.9); font-weight: 600;">ULTIMATE PACKAGE</p>
+          </div>
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.25rem; font-weight: 700; color: var(--accent); margin: 0 0 0.5rem;">£250</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Save £60+</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
+              <li>✓ Everything in Bundle 2</li>
+              <li>✓ 120GB HDD Installed</li>
+              <li>✓ 5 Free Games Total</li>
+              <li>✓ Play & Charge Kit</li>
+            </ul>
+            <button class="btn btn-success" style="width: 100%; background: var(--accent);">Get Bundle 3</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS SECTION -->
+  <section class="section" id="products">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">🎮 Shop Xbox 360 Consoles</h2>
+        <p class="section-subtitle">Choose your console type, select a bundle, and customize with optional upgrades.</p>
+      </div>
+
+      <!-- PROMOTIONAL CATEGORY CARDS -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+        <!-- Standard Consoles Card -->
+        <a href="#consoles" class="promo-card" style="text-decoration: none; display: block; background: linear-gradient(135deg, #f0f4ff 0%, #e0e9ff 100%); padding: 2rem; border-radius: 1rem; border: 2px solid var(--primary); cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+          <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">📦</div>
+          <h3 style="font-size: 1.3rem; margin: 0 0 0.75rem; color: var(--primary); text-align: center; font-weight: 700;">Standard Consoles</h3>
+          <p style="font-size: 0.9rem; color: var(--dark); margin: 0 0 1rem; text-align: center; line-height: 1.5;">Professionally tested & cleaned. Thermal optimized & ready for your bundle choice.</p>
+          <div style="background: white; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> 12-point inspection</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Printed test report</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> 6-month warranty</p>
+          </div>
+          <div style="text-align: center; padding: 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; font-weight: 600;">From £69.99 →</div>
+        </a>
+
+        <!-- Modded Consoles Card -->
+        <a href="#modded" class="promo-card" style="text-decoration: none; display: block; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); padding: 2rem; border-radius: 1rem; border: 2px solid var(--accent); cursor: pointer; position: relative; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+          <span style="position: absolute; top: 1rem; right: 1rem; background: #dc2626; color: white; padding: 0.3rem 0.6rem; border-radius: 0.25rem; font-size: 0.7rem; font-weight: 700; animation: pulse 2s infinite;">LIMITED STOCK</span>
+          <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">⚡</div>
+          <h3 style="font-size: 1.3rem; margin: 0 0 0.75rem; color: var(--accent); text-align: center; font-weight: 700;">Modded Consoles</h3>
+          <p style="font-size: 0.9rem; color: var(--dark); margin: 0 0 1rem; text-align: center; line-height: 1.5;">Pre-installed RGH/JTAG + HDD. Plug & play ready.</p>
+          <div style="background: white; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> 500GB HDD installed</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> RGH/JTAG pre-configured</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Professional install</p>
+          </div>
+          <div style="text-align: center; padding: 0.75rem; background: var(--accent); color: white; border-radius: 0.5rem; font-weight: 600;">From £235 • Save £190+ →</div>
+        </a>
+
+        <!-- Build Your Own Card -->
+        <a href="#addons" class="promo-card" style="text-decoration: none; display: block; background: linear-gradient(135deg, #f0fff7 0%, #e0f7f0 100%); padding: 2rem; border-radius: 1rem; border: 2px solid var(--secondary); cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+          <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">🛠️</div>
+          <h3 style="font-size: 1.3rem; margin: 0 0 0.75rem; color: var(--secondary); text-align: center; font-weight: 700;">Build Your Own</h3>
+          <p style="font-size: 0.9rem; color: var(--dark); margin: 0 0 1rem; text-align: center; line-height: 1.5;">Add accessories, upgrades & services to any console.</p>
+          <div style="background: white; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Controllers & cables</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Professional mods</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Refurbishment</p>
+          </div>
+          <div style="text-align: center; padding: 0.75rem; background: var(--secondary); color: white; border-radius: 0.5rem; font-weight: 600;">Customize Your Console →</div>
+        </a>
+      </div>
+
+      <!-- MODDED CONSOLES CATEGORY -->
+      <div id="modded" style="margin-bottom: 3rem; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); padding: 2rem; border-radius: 1rem; border: 2px solid var(--accent); scroll-margin-top: 60px;">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+          <h2 style="font-size: 2rem; margin: 0; color: var(--accent); font-weight: 800;">⚡ Pre-Modded Xbox 360 Consoles</h2>
+          <span style="background: var(--accent); color: white; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600;">PLUG & PLAY</span>
+          <span style="background: #dc2626; color: white; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600; animation: pulse 2s infinite;">⚠️ ONLY 5 LEFT</span>
+        </div>
+        <p style="color: var(--dark); margin: 0 0 1rem; font-size: 1.05rem; font-weight: 500;">Skip the wait. Get a professionally modded console delivered ready-to-play. <span style="color: var(--accent); font-weight: 700;">Save £190+</span> vs buying console and mods separately.</p>
+        
+        <!-- What's Included -->
+        <div style="background: white; padding: 1.25rem; border-radius: 0.75rem; margin-bottom: 1rem;">
+          <p style="margin: 0 0 0.75rem; font-weight: 700; color: var(--dark); font-size: 0.95rem;">✓ What's Included in Every Modded Console:</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">🔑</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">RGH/JTAG installed</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">💾</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">500GB HDD pre-configured</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">⚙️</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">Professional installation</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">🔬</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">48-hour burn-in test</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">📄</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">Printed test report</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">🛡️</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">6-month warranty included</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Installation Guarantee -->
+        <div style="background: rgba(255,255,255,0.7); padding: 1rem; border-radius: 0.5rem; border-left: 4px solid var(--accent);">
+          <p style="margin: 0; font-size: 0.9rem; color: var(--dark);"><strong>🔧 Professional Installation Guarantee:</strong> All mods installed by certified technicians with 10+ years experience. Plug & play ready - no technical knowledge required.</p>
+        </div>
+      </div>
+
+      <div class="carousel-wrapper">
+        <button class="carousel-nav prev" onclick="scrollCarousel(this, -1)">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <div class="product-carousel">
+        <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden; border: 2px solid var(--accent);">
+          <div style="position: relative; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+            <p style="font-size: 2.5rem;">⚡</p>
+            <span style="position: absolute; top: 0.75rem; right: 0.75rem; background: #dc2626; color: white; padding: 0.3rem 0.6rem; border-radius: 0.25rem; font-size: 0.7rem; font-weight: 700;">2 LEFT</span>
+          </div>
+          <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+            <p style="font-size: 0.75rem; color: var(--accent); margin: 0 0 0.5rem; text-transform: uppercase; font-weight: 600;">Modded Console</p>
+            <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">Xbox 360 Modded Console Only</h3>
+            <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 0.5rem;">RGH + 500GB HDD. Plays hundreds of games. Bare console - no accessories.</p>
+            <div style="background: #fffaf0; padding: 0.5rem; border-radius: 0.4rem; margin-bottom: 0.75rem;">
+              <p style="margin: 0; font-size: 0.75rem; color: var(--accent); font-weight: 600;">💰 Save £190+ vs buying mods separately</p>
+            </div>
+            <div style="border-top: 1px solid #eee; padding-top: 1rem; margin-top: auto;"><p style="font-size: 1.3rem; font-weight: 700; color: var(--accent); margin: 0 0 0.75rem;">£235.00</p><button class="btn btn-success" style="width: 100%; background: var(--accent);" onclick="RetroCart.addItem('xbox360-modded-console','Xbox 360 Modded Console Only',235.00,'../../assets/logo.png')">Add to Cart — Limited Stock</button></div>
+          </div>
+        </article>
+        <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden; border: 2px solid var(--accent);">
+          <div style="position: relative; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+            <p style="font-size: 2.5rem;">⚡</p>
+            <span style="position: absolute; top: 0.75rem; left: 0.75rem; background: var(--secondary); color: white; padding: 0.3rem 0.6rem; border-radius: 0.25rem; font-size: 0.7rem; font-weight: 700;">PLUG & PLAY</span>
+          </div>
+          <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+            <p style="font-size: 0.75rem; color: var(--accent); margin: 0 0 0.5rem; text-transform: uppercase; font-weight: 600;">Modded Bundle</p>
+            <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">Xbox 360 Modded Bundle 1</h3>
+            <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 0.5rem;">Everything you need to play today. Modded + controller + cables + HDMI + game.</p>
+            <div style="background: #fffaf0; padding: 0.5rem; border-radius: 0.4rem; margin-bottom: 0.75rem;">
+              <p style="margin: 0; font-size: 0.75rem; color: var(--accent); font-weight: 600;">🎮 Complete package • Ready to unbox and play</p>
+            </div>
+            <div style="border-top: 1px solid #eee; padding-top: 1rem; margin-top: auto;"><p style="font-size: 1.3rem; font-weight: 700; color: var(--accent); margin: 0 0 0.75rem;">£280.00</p><button class="btn btn-success" style="width: 100%; background: var(--accent);" onclick="RetroCart.addItem('xbox360-modded-bundle1','Xbox 360 Modded Bundle 1',280.00,'../../assets/logo.png')">Add to Cart</button></div>
+          </div>
+        </article>
+        <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden; border: 2px solid var(--accent);">
+          <div style="position: relative; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+            <p style="font-size: 2.5rem;">⚡</p>
+            <span style="position: absolute; top: 0.75rem; left: 0.75rem; background: var(--primary); color: white; padding: 0.3rem 0.6rem; border-radius: 0.25rem; font-size: 0.7rem; font-weight: 700;">PREMIUM</span>
+          </div>
+          <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+            <p style="font-size: 0.75rem; color: var(--accent); margin: 0 0 0.5rem; text-transform: uppercase; font-weight: 600;">Modded Premium</p>
+            <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">Xbox 360 Modded Bundle 2</h3>
+            <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 0.5rem;">Ultimate setup. 2 controllers, 120GB HDD, 3 games, multiplayer ready.</p>
+            <div style="background: #fffaf0; padding: 0.5rem; border-radius: 0.4rem; margin-bottom: 0.75rem;">
+              <p style="margin: 0; font-size: 0.75rem; color: var(--accent); font-weight: 600;">🌟 Best value • Everything included</p>
+            </div>
+            <div style="border-top: 1px solid #eee; padding-top: 1rem; margin-top: auto;"><p style="font-size: 1.3rem; font-weight: 700; color: var(--accent); margin: 0 0 0.75rem;">£330.00</p><button class="btn btn-success" style="width: 100%; background: var(--accent);" onclick="RetroCart.addItem('xbox360-modded-bundle2','Xbox 360 Modded Bundle 2',330.00,'../../assets/logo.png')">Add to Cart</button></div>
+          </div>
+        </article>
+        </div>
+        <button class="carousel-nav next" onclick="scrollCarousel(this, 1)">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+
+      <!-- CONSOLE TABS -->
+      <div id="consoles" style="margin-top: 3rem; scroll-margin-top: 240px;">
+        <div style="display: flex; gap: 1rem; margin-bottom: 1rem; border-bottom: 2px solid var(--gray-lighter); flex-wrap: wrap;">
+          <button id="tab-slim" onclick="showTab('slim')" style="padding: 1rem 2rem; background: var(--primary); color: white; border: none; border-bottom: 3px solid var(--primary); font-weight: 600; cursor: pointer; transition: all 0.3s;">Slim Models</button>
+          <button id="tab-e" onclick="showTab('e')" style="padding: 1rem 2rem; background: none; color: var(--gray); border: none; border-bottom: 3px solid transparent; font-weight: 600; cursor: pointer; transition: all 0.3s;">E Models</button>
+        </div>
+
+        <!-- Slim Models Tab Content -->
+        <div id="content-slim">
+          <div style="margin-bottom: 2rem; padding: 1rem; background: #f0f4ff; border-radius: 0.75rem;">
+            <p style="margin: 0; color: var(--dark); font-size: 0.95rem;"><strong>Improved design.</strong> Sleek, quiet, reliable. Built-in Wi-Fi. Better cooling system.</p>
+          </div>
+
+          <h3 style="font-size: 1.3rem; margin: 0 0 1.5rem; color: var(--dark);">Xbox 360 S (Slim)</h3>
+          <div class="carousel-wrapper">
+            <button class="carousel-nav prev" onclick="scrollCarousel(this, -1)">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <div class="product-carousel">
+              <!-- Slim 250GB A-Grade -->
+              <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden;">
+                <div style="position: relative; background: #f8f9fa;">
+                  <img src="../../assets/logo.png" alt="Xbox 360 Slim 250GB A-Grade" style="width: 100%; height: 200px; object-fit: contain; display: block;">
+                  <span class="product-badge sale" style="top: 0.75rem; right: 0.75rem;">A-Grade</span>
+                  <span class="product-badge new" style="top: 0.75rem; left: 0.75rem;">Popular</span>
+                </div>
+                <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                  <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">Slim 250GB</p>
+                  <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">Xbox 360 S (Slim)</h3>
+                  <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">Pristine condition. 250GB HDD. Like new.</p>
+                  <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                    <p style="font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 0 0 0.75rem;">£99.99</p>
+                    <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('xbox360-slim-250-a','Xbox 360 S 250GB A-Grade',99.99,'../../assets/logo.png')" style="width: 100%;">Add to Cart</button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Slim 250GB B-Grade -->
+              <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden;">
+                <div style="position: relative; background: #f8f9fa;">
+                  <img src="../../assets/logo.png" alt="Xbox 360 Slim 250GB B-Grade" style="width: 100%; height: 200px; object-fit: contain; display: block;">
+                  <span class="product-badge" style="top: 0.75rem; right: 0.75rem; background: var(--secondary);">B-Grade</span>
+                  <span class="product-badge" style="top: 0.75rem; left: 0.75rem; background: var(--accent);">Value</span>
+                </div>
+                <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                  <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">Slim 250GB</p>
+                  <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">Xbox 360 S (Slim)</h3>
+                  <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">Light wear. Great value. Fully functional.</p>
+                  <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                    <p style="font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 0 0 0.75rem;">£84.99</p>
+                    <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('xbox360-slim-250-b','Xbox 360 S 250GB B-Grade',84.99,'../../assets/logo.png')" style="width: 100%;">Add to Cart</button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Slim 4GB C-Grade -->
+              <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden;">
+                <div style="position: relative; background: #f8f9fa;">
+                  <img src="../../assets/logo.png" alt="Xbox 360 Slim 4GB C-Grade" style="width: 100%; height: 200px; object-fit: contain; display: block;">
+                  <span class="product-badge" style="top: 0.75rem; right: 0.75rem; background: var(--warning);">C-Grade</span>
+                  <span class="product-badge" style="top: 0.75rem; left: 0.75rem; background: #22c55e;">Budget</span>
+                </div>
+                <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                  <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">Slim 4GB</p>
+                  <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">Xbox 360 S (Slim)</h3>
+                  <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">Visible wear. 4GB internal. Works perfectly.</p>
+                  <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                    <p style="font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 0 0 0.75rem;">£69.99</p>
+                    <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('xbox360-slim-4-c','Xbox 360 S 4GB C-Grade',69.99,'../../assets/logo.png')" style="width: 100%;">Add to Cart</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <button class="carousel-nav next" onclick="scrollCarousel(this, 1)">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+          </div>
+        </div> <!-- End Slim Models Tab -->
+
+        <!-- E Models Tab Content -->
+        <div id="content-e" style="display: none;">
+          <div style="margin-bottom: 2rem; padding: 1rem; background: #f0fff7; border-radius: 0.75rem;">
+            <p style="margin: 0; color: var(--dark); font-size: 0.95rem;"><strong>Latest revision.</strong> Final Xbox 360 model. Quietest operation. Most reliable.</p>
+          </div>
+
+          <h3 style="font-size: 1.3rem; margin: 0 0 1.5rem; color: var(--dark);">Xbox 360 E</h3>
+          <div class="carousel-wrapper">
+            <button class="carousel-nav prev" onclick="scrollCarousel(this, -1)">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <div class="product-carousel">
+              <!-- E 250GB A-Grade -->
+              <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden;">
+                <div style="position: relative; background: #f8f9fa;">
+                  <img src="../../assets/logo.png" alt="Xbox 360 E 250GB A-Grade" style="width: 100%; height: 200px; object-fit: contain; display: block;">
+                  <span class="product-badge sale" style="top: 0.75rem; right: 0.75rem;">A-Grade</span>
+                  <span class="product-badge" style="top: 0.75rem; left: 0.75rem; background: #a855f7; color: white;">Latest</span>
+                </div>
+                <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                  <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">E Model 250GB</p>
+                  <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">Xbox 360 E</h3>
+                  <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">Final revision. Excellent condition. 250GB HDD.</p>
+                  <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                    <p style="font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 0 0 0.75rem;">£109.99</p>
+                    <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('xbox360-e-250-a','Xbox 360 E 250GB A-Grade',109.99,'../../assets/logo.png')" style="width: 100%;">Add to Cart</button>
+                  </div>
+                </div>
+              </article>
+
+              <!-- E 250GB B-Grade -->
+              <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden;">
+                <div style="position: relative; background: #f8f9fa;">
+                  <img src="../../assets/logo.png" alt="Xbox 360 E 250GB B-Grade" style="width: 100%; height: 200px; object-fit: contain; display: block;">
+                  <span class="product-badge" style="top: 0.75rem; right: 0.75rem; background: var(--secondary);">B-Grade</span>
+                  <span class="product-badge new" style="top: 0.75rem; left: 0.75rem;">Great Value</span>
+                </div>
+                <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                  <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">E Model 250GB</p>
+                  <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">Xbox 360 E</h3>
+                  <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">Light cosmetic wear. Fully functional. Reliable.</p>
+                  <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                    <p style="font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 0 0 0.75rem;">£94.99</p>
+                    <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('xbox360-e-250-b','Xbox 360 E 250GB B-Grade',94.99,'../../assets/logo.png')" style="width: 100%;">Add to Cart</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <button class="carousel-nav next" onclick="scrollCarousel(this, 1)">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+          </div>
+        </div> <!-- End E Models Tab -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD-ONS MEGA-SECTION -->
+  <section class="section" id="addons" style="background: white; scroll-margin-top: 240px; padding: 3rem 0;">
+    <div class="container">
+      <!-- Category Header -->
+      <div style="text-align: center; margin-bottom: 3rem; padding: 2rem 1rem; background: linear-gradient(135deg, #f0fff7 0%, #e0f7f0 100%); border-radius: 1rem;">
+        <div style="display: inline-block; background: linear-gradient(135deg, var(--secondary), #00b877); color: white; padding: 0.6rem 1.8rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 12px rgba(0, 208, 132, 0.3);">🛠️ Customize Your Console</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 0.75rem; color: var(--dark); font-weight: 800;">Complete Your Perfect Setup</h2>
+        <p style="font-size: 1.1rem; color: var(--gray); max-width: 700px; margin: 0 auto; line-height: 1.6;">Add controllers, upgrade storage, install pro mods, or get full refurbishment services. Everything you need in one place.</p>
+      </div>
+
+      <!-- Controllers & Cables Accordion -->
+      <details open>
+        <summary>🎮 Controllers & Cables</summary>
+        <div class="accordion-content">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🎮</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--dark);">Wireless Controller</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">OEM Xbox 360 wireless • Tested & cleaned • Batteries included</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: var(--primary);">£29.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 1rem; font-size: 0.9rem;" onclick="RetroCart.addItem('xbox360-controller','Xbox 360 Wireless Controller',29.99,'../../assets/logo.png')">Add to Cart</button>
+              </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔌</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--dark);">HDMI & Power Cables</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Complete cable set • HDMI video + power • Universal fit</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: var(--primary);">£14.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 1rem; font-size: 0.9rem;" onclick="RetroCart.addItem('xbox360-cables','Xbox 360 HDMI & Power Cables',14.99,'../../assets/logo.png')">Add to Cart</button>
+              </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔋</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--dark);">Play & Charge Kit</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Rechargeable battery pack • USB cable • Never buy batteries</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: var(--primary);">£19.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 1rem; font-size: 0.9rem;" onclick="RetroCart.addItem('xbox360-charge','Xbox 360 Play & Charge Kit',19.99,'../../assets/logo.png')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Hardware Mods Accordion -->
+      <details open>
+        <summary>💾 Hardware Mods & Storage</summary>
+        <div class="accordion-content">
+          <p style="color: var(--gray); margin: 0 0 1.5rem; font-size: 0.9rem;">Transform your Xbox 360 with modern storage and gameplay enhancements.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem;">
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">💾</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--dark);">HDD 120GB Installation</h4>
+              <p style="font-size: 0.85rem; color: var(--gray); margin: 0 0 1rem;">Professional install • Internal storage • OEM quality</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.3rem; font-weight: 700; color: var(--primary);">+£89.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 0.9rem; font-size: 0.85rem;">Add Service</button>
+              </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">💾</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--dark);">HDD 250GB Installation</h4>
+              <p style="font-size: 0.85rem; color: var(--gray); margin: 0 0 1rem;">Professional install • Maximum storage • Premium option</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.3rem; font-weight: 700; color: var(--primary);">+£129.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 0.9rem; font-size: 0.85rem;">Add Service</button>
+              </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔑</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--dark);">RGH/JTAG Installation</h4>
+              <p style="font-size: 0.85rem; color: var(--gray); margin: 0 0 1rem;">Hardware mod • Homebrew access • Run backups</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.3rem; font-weight: 700; color: var(--primary);">+£159.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 0.9rem; font-size: 0.85rem;">Add Service</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Refurbishment Services Accordion -->
+      <details>
+        <summary>🔧 Refurbishment & Maintenance</summary>
+        <div class="accordion-content">
+          <p style="color: var(--gray); margin: 0 0 1.5rem; font-size: 0.9rem;">Professional restoration services to extend your console's lifespan.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem;">
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🧹</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--dark);">Deep Internal Clean</h4>
+              <p style="font-size: 0.85rem; color: var(--gray); margin: 0 0 1rem;">Full dust removal • Enhanced cooling • Quieter operation</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.3rem; font-weight: 700; color: var(--primary);">+£79.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 0.9rem; font-size: 0.85rem;">Add Service</button>
+              </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">❄️</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--dark);">Thermal Paste Replacement</h4>
+              <p style="font-size: 0.85rem; color: var(--gray); margin: 0 0 1rem;">Improved heat dissipation • Prevent RROD • Better performance</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.3rem; font-weight: 700; color: var(--primary);">+£94.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 0.9rem; font-size: 0.85rem;">Add Service</button>
+              </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔧</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--dark);">DVD Drive Replacement</h4>
+              <p style="font-size: 0.85rem; color: var(--gray); margin: 0 0 1rem;">OEM replacement • Professional install • Key matching</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.3rem; font-weight: 700; color: var(--primary);">+£119.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 0.9rem; font-size: 0.85rem;">Add Service</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- SUPPORT MEGA-SECTION -->
+  <section class="section" id="support" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%); color: white; scroll-margin-top: 240px; padding: 3rem 0;">
+    <div class="container">
+      <!-- Category Header -->
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <div style="display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 0.6rem 1.8rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; backdrop-filter: blur(10px);">💬 Customer Support</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 0.75rem; color: white; font-weight: 800;">Shop With Confidence</h2>
+        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto; line-height: 1.6;">Trusted by thousands of gamers. 6-month warranty on every console. Hassle-free returns.</p>
+      </div>
+
+      <!-- Testimonials -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 1rem; backdrop-filter: blur(10px);">
+          <div style="display: flex; gap: 0.25rem; margin-bottom: 0.75rem; color: #fbbf24;">★★★★★</div>
+          <p style="margin: 0 0 1rem; font-size: 0.95rem; color: rgba(255,255,255,0.95); line-height: 1.6;">"Xbox 360 arrived in excellent condition. Thermal paste was freshly applied. Works flawlessly. Highly recommended!"</p>
+          <p style="margin: 0; font-weight: 600; color: white;">— David L.</p>
+          <p style="margin: 0; font-size: 0.85rem; color: rgba(255,255,255,0.7);">Verified Purchase</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 1rem; backdrop-filter: blur(10px);">
+          <div style="display: flex; gap: 0.25rem; margin-bottom: 0.75rem; color: #fbbf24;">★★★★★</div>
+          <p style="margin: 0 0 1rem; font-size: 0.95rem; color: rgba(255,255,255,0.95); line-height: 1.6;">"The RGH console is amazing - works perfectly right out of the box. The best retro gaming purchase I've ever made!"</p>
+          <p style="margin: 0; font-weight: 600; color: white;">— Emma K.</p>
+          <p style="margin: 0; font-size: 0.85rem; color: rgba(255,255,255,0.7);">Verified Purchase</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 1rem; backdrop-filter: blur(10px);">
+          <div style="display: flex; gap: 0.25rem; margin-bottom: 0.75rem; color: #fbbf24;">★★★★★</div>
+          <p style="margin: 0 0 1rem; font-size: 0.95rem; color: rgba(255,255,255,0.95); line-height: 1.6;">"Quality is outstanding. Fast shipping, great packaging, and the test report gives me complete peace of mind."</p>
+          <p style="margin: 0; font-weight: 600; color: white;">— Tom H.</p>
+          <p style="margin: 0; font-size: 0.85rem; color: rgba(255,255,255,0.7);">Verified Purchase</p>
+        </div>
+      </div>
+
+      <!-- Guarantee Section -->
+      <div style="background: rgba(255,255,255,0.15); padding: 2rem; border-radius: 1rem; margin-bottom: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="font-size: 1.75rem; margin: 0 0 1.5rem; color: white; text-align: center; font-weight: 700;">🛡️ Our Iron-Clad Guarantee</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+          <div style="background: rgba(255,255,255,0.15); padding: 1.25rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔬</div>
+            <p style="margin: 0; font-weight: 600; color: white; font-size: 0.95rem;">Tested Guarantee</p>
+            <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.9);">Every console tested with printed report</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.15); padding: 1.25rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✓</div>
+            <p style="margin: 0; font-weight: 600; color: white; font-size: 0.95rem;">Free Returns</p>
+            <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.9);">If faulty or not as described</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.15); padding: 1.25rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
+            <p style="margin: 0; font-weight: 600; color: white; font-size: 0.95rem;">Fast Refunds</p>
+            <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.9);">Processed within 48 hours</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.15); padding: 1.25rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎯</div>
+            <p style="margin: 0; font-weight: 600; color: white; font-size: 0.95rem;">Risk-Free</p>
+            <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.9);">Shop with complete confidence</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+          <p style="margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.9);">Plus: All consoles covered by UK statutory warranty (6 months minimum) and optional 12-month extended warranty available</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Xbox 360 Products</h3>
+          <p>Professionally tested Xbox 360 consoles with printed reports. Bundle options for every budget.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="/services.html">All Upgrades & Mods</a></li>
+            <li><a href="../guides.html">Setup Guides</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Retro Replay. All consoles include UK statutory 6-month warranty.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../cart.js"></script>
+  <script src="../../particles.js"></script>
+  <script>RetroCart.loadCart();</script>
+  
+  <script>
+    // Carousel scroll function
+    function scrollCarousel(button, direction) {
+      const wrapper = button.closest('.carousel-wrapper');
+      const carousel = wrapper.querySelector('.product-carousel');
+      const scrollAmount = 340;
+      carousel.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+
+    // Tab switching function for consoles
+    function showTab(tabName) {
+      document.getElementById('content-slim').style.display = 'none';
+      document.getElementById('content-e').style.display = 'none';
+      
+      document.getElementById('tab-slim').style.background = 'none';
+      document.getElementById('tab-slim').style.color = 'var(--gray)';
+      document.getElementById('tab-slim').style.borderBottomColor = 'transparent';
+      document.getElementById('tab-e').style.background = 'none';
+      document.getElementById('tab-e').style.color = 'var(--gray)';
+      document.getElementById('tab-e').style.borderBottomColor = 'transparent';
+      
+      if (tabName === 'slim') {
+        document.getElementById('content-slim').style.display = 'block';
+        document.getElementById('tab-slim').style.background = 'var(--primary)';
+        document.getElementById('tab-slim').style.color = 'white';
+        document.getElementById('tab-slim').style.borderBottomColor = 'var(--primary)';
+      } else if (tabName === 'e') {
+        document.getElementById('content-e').style.display = 'block';
+        document.getElementById('tab-e').style.background = 'var(--primary)';
+        document.getElementById('tab-e').style.color = 'white';
+        document.getElementById('tab-e').style.borderBottomColor = 'var(--primary)';
+      }
+    }
+  </script>
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    details {
+      background: white;
+      border: 2px solid var(--gray-lighter);
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    details summary {
+      padding: 1.25rem 1.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      background: var(--bg);
+      color: var(--dark);
+      list-style: none;
+      transition: all 0.3s ease;
+    }
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    details summary::before {
+      content: '▶';
+      margin-right: 0.75rem;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    details[open] summary::before {
+      transform: rotate(90deg);
+    }
+    details summary:hover {
+      background: #e8eeff;
+    }
+    .accordion-content {
+      padding: 1.5rem;
+    }
+  </style>
 </body>
 </html>

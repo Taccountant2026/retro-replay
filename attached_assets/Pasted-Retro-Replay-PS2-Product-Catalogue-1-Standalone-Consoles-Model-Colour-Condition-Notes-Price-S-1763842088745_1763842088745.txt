@@ -1,0 +1,54 @@
+Retro Replay — PS2 Product Catalogue
+1. Standalone Consoles
+Model	Colour	Condition	Notes	Price (£)
+SCPH-3000x	Black	Tested & Clean	Early PS2 Fat	84
+SCPH-3900x	Black	Tested & Clean	Improved mechanics	98
+SCPH-5000x	Black	Tested & Clean	Standard Fat	126
+SCPH-50003	Silver	Tested & Clean	Standard Fat	140
+7000x Slim	Black	Tested & Clean	Slim model	112
+7500x Slim	Black	Tested & Clean	Slim model	119
+7700x Slim	Black	Tested & Clean	Slim model	126
+2. Bundles
+Bundle Name	Consoles	Controllers	Cables	Games	Extras	Price (£)
+Starter Pack	1 PS2	1	AV + Power	2	Memory Card	110
+Classic Pack	1 PS2 Fat	2	AV + Power	5	Memory Card	160
+Silver Collector	1 SCPH-50003 Silver	2	AV + Power	8	Memory Card + Carry Case	200
+Slim Essentials	1 PS2 Slim	2	AV + Power	3	Memory Card	140
+3. Modded Consoles
+Model	Colour	Mod Type	Features	Notes	Price (£)
+PS2 Fat	Black	Swap Magic / Softmod	Play backups	Fully tested	180
+PS2 Slim	Black	USB Loader	Play from USB	Tested	200
+PS2 Fat	Silver	Network Adapter / Modchip	Online play & emulators	Tested	220
+4. Accessories
+Item	Compatibility	Notes	Price (£)
+DualShock 2 Controller	PS2	Tested & Clean	25
+Memory Card 8MB	PS2	Tested	18
+AV Cable	PS2	Standard	10
+Component Cable	PS2	480p Support	20
+Network Adapter	PS2 Fat	Tested	30
+Multitap	PS2	Supports 4–8 players	35
+5. Games (Selected Popular Titles)
+Title	Genre	Condition	Price (£)
+Gran Turismo 4	Racing	Tested	20
+Final Fantasy X	RPG	Tested	18
+God of War	Action	Tested	15
+Metal Gear Solid 3	Action/Stealth	Tested	18
+Resident Evil 4	Horror	Tested	15
+Kingdom Hearts	RPG	Tested	18
+
+(Full games catalogue can be expanded to hundreds of titles if needed.)
+
+6. Parts & Replacement
+Part	Compatibility	Notes	Price (£)
+Laser Lens	PS2 Fat / Slim	Replacement	40
+Optical Drive	PS2 Fat / Slim	Tested	60
+Power Supply	PS2 Fat / Slim	Tested	25
+Cooling Fan	PS2 Fat / Slim	Tested	20
+Controller Port PCB	PS2 Fat	Replacement	30
+7. Services
+Service	Details	Price (£)
+Console Cleaning	Full exterior & interior cleaning	25
+Console Testing	Full functional check	20
+Refurbishment	Clean, replace worn parts, test	60
+Modding	Softmod / Modchip / USB Loader	120
+Repairs	Laser replacement, motherboard repairs	100+

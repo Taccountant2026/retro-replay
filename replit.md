@@ -137,22 +137,24 @@ All available as add-ons at checkout:
 
 ## Service Pricing
 **Refurbishment:**
-- Deep Internal Clean: +£89.99
-- Laser Calibration: +£39.99
-- Thermal Paste: +£44.99
-- Fan Service: +£42.99
+- Deep Internal Clean: +£99.99
+- Full Capacitor Replacement: +£119.99
+- Laser Calibration: +£109.99
+- Thermal Paste & Fan Service: +£94.99
 
 **Hardware Mods:**
-- HDD 500GB: +£89.99
-- HDD 1TB: +£139.99
-- FMCB Install: +£34.99
-- Custom Shell: +£164.99
+- FMCB Free McBoot Install: +£114.99
+- HDD 500GB Installation: +£169.99
+- HDD 1TB Installation: +£219.99
+- Region Free Modchip: +£140.00
+- Custom Shell Replacement: +£244.99
 
 **Premium Services:**
-- Extended Warranty: +£69.99
-- Premium Packaging: +£9.99
-- Express Shipping: +£34.99
-- HDMI Mod Install: +£99.99
+- HDMI Mod + Installation: +£179.99
+- Composite Video/Audio AV Ports: +£100.00
+- Optical Audio Output: +£120.00
+- Extended 12-Month Warranty: +£69.99
+- Premium Packaging & Express Shipping: +£44.99
 
 ## Notes
 - Printed test reports differentiate from competitors

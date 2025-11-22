@@ -367,13 +367,25 @@
         </article>
       </div>
 
-      <!-- PS2 FAT MODELS CATEGORY -->
-      <div style="margin-bottom: 3rem; margin-top: 4rem;">
-        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
-          <h2 style="font-size: 1.8rem; margin: 0; color: var(--dark);">📦 STANDARD CONSOLES - FAT MODELS</h2>
-          <span style="background: #f0f4ff; color: var(--primary); padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600;">SCPH-50003</span>
+  <!-- CONSOLE SELECTOR SECTION -->
+  <section class="section" id="consoles" style="background: white; scroll-margin-top: 60px;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">📦 Standard PS2 Consoles</h2>
+        <p class="section-subtitle">Choose between Fat or Slim models. All consoles tested, cleaned, and warranted.</p>
+      </div>
+
+      <!-- Console Type Tabs -->
+      <div style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid #eee;">
+        <button onclick="showTab('fat')" id="tab-fat" style="padding: 1rem 2rem; background: var(--primary); color: white; border: none; border-bottom: 3px solid var(--primary); font-weight: 600; cursor: pointer; transition: all 0.3s;">Fat Models (SCPH-50003)</button>
+        <button onclick="showTab('slim')" id="tab-slim" style="padding: 1rem 2rem; background: none; color: var(--gray); border: none; border-bottom: 3px solid transparent; font-weight: 600; cursor: pointer; transition: all 0.3s;">Slim Models (SCPH-70003+)</button>
+      </div>
+
+      <!-- Fat Models Tab Content -->
+      <div id="content-fat" style="display: block;">
+        <div style="margin-bottom: 2rem; padding: 1rem; background: #f0f4ff; border-radius: 0.75rem;">
+          <p style="margin: 0; color: var(--dark); font-size: 0.95rem;"><strong>Original design.</strong> Larger footprint, better build quality. Perfect for collectors.</p>
         </div>
-        <p style="color: var(--gray); margin: 0 0 1rem; font-size: 0.95rem;">Original design. Larger footprint. Better build quality. Perfect for collectors.</p>
         
         <!-- Grade Comparison Guide -->
         <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 2px solid #eee; margin-bottom: 1.5rem;">
@@ -484,17 +496,15 @@
           </div>
         </article>
       </div>
+      </div> <!-- End Fat Models Tab -->
 
-      <!-- PS2 SLIM MODELS CATEGORY -->
-      <div style="margin-bottom: 3rem; margin-top: 4rem;">
-        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-          <h2 style="font-size: 1.8rem; margin: 0; color: var(--dark);">📦 STANDARD CONSOLES - SLIM MODELS</h2>
-          <span style="background: #f0fff7; color: var(--secondary); padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600;">SCPH-70003/77000/90000</span>
+      <!-- Slim Models Tab Content -->
+      <div id="content-slim" style="display: none;">
+        <div style="margin-bottom: 2rem; padding: 1rem; background: #f0fff7; border-radius: 0.75rem;">
+          <p style="margin: 0; color: var(--dark); font-size: 0.95rem;"><strong>Compact design.</strong> Portable, quieter operation, improved reliability. Great value.</p>
         </div>
-        <p style="color: var(--gray); margin: 0 0 1.5rem; font-size: 0.95rem;">Compact design. Quieter operation. Improved reliability. Great value.</p>
-      </div>
 
-      <h3 style="font-size: 1.5rem; margin: 2rem 0 1.5rem; color: var(--dark); border-top: 2px solid #eee; padding-top: 1.5rem;">PlayStation 2 Slim (SCPH-70003/77000/90000)</h3>
+      <h3 style="font-size: 1.3rem; margin: 0 0 1.5rem; color: var(--dark);">PlayStation 2 Slim (SCPH-70003/77000/90000)</h3>
       <div class="carousel-wrapper">
         <button class="carousel-nav prev" onclick="scrollCarousel(this, -1)">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
@@ -576,19 +586,21 @@
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
         </button>
       </div>
+      </div> <!-- End Slim Models Tab -->
     </div>
   </section>
 
-  <!-- CONTROLLERS & ACCESSORIES CATEGORY -->
-  <section class="section" style="background: white;">
+  <!-- ACCESSORIES SECTION -->
+  <section class="section" id="accessories" style="background: white; scroll-margin-top: 60px;">
     <div class="container">
-      <div style="margin-bottom: 3rem;">
-        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
-          <h2 style="font-size: 1.8rem; margin: 0; color: var(--dark);">🎮 CONTROLLERS & ACCESSORIES</h2>
-        </div>
-        <p style="color: var(--gray); margin: 0 0 1rem; font-size: 0.95rem;">Complete your gaming setup with quality accessories. Save money by building your own custom bundle.</p>
+      <div class="section-header">
+        <h2 class="section-title">🎮 Controllers & Accessories</h2>
+        <p class="section-subtitle">Complete your setup with quality accessories. All compatible with Fat & Slim models.</p>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
         <div style="background: #f0f4ff; padding: 1rem; border-radius: 0.75rem; border-left: 4px solid var(--primary);">
-          <p style="margin: 0; font-size: 0.9rem; color: var(--dark);"><strong>✓ All Compatible:</strong> Works with all PS2 Fat & Slim models • Tested for reliability • Same-day dispatch</p>
+          <p style="margin: 0; font-size: 0.9rem; color: var(--dark);"><strong>✓ All Compatible:</strong> Works with all PS2 models • Tested for reliability • Same-day dispatch</p>
         </div>
       </div>
 
@@ -685,13 +697,15 @@
     </div>
   </section>
 
-  <!-- HARDWARE MODS & UPGRADES CATEGORY -->
-  <section class="section" style="background: white;">
+  <!-- UPGRADES & SERVICES SECTION -->
+  <section class="section" id="upgrades" style="background: white; scroll-margin-top: 60px;">
     <div class="container">
-      <div style="margin-bottom: 3rem;">
-        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
-          <h2 style="font-size: 1.8rem; margin: 0; color: var(--dark);">⚙️ HARDWARE MODS & UPGRADES</h2>
-        </div>
+      <div class="section-header">
+        <h2 class="section-title">⚙️ Upgrades & Services</h2>
+        <p class="section-subtitle">Professional mods, refurbishment, and upgrade services. 48-hour turnaround.</p>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
         <p style="color: var(--gray); margin: 0 0 1rem; font-size: 0.95rem;">Professional installation by certified technicians. Transform your PS2 with modern upgrades.</p>
         <div style="background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); padding: 1.25rem; border-radius: 1rem; border: 2px solid var(--accent); margin-bottom: 1.5rem;">
           <p style="margin: 0 0 0.75rem; font-weight: 700; color: var(--dark);">🔧 Professional Installation Included:</p>
@@ -912,8 +926,8 @@
     </div>
   </section>
 
-  <!-- CUSTOMER TESTIMONIALS -->
-  <section class="section" style="background: #f8f9fa;">
+  <!-- SUPPORT & ASSURANCE SECTION -->
+  <section class="section" id="support" style="background: #f8f9fa; scroll-margin-top: 60px;">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">What Our Customers Say</h2>
@@ -1021,6 +1035,34 @@
         left: direction * scrollAmount,
         behavior: 'smooth'
       });
+    }
+
+    // Tab switching function for consoles
+    function showTab(tabName) {
+      // Hide all tab contents
+      document.getElementById('content-fat').style.display = 'none';
+      document.getElementById('content-slim').style.display = 'none';
+      
+      // Reset all tab buttons
+      document.getElementById('tab-fat').style.background = 'none';
+      document.getElementById('tab-fat').style.color = 'var(--gray)';
+      document.getElementById('tab-fat').style.borderBottomColor = 'transparent';
+      document.getElementById('tab-slim').style.background = 'none';
+      document.getElementById('tab-slim').style.color = 'var(--gray)';
+      document.getElementById('tab-slim').style.borderBottomColor = 'transparent';
+      
+      // Show selected tab content and style active button
+      if (tabName === 'fat') {
+        document.getElementById('content-fat').style.display = 'block';
+        document.getElementById('tab-fat').style.background = 'var(--primary)';
+        document.getElementById('tab-fat').style.color = 'white';
+        document.getElementById('tab-fat').style.borderBottomColor = 'var(--primary)';
+      } else if (tabName === 'slim') {
+        document.getElementById('content-slim').style.display = 'block';
+        document.getElementById('tab-slim').style.background = 'var(--primary)';
+        document.getElementById('tab-slim').style.color = 'white';
+        document.getElementById('tab-slim').style.borderBottomColor = 'var(--primary)';
+      }
     }
   </script>
 </body>

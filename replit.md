@@ -13,34 +13,38 @@ Professional gaming console testing and sales service. Retro Replay thoroughly t
 - Tested Console
 - Printed Test Report
 - External Professional Clean
-- 2x DualShock 2 Controllers
 - All Cables & Power Supply
 - 6-Month UK Statutory Warranty
-- Example: PS2 Fat A-Grade: £94.99
+- **NO Controllers, NO Memory Cards**
+- Entry Price Point - Example: PS2 Fat A-Grade: £49.99
 
 **2. Console + Small Bundle** 
 - Everything in Console Only PLUS:
-- 1x Extra Controller
-- Protective Console Case
-- Example: PS2 Fat A-Grade + Small: £114.99
+- 2x DualShock 2 Controllers
+- 1x 8MB Memory Card
+- Basic Console Case
+- Add +£30 - Example: PS2 Fat A-Grade + Small: £79.99
 
 **3. Console + Medium Bundle**
 - Everything in Console Only PLUS:
-- 2x Extra Controllers
-- Protective Console Case
+- 4x DualShock 2 Controllers
+- 2x 8MB Memory Cards
+- Premium Console Case
 - Cleaning & Maintenance Kit
-- AV Cable Upgrade (RGB Option)
-- Example: PS2 Fat A-Grade + Medium: £134.99
+- RGB AV Cable
+- Add +£50 - Example: PS2 Fat A-Grade + Medium: £99.99
 
 **4. Console + Large Bundle**
 - Everything in Console Only PLUS:
-- 2x Extra Controllers (4 total)
-- Premium Protective Case
+- 4x DualShock 2 Controllers
+- 2x 8MB Memory Cards
+- Premium Flight Case
 - Cleaning & Maintenance Kit
-- AV Cable Upgrade (RGB Option)
-- Curated Game Bundle (3-5 classic PS2 games)
+- RGB AV Cable
+- 3-5 Classic PS2 Games (Curated Bundle)
 - Controller Charging Dock
-- Example: PS2 Fat A-Grade + Large: £179.99
+- Extended Documentation
+- Add +£100 - Example: PS2 Fat A-Grade + Large: £149.99
 
 ### Upsell Features & Services (Add to ANY Product Option)
 All available as add-ons at checkout:
@@ -70,7 +74,7 @@ All available as add-ons at checkout:
 - **C-Grade**: Good (noticeable wear, fully functional)
 
 ### Pricing Strategy
-- Bare console: Entry price point
+- Bare console: Entry price point (no accessories)
 - Bundles: Increasing value at incremental prices
 - Upsells: Optional add-ons maximize revenue without forcing costs
 - All prices in GBP (£)
@@ -83,8 +87,9 @@ All available as add-ons at checkout:
 - **Includes**: 
   - Thorough professional testing with printed report
   - External professional cleaning
-  - 2x Controllers & all necessary cables
+  - All cables & power supply
   - UK statutory warranty (6 months minimum)
+  - **Does NOT include**: Controllers or memory cards
 - **Cosmetic Grading**: A (Like New), B (Very Good), C (Good)
 
 ### Upsell Options
@@ -126,6 +131,7 @@ All available as add-ons at checkout:
 - Professional testing emphasizes quality
 - Modern design with retro gaming charm
 - Clear product tier structure for customer choice
+- Console Only = BARE console (no controllers/memory cards)
 
 ## Notes
 - Printed test reports differentiate from competitors

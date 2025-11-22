@@ -3,31 +3,644 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atari 7800 | Retro Replay</title>
+  <title>Atari 7800 Tested Consoles | Retro Replay</title>
   <link rel="stylesheet" href="../../style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <header class="site-header">
-    <div class="header-top"><div class="container"><div class="header-promo"><span>🎮 Atari 7800 Console</span></div></div></div>
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="../../index.html" class="site-logo"><img src="../../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
-        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
-        <div class="header-actions"><a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo">
+          <span>🎮 Atari 7800 — Backward Compatible Powerhouse, Professionally Restored</span>
+        </div>
       </div>
     </div>
-    <nav class="main-nav"><div class="container"><ul class="nav-list"><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Atari</a></li><li><a href="7800.html" class="active">7800</a></li></ul></div></nav>
+
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../../index.html" class="site-logo">
+          <img src="../../assets/logo.png" alt="Retro Replay">
+          <span>Retro Replay</span>
+        </a>
+        <div class="search-bar">
+          <input type="search" placeholder="Search Atari 7800 products..." aria-label="Search">
+          <button class="search-btn">Search</button>
+        </div>
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+          <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../index.html">Atari</a></li>
+          <li><a href="2600.html">2600</a></li>
+          <li><a href="5200.html">5200</a></li>
+          <li><a href="7800.html" class="active">7800</a></li>
+          <li><a href="../guides.html">Guides</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
-  <section class="hero" style="background: linear-gradient(135deg, #d62828 0%, #a61e1e 100%);"><div class="container hero-content"><div class="hero-text"><h1>Atari 7800</h1><p>16-bit graphics powerhouse, fully refurbished.</p></div></div></section>
+  <!-- Simplified Sticky Navigation -->
+  <nav class="page-nav" style="position: sticky; top: 185px; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 999; border-bottom: 2px solid #d97706;">
+    <div class="container">
+      <ul style="display: flex; list-style: none; margin: 0; padding: 0; gap: 1rem; overflow-x: auto; justify-content: center;">
+        <li><a href="#shop-consoles" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;"><span style="font-size: 1.2rem;">🎮</span> Shop Consoles</a></li>
+        <li><a href="#addons" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;"><span style="font-size: 1.2rem;">🛠️</span> Add-Ons</a></li>
+        <li><a href="#support" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;"><span style="font-size: 1.2rem;">💬</span> Support</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <section class="section" style="background: white;"><div class="container"><div class="section-header"><h2 class="section-title">Atari 7800 Units</h2></div><div class="product-grid"><div class="product-card"><div class="product-info"><h3 class="product-name">Grade A - Like New</h3><p class="product-description">Pristine appearance, perfect functionality.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Grade B - Excellent</h3><p class="product-description">Light cosmetic wear, flawless performance.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Grade C - Good</h3><p class="product-description">Moderate wear, fully operational system.</p></div></div></div></div></section>
+  <section class="hero" style="background: linear-gradient(135deg, #d97706 0%, #b45309 50%, #92400e 100%); padding: 3rem 0;">
+    <div class="container">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <h1 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem;">Atari 7800 Consoles</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; color: rgba(255,255,255,0.95);">Advanced graphics with 2600 compatibility. The best of both worlds, professionally restored.</p>
+        
+        <!-- Simplified Trust Badges -->
+        <div style="display: flex; gap: 1.5rem; margin: 0 auto 2rem; flex-wrap: wrap; justify-content: center; max-width: 650px;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
+            <span style="font-size: 1.5rem;">⭐</span>
+            <div style="text-align: left;">
+              <div style="color: white; font-weight: 700; font-size: 1rem;">4.9/5 Rating</div>
+              <div style="color: rgba(255,255,255,0.9); font-size: 0.8rem;">950+ Reviews</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
+            <span style="font-size: 1.5rem;">🛡️</span>
+            <div style="text-align: left;">
+              <div style="color: white; font-weight: 700; font-size: 1rem;">6-Month Warranty</div>
+              <div style="color: rgba(255,255,255,0.9); font-size: 0.8rem;">UK Statutory</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
+            <span style="font-size: 1.5rem;">🔬</span>
+            <div style="text-align: left;">
+              <div style="color: white; font-weight: 700; font-size: 1rem;">Full Testing</div>
+              <div style="color: rgba(255,255,255,0.9); font-size: 0.8rem;">Every Console</div>
+            </div>
+          </div>
+        </div>
+        
+        <a href="#shop-consoles" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem; display: inline-block;">Shop Now</a>
+      </div>
+    </div>
+  </section>
 
-  <section class="section"><div class="container" style="max-width: 900px;"><div class="section-header"><h2 class="section-title">What's Included</h2></div><div class="product-card"><div class="product-info"><ul class="product-features" style="font-size: 1.05rem; line-height: 2; color: var(--dark);"><li>✓ Fully refurbished Atari 7800 console</li><li>✓ 2 Original controllers</li><li>✓ AV cables and power supply</li><li>✓ Complete verification testing</li><li>✓ 6-month warranty</li><li>✓ Free tracked shipping</li></ul></div></div></div></section>
+  <!-- SHOP CONSOLES MEGA-SECTION -->
+  <section class="section" id="shop-consoles" style="background: #f8f9fa; scroll-margin-top: 240px; padding: 3rem 0;">
+    <div class="container">
+      <!-- Category Header -->
+      <div style="text-align: center; margin-bottom: 3rem; padding: 2rem 1rem; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 1rem;">
+        <div style="display: inline-block; background: linear-gradient(135deg, #d97706, #b45309); color: white; padding: 0.6rem 1.8rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);">🎮 Shop Atari 7800</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 0.75rem; color: var(--dark); font-weight: 800;">Find Your Enhanced Console</h2>
+        <p style="font-size: 1.1rem; color: var(--gray); max-width: 700px; margin: 0 auto; line-height: 1.6;">Every console professionally cleaned, tested, and backed by our 6-month warranty. Plays both 7800 and 2600 games with enhanced graphics capabilities.</p>
+      </div>
 
-  <footer class="site-footer"><div class="container"><div class="footer-content"><div class="footer-section"><h3>Atari 7800</h3><p>Professional restoration & support.</p></div><div class="footer-section"><h3>More</h3><ul class="footer-links"><li><a href="../index.html">Atari</a></li><li><a href="/contact.html">Contact</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div></div></footer>
+      <!-- Bundles Subsection -->
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem; color: var(--dark); font-weight: 700;">📦 Bundle Packages</h3>
+        <p style="font-size: 0.95rem; color: var(--gray);">Choose your bundle level — we'll build your complete dual-compatible setup</p>
+      </div>
 
-  <script src="../../cart.js"></script><script>RetroCart.loadCart();</script>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
+        <!-- Console Only -->
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 2px solid #e0e0e0; transition: all 0.3s ease;">
+          <div style="background: #f5f5f5; padding: 1.25rem; text-align: center; border-bottom: 2px solid #e0e0e0;">
+            <h3 style="font-size: 1.1rem; margin: 0; color: var(--dark);">Console Only</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: var(--gray); font-weight: 600;">BARE CONSOLE</p>
+          </div>
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.25rem; font-weight: 700; color: var(--dark); margin: 0 0 0.5rem;">£95</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Starting price</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
+              <li>✓ Tested Console</li>
+              <li>✓ Professional Clean</li>
+              <li>✓ Full Restoration</li>
+              <li>✓ 6-Month Warranty</li>
+            </ul>
+            <p style="font-size: 0.75rem; color: var(--gray); margin-bottom: 1rem;">No accessories included</p>
+            <button class="btn btn-outline" style="width: 100%;">Choose Model</button>
+          </div>
+        </div>
+
+        <!-- Bundle 1 -->
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 2px solid var(--secondary); transition: all 0.3s ease;">
+          <div style="background: var(--secondary); padding: 1.25rem; text-align: center; position: relative;">
+            <span style="position: absolute; top: 0.5rem; right: 0.5rem; background: rgba(255,255,255,0.3); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.65rem; font-weight: 700;">POPULAR</span>
+            <h3 style="font-size: 1.1rem; margin: 0; color: white;">Bundle 1</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: rgba(255,255,255,0.9); font-weight: 600;">READY TO PLAY</p>
+          </div>
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.25rem; font-weight: 700; color: var(--secondary); margin: 0 0 0.5rem;">£135</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Save £14</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
+              <li>✓ Console + Warranty</li>
+              <li>✓ 2 Joysticks</li>
+              <li>✓ Power Supply</li>
+              <li>✓ AV Cables</li>
+              <li>✓ 1 Free Game</li>
+            </ul>
+            <button class="btn btn-success" style="width: 100%; background: var(--secondary);">Get Bundle 1</button>
+          </div>
+        </div>
+
+        <!-- Bundle 2 (MOST POPULAR) -->
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 3px solid #d97706; box-shadow: 0 8px 20px rgba(217, 119, 6, 0.2); transform: scale(1.05);">
+          <div style="background: #d97706; padding: 1.25rem; text-align: center; position: relative;">
+            <span style="position: absolute; top: 0.5rem; right: 0.5rem; background: var(--accent); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.65rem; font-weight: 700;">BEST SELLER</span>
+            <h3 style="font-size: 1.2rem; margin: 0; color: white;">Bundle 2</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: rgba(255,255,255,0.9); font-weight: 600;">DUAL-PLAY BUNDLE</p>
+          </div>
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.5rem; font-weight: 700; color: #d97706; margin: 0 0 0.5rem;">£175</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Save £26</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
+              <li>✓ Everything in Bundle 1</li>
+              <li>✓ 2 Extra Joysticks</li>
+              <li>✓ 2600 + 7800 Games</li>
+              <li>✓ Game Storage Case</li>
+            </ul>
+            <button class="btn btn-success" style="width: 100%; background: #d97706; font-weight: 700;">Get Bundle 2</button>
+          </div>
+        </div>
+
+        <!-- Bundle 3 -->
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 2px solid var(--accent); transition: all 0.3s ease;">
+          <div style="background: var(--accent); padding: 1.25rem; text-align: center; position: relative;">
+            <span style="position: absolute; top: 0.5rem; right: 0.5rem; background: rgba(255,255,255,0.3); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.65rem; font-weight: 700;">PREMIUM</span>
+            <h3 style="font-size: 1.1rem; margin: 0; color: white;">Bundle 3</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: rgba(255,255,255,0.9); font-weight: 600;">COMPLETE PACKAGE</p>
+          </div>
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.25rem; font-weight: 700; color: var(--accent); margin: 0 0 0.5rem;">£225</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Save £44+</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
+              <li>✓ Everything in Bundle 2</li>
+              <li>✓ Light Gun</li>
+              <li>✓ 5 Free Games Total</li>
+              <li>✓ Cleaning Kit</li>
+            </ul>
+            <button class="btn btn-success" style="width: 100%; background: var(--accent);">Get Bundle 3</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS SECTION -->
+  <section class="section" id="products">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">🎮 Shop Atari 7800 Consoles</h2>
+        <p class="section-subtitle">Choose your console variant, select a bundle, and customize with optional upgrades.</p>
+      </div>
+
+      <!-- PROMOTIONAL CATEGORY CARDS -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+        <!-- Standard Consoles Card -->
+        <a href="#consoles" class="promo-card" style="text-decoration: none; display: block; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); padding: 2rem; border-radius: 1rem; border: 2px solid #3b82f6; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+          <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">📦</div>
+          <h3 style="font-size: 1.3rem; margin: 0 0 0.75rem; color: #3b82f6; text-align: center; font-weight: 700;">Standard Consoles</h3>
+          <p style="font-size: 0.9rem; color: var(--dark); margin: 0 0 1rem; text-align: center; line-height: 1.5;">Professionally tested & cleaned. Backward compatible with 2600 games.</p>
+          <div style="background: white; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Complete testing</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Professional clean</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> 6-month warranty</p>
+          </div>
+          <div style="text-align: center; padding: 0.75rem; background: #3b82f6; color: white; border-radius: 0.5rem; font-weight: 600;">From £95 →</div>
+        </a>
+
+        <!-- Modded Consoles Card -->
+        <a href="#modded" class="promo-card" style="text-decoration: none; display: block; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); padding: 2rem; border-radius: 1rem; border: 2px solid var(--accent); cursor: pointer; position: relative; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+          <span style="position: absolute; top: 1rem; right: 1rem; background: #dc2626; color: white; padding: 0.3rem 0.6rem; border-radius: 0.25rem; font-size: 0.7rem; font-weight: 700; animation: pulse 2s infinite;">LIMITED STOCK</span>
+          <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">⚡</div>
+          <h3 style="font-size: 1.3rem; margin: 0 0 0.75rem; color: var(--accent); text-align: center; font-weight: 700;">Upgraded Consoles</h3>
+          <p style="font-size: 0.9rem; color: var(--dark); margin: 0 0 1rem; text-align: center; line-height: 1.5;">Enhanced mods: composite video, S-video, capacitor refresh.</p>
+          <div style="background: white; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> S-Video output</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Capacitor refresh</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Professionally installed</p>
+          </div>
+          <div style="text-align: center; padding: 0.75rem; background: var(--accent); color: white; border-radius: 0.5rem; font-weight: 600;">From £185 →</div>
+        </a>
+
+        <!-- Build Your Own Card -->
+        <a href="#addons" class="promo-card" style="text-decoration: none; display: block; background: linear-gradient(135deg, #f0fff7 0%, #e0f7f0 100%); padding: 2rem; border-radius: 1rem; border: 2px solid var(--secondary); cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+          <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">🛠️</div>
+          <h3 style="font-size: 1.3rem; margin: 0 0 0.75rem; color: var(--secondary); text-align: center; font-weight: 700;">Build Your Own</h3>
+          <p style="font-size: 0.9rem; color: var(--dark); margin: 0 0 1rem; text-align: center; line-height: 1.5;">Add joysticks, upgrades & services to any console.</p>
+          <div style="background: white; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Controllers & cables</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Professional mods</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Restoration services</p>
+          </div>
+          <div style="text-align: center; padding: 0.75rem; background: var(--secondary); color: white; border-radius: 0.5rem; font-weight: 600;">Customize Your Console →</div>
+        </a>
+      </div>
+
+      <!-- MODDED CONSOLES CATEGORY -->
+      <div id="modded" style="margin-bottom: 3rem; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); padding: 2rem; border-radius: 1rem; border: 2px solid var(--accent); scroll-margin-top: 60px;">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+          <h2 style="font-size: 2rem; margin: 0; color: var(--accent); font-weight: 800;">⚡ Upgraded Atari 7800 Consoles</h2>
+          <span style="background: var(--accent); color: white; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600;">VINTAGE MODS</span>
+          <span style="background: #dc2626; color: white; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600; animation: pulse 2s infinite;">⚠️ ONLY 4 LEFT</span>
+        </div>
+        <p style="color: var(--dark); margin: 0 0 1rem; font-size: 1.05rem; font-weight: 500;">Pre-upgraded consoles with enhanced video output. Experience both 7800 and 2600 games in the best quality.</p>
+        
+        <!-- What's Included -->
+        <div style="background: white; padding: 1.25rem; border-radius: 0.75rem; margin-bottom: 1rem;">
+          <p style="margin: 0 0 0.75rem; font-weight: 700; color: var(--dark); font-size: 0.95rem;">✓ What's Included in Every Upgraded Console:</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">📺</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">S-Video output mod</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">🎥</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">Composite video modification</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">⚡</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">Capacitor refresh</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">🔬</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">Extended testing & burn-in</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">📄</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">Detailed restoration report</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">🛡️</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">6-month warranty included</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Installation Guarantee -->
+        <div style="background: rgba(255,255,255,0.7); padding: 1rem; border-radius: 0.5rem; border-left: 4px solid var(--accent);">
+          <p style="margin: 0; font-size: 0.9rem; color: var(--dark);"><strong>🔧 Professional Installation Guarantee:</strong> All mods installed by experienced vintage console technicians. Superior video quality on modern displays - no technical knowledge required.</p>
+        </div>
+      </div>
+
+      <!-- Console Models -->
+      <div id="consoles" style="scroll-margin-top: 240px;">
+        <h3 style="font-size: 1.5rem; margin: 2rem 0 1.5rem; color: var(--dark); border-top: 2px solid #eee; padding-top: 1.5rem;">Atari 7800 Models</h3>
+        
+        <div style="margin-bottom: 2rem; padding: 1rem; background: #fef3c7; border-radius: 0.75rem;">
+          <p style="margin: 0; color: var(--dark); font-size: 0.95rem;"><strong>Backward Compatibility:</strong> All 7800 consoles play both 7800 and 2600 game cartridges. Enjoy enhanced graphics on 7800 titles while maintaining your classic 2600 library.</p>
+        </div>
+
+        <!-- Grade Comparison Guide -->
+        <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 2px solid #eee; margin-bottom: 1.5rem;">
+          <p style="margin: 0 0 1rem; font-weight: 700; color: var(--dark);">📊 Cosmetic Grade Guide - What to Expect:</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+            <div style="padding: 1rem; background: #f0fff7; border-radius: 0.5rem; border: 2px solid var(--secondary);">
+              <p style="margin: 0 0 0.5rem; font-weight: 700; color: var(--secondary); font-size: 0.95rem;">A-GRADE (Collector)</p>
+              <p style="margin: 0 0 0.5rem; font-size: 0.85rem; color: var(--gray);">Minimal wear. Near-perfect condition. Display quality.</p>
+              <p style="margin: 0; font-size: 0.8rem; color: var(--accent); font-weight: 600;">Perfect for: Collectors</p>
+            </div>
+            <div style="padding: 1rem; background: #f0f4ff; border-radius: 0.5rem; border: 2px solid #3b82f6;">
+              <p style="margin: 0 0 0.5rem; font-weight: 700; color: #3b82f6; font-size: 0.95rem;">B-GRADE (Excellent)</p>
+              <p style="margin: 0 0 0.5rem; font-size: 0.85rem; color: var(--gray);">Light cosmetic wear. Great condition. Fully functional.</p>
+              <p style="margin: 0; font-size: 0.8rem; color: var(--accent); font-weight: 600;">Perfect for: Daily players</p>
+            </div>
+            <div style="padding: 1rem; background: #fffaf0; border-radius: 0.5rem; border: 2px solid #eee;">
+              <p style="margin: 0 0 0.5rem; font-weight: 700; color: var(--dark); font-size: 0.95rem;">C-GRADE (Good)</p>
+              <p style="margin: 0 0 0.5rem; font-size: 0.85rem; color: var(--gray);">Visible wear. Honest condition. Fully functional.</p>
+              <p style="margin: 0; font-size: 0.8rem; color: var(--accent); font-weight: 600;">Perfect for: Budget buyers</p>
+            </div>
+          </div>
+          <div style="margin-top: 1rem; padding: 0.75rem; background: #fef3c7; border-radius: 0.5rem;">
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓ All grades guaranteed:</strong> Complete testing, professional restoration, 6-month warranty. Grade refers to cosmetics only.</p>
+          </div>
+        </div>
+
+        <div class="carousel-wrapper">
+          <button class="carousel-nav prev" onclick="scrollCarousel(this, -1)">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          </button>
+          <div class="product-carousel">
+            <!-- Standard A-Grade -->
+            <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden;">
+              <div style="position: relative; background: #f8f9fa; padding: 2rem; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+                <div style="font-size: 3.5rem;">🎮</div>
+                <span class="product-badge sale" style="top: 0.75rem; right: 0.75rem;">A-GRADE</span>
+                <span class="product-badge" style="top: 0.75rem; left: 0.75rem; background: var(--secondary); color: white;">DUAL PLAY</span>
+              </div>
+              <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">BACKWARD COMPATIBLE</p>
+                <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">Atari 7800 (Standard)</h3>
+                <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">Advanced graphics. Minimal wear. Plays 2600 & 7800 games.</p>
+                <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                  <p style="font-size: 1.3rem; font-weight: 700; color: #d97706; margin: 0 0 0.75rem;">£145.00</p>
+                  <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('7800-std-a','Atari 7800 A-Grade',145.00,'../../assets/atarilogo.png')" style="width: 100%;">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Standard B-Grade -->
+            <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden;">
+              <div style="position: relative; background: #f8f9fa; padding: 2rem; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+                <div style="font-size: 3.5rem;">🎮</div>
+                <span class="product-badge" style="top: 0.75rem; right: 0.75rem; background: #3b82f6;">B-GRADE</span>
+                <span class="product-badge new" style="top: 0.75rem; left: 0.75rem;">DUAL PLAY</span>
+              </div>
+              <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">BACKWARD COMPATIBLE</p>
+                <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">Atari 7800 (Standard)</h3>
+                <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">Light wear. Excellent value. Plays both game libraries.</p>
+                <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                  <p style="font-size: 1.3rem; font-weight: 700; color: #d97706; margin: 0 0 0.75rem;">£119.99</p>
+                  <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('7800-std-b','Atari 7800 B-Grade',119.99,'../../assets/atarilogo.png')" style="width: 100%;">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Standard C-Grade -->
+            <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden;">
+              <div style="position: relative; background: #f8f9fa; padding: 2rem; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+                <div style="font-size: 3.5rem;">🎮</div>
+                <span class="product-badge" style="top: 0.75rem; right: 0.75rem; background: #ff9500;">C-GRADE</span>
+                <span class="product-badge" style="top: 0.75rem; left: 0.75rem; background: #666;">DUAL PLAY</span>
+              </div>
+              <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">BACKWARD COMPATIBLE</p>
+                <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">Atari 7800 (Standard)</h3>
+                <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">Visible wear. Budget-friendly. Fully functional both modes.</p>
+                <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                  <p style="font-size: 1.3rem; font-weight: 700; color: #d97706; margin: 0 0 0.75rem;">£95.00</p>
+                  <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('7800-std-c','Atari 7800 C-Grade',95.00,'../../assets/atarilogo.png')" style="width: 100%;">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ProSystem A-Grade -->
+            <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden;">
+              <div style="position: relative; background: #f8f9fa; padding: 2rem; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+                <div style="font-size: 3.5rem;">🎮</div>
+                <span class="product-badge sale" style="top: 0.75rem; right: 0.75rem;">A-GRADE</span>
+                <span class="product-badge" style="top: 0.75rem; left: 0.75rem; background: #7c3aed; color: white;">EU MODEL</span>
+              </div>
+              <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">EUROPEAN PROSYSTEM</p>
+                <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">Atari 7800 (EU ProSystem)</h3>
+                <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">European variant. Collectible. Near-perfect condition.</p>
+                <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                  <p style="font-size: 1.3rem; font-weight: 700; color: #7c3aed; margin: 0 0 0.75rem;">£165.00</p>
+                  <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('7800-eu-a','Atari 7800 EU ProSystem A-Grade',165.00,'../../assets/atarilogo.png')" style="width: 100%; background: #7c3aed;">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ProSystem B-Grade -->
+            <article class="product-card" style="display: flex; flex-direction: column; overflow: hidden;">
+              <div style="position: relative; background: #f8f9fa; padding: 2rem; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+                <div style="font-size: 3.5rem;">🎮</div>
+                <span class="product-badge" style="top: 0.75rem; right: 0.75rem; background: #3b82f6;">B-GRADE</span>
+                <span class="product-badge new" style="top: 0.75rem; left: 0.75rem;">EU MODEL</span>
+              </div>
+              <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">EUROPEAN PROSYSTEM</p>
+                <h3 class="product-name" style="margin: 0 0 0.5rem; font-size: 1.1rem;">Atari 7800 (EU ProSystem)</h3>
+                <p class="product-description" style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem; flex-grow: 1;">European model. Light wear. Great value for collectors.</p>
+                <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                  <p style="font-size: 1.3rem; font-weight: 700; color: #7c3aed; margin: 0 0 0.75rem;">£135.99</p>
+                  <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('7800-eu-b','Atari 7800 EU ProSystem B-Grade',135.99,'../../assets/atarilogo.png')" style="width: 100%; background: #7c3aed;">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <button class="carousel-nav next" onclick="scrollCarousel(this, 1)">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD-ONS MEGA-SECTION -->
+  <section class="section" id="addons" style="background: white; scroll-margin-top: 240px; padding: 3rem 0;">
+    <div class="container">
+      <!-- Category Header -->
+      <div style="text-align: center; margin-bottom: 3rem; padding: 2rem 1rem; background: linear-gradient(135deg, #f0fff7 0%, #e0f7f0 100%); border-radius: 1rem;">
+        <div style="display: inline-block; background: linear-gradient(135deg, var(--secondary), #00b877); color: white; padding: 0.6rem 1.8rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 12px rgba(0, 208, 132, 0.3);">🛠️ Customize Your Console</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 0.75rem; color: var(--dark); font-weight: 800;">Complete Your Dual-Play Setup</h2>
+        <p style="font-size: 1.1rem; color: var(--gray); max-width: 700px; margin: 0 auto; line-height: 1.6;">Add joysticks, upgrade components, install professional mods, or get full restoration services. Everything you need in one place.</p>
+      </div>
+
+      <!-- Controllers & Cables Accordion -->
+      <details open>
+        <summary>🎮 Joysticks & Cables</summary>
+        <div class="accordion-content">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🕹️</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--dark);">Atari 7800 Joystick</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">ProLine joystick • Tested & working • 2-button design</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: #d97706;">£16.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
+              </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔫</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--dark);">XG-1 Light Gun</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Original Atari • Tested on CRT • For shooting games</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: #d97706;">£34.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
+              </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔌</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--dark);">Power & AV Cables</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Complete cable set • RF & power • Modern replacement</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: #d97706;">£13.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Professional Mods & Upgrades Accordion -->
+      <details>
+        <summary>⚡ Professional Mods & Upgrades</summary>
+        <div class="accordion-content">
+          <p style="color: var(--gray); margin: 0 0 1.5rem; font-size: 0.9rem;">Professional installation services for enhanced video quality and reliability.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">📺</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--dark);">S-Video Output Mod</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Superior picture quality • Modern displays • Professional install</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: #d97706;">£75.00</p>
+                <button class="btn btn-success" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
+              </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🎥</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--dark);">Composite Video Mod</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Modern TV compatibility • Better picture • Professional install</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: #d97706;">£65.00</p>
+                <button class="btn btn-success" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
+              </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">⚙️</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--dark);">Full Restoration Service</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Complete teardown • Deep clean • Component refresh</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: #d97706;">£90.00</p>
+                <button class="btn btn-success" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Games & Storage Accordion -->
+      <details>
+        <summary>🎯 Games & Storage</summary>
+        <div class="accordion-content">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🎮</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--dark);">Atari 7800 Game (Random)</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Tested classic game • Cartridge only • Various titles</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: #d97706;">£7.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
+              </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">📦</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--dark);">Game Storage Case</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Holds 12 cartridges • Protective storage • Vintage style</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: #d97706;">£16.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
+              </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--gray-lighter);">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">✨</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--dark);">Cleaning Kit</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Console & cartridge cleaner • Vintage-safe • Microfiber cloths</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: #d97706;">£10.99</p>
+                <button class="btn btn-success" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- SUPPORT & ASSURANCE SECTION -->
+  <section class="section" id="support" style="background: linear-gradient(135deg, #d97706 0%, #b45309 100%); color: white; scroll-margin-top: 240px; padding: 3rem 0;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 0.75rem; color: white; font-weight: 800;">💬 Our Guarantee to You</h2>
+        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto;">Vintage gaming restored with modern standards. Your satisfaction is our priority.</p>
+      </div>
+
+      <!-- Testimonials -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+          <div style="display: flex; gap: 0.25rem; margin-bottom: 0.75rem; font-size: 1.2rem;">⭐⭐⭐⭐⭐</div>
+          <p style="margin: 0 0 1rem; font-style: italic; color: rgba(255,255,255,0.95);">"Perfect 7800! Plays all my 2600 games too. The backward compatibility is flawless!"</p>
+          <p style="margin: 0; font-weight: 600; color: white; font-size: 0.9rem;">— Chris B., Verified Buyer</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+          <div style="display: flex; gap: 0.25rem; margin-bottom: 0.75rem; font-size: 1.2rem;">⭐⭐⭐⭐⭐</div>
+          <p style="margin: 0 0 1rem; font-style: italic; color: rgba(255,255,255,0.95);">"The S-video mod is incredible! Graphics look amazing on my CRT. Highly recommend!"</p>
+          <p style="margin: 0; font-weight: 600; color: white; font-size: 0.9rem;">— Emma W., Verified Buyer</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+          <div style="display: flex; gap: 0.25rem; margin-bottom: 0.75rem; font-size: 1.2rem;">⭐⭐⭐⭐⭐</div>
+          <p style="margin: 0 0 1rem; font-style: italic; color: rgba(255,255,255,0.95);">"Excellent restoration work. Best of both 7800 and 2600 worlds. Thank you!"</p>
+          <p style="margin: 0; font-weight: 600; color: white; font-size: 0.9rem;">— Mark S., Verified Buyer</p>
+        </div>
+      </div>
+
+      <!-- Our Promise -->
+      <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 1rem; backdrop-filter: blur(10px); margin-bottom: 2rem;">
+        <h3 style="font-size: 1.5rem; margin: 0 0 1.5rem; color: white; text-align: center; font-weight: 700;">✓ The Retro Replay Promise</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+          <div style="background: rgba(255,255,255,0.15); padding: 1.25rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✓</div>
+            <p style="margin: 0; font-weight: 600; color: white; font-size: 0.95rem;">Free Returns</p>
+            <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.9);">If faulty or not as described</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.15); padding: 1.25rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
+            <p style="margin: 0; font-weight: 600; color: white; font-size: 0.95rem;">Fast Refunds</p>
+            <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.9);">Processed within 48 hours</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.15); padding: 1.25rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎯</div>
+            <p style="margin: 0; font-weight: 600; color: white; font-size: 0.95rem;">Risk-Free</p>
+            <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.9);">Shop with complete confidence</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+          <p style="margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.9);">Plus: All consoles covered by UK statutory warranty (6 months minimum) and optional 12-month extended warranty available</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Atari 7800 Products</h3>
+          <p>Professionally restored consoles with backward compatibility. Play both 7800 and 2600 game libraries.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="/services.html">All Upgrades & Mods</a></li>
+            <li><a href="../guides.html">Setup Guides</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Retro Replay. All consoles include UK statutory 6-month warranty.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../cart.js"></script>
+  <script>RetroCart.loadCart();</script>
+  
+  <script>
+    function scrollCarousel(button, direction) {
+      const wrapper = button.closest('.carousel-wrapper');
+      const carousel = wrapper.querySelector('.product-carousel');
+      const scrollAmount = 340;
+      carousel.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  </script>
 </body>
 </html>

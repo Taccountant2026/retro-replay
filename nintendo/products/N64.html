@@ -3,31 +3,598 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nintendo 64 | Retro Replay</title>
+  <title>Nintendo 64 (N64) | Retro Replay</title>
   <link rel="stylesheet" href="../../style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <header class="site-header">
-    <div class="header-top"><div class="container"><div class="header-promo"><span>🎮 Nintendo 64 Console</span></div></div></div>
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="../../index.html" class="site-logo"><img src="../../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
-        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
-        <div class="header-actions"><a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo">
+          <span>🎮 Nintendo 64 — Professionally Tested & Restored</span>
+        </div>
       </div>
     </div>
-    <nav class="main-nav"><div class="container"><ul class="nav-list"><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Nintendo</a></li><li><a href="N64.html" class="active">N64</a></li></ul></div></nav>
+
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="../../index.html" class="site-logo">
+          <img src="../../assets/logo.png" alt="Retro Replay">
+          <span>Retro Replay</span>
+        </a>
+        <div class="search-bar">
+          <input type="search" placeholder="Search N64 products..." aria-label="Search">
+          <button class="search-btn">Search</button>
+        </div>
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+          <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../index.html">Nintendo</a></li>
+          <li><a href="NES.html">NES</a></li>
+          <li><a href="SNES.html">SNES</a></li>
+          <li><a href="N64.html" class="active">N64</a></li>
+          <li><a href="../guides.html">Guides</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
-  <section class="hero" style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);"><div class="container hero-content"><div class="hero-text"><h1>Nintendo 64</h1><p>3D gaming pioneer. Professionally refurbished for ultimate retro gaming.</p></div></div></section>
+  <!-- Sticky Navigation -->
+  <nav class="page-nav" style="position: sticky; top: 185px; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 999; border-bottom: 2px solid #dc2626;">
+    <div class="container">
+      <ul style="display: flex; list-style: none; margin: 0; padding: 0; gap: 1rem; overflow-x: auto; justify-content: center;">
+        <li><a href="#shop-consoles" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;"><span style="font-size: 1.2rem;">🎮</span> Shop Consoles</a></li>
+        <li><a href="#addons" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;"><span style="font-size: 1.2rem;">🛠️</span> Add-Ons</a></li>
+        <li><a href="#support" style="display: flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.3s;"><span style="font-size: 1.2rem;">💬</span> Support</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <section class="section" style="background: white;"><div class="container"><div class="section-header"><h2 class="section-title">Nintendo 64 Units</h2></div><div class="product-grid"><div class="product-card"><div class="product-info"><h3 class="product-name">Grade A - Like New</h3><p class="product-description">Excellent cosmetic condition, perfect functionality.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Grade B - Excellent</h3><p class="product-description">Minor cosmetic wear, flawless performance.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Grade C - Good</h3><p class="product-description">Light wear, fully functional 3D gaming.</p></div></div></div></div></section>
+  <section class="hero" style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #dc2626 100%); padding: 3rem 0;">
+    <div class="container">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <h1 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem;">Nintendo 64</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; color: rgba(255,255,255,0.95);">3D gaming revolution with printed reports and UK warranty</p>
+        
+        <!-- Trust Badges -->
+        <div style="display: flex; gap: 1.5rem; margin: 0 auto 2rem; flex-wrap: wrap; justify-content: center; max-width: 650px;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
+            <span style="font-size: 1.5rem;">⭐</span>
+            <div style="text-align: left;">
+              <div style="color: white; font-weight: 700; font-size: 1rem;">4.9/5 Rating</div>
+              <div style="color: rgba(255,255,255,0.9); font-size: 0.8rem;">1,100+ Reviews</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
+            <span style="font-size: 1.5rem;">🛡️</span>
+            <div style="text-align: left;">
+              <div style="color: white; font-weight: 700; font-size: 1rem;">6-Month Warranty</div>
+              <div style="color: rgba(255,255,255,0.9); font-size: 0.8rem;">UK Statutory</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.75rem 1.25rem; border-radius: 0.5rem; backdrop-filter: blur(10px);">
+            <span style="font-size: 1.5rem;">🔬</span>
+            <div style="text-align: left;">
+              <div style="color: white; font-weight: 700; font-size: 1rem;">12-Point Test</div>
+              <div style="color: rgba(255,255,255,0.9); font-size: 0.8rem;">Every Console</div>
+            </div>
+          </div>
+        </div>
+        
+        <a href="#shop-consoles" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem; display: inline-block;">Shop Now</a>
+      </div>
+    </div>
+  </section>
 
-  <section class="section"><div class="container" style="max-width: 900px;"><div class="section-header"><h2 class="section-title">What's Included</h2></div><div class="product-card"><div class="product-info"><ul class="product-features" style="font-size: 1.05rem; line-height: 2; color: var(--dark);"><li>✓ Fully refurbished N64 console</li><li>✓ Original controllers included</li><li>✓ AV and power cables</li><li>✓ Complete system verification</li><li>✓ 6-month warranty</li><li>✓ Free tracked shipping</li></ul></div></div></div></section>
+  <!-- SHOP CONSOLES SECTION -->
+  <section class="section" id="shop-consoles" style="background: #f8f9fa; scroll-margin-top: 240px; padding: 3rem 0;">
+    <div class="container">
+      <!-- Category Header -->
+      <div style="text-align: center; margin-bottom: 3rem; padding: 2rem 1rem; background: linear-gradient(135deg, #fff0f0 0%, #ffe0e0 100%); border-radius: 1rem;">
+        <div style="display: inline-block; background: linear-gradient(135deg, #dc2626, #991b1b); color: white; padding: 0.6rem 1.8rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);">🎮 Shop Nintendo 64</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 0.75rem; color: var(--dark); font-weight: 800;">Find Your Perfect Console</h2>
+        <p style="font-size: 1.1rem; color: var(--gray); max-width: 700px; margin: 0 auto; line-height: 1.6;">Every console professionally tested with 12-point inspection, deep clean, printed report, and 6-month UK warranty included.</p>
+      </div>
 
-  <footer class="site-footer"><div class="container"><div class="footer-content"><div class="footer-section"><h3>Nintendo 64</h3><p>Professional restoration & support.</p></div><div class="footer-section"><h3>More</h3><ul class="footer-links"><li><a href="../index.html">Nintendo</a></li><li><a href="/contact.html">Contact</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div></div></footer>
+      <!-- Bundle Packages -->
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem; color: var(--dark); font-weight: 700;">📦 Bundle Packages</h3>
+        <p style="font-size: 0.95rem; color: var(--gray);">Choose your bundle level — we'll build your complete setup</p>
+      </div>
 
-  <script src="../../cart.js"></script><script>RetroCart.loadCart();</script>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-bottom: 3rem;">
+        <!-- Console Only -->
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 2px solid #e0e0e0; transition: all 0.3s ease;">
+          <div style="background: #f5f5f5; padding: 1.25rem; text-align: center; border-bottom: 2px solid #e0e0e0;">
+            <h3 style="font-size: 1.1rem; margin: 0; color: var(--dark);">Console Only</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: var(--gray); font-weight: 600;">BARE CONSOLE</p>
+          </div>
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.25rem; font-weight: 700; color: var(--dark); margin: 0 0 0.5rem;">£75</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Starting price</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
+              <li>✓ Tested Console</li>
+              <li>✓ Test Report</li>
+              <li>✓ Professional Clean</li>
+              <li>✓ 6-Month Warranty</li>
+            </ul>
+            <p style="font-size: 0.75rem; color: var(--gray); margin-bottom: 1rem;">No accessories included</p>
+            <button class="btn btn-outline" style="width: 100%;">Choose Model</button>
+          </div>
+        </div>
+
+        <!-- Bundle 1 -->
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 2px solid var(--secondary); transition: all 0.3s ease;">
+          <div style="background: var(--secondary); padding: 1.25rem; text-align: center; position: relative;">
+            <span style="position: absolute; top: 0.5rem; right: 0.5rem; background: rgba(255,255,255,0.3); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.65rem; font-weight: 700;">POPULAR</span>
+            <h3 style="font-size: 1.1rem; margin: 0; color: white;">Bundle 1</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: rgba(255,255,255,0.9); font-weight: 600;">READY TO PLAY</p>
+          </div>
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.25rem; font-weight: 700; color: var(--secondary); margin: 0 0 0.5rem;">£135</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Save £18</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
+              <li>✓ Console + Warranty</li>
+              <li>✓ 1 Controller</li>
+              <li>✓ AV Cables</li>
+              <li>✓ Power Supply</li>
+              <li>✓ 1 Free Game</li>
+            </ul>
+            <button class="btn btn-success" style="width: 100%; background: var(--secondary);">Get Bundle 1</button>
+          </div>
+        </div>
+
+        <!-- Bundle 2 (BEST SELLER) -->
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 3px solid #dc2626; box-shadow: 0 8px 20px rgba(220, 38, 38, 0.2); transform: scale(1.05);">
+          <div style="background: #dc2626; padding: 1.25rem; text-align: center; position: relative;">
+            <span style="position: absolute; top: 0.5rem; right: 0.5rem; background: var(--accent); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.65rem; font-weight: 700;">BEST SELLER</span>
+            <h3 style="font-size: 1.2rem; margin: 0; color: white;">Bundle 2</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: rgba(255,255,255,0.9); font-weight: 600;">MULTIPLAYER BUNDLE</p>
+          </div>
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.5rem; font-weight: 700; color: #dc2626; margin: 0 0 0.5rem;">£180</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Save £35</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
+              <li>✓ Everything in Bundle 1</li>
+              <li>✓ 3 Extra Controllers</li>
+              <li>✓ 3 Free Games Total</li>
+              <li>✓ 4-Player Ready</li>
+            </ul>
+            <button class="btn btn-success" style="width: 100%; background: #dc2626; font-weight: 700;">Get Bundle 2</button>
+          </div>
+        </div>
+
+        <!-- Bundle 3 -->
+        <div style="background: white; border-radius: 1rem; overflow: hidden; border: 2px solid var(--accent); transition: all 0.3s ease;">
+          <div style="background: var(--accent); padding: 1.25rem; text-align: center; position: relative;">
+            <span style="position: absolute; top: 0.5rem; right: 0.5rem; background: rgba(255,255,255,0.3); color: white; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.65rem; font-weight: 700;">PREMIUM</span>
+            <h3 style="font-size: 1.1rem; margin: 0; color: white;">Bundle 3</h3>
+            <p style="font-size: 0.75rem; margin: 0.25rem 0 0; color: rgba(255,255,255,0.9); font-weight: 600;">ULTIMATE PACKAGE</p>
+          </div>
+          <div style="padding: 1.25rem; text-align: center;">
+            <p style="font-size: 2.25rem; font-weight: 700; color: var(--accent); margin: 0 0 0.5rem;">£280</p>
+            <p style="font-size: 0.8rem; color: var(--gray); margin: 0 0 1rem;">Save £70+</p>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--dark); margin: 0 0 1.25rem; padding: 0; line-height: 2; text-align: left;">
+              <li>✓ Everything in Bundle 2</li>
+              <li>✓ Memory Expansion Pak</li>
+              <li>✓ 5 Free Games Total</li>
+              <li>✓ RGB SCART Cable</li>
+            </ul>
+            <button class="btn btn-success" style="width: 100%; background: var(--accent);">Get Bundle 3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROMOTIONAL CATEGORY CARDS -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+        <!-- Standard Consoles Card -->
+        <a href="#consoles" class="promo-card" style="text-decoration: none; display: block; background: linear-gradient(135deg, #f0f4ff 0%, #e0e9ff 100%); padding: 2rem; border-radius: 1rem; border: 2px solid var(--primary); cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+          <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">📦</div>
+          <h3 style="font-size: 1.3rem; margin: 0 0 0.75rem; color: var(--primary); text-align: center; font-weight: 700;">Standard Consoles</h3>
+          <p style="font-size: 0.9rem; color: var(--dark); margin: 0 0 1rem; text-align: center; line-height: 1.5;">Professionally tested & cleaned. Ready for your bundle choice.</p>
+          <div style="background: white; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> 12-point inspection</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Printed test report</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> 6-month warranty</p>
+          </div>
+          <div style="text-align: center; padding: 0.75rem; background: var(--primary); color: white; border-radius: 0.5rem; font-weight: 600;">From £75 →</div>
+        </a>
+
+        <!-- Modded Consoles Card -->
+        <a href="#modded" class="promo-card" style="text-decoration: none; display: block; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); padding: 2rem; border-radius: 1rem; border: 2px solid var(--accent); cursor: pointer; position: relative; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+          <span style="position: absolute; top: 1rem; right: 1rem; background: #dc2626; color: white; padding: 0.3rem 0.6rem; border-radius: 0.25rem; font-size: 0.7rem; font-weight: 700; animation: pulse 2s infinite;">LIMITED STOCK</span>
+          <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">⚡</div>
+          <h3 style="font-size: 1.3rem; margin: 0 0 0.75rem; color: var(--accent); text-align: center; font-weight: 700;">Modded Consoles</h3>
+          <p style="font-size: 0.9rem; color: var(--dark); margin: 0 0 1rem; text-align: center; line-height: 1.5;">RGB modded for crystal clear output. Ultimate video quality.</p>
+          <div style="background: white; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> RGB SCART output</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Professional install</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Best video quality</p>
+          </div>
+          <div style="text-align: center; padding: 0.75rem; background: var(--accent); color: white; border-radius: 0.5rem; font-weight: 600;">From £195 • Save £60+ →</div>
+        </a>
+
+        <!-- Build Your Own Card -->
+        <a href="#addons" class="promo-card" style="text-decoration: none; display: block; background: linear-gradient(135deg, #f0fff7 0%, #e0f7f0 100%); padding: 2rem; border-radius: 1rem; border: 2px solid var(--secondary); cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+          <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">🛠️</div>
+          <h3 style="font-size: 1.3rem; margin: 0 0 0.75rem; color: var(--secondary); text-align: center; font-weight: 700;">Build Your Own</h3>
+          <p style="font-size: 0.9rem; color: var(--dark); margin: 0 0 1rem; text-align: center; line-height: 1.5;">Add accessories, upgrades & services to any console.</p>
+          <div style="background: white; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Controllers & cables</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Professional mods</p>
+            <p style="margin: 0; font-size: 0.85rem; color: var(--dark);"><strong>✓</strong> Restoration services</p>
+          </div>
+          <div style="text-align: center; padding: 0.75rem; background: var(--secondary); color: white; border-radius: 0.5rem; font-weight: 600;">Customize Your Console →</div>
+        </a>
+      </div>
+
+      <!-- MODDED CONSOLES HIGHLIGHT -->
+      <div id="modded" style="margin-bottom: 3rem; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); padding: 2rem; border-radius: 1rem; border: 2px solid var(--accent); scroll-margin-top: 240px;">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+          <h2 style="font-size: 2rem; margin: 0; color: var(--accent); font-weight: 800;">⚡ RGB Modded N64 Consoles</h2>
+          <span style="background: var(--accent); color: white; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600;">PLUG & PLAY</span>
+          <span style="background: #dc2626; color: white; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600; animation: pulse 2s infinite;">⚠️ ONLY 4 LEFT</span>
+        </div>
+        <p style="color: var(--dark); margin: 0 0 1rem; font-size: 1.05rem; font-weight: 500;">Experience N64 at its best. RGB SCART professionally installed for perfect picture quality. <span style="color: var(--accent); font-weight: 700;">Save £60+</span> vs buying console and mod separately.</p>
+        
+        <div style="background: white; padding: 1.25rem; border-radius: 0.75rem; margin-bottom: 1rem;">
+          <p style="margin: 0 0 0.75rem; font-weight: 700; color: var(--dark); font-size: 0.95rem;">✓ What's Included:</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">📺</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">RGB SCART output installed</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">⚙️</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">Professional installation</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">🔬</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">48-hour burn-in test</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--accent); font-size: 1.2rem;">🛡️</span>
+              <span style="font-size: 0.85rem; color: var(--gray);">6-month warranty included</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONSOLE PRODUCTS -->
+      <div id="consoles" style="scroll-margin-top: 240px;">
+        <h3 style="font-size: 1.5rem; margin: 2rem 0 1.5rem; color: var(--dark); border-top: 2px solid #eee; padding-top: 1.5rem;">Nintendo 64 Consoles</h3>
+        
+        <div style="margin-bottom: 2rem; padding: 1rem; background: #f0f4ff; border-radius: 0.75rem;">
+          <p style="margin: 0; color: var(--dark); font-size: 0.95rem;"><strong>True 3D gaming pioneer.</strong> GoldenEye, Super Mario 64, The Legend of Zelda, and more. Includes limited edition colors.</p>
+        </div>
+
+        <div class="carousel-wrapper">
+          <button class="carousel-nav prev" onclick="scrollCarousel(this, -1)">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          </button>
+          <div class="product-carousel">
+            <!-- Standard Black A-Grade -->
+            <article class="product-card">
+              <div style="position: relative; background: #f8f9fa;">
+                <img src="../../assets/nintendo-30594_1920.png" alt="N64 Console Black A-Grade" style="width: 100%; height: 200px; object-fit: cover;">
+                <span class="product-badge sale" style="top: 0.75rem; right: 0.75rem;">A-Grade</span>
+                <span class="product-badge" style="top: 0.75rem; left: 0.75rem; background: var(--secondary);">Like New</span>
+              </div>
+              <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase;">NUS-001 Black</p>
+                <h3 class="product-name">N64 Console (A-Grade)</h3>
+                <p class="product-description" style="flex-grow: 1;">Minimal cosmetic wear. Professional tested with printed report.</p>
+                <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                  <p style="font-size: 1.3rem; font-weight: 700; color: #dc2626; margin: 0 0 0.75rem;">£129.99</p>
+                  <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('n64-001-bk-a','N64 Console Black A-Grade',129.99,'../../assets/nintendo-30594_1920.png')" style="width: 100%;">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Standard Black B-Grade -->
+            <article class="product-card">
+              <div style="position: relative; background: #f8f9fa;">
+                <img src="../../assets/nintendo-30594_1920.png" alt="N64 Console Black B-Grade" style="width: 100%; height: 200px; object-fit: cover;">
+                <span class="product-badge" style="top: 0.75rem; right: 0.75rem; background: var(--secondary);">B-Grade</span>
+                <span class="product-badge new" style="top: 0.75rem; left: 0.75rem;">Very Good</span>
+              </div>
+              <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase;">NUS-001 Black</p>
+                <h3 class="product-name">N64 Console (B-Grade)</h3>
+                <p class="product-description" style="flex-grow: 1;">Light cosmetic wear. Fully functional and tested.</p>
+                <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                  <p style="font-size: 1.3rem; font-weight: 700; color: #dc2626; margin: 0 0 0.75rem;">£99.99</p>
+                  <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('n64-001-bk-b','N64 Console Black B-Grade',99.99,'../../assets/nintendo-30594_1920.png')" style="width: 100%;">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Standard Black C-Grade -->
+            <article class="product-card">
+              <div style="position: relative; background: #f8f9fa;">
+                <img src="../../assets/nintendo-30594_1920.png" alt="N64 Console Black C-Grade" style="width: 100%; height: 200px; object-fit: cover;">
+                <span class="product-badge" style="top: 0.75rem; right: 0.75rem; background: #ff9500;">C-Grade</span>
+                <span class="product-badge" style="top: 0.75rem; left: 0.75rem; background: #666;">Good</span>
+              </div>
+              <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase;">NUS-001 Black</p>
+                <h3 class="product-name">N64 Console (C-Grade)</h3>
+                <p class="product-description" style="flex-grow: 1;">Noticeable wear. Fully functional with tested components.</p>
+                <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                  <p style="font-size: 1.3rem; font-weight: 700; color: #dc2626; margin: 0 0 0.75rem;">£75.00</p>
+                  <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('n64-001-bk-c','N64 Console Black C-Grade',75.00,'../../assets/nintendo-30594_1920.png')" style="width: 100%;">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Limited Edition Jungle Green -->
+            <article class="product-card">
+              <div style="position: relative; background: #f8f9fa;">
+                <img src="../../assets/nintendo-30594_1920.png" alt="N64 Jungle Green Limited Edition" style="width: 100%; height: 200px; object-fit: cover;">
+                <span class="product-badge sale" style="top: 0.75rem; right: 0.75rem;">A-Grade</span>
+                <span class="product-badge" style="top: 0.75rem; left: 0.75rem; background: #10b981; color: white;">Limited Edition</span>
+              </div>
+              <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase;">NUS-001 Jungle Green</p>
+                <h3 class="product-name">N64 Jungle Green</h3>
+                <p class="product-description" style="flex-grow: 1;">Limited edition color. Rare collectible. Excellent condition.</p>
+                <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                  <p style="font-size: 1.3rem; font-weight: 700; color: #dc2626; margin: 0 0 0.75rem;">£169.99</p>
+                  <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('n64-001-jg-a','N64 Jungle Green A-Grade',169.99,'../../assets/nintendo-30594_1920.png')" style="width: 100%;">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Limited Edition Ice Blue -->
+            <article class="product-card">
+              <div style="position: relative; background: #f8f9fa;">
+                <img src="../../assets/nintendo-30594_1920.png" alt="N64 Ice Blue Limited Edition" style="width: 100%; height: 200px; object-fit: cover;">
+                <span class="product-badge sale" style="top: 0.75rem; right: 0.75rem;">A-Grade</span>
+                <span class="product-badge" style="top: 0.75rem; left: 0.75rem; background: #60a5fa; color: white;">Limited Edition</span>
+              </div>
+              <div class="product-info" style="flex-grow: 1; display: flex; flex-direction: column;">
+                <p style="font-size: 0.75rem; color: var(--gray); margin: 0 0 0.5rem; text-transform: uppercase;">NUS-001 Ice Blue</p>
+                <h3 class="product-name">N64 Ice Blue</h3>
+                <p class="product-description" style="flex-grow: 1;">Limited edition color. Highly collectible. Excellent condition.</p>
+                <div style="border-top: 1px solid #eee; padding-top: 1rem;">
+                  <p style="font-size: 1.3rem; font-weight: 700; color: #dc2626; margin: 0 0 0.75rem;">£179.99</p>
+                  <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('n64-001-ib-a','N64 Ice Blue A-Grade',179.99,'../../assets/nintendo-30594_1920.png')" style="width: 100%;">Add to Cart</button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <button class="carousel-nav next" onclick="scrollCarousel(this, 1)">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD-ONS SECTION -->
+  <section class="section" id="addons" style="background: white; scroll-margin-top: 240px; padding: 3rem 0;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem; padding: 2rem 1rem; background: linear-gradient(135deg, #f0fff7 0%, #e0f7f0 100%); border-radius: 1rem;">
+        <div style="display: inline-block; background: linear-gradient(135deg, var(--secondary), #00b877); color: white; padding: 0.6rem 1.8rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 12px rgba(0, 208, 132, 0.3);">🛠️ Customize Your Console</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 0.75rem; color: var(--dark); font-weight: 800;">Complete Your Perfect Setup</h2>
+        <p style="font-size: 1.1rem; color: var(--gray); max-width: 700px; margin: 0 auto; line-height: 1.6;">Add controllers, upgrade with mods, or get full restoration services. Everything you need in one place.</p>
+      </div>
+
+      <!-- Controllers & Accessories -->
+      <details open>
+        <summary style="font-size: 1.3rem; font-weight: 700; padding: 1rem; background: #f8f9fa; border-radius: 0.5rem; cursor: pointer; margin-bottom: 1rem;">🎮 Controllers & Accessories</summary>
+        <div style="padding: 1rem; background: white; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem;">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🎮</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">Original N64 Controller</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">OEM quality • Tested & cleaned • Tight joystick</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: #dc2626;">£24.99</p>
+                <button class="btn btn-success" onclick="RetroCart.addItem('n64-ctrl','N64 Controller',24.99,'')" style="padding: 0.5rem 1rem;">Add</button>
+              </div>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem;">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">💾</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">Memory Expansion Pak</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Required for certain games • 4MB RAM expansion • Tested</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: #dc2626;">£34.99</p>
+                <button class="btn btn-success" onclick="RetroCart.addItem('n64-exp','Expansion Pak',34.99,'')" style="padding: 0.5rem 1rem;">Add</button>
+              </div>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem;">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔌</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">AV & Power Cables</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Complete cable set • AV + power • Universal fit</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: #dc2626;">£11.99</p>
+                <button class="btn btn-success" onclick="RetroCart.addItem('n64-cables','N64 Cables',11.99,'')" style="padding: 0.5rem 1rem;">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Mods & Upgrades -->
+      <details>
+        <summary style="font-size: 1.3rem; font-weight: 700; padding: 1rem; background: #f8f9fa; border-radius: 0.5rem; cursor: pointer; margin-bottom: 1rem;">⚙️ Mods & Upgrades</summary>
+        <div style="padding: 1rem; background: white; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem;">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">📺</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">RGB SCART Mod</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Professional RGB mod • Crystal clear video • Professional install</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: var(--accent);">£85.99</p>
+                <button class="btn btn-success" onclick="RetroCart.addItem('n64-rgb-mod','N64 RGB Mod',85.99,'')" style="padding: 0.5rem 1rem;">Add</button>
+              </div>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem;">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🎨</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">LED Mod</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Modern LED power light • Multiple colors • Professional install</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: var(--accent);">£34.99</p>
+                <button class="btn btn-success" onclick="RetroCart.addItem('n64-led-mod','N64 LED Mod',34.99,'')" style="padding: 0.5rem 1rem;">Add</button>
+              </div>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem;">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🔧</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">Capacitor Replacement</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Full cap replacement • Prevents failures • Extends lifespan</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: var(--accent);">£49.99</p>
+                <button class="btn btn-success" onclick="RetroCart.addItem('n64-caps','Capacitor Replace',49.99,'')" style="padding: 0.5rem 1rem;">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Restoration Services -->
+      <details>
+        <summary style="font-size: 1.3rem; font-weight: 700; padding: 1rem; background: #f8f9fa; border-radius: 0.5rem; cursor: pointer; margin-bottom: 1rem;">🔨 Restoration Services</summary>
+        <div style="padding: 1rem; background: white; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem;">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">✨</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">Deep Clean & Service</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">Complete teardown clean • Component testing • Reassembly</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: var(--primary);">£49.99</p>
+                <button class="btn btn-success" onclick="RetroCart.addItem('n64-clean','Deep Clean',49.99,'')" style="padding: 0.5rem 1rem;">Add</button>
+              </div>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 0.75rem;">
+              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🎮</div>
+              <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">Controller Joystick Replace</h4>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0 0 1rem;">New joystick module • Like-new feel • Perfect for worn controllers</p>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="margin: 0; font-size: 1.4rem; font-weight: 700; color: var(--primary);">£29.99</p>
+                <button class="btn btn-success" onclick="RetroCart.addItem('n64-joystick','Joystick Replace',29.99,'')" style="padding: 0.5rem 1rem;">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- SUPPORT SECTION -->
+  <section class="section" id="support" style="background: linear-gradient(135deg, #0066ff 0%, #0052cc 50%, #7c3aed 100%); color: white; scroll-margin-top: 240px; padding: 3rem 0;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 0.75rem; color: white; font-weight: 800;">💬 Customer Support & Guarantee</h2>
+        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.95); max-width: 700px; margin: 0 auto;">Your satisfaction is our priority. Every N64 console backed by our commitment to quality.</p>
+      </div>
+
+      <!-- Testimonials -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 1rem; backdrop-filter: blur(10px);">
+          <div style="display: flex; gap: 0.25rem; margin-bottom: 0.75rem;">
+            <span style="color: #fbbf24;">⭐</span><span style="color: #fbbf24;">⭐</span><span style="color: #fbbf24;">⭐</span><span style="color: #fbbf24;">⭐</span><span style="color: #fbbf24;">⭐</span>
+          </div>
+          <p style="margin: 0 0 1rem; font-style: italic; color: rgba(255,255,255,0.95);">"Got the Jungle Green N64 - it's beautiful! Works perfectly and the RGB mod makes it look amazing. Very happy!"</p>
+          <p style="margin: 0; font-weight: 600; color: white;">— Daniel R.</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 1rem; backdrop-filter: blur(10px);">
+          <div style="display: flex; gap: 0.25rem; margin-bottom: 0.75rem;">
+            <span style="color: #fbbf24;">⭐</span><span style="color: #fbbf24;">⭐</span><span style="color: #fbbf24;">⭐</span><span style="color: #fbbf24;">⭐</span><span style="color: #fbbf24;">⭐</span>
+          </div>
+          <p style="margin: 0 0 1rem; font-style: italic; color: rgba(255,255,255,0.95);">"The controllers have tight joysticks - such a difference! GoldenEye plays perfectly now. Excellent service!"</p>
+          <p style="margin: 0; font-weight: 600; color: white;">— Amy S.</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 1rem; backdrop-filter: blur(10px);">
+          <div style="display: flex; gap: 0.25rem; margin-bottom: 0.75rem;">
+            <span style="color: #fbbf24;">⭐</span><span style="color: #fbbf24;">⭐</span><span style="color: #fbbf24;">⭐</span><span style="color: #fbbf24;">⭐</span><span style="color: #fbbf24;">⭐</span>
+          </div>
+          <p style="margin: 0 0 1rem; font-style: italic; color: rgba(255,255,255,0.95);">"Bundle 2 was perfect for 4-player Mario Kart sessions. Great packaging and fast delivery. 10/10!"</p>
+          <p style="margin: 0; font-weight: 600; color: white;">— Chris T.</p>
+        </div>
+      </div>
+
+      <!-- Our Guarantee -->
+      <div style="background: rgba(255,255,255,0.15); padding: 2rem; border-radius: 1rem; backdrop-filter: blur(10px); margin-bottom: 2rem;">
+        <h3 style="font-size: 1.5rem; margin: 0 0 1.5rem; color: white; text-align: center; font-weight: 700;">🛡️ Our Guarantee to You</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem;">
+          <div style="background: rgba(255,255,255,0.15); padding: 1.25rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📋</div>
+            <p style="margin: 0; font-weight: 600; color: white; font-size: 0.95rem;">Printed Test Report</p>
+            <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.9);">Every console includes detailed testing documentation</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.15); padding: 1.25rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✓</div>
+            <p style="margin: 0; font-weight: 600; color: white; font-size: 0.95rem;">Free Returns</p>
+            <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.9);">If faulty or not as described</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.15); padding: 1.25rem; border-radius: 0.75rem; backdrop-filter: blur(10px);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
+            <p style="margin: 0; font-weight: 600; color: white; font-size: 0.95rem;">Fast Support</p>
+            <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.9);">Response within 24 hours</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+          <p style="margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.9);">All consoles covered by UK statutory warranty (6 months minimum). Optional 12-month extended warranty available at checkout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>N64 Products</h3>
+          <p>Professionally tested Nintendo 64 consoles. Limited edition colors available. Bundle options for every budget.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="../products.html">All Nintendo Products</a></li>
+            <li><a href="../guides.html">Setup Guides</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Retro Replay. All consoles include UK statutory 6-month warranty.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../cart.js"></script>
+  <script src="../../particles.js"></script>
+  <script>RetroCart.loadCart();</script>
+  
+  <script>
+    function scrollCarousel(button, direction) {
+      const wrapper = button.closest('.carousel-wrapper');
+      const carousel = wrapper.querySelector('.product-carousel');
+      const scrollAmount = 340;
+      carousel.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  </script>
 </body>
 </html>

@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlayStation 2 (PS2) – Tested Consoles | Retro Replay</title>
-  <link rel="stylesheet" href="../../style.css">
+  <title>PlayStation 2 Collection | Retro Replay</title>
+  <link rel="stylesheet" href="../style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="site-header">
   <div class="header-top">
     <div class="container">
-      <div class="header-promo"><span>🎮 PlayStation 2 — Professionally Tested & Cleaned</span></div>
+      <div class="header-promo">
+        <span>🎮 PlayStation 2 Collection – Professionally Tested & Cleaned</span>
+      </div>
     </div>
   </div>
 
   <div class="header-main">
     <div class="container header-content">
-      <a href="../../index.html" class="site-logo">
-        <img src="../../assets/logo.png" alt="Retro Replay">
+      <a href="../index.html" class="site-logo">
+        <img src="../assets/logo.png" alt="Retro Replay">
         <span>Retro Replay</span>
       </a>
 
@@ -31,7 +32,7 @@
       </div>
 
       <div class="header-actions">
-        <a href="/contact.html" class="header-action"><span>📞</span> <span>Support</span></a>
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
         <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
       </div>
     </div>
@@ -40,233 +41,183 @@
   <nav class="main-nav">
     <div class="container">
       <ul class="nav-list">
-        <li><a href="../../index.html">Home</a></li>
-        <li><a href="../index.html">PlayStation</a></li>
-        <li><a href="ps1.html">PS1</a></li>
-        <li><a href="ps2.html" class="active">PS2</a></li>
-        <li><a href="ps3.html">PS3</a></li>
-        <li><a href="../guides.html">Guides</a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/playstation/products/ps2.html" class="active">PS2</a></li>
+        <li><a href="/playstation/products/ps1.html">PS1</a></li>
+        <li><a href="/playstation/products/ps3.html">PS3</a></li>
       </ul>
     </div>
   </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero" style="background: linear-gradient(135deg, #0051ff 0%, #002db3 100%); padding: 3rem 0;">
-  <div class="container">
-    <div style="text-align: center;">
-      <h1 style="font-size: clamp(2rem, 5vw, 3rem); color: white;">PlayStation 2 Consoles</h1>
-      <p style="font-size: 1.1rem; color: rgba(255,255,255,0.95); max-width: 700px; margin: 1rem auto;">
-        Professionally tested, cleaned and verified. Printed test report included with every console.
-      </p>
-
-      <div style="display:flex; justify-content:center; gap:1rem; flex-wrap: wrap;">
-        <div class="hero-badge">
-          ⭐ <strong>4.8/5 Rating</strong><br>800+ customer reviews
-        </div>
-        <div class="hero-badge">
-          🛡️ <strong>6-Month Warranty</strong><br>UK statutory
-        </div>
-        <div class="hero-badge">
-          🔬 <strong>12-Point Test</strong><br>Performed on every system
-        </div>
+<section class="hero" style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>PlayStation 2 Collection</h1>
+      <p>Professionally tested and cleaned PlayStation 2 consoles. Fat and Slim models available to order, with optional FMCB, HDD upgrades, deep refurbishment, and extended warranty.</p>
+      <div class="hero-cta">
+        <a href="#ps2-models" class="btn btn-primary">View PS2 Models</a>
+        <a href="../services.html" class="btn btn-secondary">Service Options</a>
       </div>
-
-      <a href="#shop-ps2" class="btn btn-primary" style="margin-top: 1.5rem;">Shop PS2 Consoles</a>
+    </div>
+    <div class="hero-image">
+      <img src="../assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Consoles">
     </div>
   </div>
 </section>
 
-<!-- SHOP SECTION -->
-<section class="section" id="shop-ps2" style="background:#f7f9fc;">
+<section class="section" id="ps2-models">
   <div class="container">
-
-    <!-- SECTION HEADER -->
     <div class="section-header">
-      <h2 class="section-title">PS2 Consoles In Stock</h2>
-      <p class="section-subtitle">All consoles tested, externally cleaned, and include printed test report.</p>
+      <h2 class="section-title">PlayStation 2 Models</h2>
+      <p class="section-subtitle">All units are tested, cleaned, verified and supplied with a printed test report. Optional refurbishment (£400) and 12-month premium warranty (+£150) available.</p>
     </div>
 
-    <!-- FAT MODELS -->
-    <h3 class="section-title" style="margin-bottom:1rem;">PS2 Fat Models</h3>
+    <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
 
-    <div class="product-grid">
-
-      <!-- 50003 Black -->
-      <article class="product-card">
-        <img src="../../assets/ps2-fat-5000x.png" alt="PS2 SCPH-50003 Black">
+      <!-- PS2 Fat Models -->
+      <div class="product-card">
         <div class="product-info">
-          <p class="product-description">SCPH-50003 (Black) • Quietest Fat model • Fan & laser tested</p>
-          <h3 class="product-name">PS2 Fat – SCPH-50003 Black</h3>
-
-          <p class="product-price">£84.99</p>
-          <button class="btn btn-success btn-add-cart"
-            onclick="RetroCart.addItem('ps2-50003-black','PS2 SCPH-50003 Black',84.99,'../../assets/ps2-fat-5000x.png')">
-            Add to Cart
-          </button>
+          <h3 class="product-name">PS2 Fat – SCPH-3000x Series</h3>
+          <p class="product-description">Early PS2 Fat revision. Fully tested, cleaned, and graded for condition. Strong compatibility and classic design.</p>
+          <p class="product-description"><strong>Status:</strong> Available to order · 2–5 day build time</p>
         </div>
-      </article>
-
-      <!-- 50003 Silver -->
-      <article class="product-card">
-        <img src="../../assets/ps2-fat-silver.png" alt="PS2 SCPH-50003 Silver">
-        <div class="product-info">
-          <p class="product-description">SCPH-50003 (Silver) • Collector colour • Very limited stock</p>
-          <h3 class="product-name">PS2 Fat – SCPH-50003 Silver</h3>
-
-          <p class="product-price">£94.99</p>
-          <button class="btn btn-success btn-add-cart"
-            onclick="RetroCart.addItem('ps2-50003-silver','PS2 SCPH-50003 Silver',94.99,'../../assets/ps2-fat-silver.png')">
-            Add to Cart
-          </button>
-        </div>
-      </article>
-
-      <!-- 39003 -->
-      <article class="product-card">
-        <img src="../../assets/ps2-fat-3900x.png" alt="PS2 SCPH-39003 Black">
-        <div class="product-info">
-          <p class="product-description">SCPH-39003 • Extremely reliable revision • Popular choice</p>
-          <h3 class="product-name">PS2 Fat – SCPH-39003 Black</h3>
-
-          <p class="product-price">£69.99</p>
-          <button class="btn btn-success btn-add-cart"
-            onclick="RetroCart.addItem('ps2-39003-black','PS2 SCPH-39003 Black',69.99,'../../assets/ps2-fat-3900x.png')">
-            Add to Cart
-          </button>
-        </div>
-      </article>
-
-      <!-- 30003 -->
-      <article class="product-card">
-        <img src="../../assets/ps2-fat-3000x.png" alt="PS2 SCPH-30003 Black">
-        <div class="product-info">
-          <p class="product-description">SCPH-30003 • Early revision • Fully functional</p>
-          <h3 class="product-name">PS2 Fat – SCPH-30003 Black</h3>
-
-          <p class="product-price">£59.99</p>
-          <button class="btn btn-success btn-add-cart"
-            onclick="RetroCart.addItem('ps2-30003-black','PS2 SCPH-30003 Black',59.99,'../../assets/ps2-fat-3000x.png')">
-            Add to Cart
-          </button>
-        </div>
-      </article>
-
-      <!-- 39004 -->
-      <article class="product-card">
-        <img src="../../assets/ps2-fat-3900x.png" alt="PS2 SCPH-39004 Black">
-        <div class="product-info">
-          <p class="product-description">SCPH-39004 (EU model) • Fully tested</p>
-          <h3 class="product-name">PS2 Fat – SCPH-39004 Black</h3>
-
-          <p class="product-price">£69.99</p>
-          <button class="btn btn-success btn-add-cart"
-            onclick="RetroCart.addItem('ps2-39004-black','PS2 SCPH-39004 Black',69.99,'../../assets/ps2-fat-3900x.png')">
-            Add to Cart
-          </button>
-        </div>
-      </article>
-
-      <!-- 35003 -->
-      <article class="product-card">
-        <img src="../../assets/ps2-fat-3500x.png" alt="PS2 SCPH-35003 Black">
-        <div class="product-info">
-          <p class="product-description">SCPH-35003 • Reliable UK revision • Tested in full</p>
-          <h3 class="product-name">PS2 Fat – SCPH-35003 Black</h3>
-
-          <p class="product-price">£64.99</p>
-          <button class="btn btn-success btn-add-cart"
-            onclick="RetroCart.addItem('ps2-35003-black','PS2 SCPH-35003 Black',64.99,'../../assets/ps2-fat-3500x.png')">
-            Add to Cart
-          </button>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- MODDED SECTION -->
-    <h3 class="section-title" style="margin:2rem 0 1rem;">Modded PS2 Consoles</h3>
-
-    <div class="product-grid">
-      <article class="product-card" style="border-color:var(--accent);">
-        <img src="../../assets/ps2-modded.png" alt="Modded PS2 Black">
-        <div class="product-info">
-          <p class="product-description">FMCB installed • OPL • HDD-ready</p>
-          <h3 class="product-name">Modded PS2 – Black</h3>
-          <p class="product-price">£169.99</p>
-          <button class="btn btn-success btn-add-cart"
-            onclick="RetroCart.addItem('ps2-modded-black','PS2 Modded Black',169.99,'../../assets/ps2-modded.png')">
-            Add to Cart
-          </button>
-        </div>
-      </article>
-
-      <article class="product-card" style="border-color:var(--accent);">
-        <img src="../../assets/ps2-modded-silver.png" alt="Modded PS2 Silver">
-        <div class="product-info">
-          <p class="product-description">FMCB installed • OPL • HDD-ready</p>
-          <h3 class="product-name">Modded PS2 – Silver</h3>
-          <p class="product-price">£179.99</p>
-          <button class="btn btn-success btn-add-cart"
-            onclick="RetroCart.addItem('ps2-modded-silver','PS2 Modded Silver',179.99,'../../assets/ps2-modded-silver.png')">
-            Add to Cart
-          </button>
-        </div>
-      </article>
-    </div>
-
-    <!-- OPTIONAL SERVICES -->
-    <h3 class="section-title" style="margin-top:3rem;">Optional Upgrades & Services</h3>
-
-    <div class="service-grid">
-      <div class="service-card">
-        <h4>Full Refurbishment Upgrade</h4>
-        <p>Internal clean, laser calibration, thermal paste, capacitors replaced.</p>
-        <p class="service-price">+£400</p>
       </div>
 
-      <div class="service-card">
-        <h4>500GB / 1TB / 2TB HDD Setup</h4>
-        <p>Pre-loaded OPL system • Instant loading</p>
-        <p class="service-price">From £69.99</p>
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">PS2 Fat – SCPH-3900x Series</h3>
+          <p class="product-description">Improved mechanical stability and stronger drive performance. A solid and reliable Fat model.</p>
+          <p class="product-description"><strong>Status:</strong> Built on request · Fast turnaround</p>
+        </div>
       </div>
 
-      <div class="service-card">
-        <h4>Extended Warranty (12 Months)</h4>
-        <p>Covers hardware faults after the statutory 6 months.</p>
-        <p class="service-price">+£150</p>
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">PS2 Fat – SCPH-5000x Series</h3>
+          <p class="product-description">Premium Fat revision featuring quieter fan, refined internals, and reliable disc reading. One of the best PS2 Fat models.</p>
+          <p class="product-description"><strong>Status:</strong> Available to order</strong></p>
+        </div>
       </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">PS2 Fat – Silver SCPH-50003</h3>
+          <p class="product-description">Collector-grade Silver edition. Rare, desirable, and fully tested. Grading options available.</p>
+          <p class="product-description"><strong>Status:</strong> Built on request · Limited availability</p>
+        </div>
+      </div>
+
+      <!-- PS2 Slim Models -->
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">PS2 Slim – SCPH-7000x</h3>
+          <p class="product-description">First Slim revision. Compact, lightweight, and professionally cleaned and tested.</p>
+          <p class="product-description"><strong>Status:</strong> Available to order</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">PS2 Slim – SCPH-7500x</h3>
+          <p class="product-description">Improved reliability and stable optical drive. Popular for daily gaming setups.</p>
+          <p class="product-description"><strong>Status:</strong> Made to order</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">PS2 Slim – SCPH-7700x</h3>
+          <p class="product-description">Enhanced motherboard revision with excellent compatibility. Cleaned and tested thoroughly.</p>
+          <p class="product-description"><strong>Status:</strong> Available</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">PS2 Slim – SCPH-7900x / 9000x</h3>
+          <p class="product-description">Later Slim revisions with compact internal design and refined performance. Very reliable models.</p>
+          <p class="product-description"><strong>Status:</strong> Available to order</p>
+        </div>
+      </div>
+
     </div>
-
   </div>
 </section>
 
-<!-- FOOTER -->
+<section class="section" style="background:white;">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Optional Upgrades & Mods</h2>
+    </div>
+
+    <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">FMCB Installation</h3>
+          <p class="product-description">Free McBoot installed and configured for homebrew, OPL, HDD loading and utilities. Includes setup guide.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">HDD Upgrade</h3>
+          <p class="product-description">Available in 500GB, 1TB, and 2TB options. Fully prepared with proper PS2 formatting and ready for use with OPL.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">HDMI & Video Enhancements</h3>
+          <p class="product-description">HDMI adaptors and improved output options for modern TVs. Ensures sharper and more stable display.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">Full Refurbishment (Optional)</h3>
+          <p class="product-description">Engineering-level restoration including internal disassembly, ultrasonic cleaning, thermal servicing, PSU checks and optical calibration.</p>
+          <p class="product-description"><strong>+£400</strong></p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">Premium 12-Month Warranty</h3>
+          <p class="product-description">Extend your functional warranty to a full year for long-term peace of mind.</p>
+          <p class="product-description"><strong>+£150</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
       <div class="footer-section">
-        <h3>PlayStation 2</h3>
-        <p>Professionally tested PS2 consoles with printed test reports & UK warranty.</p>
+        <h3>PS2 Collection</h3>
+        <p>Professionally tested and cleaned PlayStation 2 consoles with optional upgrades.</p>
       </div>
 
       <div class="footer-section">
         <h3>Links</h3>
         <ul class="footer-links">
-          <li><a href="../guides.html">Guides</a></li>
-          <li><a href="../../contact.html">Contact</a></li>
-          <li><a href="/services.html">Upgrades & Mods</a></li>
+          <li><a href="../playstation/index.html">PlayStation Home</a></li>
+          <li><a href="../playstation/guides.html">Guides</a></li>
+          <li><a href="../contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2025 Retro Replay. All rights reserved.</p>
-    </div>
+    <div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div>
   </div>
 </footer>
 
-<script src="../../cart.js"></script>
+<script src="../cart.js"></script>
 <script>RetroCart.loadCart();</script>
+
 </body>
 </html>

@@ -3,127 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact PlayStation | Retro Replay</title>
+  <title>PlayStation Support & Contact | Retro Replay</title>
   <link rel="stylesheet" href="../style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="header-top">
-      <div class="container">
-        <div class="header-promo"><span>📞 PlayStation Support</span></div>
-      </div>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo"><span>📞 PlayStation Division Support</span></div>
     </div>
+  </div>
 
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="../index.html" class="site-logo">
-          <img src="../assets/logo.png" alt="Retro Replay">
-          <span>Retro Replay</span>
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="../index.html" class="site-logo">
+        <img src="../assets/logo.png" alt="Retro Replay">
+        <span>Retro Replay</span>
+      </a>
+
+      <div class="search-bar">
+        <input type="search" placeholder="Search PlayStation help..." aria-label="Search">
+        <button class="search-btn">Search</button>
+      </div>
+
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action">
+          <span>📞</span><span>Support</span>
         </a>
-        <div class="search-bar">
-          <input type="search" placeholder="Search..." aria-label="Search">
-          <button class="search-btn">Search</button>
-        </div>
-        <div class="header-actions">
-          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-          <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
-        </div>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
+        </a>
       </div>
     </div>
+  </div>
 
-    <nav class="main-nav">
-      <div class="container">
-        <ul class="nav-list">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="index.html">PlayStation</a></li>
-          <li><a href="contact.html" class="active">Contact</a></li>
+  <nav class="main-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="index.html">PlayStation</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>PlayStation Division Support</h1>
+      <p>
+        For assistance with PlayStation orders, tested & cleaned consoles, optional upgrades,
+        or troubleshooting — our team is here to help.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="section" style="background: white;">
+  <div class="container" style="max-width: 600px;">
+    <div class="section-header">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-subtitle">We respond to most enquiries within 24 hours</p>
+    </div>
+
+    <form onsubmit="return handleContactForm(event)"
+          style="background: #f9fafb; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+
+      <div style="margin-bottom: 1rem;">
+        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Name</label>
+        <input type="text" name="name" placeholder="Your full name" required
+               style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;">
+      </div>
+
+      <div style="margin-bottom: 1rem;">
+        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Email</label>
+        <input type="email" name="email" placeholder="your@email.com" required
+               style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;">
+      </div>
+
+      <div style="margin-bottom: 1rem;">
+        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Subject</label>
+        <input type="text" name="subject" placeholder="What do you need help with?" required
+               style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;">
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Message</label>
+        <textarea name="message" placeholder="Tell us more..." rows="6" required
+                  style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+    </form>
+
+    <!-- ALT CONTACT METHODS -->
+    <div style="background: #f0f4f8; padding: 1.5rem; border-radius: 12px;">
+      <h3 style="color: var(--primary); margin-top: 0;">Other Ways to Reach Us</h3>
+      <p><strong>Email:</strong> <a href="mailto:ps@retroreplay.uk" style="color: var(--primary);">ps@retroreplay.uk</a></p>
+      <p><strong>General Enquiries:</strong> info@retroreplay.uk</p>
+      <p><strong>Phone:</strong> +44 1234 567890</p>
+      <p style="color: var(--gray); font-size: 0.9rem;">Stock changes frequently — message us to reserve a unit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+
+      <div class="footer-section">
+        <h3>PlayStation Support</h3>
+        <p>Helpful guidance for PS1, PS2 and PS3 tested & cleaned consoles.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">PlayStation Home</a></li>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="/warranties.html">Warranty Info</a></li>
         </ul>
       </div>
-    </nav>
-  </header>
 
-  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>Contact PlayStation Division</h1>
-        <p>Questions, orders, or support — we're here to help with your PlayStation refurbished consoles.</p>
-      </div>
     </div>
-  </section>
 
-  <section class="section" style="background: white;">
-    <div class="container" style="max-width: 600px;">
-      <div class="section-header">
-        <h2 class="section-title">Get in Touch</h2>
-      </div>
-
-      <form onsubmit="return handleContactForm(event)" style="background: #f9fafb; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
-        <div style="margin-bottom: 1rem;">
-          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Name</label>
-          <input type="text" name="name" placeholder="Your full name" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px; font-family: inherit;">
-        </div>
-
-        <div style="margin-bottom: 1rem;">
-          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Email</label>
-          <input type="email" name="email" placeholder="your@email.com" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px; font-family: inherit;">
-        </div>
-
-        <div style="margin-bottom: 1rem;">
-          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Subject</label>
-          <input type="text" name="subject" placeholder="How can we help?" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px; font-family: inherit;">
-        </div>
-
-        <div style="margin-bottom: 1.5rem;">
-          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Message</label>
-          <textarea name="message" placeholder="Tell us more..." rows="6" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px; font-family: inherit;"></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-      </form>
-
-      <div style="background: #f0f4f8; padding: 1.5rem; border-radius: 12px;">
-        <h3 style="color: var(--primary); margin-top: 0;">Other Ways to Reach Us</h3>
-        <p><strong>Email:</strong> <a href="mailto:ps@retroreplay.com" style="color: var(--primary);">ps@retroreplay.com</a></p>
-        <p><strong>Phone:</strong> +44 1234 567890</p>
-        <p style="color: var(--gray); font-size: 0.9rem;">Limited PS2 and PS3 stock available — contact now to reserve!</p>
-      </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Retro Replay. All rights reserved.</p>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>PlayStation Support</h3>
-          <p>Fast response times and expert assistance.</p>
-        </div>
-        <div class="footer-section">
-          <h3>Links</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">PlayStation Home</a></li>
-            <li><a href="guides.html">Guides</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Retro Replay. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+<script src="../cart.js"></script>
+<script>
+  RetroCart.loadCart();
+  function handleContactForm(e) {
+    e.preventDefault();
+    alert('Thank you for contacting Retro Replay. We will get back to you shortly.');
+    e.target.reset();
+    return false;
+  }
+</script>
 
-  <script src="../cart.js"></script>
-  <script>
-    RetroCart.loadCart();
-    function handleContactForm(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-      alert('Thank you for contacting Retro Replay! We will get back to you shortly.');
-      form.reset();
-      return false;
-    }
-  </script>
 </body>
 </html>

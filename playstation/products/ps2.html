@@ -25,7 +25,7 @@
 
   <div class="header-main">
     <div class="container header-content">
-      <a href="../../index.html" class="site-logo">
+      <a href="/index.html" class="site-logo">
         <img src="../../assets/logo.png" alt="Retro Replay Logo">
         <span>Retro Replay</span>
       </a>
@@ -45,18 +45,42 @@
     </div>
   </div>
 
+  <!-- GLOBAL NAV (ALPHABETICAL) -->
   <nav class="main-nav">
     <div class="container">
       <ul class="nav-list">
-        <li><a href="../../index.html">Main Home</a></li>
+
+        <li><a href="/index.html">Main Home</a></li>
+
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+
         <li><a href="/playstation/index.html">PlayStation</a></li>
-        <li><a href="/playstation/products/ps1.html">PS1</a></li>
-        <li><a href="/playstation/products/ps2.html" class="active">PS2</a></li>
-        <li><a href="/playstation/products/ps3.html">PS3</a></li>
+
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
         <li><a href="/contact.html">Contact</a></li>
+
       </ul>
     </div>
   </nav>
+
+  <!-- PLAYSTATION SUB-NAV -->
+  <nav class="sub-nav">
+    <div class="container">
+      <ul class="nav-list sub-list">
+        <li><a href="/playstation/products/ps1.html">PS1</a></li>
+        <li><a href="/playstation/products/ps2.html" class="active">PS2</a></li>
+        <li><a href="/playstation/products/ps3.html">PS3</a></li>
+        <li><a href="/playstation/guides.html">Guides</a></li>
+      </ul>
+    </div>
+  </nav>
+
 </header>
 
 <!-- HERO -->
@@ -72,7 +96,7 @@
       </p>
       <div class="hero-cta">
         <a href="/playstation/products/ps2.html" class="btn btn-primary">Browse PS2 Models</a>
-        <a href="#guides" class="btn btn-secondary">PS2 Setup Guides</a>
+        <a href="/playstation/guides.html" class="btn btn-secondary">PS2 Setup Guides</a>
       </div>
     </div>
 
@@ -190,12 +214,21 @@
 
     <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
 
+      <a href="/playstation/guides/ps2-guide.html" class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">PS2 Full Guide</h3>
+          <p class="product-description">
+            Setup steps, model differences, troubleshooting and recommended upgrades.
+          </p>
+        </div>
+      </a>
+
       <div class="product-card">
         <div class="product-info">
           <h3 class="product-name">Refurbishment Overview</h3>
           <p class="product-description">
-            A complete explanation of the optional refurbishment process,  
-            including cleaning, servicing and reliability improvements.
+            A complete explanation of the optional refurbishment process:  
+            deep cleaning, servicing and reliability improvements.
           </p>
         </div>
       </div>
@@ -204,8 +237,7 @@
         <div class="product-info">
           <h3 class="product-name">HDD, FMCB & OPL Setup</h3>
           <p class="product-description">
-            Guidance on installing HDDs, setting up FMCB, configuring OPL  
-            and preparing game libraries correctly and legally.
+            Guidance on installing HDDs, setting up FMCB, configuring OPL and preparing libraries.
           </p>
         </div>
       </div>
@@ -214,8 +246,7 @@
         <div class="product-info">
           <h3 class="product-name">Buying Guide</h3>
           <p class="product-description">
-            Clear breakdown of Fat vs Slim models, disc mechanism revisions,  
-            grading standards and recommended extras for most users.
+            Fat vs Slim, revision differences, grading standards and recommended bundles.
           </p>
         </div>
       </div>
@@ -224,8 +255,7 @@
         <div class="product-info">
           <h3 class="product-name">Trade-In Program</h3>
           <p class="product-description">
-            Turn your old PlayStation hardware into credit towards  
-            a tested PS2 system or upgrade package. Fair and transparent valuations.
+            Turn older consoles into store credit toward a professionally tested PS2.
           </p>
         </div>
       </div>
@@ -234,8 +264,7 @@
         <div class="product-info">
           <h3 class="product-name">Arrival Guarantee & Support</h3>
           <p class="product-description">
-            Details on what’s covered under the Arrival Guarantee,  
-            optional extended protection plans and how to request support.
+            Warranty details, protection plans and support steps.
           </p>
         </div>
       </div>
@@ -244,8 +273,7 @@
         <div class="product-info">
           <h3 class="product-name">Cosmetic Grading</h3>
           <p class="product-description">
-            Explanation of A/B/C grading so buyers know exactly  
-            what cosmetic condition to expect before ordering.
+            Clear explanation of A/B/C grading to set buyer expectations accurately.
           </p>
         </div>
       </div>
@@ -268,7 +296,7 @@
         <h3>Products</h3>
         <ul class="footer-links">
           <li><a href="/playstation/products/ps1.html">PlayStation 1</a></li>
-          <li><a href="/playstation/products/ps2.html">PlayStation 2</a></li>
+          <li><a href="/playstation/products/ps2.html" class="active">PlayStation 2</a></li>
           <li><a href="/playstation/products/ps3.html">PlayStation 3</a></li>
         </ul>
       </div>
@@ -276,9 +304,19 @@
       <div class="footer-section">
         <h3>Support</h3>
         <ul class="footer-links">
-          <li><a href="#guides">Setup Guides</a></li>
+          <li><a href="/playstation/guides.html">Setup Guides</a></li>
           <li><a href="/contact.html">Contact</a></li>
           <li><a href="/warranties.html">Warranty</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>More Consoles</h3>
+        <ul class="footer-links">
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
         </ul>
       </div>
 

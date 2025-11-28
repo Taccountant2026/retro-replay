@@ -3,90 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Branding | Retro Replay</title>
+  <title>Console Setup Guides | Retro Replay</title>
+  <meta name="description" content="Setup guides for PS2, PS1, Xbox, Nintendo, Atari and Sega. Includes modding instructions, HDD installation, FMCB, troubleshooting and more.">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-top"><div class="container"><div class="header-promo"><span>🎨 Brand Guidelines</span></div></div></div>
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
-        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
-        <div class="header-actions"><a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
-      </div>
-    </div>
-    <nav class="main-nav"><div class="container"><ul class="nav-list"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="branding.html" class="active">Branding</a></li></ul></div></nav>
-  </header>
 
-  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);"><div class="container hero-content"><div class="hero-text"><h1>Brand Guidelines</h1><p>Retro Replay visual identity and design standards.</p></div></div></section>
-
-  <section class="section" style="background: white;">
-    <div class="container" style="max-width: 900px;">
-      <div class="section-header">
-        <h2 class="section-title">Color Palette</h2>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-        <div style="background: #2563eb; padding: 2rem; border-radius: 12px; color: white; text-align: center;">
-          <strong>Primary Blue</strong><br>#2563eb
-        </div>
-        <div style="background: #10b981; padding: 2rem; border-radius: 12px; color: white; text-align: center;">
-          <strong>Success Green</strong><br>#10b981
-        </div>
-        <div style="background: #f59e0b; padding: 2rem; border-radius: 12px; color: white; text-align: center;">
-          <strong>Accent Orange</strong><br>#f59e0b
-        </div>
-        <div style="background: #f3f4f6; padding: 2rem; border-radius: 12px; color: var(--dark); text-align: center; border: 1px solid var(--gray-lighter);">
-          <strong>Light Gray</strong><br>#f3f4f6
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container" style="max-width: 900px;">
-      <div class="section-header">
-        <h2 class="section-title">Typography</h2>
-      </div>
-
-      <div class="product-grid" style="grid-template-columns: 1fr;">
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name" style="font-family: 'Inter', sans-serif;">Font: Inter</h3>
-            <p class="product-description">Modern, clean typeface used for all website content. Available in weights: 400, 500, 600, 700, 800.</p>
-            <p style="font-size: 0.9rem; color: var(--gray);">Headlines: Weight 700-800<br>Body: Weight 400-500<br>Emphasis: Weight 600-700</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background: white;">
-    <div class="container" style="max-width: 900px;">
-      <div class="section-header">
-        <h2 class="section-title">Logo Usage</h2>
-      </div>
-
-      <div class="product-card">
-        <div class="product-info">
-          <p style="color: var(--dark); line-height: 1.8;">The Retro Replay logo should be used consistently across all materials. Minimum size: 60px width. Always maintain proper spacing around the logo. Do not distort, rotate, or modify the logo design.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
+<header class="site-header">
+  <div class="header-top">
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-section"><h3>Branding</h3><p>Visual identity guidelines.</p></div>
-        <div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li></ul></div>
+      <div class="header-promo">
+        <span>🎮 Step-by-Step Console Setup Guides</span>
+        <span>📘 Free with every order</span>
       </div>
-      <div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
+      </div>
     </div>
-  </footer>
+  </div>
 
-  <script src="cart.js"></script><script>RetroCart.loadCart();</script>
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/index.html" class="site-logo">
+        <img src="assets/logo.png" alt="Retro Replay Logo">
+        <span>Retro Replay</span>
+      </a>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a class="active" href="/guides.html">Setup Guides</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" style="padding: 3rem 0;">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Setup & Modding Guides</h1>
+      <p>Everything you need for setting up, maintaining, and upgrading your retro console.  
+      Includes first-time setup, troubleshooting, HDD/FMCB installation, and accessory configuration.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Select a Console</h2>
+      <p class="section-subtitle">Choose your console to view detailed setup guides</p>
+    </div>
+
+    <div class="category-grid">
+
+      <a href="/playstation/guides.html" class="category-card">
+        <div class="category-icon">
+          <img src="assets/playstation-logo.png" alt="PlayStation">
+        </div>
+        <h3 class="category-name">PlayStation</h3>
+        <p class="category-count">PS1 • PS2 • PS3</p>
+      </a>
+
+      <a href="/xbox/guides.html" class="category-card">
+        <div class="category-icon">
+          <img src="assets/xboxlogo.png" alt="Xbox">
+        </div>
+        <h3 class="category-name">Xbox</h3>
+        <p class="category-count">Original • 360</p>
+      </a>
+
+      <a href="/nintendo/guides.html" class="category-card">
+        <div class="category-icon">
+          <img src="assets/nintendologo.png" alt="Nintendo">
+        </div>
+        <h3 class="category-name">Nintendo</h3>
+        <p class="category-count">N64 • SNES • More</p>
+      </a>
+
+      <a href="/atari/guides.html" class="category-card">
+        <div class="category-icon">
+          <img src="assets/atarilogo.png" alt="Atari">
+        </div>
+        <h3 class="category-name">Atari</h3>
+        <p class="category-count">2600 • 5200 • 7800</p>
+      </a>
+
+      <a href="/sega/guides.html" class="category-card">
+        <div class="category-icon">
+          <img src="assets/segalogo.png" alt="Sega">
+        </div>
+        <h3 class="category-name">Sega</h3>
+        <p class="category-count">Mega Drive • Saturn • Dreamcast</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 Retro Replay. Setup guides for classic consoles.</p>
+  </div>
+</footer>
+
 </body>
 </html>

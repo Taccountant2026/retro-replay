@@ -9,145 +9,66 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    .sourcing-wrapper {
-      background: #ffffff;
-      padding: 50px 0;
-    }
+    .sourcing-wrapper { background: #ffffff; padding: 50px 0; }
 
     .sourcing-card {
-      background: #f8f9fc;
-      border: 1px solid #dce3f3;
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 30px;
+      background: #f8f9fc; border: 1px solid #dce3f3;
+      border-radius: 12px; padding: 24px; margin-bottom: 30px;
     }
 
-    .sourcing-card h2 {
-      margin-top: 0;
-      font-size: 24px;
-      color: #1e3a8a;
-      font-weight: 800;
-    }
-
-    .sourcing-card p {
-      font-size: 15px;
-      color: #374151;
-    }
-
-    /* LINKS PANEL */
-    .link-panel {
-      background: #eef2ff;
-      border: 1px solid #c7d2fe;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-    }
-
-    .link-panel h3 {
-      margin: 0 0 14px;
-      font-size: 18px;
-      color: #1e3a8a;
-      font-weight: 700;
-    }
-
-    .link-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-      gap: 12px;
-    }
-
-    .link-button {
-      display: block;
-      padding: 12px 16px;
-      background: #2563eb;
-      color: white;
-      text-align: center;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 14px;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    .link-button:hover {
-      background: #1e40af;
-    }
+    .sourcing-card h2 { margin-top: 0; font-size: 22px; color: #1e3a8a; font-weight: 700; }
+    .sourcing-card p { font-size: 15px; color: #374151; }
 
     form label {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1f2937;
-      margin-bottom: 6px;
-      display: block;
+      font-size: 14px; font-weight: 600; color: #1f2937;
+      margin-bottom: 6px; display: block;
     }
 
-    form input,
-    form select,
-    form textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      font-size: 14px;
-      background: white;
-      margin-bottom: 16px;
-      font-family: Inter, sans-serif;
+    form input, form select, form textarea {
+      width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1;
+      border-radius: 8px; font-size: 14px; background: white;
+      margin-bottom: 16px; font-family: Inter, sans-serif;
     }
 
-    textarea {
-      height: 120px;
-      resize: vertical;
-    }
+    textarea { height: 120px; resize: vertical; }
 
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    @media(max-width: 768px) {
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media(max-width: 768px) { .form-row { grid-template-columns: 1fr; } }
 
     .btn-submit {
-      padding: 14px 24px;
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      padding: 14px 24px; background: #2563eb; color: white; border: none;
+      border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer;
+      text-transform: uppercase; letter-spacing: 0.04em;
     }
-
-    .btn-submit:hover {
-      background: #1e40af;
-    }
+    .btn-submit:hover { background: #1e40af; }
 
     .info-panel {
-      background: #eef2ff;
-      border: 1px solid #c7d2fe;
-      padding: 18px;
-      border-radius: 10px;
-      margin-top: 20px;
-      color: #1e3a8a;
+      background: #eef2ff; border: 1px solid #c7d2fe; padding: 18px;
+      border-radius: 10px; margin-top: 20px; color: #1e3a8a;
     }
   </style>
-
 </head>
+
 <body>
 
 <!-- HEADER -->
 <header class="site-header">
-  <div class="header-top"><div class="container"><div class="header-promo"><span>📦 Console Sourcing Service</span></div></div></div>
+
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo">
+        <span>📦 Console Sourcing Service</span>
+      </div>
+    </div>
+  </div>
 
   <div class="header-main">
     <div class="container header-content">
-      <a href="/index.html" class="site-logo"><img src="/assets/logo.png" alt="Retro Replay Logo"><span>Retro Replay</span></a>
+
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay Logo">
+        <span>Retro Replay</span>
+      </a>
 
       <div class="search-bar">
         <input type="search" placeholder="Search..." aria-label="Search">
@@ -161,22 +82,35 @@
           <span class="cart-badge" id="cart-count-js">0</span>
         </a>
       </div>
+
     </div>
   </div>
 
+  <!-- UPDATED GLOBAL NAV -->
   <nav class="main-nav">
     <div class="container">
       <ul class="nav-list">
-        <li><a href="/index.html">Home</a></li>
+
+        <li><a href="/index.html">Main Home</a></li>
+
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
         <li><a href="/playstation/index.html">PlayStation</a></li>
-        <li><a href="/services.html" class="active">Services</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html" class="active">Sourcing</a></li>
+        <li><a href="/services.html">Services</a></li>
         <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
         <li><a href="/contact.html">Contact</a></li>
+
       </ul>
     </div>
   </nav>
-</header>
 
+</header>
 
 <!-- HERO -->
 <section class="hero" style="background: linear-gradient(135deg,#2563eb 0%,#1e40af 100%);">
@@ -189,41 +123,21 @@
 </section>
 
 
-<!-- SOURCING LINKS -->
+<!-- FORM SECTION -->
 <section class="sourcing-wrapper">
   <div class="container">
 
-    <div class="link-panel">
-      <h3>Quick Select a Console Family</h3>
-
-      <div class="link-grid">
-        <a class="link-button" href="#form" onclick="setModel('PlayStation 2 (PS2)')">PS2</a>
-        <a class="link-button" href="#form" onclick="setModel('PlayStation 1 (PS1)')">PS1</a>
-        <a class="link-button" href="#form" onclick="setModel('PlayStation 3 (PS3)')">PS3</a>
-        <a class="link-button" href="#form" onclick="setModel('Original Xbox')">Original Xbox</a>
-        <a class="link-button" href="#form" onclick="setModel('Xbox 360')">Xbox 360</a>
-        <a class="link-button" href="#form" onclick="setModel('Nintendo Wii')">Nintendo Wii</a>
-        <a class="link-button" href="#form" onclick="setModel('Nintendo GameCube')">GameCube</a>
-        <a class="link-button" href="#form" onclick="setModel('Sega Consoles')">Sega</a>
-        <a class="link-button" href="#form" onclick="setModel('Other')">Other</a>
-      </div>
-    </div>
-
-
-    <!-- FORM HEADER -->
     <div class="sourcing-card">
-      <h2 id="form">Request a Console</h2>
+      <h2>Request a Console</h2>
       <p>We will check live market availability and get back to you with confirmed pricing and options.</p>
     </div>
 
-
-    <!-- FORM -->
     <form action="mailto:support@retroreplay.uk" method="POST" enctype="text/plain">
 
       <div class="form-row">
         <div>
           <label>Console Family</label>
-          <select id="consoleSelect" name="Console Family" required>
+          <select name="Console Family" required>
             <option value="">Select...</option>
             <option>PlayStation 2 (PS2)</option>
             <option>PlayStation 1 (PS1)</option>
@@ -284,7 +198,6 @@
 
     </form>
 
-
     <div class="info-panel">
       <p><strong>Note:</strong> This does not obligate you to purchase. You’ll receive an email with models, prices, and availability before any order is confirmed.</p>
     </div>
@@ -293,22 +206,46 @@
 </section>
 
 
-<!-- FOOTER -->
+<!-- FOOTER (UPDATED FULL STRUCTURE) -->
 <footer class="site-footer">
   <div class="container">
+
     <div class="footer-content">
 
       <div class="footer-section">
-        <h3>Console Sourcing</h3>
-        <p>We locate the cleanest, most reliable retro consoles available.</p>
+        <h3>Retro Replay</h3>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
       </div>
 
       <div class="footer-section">
-        <h3>Links</h3>
+        <h3>Shop</h3>
         <ul class="footer-links">
-          <li><a href="/index.html">Home</a></li>
           <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul class="footer-links">
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/warranties.html">Warranty Info</a></li>
+          <li><a href="/delivery.html">Shipping</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul class="footer-links">
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
+          <li><a href="/branding.html">Branding</a></li>
         </ul>
       </div>
 
@@ -317,17 +254,12 @@
     <div class="footer-bottom">
       <p>&copy; 2025 Retro Replay. All rights reserved.</p>
     </div>
+
   </div>
 </footer>
 
 <script src="/cart.js"></script>
-<script>
-RetroCart.loadCart();
-
-function setModel(model) {
-  document.getElementById("consoleSelect").value = model;
-}
-</script>
+<script>RetroCart.loadCart();</script>
 
 </body>
 </html>

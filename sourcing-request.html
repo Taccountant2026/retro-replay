@@ -24,14 +24,53 @@
 
     .sourcing-card h2 {
       margin-top: 0;
-      font-size: 22px;
+      font-size: 24px;
       color: #1e3a8a;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .sourcing-card p {
       font-size: 15px;
       color: #374151;
+    }
+
+    /* LINKS PANEL */
+    .link-panel {
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    .link-panel h3 {
+      margin: 0 0 14px;
+      font-size: 18px;
+      color: #1e3a8a;
+      font-weight: 700;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      gap: 12px;
+    }
+
+    .link-button {
+      display: block;
+      padding: 12px 16px;
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .link-button:hover {
+      background: #1e40af;
     }
 
     form label {
@@ -97,18 +136,6 @@
       margin-top: 20px;
       color: #1e3a8a;
     }
-
-    .badge-stock {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 12px;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-    }
   </style>
 
 </head>
@@ -162,21 +189,41 @@
 </section>
 
 
-<!-- FORM SECTION -->
+<!-- SOURCING LINKS -->
 <section class="sourcing-wrapper">
   <div class="container">
 
+    <div class="link-panel">
+      <h3>Quick Select a Console Family</h3>
+
+      <div class="link-grid">
+        <a class="link-button" href="#form" onclick="setModel('PlayStation 2 (PS2)')">PS2</a>
+        <a class="link-button" href="#form" onclick="setModel('PlayStation 1 (PS1)')">PS1</a>
+        <a class="link-button" href="#form" onclick="setModel('PlayStation 3 (PS3)')">PS3</a>
+        <a class="link-button" href="#form" onclick="setModel('Original Xbox')">Original Xbox</a>
+        <a class="link-button" href="#form" onclick="setModel('Xbox 360')">Xbox 360</a>
+        <a class="link-button" href="#form" onclick="setModel('Nintendo Wii')">Nintendo Wii</a>
+        <a class="link-button" href="#form" onclick="setModel('Nintendo GameCube')">GameCube</a>
+        <a class="link-button" href="#form" onclick="setModel('Sega Consoles')">Sega</a>
+        <a class="link-button" href="#form" onclick="setModel('Other')">Other</a>
+      </div>
+    </div>
+
+
+    <!-- FORM HEADER -->
     <div class="sourcing-card">
-      <h2>Request a Console</h2>
+      <h2 id="form">Request a Console</h2>
       <p>We will check live market availability and get back to you with confirmed pricing and options.</p>
     </div>
 
+
+    <!-- FORM -->
     <form action="mailto:support@retroreplay.uk" method="POST" enctype="text/plain">
 
       <div class="form-row">
         <div>
           <label>Console Family</label>
-          <select name="Console Family" required>
+          <select id="consoleSelect" name="Console Family" required>
             <option value="">Select...</option>
             <option>PlayStation 2 (PS2)</option>
             <option>PlayStation 1 (PS1)</option>
@@ -237,6 +284,7 @@
 
     </form>
 
+
     <div class="info-panel">
       <p><strong>Note:</strong> This does not obligate you to purchase. You’ll receive an email with models, prices, and availability before any order is confirmed.</p>
     </div>
@@ -249,6 +297,7 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
+
       <div class="footer-section">
         <h3>Console Sourcing</h3>
         <p>We locate the cleanest, most reliable retro consoles available.</p>
@@ -272,7 +321,13 @@
 </footer>
 
 <script src="/cart.js"></script>
-<script>RetroCart.loadCart();</script>
+<script>
+RetroCart.loadCart();
+
+function setModel(model) {
+  document.getElementById("consoleSelect").value = model;
+}
+</script>
 
 </body>
 </html>

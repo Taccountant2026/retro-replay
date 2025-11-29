@@ -3,120 +3,251 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PS1 Standard Console | Retro Replay</title>
+  <title>PlayStation 1 (PS1) Standard Models | Retro Replay</title>
   <link rel="stylesheet" href="../../style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<section class="hero">
-  <div class="container hero-content">
-    <div class="hero-text">
-      <h1>PlayStation 1 — Standard Console</h1>
-      <p>
-        Professionally function-tested, externally cleaned and condition-graded.  
-        A reliable original PS1 unit ideal for collectors and casual players.  
-        Optional refurbishment & upgrades available.
+<header class="site-header">
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo">
+        <span>🎮 PlayStation 1 (PS1) — Sourced to Order</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="../../index.html" class="site-logo">
+        <img src="../../assets/logo.png" alt="Retro Replay">
+        <span>Retro Replay</span>
+      </a>
+
+      <div class="search-bar">
+        <input type="search" placeholder="Search PS1 models..." aria-label="Search">
+        <button class="search-btn">Search</button>
+      </div>
+
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../index.html" class="active">PlayStation</a></li>
+        <li><a href="ps1.html">PS1 Collection</a></li>
+        <li><a href="../guides.html">Guides</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<nav class="page-nav" style="position: sticky; top:185px; background:white; box-shadow:0 2px 8px rgba(0,0,0,0.1); z-index:999; border-bottom:2px solid #2563eb;">
+  <div class="container">
+    <ul style="display:flex; gap:1rem; list-style:none; justify-content:center; overflow-x:auto; margin:0; padding:0;">
+      <li><a href="#shop" style="padding:1rem 2rem; font-weight:600; white-space:nowrap;">🎮 Shop PS1 Models</a></li>
+      <li><a href="#addons" style="padding:1rem 2rem; font-weight:600; white-space:nowrap;">🛠️ Add-Ons</a></li>
+      <li><a href="#support" style="padding:1rem 2rem; font-weight:600; white-space:nowrap;">💬 Support</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" style="background: linear-gradient(135deg,#1d4ed8 0%,#1e3a8a 50%,#020617 100%); padding:3rem 0;">
+  <div class="container" style="text-align:center; max-width:800px; margin:0 auto;">
+    <h1 style="font-size:clamp(2rem,5vw,3rem); margin-bottom:1rem;">PlayStation 1 (PS1) Standard Models</h1>
+    <p style="font-size:1.1rem; color:rgba(255,255,255,0.9); margin-bottom:2rem;">
+      Original PS1 consoles sourced to your specification.  
+      All systems receive full functionality testing and an exterior clean before dispatch,  
+      with an Arrival Guarantee as standard.
+    </p>
+
+    <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; margin-bottom:2rem;">
+      <div style="background:rgba(15,23,42,0.7); padding:0.75rem 1.25rem; border-radius:0.5rem; display:flex; gap:0.5rem;">
+        <span style="font-size:1.5rem;">🔍</span>
+        <div>
+          <div style="color:white; font-weight:700;">Sourced to Specification</div>
+          <div style="color:rgba(255,255,255,0.9); font-size:0.8rem;">Choose revision & condition</div>
+        </div>
+      </div>
+      <div style="background:rgba(15,23,42,0.7); padding:0.75rem 1.25rem; border-radius:0.5rem; display:flex; gap:0.5rem;">
+        <span style="font-size:1.5rem;">🔬</span>
+        <div>
+          <div style="color:white; font-weight:700;">12-Point Test</div>
+          <div style="color:rgba(255,255,255,0.9); font-size:0.8rem;">Identical checks to PS2</div>
+        </div>
+      </div>
+      <div style="background:rgba(15,23,42,0.7); padding:0.75rem 1.25rem; border-radius:0.5rem; display:flex; gap:0.5rem;">
+        <span style="font-size:1.5rem;">📦</span>
+        <div>
+          <div style="color:white; font-weight:700;">Arrival Guarantee</div>
+          <div style="color:rgba(255,255,255,0.9); font-size:0.8rem;">Guaranteed working arrival</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#shop" class="btn btn-primary" style="padding:1rem 2.5rem; font-size:1.1rem;">Request a PS1</a>
+  </div>
+</section>
+
+<section class="section" id="shop" style="background:#f8fafc; padding:3rem 0; scroll-margin-top:240px;">
+  <div class="container">
+
+    <div style="background:linear-gradient(135deg,#dbeafe,#e0f2fe); padding:2rem; border-radius:1rem; text-align:center; margin-bottom:3rem;">
+      <div style="background:linear-gradient(135deg,#2563eb,#1d4ed8); color:white; padding:0.6rem 1.8rem; border-radius:2rem; display:inline-block; font-weight:700; margin-bottom:1rem;">
+        🎮 PS1 Sourcing
+      </div>
+      <h2 style="font-size:clamp(2rem,4vw,2.75rem); font-weight:800;">Choose Your PS1 Revision</h2>
+      <p style="color:#475569; font-size:1.1rem; max-width:700px; margin:0 auto;">
+        All PS1 models sourced: SCPH-1002, 3002, 5502, 7002, 7502, 9002.  
+        Select any grade and submit a sourcing request.
       </p>
     </div>
-    <div class="hero-image">
-      <img src="../../assets/ps1_standard.jpg" alt="PS1 Standard Console">
+
+    <div class="carousel-wrapper">
+
+      <button class="carousel-nav prev" onclick="scrollCarousel(this, -1)">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+
+      <div class="product-carousel">
+
+        <!-- LOOPED EXAMPLE FOR EACH MODEL -->
+        <!-- You can duplicate this block for every PS1 model you support -->
+
+        <!-- Example: SCPH-7502 A grade -->
+        <article class="product-card">
+          <div style="background:#020617; position:relative;">
+            <img src="../../assets/ps1_hero.jpg" alt="PS1 SCPH-7502 A" style="width:100%; height:200px; object-fit:cover;">
+            <span class="product-badge sale" style="top:0.75rem; right:0.75rem;">A-Grade</span>
+            <span class="product-badge new" style="top:0.75rem; left:0.75rem;">SCPH-7502</span>
+          </div>
+          <div class="product-info">
+            <p class="product-description">Excellent condition. Fully tested when sourced.</p>
+            <p style="color:#2563eb; font-weight:600;">Typical Range £65–£110</p>
+            <a href="/sourcing-request.html" class="btn btn-secondary" style="width:100%;">Request This Model</a>
+          </div>
+        </article>
+
+        <!-- B grade -->
+        <article class="product-card">
+          <div style="background:#020617; position:relative;">
+            <img src="../../assets/ps1_hero.jpg" alt="PS1 SCPH-7502 B" style="width:100%; height:200px; object-fit:cover;">
+            <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#22c55e;">B-Grade</span>
+            <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#1e293b;">SCPH-7502</span>
+          </div>
+          <div class="product-info">
+            <p class="product-description">Light cosmetic wear. Fully functional.</p>
+            <p style="color:#2563eb; font-weight:600;">Budget Friendly</p>
+            <a href="/sourcing-request.html" class="btn btn-secondary" style="width:100%;">Request This Model</a>
+          </div>
+        </article>
+
+        <!-- C grade -->
+        <article class="product-card">
+          <div style="background:#020617; position:relative;">
+            <img src="../../assets/ps1_hero.jpg" alt="PS1 SCPH-7502 C" style="width:100%; height:200px; object-fit:cover;">
+            <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#f97316;">C-Grade</span>
+            <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#334155;">SCPH-7502</span>
+          </div>
+          <div class="product-info">
+            <p class="product-description">More cosmetic wear, identical testing.</p>
+            <p style="color:#2563eb; font-weight:600;">Best Value</p>
+            <a href="/sourcing-request.html" class="btn btn-secondary" style="width:100%;">Request This Model</a>
+          </div>
+        </article>
+
+        <!-- Duplicate this block for: 1002, 3002, 5502, 7002, 9002 -->
+
+      </div>
+
+      <button class="carousel-nav next" onclick="scrollCarousel(this, 1)">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+
     </div>
   </div>
 </section>
 
-<section class="section">
+
+<!-- ADD-ONS -->
+<section class="section" id="addons" style="background:white; padding:3rem 0; scroll-margin-top:240px;">
   <div class="container">
-    
-    <div class="section-header">
-      <h2 class="section-title">What's Included</h2>
-      <p class="section-subtitle">All PS1 consoles are tested and prepared individually.</p>
+    <div style="text-align:center; background:linear-gradient(135deg,#ecfeff,#e0f2fe); padding:2rem 1rem; border-radius:1rem; margin-bottom:3rem;">
+      <h2 style="font-weight:800; font-size:clamp(2rem,4vw,2.75rem);">PS1 Add-Ons & Accessories</h2>
     </div>
 
-    <div class="product-grid">
-
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">12-Point Function Test</h3>
-          <p class="product-description">
-            Disc reading, controller ports, memory card slots, video output, audio output, 
-            and general performance verified by a technician.  
-          </p>
-        </div>
+    <details open>
+      <summary class="summary-title">🎮 Controllers</summary>
+      <div class="summary-content">
+        <p>Original PS1 controllers, DualShock, memory cards, AV leads etc.</p>
       </div>
+    </details>
 
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">External Clean & Grade</h3>
-          <p class="product-description">
-            Exterior shell cleaned and condition-graded A/B/C for transparency.  
-            Ideal for collectors wanting an honest, accurate listing.
-          </p>
-        </div>
+    <details>
+      <summary class="summary-title">⚙️ Mods</summary>
+      <div class="summary-content">
+        <p>Region mods, laser tune, LED swaps.</p>
       </div>
-
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">Optional Refurbishment</h3>
-          <p class="product-description">
-            Available on request: internal servicing, laser tune, lubrication, longevity improvements.  
-          </p>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">Arrival Guarantee</h3>
-          <p class="product-description">
-            Your console is guaranteed to arrive fully working as tested.
-          </p>
-        </div>
-      </div>
-
-    </div>
+    </details>
 
   </div>
 </section>
 
-<section class="section" id="models">
+<!-- SUPPORT -->
+<section class="section" id="support" style="background:linear-gradient(135deg,#020617,#0f172a,#020617); color:white; padding:3rem 0; scroll-margin-top:240px;">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Available Conditions</h2>
-      <p class="section-subtitle">Choose the grade that best suits your needs.</p>
-    </div>
+    <h2 style="text-align:center; font-size:clamp(2rem,4vw,2.75rem); font-weight:800;">💬 Support for Sourced PS1 Consoles</h2>
 
-    <div class="product-grid">
-
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">A-Grade</h3>
-          <p class="product-description">
-            Minimal wear, excellent cosmetic appearance, strong disc reading performance.
-          </p>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">B-Grade</h3>
-          <p class="product-description">
-            Light cosmetic wear but fully working and clean.
-          </p>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">C-Grade</h3>
-          <p class="product-description">
-            Noticeable wear but fully working, ideal for budget buyers.
-          </p>
-        </div>
-      </div>
-
+    <div style="text-align:center; margin-top:2rem;">
+      <p style="color:rgba(226,232,240,0.9);">
+        Each sourced PS1 undergoes the same testing, cleaning and guarantee process as in-stock units.
+      </p>
+      <a href="/sourcing-request.html" style="color:#38bdf8; text-decoration:underline;">Open sourcing-request.html</a>
     </div>
   </div>
 </section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>PlayStation 1 Models</h3>
+        <p>PS1 consoles sourced to order with full testing.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="ps1.html">Back to PS1 Collection</a></li>
+          <li><a href="../guides.html">PS1 Guides</a></li>
+          <li><a href="/sourcing-request.html">Sourcing Request</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Retro Replay. PS1 consoles include Arrival Guarantee.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../cart.js"></script>
+<script>
+  function scrollCarousel(button, direction) {
+    const wrapper = button.closest('.carousel-wrapper');
+    const carousel = wrapper.querySelector('.product-carousel');
+    carousel.scrollBy({
+      left: direction * 340,
+      behavior: 'smooth'
+    });
+  }
+  RetroCart.loadCart();
+</script>
 
 </body>
 </html>

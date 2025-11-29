@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Console Sourcing Request | Retro Replay</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    .sourcing-wrapper {
+      background: #ffffff;
+      padding: 50px 0;
+    }
+
+    .sourcing-card {
+      background: #f8f9fc;
+      border: 1px solid #dce3f3;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 30px;
+    }
+
+    .sourcing-card h2 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #1e3a8a;
+      font-weight: 700;
+    }
+
+    .sourcing-card p {
+      font-size: 15px;
+      color: #374151;
+    }
+
+    form label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 14px;
+      background: white;
+      margin-bottom: 16px;
+      font-family: Inter, sans-serif;
+    }
+
+    textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media(max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .btn-submit {
+      padding: 14px 24px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-submit:hover {
+      background: #1e40af;
+    }
+
+    .info-panel {
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      padding: 18px;
+      border-radius: 10px;
+      margin-top: 20px;
+      color: #1e3a8a;
+    }
+
+    .badge-stock {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+  </style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-top"><div class="container"><div class="header-promo"><span>📦 Console Sourcing Service</span></div></div></div>
+
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/index.html" class="site-logo"><img src="/assets/logo.png" alt="Retro Replay Logo"><span>Retro Replay</span></a>
+
+      <div class="search-bar">
+        <input type="search" placeholder="Search..." aria-label="Search">
+        <button class="search-btn">Search</button>
+      </div>
+
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/services.html" class="active">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" style="background: linear-gradient(135deg,#2563eb 0%,#1e40af 100%);">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Console Sourcing Request</h1>
+      <p>Looking for a specific PS2, PS1, PS3, Xbox or Nintendo console not currently in stock?</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FORM SECTION -->
+<section class="sourcing-wrapper">
+  <div class="container">
+
+    <div class="sourcing-card">
+      <h2>Request a Console</h2>
+      <p>We will check live market availability and get back to you with confirmed pricing and options.</p>
+    </div>
+
+    <form action="mailto:support@retroreplay.uk" method="POST" enctype="text/plain">
+
+      <div class="form-row">
+        <div>
+          <label>Console Family</label>
+          <select name="Console Family" required>
+            <option value="">Select...</option>
+            <option>PlayStation 2 (PS2)</option>
+            <option>PlayStation 1 (PS1)</option>
+            <option>PlayStation 3 (PS3)</option>
+            <option>Original Xbox</option>
+            <option>Xbox 360</option>
+            <option>Nintendo Wii</option>
+            <option>Nintendo GameCube</option>
+            <option>Sega Consoles</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Specific Model (optional)</label>
+          <input type="text" name="Specific Model" placeholder="e.g. SCPH-50003, boxed, silver etc">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label>Condition Preference</label>
+          <select name="Condition">
+            <option>Any good working</option>
+            <option>Good Condition</option>
+            <option>Very Good / Collector</option>
+            <option>Boxed Only</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Budget (approx)</label>
+          <input type="text" name="Budget" placeholder="e.g. £60–£120">
+        </div>
+      </div>
+
+      <label>Included Items Wanted</label>
+      <textarea name="Included Items" placeholder="Controller, memory card, AV/HDMI, cables, games etc"></textarea>
+
+      <label>Modding or Upgrade Requests (optional)</label>
+      <textarea name="Mods" placeholder="FMCB, OPL setup, HDD upgrade, HDMI adapter, none etc"></textarea>
+
+      <div class="form-row">
+        <div>
+          <label>Your Name</label>
+          <input type="text" name="Name" required>
+        </div>
+        <div>
+          <label>Your Email</label>
+          <input type="email" name="Email" required>
+        </div>
+      </div>
+
+      <label>Additional Notes</label>
+      <textarea name="Notes" placeholder="Anything extra we should know"></textarea>
+
+      <button type="submit" class="btn-submit">Send Request</button>
+
+    </form>
+
+    <div class="info-panel">
+      <p><strong>Note:</strong> This does not obligate you to purchase. You’ll receive an email with models, prices, and availability before any order is confirmed.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Console Sourcing</h3>
+        <p>We locate the cleanest, most reliable retro consoles available.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Links</h3>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/services.html">Services</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Retro Replay. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/cart.js"></script>
+<script>RetroCart.loadCart();</script>
+
+</body>
+</html>

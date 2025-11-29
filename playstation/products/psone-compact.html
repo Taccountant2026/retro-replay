@@ -3,119 +3,348 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PSOne Compact Console | Retro Replay</title>
+  <title>PSOne Compact Models | Retro Replay</title>
   <link rel="stylesheet" href="../../style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<section class="hero">
-  <div class="container hero-content">
-    <div class="hero-text">
-      <h1>PSOne — Compact PlayStation</h1>
-      <p>
-        A lightweight, redesigned version of the original PS1.  
-        Function-tested, externally cleaned and condition-graded.  
-        Perfect for space-saving setups or collectors completing a set.
+<header class="site-header">
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo">
+        <span>🎮 PSOne (Compact) — Sourced to Order</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="../../index.html" class="site-logo">
+        <img src="../../assets/logo.png" alt="Retro Replay">
+        <span>Retro Replay</span>
+      </a>
+
+      <div class="search-bar">
+        <input type="search" placeholder="Search PSOne models..." aria-label="Search">
+        <button class="search-btn">Search</button>
+      </div>
+
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../index.html" class="active">PlayStation</a></li>
+        <li><a href="ps1.html">PS1 Collection</a></li>
+        <li><a href="../guides.html">Guides</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- Sticky page nav -->
+<nav class="page-nav" style="position: sticky; top:185px; background:white; box-shadow:0 2px 8px rgba(0,0,0,0.1); z-index:999; border-bottom:2px solid #2563eb;">
+  <div class="container">
+    <ul style="display:flex; gap:1rem; list-style:none; justify-content:center; overflow-x:auto; margin:0; padding:0;">
+      <li><a href="#shop" style="padding:1rem 2rem; font-weight:600; white-space:nowrap;">🎮 Shop PSOne Models</a></li>
+      <li><a href="#addons" style="padding:1rem 2rem; font-weight:600; white-space:nowrap;">🛠️ Add-Ons</a></li>
+      <li><a href="#support" style="padding:1rem 2rem; font-weight:600; white-space:nowrap;">💬 Support</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="background: linear-gradient(135deg,#1d4ed8 0%,#1e3a8a 50%,#020617 100%); padding:3rem 0;">
+  <div class="container" style="text-align:center; max-width:800px; margin:0 auto;">
+    <h1 style="font-size:clamp(2rem,5vw,3rem); margin-bottom:1rem;">PSOne Compact Models</h1>
+    <p style="font-size:1.1rem; color:rgba(255,255,255,0.9); margin-bottom:2rem;">
+      Compact PSOne consoles sourced specifically to your request.  
+      Every unit is fully function-tested and externally cleaned before dispatch,  
+      with an Arrival Guarantee as standard.
+    </p>
+
+    <!-- Trust badges -->
+    <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; margin-bottom:2rem;">
+      <div style="background:rgba(15,23,42,0.7); padding:0.75rem 1.25rem; border-radius:0.5rem; display:flex; gap:0.5rem;">
+        <span style="font-size:1.5rem;">🔍</span>
+        <div>
+          <div style="color:white; font-weight:700;">Sourced to Specification</div>
+          <div style="color:rgba(255,255,255,0.9); font-size:0.8rem;">PSOne revision & bundle preference</div>
+        </div>
+      </div>
+      <div style="background:rgba(15,23,42,0.7); padding:0.75rem 1.25rem; border-radius:0.5rem; display:flex; gap:0.5rem;">
+        <span style="font-size:1.5rem;">🔬</span>
+        <div>
+          <div style="color:white; font-weight:700;">12-Point Test</div>
+          <div style="color:rgba(255,255,255,0.9); font-size:0.8rem;">Drive, ports & AV fully checked</div>
+        </div>
+      </div>
+      <div style="background:rgba(15,23,42,0.7); padding:0.75rem 1.25rem; border-radius:0.5rem; display:flex; gap:0.5rem;">
+        <span style="font-size:1.5rem;">📦</span>
+        <div>
+          <div style="color:white; font-weight:700;">Arrival Guarantee</div>
+          <div style="color:rgba(255,255,255,0.9); font-size:0.8rem;">Working on arrival or we fix it</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#shop" class="btn btn-primary" style="padding:1rem 2.5rem; font-size:1.1rem;">Request a PSOne</a>
+  </div>
+</section>
+
+<!-- SHOP SECTION -->
+<section class="section" id="shop" style="background:#f8fafc; padding:3rem 0; scroll-margin-top:240px;">
+  <div class="container">
+
+    <div style="background:linear-gradient(135deg,#dbeafe,#e0f2fe); padding:2rem; border-radius:1rem; text-align:center; margin-bottom:3rem;">
+      <div style="display:inline-block; background:linear-gradient(135deg,#2563eb,#1d4ed8); color:white; padding:0.6rem 1.8rem; border-radius:2rem; font-size:0.85rem; font-weight:700; margin-bottom:1rem; text-transform:uppercase; letter-spacing:1px;">
+        🎮 PSOne Sourcing
+      </div>
+      <h2 style="font-size:clamp(2rem,4vw,2.75rem); font-weight:800; margin-bottom:0.75rem;">Choose Your PSOne Version</h2>
+      <p style="color:#475569; font-size:1.1rem; max-width:700px; margin:0 auto;">
+        PSOne PAL models (e.g. SCPH-102) sourced to order in your preferred cosmetic grade and bundle level.  
+        Use the “Request This Model” button and we’ll confirm current stock, pricing and turnaround time.
       </p>
     </div>
-    <div class="hero-image">
-      <img src="../../assets/psone_compact.jpg" alt="PSOne Console">
+
+    <div class="carousel-wrapper">
+
+      <button class="carousel-nav prev" onclick="scrollCarousel(this, -1)">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+
+      <div class="product-carousel">
+
+        <!-- PSOne SCPH-102 A-Grade -->
+        <article class="product-card">
+          <div style="position:relative; background:#020617;">
+            <!-- Replace with your PSOne image -->
+            <img src="../../assets/psone_hero.jpg" alt="PSOne SCPH-102 A-Grade" style="width:100%; height:200px; object-fit:cover;">
+            <span class="product-badge sale" style="top:0.75rem; right:0.75rem;">A-Grade</span>
+            <span class="product-badge new" style="top:0.75rem; left:0.75rem;">SCPH-102</span>
+          </div>
+          <div class="product-info" style="display:flex; flex-direction:column; gap:0.5rem;">
+            <p style="font-size:0.75rem; color:#64748b; margin:0; text-transform:uppercase;">Compact PSOne • Excellent cosmetic condition</p>
+            <h3 class="product-name">PSOne Compact (A-Grade)</h3>
+            <p class="product-description" style="flex-grow:1;">
+              Clean shell, sharp logo print and minimal wear.  
+              Fully tested on sourced arrival with printed test report.
+            </p>
+            <div style="border-top:1px solid #e2e8f0; padding-top:0.75rem;">
+              <p style="font-size:0.9rem; font-weight:600; color:#2563eb; margin:0 0 0.75rem;">Source to Order — typical range £70–£115</p>
+              <a href="/sourcing-request.html" class="btn btn-secondary" style="width:100%; text-align:center;">Request This Model</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PSOne SCPH-102 B-Grade -->
+        <article class="product-card">
+          <div style="position:relative; background:#020617;">
+            <img src="../../assets/psone_hero.jpg" alt="PSOne SCPH-102 B-Grade" style="width:100%; height:200px; object-fit:cover;">
+            <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#22c55e;">B-Grade</span>
+            <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#1e293b;">SCPH-102</span>
+          </div>
+          <div class="product-info" style="display:flex; flex-direction:column; gap:0.5rem;">
+            <p style="font-size:0.75rem; color:#64748b; margin:0; text-transform:uppercase;">Compact PSOne • Light cosmetic wear</p>
+            <h3 class="product-name">PSOne Compact (B-Grade)</h3>
+            <p class="product-description" style="flex-grow:1;">
+              Some marks or surface wear expected, but no cracks or heavy damage.  
+              Same functional testing as A-Grade units.
+            </p>
+            <div style="border-top:1px solid #e2e8f0; padding-top:0.75rem;">
+              <p style="font-size:0.9rem; font-weight:600; color:#2563eb; margin:0 0 0.75rem;">Source to Order — budget-friendly</p>
+              <a href="/sourcing-request.html" class="btn btn-secondary" style="width:100%; text-align:center;">Request This Model</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PSOne SCPH-102 C-Grade -->
+        <article class="product-card">
+          <div style="position:relative; background:#020617;">
+            <img src="../../assets/psone_hero.jpg" alt="PSOne SCPH-102 C-Grade" style="width:100%; height:200px; object-fit:cover;">
+            <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#f97316;">C-Grade</span>
+            <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#334155;">SCPH-102</span>
+          </div>
+          <div class="product-info" style="display:flex; flex-direction:column; gap:0.5rem;">
+            <p style="font-size:0.75rem; color:#64748b; margin:0; text-transform:uppercase;">Compact PSOne • Heavy cosmetic wear</p>
+            <h3 class="product-name">PSOne Compact (C-Grade)</h3>
+            <p class="product-description" style="flex-grow:1;">
+              Noticeable yellowing or marks, aimed at players not collectors.  
+              Functionality and testing remain the same.
+            </p>
+            <div style="border-top:1px solid #e2e8f0; padding-top:0.75rem;">
+              <p style="font-size:0.9rem; font-weight:600; color:#2563eb; margin:0 0 0.75rem;">Source to Order — best value</p>
+              <a href="/sourcing-request.html" class="btn btn-secondary" style="width:100%; text-align:center;">Request This Model</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- If you ever want other PSOne variants, duplicate the 3-card pattern above and change labels. -->
+
+      </div>
+
+      <button class="carousel-nav next" onclick="scrollCarousel(this, 1)">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- ADD-ONS SECTION -->
+<section class="section" id="addons" style="background:white; padding:3rem 0; scroll-margin-top:240px;">
   <div class="container">
-    
-    <div class="section-header">
-      <h2 class="section-title">What's Included</h2>
-      <p class="section-subtitle">All PSOne units are individually inspected and prepared.</p>
+    <div style="text-align:center; margin-bottom:3rem; padding:2rem 1rem; background:linear-gradient(135deg,#ecfeff 0%,#e0f2fe 100%); border-radius:1rem;">
+      <div style="display:inline-block; background:linear-gradient(135deg,#22c55e,#16a34a); color:white; padding:0.6rem 1.8rem; border-radius:2rem; font-size:0.85rem; font-weight:700; margin-bottom:1rem; text-transform:uppercase; letter-spacing:1px;">
+        🛠️ PSOne Add-Ons
+      </div>
+      <h2 style="font-size:clamp(2rem,4vw,2.75rem); margin-bottom:0.75rem; color:#0f172a; font-weight:800;">Complete Your PSOne Setup</h2>
+      <p style="font-size:1.1rem; color:#475569; max-width:700px; margin:0 auto; line-height:1.6;">
+        Controllers, memory cards, AV/SCART/HDMI solutions and other accessories compatible with PSOne Compact systems.
+      </p>
     </div>
 
-    <div class="product-grid">
-
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">12-Point Function Test</h3>
-          <p class="product-description">
-            Disc read test, controller ports, memory card slots, video output, audio output, 
-            and system stability reviewed by a technician.
-          </p>
-        </div>
+    <details open>
+      <summary style="font-size:1.1rem; font-weight:700; padding:0.75rem 1rem; background:#f8fafc; border-radius:0.5rem; cursor:pointer; margin-bottom:1rem;">
+        🎮 Controllers & Memory Cards
+      </summary>
+      <div style="padding:1rem; background:white; border-radius:0.5rem; border:1px solid #e2e8f0; margin-bottom:1.5rem;">
+        <ul style="margin:0; padding-left:1.25rem; color:#475569; font-size:0.95rem;">
+          <li>Original PS1 / PSOne controllers (tested & cleaned)</li>
+          <li>DualShock analogue controllers</li>
+          <li>8MB original and third-party memory cards (tested save/load)</li>
+        </ul>
       </div>
+    </details>
 
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">External Clean & Grade</h3>
-          <p class="product-description">
-            Full exterior clean with cosmetic grading for full transparency.  
-          </p>
-        </div>
+    <details>
+      <summary style="font-size:1.1rem; font-weight:700; padding:0.75rem 1rem; background:#f8fafc; border-radius:0.5rem; cursor:pointer; margin-bottom:1rem;">
+        📺 Video & Cable Options
+      </summary>
+      <div style="padding:1rem; background:white; border-radius:0.5rem; border:1px solid #e2e8f0; margin-bottom:1.5rem;">
+        <ul style="margin:0; padding-left:1.25rem; color:#475569; font-size:0.95rem;">
+          <li>Composite AV leads (standard PSOne connection)</li>
+          <li>SCART solutions for older TVs</li>
+          <li>HDMI adaptors for modern displays (where available)</li>
+        </ul>
       </div>
+    </details>
 
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">Optional Refurbishment</h3>
-          <p class="product-description">
-            Optional internals service: laser tuning, lubrication, mechanical maintenance.
-          </p>
-        </div>
+    <details>
+      <summary style="font-size:1.1rem; font-weight:700; padding:0.75rem 1rem; background:#f8fafc; border-radius:0.5rem; cursor:pointer; margin-bottom:1rem;">
+        ✨ Optional Refurbishment & Cosmetic Care
+      </summary>
+      <div style="padding:1rem; background:white; border-radius:0.5rem; border:1px solid #e2e8f0; margin-bottom:1.5rem;">
+        <ul style="margin:0; padding-left:1.25rem; color:#475569; font-size:0.95rem;">
+          <li>Internal clean, laser check and lubrication</li>
+          <li>Button and port inspection</li>
+          <li>Exterior de-yellowing and light restoration (where suitable)</li>
+        </ul>
+        <p style="margin-top:0.75rem; font-size:0.85rem; color:#64748b;">
+          Refurbishment is always optional and is quoted after we know your exact console grade and usage plans.
+        </p>
       </div>
-
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">Arrival Guarantee</h3>
-          <p class="product-description">
-            Every unit guaranteed to arrive fully working exactly as tested.
-          </p>
-        </div>
-      </div>
-
-    </div>
-
+    </details>
   </div>
 </section>
 
-<section class="section" id="models">
+<!-- SUPPORT SECTION -->
+<section class="section" id="support" style="background:linear-gradient(135deg,#020617 0%,#0f172a 40%,#020617 100%); color:white; padding:3rem 0; scroll-margin-top:240px;">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Available Conditions</h2>
-      <p class="section-subtitle">Select the cosmetic and performance level.</p>
+    <div style="text-align:center; margin-bottom:3rem;">
+      <h2 style="font-size:clamp(2rem,4vw,2.75rem); margin-bottom:0.75rem; font-weight:800;">💬 Support for Sourced PSOne Consoles</h2>
+      <p style="font-size:1.05rem; color:rgba(226,232,240,0.95); max-width:700px; margin:0 auto;">
+        PSOne orders follow the same testing and documentation process as your PS2 stock:
+        functionality test sheet, exterior clean and Arrival Guarantee.
+      </p>
     </div>
 
-    <div class="product-grid">
-
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">A-Grade</h3>
-          <p class="product-description">
-            Extremely clean with only micro marks. Strong performance, excellent for collections.
+    <div style="background:rgba(15,23,42,0.9); padding:2rem; border-radius:1rem; backdrop-filter:blur(10px);">
+      <h3 style="font-size:1.4rem; margin:0 0 1.5rem; text-align:center; font-weight:700;">🛡️ Sourcing & Testing Workflow</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.25rem;">
+        <div style="background:rgba(15,23,42,0.85); padding:1.25rem; border-radius:0.75rem;">
+          <div style="font-size:1.6rem; margin-bottom:0.5rem;">🔍</div>
+          <p style="margin:0; font-weight:600; font-size:0.95rem;">Search & Selection</p>
+          <p style="margin:0.25rem 0 0; font-size:0.85rem; color:rgba(226,232,240,0.9);">
+            We search for the best examples within your grade preference and budget.
+          </p>
+        </div>
+        <div style="background:rgba(15,23,42,0.85); padding:1.25rem; border-radius:0.75rem;">
+          <div style="font-size:1.6rem; margin-bottom:0.5rem;">🔬</div>
+          <p style="margin:0; font-weight:600; font-size:0.95rem;">12-Point Test & Clean</p>
+          <p style="margin:0.25rem 0 0; font-size:0.85rem; color:rgba(226,232,240,0.9);">
+            On arrival, PSOne units are tested, cleaned and documented exactly like in-stock consoles.
+          </p>
+        </div>
+        <div style="background:rgba(15,23,42,0.85); padding:1.25rem; border-radius:0.75rem;">
+          <div style="font-size:1.6rem; margin-bottom:0.5rem;">📦</div>
+          <p style="margin:0; font-weight:600; font-size:0.95rem;">Packed & Guaranteed</p>
+          <p style="margin:0.25rem 0 0; font-size:0.85rem; color:rgba(226,232,240,0.9);">
+            Securely packed with your chosen accessories and covered by your Arrival Guarantee.
           </p>
         </div>
       </div>
 
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">B-Grade</h3>
-          <p class="product-description">
-            Light wear but fully working and clean. Great everyday system.
-          </p>
-        </div>
+      <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(148,163,184,0.4); text-align:center;">
+        <p style="margin:0; font-size:0.9rem; color:rgba(226,232,240,0.9);">
+          To request a PSOne Compact, use the sourcing form and mention “PSOne Compact” and your preferred grade:
+          <br>
+          <a href="/sourcing-request.html" style="color:#38bdf8; text-decoration:underline;">Open sourcing-request.html</a>
+        </p>
       </div>
-
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">C-Grade</h3>
-          <p class="product-description">
-            Noticeable cosmetic wear but solid, tested performance. Budget-friendly pick.
-          </p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>PSOne Compact</h3>
+        <p>Compact PSOne systems sourced to order, tested and cleaned before dispatch.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="ps1.html">Back to PS1 Collection</a></li>
+          <li><a href="../guides.html">PS1 Guides</a></li>
+          <li><a href="/sourcing-request.html">Sourcing Request Form</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Retro Replay. PSOne consoles are supplied with an Arrival Guarantee after sourcing.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../cart.js"></script>
+<script>
+  function scrollCarousel(button, direction) {
+    const wrapper = button.closest('.carousel-wrapper');
+    const carousel = wrapper.querySelector('.product-carousel');
+    const scrollAmount = 340;
+    carousel.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+  RetroCart.loadCart();
+</script>
 
 </body>
 </html>

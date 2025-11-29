@@ -36,12 +36,10 @@
 
         <div class="header-actions">
           <a href="/contact.html" class="header-action">
-            <span>📞</span>
-            <span>Support</span>
+            <span>📞</span><span>Support</span>
           </a>
           <a href="/checkout.html" class="header-action">
-            <span>🛒</span>
-            <span>Cart</span>
+            <span>🛒</span><span>Cart</span>
             <span class="cart-badge" id="cart-count-js">0</span>
           </a>
         </div>
@@ -53,9 +51,9 @@
         <ul class="nav-list">
           <li><a href="../index.html">Main Home</a></li>
           <li><a href="/atari/index.html" class="active">Atari</a></li>
-          <li><a href="/atari/products/2600.html">Atari 2600</a></li>
-          <li><a href="/atari/products/5200.html">Atari 5200</a></li>
-          <li><a href="/atari/products/7800.html">Atari 7800</a></li>
+          <li><a href="/atari/index.html">2600</a></li>
+          <li><a href="/atari/index.html">5200</a></li>
+          <li><a href="/atari/index.html">7800</a></li>
           <li><a href="/atari/guides.html">Guides</a></li>
           <li><a href="/atari/contact.html">Contact</a></li>
         </ul>
@@ -63,13 +61,18 @@
     </nav>
   </header>
 
+  <!-- HERO -->
   <section class="hero" style="background: linear-gradient(135deg, #d62828 0%, #c41e1e 100%);">
     <div class="container hero-content">
       <div class="hero-text">
         <h1>Atari Collection</h1>
-        <p>Professionally refurbished Atari 2600, 5200, and 7800 consoles. Classic retro gaming restored to working condition with 6-month warranty.</p>
+        <p>
+          Professionally function-tested, externally cleaned and condition-graded Atari 2600, 5200 and 7800 systems.
+          Optional refurbishment available for collectors or long-term reliability.  
+          Every console is prepared individually to order.
+        </p>
         <div class="hero-cta">
-          <a href="/atari/products/2600.html" class="btn btn-primary">Shop Atari 2600</a>
+          <a href="#atari-models" class="btn btn-primary">Browse Models</a>
           <a href="/atari/guides.html" class="btn btn-secondary">Setup Guides</a>
         </div>
       </div>
@@ -79,41 +82,45 @@
     </div>
   </section>
 
-  <section class="section">
+  <!-- SOURCE-ONLY MODEL CARDS -->
+  <section class="section" id="atari-models">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Browse Atari Consoles</h2>
-        <p class="section-subtitle">All models professionally refurbished with warranty</p>
+        <p class="section-subtitle">All consoles sourced to order • Tested • Cleaned • Graded</p>
       </div>
 
       <div class="category-grid">
-        <a href="/atari/products/2600.html" class="category-card">
+
+        <a href="/sourcing-request.html" class="category-card">
           <div class="category-icon">
             <img src="../assets/atarilogo.png" alt="Atari 2600">
           </div>
           <h3 class="category-name">Atari 2600</h3>
-          <p class="category-count">Classic Atari console</p>
+          <p class="category-count">Source to Order • Classic VCS</p>
         </a>
 
-        <a href="/atari/products/5200.html" class="category-card">
+        <a href="/sourcing-request.html" class="category-card">
           <div class="category-icon">
             <img src="../assets/atarilogo.png" alt="Atari 5200">
           </div>
           <h3 class="category-name">Atari 5200</h3>
-          <p class="category-count">Advanced gaming system</p>
+          <p class="category-count">Source to Order • Advanced System</p>
         </a>
 
-        <a href="/atari/products/7800.html" class="category-card">
+        <a href="/sourcing-request.html" class="category-card">
           <div class="category-icon">
             <img src="../assets/atarilogo.png" alt="Atari 7800">
           </div>
           <h3 class="category-name">Atari 7800</h3>
-          <p class="category-count">Enhanced Atari console</p>
+          <p class="category-count">Source to Order • Enhanced Console</p>
         </a>
+
       </div>
     </div>
   </section>
 
+  <!-- WHY RETRO REPLAY -->
   <section class="section" style="background: white;">
     <div class="container">
       <div class="section-header">
@@ -121,52 +128,65 @@
       </div>
 
       <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        
         <div class="product-card">
           <div class="product-info">
-            <h3 class="product-name">Complete Refurbishment</h3>
-            <p class="product-description">Deep cleaning, cleaned cartridges, tested controllers, and PSU checks.</p>
+            <h3 class="product-name">Professional Function Testing</h3>
+            <p class="product-description">
+              Cartridge reading, controller response, RF/AV output stability, power integrity  
+              and full operational verification included with every sourced console.
+            </p>
           </div>
         </div>
 
         <div class="product-card">
           <div class="product-info">
-            <h3 class="product-name">Tested & Working</h3>
-            <p class="product-description">Every console fully tested with original games before shipping.</p>
+            <h3 class="product-name">Optional Internal Refurbishment</h3>
+            <p class="product-description">
+              Internal cleaning, connector tightening, PSU refresh (where applicable)  
+              and preventative maintenance available on request.
+            </p>
           </div>
         </div>
 
         <div class="product-card">
           <div class="product-info">
-            <h3 class="product-name">6-Month Warranty</h3>
-            <p class="product-description">All consoles include warranty covering parts and performance.</p>
+            <h3 class="product-name">Arrival Guarantee</h3>
+            <p class="product-description">
+              Every sourced unit is protected by our Arrival Guarantee.  
+              Optional extended protection plans available.
+            </p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
+
         <div class="footer-section">
           <h3>Atari Collection</h3>
-          <p>Professional refurbished Atari consoles.</p>
+          <p>Professionally tested and cleaned Atari consoles.</p>
         </div>
 
         <div class="footer-section">
           <h3>Products</h3>
           <ul class="footer-links">
-            <li><a href="/atari/products/2600.html">Atari 2600</a></li>
-            <li><a href="/atari/products/5200.html">Atari 5200</a></li>
-            <li><a href="/atari/products/7800.html">Atari 7800</a></li>
+            <li><a href="/atari/index.html" class="active">Atari Home</a></li>
+            <li><a href="/sourcing-request.html">Source to Order</a></li>
           </ul>
         </div>
 
         <div class="footer-section">
           <h3>Support</h3>
           <ul class="footer-links">
-            <li><a href="/atari/guides.html">Guides</a></li>
-            <li><a href="/atari/contact.html">Contact</a></li>
+            <li><a href="/atari/guides.html">Setup Guides</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/warranties.html">Warranty</a></li>
           </ul>
         </div>
 
@@ -179,6 +199,7 @@
             <li><a href="/sega/index.html">Sega</a></li>
           </ul>
         </div>
+
       </div>
 
       <div class="footer-bottom">
@@ -189,5 +210,6 @@
 
   <script src="../cart.js"></script>
   <script>RetroCart.loadCart();</script>
+
 </body>
 </html>

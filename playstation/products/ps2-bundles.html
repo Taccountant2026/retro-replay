@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PS2 Bundles | Retro Replay</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-top"><div class="container"><span class="header-promo">🎮 PS2 Bundles</span></div></div>
+
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/index.html" class="site-logo"><img src="../../assets/logo.png"><span>Retro Replay</span></a>
+      <div class="search-bar"><input type="search"><button class="search-btn">Search</button></div>
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action">📞 Support</a>
+        <a href="/checkout.html" class="header-action">🛒 Cart<span class="cart-badge" id="cart-count-js">0</span></a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/playstation/index.html" class="active">PlayStation</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" style="background: linear-gradient(135deg,#2563eb,#1e40af);">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>PS2 Bundles</h1>
+      <p>Ready-to-play sets with controllers, cables, and optional HDD/FMCB upgrades.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="product-grid">
+
+      <!-- STARTER -->
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">Starter Bundle</h3>
+          <p class="product-description">Console + 1 Controller + AV Cable.</p>
+          <span class="badge in-stock">Available</span>
+        </div>
+      </div>
+
+      <!-- STANDARD -->
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">Standard Bundle</h3>
+          <p class="product-description">Console + 2 Controllers + AV/HDMI cable + 8MB card.</p>
+          <span class="badge in-stock">Available</span>
+        </div>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">Premium Bundle</h3>
+          <p class="product-description">Console + 2 controllers + FMCB + cosmetic clean.</p>
+          <span class="badge in-stock">Available</span>
+        </div>
+      </div>
+
+      <!-- HDD BUILD -->
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">HDD Ready Bundle</h3>
+          <p class="product-description">500GB/1TB HDD + FMCB + OPL setup.</p>
+          <span class="badge in-stock">Available</span>
+        </div>
+      </div>
+
+      <!-- MOD KIT -->
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">Softmod Kit (Standalone)</h3>
+          <p class="product-description">Memory card with FMCB + OPL libraries.</p>
+          <span class="badge in-stock">Available</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container"><div class="footer-bottom"><p>&copy; 2025 Retro Replay</p></div></div>
+</footer>
+
+<script src="../../cart.js"></script>
+<script>RetroCart.loadCart();</script>
+
+</body>
+</html>

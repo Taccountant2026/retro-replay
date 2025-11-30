@@ -1,1 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Branding & Portfolio | Hepworth Enterprises & Retro Replay</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo">
+          <span>✨ Hepworth Enterprises — Founder Portfolio & Brand Family</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="/index.html" class="site-logo">
+          <img src="assets/logo.png" alt="Retro Replay">
+          <span>Retro Replay</span>
+        </a>
+
+        <div class="search-bar">
+          <input type="search" placeholder="Search consoles, services or brands..." aria-label="Search">
+          <button class="search-btn">Search</button>
+        </div>
+
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action">
+            <span>📞</span>
+            <span>Support</span>
+          </a>
+          <a href="/checkout.html" class="header-action">
+            <span>🛒</span>
+            <span>Cart</span>
+            <span class="cart-badge" id="cart-count-js">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- GLOBAL NAV (UNIFIED) -->
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="/index.html">Main Home</a></li>
+
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/sourcing-request.html">Sourcing</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/warranties.html">Warranty</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO: HOLDING COMPANY + “THIS WEBSITE IS AN EXAMPLE” -->
+  <section class="hero" style="background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 40%, #10b981 100%);">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Hepworth Enterprises</h1>
+        <p>
+          Founder-led group specialising in technical problem solving, web design, retro hardware, and
+          practical modern services. This website is a live example of what can be built for your brand.
+        </p>
+        <div class="hero-cta">
+          <a href="#web-design" class="btn btn-primary">Get a Website Like This</a>
+          <a href="#brand-family" class="btn btn-secondary">Explore the Brand Family</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="assets/Console_Bundle.jpg" alt="Hepworth Enterprises brands overview">
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER PROFILE -->
+  <section class="section" style="background: #f9fafb;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Founder & Vision</h2>
+        <p class="section-subtitle">
+          A single owner–operator across multiple brands, combining hands-on technical skill with structured,
+          process-driven delivery.
+        </p>
+      </div>
+
+      <div class="product-grid" style="grid-template-columns: minmax(280px, 2fr) minmax(260px, 1.3fr); align-items: stretch;">
+        <!-- Bio -->
+        <div class="product-card" style="height: 100%;">
+          <div class="product-info">
+            <h3 class="product-name">Founder Profile</h3>
+            <p class="product-description">
+              Hepworth Enterprises is led by a BSc (Hons) Computing & IT student with a strong grounding in
+              computing fundamentals, networks, problem solving, and system design. Alongside formal study,
+              real projects are delivered across:
+            </p>
+            <ul class="product-features">
+              <li>Hands-on console testing, grading, and refurbishment workflows</li>
+              <li>Web design and branding systems customised to each brand</li>
+              <li>Technical consulting and documentation for non-technical clients</li>
+              <li>Process design: test reports, checklists, templates, and forms</li>
+            </ul>
+            <p class="product-description">
+              Every project, whether a gaming console, website, or new service launch, is approached with
+              the same mindset: clear process, measurable quality, and honest communication.
+            </p>
+          </div>
+        </div>
+
+        <!-- Quick stats / badges -->
+        <div class="product-card" style="height: 100%;">
+          <div class="product-info">
+            <h3 class="product-name">At a Glance</h3>
+            <ul class="product-features">
+              <li><strong>Disciplines:</strong> Web Design, Branding, IT, Hardware Testing, Documentation</li>
+              <li><strong>Industries:</strong> Retro Gaming, Technical Services, Landscaping & Materials</li>
+              <li><strong>Strengths:</strong> Detail focus, systems thinking, end-to-end ownership</li>
+              <li><strong>Deliverables:</strong> Live sites, catalogues, test reports, forms, guides</li>
+              <li><strong>Approach:</strong> Build once, then refine and scale to new brands and services</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEB DESIGN & BRANDING STUDIO (THIS SITE AS EXAMPLE) -->
+  <section id="web-design" class="section" style="background: white;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Website Design & Branding Studio</h2>
+        <p class="section-subtitle">
+          The same system used to build Retro Replay can be adapted to your brand: fast, structured, and ready
+          for real products and services.
+        </p>
+      </div>
+
+      <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">This Website as a Template</h3>
+            <p class="product-description">
+              Retro Replay is more than a shop front. It is a reusable framework:
+            </p>
+            <ul class="product-features">
+              <li>Category and product grids ready for any industry</li>
+              <li>Shared header, footer, and navigation across all pages</li>
+              <li>Console-style branding that can be re-skinned for any business</li>
+              <li>Support pages, FAQ, warranty, sourcing, and guides already mapped out</li>
+            </ul>
+            <p class="product-description">
+              The structure, layout, and logic can be applied to your own services, stock, or portfolio.
+            </p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">What You Can Get</h3>
+            <p class="product-description">
+              New projects can be built on this same foundation to give you:
+            </p>
+            <ul class="product-features">
+              <li>Branded landing page with clear hero, CTA, and service breakdown</li>
+              <li>Product or service catalogue (cards, filters, bundles, pricing bands)</li>
+              <li>Contact and enquiry forms suitable for service work or quoting</li>
+              <li>Support pages, guides, and process explanations for your clients</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Who It Suits</h3>
+            <p class="product-description">
+              The framework is tuned for practical small businesses and solo operators:
+            </p>
+            <ul class="product-features">
+              <li>Refurb & resale operations (electronics, tools, vehicles, equipment)</li>
+              <li>Local trades and services (landscaping, materials, technical work)</li>
+              <li>Freelancers and consultants (IT, support, tutoring, specialist skills)</li>
+            </ul>
+            <p class="product-description">
+              The result: a focused website that describes what you actually do, not a generic template.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem; text-align: center;">
+        <a href="/contact.html" class="btn btn-primary">Enquire About a Website Build</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND FAMILY / HOLDING COMPANY STRUCTURE -->
+  <section id="brand-family" class="section" style="background: #f3f4f6;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">The Hepworth Enterprises Brand Family</h2>
+        <p class="section-subtitle">
+          Multiple brands under a single owner, each with its own focus but all sharing the same standards:
+          clear communication, documented processes, and quality-first delivery.
+        </p>
+      </div>
+
+      <div class="category-grid" style="margin-bottom: 2rem;">
+        <!-- Retro Replay -->
+        <article class="category-card">
+          <div class="category-icon">
+            <img src="assets/logo.png" alt="Retro Replay">
+          </div>
+          <h3 class="category-name">Retro Replay</h3>
+          <p class="category-count">Tested & cleaned gaming consoles</p>
+          <p class="product-description">
+            Core retail brand specialising in PlayStation, Xbox, Nintendo, Atari, and Sega systems.  
+            Professionally function-tested, externally cleaned, and condition-graded hardware with optional
+            refurbishment and upgrade services.
+          </p>
+          <a href="/index.html" class="btn btn-secondary" style="margin-top: 0.5rem;">Visit Retro Replay</a>
+        </article>
+
+        <!-- Hepworth Technical Consultancy -->
+        <article class="category-card">
+          <div class="category-icon">
+            <span style="font-size: 2.5rem;">💻</span>
+          </div>
+          <h3 class="category-name">Hepworth Technical Consultancy</h3>
+          <p class="category-count">Technical problem solving & documentation</p>
+          <p class="product-description">
+            Consultancy arm for IT, process design, and documentation. Services include system mapping,
+            basic network and server planning, technical writing, and creating clear guides for non-technical users.
+          </p>
+          <a href="#web-design" class="btn btn-secondary" style="margin-top: 0.5rem;">Use the Same Methods</a>
+        </article>
+
+        <!-- Game Modding & Custom Servers -->
+        <article class="category-card">
+          <div class="category-icon">
+            <span style="font-size: 2.5rem;">🎮</span>
+          </div>
+          <h3 class="category-name">Game Modding & Custom Servers</h3>
+          <p class="category-count">Curated, documented game server setups</p>
+          <p class="product-description">
+            Project stream focused on building, tuning, and documenting custom game servers and modded environments.
+            Emphasis on reproducible configurations, clear install guides, and stable long-term operation.
+          </p>
+        </article>
+
+        <!-- Turf / Aggregate & Building Supplies -->
+        <article class="category-card">
+          <div class="category-icon">
+            <span style="font-size: 2.5rem;">🌱</span>
+          </div>
+          <h3 class="category-name">Turf & Materials Projects</h3>
+          <p class="category-count">Practical services with structured processes</p>
+          <p class="product-description">
+            Offline projects exploring turf installation, aggregate, and building material sales.  
+            The same systems approach from IT and ecommerce is applied to quoting, booking, and client communication.
+          </p>
+        </article>
+      </div>
+
+      <div class="product-card" style="max-width: 960px; margin: 0 auto;">
+        <div class="product-info">
+          <h3 class="product-name" style="text-align: center;">Unified Under Hepworth Enterprises</h3>
+          <p class="product-description">
+            Hepworth Enterprises exists to tie these projects together: one person, multiple brands, a single
+            standard of work. Whether the output is a refurbished console, a technical guide, or a full website,
+            it is built on the same foundation:
+          </p>
+          <ul class="product-features">
+            <li>Documented processes rather than “mystery work”</li>
+            <li>Honest grading and realistic expectations</li>
+            <li>Clear communication before, during, and after a project</li>
+            <li>Continuous improvement from real customer feedback</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT HIGHLIGHTS / ACHIEVEMENTS -->
+  <section class="section" style="background: white;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Selected Achievements & Project Types</h2>
+        <p class="section-subtitle">
+          A snapshot of the kind of work delivered and the areas where practical experience has been built.
+        </p>
+      </div>
+
+      <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Retro Hardware Pipelines</h3>
+            <p class="product-description">
+              Defined full test and grading routes for multiple console families, including:
+            </p>
+            <ul class="product-features">
+              <li>PS2, PS3, PS1 and associated accessories</li>
+              <li>Xbox and Xbox 360 models with bundle logic</li>
+              <li>Nintendo, Atari, and Sega catalogue structure</li>
+              <li>Printable test reports and order forms</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Multi-Brand Web Structure</h3>
+            <p class="product-description">
+              Built a unified website that:
+            </p>
+            <ul class="product-features">
+              <li>Holds multiple console brands under one roof</li>
+              <li>Shares navigation, styling, and cart logic</li>
+              <li>Separates “source to order” items from in-stock</li>
+              <li>Prepares the ground for future ecommerce integration</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Support & Guide Creation</h3>
+            <p class="product-description">
+              Created wording and structures for:
+            </p>
+            <ul class="product-features">
+              <li>Setup guides and console-specific help pages</li>
+              <li>Warranty, FAQ, and sourcing information</li>
+              <li>Customer-friendly explanations of testing and grading</li>
+              <li>Templates that can be reused across new projects</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem; text-align: center;">
+        <a href="/contact.html" class="btn btn-primary">Discuss a Project or Collaboration</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="section" style="background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 50%, #10b981 100%); color: white;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" style="color: white;">Work With Hepworth Enterprises</h2>
+        <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">
+          One point of contact. Multiple skill sets. Practical results.
+        </p>
+      </div>
+
+      <div class="product-card" style="background: rgba(15,23,42,0.85); border-color: rgba(148,163,184,0.5); max-width: 900px; margin: 0 auto;">
+        <div class="product-info">
+          <p class="product-description" style="color: rgba(226,232,240,0.95);">
+            Whether you need a simple, clear website, a structured way to sell refurbished equipment,
+            or a fully explained technical process for your clients, the same approach used across Retro Replay
+            and the wider Hepworth Enterprises group can be applied to your work.
+          </p>
+          <ul class="product-features" style="color: rgba(226,232,240,0.95);">
+            <li>Web design based on a proven, live example</li>
+            <li>Process-first thinking for technical or physical services</li>
+            <li>Ability to grow into multiple brands under one umbrella</li>
+          </ul>
+          <div style="margin-top: 1.5rem; text-align: center;">
+            <a href="/contact.html" class="btn btn-secondary">Contact via Retro Replay</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL FOOTER (UNIFIED) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Retro Replay</h3>
+          <p>
+            Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade
+            services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul class="footer-links">
+            <li><a href="/playstation/index.html">PlayStation</a></li>
+            <li><a href="/xbox/index.html">Xbox</a></li>
+            <li><a href="/nintendo/index.html">Nintendo</a></li>
+            <li><a href="/atari/index.html">Atari</a></li>
+            <li><a href="/sega/index.html">Sega</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="/guides.html">Setup Guides</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/warranties.html">Warranty Info</a></li>
+            <li><a href="/shipping.html">Shipping</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/process.html">Our Process</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/branding.html" class="active">Branding & Portfolio</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Retro Replay &amp; Hepworth Enterprises. All rights reserved.
+          Professionally tested &amp; cleaned gaming consoles.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script>RetroCart.loadCart();</script>
+</body>
+</html>
 

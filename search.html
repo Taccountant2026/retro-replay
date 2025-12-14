@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search | Retro Replay</title>
+  <meta name="description" content="Search Retro Replay pages, guides and shop sections." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Optional: paste your canonical header here (recommended) -->
+
+  <section class="hero" style="padding: 2.5rem 0;">
+    <div class="container hero-content" style="grid-template-columns: 1fr;">
+      <div class="hero-text" style="text-align:center;">
+        <h1>Search</h1>
+        <p id="search-subtitle" style="margin:0.75rem auto 0; max-width: 700px;">
+          Type a search term to find pages across Retro Replay.
+        </p>
+
+        <form class="search-bar" action="/search.html" method="get" role="search" style="margin: 1.25rem auto 0; max-width: 720px;">
+          <input id="q" type="search" name="q" placeholder="Try: ps2, hdd mod, warranty, dreamcast..." aria-label="Search">
+          <button class="search-btn" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: white;">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header" style="margin-bottom: 1rem;">
+        <h2 class="section-title" id="results-title">Results</h2>
+        <p class="section-subtitle" id="results-meta">Enter a search term above.</p>
+      </div>
+
+      <div class="product-grid" id="results" style="grid-template-columns: 1fr; gap: 1rem;"></div>
+
+      <div id="no-results" class="product-card" style="display:none;">
+        <div class="product-info">
+          <h3 class="product-name">No matches found</h3>
+          <p class="product-description">
+            Try different keywords (e.g. “ps2”, “fmcb”, “delivery”, “warranty”, “xbox 360”, “n64”).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Optional: paste your canonical footer here (recommended) -->
+
+  <script>
+    // Simple site index (edit/extend anytime)
+    // Add new entries as you create new pages/products.
+    const INDEX = [
+      { title: "Home", url: "/index.html", tags: "retro replay consoles tested cleaned shop" },
+      { title: "PlayStation", url: "/playstation/index.html", tags: "playstation ps1 ps2 ps3" },
+      { title: "Xbox", url: "/xbox/index.html", tags: "xbox original 360" },
+      { title: "Nintendo", url: "/nintendo/index.html", tags: "nintendo nes snes n64" },
+      { title: "Sega", url: "/sega/index.html", tags: "sega megadrive saturn dreamcast" },
+      { title: "Atari", url: "/atari/index.html", tags: "atari 2600 5200 7800" },
+
+      { title: "Setup Guides", url: "/guides.html", tags: "guides setup how to" },
+      { title: "Services", url: "/services.html", tags: "services refurbishment upgrades hdd fmcb opl" },
+      { title: "Warranty", url: "/warranties.html", tags: "warranty extended warranty returns" },
+      { title: "Delivery", url: "/delivery.html", tags: "delivery shipping dispatch tracked" },
+      { title: "FAQ", url: "/faq.html", tags: "faq help support questions" },
+      { title: "Sourcing Request", url: "/sourcing-request.html", tags: "sourcing request find console" },
+      { title: "Contact", url: "/contact.html", tags: "contact support" },
+      { title: "Checkout", url: "/checkout.html", tags: "checkout cart purchase" },
+      { title: "Our Process", url: "/how-we-refurbish.html", tags: "process refurbish cleaning testing" }
+    ];
+
+    function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return (params.get(name) || "").trim();
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, (c) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+      }[c]));
+    }
+
+    function scoreItem(q, item) {
+      const hay = (item.title + " " + (item.tags || "")).toLowerCase();
+      const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+      if (!terms.length) return 0;
+
+      let score = 0;
+      for (const t of terms) {
+        if (item.title.toLowerCase().includes(t)) score += 5;
+        if (hay.includes(t)) score += 2;
+      }
+      return score;
+    }
+
+    function renderResults(q) {
+      const resultsEl = document.getElementById("results");
+      const metaEl = document.getElementById("results-meta");
+      const noEl = document.getElementById("no-results");
+      const qInput = document.getElementById("q");
+
+      qInput.value = q;
+
+      if (!q) {
+        resultsEl.innerHTML = "";
+        metaEl.textContent = "Enter a search term above.";
+        noEl.style.display = "none";
+        return;
+      }
+
+      const scored = INDEX
+        .map(item => ({ item, score: scoreItem(q, item) }))
+        .filter(x => x.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 30);
+
+      metaEl.textContent = `${scored.length} result(s) for “${q}”`;
+
+      if (!scored.length) {
+        resultsEl.innerHTML = "";
+        noEl.style.display = "";
+        return;
+      }
+
+      noEl.style.display = "none";
+      resultsEl.innerHTML = scored.map(({ item }) => `
+        <a class="product-card" href="${escapeHtml(item.url)}" style="text-decoration:none;">
+          <div class="product-info">
+            <h3 class="product-name">${escapeHtml(item.title)}</h3>
+            <p class="product-description">${escapeHtml(item.url)}</p>
+          </div>
+        </a>
+      `).join("");
+    }
+
+    renderResults(getQueryParam("q"));
+  </script>
+
+</body>
+</html>

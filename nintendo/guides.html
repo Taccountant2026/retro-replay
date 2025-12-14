@@ -22,7 +22,10 @@
     <div class="header-main">
       <div class="container header-content">
         <a href="../index.html" class="site-logo"><img src="../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
-        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
+       <form class="search-bar" action="/search.html" method="get" role="search">
+  <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
+  <button class="search-btn" type="submit">Search</button>
+</form>
         <div class="header-actions"><a href="../contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="../checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
       </div>
     </div>

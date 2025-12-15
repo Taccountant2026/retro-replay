@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Policy | Retro Replay</title>
+  <meta name="description" content="Cookie policy for Retro Replay." />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <!-- reuse your normal header here if you have shared includes -->
+</header>
+
+<main class="section">
+  <div class="container" style="max-width:900px;">
+    <h1>Cookie Policy</h1>
+
+    <p>We use cookies to help our website function properly and to understand how visitors use the site.</p>
+
+    <h2>Types of cookies we use</h2>
+    <h3>Essential cookies</h3>
+    <p>These are required for basic site functionality (for example, remembering basic preferences or cart/session features if used).</p>
+
+    <h3>Analytics cookies (optional)</h3>
+    <p>If you accept cookies, we use Google Analytics to measure traffic and improve the website (for example, which pages are visited most).</p>
+
+    <h2>Your choices</h2>
+    <p>You can accept or reject non-essential cookies using the banner on our site. If you previously chose, you can change your choice by clearing site data in your browser (local storage) and reloading the website.</p>
+
+    <h2>Contact</h2>
+    <p>If you have questions about this policy, contact us via the <a href="/contact.html">contact page</a>.</p>
+
+    <p><strong>Last updated:</strong> 2025</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <!-- reuse your normal footer -->
+</footer>
+
+</body>
+</html>

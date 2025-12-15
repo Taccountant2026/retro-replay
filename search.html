@@ -5,139 +5,275 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Search | Retro Replay</title>
   <meta name="description" content="Search Retro Replay pages, guides and shop sections." />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
 </head>
+
 <body>
 
-  <!-- Optional: paste your canonical header here (recommended) -->
+<header class="site-header">
 
-  <section class="hero" style="padding: 2.5rem 0;">
-    <div class="container hero-content" style="grid-template-columns: 1fr;">
-      <div class="hero-text" style="text-align:center;">
-        <h1>Search</h1>
-        <p id="search-subtitle" style="margin:0.75rem auto 0; max-width: 700px;">
-          Type a search term to find pages across Retro Replay.
-        </p>
-
-        <form class="search-bar" action="/search.html" method="get" role="search" style="margin: 1.25rem auto 0; max-width: 720px;">
-          <input id="q" type="search" name="q" placeholder="Try: ps2, hdd mod, warranty, dreamcast..." aria-label="Search">
-          <button class="search-btn" type="submit">Search</button>
-        </form>
+  <!-- GLOBAL TOP BAR -->
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo">
+        <span>🔎 Site Search</span>
+        <span>Find consoles, pages, guides & policies</span>
+      </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="section" style="background: white;">
-    <div class="container" style="max-width: 900px;">
-      <div class="section-header" style="margin-bottom: 1rem;">
-        <h2 class="section-title" id="results-title">Results</h2>
-        <p class="section-subtitle" id="results-meta">Enter a search term above.</p>
-      </div>
+  <!-- HEADER MAIN -->
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay Logo" />
+        <span>Retro Replay</span>
+      </a>
 
-      <div class="product-grid" id="results" style="grid-template-columns: 1fr; gap: 1rem;"></div>
+      <!-- Mobile menu button (pairs with JS below + CSS in style.css) -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
 
-      <div id="no-results" class="product-card" style="display:none;">
-        <div class="product-info">
-          <h3 class="product-name">No matches found</h3>
-          <p class="product-description">
-            Try different keywords (e.g. “ps2”, “fmcb”, “delivery”, “warranty”, “xbox 360”, “n64”).
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input id="q" type="search" name="q" placeholder="Try: ps2, hdd mod, warranty, dreamcast..." aria-label="Search site" />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
 
-  <!-- Optional: paste your canonical footer here (recommended) -->
-
-  <script>
-    // Simple site index (edit/extend anytime)
-    // Add new entries as you create new pages/products.
-    const INDEX = [
-      { title: "Home", url: "/index.html", tags: "retro replay consoles tested cleaned shop" },
-      { title: "PlayStation", url: "/playstation/index.html", tags: "playstation ps1 ps2 ps3" },
-      { title: "Xbox", url: "/xbox/index.html", tags: "xbox original 360" },
-      { title: "Nintendo", url: "/nintendo/index.html", tags: "nintendo nes snes n64" },
-      { title: "Sega", url: "/sega/index.html", tags: "sega megadrive saturn dreamcast" },
-      { title: "Atari", url: "/atari/index.html", tags: "atari 2600 5200 7800" },
-
-      { title: "Setup Guides", url: "/guides.html", tags: "guides setup how to" },
-      { title: "Services", url: "/services.html", tags: "services refurbishment upgrades hdd fmcb opl" },
-      { title: "Warranty", url: "/warranties.html", tags: "warranty extended warranty returns" },
-      { title: "Delivery", url: "/delivery.html", tags: "delivery shipping dispatch tracked" },
-      { title: "FAQ", url: "/faq.html", tags: "faq help support questions" },
-      { title: "Sourcing Request", url: "/sourcing-request.html", tags: "sourcing request find console" },
-      { title: "Contact", url: "/contact.html", tags: "contact support" },
-      { title: "Checkout", url: "/checkout.html", tags: "checkout cart purchase" },
-      { title: "Our Process", url: "/how-we-refurbish.html", tags: "process refurbish cleaning testing" }
-    ];
-
-    function getQueryParam(name) {
-      const params = new URLSearchParams(window.location.search);
-      return (params.get(name) || "").trim();
-    }
-
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, (c) => ({
-        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
-      }[c]));
-    }
-
-    function scoreItem(q, item) {
-      const hay = (item.title + " " + (item.tags || "")).toLowerCase();
-      const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
-      if (!terms.length) return 0;
-
-      let score = 0;
-      for (const t of terms) {
-        if (item.title.toLowerCase().includes(t)) score += 5;
-        if (hay.includes(t)) score += 2;
-      }
-      return score;
-    }
-
-    function renderResults(q) {
-      const resultsEl = document.getElementById("results");
-      const metaEl = document.getElementById("results-meta");
-      const noEl = document.getElementById("no-results");
-      const qInput = document.getElementById("q");
-
-      qInput.value = q;
-
-      if (!q) {
-        resultsEl.innerHTML = "";
-        metaEl.textContent = "Enter a search term above.";
-        noEl.style.display = "none";
-        return;
-      }
-
-      const scored = INDEX
-        .map(item => ({ item, score: scoreItem(q, item) }))
-        .filter(x => x.score > 0)
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 30);
-
-      metaEl.textContent = `${scored.length} result(s) for “${q}”`;
-
-      if (!scored.length) {
-        resultsEl.innerHTML = "";
-        noEl.style.display = "";
-        return;
-      }
-
-      noEl.style.display = "none";
-      resultsEl.innerHTML = scored.map(({ item }) => `
-        <a class="product-card" href="${escapeHtml(item.url)}" style="text-decoration:none;">
-          <div class="product-info">
-            <h3 class="product-name">${escapeHtml(item.title)}</h3>
-            <p class="product-description">${escapeHtml(item.url)}</p>
-          </div>
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
         </a>
-      `).join("");
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL NAV -->
+  <nav class="main-nav" id="primaryNav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</header>
+
+<section class="hero" style="padding: 2.5rem 0;">
+  <div class="container hero-content" style="grid-template-columns: 1fr;">
+    <div class="hero-text" style="text-align:center;">
+      <h1>Search</h1>
+      <p id="search-subtitle" style="margin:0.75rem auto 0; max-width: 700px;">
+        Type a search term to find pages across Retro Replay.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: white;">
+  <div class="container" style="max-width: 900px;">
+    <div class="section-header" style="margin-bottom: 1rem;">
+      <h2 class="section-title" id="results-title">Results</h2>
+      <p class="section-subtitle" id="results-meta">Enter a search term above.</p>
+    </div>
+
+    <div class="product-grid" id="results" style="grid-template-columns: 1fr; gap: 1rem;"></div>
+
+    <div id="no-results" class="product-card" style="display:none;">
+      <div class="product-info">
+        <h3 class="product-name">No matches found</h3>
+        <p class="product-description">
+          Try different keywords (e.g. “ps2”, “fmcb”, “delivery”, “warranty”, “xbox 360”, “n64”).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+
+      <div class="footer-section">
+        <h3>Retro Replay</h3>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Shop</h3>
+        <ul class="footer-links">
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul class="footer-links">
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/warranties.html">Warranty Info</a></li>
+          <li><a href="/delivery.html">Delivery</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul class="footer-links">
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/cart.js"></script>
+<script>
+  // Simple site index (edit/extend anytime)
+  const INDEX = [
+    { title: "Home", url: "/index.html", tags: "retro replay consoles tested cleaned shop" },
+    { title: "All Consoles", url: "/all-consoles.html", tags: "all consoles refurbished collections" },
+
+    { title: "PlayStation", url: "/playstation/index.html", tags: "playstation ps1 ps2 ps3" },
+    { title: "Xbox", url: "/xbox/index.html", tags: "xbox original 360" },
+    { title: "Nintendo", url: "/nintendo/index.html", tags: "nintendo nes snes n64" },
+    { title: "Sega", url: "/sega/index.html", tags: "sega megadrive saturn dreamcast" },
+    { title: "Atari", url: "/atari/index.html", tags: "atari 2600 5200 7800" },
+
+    { title: "Setup Guides", url: "/guides.html", tags: "guides setup how to troubleshooting" },
+    { title: "Services", url: "/services.html", tags: "services refurbishment upgrades hdd fmcb opl" },
+    { title: "Warranty", url: "/warranties.html", tags: "warranty extended warranty returns" },
+    { title: "Delivery", url: "/delivery.html", tags: "delivery shipping dispatch tracked" },
+    { title: "FAQ", url: "/faq.html", tags: "faq help support questions" },
+    { title: "Sourcing Request", url: "/sourcing-request.html", tags: "sourcing request find console" },
+    { title: "Contact", url: "/contact.html", tags: "contact support" },
+    { title: "Checkout", url: "/checkout.html", tags: "checkout cart purchase" },
+    { title: "Our Process", url: "/how-we-refurbish.html", tags: "process refurbish cleaning testing" },
+    { title: "About", url: "/about.html", tags: "about retro replay story" }
+  ];
+
+  function getQueryParam(name) {
+    const params = new URLSearchParams(window.location.search);
+    return (params.get(name) || "").trim();
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, (c) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+    }[c]));
+  }
+
+  function scoreItem(q, item) {
+    const hay = (item.title + " " + (item.tags || "")).toLowerCase();
+    const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+    if (!terms.length) return 0;
+
+    let score = 0;
+    for (const t of terms) {
+      if (item.title.toLowerCase().includes(t)) score += 5;
+      if (hay.includes(t)) score += 2;
+    }
+    return score;
+  }
+
+  function renderResults(q) {
+    const resultsEl = document.getElementById("results");
+    const metaEl = document.getElementById("results-meta");
+    const noEl = document.getElementById("no-results");
+    const qInput = document.getElementById("q");
+
+    if (qInput) qInput.value = q;
+
+    if (!q) {
+      resultsEl.innerHTML = "";
+      metaEl.textContent = "Enter a search term above.";
+      noEl.style.display = "none";
+      return;
+    }
+
+    const scored = INDEX
+      .map(item => ({ item, score: scoreItem(q, item) }))
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 30);
+
+    metaEl.textContent = `${scored.length} result(s) for “${q}”`;
+
+    if (!scored.length) {
+      resultsEl.innerHTML = "";
+      noEl.style.display = "";
+      return;
+    }
+
+    noEl.style.display = "none";
+    resultsEl.innerHTML = scored.map(({ item }) => `
+      <a class="product-card" href="${escapeHtml(item.url)}" style="text-decoration:none;">
+        <div class="product-info">
+          <h3 class="product-name">${escapeHtml(item.title)}</h3>
+          <p class="product-description">${escapeHtml(item.url)}</p>
+        </div>
+      </a>
+    `).join("");
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.RetroCart && typeof RetroCart.loadCart === "function") RetroCart.loadCart();
+
+    // Mobile menu toggle (pairs with CSS in style.css)
+    const navBtn = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("primaryNav");
+    if (navBtn && nav) {
+      navBtn.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
     }
 
     renderResults(getQueryParam("q"));
-  </script>
+  });
+</script>
 
 </body>
 </html>

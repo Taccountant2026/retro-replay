@@ -1062,3 +1062,120 @@ details .accordion-content {
 .mb-sm { margin-bottom: var(--spacing-sm); }
 .mb-md { margin-bottom: var(--spacing-md); }
 .mb-lg { margin-bottom: var(--spacing-lg); }
+
+/* Mobile Quick Nav (Home / Back / PS2 CTA) */
+.mobile-quicknav{
+  display:none;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  padding: .6rem .75rem;
+  background: rgba(5,10,25,.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  gap: .5rem;
+  align-items: center;
+}
+.mobile-quicknav .mq-btn,
+.mobile-quicknav .mq-cta{
+  border-radius: .85rem;
+  padding: .55rem .8rem;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: #fff;
+}
+.mobile-quicknav .mq-btn{
+  cursor: pointer;
+}
+.mobile-quicknav .mq-cta{
+  margin-left: auto;
+  border: 1px solid rgba(0,170,255,.45);
+  background: rgba(0,170,255,.20);
+}
+@media (max-width: 900px){
+  .mobile-quicknav{ display:flex; }
+}
+
+/* PS2 Feature box */
+.ps2-feature{
+  padding: 2.5rem 0;
+  background: #0b1220;
+}
+.ps2-feature-inner{
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+.ps2-feature-text{
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(0,170,255,.25);
+  background: rgba(0,170,255,.08);
+}
+.ps2-feature-points{
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+.ps2-feature-points li{ margin: .4rem 0; font-weight: 600; }
+.ps2-feature-actions{ display:flex; gap:.75rem; flex-wrap: wrap; margin-top: 1rem; }
+
+.ps2-feature-card{
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+}
+.ps2-feature-link{
+  display:inline-block;
+  margin-top: .75rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 1px solid rgba(0,170,255,.45);
+}
+@media (max-width: 900px){
+  .ps2-feature-inner{ grid-template-columns: 1fr; }
+}
+
+/* Cookie banner */
+.cookie-banner{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 10001;
+  padding: 1rem;
+  background: rgba(5,10,25,.95);
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+.cookie-banner.is-hidden{ display:none; }
+.cookie-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.cookie-inner p{
+  margin: 0;
+  color: rgba(255,255,255,.85);
+  line-height: 1.4;
+}
+.cookie-inner a{ color:#fff; text-decoration: underline; }
+.cookie-actions{ display:flex; gap:.5rem; flex-wrap: wrap; }
+.cookie-btn{
+  border-radius: .85rem;
+  padding: .6rem .9rem;
+  font-weight: 800;
+  border: 1px solid rgba(255,255,255,.12);
+  cursor: pointer;
+}
+.cookie-primary{ background: rgba(0,170,255,.22); color:#fff; border-color: rgba(0,170,255,.45); }
+.cookie-secondary{ background: rgba(255,255,255,.06); color:#fff; }
+@media (max-width: 700px){
+  .cookie-inner{ flex-direction: column; align-items: flex-start; }
+}
+

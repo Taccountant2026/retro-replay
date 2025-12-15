@@ -1,88 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Console Sourcing Request | Retro Replay</title>
+  <meta name="description" content="Request a specific console to be sourced and tested by Retro Replay. Get confirmed pricing and options before you buy." />
 
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
 
   <style>
+    /* Page-only styles (kept lightweight to match your global theme) */
     .sourcing-wrapper { background: #ffffff; padding: 50px 0; }
 
-    .sourcing-card {
-      background: #f8f9fc; border: 1px solid #dce3f3;
-      border-radius: 12px; padding: 24px; margin-bottom: 30px;
+    .sourcing-card{
+      background:#f8f9fc;
+      border:1px solid #dce3f3;
+      border-radius:12px;
+      padding:24px;
+      margin-bottom:18px;
+    }
+    .sourcing-card h2{ margin-top:0; font-size:22px; color:#1e3a8a; font-weight:800; }
+    .sourcing-card p{ font-size:15px; color:#374151; margin: .5rem 0 0; }
+
+    .form-shell{
+      background:#f9fafb;
+      border:1px solid rgba(226,232,240,.95);
+      border-radius:12px;
+      padding:24px;
     }
 
-    .sourcing-card h2 { margin-top: 0; font-size: 22px; color: #1e3a8a; font-weight: 700; }
-    .sourcing-card p { font-size: 15px; color: #374151; }
-
-    form label {
-      font-size: 14px; font-weight: 600; color: #1f2937;
-      margin-bottom: 6px; display: block;
+    form label{
+      font-size:14px;
+      font-weight:600;
+      color:#1f2937;
+      margin-bottom:6px;
+      display:block;
     }
 
-    form input, form select, form textarea {
-      width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1;
-      border-radius: 8px; font-size: 14px; background: white;
-      margin-bottom: 16px; font-family: Inter, sans-serif;
+    form input, form select, form textarea{
+      width:100%;
+      padding:10px 12px;
+      border:2px solid var(--gray-lighter, #e2e8f0);
+      border-radius:10px;
+      font-size:14px;
+      background:#fff;
+      margin-bottom:16px;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      outline:none;
+    }
+    form input:focus, form select:focus, form textarea:focus{
+      border-color: var(--primary, #2563eb);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, .12);
     }
 
-    textarea { height: 120px; resize: vertical; }
+    textarea{ min-height:120px; resize:vertical; }
 
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    @media(max-width: 768px) { .form-row { grid-template-columns: 1fr; } }
+    .form-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media(max-width: 768px){ .form-row{ grid-template-columns: 1fr; } }
 
-    .btn-submit {
-      padding: 14px 24px; background: #2563eb; color: white; border: none;
-      border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer;
-      text-transform: uppercase; letter-spacing: 0.04em;
+    .btn-submit{
+      width:100%;
+      padding:14px 18px;
+      background: var(--primary, #2563eb);
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      font-size:15px;
+      font-weight:800;
+      cursor:pointer;
+      text-transform:uppercase;
+      letter-spacing:.04em;
     }
-    .btn-submit:hover { background: #1e40af; }
+    .btn-submit:hover{ background:#1e40af; }
 
-    .info-panel {
-      background: #eef2ff; border: 1px solid #c7d2fe; padding: 18px;
-      border-radius: 10px; margin-top: 20px; color: #1e3a8a;
+    .info-panel{
+      background:#eef2ff;
+      border:1px solid #c7d2fe;
+      padding:18px;
+      border-radius:12px;
+      margin-top:16px;
+      color:#1e3a8a;
+      font-size:.95rem;
     }
+
+    .status{
+      display:none;
+      margin-top:12px;
+      font-size:.95rem;
+      color: var(--gray, #64748b);
+    }
+    .status.ok{ color:#16a34a; }
+    .status.err{ color:#b91c1c; }
   </style>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="site-header">
 
+  <!-- GLOBAL TOP BAR (match index.html style) -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
         <span>📦 Console Sourcing Service</span>
+        <span>✅ Pricing confirmed before you buy</span>
+      </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
       </div>
     </div>
   </div>
 
+  <!-- HEADER MAIN -->
   <div class="header-main">
     <div class="container header-content">
-
       <a href="/index.html" class="site-logo">
-        <img src="/assets/logo.png" alt="Retro Replay Logo">
+        <img src="/assets/logo.png" alt="Retro Replay Logo" />
         <span>Retro Replay</span>
       </a>
 
-      <div class="search-bar">
-        <input type="search" placeholder="Search..." aria-label="Search">
-        <button class="search-btn">Search</button>
-      </div>
+      <!-- Mobile menu button (requires .nav-toggle + .main-nav.is-open CSS in style.css) -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
+
+      <!-- FIX: use real search form like other pages -->
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
 
       <div class="header-actions">
         <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
@@ -91,30 +151,25 @@
           <span class="cart-badge" id="cart-count-js">0</span>
         </a>
       </div>
-
     </div>
   </div>
 
-  <!-- UPDATED GLOBAL NAV -->
-  <nav class="main-nav">
+  <!-- GLOBAL MAIN NAV -->
+  <nav class="main-nav" id="primaryNav">
     <div class="container">
       <ul class="nav-list">
-
         <li><a href="/index.html">Main Home</a></li>
-
         <li><a href="/atari/index.html">Atari</a></li>
         <li><a href="/nintendo/index.html">Nintendo</a></li>
         <li><a href="/playstation/index.html">PlayStation</a></li>
         <li><a href="/sega/index.html">Sega</a></li>
         <li><a href="/xbox/index.html">Xbox</a></li>
-
         <li><a href="/guides.html">Setup Guides</a></li>
-        <li><a href="/sourcing-request.html" class="active">Sourcing</a></li>
+        <li><a href="/sourcing-request.html" aria-current="page">Sourcing</a></li>
         <li><a href="/services.html">Services</a></li>
         <li><a href="/warranties.html">Warranty</a></li>
         <li><a href="/faq.html">FAQ</a></li>
         <li><a href="/contact.html">Contact</a></li>
-
       </ul>
     </div>
   </nav>
@@ -126,104 +181,112 @@
   <div class="container hero-content">
     <div class="hero-text">
       <h1>Console Sourcing Request</h1>
-      <p>Looking for a specific PS2, PS1, PS3, Xbox or Nintendo console not currently in stock?</p>
+      <p>Looking for a specific PS2, Xbox, Nintendo, Sega or Atari console not currently in stock? Send a request and we’ll come back with confirmed options.</p>
     </div>
   </div>
 </section>
-
 
 <!-- FORM SECTION -->
 <section class="sourcing-wrapper">
-  <div class="container">
+  <div class="container" style="max-width: 980px;">
 
     <div class="sourcing-card">
       <h2>Request a Console</h2>
-      <p>We will check live market availability and get back to you with confirmed pricing and options.</p>
+      <p>We will check availability and respond with matching options, cosmetic grade, and pricing before any order is confirmed.</p>
     </div>
 
-    <form action="mailto:support@retroreplay.uk" method="POST" enctype="text/plain">
+    <!-- FIX: use Formspree (mailto forms are unreliable and won’t work on many devices/hosts) -->
+    <div class="form-shell">
+      <form id="sourcing-form"
+            action="https://formspree.io/f/manrkvby"
+            method="POST">
 
-      <div class="form-row">
-        <div>
-          <label>Console Family</label>
-          <select name="Console Family" required>
-            <option value="">Select...</option>
-            <option>PlayStation 2 (PS2)</option>
-            <option>PlayStation 1 (PS1)</option>
-            <option>PlayStation 3 (PS3)</option>
-            <option>Original Xbox</option>
-            <option>Xbox 360</option>
-            <option>Nintendo Wii</option>
-            <option>Nintendo GameCube</option>
-            <option>Sega Consoles</option>
-            <option>Other</option>
-          </select>
+        <!-- Helpers -->
+        <input type="hidden" name="_subject" value="Retro Replay — Console Sourcing Request" />
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div class="form-row">
+          <div>
+            <label for="family">Console Family</label>
+            <select id="family" name="Console Family" required>
+              <option value="">Select...</option>
+              <option>PlayStation 2 (PS2)</option>
+              <option>PlayStation 1 (PS1)</option>
+              <option>PlayStation 3 (PS3)</option>
+              <option>Original Xbox</option>
+              <option>Xbox 360</option>
+              <option>Nintendo Wii</option>
+              <option>Nintendo GameCube</option>
+              <option>Nintendo 64</option>
+              <option>Sega (Mega Drive / Saturn / Dreamcast)</option>
+              <option>Atari (2600 / 5200 / 7800)</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="model">Specific Model (optional)</label>
+            <input id="model" type="text" name="Specific Model" placeholder="e.g. SCPH-50003, boxed, silver etc" />
+          </div>
         </div>
 
-        <div>
-          <label>Specific Model (optional)</label>
-          <input type="text" name="Specific Model" placeholder="e.g. SCPH-50003, boxed, silver etc">
+        <div class="form-row">
+          <div>
+            <label for="condition">Condition Preference</label>
+            <select id="condition" name="Condition">
+              <option>Any good working</option>
+              <option>Good Condition</option>
+              <option>Very Good / Collector</option>
+              <option>Boxed Only</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="budget">Budget (approx)</label>
+            <input id="budget" type="text" name="Budget" placeholder="e.g. £60–£120" />
+          </div>
         </div>
+
+        <label for="included">Included Items Wanted</label>
+        <textarea id="included" name="Included Items" placeholder="Controller, memory card, AV/HDMI, cables, games etc"></textarea>
+
+        <label for="mods">Modding or Upgrade Requests (optional)</label>
+        <textarea id="mods" name="Mods" placeholder="FMCB, OPL setup, HDD upgrade, HDMI adapter, none etc"></textarea>
+
+        <div class="form-row">
+          <div>
+            <label for="name">Your Name</label>
+            <input id="name" type="text" name="Name" required />
+          </div>
+          <div>
+            <label for="email">Your Email</label>
+            <input id="email" type="email" name="Email" required />
+          </div>
+        </div>
+
+        <label for="notes">Additional Notes</label>
+        <textarea id="notes" name="Notes" placeholder="Anything extra we should know"></textarea>
+
+        <button id="send-btn" type="submit" class="btn-submit">Send Request</button>
+        <p id="form-status" class="status"></p>
+      </form>
+
+      <div class="info-panel">
+        <p><strong>Note:</strong> This request does not obligate you to purchase. You’ll receive an email with models, pricing, and availability before any order is confirmed.</p>
       </div>
-
-      <div class="form-row">
-        <div>
-          <label>Condition Preference</label>
-          <select name="Condition">
-            <option>Any good working</option>
-            <option>Good Condition</option>
-            <option>Very Good / Collector</option>
-            <option>Boxed Only</option>
-          </select>
-        </div>
-
-        <div>
-          <label>Budget (approx)</label>
-          <input type="text" name="Budget" placeholder="e.g. £60–£120">
-        </div>
-      </div>
-
-      <label>Included Items Wanted</label>
-      <textarea name="Included Items" placeholder="Controller, memory card, AV/HDMI, cables, games etc"></textarea>
-
-      <label>Modding or Upgrade Requests (optional)</label>
-      <textarea name="Mods" placeholder="FMCB, OPL setup, HDD upgrade, HDMI adapter, none etc"></textarea>
-
-      <div class="form-row">
-        <div>
-          <label>Your Name</label>
-          <input type="text" name="Name" required>
-        </div>
-        <div>
-          <label>Your Email</label>
-          <input type="email" name="Email" required>
-        </div>
-      </div>
-
-      <label>Additional Notes</label>
-      <textarea name="Notes" placeholder="Anything extra we should know"></textarea>
-
-      <button type="submit" class="btn-submit">Send Request</button>
-
-    </form>
-
-    <div class="info-panel">
-      <p><strong>Note:</strong> This does not obligate you to purchase. You’ll receive an email with models, prices, and availability before any order is confirmed.</p>
     </div>
 
   </div>
 </section>
 
-
-<!-- FOOTER (UPDATED FULL STRUCTURE) -->
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
-
     <div class="footer-content">
 
       <div class="footer-section">
         <h3>Retro Replay</h3>
-        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
       </div>
 
       <div class="footer-section">
@@ -254,7 +317,7 @@
           <li><a href="/about.html">About Us</a></li>
           <li><a href="/how-we-refurbish.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
-          <li><a href="/terms.html">Policies & Terms</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
         </ul>
       </div>
 
@@ -263,12 +326,62 @@
     <div class="footer-bottom">
       <p>&copy; 2025 Retro Replay. All rights reserved.</p>
     </div>
-
   </div>
 </footer>
 
 <script src="/cart.js"></script>
-<script>RetroCart.loadCart();</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.RetroCart && typeof RetroCart.loadCart === "function") RetroCart.loadCart();
+
+    // Mobile nav toggle
+    const navBtn = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("primaryNav");
+    if (navBtn && nav) {
+      navBtn.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+
+    // Formspree UX
+    const form = document.getElementById("sourcing-form");
+    const statusEl = document.getElementById("form-status");
+    const btn = document.getElementById("send-btn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      statusEl.className = "status";
+      statusEl.style.display = "block";
+      statusEl.textContent = "Sending...";
+      btn.disabled = true;
+
+      try {
+        const data = new FormData(form);
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          statusEl.classList.add("ok");
+          statusEl.textContent = "Thank you! Your sourcing request has been sent.";
+          form.reset();
+        } else {
+          statusEl.classList.add("err");
+          statusEl.textContent = "Send failed. Please use the Contact page or email us.";
+        }
+      } catch (err) {
+        statusEl.classList.add("err");
+        statusEl.textContent = "Send failed. Please use the Contact page or email us.";
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  });
+</script>
 
 </body>
 </html>

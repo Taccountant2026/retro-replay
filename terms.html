@@ -1,21 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms & Policies | Retro Replay</title>
-  <meta name="description" content="Retro Replay terms and policies covering sales, warranties, refurbishment services, sourcing, shipping, returns and customer responsibilities.">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms &amp; Policies | Retro Replay</title>
+  <meta name="description" content="Retro Replay terms and policies covering sales, warranties, refurbishment services, sourcing, shipping, returns and customer responsibilities." />
+
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
+
+  <style>
+    /* Page-only helpers (keeps layout consistent even if global CSS changes) */
+    .legal-wrap { max-width: 980px; }
+    .legal-meta { color: var(--gray, #64748b); margin: .25rem 0 2rem; }
+    .legal-card {
+      background: #ffffff;
+      border: 1px solid rgba(226,232,240,.95);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .legal-card h1 { margin: 0 0 .5rem; }
+    .legal-card h2 { margin: 2rem 0 .5rem; }
+    .legal-card p { margin: .5rem 0 0; }
+    .legal-card ul { margin: .75rem 0 0; padding-left: 1.25rem; }
+    .legal-card li { margin: .35rem 0; }
+    .legal-note {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      border: 1px solid rgba(37,99,235,0.25);
+      background: linear-gradient(135deg, rgba(37,99,235,0.07), rgba(34,197,94,0.05));
+      color: #0f172a;
+      font-size: .95rem;
+    }
+    .legal-note a { color: var(--primary, #2563eb); font-weight: 700; }
+  </style>
 </head>
+
 <body>
 
-<!-- HEADER (same banner so it appears on all pages) -->
 <header class="site-header">
+
+  <!-- GLOBAL TOP BAR (match index.html) -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
-        <span>🎮 Professionally Tested & Cleaned Retro Gaming Consoles</span>
+        <span>📜 Terms &amp; Policies</span>
+        <span>✅ Clear, transparent customer protection</span>
       </div>
       <div class="header-links">
         <a href="/about.html">About</a>
@@ -25,184 +65,262 @@
     </div>
   </div>
 
+  <!-- HEADER MAIN -->
   <div class="header-main">
     <div class="container header-content">
       <a href="/index.html" class="site-logo">
-        <img src="assets/logo.png" alt="Retro Replay Logo">
+        <img src="/assets/logo.png" alt="Retro Replay Logo" />
         <span>Retro Replay</span>
       </a>
 
-      <form class="search-bar" action="/search.html" method="get">
-        <input type="search" name="q" placeholder="Search consoles, accessories...">
-        <button class="search-btn">Search</button>
+      <!-- Mobile menu button (requires .nav-toggle + .main-nav.is-open CSS in style.css) -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
+
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+        <button class="search-btn" type="submit">Search</button>
       </form>
 
       <div class="header-actions">
         <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-        <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
+        </a>
       </div>
     </div>
   </div>
+
+  <!-- GLOBAL MAIN NAV -->
+  <nav class="main-nav" id="primaryNav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/terms.html" aria-current="page">Terms</a></li>
+      </ul>
+    </div>
+  </nav>
+
 </header>
 
-<!-- PAGE CONTENT -->
-<section class="section" style="background:white;">
-  <div class="container" style="max-width:900px; line-height:1.75;">
-
-    <h1 style="font-size:2.5rem; margin-bottom:1rem;">Terms & Policies</h1>
-    <p style="color:#475569; margin-bottom:2rem;">
-      Last updated: January 2025
-    </p>
-
-    <!-- INTRO -->
-    <h2>1. Introduction</h2>
-    <p>
-      These Terms & Policies govern all purchases, services, and interactions with Retro Replay.
-      By placing an order, submitting a sourcing request, or using our website, you agree to the
-      terms outlined below.
-    </p>
-
-    <!-- PRODUCTS -->
-    <h2>2. Products & Condition</h2>
-    <p>
-      Retro Replay specialises in professionally tested, cleaned, and prepared retro gaming consoles
-      and accessories. All products are pre-owned unless explicitly stated otherwise.
-    </p>
-    <ul>
-      <li>Each console is function-tested prior to dispatch</li>
-      <li>Cosmetic condition is graded transparently (A / B / C)</li>
-      <li>Minor cosmetic wear consistent with age should be expected</li>
-      <li>Images are representative; exact cosmetic marks may vary</li>
-    </ul>
-
-    <!-- REFURB -->
-    <h2>3. Refurbishment & Upgrade Services</h2>
-    <p>
-      Optional refurbishment, upgrade, and modification services are available and clearly described
-      at the point of purchase.
-    </p>
-    <ul>
-      <li>Premium refurbishment involves deeper internal servicing and restoration</li>
-      <li>Upgrade services may include HDD installation, software setup, or cosmetic enhancements</li>
-      <li>Once a refurbishment or upgrade service has been completed, it is non-reversible</li>
-      <li>Service pricing reflects labour, parts, testing, and preparation time</li>
-    </ul>
-
-    <!-- MODDING -->
-    <h2>4. Software, Modifications & Homebrew</h2>
-    <p>
-      Some products or services may include configuration for homebrew or user-supplied backups.
-      Retro Replay does not provide, supply, or endorse copyrighted game files.
-    </p>
-    <ul>
-      <li>Customers are responsible for ensuring legal use in their jurisdiction</li>
-      <li>No copyrighted content is included unless explicitly stated</li>
-      <li>Support is limited to functionality, not third-party software behaviour</li>
-    </ul>
-
-    <!-- SOURCING -->
-    <h2>5. Sourcing Requests</h2>
-    <p>
-      Our sourcing service is designed to locate specific console revisions, cosmetic grades, or bundles.
-    </p>
-    <ul>
-      <li>Sourcing requests are subject to availability</li>
-      <li>Quoted prices may change if market conditions change</li>
-      <li>Sourcing fees (if applicable) cover time and procurement effort</li>
-      <li>Custom-sourced items may have limited return eligibility</li>
-    </ul>
-
-    <!-- PRICING -->
-    <h2>6. Pricing & Payment</h2>
-    <p>
-      All prices are shown in GBP unless otherwise stated.
-    </p>
-    <ul>
-      <li>Prices include applicable preparation and testing costs</li>
-      <li>Shipping costs are calculated separately</li>
-      <li>Payment must be received in full before dispatch</li>
-    </ul>
-
-    <!-- SHIPPING -->
-    <h2>7. Shipping & Delivery</h2>
-    <p>
-      We ship using tracked and insured delivery services wherever possible.
-    </p>
-    <ul>
-      <li>Dispatch times are estimates, not guarantees</li>
-      <li>Customers must provide accurate delivery information</li>
-      <li>Risk transfers to the customer upon confirmed delivery</li>
-    </ul>
-
-    <!-- WARRANTY -->
-    <h2>8. Warranty & Guarantees</h2>
-    <p>
-      All consoles include an Arrival Guarantee confirming the item arrives in working condition.
-      Extended warranty options may be purchased separately.
-    </p>
-    <ul>
-      <li>Warranty covers functional hardware faults only</li>
-      <li>Does not cover accidental damage, misuse, or unauthorised modification</li>
-      <li>Cosmetic wear is not covered under warranty</li>
-    </ul>
-
-    <!-- RETURNS -->
-    <h2>9. Returns & Cancellations</h2>
-    <p>
-      Returns are handled in line with UK consumer regulations where applicable.
-    </p>
-    <ul>
-      <li>Customised or upgraded items may be exempt from standard returns</li>
-      <li>Returned items must be in the same condition as supplied</li>
-      <li>Shipping costs are non-refundable unless the item is faulty</li>
-    </ul>
-
-    <!-- LIABILITY -->
-    <h2>10. Limitation of Liability</h2>
-    <p>
-      Retro Replay shall not be liable for indirect or consequential losses, including loss of data,
-      loss of enjoyment, or third-party software issues.
-    </p>
-
-    <!-- INTELLECTUAL -->
-    <h2>11. Intellectual Property</h2>
-    <p>
-      All site content, branding, documentation, and materials are the property of Retro Replay
-      and may not be reused without permission.
-    </p>
-
-    <!-- PRIVACY -->
-    <h2>12. Privacy</h2>
-    <p>
-      Customer data is handled in accordance with UK data protection laws.
-      We do not sell or misuse personal information.
-    </p>
-
-    <!-- CHANGES -->
-    <h2>13. Changes to These Terms</h2>
-    <p>
-      Retro Replay reserves the right to update these terms at any time.
-      Continued use of the site constitutes acceptance of updated terms.
-    </p>
-
-    <!-- CONTACT -->
-    <h2>14. Contact</h2>
-    <p>
-      For questions regarding these terms, please contact us via the
-      <a href="/contact.html">contact page</a>.
-    </p>
-
+<!-- HERO -->
+<section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Terms &amp; Policies</h1>
+      <p>Important information about purchases, services, shipping, returns, and warranties.</p>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- PAGE CONTENT -->
+<section class="section" style="background: white;">
+  <div class="container legal-wrap">
+    <div class="legal-card" style="line-height:1.75;">
+
+      <p class="legal-meta"><strong>Last updated:</strong> January 2025</p>
+
+      <div class="legal-note">
+        For warranty details, see <a href="/warranties.html">Warranty</a>. For delivery times &amp; shipping info, see <a href="/delivery.html">Delivery</a>.
+      </div>
+
+      <h2>1. Introduction</h2>
+      <p>
+        These Terms &amp; Policies govern purchases, services, and use of the Retro Replay website.
+        By ordering, requesting sourcing, or using this site, you agree to these terms.
+      </p>
+
+      <h2>2. Products &amp; Condition</h2>
+      <p>
+        Retro Replay specialises in professionally tested, cleaned, and prepared retro gaming consoles and accessories.
+        Unless explicitly stated, all items are pre-owned.
+      </p>
+      <ul>
+        <li>Each console is function-tested prior to dispatch.</li>
+        <li>Cosmetic condition is graded transparently (A / B / C) where applicable.</li>
+        <li>Minor wear consistent with age should be expected on pre-owned items.</li>
+        <li>Images may be representative; exact cosmetic marks can vary between units.</li>
+      </ul>
+
+      <h2>3. Refurbishment &amp; Upgrade Services</h2>
+      <p>
+        Optional refurbishment, upgrades, and modification services may be available and are described at the point of purchase.
+      </p>
+      <ul>
+        <li>Premium refurbishment involves deeper internal servicing, cleaning, and restoration processes.</li>
+        <li>Upgrades may include storage upgrades, software setup, video accessories, or cosmetic enhancements.</li>
+        <li>Once a refurbishment/upgrade service has been completed, it may be non-reversible.</li>
+        <li>Service pricing reflects labour, parts, testing time, and preparation.</li>
+      </ul>
+
+      <h2>4. Software, Modifications &amp; Homebrew</h2>
+      <p>
+        Some products/services may include configuration for homebrew or user-supplied backups. Retro Replay does not provide,
+        supply, or endorse copyrighted game files.
+      </p>
+      <ul>
+        <li>Customers are responsible for ensuring legal use in their jurisdiction.</li>
+        <li>No copyrighted content is included unless explicitly stated.</li>
+        <li>Support is limited to supplied hardware/functionality, not third-party software behaviour outside our control.</li>
+      </ul>
+
+      <h2>5. Sourcing Requests</h2>
+      <p>
+        Our sourcing service helps locate specific console revisions, cosmetic grades, or bundles.
+      </p>
+      <ul>
+        <li>Sourcing is subject to market availability.</li>
+        <li>Quoted prices may change if market conditions change before confirmation.</li>
+        <li>Where applicable, sourcing fees cover time and procurement effort.</li>
+        <li>Custom-sourced items may have limited return eligibility where permitted by law (e.g., where customised to your request).</li>
+      </ul>
+
+      <h2>6. Pricing &amp; Payment</h2>
+      <p>All prices are shown in GBP unless stated otherwise.</p>
+      <ul>
+        <li>Prices include applicable preparation and testing costs.</li>
+        <li>Shipping costs (if any) are shown separately.</li>
+        <li>Payment must be received in full before dispatch.</li>
+      </ul>
+
+      <h2>7. Shipping &amp; Delivery</h2>
+      <p>We ship using tracked and insured delivery services wherever possible.</p>
+      <ul>
+        <li>Dispatch and delivery times are estimates, not guarantees.</li>
+        <li>Customers must provide accurate delivery information.</li>
+        <li>Risk transfers upon confirmed delivery, subject to applicable consumer protections.</li>
+      </ul>
+
+      <h2>8. Warranty &amp; Guarantees</h2>
+      <p>
+        All consoles include an arrival guarantee confirming the item arrives in working condition.
+        Extended warranty options may be available separately.
+      </p>
+      <ul>
+        <li>Warranty covers functional hardware faults only.</li>
+        <li>Warranty does not cover accidental damage, misuse, liquid damage, or unauthorised modifications/repairs.</li>
+        <li>Cosmetic wear is not covered.</li>
+      </ul>
+
+      <h2>9. Returns &amp; Cancellations</h2>
+      <p>Returns are handled in line with UK consumer regulations where applicable.</p>
+      <ul>
+        <li>Customised or upgraded items may be exempt from standard returns where permitted by law.</li>
+        <li>Returned items must be in the same condition as supplied, with included accessories.</li>
+        <li>Shipping costs may be non-refundable unless the item is faulty or misdescribed.</li>
+      </ul>
+
+      <h2>10. Limitation of Liability</h2>
+      <p>
+        Retro Replay shall not be liable for indirect or consequential losses (e.g., loss of data, loss of enjoyment,
+        or third-party software issues) except where liability cannot be excluded by law.
+      </p>
+
+      <h2>11. Intellectual Property</h2>
+      <p>
+        Site content, branding, documentation, and materials are the property of Retro Replay and may not be reused without permission.
+      </p>
+
+      <h2>12. Privacy</h2>
+      <p>
+        Customer data is handled in accordance with UK data protection laws. We do not sell personal information.
+      </p>
+
+      <h2>13. Changes to These Terms</h2>
+      <p>
+        Retro Replay may update these terms from time to time. Continued use of the site constitutes acceptance of updated terms.
+      </p>
+
+      <h2>14. Contact</h2>
+      <p>
+        For questions regarding these terms, contact us via the <a href="/contact.html">Contact page</a>.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (full structure to match other pages) -->
 <footer class="site-footer">
   <div class="container">
+    <div class="footer-content">
+
+      <div class="footer-section">
+        <h3>Retro Replay</h3>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Shop</h3>
+        <ul class="footer-links">
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul class="footer-links">
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/warranties.html">Warranty Info</a></li>
+          <li><a href="/delivery.html">Delivery</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul class="footer-links">
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/terms.html" aria-current="page">Terms &amp; Policies</a></li>
+        </ul>
+      </div>
+
+    </div>
+
     <div class="footer-bottom">
       <p>&copy; 2025 Retro Replay. All rights reserved.</p>
     </div>
   </div>
 </footer>
+
+<script src="/cart.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.RetroCart && typeof RetroCart.loadCart === "function") RetroCart.loadCart();
+
+    // Mobile nav toggle
+    const navBtn = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("primaryNav");
+    if (navBtn && nav) {
+      navBtn.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+  });
+</script>
 
 </body>
 </html>

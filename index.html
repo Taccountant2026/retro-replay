@@ -8,16 +8,33 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) + Consent Mode -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+
+    // Default: deny non-essential storage until user consents
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
+    });
+
     gtag('js', new Date());
-    gtag('config', 'G-PF6Q3TSMVL');
+    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
 </head>
+
 <body>
+
+  <!-- Mobile quick nav (sticky on mobile) -->
+  <div class="mobile-quicknav" role="navigation" aria-label="Mobile quick navigation">
+    <a class="mq-btn" href="/index.html">Home</a>
+    <button class="mq-btn" type="button" id="mqBackBtn">Back</button>
+    <a class="mq-cta" href="/playstation/products/ps2-fat.html">Go to PS2 FAT</a>
+  </div>
 
   <!-- Header -->
   <header class="site-header">
@@ -42,7 +59,7 @@
           <span>Retro Replay</span>
         </a>
 
-        <!-- NEW: Mobile nav toggle -->
+        <!-- Mobile nav toggle -->
         <button class="nav-toggle"
                 type="button"
                 aria-label="Open menu"
@@ -68,19 +85,16 @@
       </div>
     </div>
 
-    <!-- UPDATED: id added for mobile toggle -->
+    <!-- Nav (PS2-focused; other consoles kept private/sourcing via Sourcing page) -->
     <nav class="main-nav" id="primaryNav">
       <div class="container">
         <ul class="nav-list">
-          <li><a href="/index.html">Main Home</a></li>
-          <li><a href="/atari/index.html">Atari</a></li>
-          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/index.html">Home</a></li>
           <li><a href="/playstation/index.html">PlayStation</a></li>
-          <li><a href="/sega/index.html">Sega</a></li>
-          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/playstation/products/ps2-fat.html">PS2 FAT</a></li>
           <li><a href="/guides.html">Setup Guides</a></li>
-          <li><a href="/sourcing-request.html">Sourcing</a></li>
           <li><a href="/services.html">Services</a></li>
+          <li><a href="/sourcing-request.html">Sourcing</a></li>
           <li><a href="/warranties.html">Warranty</a></li>
           <li><a href="/faq.html">FAQ</a></li>
           <li><a href="/contact.html">Contact</a></li>
@@ -96,7 +110,7 @@
         <h1>Fully Tested, Professionally Prepared & Ready to Play Retro Consoles</h1>
         <p>We specialise in professionally tested, cleaned and carefully prepared PlayStation, Xbox, Nintendo and classic gaming consoles. Every system is fully functional at the point of dispatch, cosmetically graded for transparency, and backed by our Arrival Guarantee. Optional upgrades are available, including premium refurbishment, HDD and software enhancements, and extended warranty cover — ideal for players, collectors, and long-term ownership.</p>
         <div class="hero-cta">
-          <a href="/playstation/products/ps2-fat.html" class="btn btn-primary">Shop Consoles</a>
+          <a href="/playstation/products/ps2-fat.html" class="btn btn-primary">Shop PS2 FAT</a>
           <a href="/services.html" class="btn btn-secondary">Console Services</a>
         </div>
       </div>
@@ -106,7 +120,33 @@
     </div>
   </section>
 
-  <!-- NEW: sourcing CTA block -->
+  <!-- PS2 Feature Box (promotes PS2 FAT products) -->
+  <section class="ps2-feature">
+    <div class="container ps2-feature-inner">
+      <div class="ps2-feature-text">
+        <h2>PS2 FAT Plug &amp; Play HDD Builds</h2>
+        <p>Our live product line. Professionally tested, cleaned, pre-configured and ready to play with FMCB + OPL.</p>
+        <ul class="ps2-feature-points">
+          <li>✔ Internal HDD performance (no USB lag)</li>
+          <li>✔ 1TB / 2TB options</li>
+          <li>✔ Setup guide included</li>
+          <li>✔ UK support available</li>
+        </ul>
+        <div class="ps2-feature-actions">
+          <a class="btn btn-primary" href="/playstation/products/ps2-fat.html">View PS2 FAT Products</a>
+          <a class="btn btn-secondary" href="/contact.html">Ask a question</a>
+        </div>
+      </div>
+
+      <div class="ps2-feature-card">
+        <h3>Popular right now</h3>
+        <p>PS2 SCPH-50003 builds available.</p>
+        <a class="ps2-feature-link" href="/playstation/products/ps2-fat.html">Shop PS2 FAT →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sourcing CTA block -->
   <section class="section" style="background:#f8fafc; padding:3rem 0;">
     <div class="container" style="text-align:center; max-width:800px; margin:0 auto;">
       <h2 class="section-title">Request a Console to be Sourced</h2>
@@ -149,53 +189,53 @@
     </div>
   </div>
 
-  <!-- Shop by Console -->
+  <!-- Shop by Console (PS2-first; others via sourcing) -->
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Shop by Console</h2>
-        <p class="section-subtitle">Professionally tested and restored classic gaming consoles</p>
+        <h2 class="section-title">Shop</h2>
+        <p class="section-subtitle">PS2 is live now. Other consoles are currently sourcing-only.</p>
       </div>
 
       <div class="category-grid">
-        <a href="/playstation/index.html" class="category-card">
+        <a href="/playstation/products/ps2-fat.html" class="category-card">
           <div class="category-icon">
             <img src="assets/playstation-logo.png" alt="PlayStation">
           </div>
-          <h3 class="category-name">PlayStation</h3>
-          <p class="category-count">PS1 • PS2 • PS3</p>
+          <h3 class="category-name">PS2 FAT</h3>
+          <p class="category-count">1TB • 2TB • FMCB + OPL</p>
         </a>
 
-        <a href="/xbox/index.html" class="category-card">
+        <a href="/sourcing-request.html" class="category-card">
           <div class="category-icon">
             <img src="assets/xboxlogo.png" alt="Xbox">
           </div>
           <h3 class="category-name">Xbox</h3>
-          <p class="category-count">Original • 360</p>
+          <p class="category-count">Sourcing only</p>
         </a>
 
-        <a href="/nintendo/index.html" class="category-card">
+        <a href="/sourcing-request.html" class="category-card">
           <div class="category-icon">
             <img src="assets/nintendologo.png" alt="Nintendo">
           </div>
           <h3 class="category-name">Nintendo</h3>
-          <p class="category-count">NES • SNES • N64</p>
+          <p class="category-count">Sourcing only</p>
         </a>
 
-        <a href="/atari/index.html" class="category-card">
+        <a href="/sourcing-request.html" class="category-card">
           <div class="category-icon">
             <img src="assets/atarilogo.png" alt="Atari">
           </div>
           <h3 class="category-name">Atari</h3>
-          <p class="category-count">2600 • 5200 • 7800</p>
+          <p class="category-count">Sourcing only</p>
         </a>
 
-        <a href="/sega/index.html" class="category-card">
+        <a href="/sourcing-request.html" class="category-card">
           <div class="category-icon">
             <img src="assets/segalogo.png" alt="Sega">
           </div>
           <h3 class="category-name">Sega</h3>
-          <p class="category-count">Mega Drive • Saturn • Dreamcast</p>
+          <p class="category-count">Sourcing only</p>
         </a>
       </div>
     </div>
@@ -216,11 +256,8 @@
         <div class="footer-section">
           <h3>Shop</h3>
           <ul class="footer-links">
-            <li><a href="/playstation/index.html">PlayStation</a></li>
-            <li><a href="/xbox/index.html">Xbox</a></li>
-            <li><a href="/nintendo/index.html">Nintendo</a></li>
-            <li><a href="/atari/index.html">Atari</a></li>
-            <li><a href="/sega/index.html">Sega</a></li>
+            <li><a href="/playstation/products/ps2-fat.html">PS2 FAT</a></li>
+            <li><a href="/sourcing-request.html">Other consoles (sourcing)</a></li>
           </ul>
         </div>
 
@@ -242,6 +279,7 @@
             <li><a href="/how-we-refurbish.html">Our Process</a></li>
             <li><a href="/services.html">Services</a></li>
             <li><a href="/terms.html">Policies & Terms</a></li>
+            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
           </ul>
         </div>
       </div>
@@ -251,6 +289,20 @@
       </div>
     </div>
   </footer>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner is-hidden" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <div class="cookie-inner">
+      <p>
+        We use cookies to improve site performance and measure traffic (analytics). You can accept or reject non-essential cookies.
+        <a href="/cookie-policy.html">Cookie policy</a>
+      </p>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-secondary" id="cookieReject">Reject</button>
+        <button class="cookie-btn cookie-primary" id="cookieAccept">Accept</button>
+      </div>
+    </div>
+  </div>
 
   <script src="cart.js"></script>
   <script src="particles.js"></script>
@@ -271,6 +323,58 @@
           btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
       }
+
+      // Mobile back button
+      const backBtn = document.getElementById('mqBackBtn');
+      if (backBtn) backBtn.addEventListener('click', () => history.back());
+
+      // Cookie banner logic
+      const banner = document.getElementById('cookieBanner');
+      const accept = document.getElementById('cookieAccept');
+      const reject = document.getElementById('cookieReject');
+
+      const COOKIE_KEY = 'rr_cookie_consent'; // "accepted" | "rejected"
+      const saved = localStorage.getItem(COOKIE_KEY);
+
+      function hideBanner(){ if (banner) banner.classList.add('is-hidden'); }
+      function showBanner(){ if (banner) banner.classList.remove('is-hidden'); }
+
+      function setConsentAccepted(){
+        localStorage.setItem(COOKIE_KEY, 'accepted');
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'analytics_storage': 'granted',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied'
+          });
+        }
+        hideBanner();
+      }
+
+      function setConsentRejected(){
+        localStorage.setItem(COOKIE_KEY, 'rejected');
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied'
+          });
+        }
+        hideBanner();
+      }
+
+      if (!saved) {
+        showBanner();
+      } else if (saved === 'accepted') {
+        setConsentAccepted();
+      } else {
+        setConsentRejected();
+      }
+
+      if (accept) accept.addEventListener('click', setConsentAccepted);
+      if (reject) reject.addEventListener('click', setConsentRejected);
     });
   </script>
 

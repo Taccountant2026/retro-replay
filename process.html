@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How We Refurbish | Retro Replay</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta name="description" content="Retro Replay’s documented refurbishment process: inspection, deep cleaning, thermal refresh, laser checks, play testing, and secure packing." />
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
+
+  <style>
+    /* Page-local layout helpers only */
+    .process-wrap { max-width: 980px; margin: 0 auto; }
+  </style>
 </head>
+
 <body>
 
 <header class="site-header">
@@ -25,9 +32,11 @@
     <div class="container">
       <div class="header-promo">
         <span>🔧 Professional Console Refurbishment</span>
+        <span>✅ Tested • Cleaned • Graded</span>
       </div>
       <div class="header-links">
         <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
         <a href="/warranties.html">Warranty</a>
       </div>
     </div>
@@ -36,19 +45,27 @@
   <!-- HEADER MAIN -->
   <div class="header-main">
     <div class="container header-content">
-      <a href="index.html" class="site-logo">
-        <img src="assets/logo.png" alt="Retro Replay">
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay" />
         <span>Retro Replay</span>
       </a>
 
-      <div class="search-bar">
-        <input type="search" placeholder="Search..." aria-label="Search">
-        <button class="search-btn">Search</button>
-      </div>
+      <!-- Mobile menu button (works with CSS + JS below) -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
+
+      <!-- Consistent search form -->
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
 
       <div class="header-actions">
-        <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-        <a href="checkout.html" class="header-action">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
           <span>🛒</span><span>Cart</span>
           <span class="cart-badge" id="cart-count-js">0</span>
         </a>
@@ -57,26 +74,21 @@
   </div>
 
   <!-- GLOBAL NAV -->
-  <nav class="main-nav">
+  <nav class="main-nav" id="primaryNav">
     <div class="container">
       <ul class="nav-list">
-
         <li><a href="/index.html">Main Home</a></li>
-
         <li><a href="/atari/index.html">Atari</a></li>
         <li><a href="/nintendo/index.html">Nintendo</a></li>
         <li><a href="/playstation/index.html">PlayStation</a></li>
         <li><a href="/sega/index.html">Sega</a></li>
         <li><a href="/xbox/index.html">Xbox</a></li>
-
         <li><a href="/guides.html">Setup Guides</a></li>
         <li><a href="/sourcing-request.html">Sourcing</a></li>
-
         <li><a href="/services.html">Services</a></li>
         <li><a href="/warranties.html">Warranty</a></li>
         <li><a href="/faq.html">FAQ</a></li>
         <li><a href="/contact.html">Contact</a></li>
-
       </ul>
     </div>
   </nav>
@@ -89,13 +101,17 @@
     <div class="hero-text">
       <h1>Our Refurbishment Process</h1>
       <p>A precise, fully documented restoration workflow designed to maximise lifespan, reliability and performance.</p>
+      <div class="hero-cta">
+        <a href="/services.html" class="btn btn-secondary">View Services</a>
+        <a href="/contact.html" class="btn btn-primary">Ask a Question</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- 7-STEP PROCESS -->
 <section class="section" style="background: white;">
-  <div class="container" style="max-width: 900px;">
+  <div class="container process-wrap">
 
     <div class="product-card">
       <div class="product-info">
@@ -104,23 +120,14 @@
           Our 7-Step Professional Refurbishment
         </h2>
 
-        <ul class="product-features" style="font-size:1.15rem; line-height:1.9; color:var(--dark); padding-left:1.2rem;">
-
-          <li><strong>1. Full Disassembly</strong> — Every console is completely dismantled, cleaned and documented.  
-          This prevents unnoticed faults and ensures safe reassembly.</li>
-
+        <ul class="product-features" style="font-size:1.05rem; line-height:1.9; color:var(--dark); padding-left:1.2rem;">
+          <li><strong>1. Full Disassembly</strong> — Every console is completely dismantled, cleaned and documented. This prevents unnoticed faults and ensures safe reassembly.</li>
           <li><strong>2. Ultrasonic Component Cleaning</strong> — Ports, plastics and internal parts are ultrasonically cleaned to remove dust, oils and corrosion.</li>
-
           <li><strong>3. Optical/Laser Calibration</strong> — Disc-based systems receive full laser tuning, lubrication and read-performance checks.</li>
-
           <li><strong>4. Thermal Refresh</strong> — Old thermal paste is removed and replaced. Cooling assemblies are cleaned and fans are stabilised or replaced if needed.</li>
-
           <li><strong>5. Power Delivery Inspection</strong> — PSU voltages, capacitors and connectors are tested to meet safe electrical output levels.</li>
-
           <li><strong>6. Multi-Stage Play Testing</strong> — Games, controller ports, memory card slots, video output and audio are all tested live.</li>
-
           <li><strong>7. Secure Final Assembly</strong> — The system is rebuilt, re-cleaned externally, and packaged using anti-static and impact-safe materials.</li>
-
         </ul>
 
       </div>
@@ -138,7 +145,6 @@
     </div>
 
     <div class="product-grid">
-
       <div class="product-card">
         <div class="product-info">
           <h3 class="product-name">Grade A — Like New</h3>
@@ -159,7 +165,6 @@
           <p class="product-description">More visible external wear, but fully tested and fully functional.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -171,7 +176,7 @@
 
       <div class="footer-section">
         <h3>Retro Replay</h3>
-        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
       </div>
 
       <div class="footer-section">
@@ -191,7 +196,7 @@
           <li><a href="/guides.html">Setup Guides</a></li>
           <li><a href="/faq.html">FAQ</a></li>
           <li><a href="/warranties.html">Warranty Info</a></li>
-          <li><a href="/shipping.html">Shipping</a></li>
+          <li><a href="/delivery.html">Delivery</a></li>
           <li><a href="/contact.html">Contact Us</a></li>
         </ul>
       </div>
@@ -200,22 +205,36 @@
         <h3>Company</h3>
         <ul class="footer-links">
           <li><a href="/about.html">About Us</a></li>
-          <li><a href="/process.html">Our Process</a></li>
+          <li><a href="/how-we-refurbish.html" aria-current="page">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
-          <li><a href="/terms.html">Policies & Terms</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. Professionally tested & cleaned gaming consoles.</p>
+      <p>© 2025 Retro Replay. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
 
-<script src="cart.js"></script>
-<script>RetroCart.loadCart();</script>
+<script src="/cart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.RetroCart && typeof RetroCart.loadCart === 'function') RetroCart.loadCart();
+
+    // Mobile menu toggle (requires CSS: .main-nav.is-open { display:block; } for small screens)
+    const navBtn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primaryNav');
+    if (navBtn && nav) {
+      navBtn.addEventListener('click', () => {
+        const open = nav.classList.toggle('is-open');
+        navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  });
+</script>
 
 </body>
 </html>

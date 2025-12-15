@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | Retro Replay</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Google tag (gtag.js) -->
@@ -15,20 +16,74 @@
     gtag('js', new Date());
     gtag('config', 'G-PF6Q3TSMVL');
   </script>
+
+  <style>
+    /* Small safety styles if variables are missing */
+    :root {
+      --primary: #2563eb;
+      --gray: #64748b;
+      --gray-lighter: #e2e8f0;
+    }
+    .contact-wrap { display:grid; gap:1.5rem; }
+    .notice {
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(37,99,235,0.25);
+      background: linear-gradient(135deg, rgba(37,99,235,0.07), rgba(34,197,94,0.05));
+      font-size: .95rem;
+      color: #0f172a;
+    }
+    .notice a { color: var(--primary); font-weight: 600; }
+    .field input, .field textarea {
+      width: 100%;
+      padding: .75rem;
+      border: 2px solid var(--gray-lighter);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      background: white;
+    }
+    .field label {
+      display:block;
+      margin-bottom:.5rem;
+      font-weight:600;
+    }
+    .field { margin-bottom: 1rem; }
+    .status {
+      margin: 1rem 0 0;
+      font-size: .95rem;
+      display:none;
+      color: var(--gray);
+    }
+    .status.ok { color: #16a34a; }
+    .status.err { color: #b91c1c; }
+  </style>
 </head>
+
 <body>
 
 <header class="site-header">
+
+  <!-- GLOBAL TOP BAR (matches index.html) -->
   <div class="header-top">
     <div class="container">
-      <div class="header-promo"><span>📞 Customer Support</span></div>
+      <div class="header-promo">
+        <span>📞 Customer Support</span>
+        <span>⏱️ Typical reply within 24 hours (Mon–Fri)</span>
+      </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
+      </div>
     </div>
   </div>
 
+  <!-- HEADER MAIN -->
   <div class="header-main">
     <div class="container header-content">
-      <a href="index.html" class="site-logo">
-        <img src="assets/logo.png" alt="Retro Replay">
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay">
         <span>Retro Replay</span>
       </a>
 
@@ -38,26 +93,13 @@
       </form>
 
       <div class="header-actions">
-        <a href="contact.html" class="header-action" style="color: var(--primary);">
+        <a href="/contact.html" class="header-action" style="color: var(--primary);">
           <span>📞</span><span>Support</span>
         </a>
-        <a href="checkout.html" class="header-action">
+        <a href="/checkout.html" class="header-action">
           <span>🛒</span><span>Cart</span>
           <span class="cart-badge" id="cart-count-js">0</span>
         </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- GLOBAL TOP BAR -->
-  <div class="header-top">
-    <div class="container">
-      <div class="header-promo">
-        <span>Retro Replay — Professionally tested and cleaned gaming consoles</span>
-      </div>
-      <div class="header-links">
-        <a href="/about.html">About</a>
-        <a href="/warranties.html">Warranty</a>
       </div>
     </div>
   </div>
@@ -77,10 +119,11 @@
         <li><a href="/services.html">Services</a></li>
         <li><a href="/warranties.html">Warranty</a></li>
         <li><a href="/faq.html">FAQ</a></li>
-        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/contact.html" aria-current="page">Contact</a></li>
       </ul>
     </div>
   </nav>
+
 </header>
 
 <!-- HERO -->
@@ -88,66 +131,79 @@
   <div class="container hero-content">
     <div class="hero-text">
       <h1>Get in Touch</h1>
-      <p>Need support with an order or have questions about our tested and cleaned consoles? We're here to help.</p>
+      <p>Need support with an order or have questions about our tested and cleaned consoles? We’re here to help.</p>
     </div>
   </div>
 </section>
 
-<!-- CONTACT FORM -->
+<!-- CONTACT -->
 <section class="section" style="background: white;">
-  <div class="container" style="max-width: 600px;">
+  <div class="container" style="max-width: 760px;">
 
-    <div class="section-header">
+    <div class="section-header" style="text-align:center;">
       <h2 class="section-title">Contact Us</h2>
+      <p style="color: var(--gray); margin-top:.5rem;">
+        Form sends directly to <strong>retroreplay2026@gmail.com</strong> via Formspree.
+      </p>
     </div>
 
-    <!-- ✅ FORM SUBMITS TO EMAIL SERVICE -->
-    <!-- Replace YOUR_FORMSPREE_ID with your Formspree endpoint -->
-    <form id="contact-form"
-          action="https://formspree.io/f/manrkvby"
-          method="POST"
-          style="background: #f9fafb; padding: 2rem; border-radius: 12px;">
+    <div class="contact-wrap">
 
-      <input type="hidden" name="_subject" value="Retro Replay Website Contact">
-      <input type="text" name="_gotcha" style="display:none"> <!-- spam trap -->
-
-      <div style="margin-bottom: 1rem;">
-        <label style="display: block; margin-bottom: .5rem; font-weight: 600;">Name</label>
-        <input name="name" type="text" placeholder="Your name" required
-               style="width: 100%; padding: .75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;">
+      <div class="notice">
+        If the form ever fails, email us directly:
+        <a href="mailto:retroreplay2026@gmail.com?subject=Retro%20Replay%20Support">retroreplay2026@gmail.com</a>
       </div>
 
-      <div style="margin-bottom: 1rem;">
-        <label style="display: block; margin-bottom: .5rem; font-weight: 600;">Email</label>
-        <input name="email" type="email" placeholder="you@example.com" required
-               style="width: 100%; padding: .75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;">
+      <!-- FORM: Formspree endpoint -->
+      <form id="contact-form"
+            action="https://formspree.io/f/manrkvby"
+            method="POST"
+            style="background:#f9fafb; padding:2rem; border-radius:12px;">
+
+        <!-- Formspree helpers -->
+        <input type="hidden" name="_subject" value="Retro Replay Website Contact">
+        <input type="hidden" name="_replyto" value="">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="field">
+          <label for="order">Order / Reference (optional)</label>
+          <input id="order" name="order" type="text" placeholder="eBay / Vinted / Website order ID (optional)">
+        </div>
+
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" placeholder="How can we help?" required>
+        </div>
+
+        <div class="field" style="margin-bottom:1.5rem;">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us more..." rows="6" required></textarea>
+        </div>
+
+        <button id="send-btn" type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+
+        <p id="form-status" class="status"></p>
+      </form>
+
+      <!-- CONTACT INFO PANEL -->
+      <div style="background:#f0f4f8; padding:1.5rem; border-radius:12px;">
+        <h3 style="color: var(--primary); margin-top: 0;">Other Ways to Reach Us</h3>
+        <p><strong>Email:</strong> <a href="mailto:retroreplay2026@gmail.com">retroreplay2026@gmail.com</a></p>
+        <p><strong>Phone:</strong> Available on request (email us first)</p>
+        <p style="color: var(--gray); font-size: .9rem;">We aim to respond within 24 hours (Mon–Fri)</p>
       </div>
 
-      <div style="margin-bottom: 1rem;">
-        <label style="display: block; margin-bottom: .5rem; font-weight: 600;">Subject</label>
-        <input name="subject" type="text" placeholder="How can we help?" required
-               style="width: 100%; padding: .75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;">
-      </div>
-
-      <div style="margin-bottom: 1.5rem;">
-        <label style="display: block; margin-bottom: .5rem; font-weight: 600;">Message</label>
-        <textarea name="message" placeholder="Tell us more..." rows="6" required
-                  style="width: 100%; padding: .75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></textarea>
-      </div>
-
-      <button id="send-btn" type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-
-      <p id="form-status" style="margin:1rem 0 0; color: var(--gray); font-size: .95rem; display:none;"></p>
-    </form>
-
-    <!-- CONTACT INFO PANEL -->
-    <div style="background: #f0f4f8; padding: 1.5rem; border-radius: 12px; margin-top: 2rem;">
-      <h3 style="color: var(--primary); margin-top: 0;">Other Ways to Reach Us</h3>
-      <p><strong>Email:</strong> <a href="mailto:retroreplay2026@gmail.com">retroreplay2026@gmail.com</a></p>
-      <p><strong>Phone:</strong> Available on request (email us first)</p>
-      <p style="color: var(--gray); font-size: .9rem;">We aim to respond within 24 hours (Mon–Fri)</p>
     </div>
-
   </div>
 </section>
 
@@ -187,9 +243,9 @@
         <h3>Company</h3>
         <ul class="footer-links">
           <li><a href="/about.html">About Us</a></li>
-          <li><a href="/process.html">Our Process</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
-          <li><a href="/branding.html">Branding</a></li>
+          <li><a href="/terms.html">Terms &amp; Policies</a></li>
         </ul>
       </div>
 
@@ -201,24 +257,35 @@
   </div>
 </footer>
 
-<script src="cart.js"></script>
+<script src="/cart.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    if (window.RetroCart && typeof RetroCart.loadCart === 'function') RetroCart.loadCart();
+    if (window.RetroCart && typeof RetroCart.loadCart === 'function') {
+      RetroCart.loadCart();
+    }
 
-    // Optional: nicer UX, stays on the same page
     const form = document.getElementById('contact-form');
     const statusEl = document.getElementById('form-status');
     const btn = document.getElementById('send-btn');
+    const emailField = document.getElementById('email');
+
+    // Keep reply-to in sync (helps in Formspree inbox)
+    emailField.addEventListener('input', () => {
+      const reply = form.querySelector('input[name="_replyto"]');
+      if (reply) reply.value = emailField.value || '';
+    });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      statusEl.className = 'status';
       statusEl.style.display = 'block';
       statusEl.textContent = 'Sending...';
       btn.disabled = true;
 
       try {
         const data = new FormData(form);
+
         const res = await fetch(form.action, {
           method: 'POST',
           body: data,
@@ -226,12 +293,15 @@
         });
 
         if (res.ok) {
+          statusEl.classList.add('ok');
           statusEl.textContent = 'Thank you! Your message has been sent.';
           form.reset();
         } else {
+          statusEl.classList.add('err');
           statusEl.textContent = 'Message failed to send. Please email retroreplay2026@gmail.com';
         }
       } catch (err) {
+        statusEl.classList.add('err');
         statusEl.textContent = 'Message failed to send. Please email retroreplay2026@gmail.com';
       } finally {
         btn.disabled = false;

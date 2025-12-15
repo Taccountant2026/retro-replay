@@ -1,47 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Services | Retro Replay</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta name="description" content="Premium refurbishment, upgrades, HDD/FMCB installs, setup support and extended warranty options for retro gaming consoles." />
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
 </head>
+
 <body>
 
 <header class="site-header">
+
+  <!-- GLOBAL TOP BAR -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
         <span>🔧 Premium Refurbishment & Upgrade Services</span>
+        <span>📘 Free setup guidance available</span>
+      </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
       </div>
     </div>
   </div>
 
+  <!-- HEADER MAIN -->
   <div class="header-main">
     <div class="container header-content">
-      <a href="index.html" class="site-logo">
-        <img src="assets/logo.png" alt="Retro Replay Logo">
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay Logo" />
         <span>Retro Replay</span>
       </a>
 
-<form class="search-bar" action="/search.html" method="get" role="search">
-  <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
-  <button class="search-btn" type="submit">Search</button>
-</form>
+      <!-- Mobile menu button (requires .nav-toggle + .main-nav.is-open CSS in style.css) -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
+
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
 
       <div class="header-actions">
-        <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-        <a href="checkout.html" class="header-action">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
           <span>🛒</span><span>Cart</span>
           <span class="cart-badge" id="cart-count-js">0</span>
         </a>
@@ -49,43 +67,26 @@
     </div>
   </div>
 
- <!-- GLOBAL TOP BAR -->
-<div class="header-top">
-  <div class="container">
-    <div class="header-promo">
-      <span>Retro Replay — Professionally tested and cleaned gaming consoles</span>
+  <!-- GLOBAL MAIN NAV -->
+  <nav class="main-nav" id="primaryNav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html" aria-current="page">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
     </div>
-    <div class="header-links">
-      <a href="/about.html">About</a>
-      <a href="/warranties.html">Warranty</a>
-    </div>
-  </div>
-</div>
+  </nav>
 
-<!-- GLOBAL MAIN NAV -->
-<nav class="main-nav">
-  <div class="container">
-    <ul class="nav-list">
-
-      <li><a href="/index.html">Main Home</a></li>
-
-      <li><a href="/atari/index.html">Atari</a></li>
-      <li><a href="/nintendo/index.html">Nintendo</a></li>
-      <li><a href="/playstation/index.html">PlayStation</a></li>
-      <li><a href="/sega/index.html">Sega</a></li>
-      <li><a href="/xbox/index.html">Xbox</a></li>
-
-      <li><a href="/guides.html">Setup Guides</a></li>
-      <li><a href="/sourcing-request.html">Sourcing</a></li>
-
-      <li><a href="/services.html">Services</a></li>
-      <li><a href="/warranties.html">Warranty</a></li>
-      <li><a href="/faq.html">FAQ</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-
-    </ul>
-  </div>
-</nav>
 </header>
 
 <!-- HERO -->
@@ -94,6 +95,10 @@
     <div class="hero-text">
       <h1>Our Services</h1>
       <p>Professional testing, premium refurbishment, upgrade options and expert setup support for classic gaming systems.</p>
+      <div class="hero-cta">
+        <a href="/contact.html" class="btn btn-secondary">Ask a Question</a>
+        <a href="/sourcing-request.html" class="btn btn-primary">Request a Sourced Console</a>
+      </div>
     </div>
   </div>
 </section>
@@ -112,8 +117,10 @@
         <div class="product-info">
           <h3 class="product-name">🔧 Premium Refurbishment (£400)</h3>
           <p class="product-description">
-            Full engineering-grade internal restoration service including complete disassembly, ultrasonic cleaning, laser/drive servicing, thermal refresh, PSU inspection and final gameplay testing. Suitable for collectors or long-term preservation.
+            Full engineering-grade internal restoration service including complete disassembly, deep cleaning, drive servicing, thermal refresh, PSU inspection and final gameplay testing.
+            Suitable for collectors or long-term preservation.
           </p>
+          <a class="btn btn-outline btn-add-cart" href="/how-we-refurbish.html">View Full Process</a>
         </div>
       </div>
 
@@ -123,6 +130,7 @@
           <p class="product-description">
             Optional extras including FMCB installation, HDD/SSD upgrades, HDMI adaptors, region changes, custom shells and homebrew setup for supported systems.
           </p>
+          <a class="btn btn-outline btn-add-cart" href="/guides.html">View Setup Guides</a>
         </div>
       </div>
 
@@ -132,6 +140,7 @@
           <p class="product-description">
             Clear step-by-step guides covering console setup, memory card preparation, HDD usage, controller pairing and system optimisation.
           </p>
+          <a class="btn btn-outline btn-add-cart" href="/guides.html">Browse Guides</a>
         </div>
       </div>
 
@@ -141,15 +150,17 @@
           <p class="product-description">
             All consoles are graded A/B/C for external condition so you know exactly what to expect before purchasing.
           </p>
+          <a class="btn btn-outline btn-add-cart" href="/how-we-refurbish.html#grades">See Grades</a>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-info">
-          <h3 class="product-name">✓ Optional Extended Warranty</h3>
+          <h3 class="product-name">🛡 Optional Extended Warranty</h3>
           <p class="product-description">
             Standard 30-day functional warranty included with all tested consoles. Extended protection plans (from £150) offer priority diagnostics and hardware cover.
           </p>
+          <a class="btn btn-outline btn-add-cart" href="/warranties.html">View Warranty Options</a>
         </div>
       </div>
 
@@ -161,22 +172,27 @@
 <section class="section">
   <div class="container" style="max-width: 900px;">
     <div class="section-header">
-      <h2 class="section-title">Premium Refurbishment Process</h2>
-      <p class="section-subtitle">A full engineering restoration service for collectors</p>
+      <h2 class="section-title">Premium Refurbishment (Collectors)</h2>
+      <p class="section-subtitle">A full engineering restoration service designed to maximise lifespan</p>
     </div>
 
     <div class="product-card">
       <div class="product-info">
         <ul class="product-features" style="font-size: 1.05rem; line-height: 2;">
           <li>✓ Full internal disassembly</li>
-          <li>✓ Ultrasonic cleaning (where suitable)</li>
+          <li>✓ Deep cleaning & corrosion inspection</li>
           <li>✓ Thermal paste replacement & cooling optimisation</li>
-          <li>✓ Power supply inspection & capacitor evaluation</li>
-          <li>✓ Laser / optical drive calibration or replacement</li>
-          <li>✓ Mechanical lubrication & servicing</li>
-          <li>✓ Full functional testing with original software</li>
+          <li>✓ Power delivery inspection (PSU/caps/connectors)</li>
+          <li>✓ Optical drive service & calibration (where applicable)</li>
+          <li>✓ Port and connector inspection</li>
+          <li>✓ Multi-stage functional testing</li>
           <li>✓ Secure packaging & tracked shipping</li>
         </ul>
+
+        <div class="hero-cta" style="margin-top: 1.25rem;">
+          <a href="/contact.html" class="btn btn-primary">Request a Quote</a>
+          <a href="/how-we-refurbish.html" class="btn btn-secondary">Read the Full Process</a>
+        </div>
       </div>
     </div>
   </div>
@@ -241,18 +257,34 @@
   </div>
 </section>
 
+<!-- CTA -->
+<section class="section">
+  <div class="container" style="max-width: 900px;">
+    <div class="product-card">
+      <div class="product-info" style="text-align:center;">
+        <h2 class="section-title" style="margin-bottom:.5rem;">Need something specific?</h2>
+        <p class="section-subtitle" style="margin: 0 auto 1.25rem; max-width: 700px;">
+          If you want a specific model revision, cosmetic grade, bundle or upgrade package, contact us and we’ll build a tailored quote.
+        </p>
+        <div class="hero-cta" style="justify-content:center;">
+          <a href="/contact.html" class="btn btn-primary">Contact Support</a>
+          <a href="/sourcing-request.html" class="btn btn-outline">Sourcing Request</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
 
-      <!-- BRANDING -->
       <div class="footer-section">
         <h3>Retro Replay</h3>
-        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
       </div>
 
-      <!-- SHOP -->
       <div class="footer-section">
         <h3>Shop</h3>
         <ul class="footer-links">
@@ -264,39 +296,51 @@
         </ul>
       </div>
 
-      <!-- SUPPORT -->
       <div class="footer-section">
         <h3>Support</h3>
         <ul class="footer-links">
           <li><a href="/guides.html">Setup Guides</a></li>
           <li><a href="/faq.html">FAQ</a></li>
           <li><a href="/warranties.html">Warranty Info</a></li>
-          <li><a href="/shipping.html">Shipping</a></li>
+          <li><a href="/delivery.html">Delivery</a></li>
           <li><a href="/contact.html">Contact Us</a></li>
         </ul>
       </div>
 
-      <!-- COMPANY -->
       <div class="footer-section">
         <h3>Company</h3>
         <ul class="footer-links">
           <li><a href="/about.html">About Us</a></li>
-          <li><a href="/process.html">Our Process</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
-          <li><a href="/terms.html">Policies & Terms</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. All rights reserved. Professionally tested & cleaned gaming consoles.</p>
+      <p>© 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
 
-<script src="cart.js"></script>
-<script>RetroCart.loadCart();</script>
+<script src="/cart.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.RetroCart && typeof RetroCart.loadCart === "function") RetroCart.loadCart();
+
+    // Mobile nav toggle (requires CSS in style.css)
+    const navBtn = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("primaryNav");
+    if (navBtn && nav) {
+      navBtn.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+  });
+</script>
 
 </body>
 </html>

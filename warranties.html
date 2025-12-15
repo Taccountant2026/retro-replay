@@ -1,94 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Warranties | Retro Replay</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta name="description" content="Warranty coverage for Retro Replay consoles and accessories, including standard warranty and optional extended plans." />
 
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
+
+  <style>
+    /* Small safety styles if variables are missing */
+    :root {
+      --primary: #2563eb;
+      --gray: #64748b;
+      --gray-lighter: #e2e8f0;
+      --dark: #0f172a;
+    }
+    .note {
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(37,99,235,0.25);
+      background: linear-gradient(135deg, rgba(37,99,235,0.07), rgba(34,197,94,0.05));
+      color: var(--dark);
+      font-size: .95rem;
+    }
+    .note a { color: var(--primary); font-weight: 700; }
+  </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="header-top"><div class="container"><div class="header-promo"><span>🛡️ Warranty Coverage</span></div></div></div>
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
-        <form class="search-bar" action="/search.html" method="get" role="search">
-  <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
-  <button class="search-btn" type="submit">Search</button>
-</form>
-        <div class="header-actions"><a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+
+<header class="site-header">
+
+  <!-- GLOBAL TOP BAR (matches index.html) -->
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo">
+        <span>🛡️ Warranty Coverage</span>
+        <span>✅ Peace of mind with every order</span>
+      </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html" aria-current="page">Warranty</a>
       </div>
     </div>
-<!-- GLOBAL TOP BAR -->
-<div class="header-top">
-  <div class="container">
-    <div class="header-promo">
-      <span>Retro Replay — Professionally tested and cleaned gaming consoles</span>
-    </div>
-    <div class="header-links">
-      <a href="/about.html">About</a>
-      <a href="/warranties.html">Warranty</a>
+  </div>
+
+  <!-- HEADER MAIN -->
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay" />
+        <span>Retro Replay</span>
+      </a>
+
+      <!-- Mobile menu button (requires .nav-toggle + .main-nav.is-open CSS in style.css) -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
+
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
+
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- GLOBAL MAIN NAV -->
-<nav class="main-nav">
-  <div class="container">
-    <ul class="nav-list">
+  <!-- GLOBAL MAIN NAV -->
+  <nav class="main-nav" id="primaryNav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
 
-      <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
 
-      <li><a href="/atari/index.html">Atari</a></li>
-      <li><a href="/nintendo/index.html">Nintendo</a></li>
-      <li><a href="/playstation/index.html">PlayStation</a></li>
-      <li><a href="/sega/index.html">Sega</a></li>
-      <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html" aria-current="page">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-      <li><a href="/guides.html">Setup Guides</a></li>
-      <li><a href="/sourcing-request.html">Sourcing</a></li>
+</header>
 
-      <li><a href="/services.html">Services</a></li>
-      <li><a href="/warranties.html">Warranty</a></li>
-      <li><a href="/faq.html">FAQ</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-
-    </ul>
+<!-- HERO -->
+<section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Warranty Coverage</h1>
+      <p>Clear warranty terms, straightforward support, and optional extended protection plans.</p>
+    </div>
   </div>
-</nav>
-  </header>
+</section>
 
-  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);"><div class="container hero-content"><div class="hero-text"><h1>Warranty Coverage</h1><p>Peace of mind with every refurbished console purchase.</p></div></div></section>
+<!-- QUICK NOTE -->
+<section class="section" style="background: white;">
+  <div class="container" style="max-width: 900px;">
+    <div class="note">
+      Looking for the full legal wording? See <a href="/terms.html">Terms &amp; Policies</a>.
+      Need delivery help? See <a href="/delivery.html">Delivery</a>.
+    </div>
+  </div>
+</section>
 
-  <section class="section" style="background: white;"><div class="container"><div class="section-header"><h2 class="section-title">14-Day Standard Warranty</h2><p class="section-subtitle">Included with all refurbished consoles at no extra cost</p></div><div class="product-grid"><div class="product-card"><div class="product-info"><h3 class="product-name">✓ Hardware Defects</h3><p class="product-description">Covers manufacturing defects and hardware failures. If your console fails within 14 days, we'll repair or replace it.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">✓ Performance Issues</h3><p class="product-description">All functionality issues covered. Disc reading problems, controller issues, and power problems are all included.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">✓ Free Repairs</h3><p class="product-description">No repair costs. Any warranty claims include free repair, return shipping, and handling.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">✓ Full Replacement</h3><p class="product-description">If repair isn't possible, we'll replace your console with an equivalent unit at no cost.</p></div></div></div></div></section>
+<!-- STANDARD WARRANTY -->
+<section class="section" style="background: white; padding-top: 0;">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">14-Day Standard Warranty</h2>
+      <p class="section-subtitle">Included with all refurbished consoles at no extra cost</p>
+    </div>
 
-  <section class="section"><div class="container" style="max-width: 900px;"><div class="section-header"><h2 class="section-title">What's Covered</h2></div><div class="product-card"><div class="product-info"><ul class="product-features" style="font-size: 1.05rem; line-height: 2; color: var(--dark);"><li>✓ Disc drive/optical reader failures</li><li>✓ Power supply malfunctions</li><li>✓ Controller compatibility issues</li><li>✓ Thermal and cooling problems</li><li>✓ Port and connector failures</li><li>✓ Button and hardware defects</li><li>✓ Any manufacturing defects</li></ul></div></div></div></section>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">✓ Hardware faults</h3>
+          <p class="product-description">Covers functional hardware faults. If your console fails within 14 days, we will repair or replace it.</p>
+        </div>
+      </div>
 
-  <section class="section" style="background: white;"><div class="container" style="max-width: 900px;"><div class="section-header"><h2 class="section-title">What's Not Covered</h2></div><div class="product-card"><div class="product-info"><ul class="product-features" style="font-size: 1.05rem; line-height: 2; color: var(--gray);"><li>• Cosmetic damage (scratches, dents, discoloration)</li><li>• Accidental damage or misuse</li><li>• Water or liquid damage</li><li>• Modifications not performed by us</li><li>• Normal wear and tear beyond specifications</li></ul></div></div></div></section>
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">✓ Performance issues</h3>
+          <p class="product-description">Covers issues like power faults, video/audio output problems, overheating, or disc-read faults (where applicable).</p>
+        </div>
+      </div>
 
-  <section class="section"><div class="container" style="max-width: 900px;"><div class="section-header"><h2 class="section-title">Extended Warranty Options</h2></div><div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));"><div class="product-card"><div class="product-info"><h3 class="product-name">1-Month Plan</h3><p class="product-description">Double the coverage period. Extended protection for full month at £49.99</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">6-Month Plan</h3><p class="product-description">Maximum peace of mind. Coverage for 6 full months at £84.99</p></div></div></div></div></section>
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">✓ Repair support</h3>
+          <p class="product-description">We troubleshoot first, then repair or replace where appropriate. Return instructions are provided by support.</p>
+        </div>
+      </div>
 
- <footer class="site-footer">
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">✓ Replacement where needed</h3>
+          <p class="product-description">If repair isn’t possible, we’ll replace with an equivalent unit (subject to availability).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S COVERED -->
+<section class="section">
+  <div class="container" style="max-width: 900px;">
+    <div class="section-header">
+      <h2 class="section-title">What’s Covered</h2>
+      <p class="section-subtitle">Functional hardware faults within the warranty period</p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-info">
+        <ul class="product-features" style="font-size: 1.05rem; line-height: 2; color: var(--dark);">
+          <li>✓ Power faults / failure to boot</li>
+          <li>✓ Video or audio output faults</li>
+          <li>✓ Disc drive / optical read issues (disc-based systems)</li>
+          <li>✓ Overheating or fan failure (where not caused by blockage/misuse)</li>
+          <li>✓ Port failures (controller, AV, USB, memory card, etc.)</li>
+          <li>✓ Internal hardware defects affecting normal operation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S NOT COVERED -->
+<section class="section" style="background: white;">
+  <div class="container" style="max-width: 900px;">
+    <div class="section-header">
+      <h2 class="section-title">What’s Not Covered</h2>
+      <p class="table-subtitle" style="color: var(--gray); margin-top: .25rem;">
+        These examples are not exhaustive; see Terms for full details.
+      </p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-info">
+        <ul class="product-features" style="font-size: 1.05rem; line-height: 2; color: var(--gray);">
+          <li>• Cosmetic wear (scratches, dents, yellowing, stickers, marks)</li>
+          <li>• Accidental damage, drops, impact damage, or misuse</li>
+          <li>• Liquid damage, corrosion from exposure</li>
+          <li>• Third-party modifications or repairs not performed by Retro Replay</li>
+          <li>• Issues caused by unsupported accessories, power adapters, or cables</li>
+          <li>• Normal wear outside functional failure (e.g., ageing plastics)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXTENDED OPTIONS -->
+<section class="section">
+  <div class="container" style="max-width: 1000px;">
+    <div class="section-header">
+      <h2 class="section-title">Optional Extended Warranty</h2>
+      <p class="section-subtitle">Extra cover available on request (subject to product and condition)</p>
+    </div>
+
+    <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">1-Month Plan</h3>
+          <p class="product-description">Extended protection for 1 month from delivery date.</p>
+          <p class="product-description"><strong>£49.99</strong></p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">6-Month Plan</h3>
+          <p class="product-description">Longer protection window for collectors and long-term setups.</p>
+          <p class="product-description"><strong>£84.99</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top: 1rem;">
+      To add an extended plan, contact us via <a href="/contact.html">Support</a> with your order reference.
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
   <div class="container">
     <div class="footer-content">
 
-      <!-- BRANDING -->
       <div class="footer-section">
         <h3>Retro Replay</h3>
-        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
       </div>
 
-      <!-- SHOP -->
       <div class="footer-section">
         <h3>Shop</h3>
         <ul class="footer-links">
@@ -100,37 +272,51 @@
         </ul>
       </div>
 
-      <!-- SUPPORT -->
       <div class="footer-section">
         <h3>Support</h3>
         <ul class="footer-links">
           <li><a href="/guides.html">Setup Guides</a></li>
           <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/warranties.html">Warranty Info</a></li>
+          <li><a href="/warranties.html" aria-current="page">Warranty Info</a></li>
           <li><a href="/delivery.html">Delivery</a></li>
           <li><a href="/contact.html">Contact Us</a></li>
         </ul>
       </div>
 
-      <!-- COMPANY -->
       <div class="footer-section">
         <h3>Company</h3>
         <ul class="footer-links">
           <li><a href="/about.html">About Us</a></li>
-          <li><a href="/process.html">Our Process</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
-          <li><a href="/terms.html">Policies & Terms</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. All rights reserved. Professionally tested & cleaned gaming consoles.</p>
+      <p>© 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
 
-  <script src="cart.js"></script><script>RetroCart.loadCart();</script>
+<script src="/cart.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.RetroCart && typeof RetroCart.loadCart === "function") RetroCart.loadCart();
+
+    // Mobile nav toggle
+    const navBtn = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("primaryNav");
+    if (navBtn && nav) {
+      navBtn.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+  });
+</script>
+
 </body>
 </html>

@@ -4,146 +4,163 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shipping & Delivery | Retro Replay</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="header-top"><div class="container"><div class="header-promo"><span>📦 Fast Worldwide Shipping</span></div></div></div>
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
-        <form class="search-bar" action="/search.html" method="get" role="search">
-  <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
-  <button class="search-btn" type="submit">Search</button>
-</form>
-        <div class="header-actions">
-          <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-          <a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
-        </div>
-      </div>
-    </div>
-<!-- GLOBAL TOP BAR -->
-<div class="header-top">
-  <div class="container">
-    <div class="header-promo">
-      <span>Retro Replay — Professionally tested and cleaned gaming consoles</span>
-    </div>
-    <div class="header-links">
-      <a href="/about.html">About</a>
-      <a href="/warranties.html">Warranty</a>
-    </div>
-  </div>
-</div>
 
-<!-- GLOBAL MAIN NAV -->
-<nav class="main-nav">
-  <div class="container">
-    <ul class="nav-list">
+<header class="site-header">
 
-      <li><a href="/index.html">Main Home</a></li>
-
-      <li><a href="/atari/index.html">Atari</a></li>
-      <li><a href="/nintendo/index.html">Nintendo</a></li>
-      <li><a href="/playstation/index.html">PlayStation</a></li>
-      <li><a href="/sega/index.html">Sega</a></li>
-      <li><a href="/xbox/index.html">Xbox</a></li>
-
-      <li><a href="/guides.html">Setup Guides</a></li>
-      <li><a href="/sourcing-request.html">Sourcing</a></li>
-
-      <li><a href="/services.html">Services</a></li>
-      <li><a href="/warranties.html">Warranty</a></li>
-      <li><a href="/faq.html">FAQ</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-
-    </ul>
-  </div>
-</nav>
-  </header>
-
-  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>Shipping & Delivery</h1>
-        <p>Fast, secure, tracked delivery worldwide. Your console arrives safely and quickly.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background: white;">
+  <!-- GLOBAL TOP BAR -->
+  <div class="header-top">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Shipping Options</h2>
+      <div class="header-promo">
+        <span>📦 Fast, secure, tracked delivery</span>
+        <span>✅ Insured packaging on all consoles</span>
       </div>
-
-      <div class="product-grid">
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">🚚 Standard Delivery</h3>
-            <p class="product-description"><strong>3-5 business days (UK)</strong> | Full insurance & tracking included | £4.99</p>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">⚡ Express Delivery</h3>
-            <p class="product-description"><strong>1-2 business days (UK)</strong> | Priority handling & tracking | £9.99</p>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">🌍 International</h3>
-            <p class="product-description"><strong>7-14 business days</strong> | Varies by country | Full insurance & tracking</p>
-          </div>
-        </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html" aria-current="page">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="section">
-    <div class="container" style="max-width: 900px;">
-      <div class="section-header">
-        <h2 class="section-title">Delivery Details</h2>
+  <!-- HEADER MAIN -->
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay">
+        <span>Retro Replay</span>
+      </a>
+
+      <!-- Mobile nav toggle -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
+
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
+        <button class="search-btn" type="submit">Search</button>
+      </form>
+
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL MAIN NAV -->
+  <nav class="main-nav" id="primaryNav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</header>
+
+<section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Shipping & Delivery</h1>
+      <p>Fast, secure, tracked delivery. Your console arrives safely and quickly.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: white;">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Shipping Options</h2>
+      <p class="section-subtitle">All shipments are packed securely with tracking provided.</p>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">🚚 Standard Delivery</h3>
+          <p class="product-description"><strong>3–5 business days (UK)</strong> • Tracked & insured • From £4.99</p>
+        </div>
       </div>
 
       <div class="product-card">
         <div class="product-info">
-          <ul class="product-features" style="font-size: 1.05rem; line-height: 2; color: var(--dark);">
-            <li>✓ All packages fully insured</li>
-            <li>✓ Tracking information provided</li>
-            <li>✓ Signature required for high-value orders</li>
-            <li>✓ Secure, protective packaging</li>
-            <li>✓ Damage protection guarantee</li>
-            <li>✓ International delivery available</li>
-            <li>✓ Free returns shipping within 30 days</li>
-          </ul>
+          <h3 class="product-name">⚡ Express Delivery</h3>
+          <p class="product-description"><strong>1–2 business days (UK)</strong> • Priority handling • From £9.99</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">🌍 International</h3>
+          <p class="product-description"><strong>7–14 business days</strong> • Varies by country • Tracked & insured</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
- <footer class="site-footer">
+<section class="section">
+  <div class="container" style="max-width: 900px;">
+    <div class="section-header">
+      <h2 class="section-title">Delivery Details</h2>
+      <p class="section-subtitle">What to expect after you place an order.</p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-info">
+        <ul class="product-features" style="font-size: 1.05rem; line-height: 2; color: var(--dark);">
+          <li>✓ All packages securely packed and fully insured</li>
+          <li>✓ Tracking information provided after dispatch</li>
+          <li>✓ Signature required for higher-value orders (where applicable)</li>
+          <li>✓ Protective packaging to prevent damage in transit</li>
+          <li>✓ Damage protection support if an issue occurs</li>
+          <li>✓ International delivery available (country dependent)</li>
+          <li>✓ Returns handled via our returns policy (see Terms & Policies)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
   <div class="container">
     <div class="footer-content">
 
-      <!-- BRANDING -->
       <div class="footer-section">
         <h3>Retro Replay</h3>
         <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
       </div>
 
-      <!-- SHOP -->
       <div class="footer-section">
         <h3>Shop</h3>
         <ul class="footer-links">
@@ -155,19 +172,17 @@
         </ul>
       </div>
 
-      <!-- SUPPORT -->
       <div class="footer-section">
         <h3>Support</h3>
         <ul class="footer-links">
           <li><a href="/guides.html">Setup Guides</a></li>
           <li><a href="/faq.html">FAQ</a></li>
           <li><a href="/warranties.html">Warranty Info</a></li>
-          <li><a href="/delivery.html">Delivery</a></li>
+          <li><a href="/delivery.html" aria-current="page">Delivery</a></li>
           <li><a href="/contact.html">Contact Us</a></li>
         </ul>
       </div>
 
-      <!-- COMPANY -->
       <div class="footer-section">
         <h3>Company</h3>
         <ul class="footer-links">
@@ -186,7 +201,24 @@
   </div>
 </footer>
 
-  <script src="cart.js"></script>
-  <script>RetroCart.loadCart();</script>
+<script src="/cart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.RetroCart && typeof RetroCart.loadCart === 'function') {
+      RetroCart.loadCart();
+    }
+
+    // Mobile menu toggle (works with the CSS block previously provided for style.css)
+    const navBtn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primaryNav');
+    if (navBtn && nav) {
+      navBtn.addEventListener('click', () => {
+        const open = nav.classList.toggle('is-open');
+        navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  });
+</script>
+
 </body>
 </html>

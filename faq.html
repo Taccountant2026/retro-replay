@@ -4,130 +4,170 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAQ | Retro Replay</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
+
+  <style>
+    /* FAQ page-only helpers (keeps your global CSS clean) */
+    .faq-wrap{max-width:900px;margin:0 auto;}
+    .faq-card{background:#f9fafb;border-radius:12px;margin-bottom:1rem;padding:1.25rem 1.25rem;border:1px solid var(--gray-lighter);border-left:4px solid var(--primary);}
+    .faq-card h3{margin:0 0 .5rem 0;color:var(--dark);font-size:1.1rem;}
+    .faq-card p{margin:0;color:var(--gray);line-height:1.7;}
+    .faq-help{background:#f0f4f8;padding:1.25rem;border-radius:12px;margin-top:1.5rem;}
+    .faq-help a{color:var(--primary);font-weight:700;}
+  </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="header-top"><div class="container"><div class="header-promo"><span>❓ Frequently Asked Questions</span></div></div></div>
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
-        <form class="search-bar" action="/search.html" method="get" role="search">
-  <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
-  <button class="search-btn" type="submit">Search</button>
-</form>
-        <div class="header-actions">
-          <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-          <a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
-        </div>
+
+<header class="site-header">
+
+  <!-- GLOBAL TOP BAR -->
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo">
+        <span>❓ Frequently Asked Questions</span>
+        <span>⏱️ Typical reply within 24 hours (Mon–Fri)</span>
       </div>
-    </div>
-<!-- GLOBAL TOP BAR -->
-<div class="header-top">
-  <div class="container">
-    <div class="header-promo">
-      <span>Retro Replay — Professionally tested and cleaned gaming consoles</span>
-    </div>
-    <div class="header-links">
-      <a href="/about.html">About</a>
-      <a href="/warranties.html">Warranty</a>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- GLOBAL MAIN NAV -->
-<nav class="main-nav">
-  <div class="container">
-    <ul class="nav-list">
+  <!-- HEADER MAIN -->
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay">
+        <span>Retro Replay</span>
+      </a>
 
-      <li><a href="/index.html">Main Home</a></li>
+      <!-- Mobile nav toggle -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
 
-      <li><a href="/atari/index.html">Atari</a></li>
-      <li><a href="/nintendo/index.html">Nintendo</a></li>
-      <li><a href="/playstation/index.html">PlayStation</a></li>
-      <li><a href="/sega/index.html">Sega</a></li>
-      <li><a href="/xbox/index.html">Xbox</a></li>
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
+        <button class="search-btn" type="submit">Search</button>
+      </form>
 
-      <li><a href="/guides.html">Setup Guides</a></li>
-      <li><a href="/sourcing-request.html">Sourcing</a></li>
-
-      <li><a href="/services.html">Services</a></li>
-      <li><a href="/warranties.html">Warranty</a></li>
-      <li><a href="/faq.html">FAQ</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-
-    </ul>
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
+        </a>
+      </div>
+    </div>
   </div>
-</nav>
-  </header>
 
-  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>Frequently Asked Questions</h1>
-        <p>Find answers to common questions about our refurbished consoles and services.</p>
-      </div>
+  <!-- GLOBAL MAIN NAV -->
+  <nav class="main-nav" id="primaryNav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html" aria-current="page">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
     </div>
-  </section>
+  </nav>
 
-  <section class="section" style="background: white;">
-    <div class="container" style="max-width: 800px;">
-      <div class="section-header">
-        <h2 class="section-title">Our FAQs</h2>
-      </div>
+</header>
 
-      <div style="background: #f9fafb; border-radius: 12px; margin-bottom: 1rem; padding: 1.5rem; border-left: 4px solid var(--primary);">
-        <h3 style="color: var(--dark); margin-top: 0;">What is a refurbished console?</h3>
-        <p style="margin: 0; color: var(--gray);">A refurbished console has been professionally cleaned, tested, and restored to working order. All our consoles come with a 6-month warranty.</p>
-      </div>
-
-      <div style="background: #f9fafb; border-radius: 12px; margin-bottom: 1rem; padding: 1.5rem; border-left: 4px solid var(--primary);">
-        <h3 style="color: var(--dark); margin-top: 0;">How long does delivery take?</h3>
-        <p style="margin: 0; color: var(--gray);">UK orders typically arrive within 3-5 business days. International orders may take 7-14 days depending on your location.</p>
-      </div>
-
-      <div style="background: #f9fafb; border-radius: 12px; margin-bottom: 1rem; padding: 1.5rem; border-left: 4px solid var(--primary);">
-        <h3 style="color: var(--dark); margin-top: 0;">Do you offer international shipping?</h3>
-        <p style="margin: 0; color: var(--gray);">Yes! We ship worldwide. Shipping costs and times vary by location. Check your cart for exact rates.</p>
-      </div>
-
-      <div style="background: #f9fafb; border-radius: 12px; margin-bottom: 1rem; padding: 1.5rem; border-left: 4px solid var(--primary);">
-        <h3 style="color: var(--dark); margin-top: 0;">What's your return policy?</h3>
-        <p style="margin: 0; color: var(--gray);">We offer a 30-day returns policy for peace of mind. If you're not satisfied, we'll refund or exchange your console.</p>
-      </div>
-
-      <div style="background: #f9fafb; border-radius: 12px; margin-bottom: 1rem; padding: 1.5rem; border-left: 4px solid var(--primary);">
-        <h3 style="color: var(--dark); margin-top: 0;">Do you offer mods and upgrades?</h3>
-        <p style="margin: 0; color: var(--gray);">Yes! We offer HDD installations, softmods, FMCB setup, and other customizations. Select these options when ordering or contact us for details.</p>
-      </div>
-
-      <div style="background: #f0f4f8; padding: 1.5rem; border-radius: 12px; margin-top: 2rem;">
-        <p style="margin: 0; color: var(--gray);">Still have questions? <a href="contact.html" style="color: var(--primary); font-weight: 600;">Contact us</a> for more help!</p>
-      </div>
+<section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Frequently Asked Questions</h1>
+      <p>Answers to common questions about our tested consoles, delivery, returns, and upgrade services.</p>
     </div>
-  </section>
+  </div>
+</section>
+
+<section class="section" style="background:white;">
+  <div class="container faq-wrap">
+    <div class="section-header">
+      <h2 class="section-title">Our FAQs</h2>
+      <p class="section-subtitle">If you can’t find what you need, contact support and we’ll help.</p>
+    </div>
+
+    <div class="faq-card">
+      <h3>What is a refurbished console?</h3>
+      <p>A refurbished console is a system that has been cleaned, inspected and tested to confirm it functions correctly before dispatch. Where listed, optional refurbishment/upgrades may include additional work such as deeper servicing or HDD/FMCB setup.</p>
+    </div>
+
+    <div class="faq-card">
+      <h3>Do your consoles come with a warranty?</h3>
+      <p>Warranty terms vary by product and are shown on the relevant product and warranty pages. If you’re unsure, contact us with the item name and we’ll confirm the cover and duration.</p>
+    </div>
+
+    <div class="faq-card">
+      <h3>How long does delivery take?</h3>
+      <p>UK orders typically arrive within 3–5 business days for standard shipping and 1–2 business days for express (where available). International delivery times vary by destination.</p>
+    </div>
+
+    <div class="faq-card">
+      <h3>Do you offer international shipping?</h3>
+      <p>Yes. International shipping availability, price and delivery time depend on country and item size/value. If checkout doesn’t show your destination, message us and we’ll advise.</p>
+    </div>
+
+    <div class="faq-card">
+      <h3>What’s your return policy?</h3>
+      <p>Return terms are listed in your Policies & Terms. If there’s a problem on arrival, contact us as soon as possible with photos (if relevant) and we’ll guide you through the quickest fix.</p>
+    </div>
+
+    <div class="faq-card">
+      <h3>Do you offer mods and upgrades?</h3>
+      <p>Yes. We offer upgrades such as HDD/FMCB/OPL setups (where applicable), accessories, and service options. Check the product/service page or contact us with what you want to achieve.</p>
+    </div>
+
+    <div class="faq-card">
+      <h3>Can I request a specific model, revision or cosmetic grade?</h3>
+      <p>Yes. Use the Sourcing Request form and tell us the model/revision, preferred cosmetic grade, and any bundle requirements.</p>
+    </div>
+
+    <div class="faq-help">
+      <p style="margin:0;color:var(--gray);">
+        Still have questions?
+        <a href="/contact.html">Contact us</a>
+        and we’ll help.
+      </p>
+    </div>
+  </div>
+</section>
 
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
 
-      <!-- BRANDING -->
       <div class="footer-section">
         <h3>Retro Replay</h3>
-        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
       </div>
 
-      <!-- SHOP -->
       <div class="footer-section">
         <h3>Shop</h3>
         <ul class="footer-links">
@@ -139,38 +179,53 @@
         </ul>
       </div>
 
-      <!-- SUPPORT -->
       <div class="footer-section">
         <h3>Support</h3>
         <ul class="footer-links">
           <li><a href="/guides.html">Setup Guides</a></li>
-          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/faq.html" aria-current="page">FAQ</a></li>
           <li><a href="/warranties.html">Warranty Info</a></li>
           <li><a href="/delivery.html">Delivery</a></li>
           <li><a href="/contact.html">Contact Us</a></li>
         </ul>
       </div>
 
-      <!-- COMPANY -->
       <div class="footer-section">
         <h3>Company</h3>
         <ul class="footer-links">
           <li><a href="/about.html">About Us</a></li>
           <li><a href="/process.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
-          <li><a href="/terms.html">Policies & Terms</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. All rights reserved. Professionally tested & cleaned gaming consoles.</p>
+      <p>© 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
 
-  <script src="cart.js"></script>
-  <script>RetroCart.loadCart();</script>
+<script src="/cart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.RetroCart && typeof RetroCart.loadCart === 'function') {
+      RetroCart.loadCart();
+    }
+
+    // Mobile menu toggle
+    const navBtn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primaryNav');
+    if (navBtn && nav) {
+      navBtn.addEventListener('click', () => {
+        const open = nav.classList.toggle('is-open');
+        navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  });
+</script>
+
 </body>
 </html>

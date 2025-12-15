@@ -6,40 +6,58 @@
   <title>About Retro Replay | Tested & Cleaned Retro Gaming Consoles</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
 </head>
 <body>
 
 <header class="site-header">
+
+  <!-- GLOBAL TOP BAR (single, not duplicated) -->
   <div class="header-top">
     <div class="container">
-      <div class="header-promo"><span>📖 About Retro Replay</span></div>
+      <div class="header-promo">
+        <span>📖 About Retro Replay</span>
+        <span>Professionally tested and cleaned gaming consoles</span>
+      </div>
+      <div class="header-links">
+        <a href="/about.html" aria-current="page">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
+      </div>
     </div>
   </div>
 
+  <!-- HEADER MAIN -->
   <div class="header-main">
     <div class="container header-content">
-      <a href="index.html" class="site-logo">
+      <a href="/index.html" class="site-logo">
         <img src="assets/logo.png" alt="Retro Replay Logo">
         <span>Retro Replay</span>
       </a>
 
-<form class="search-bar" action="/search.html" method="get" role="search">
-  <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
-  <button class="search-btn" type="submit">Search</button>
-</form>
+      <!-- NEW: Mobile nav toggle (works with your updated style.css) -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
+
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
+        <button class="search-btn" type="submit">Search</button>
+      </form>
 
       <div class="header-actions">
-        <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-        <a href="checkout.html" class="header-action">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
           <span>🛒</span><span>Cart</span>
           <span class="cart-badge" id="cart-count-js">0</span>
         </a>
@@ -47,43 +65,26 @@
     </div>
   </div>
 
-<!-- GLOBAL TOP BAR -->
-<div class="header-top">
-  <div class="container">
-    <div class="header-promo">
-      <span>Retro Replay — Professionally tested and cleaned gaming consoles</span>
+  <!-- GLOBAL MAIN NAV (id added for mobile toggle) -->
+  <nav class="main-nav" id="primaryNav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
     </div>
-    <div class="header-links">
-      <a href="/about.html">About</a>
-      <a href="/warranties.html">Warranty</a>
-    </div>
-  </div>
-</div>
+  </nav>
 
-<!-- GLOBAL MAIN NAV -->
-<nav class="main-nav">
-  <div class="container">
-    <ul class="nav-list">
-
-      <li><a href="/index.html">Main Home</a></li>
-
-      <li><a href="/atari/index.html">Atari</a></li>
-      <li><a href="/nintendo/index.html">Nintendo</a></li>
-      <li><a href="/playstation/index.html">PlayStation</a></li>
-      <li><a href="/sega/index.html">Sega</a></li>
-      <li><a href="/xbox/index.html">Xbox</a></li>
-
-      <li><a href="/guides.html">Setup Guides</a></li>
-      <li><a href="/sourcing-request.html">Sourcing</a></li>
-
-      <li><a href="/services.html">Services</a></li>
-      <li><a href="/warranties.html">Warranty</a></li>
-      <li><a href="/faq.html">FAQ</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-
-    </ul>
-  </div>
-</nav>
 </header>
 
 <!-- HERO -->
@@ -185,13 +186,11 @@
   <div class="container">
     <div class="footer-content">
 
-      <!-- BRANDING -->
       <div class="footer-section">
         <h3>Retro Replay</h3>
-        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
       </div>
 
-      <!-- SHOP -->
       <div class="footer-section">
         <h3>Shop</h3>
         <ul class="footer-links">
@@ -203,7 +202,6 @@
         </ul>
       </div>
 
-      <!-- SUPPORT -->
       <div class="footer-section">
         <h3>Support</h3>
         <ul class="footer-links">
@@ -215,27 +213,44 @@
         </ul>
       </div>
 
-      <!-- COMPANY -->
       <div class="footer-section">
         <h3>Company</h3>
         <ul class="footer-links">
-          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/about.html" aria-current="page">About Us</a></li>
           <li><a href="/process.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
-          <li><a href="/terms.html">Policies & Terms</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. All rights reserved. Professionally tested & cleaned gaming consoles.</p>
+      <p>© 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
 
 <script src="cart.js"></script>
-<script>RetroCart.loadCart();</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Safe cart init
+    if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
+      window.RetroCart.loadCart();
+    }
+
+    // Mobile nav toggle
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primaryNav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  });
+</script>
 
 </body>
 </html>

@@ -6,176 +6,260 @@
   <title>All Consoles | Retro Replay</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-top"><div class="container"><div class="header-promo"><span>🎮 All Refurbished Consoles</span></div></div></div>
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
-        <div class="search-bar"><input type="search" placeholder="Search consoles..." aria-label="Search"><button class="search-btn">Search</button></div>
-        <div class="header-actions">
-          <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-          <a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
-        </div>
+
+<header class="site-header">
+
+  <!-- GLOBAL TOP BAR (single, not duplicated) -->
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo">
+        <span>🎮 All Refurbished Consoles</span>
+        <span>Tested • Cleaned • Ready to Play</span>
+      </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
       </div>
     </div>
-    <nav class="main-nav">
-      <div class="container">
-        <ul class="nav-list">
-    
-          <li><a href="/index.html">Main Home</a></li>
-    
-          <li><a href="/atari/index.html">Atari</a></li>
-          <li><a href="/nintendo/index.html">Nintendo</a></li>
+  </div>
+
+  <!-- HEADER MAIN -->
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/index.html" class="site-logo">
+        <img src="assets/logo.png" alt="Retro Replay">
+        <span>Retro Replay</span>
+      </a>
+
+      <!-- NEW: Mobile nav toggle -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
+
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
+        <button class="search-btn" type="submit">Search</button>
+      </form>
+
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL MAIN NAV -->
+  <nav class="main-nav" id="primaryNav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</header>
+
+<section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>All Consoles</h1>
+      <p>Browse our complete collection of refurbished gaming consoles from all major brands.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: white;">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Browse by Brand</h2>
+      <p class="section-subtitle">Choose a platform to view stock, bundles, and upgrade options.</p>
+    </div>
+
+    <div class="category-grid">
+      <a href="/playstation/index.html" class="category-card">
+        <div class="category-icon"><img src="assets/playstation-logo.png" alt="PlayStation"></div>
+        <h3 class="category-name">PlayStation</h3>
+        <p class="category-count">PS1 • PS2 • PS3</p>
+      </a>
+
+      <a href="/xbox/index.html" class="category-card">
+        <div class="category-icon"><img src="assets/xboxlogo.png" alt="Xbox"></div>
+        <h3 class="category-name">Xbox</h3>
+        <p class="category-count">Original • 360</p>
+      </a>
+
+      <a href="/nintendo/index.html" class="category-card">
+        <div class="category-icon"><img src="assets/nintendologo.png" alt="Nintendo"></div>
+        <h3 class="category-name">Nintendo</h3>
+        <p class="category-count">NES • SNES • N64</p>
+      </a>
+
+      <a href="/atari/index.html" class="category-card">
+        <div class="category-icon"><img src="assets/atarilogo.png" alt="Atari"></div>
+        <h3 class="category-name">Atari</h3>
+        <p class="category-count">2600 • 5200 • 7800</p>
+      </a>
+
+      <a href="/sega/index.html" class="category-card">
+        <div class="category-icon"><img src="assets/segalogo.png" alt="Sega"></div>
+        <h3 class="category-name">Sega</h3>
+        <p class="category-count">Mega Drive • Saturn • Dreamcast</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Featured Collections</h2>
+      <p class="section-subtitle">Popular categories people buy most often.</p>
+    </div>
+
+    <div class="product-grid">
+      <a href="/playstation/products/ps2.html" style="text-decoration: none;">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">PlayStation 2</h3>
+            <p class="product-description">Fat and Slim models with HDD/FMCB options available.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="/xbox/products/xbox.html" style="text-decoration: none;">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Xbox Original</h3>
+            <p class="product-description">Classic 6th generation gaming. Fully refurbished and tested.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="/nintendo/products/N64.html" style="text-decoration: none;">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Nintendo 64</h3>
+            <p class="product-description">Iconic 3D gaming. Complete with controllers and cables.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="/atari/products/2600.html" style="text-decoration: none;">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Atari 2600</h3>
+            <p class="product-description">The console that started it all. Retro gaming classics.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="/sega/products/genesis.html" style="text-decoration: none;">
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Sega Mega Drive</h3>
+            <p class="product-description">16-bit gaming legends. Sonic and more.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+
+      <div class="footer-section">
+        <h3>Retro Replay</h3>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Shop</h3>
+        <ul class="footer-links">
           <li><a href="/playstation/index.html">PlayStation</a></li>
-          <li><a href="/sega/index.html">Sega</a></li>
           <li><a href="/xbox/index.html">Xbox</a></li>
-    
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/warranties.html">Warranty</a></li>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-    
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
         </ul>
       </div>
-    </nav>
-  </header>
 
-  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>All Consoles</h1>
-        <p>Browse our complete collection of refurbished gaming consoles from all major brands.</p>
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul class="footer-links">
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/warranties.html">Warranty Info</a></li>
+          <li><a href="/delivery.html">Delivery</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
       </div>
+
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul class="footer-links">
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/process.html">Our Process</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
+        </ul>
+      </div>
+
     </div>
-  </section>
 
-  <section class="section" style="background: white;">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Browse by Brand</h2>
-      </div>
-
-      <div class="category-grid">
-        <a href="/playstation/index.html" class="category-card">
-          <div class="category-icon">
-            <img src="assets/playstation-logo.png" alt="PlayStation">
-          </div>
-          <h3 class="category-name">PlayStation</h3>
-          <p class="category-count">PS1, PS2, PS3</p>
-        </a>
-
-        <a href="/xbox/index.html" class="category-card">
-          <div class="category-icon">
-            <img src="assets/xboxlogo.png" alt="Xbox">
-          </div>
-          <h3 class="category-name">Xbox</h3>
-          <p class="category-count">Original, 360</p>
-        </a>
-
-        <a href="/nintendo/index.html" class="category-card">
-          <div class="category-icon">
-            <img src="assets/nintendologo.png" alt="Nintendo">
-          </div>
-          <h3 class="category-name">Nintendo</h3>
-          <p class="category-count">NES, SNES, N64</p>
-        </a>
-
-        <a href="/atari/index.html" class="category-card">
-          <div class="category-icon">
-            <img src="assets/atarilogo.png" alt="Atari">
-          </div>
-          <h3 class="category-name">Atari</h3>
-          <p class="category-count">2600, 5200, 7800</p>
-        </a>
-
-        <a href="/sega/index.html" class="category-card">
-          <div class="category-icon">
-            <img src="assets/segalogo.png" alt="Sega">
-          </div>
-          <h3 class="category-name">Sega</h3>
-          <p class="category-count">Genesis, Saturn, Dreamcast</p>
-        </a>
-      </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Featured Collections</h2>
-      </div>
+<script src="cart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Safe cart init
+    if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
+      window.RetroCart.loadCart();
+    }
 
-      <div class="product-grid">
-        <a href="/playstation/products/ps2.html" style="text-decoration: none;">
-          <div class="product-card">
-            <div class="product-info">
-              <h3 class="product-name">PlayStation 2</h3>
-              <p class="product-description">Our most popular console. Fat and Slim models with HDD/FMCB options available.</p>
-            </div>
-          </div>
-        </a>
-
-        <a href="/xbox/products/xbox.html" style="text-decoration: none;">
-          <div class="product-card">
-            <div class="product-info">
-              <h3 class="product-name">Xbox Original</h3>
-              <p class="product-description">Classic 6th generation gaming. Fully refurbished and tested.</p>
-            </div>
-          </div>
-        </a>
-
-        <a href="/nintendo/products/N64.html" style="text-decoration: none;">
-          <div class="product-card">
-            <div class="product-info">
-              <h3 class="product-name">Nintendo 64</h3>
-              <p class="product-description">Iconic 3D gaming. Complete with controllers and cables.</p>
-            </div>
-          </div>
-        </a>
-
-        <a href="/atari/products/2600.html" style="text-decoration: none;">
-          <div class="product-card">
-            <div class="product-info">
-              <h3 class="product-name">Atari 2600</h3>
-              <p class="product-description">The console that started it all. Retro gaming classics.</p>
-            </div>
-          </div>
-        </a>
-
-        <a href="/sega/products/genesis.html" style="text-decoration: none;">
-          <div class="product-card">
-            <div class="product-info">
-              <h3 class="product-name">Sega Genesis</h3>
-              <p class="product-description">16-bit gaming legends. Sonic and more.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section"><h3>Consoles</h3><p>Complete collection of refurbished gaming systems.</p></div>
-        <div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      </div>
-      <div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div>
-    </div>
-  </footer>
-
-  <script src="cart.js"></script>
-  <script>RetroCart.loadCart();</script>
+    // Mobile nav toggle
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primaryNav');
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  });
+</script>
 </body>
 </html>

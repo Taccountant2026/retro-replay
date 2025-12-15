@@ -1,208 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retro Replay — Professionally Tested & Restored Classic Consoles | PS2, Xbox, Nintendo & More</title>
-<meta name="description" content="Fully Tested, Professionally Prepared & Ready to Play Retro Consoles">
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Replay — Professionally Tested & Restored Classic Consoles | PS2, Xbox, Nintendo & More</title>
+  <meta name="description" content="Fully Tested, Professionally Prepared & Ready to Play Retro Consoles">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-PF6Q3TSMVL');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
 </head>
-
 <body>
 
-<!-- Header -->
-<header class="site-header">
-  <div class="header-top">
-    <div class="container">
-      <div class="header-promo">
-        <span>🎮 Latest Arrival: PS2 SCPH-50003 Back in Stock</span>
-        <span>📦 Free Setup Guide Included with HDD Mods</span>
-      </div>
-      <div class="header-links">
-        <a href="/about.html">About</a>
-        <a href="/delivery.html">Delivery</a>
-        <a href="/warranties.html">Warranty</a>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo">
+          <span>🎮 Latest Arrival: PS2 SCPH-50003 Back in Stock</span>
+          <span>📦 Free Setup Guide Included with HDD Mods</span>
+        </div>
+        <div class="header-links">
+          <a href="/about.html">About</a>
+          <a href="/delivery.html">Delivery</a>
+          <a href="/warranties.html">Warranty</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="header-main">
-    <div class="container header-content">
-      <a href="index.html" class="site-logo">
-        <img src="assets/logo.png" alt="Retro Replay Logo">
-        <span>Retro Replay</span>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="index.html" class="site-logo">
+          <img src="assets/logo.png" alt="Retro Replay Logo">
+          <span>Retro Replay</span>
+        </a>
+
+        <!-- NEW: Mobile nav toggle -->
+        <button class="nav-toggle"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="primaryNav">☰</button>
+
+        <form class="search-bar" action="/search.html" method="get" role="search">
+          <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
+          <button class="search-btn" type="submit">Search</button>
+        </form>
+
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action">
+            <span>📞</span>
+            <span>Support</span>
+          </a>
+          <a href="/checkout.html" class="header-action">
+            <span>🛒</span>
+            <span>Cart</span>
+            <span class="cart-badge" id="cart-count-js">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPDATED: id added for mobile toggle -->
+    <nav class="main-nav" id="primaryNav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="/index.html">Main Home</a></li>
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/sourcing-request.html">Sourcing</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/warranties.html">Warranty</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Fully Tested, Professionally Prepared & Ready to Play Retro Consoles</h1>
+        <p>We specialise in professionally tested, cleaned and carefully prepared PlayStation, Xbox, Nintendo and classic gaming consoles. Every system is fully functional at the point of dispatch, cosmetically graded for transparency, and backed by our Arrival Guarantee. Optional upgrades are available, including premium refurbishment, HDD and software enhancements, and extended warranty cover — ideal for players, collectors, and long-term ownership.</p>
+        <div class="hero-cta">
+          <a href="/playstation/products/ps2-fat.html" class="btn btn-primary">Shop Consoles</a>
+          <a href="/services.html" class="btn btn-secondary">Console Services</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="assets/logo.png" alt="RetroReplay Logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ ADDITION 1: PS2 Modded Feature Box (promotes MODDED selection, uses your .btn styles) -->
+  <section class="rr-ps2-feature">
+    <div class="container">
+      <div class="rr-ps2-box">
+        <div class="rr-ps2-left">
+          <div class="rr-ps2-tag">PS2 Modded Builds (Live)</div>
+          <h2 class="rr-ps2-title">PS2 Plug &amp; Play HDD Mod Kits</h2>
+          <p class="rr-ps2-sub">
+            Professionally tested, cleaned and pre-configured with FMCB + OPL for a simple, ready-to-play experience.
+          </p>
+
+          <div class="rr-ps2-grid">
+            <div class="rr-ps2-pill">✔ 1TB / 2TB options</div>
+            <div class="rr-ps2-pill">✔ HDD performance setup</div>
+            <div class="rr-ps2-pill">✔ Setup guide included</div>
+            <div class="rr-ps2-pill">✔ UK support</div>
+          </div>
+
+          <div class="rr-ps2-actions">
+            <a href="/playstation/products/ps2-fat.html" class="btn btn-primary">View PS2 Modded Selection</a>
+            <a href="/contact.html" class="btn btn-secondary">Custom order / emulators</a>
+          </div>
+
+          <p class="rr-ps2-note">Other consoles are currently sourcing-only (private). PS2 modded builds are available now.</p>
+        </div>
+
+        <aside class="rr-ps2-right">
+          <div class="rr-ps2-card">
+            <h3 class="rr-ps2-card-title">Included (typical)</h3>
+            <ul class="rr-ps2-list">
+              <li>FMCB + OPL configured</li>
+              <li>HDD adapter + tested drive</li>
+              <li>Cosmetic grading A/B/C</li>
+              <li>Aftercare support</li>
+            </ul>
+            <a class="rr-ps2-link" href="/playstation/products/ps2-fat.html">Shop PS2 builds →</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: sourcing CTA block -->
+  <section class="section" style="background:#f8fafc; padding:3rem 0;">
+    <div class="container" style="text-align:center; max-width:800px; margin:0 auto;">
+      <h2 class="section-title">Request a Console to be Sourced</h2>
+      <p class="section-subtitle">
+        Looking for a specific revision, cosmetic grade, or bundle?
+        Use our sourcing request service and we will locate and test the exact console you want.
+      </p>
+
+      <a href="/sourcing-request.html" class="btn btn-primary" style="margin-top:1rem; padding:1rem 2.5rem;">
+        Open Sourcing Request Form
       </a>
-
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">☰</button>
-
-      <form class="search-bar" action="/search.html" method="get" role="search">
-        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
-        <button class="search-btn" type="submit">Search</button>
-      </form>
-
-      <div class="header-actions">
-        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-        <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
-      </div>
     </div>
-  </div>
+  </section>
 
-  <nav class="main-nav" id="primaryNav">
+  <!-- Trust Bar -->
+  <div class="trust-bar">
     <div class="container">
-      <ul class="nav-list">
-        <li><a href="/index.html">Main Home</a></li>
-        <li><a href="/atari/index.html">Atari</a></li>
-        <li><a href="/nintendo/index.html">Nintendo</a></li>
-        <li><a href="/playstation/index.html">PlayStation</a></li>
-        <li><a href="/sega/index.html">Sega</a></li>
-        <li><a href="/xbox/index.html">Xbox</a></li>
-        <li><a href="/guides.html">Setup Guides</a></li>
-        <li><a href="/sourcing-request.html">Sourcing</a></li>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/warranties.html">Warranty</a></li>
-        <li><a href="/faq.html">FAQ</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="container hero-content">
-    <div class="hero-text">
-      <h1>Fully Tested, Professionally Prepared & Ready to Play Retro Consoles</h1>
-      <p>We specialise in professionally tested, cleaned and carefully prepared PlayStation, Xbox, Nintendo and classic gaming consoles.</p>
-      <div class="hero-cta">
-        <a href="/playstation/products/ps2-fat.html" class="btn btn-primary">Shop Consoles</a>
-        <a href="/services.html" class="btn btn-secondary">Console Services</a>
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <div class="trust-badge-icon">✓</div>
+          <h3>Optional Extended Warranty</h3>
+          <p>Premium long-term protection</p>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">🔧</div>
+          <h3>Premium Refurbishment</h3>
+          <p>£299 full restoration service</p>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">📦</div>
+          <h3>Tracked Shipping</h3>
+          <p>Fast, secure UK & EU delivery</p>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">⭐</div>
+          <h3>Transparent Grading</h3>
+          <p>A/B/C cosmetic condition</p>
+        </div>
       </div>
-    </div>
-    <div class="hero-image">
-      <img src="assets/logo.png" alt="RetroReplay Logo">
     </div>
   </div>
-</section>
 
-<!-- PS2 MODDED FEATURE BOX -->
-<section class="ps2-mod-feature">
-  <div class="container">
-    <div class="ps2-mod-wrap">
-
-      <div class="ps2-mod-main">
-        <span class="ps2-mod-badge">Live Product</span>
-        <h2>PS2 Plug & Play Modded Builds</h2>
-        <p>Our flagship offering — professionally tested PS2 systems pre-configured with FMCB + OPL for a simple, disc-free experience.</p>
-
-        <div class="ps2-mod-points">
-          <div>✔ 1TB / 2TB game libraries</div>
-          <div>✔ Internal HDD performance</div>
-          <div>✔ Ready-to-play menu system</div>
-          <div>✔ Setup guide included</div>
-        </div>
-
-        <div class="ps2-mod-actions">
-          <a href="/playstation/products/ps2-fat.html" class="btn btn-primary">View PS2 Modded Builds</a>
-          <a href="/contact.html" class="btn btn-secondary">Custom request</a>
-        </div>
-
-        <p class="ps2-mod-note">Other consoles are currently sourcing-only.</p>
+  <!-- Shop by Console -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Shop by Console</h2>
+        <p class="section-subtitle">Professionally tested and restored classic gaming consoles</p>
       </div>
 
-      <aside class="ps2-mod-side">
-        <div class="ps2-mod-card">
-          <h3>What’s Included</h3>
-          <ul>
-            <li>FMCB + OPL installed</li>
-            <li>HDD adapter + tested drive</li>
-            <li>Cleaned & serviced console</li>
-            <li>UK support</li>
+      <div class="category-grid">
+        <a href="/playstation/index.html" class="category-card">
+          <div class="category-icon">
+            <img src="assets/playstation-logo.png" alt="PlayStation">
+          </div>
+          <h3 class="category-name">PlayStation</h3>
+          <p class="category-count">PS1 • PS2 • PS3</p>
+        </a>
+
+        <a href="/xbox/index.html" class="category-card">
+          <div class="category-icon">
+            <img src="assets/xboxlogo.png" alt="Xbox">
+          </div>
+          <h3 class="category-name">Xbox</h3>
+          <p class="category-count">Original • 360</p>
+        </a>
+
+        <a href="/nintendo/index.html" class="category-card">
+          <div class="category-icon">
+            <img src="assets/nintendologo.png" alt="Nintendo">
+          </div>
+          <h3 class="category-name">Nintendo</h3>
+          <p class="category-count">NES • SNES • N64</p>
+        </a>
+
+        <a href="/atari/index.html" class="category-card">
+          <div class="category-icon">
+            <img src="assets/atarilogo.png" alt="Atari">
+          </div>
+          <h3 class="category-name">Atari</h3>
+          <p class="category-count">2600 • 5200 • 7800</p>
+        </a>
+
+        <a href="/sega/index.html" class="category-card">
+          <div class="category-icon">
+            <img src="assets/segalogo.png" alt="Sega">
+          </div>
+          <h3 class="category-name">Sega</h3>
+          <p class="category-count">Mega Drive • Saturn • Dreamcast</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <!-- keep your existing content here -->
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Retro Replay</h3>
+          <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul class="footer-links">
+            <li><a href="/playstation/index.html">PlayStation</a></li>
+            <li><a href="/xbox/index.html">Xbox</a></li>
+            <li><a href="/nintendo/index.html">Nintendo</a></li>
+            <li><a href="/atari/index.html">Atari</a></li>
+            <li><a href="/sega/index.html">Sega</a></li>
           </ul>
         </div>
-      </aside>
 
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="/guides.html">Setup Guides</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/warranties.html">Warranty Info</a></li>
+            <li><a href="/delivery.html">Shipping</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/how-we-refurbish.html">Our Process</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/terms.html">Policies & Terms</a></li>
+            <!-- ✅ ADDITION 2: cookie policy link -->
+            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Retro Replay. All rights reserved. Professionally tested & cleaned gaming consoles.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ✅ ADDITION 3: Cookie Banner (minimal, uses your styling additions in CSS) -->
+  <div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <div class="rr-cookie-inner">
+      <p>
+        We use cookies to measure traffic (analytics) and improve the site.
+        <a href="/cookie-policy.html">Cookie policy</a>
+      </p>
+      <div class="rr-cookie-actions">
+        <button class="rr-cookie-btn rr-cookie-reject" id="rrCookieReject" type="button">Reject</button>
+        <button class="rr-cookie-btn rr-cookie-accept" id="rrCookieAccept" type="button">Accept</button>
+      </div>
     </div>
   </div>
-</section>
 
-<!-- Sourcing CTA -->
-<section class="section" style="background:#f8fafc;padding:3rem 0;">
-  <div class="container" style="text-align:center;max-width:800px;">
-    <h2>Request a Console to be Sourced</h2>
-    <p>Looking for something specific? We can source and prepare it for you.</p>
-    <a href="/sourcing-request.html" class="btn btn-primary">Open Sourcing Request</a>
-  </div>
-</section>
+  <script src="cart.js"></script>
+  <script src="particles.js"></script>
 
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-bottom">
-      <p>&copy; 2025 Retro Replay. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Safe cart init
+      if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
+        window.RetroCart.loadCart();
+      }
 
-<!-- COOKIE BANNER -->
-<div class="rr-cookie" id="rrCookie">
-  <div class="rr-cookie-inner">
-    <p>
-      We use cookies for analytics and site performance.
-      <a href="/cookie-policy.html">Cookie policy</a>
-    </p>
-    <div>
-      <button id="rrReject">Reject</button>
-      <button id="rrAccept">Accept</button>
-    </div>
-  </div>
-</div>
+      // Mobile nav toggle
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primaryNav');
+      if (btn && nav) {
+        btn.addEventListener('click', () => {
+          const open = nav.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
 
-<script src="cart.js"></script>
+      // ✅ Inject mobile quick bar (so we do NOT change your layout markup)
+      const mobileBar = document.createElement('div');
+      mobileBar.className = 'rr-mobilebar';
+      mobileBar.setAttribute('role','navigation');
+      mobileBar.setAttribute('aria-label','Mobile quick navigation');
+      mobileBar.innerHTML = `
+        <a href="/index.html">Home</a>
+        <button type="button" id="rrBackBtn">Back</button>
+        <a class="rr-cta" href="/playstation/products/ps2-fat.html">PS2 Modded</a>
+      `;
+      document.body.insertBefore(mobileBar, document.body.firstChild);
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
+      const rrBackBtn = document.getElementById('rrBackBtn');
+      if (rrBackBtn) rrBackBtn.addEventListener('click', () => history.back());
 
-  if (window.RetroCart?.loadCart) window.RetroCart.loadCart();
+      // ✅ Cookie banner logic (basic display + store choice)
+      const COOKIE_KEY = 'rr_cookie_consent'; // accepted | rejected
+      const banner = document.getElementById('rrCookie');
+      const accept = document.getElementById('rrCookieAccept');
+      const reject = document.getElementById('rrCookieReject');
+      const saved = localStorage.getItem(COOKIE_KEY);
 
-  const btn = document.querySelector('.nav-toggle');
-  const nav = document.getElementById('primaryNav');
-  btn?.addEventListener('click', () => nav.classList.toggle('is-open'));
+      function show(){ if (banner) banner.classList.remove('is-hidden'); }
+      function hide(){ if (banner) banner.classList.add('is-hidden'); }
 
-  // Mobile quick bar
-  const bar = document.createElement('div');
-  bar.className = 'rr-mobilebar';
-  bar.innerHTML = `
-    <a href="/index.html">Home</a>
-    <button onclick="history.back()">Back</button>
-    <a class="rr-cta" href="/playstation/products/ps2-fat.html">PS2 Modded</a>
-  `;
-  document.body.prepend(bar);
+      if (!saved) show(); else hide();
 
-  // Cookie logic
-  const KEY = 'rr_cookie';
-  if (!localStorage.getItem(KEY)) document.getElementById('rrCookie').style.display = 'block';
+      if (accept) accept.addEventListener('click', () => {
+        localStorage.setItem(COOKIE_KEY, 'accepted');
+        hide();
+      });
 
-  document.getElementById('rrAccept').onclick = () => {
-    localStorage.setItem(KEY,'yes');
-    document.getElementById('rrCookie').remove();
-  };
-  document.getElementById('rrReject').onclick = () => {
-    localStorage.setItem(KEY,'no');
-    document.getElementById('rrCookie').remove();
-  };
-
-});
-</script>
+      if (reject) reject.addEventListener('click', () => {
+        localStorage.setItem(COOKIE_KEY, 'rejected');
+        hide();
+      });
+    });
+  </script>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!-- =========================
-     SOURCING REQUEST (FULL BUILD — MORE APPEALING FORM UI)
+     SOURCING REQUEST (FULL BUILD — FORMSPREE + FULL FOOTER + UPSELL)
      Paste as: /sourcing-request.html
-     Uses Formspree: https://formspree.io/f/manrkvby
+     Form endpoint: https://formspree.io/f/manrkvby
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,7 @@
   </script>
 
   <style>
-    /* Page enhancements only (keeps your global theme) */
+    /* Page-only enhancements (keeps your global theme) */
     .sourcing-wrap{ padding:2.25rem 0 3rem; }
     .sourcing-hero{
       background: linear-gradient(135deg, rgba(0,102,255,.12), rgba(0,208,132,.10));
@@ -34,7 +34,7 @@
       box-shadow: var(--shadow-sm);
     }
     .sourcing-hero h1{ margin:0 0 .35rem; font-size: clamp(1.8rem, 3.5vw, 2.4rem); }
-    .sourcing-hero p{ margin:0; color:var(--gray); max-width:70ch; }
+    .sourcing-hero p{ margin:0; color:var(--gray); max-width:75ch; }
 
     .sourcing-grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap:1.25rem; margin-top:1.25rem; }
     @media (max-width: 980px){ .sourcing-grid{ grid-template-columns:1fr; } }
@@ -85,7 +85,7 @@
       border:1px solid rgba(0,102,255,.18);
       background: rgba(0,102,255,.06);
       color: var(--dark);
-      font-weight:800;
+      font-weight:900;
       font-size:.82rem;
       white-space:nowrap;
     }
@@ -142,7 +142,6 @@
       font-weight:900;
       letter-spacing:.01em;
     }
-
     .mini-note{
       color:var(--gray);
       font-weight:700;
@@ -178,7 +177,7 @@
       background: rgba(0,0,0,.03);
       padding:.35rem .65rem;
       border-radius:999px;
-      font-weight:800;
+      font-weight:900;
       font-size:.85rem;
       cursor:pointer;
       user-select:none;
@@ -186,6 +185,36 @@
     .chip:hover{ background: rgba(0,102,255,.06); border-color: rgba(0,102,255,.18); }
 
     .sr-only{ position:absolute; left:-9999px; }
+
+    /* Upsell block */
+    .upsell{
+      margin-top:1rem;
+      padding:1rem;
+      border-radius:1rem;
+      border:1px solid rgba(0,102,255,.18);
+      background: linear-gradient(135deg, rgba(0,102,255,.08), rgba(0,208,132,.06));
+    }
+    .upsell h3{ margin:0 0 .35rem 0; font-size:1.05rem; }
+    .upsell p{ margin:0; color:var(--gray); }
+    .upsell-links{
+      display:flex;
+      gap:.6rem;
+      flex-wrap:wrap;
+      margin-top:.75rem;
+    }
+    .upsell-links a{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.55rem .75rem;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.08);
+      background:#fff;
+      font-weight:900;
+      color:var(--primary);
+      text-decoration:none;
+    }
+    .upsell-links a:hover{ background:rgba(0,102,255,.06); border-color:rgba(0,102,255,.18); }
   </style>
 </head>
 
@@ -220,13 +249,16 @@
 
       <div class="header-actions">
         <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-        <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
+        </a>
         <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       </div>
     </div>
   </div>
 
-  <nav class="main-nav" id="primaryNav">
+  <nav class="main-nav" id="primaryNav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
         <li><a href="/index.html">Main Home</a></li>
@@ -238,6 +270,8 @@
         <li><a href="/guides.html">Setup Guides</a></li>
         <li><a href="/sourcing-request.html" aria-current="page">Sourcing</a></li>
         <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
         <li><a href="/contact.html">Contact</a></li>
       </ul>
     </div>
@@ -246,6 +280,7 @@
 
 <main class="sourcing-wrap">
   <div class="container" style="max-width:1100px;">
+
     <section class="sourcing-hero">
       <h1>Console Sourcing Request</h1>
       <p>
@@ -270,8 +305,7 @@
           </div>
         </div>
 
-        <form action="https://formspree.io/f/manrkvby" method="POST" id="sourcingForm">
-          <!-- Metadata -->
+        <form action="https://formspree.io/f/manrkvby" method="POST">
           <input type="hidden" name="_subject" value="Retro Replay — Console Sourcing Request">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_next" value="https://retroreplay.uk/contact-thanks.html">
@@ -279,10 +313,7 @@
 
           <div class="row">
             <div class="field">
-              <label for="family">
-                <span>Console family</span>
-                <span class="hint">Required</span>
-              </label>
+              <label for="family"><span>Console family</span><span class="hint">Required</span></label>
               <select id="family" name="Console Family" class="control" required>
                 <option value="">Select…</option>
                 <option>PlayStation 2 (PS2)</option>
@@ -307,20 +338,14 @@
             </div>
 
             <div class="field">
-              <label for="model">
-                <span>Specific model</span>
-                <span class="hint">Optional</span>
-              </label>
+              <label for="model"><span>Specific model</span><span class="hint">Optional</span></label>
               <input id="model" name="Specific Model" class="control" type="text" placeholder="e.g. SCPH-50003, boxed, silver, etc">
             </div>
           </div>
 
           <div class="row">
             <div class="field">
-              <label for="condition">
-                <span>Condition preference</span>
-                <span class="hint">Optional</span>
-              </label>
+              <label for="condition"><span>Condition preference</span><span class="hint">Optional</span></label>
               <select id="condition" name="Condition" class="control">
                 <option>Any good working</option>
                 <option>Good Condition</option>
@@ -330,27 +355,18 @@
             </div>
 
             <div class="field">
-              <label for="budget">
-                <span>Budget (approx)</span>
-                <span class="hint">Optional</span>
-              </label>
+              <label for="budget"><span>Budget (approx)</span><span class="hint">Optional</span></label>
               <input id="budget" name="Budget" class="control" type="text" placeholder="e.g. £60–£120">
             </div>
           </div>
 
           <div class="field">
-            <label for="included">
-              <span>Included items wanted</span>
-              <span class="hint">Optional</span>
-            </label>
+            <label for="included"><span>Included items wanted</span><span class="hint">Optional</span></label>
             <textarea id="included" name="Included Items" class="control" placeholder="Controller, memory card, AV/HDMI, cables, games etc"></textarea>
           </div>
 
           <div class="field">
-            <label for="mods">
-              <span>Modding / upgrade requests</span>
-              <span class="hint">Optional</span>
-            </label>
+            <label for="mods"><span>Modding / upgrade requests</span><span class="hint">Optional</span></label>
             <textarea id="mods" name="Mods" class="control" placeholder="FMCB, OPL setup, HDD upgrade, HDMI adapter, none etc"></textarea>
           </div>
 
@@ -358,27 +374,18 @@
 
           <div class="row">
             <div class="field">
-              <label for="name">
-                <span>Your name</span>
-                <span class="hint">Required</span>
-              </label>
+              <label for="name"><span>Your name</span><span class="hint">Required</span></label>
               <input id="name" name="Name" class="control" type="text" placeholder="Full name" required>
             </div>
 
             <div class="field">
-              <label for="email">
-                <span>Your email</span>
-                <span class="hint">Required</span>
-              </label>
+              <label for="email"><span>Your email</span><span class="hint">Required</span></label>
               <input id="email" name="Email" class="control" type="email" placeholder="you@example.com" required>
             </div>
           </div>
 
           <div class="field">
-            <label for="notes">
-              <span>Anything else?</span>
-              <span class="hint">Optional</span>
-            </label>
+            <label for="notes"><span>Anything else?</span><span class="hint">Optional</span></label>
             <textarea id="notes" name="Notes" class="control" placeholder="Extras like: region, boxed/manuals, colour, quiet fan, etc"></textarea>
           </div>
 
@@ -387,6 +394,20 @@
             <p class="mini-note">No obligation to buy. We confirm availability + pricing first.</p>
           </div>
         </form>
+
+        <!-- UPSELL: mod kits + modded consoles + guides -->
+        <div class="upsell" aria-label="Helpful links">
+          <h3>Want it ready-to-play instead?</h3>
+          <p>
+            If you’re mainly after PS2, you may not need sourcing — you can order a plug &amp; play setup today.
+          </p>
+          <div class="upsell-links">
+            <a href="/playstation/products/ps2-fat.html">🎮 PS2 modded consoles</a>
+            <a href="/playstation/products/ps2-fat.html">💾 PS2 HDD mod kits</a>
+            <a href="/services.html">🔧 Modding services</a>
+            <a href="/guides.html">📘 Setup guides</a>
+          </div>
+        </div>
       </section>
 
       <!-- SIDE INFO -->
@@ -423,8 +444,18 @@
           <span class="muted" style="display:block;">
             Include: console model, TV type (HDMI/AV), player count, and game list (if applicable).
           </span>
-          <a href="/contact.html" style="display:inline-block; margin-top:.65rem; font-weight:900; color:var(--primary);">
+          <a href="/contact.html" style="display:inline-block; margin-top:.65rem; font-weight:900; color:var(--primary); text-decoration:none;">
             Prefer to message instead? Contact us →
+          </a>
+        </div>
+
+        <div style="margin-top:1rem; padding:1rem; border-radius:1rem; border:1px solid rgba(0,102,255,.18); background:rgba(0,102,255,.06);">
+          <strong style="display:block; margin-bottom:.35rem;">Fastest PS2 option</strong>
+          <span class="muted" style="display:block;">
+            If you want PS2 with games from HDD: pick a prebuilt modded console instead of waiting for sourcing.
+          </span>
+          <a href="/playstation/products/ps2-fat.html" style="display:inline-block; margin-top:.65rem; font-weight:900; color:var(--primary); text-decoration:none;">
+            View PS2 modded builds →
           </a>
         </div>
       </aside>
@@ -433,8 +464,51 @@
   </div>
 </main>
 
+<!-- FULL ORIGINAL FOOTER (same as homepage/contact) -->
 <footer class="site-footer">
   <div class="container">
+    <div class="footer-content">
+
+      <div class="footer-section">
+        <h3>Retro Replay</h3>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Shop</h3>
+        <ul class="footer-links">
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul class="footer-links">
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/warranties.html">Warranty Info</a></li>
+          <li><a href="/delivery.html">Shipping</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul class="footer-links">
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
+          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
     <div class="footer-bottom">
       <p>© <span id="year"></span> Retro Replay. All rights reserved.</p>
     </div>
@@ -467,7 +541,7 @@
       });
     }
 
-    // quick-pick chips -> set dropdown
+    // quick-pick chips
     const family = document.getElementById("family");
     document.querySelectorAll(".chip[data-pick]").forEach(chip => {
       chip.addEventListener("click", () => {

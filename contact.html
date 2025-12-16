@@ -1,14 +1,10 @@
-<!-- =========================
-     CONTACT PAGE (MATCHES OTHER PAGES)
-     Paste as /contact.html (root)
-========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Retro Replay</title>
-  <meta name="description" content="Contact Retro Replay — questions, quotes, orders, and support." />
+  <meta name="description" content="Contact Retro Replay — quotes, orders, and support." />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -22,68 +18,44 @@
   </script>
 
   <style>
-    /* ===== Contact page layout (keeps your nice design) ===== */
     .page-wrap{ max-width:1100px; margin:0 auto; padding:2rem 1rem; }
-    .page-hero{ padding:1.25rem 1.25rem; border:1px solid var(--gray-lighter); border-radius:1rem; background:var(--white); }
-    .page-hero h1{ margin:0 0 .35rem 0; }
-    .page-hero p{ margin:0; color:var(--gray); }
+    .page-hero{ padding:1.25rem; border:1px solid var(--gray-lighter); border-radius:1rem; background:#fff; }
+    .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-top:1.25rem; }
+    @media(max-width:900px){ .contact-grid{ grid-template-columns:1fr; } }
 
-    .contact-grid{ display:grid; grid-template-columns: 1.25fr .75fr; gap:1.25rem; margin-top:1.25rem; }
-    @media (max-width: 992px){ .contact-grid{ grid-template-columns:1fr; } }
-
-    .card{ background:var(--white); border:1px solid var(--gray-lighter); border-radius:1rem; padding:1.25rem; box-shadow:0 10px 25px rgba(0,0,0,.04); }
-    .card h2{ margin-top:0; font-size:1.25rem; }
+    .card{ background:#fff; border:1px solid var(--gray-lighter); border-radius:1rem; padding:1.25rem; box-shadow:0 10px 25px rgba(0,0,0,.04); }
     .muted{ color:var(--gray); }
 
-    .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-    @media (max-width: 600px){ .form-row{ grid-template-columns:1fr; } }
-
-    label{ display:block; font-weight:700; margin:.75rem 0 .35rem; }
-    input, textarea, select{
-      width:100%;
-      border:1px solid var(--gray-lighter);
-      border-radius:.75rem;
-      padding:.75rem .85rem;
-      font:inherit;
-      background:#fff;
-      outline:none;
+    .contact-item{
+      padding:.75rem 0;
+      border-top:1px solid var(--gray-lighter);
     }
-    textarea{ min-height:140px; resize:vertical; }
+    .contact-item:first-child{ border-top:0; }
 
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      border:0; border-radius:.85rem;
-      padding:.8rem 1rem;
+    .contact-link{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
       font-weight:800;
-      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
-      color:#fff;
-      cursor:pointer;
-      margin-top:1rem;
-      text-decoration:none;
+      color:var(--primary);
+      margin-top:.25rem;
     }
-    .btn:hover{ filter:brightness(.95); }
-
-    .contact-list{ list-style:none; padding:0; margin:.25rem 0 0; }
-    .contact-list li{ padding:.65rem 0; border-top:1px solid var(--gray-lighter); }
-    .contact-list li:first-child{ border-top:0; }
     .pill{
       display:inline-block;
-      padding:.25rem .55rem;
+      margin-left:.4rem;
+      padding:.25rem .6rem;
       border-radius:999px;
       border:1px solid var(--gray-lighter);
-      font-size:.85rem;
+      font-size:.8rem;
       color:var(--gray);
-      margin-left:.35rem;
     }
   </style>
 </head>
 
 <body>
 
-<!-- HEADER (matches your other pages structure/classes) -->
+<!-- HEADER (unchanged, matches site) -->
 <header class="site-header">
-
-  <!-- TOP BAR -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
@@ -96,164 +68,118 @@
     </div>
   </div>
 
-  <!-- MAIN HEADER ROW -->
   <div class="header-main">
     <div class="container header-content">
-
       <a href="/index.html" class="site-logo">
         <img src="/assets/logo.png" alt="Retro Replay Logo">
         <span>Retro Replay</span>
       </a>
 
-      <form class="search-bar" action="/search.html" method="get" role="search">
-        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
-        <button class="search-btn" type="submit">Search</button>
+      <form class="search-bar" action="/search.html" method="get">
+        <input type="search" name="q" placeholder="Search consoles, accessories…">
+        <button class="search-btn">Search</button>
       </form>
 
       <div class="header-actions">
-        <a href="/contact.html" class="header-action">
-          <span>📞</span><span>Support</span>
-        </a>
-        <a href="/checkout.html" class="header-action">
-          <span>🛒</span><span>Cart</span>
-          <span class="cart-badge" id="cart-count-js">0</span>
-        </a>
-
-        <!-- Mobile toggle (required) -->
-        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="global-nav">
-          ☰
-        </button>
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span></a>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
       </div>
-
     </div>
   </div>
 
-  <!-- GLOBAL MAIN NAV -->
-  <nav class="main-nav" id="global-nav" aria-label="Primary">
+  <nav class="main-nav">
     <div class="container">
       <ul class="nav-list">
-        <li><a href="/index.html">Main Home</a></li>
-        <li><a href="/atari/index.html">Atari</a></li>
-        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/index.html">Home</a></li>
         <li><a href="/playstation/index.html">PlayStation</a></li>
-        <li><a href="/sega/index.html">Sega</a></li>
         <li><a href="/xbox/index.html">Xbox</a></li>
-        <li><a href="/guides.html">Setup Guides</a></li>
-        <li><a href="/sourcing-request.html">Sourcing</a></li>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/warranties.html">Warranty</a></li>
-        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/guides.html">Guides</a></li>
         <li><a href="/contact.html">Contact</a></li>
       </ul>
     </div>
   </nav>
-
 </header>
 
 <!-- MAIN -->
 <main class="page-wrap">
+
   <section class="page-hero">
-    <h1>Contact</h1>
-    <p class="muted">Quotes, orders, support, and general questions. Send your game list + console preference for the fastest response.</p>
+    <h1>Contact Retro Replay</h1>
+    <p class="muted">
+      For quotes, orders, or support, please contact us using the details below.
+      Including your console model, budget, and game list helps us reply faster.
+    </p>
   </section>
 
   <section class="contact-grid">
-    <!-- FORM -->
+
+    <!-- PRIMARY CONTACT -->
     <div class="card">
-      <h2>Send a message</h2>
-      <p class="muted">Include: console model (PS2 Fat/Slim etc.), budget, game list, TV type (HDMI/AV), and how many players.</p>
+      <h2>Primary Contact</h2>
 
-      <!-- Replace with Formspree/Netlify action later if needed -->
-      <form action="mailto:your@email.com" method="post" enctype="text/plain">
-        <div class="form-row">
-          <div>
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required />
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required />
-          </div>
-        </div>
+      <div class="contact-item">
+        <strong>Email</strong>
+        <span class="pill">preferred</span><br>
+        <a class="contact-link" href="mailto:your@email.com">
+          your@email.com
+        </a>
+      </div>
 
-        <label for="topic">Topic</label>
-        <select id="topic" name="topic">
-          <option>Order / Quote</option>
-          <option>Support</option>
-          <option>Custom PS2 HDD build</option>
-          <option>Bulk order</option>
-          <option>Other</option>
-        </select>
+      <div class="contact-item">
+        <strong>Response Time</strong><br>
+        <span class="muted">Usually same day (evenings best)</span>
+      </div>
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Tell me what you need..."></textarea>
-
-        <button class="btn" type="submit">Send message</button>
-      </form>
+      <div class="contact-item">
+        <strong>Best for</strong><br>
+        <span class="muted">
+          Quotes • Custom PS2 builds • HDD upgrades • Warranty questions
+        </span>
+      </div>
     </div>
 
-    <!-- DETAILS -->
+    <!-- SUPPORT DETAILS -->
     <aside class="card">
-      <h2>Contact details</h2>
-      <p class="muted">Fastest way is message + your game list.</p>
+      <h2>Order & Support Info</h2>
 
-      <ul class="contact-list">
-        <li>
-          <strong>Email</strong>
-          <span class="pill">preferred</span><br />
-          <span class="muted">your@email.com</span>
-        </li>
-        <li>
-          <strong>eBay</strong><br />
-          <span class="muted">Message via your eBay order for quickest support.</span>
-        </li>
-        <li>
-          <strong>Response times</strong><br />
-          <span class="muted">Usually same day (evenings are best).</span>
-        </li>
-        <li>
-          <strong>What to include</strong><br />
-          <span class="muted">Console model, budget, game list, TV type (HDMI/AV), player count.</span>
-        </li>
-      </ul>
+      <div class="contact-item">
+        <strong>eBay Support</strong><br>
+        <span class="muted">
+          If you ordered via eBay, message through your order for the fastest response.
+        </span>
+      </div>
+
+      <div class="contact-item">
+        <strong>Include in your message</strong><br>
+        <span class="muted">
+          Console model (PS2 Fat/Slim), budget, game list, TV type (HDMI/AV), and number of players.
+        </span>
+      </div>
+
+      <div class="contact-item">
+        <strong>Sourcing Requests</strong><br>
+        <a class="contact-link" href="/sourcing-request.html">
+          Open sourcing request →
+        </a>
+      </div>
     </aside>
+
   </section>
 </main>
 
-<!-- FOOTER (keeps your global footer look if you already have .site-footer styles) -->
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-bottom">
-      <p>© <span id="year"></span> Retro Replay. All rights reserved. Professionally tested & cleaned gaming consoles.</p>
+      <p>© <span id="year"></span> Retro Replay. All rights reserved.</p>
     </div>
   </div>
 </footer>
 
-<script src="/cart.js"></script>
-<script>RetroCart.loadCart();</script>
-
-<!-- NAV TOGGLE + YEAR -->
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const year = document.getElementById("year");
-    if (year) year.textContent = new Date().getFullYear();
-
-    const btn = document.querySelector(".nav-toggle");
-    const nav = document.querySelector(".main-nav");
-    if (!btn || !nav) return;
-
-    btn.addEventListener("click", () => {
-      const open = nav.classList.toggle("is-open");
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-
-    nav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        nav.classList.remove("is-open");
-        btn.setAttribute("aria-expanded", "false");
-      });
-    });
-  });
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>

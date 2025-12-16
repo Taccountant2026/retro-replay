@@ -1,6 +1,6 @@
 <!-- =========================
-     CONTACT PAGE (FULL BUILD)
-     Paste as contact.html
+     CONTACT PAGE (MATCHES OTHER PAGES)
+     Paste as /contact.html (root)
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +10,19 @@
   <title>Contact | Retro Replay</title>
   <meta name="description" content="Contact Retro Replay — questions, quotes, orders, and support." />
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
 
   <style>
-    /* ===== Contact page layout ===== */
+    /* ===== Contact page layout (keeps your nice design) ===== */
     .page-wrap{ max-width:1100px; margin:0 auto; padding:2rem 1rem; }
     .page-hero{ padding:1.25rem 1.25rem; border:1px solid var(--gray-lighter); border-radius:1rem; background:var(--white); }
     .page-hero h1{ margin:0 0 .35rem 0; }
@@ -45,7 +55,7 @@
       border:0; border-radius:.85rem;
       padding:.8rem 1rem;
       font-weight:800;
-      background:var(--primary);
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
       color:#fff;
       cursor:pointer;
       margin-top:1rem;
@@ -65,213 +75,186 @@
       color:var(--gray);
       margin-left:.35rem;
     }
-
-    /* ===== Header (basic) ===== */
-    header{ position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid var(--gray-lighter); }
-    .header-inner{ max-width:1100px; margin:0 auto; padding:.9rem 1rem; }
-    .header-content{ display:flex; align-items:center; gap:1rem; justify-content:space-between; }
-    .brand{ display:flex; align-items:center; gap:.65rem; font-weight:900; text-decoration:none; color:inherit; }
-    .brand-badge{ width:34px; height:34px; border-radius:10px; background:var(--primary); display:inline-block; }
-
-    .search-bar{ flex:1; max-width:460px; }
-    .search-bar input{ margin:0; }
-
-    .header-actions{ display:flex; align-items:center; gap:1rem; }
-
-    .main-nav{ }
-    .nav-list{ display:flex; gap:.4rem; list-style:none; padding:0; margin:0; }
-    .nav-list a{
-      display:block;
-      padding:.55rem .8rem;
-      border-radius:.75rem;
-      text-decoration:none;
-      color:inherit;
-      font-weight:800;
-    }
-    .nav-list a:hover{ background:var(--bg); }
-
-    /* ===== Mobile Nav Toggle (global) ===== */
-    .nav-toggle{
-      display:none;
-      border:2px solid var(--gray-lighter);
-      background:#fff;
-      border-radius:10px;
-      padding:.55rem .75rem;
-      font-weight:800;
-      line-height:1;
-    }
-
-    @media (max-width: 992px){
-      .header-content{ flex-wrap:wrap; }
-      .nav-toggle{ display:inline-flex; align-items:center; justify-content:center; }
-      .header-actions{ gap: .75rem; }
-
-      /* keep search full width on mobile */
-      .search-bar{ order: 10; width: 100%; max-width: 100%; }
-
-      /* collapsible nav */
-      .main-nav{ display:none; width:100%; }
-      .main-nav.is-open{ display:block; }
-
-      .nav-list{
-        flex-direction:column;
-        align-items:stretch;
-        text-align:left;
-        background:#fff;
-        border:1px solid var(--gray-lighter);
-        border-radius:1rem;
-        overflow:hidden;
-        margin-top:.75rem;
-      }
-      .nav-list a{
-        padding: .9rem 1rem;
-        border-top: 1px solid var(--gray-lighter);
-      }
-      .nav-list li:first-child a{ border-top:0; }
-    }
-
-    /* ===== Footer ===== */
-    footer{ border-top:1px solid var(--gray-lighter); background:#fff; }
-    .footer-inner{ max-width:1100px; margin:0 auto; padding:1.5rem 1rem; color:var(--gray); }
   </style>
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <div class="header-content">
-        <a class="brand" href="/">
-          <span class="brand-badge" aria-hidden="true"></span>
-          <span>Retro Replay</span>
+
+<!-- HEADER (matches your other pages structure/classes) -->
+<header class="site-header">
+
+  <!-- TOP BAR -->
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo">
+        <span>📩 Contact Retro Replay — Quotes, Orders & Support</span>
+      </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/warranties.html">Warranty</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER ROW -->
+  <div class="header-main">
+    <div class="container header-content">
+
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay Logo">
+        <span>Retro Replay</span>
+      </a>
+
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
+        <button class="search-btn" type="submit">Search</button>
+      </form>
+
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action">
+          <span>📞</span><span>Support</span>
+        </a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
         </a>
 
-        <div class="search-bar">
-          <input id="siteSearch" type="search" placeholder="Search consoles, guides, accessories..." />
-        </div>
-
-        <div class="header-actions">
-          <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
-            ☰
-          </button>
-
-          <nav class="main-nav" id="site-nav" aria-label="Primary">
-            <ul class="nav-list">
-              <li><a href="/">Home</a></li>
-              <li><a href="/playstation/">PlayStation</a></li>
-              <li><a href="/xbox/">Xbox</a></li>
-              <li><a href="/nintendo/">Nintendo</a></li>
-              <li><a href="/guides/">Guides</a></li>
-              <li><a href="/contact.html">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
+        <!-- Mobile toggle (required) -->
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="global-nav">
+          ☰
+        </button>
       </div>
+
     </div>
-  </header>
+  </div>
 
-  <!-- MAIN -->
-  <main class="page-wrap">
-    <section class="page-hero">
-      <h1>Contact</h1>
-      <p class="muted">Quotes, orders, support, and general questions. Message anytime.</p>
-    </section>
+  <!-- GLOBAL MAIN NAV -->
+  <nav class="main-nav" id="global-nav" aria-label="Primary">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <section class="contact-grid">
-      <!-- FORM -->
-      <div class="card">
-        <h2>Send a message</h2>
-        <p class="muted">Fill in the form and include as much detail as possible (console model, game list, budget, etc.).</p>
+</header>
 
-        <!-- Simple mailto form (works without backend). Replace action if you use Formspree/Netlify. -->
-        <form action="mailto:your@email.com" method="post" enctype="text/plain">
-          <div class="form-row">
-            <div>
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required />
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required />
-            </div>
+<!-- MAIN -->
+<main class="page-wrap">
+  <section class="page-hero">
+    <h1>Contact</h1>
+    <p class="muted">Quotes, orders, support, and general questions. Send your game list + console preference for the fastest response.</p>
+  </section>
+
+  <section class="contact-grid">
+    <!-- FORM -->
+    <div class="card">
+      <h2>Send a message</h2>
+      <p class="muted">Include: console model (PS2 Fat/Slim etc.), budget, game list, TV type (HDMI/AV), and how many players.</p>
+
+      <!-- Replace with Formspree/Netlify action later if needed -->
+      <form action="mailto:your@email.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
           </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+        </div>
 
-          <label for="topic">Topic</label>
-          <select id="topic" name="topic">
-            <option>Order / Quote</option>
-            <option>Support</option>
-            <option>Custom PS2 HDD build</option>
-            <option>Bulk order</option>
-            <option>Other</option>
-          </select>
+        <label for="topic">Topic</label>
+        <select id="topic" name="topic">
+          <option>Order / Quote</option>
+          <option>Support</option>
+          <option>Custom PS2 HDD build</option>
+          <option>Bulk order</option>
+          <option>Other</option>
+        </select>
 
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell me what you need..."></textarea>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell me what you need..."></textarea>
 
-          <button class="btn" type="submit">Send message</button>
-        </form>
-      </div>
-
-      <!-- DETAILS -->
-      <aside class="card">
-        <h2>Contact details</h2>
-        <p class="muted">Fastest way is message + your game list.</p>
-
-        <ul class="contact-list">
-          <li>
-            <strong>Email</strong>
-            <span class="pill">preferred</span><br />
-            <span class="muted">your@email.com</span>
-          </li>
-          <li>
-            <strong>eBay</strong><br />
-            <span class="muted">Message via your eBay order for quickest support.</span>
-          </li>
-          <li>
-            <strong>Response times</strong><br />
-            <span class="muted">Usually same day (evenings are best).</span>
-          </li>
-          <li>
-            <strong>What to include</strong><br />
-            <span class="muted">Console model, budget, game list, TV type (HDMI/AV), and player count.</span>
-          </li>
-        </ul>
-      </aside>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      © <span id="year"></span> Retro Replay. Tested, cleaned, and supported builds.
+        <button class="btn" type="submit">Send message</button>
+      </form>
     </div>
-  </footer>
 
-  <!-- SCRIPTS -->
-  <script>
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    <!-- DETAILS -->
+    <aside class="card">
+      <h2>Contact details</h2>
+      <p class="muted">Fastest way is message + your game list.</p>
 
-    // Mobile nav toggle
-    document.addEventListener("DOMContentLoaded", () => {
-      const btn = document.querySelector(".nav-toggle");
-      const nav = document.querySelector(".main-nav");
+      <ul class="contact-list">
+        <li>
+          <strong>Email</strong>
+          <span class="pill">preferred</span><br />
+          <span class="muted">your@email.com</span>
+        </li>
+        <li>
+          <strong>eBay</strong><br />
+          <span class="muted">Message via your eBay order for quickest support.</span>
+        </li>
+        <li>
+          <strong>Response times</strong><br />
+          <span class="muted">Usually same day (evenings are best).</span>
+        </li>
+        <li>
+          <strong>What to include</strong><br />
+          <span class="muted">Console model, budget, game list, TV type (HDMI/AV), player count.</span>
+        </li>
+      </ul>
+    </aside>
+  </section>
+</main>
 
-      if (!btn || !nav) return;
+<!-- FOOTER (keeps your global footer look if you already have .site-footer styles) -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Retro Replay. All rights reserved. Professionally tested & cleaned gaming consoles.</p>
+    </div>
+  </div>
+</footer>
 
-      btn.addEventListener("click", () => {
-        const open = nav.classList.toggle("is-open");
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
-      });
+<script src="/cart.js"></script>
+<script>RetroCart.loadCart();</script>
 
-      // Close after tap on mobile
-      document.querySelectorAll(".nav-list a").forEach(a => {
-        a.addEventListener("click", () => {
-          nav.classList.remove("is-open");
-          btn.setAttribute("aria-expanded", "false");
-        });
+<!-- NAV TOGGLE + YEAR -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const year = document.getElementById("year");
+    if (year) year.textContent = new Date().getFullYear();
+
+    const btn = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".main-nav");
+    if (!btn || !nav) return;
+
+    btn.addEventListener("click", () => {
+      const open = nav.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    nav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        nav.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
       });
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>

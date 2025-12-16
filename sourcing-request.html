@@ -1,7 +1,8 @@
 <!-- =========================
-     SOURCING REQUEST (FULL BUILD — FORMSPREE + FULL FOOTER + UPSELL)
+     SOURCING REQUEST (FULL BUILD — FIXED)
      Paste as: /sourcing-request.html
      Form endpoint: https://formspree.io/f/manrkvby
+     Redirect: /contact-thanks.html
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -253,7 +254,13 @@
           <span>🛒</span><span>Cart</span>
           <span class="cart-badge" id="cart-count-js">0</span>
         </a>
-        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+        <!-- FIXED: adds aria-controls + uses the same #primaryNav as homepage -->
+        <button class="nav-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="primaryNav">☰</button>
       </div>
     </div>
   </div>
@@ -308,7 +315,10 @@
         <form action="https://formspree.io/f/manrkvby" method="POST">
           <input type="hidden" name="_subject" value="Retro Replay — Console Sourcing Request">
           <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://retroreplay.uk/contact-thanks.html">
+
+          <!-- FIXED: use a dedicated sourcing thanks page (or create an alias) -->
+          <input type="hidden" name="_next" value="https://retroreplay.uk/sourcing-thanks.html">
+
           <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off">
 
           <div class="row">
@@ -395,7 +405,7 @@
           </div>
         </form>
 
-        <!-- UPSELL: mod kits + modded consoles + guides -->
+        <!-- UPSELL -->
         <div class="upsell" aria-label="Helpful links">
           <h3>Want it ready-to-play instead?</h3>
           <p>
@@ -464,7 +474,7 @@
   </div>
 </main>
 
-<!-- FULL ORIGINAL FOOTER (same as homepage/contact) -->
+<!-- FULL FOOTER (matches homepage) -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
@@ -525,9 +535,9 @@
     // cart
     if (window.RetroCart && typeof RetroCart.loadCart === "function") RetroCart.loadCart();
 
-    // mobile nav toggle
+    // mobile nav toggle (matches your CSS: .main-nav.is-open)
     const navBtn = document.querySelector(".nav-toggle");
-    const nav = document.querySelector(".main-nav");
+    const nav = document.getElementById("primaryNav");
     if (navBtn && nav) {
       navBtn.addEventListener("click", () => {
         const open = nav.classList.toggle("is-open");

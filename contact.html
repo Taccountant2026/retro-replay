@@ -1,33 +1,277 @@
-/* ===== Mobile Nav Toggle (global) ===== */
-.nav-toggle{
-  display:none;
-  border:2px solid var(--gray-lighter);
-  background:#fff;
-  border-radius:10px;
-  padding:.55rem .75rem;
-  font-weight:800;
-  line-height:1;
-}
+<!-- =========================
+     CONTACT PAGE (FULL BUILD)
+     Paste as contact.html
+========================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Retro Replay</title>
+  <meta name="description" content="Contact Retro Replay — questions, quotes, orders, and support." />
+  <link rel="stylesheet" href="style.css" />
 
-@media (max-width: 992px){
-  .header-content{ flex-wrap:wrap; }
-  .nav-toggle{ display:inline-flex; align-items:center; justify-content:center; }
-  .header-actions{ gap: .75rem; }
+  <style>
+    /* ===== Contact page layout ===== */
+    .page-wrap{ max-width:1100px; margin:0 auto; padding:2rem 1rem; }
+    .page-hero{ padding:1.25rem 1.25rem; border:1px solid var(--gray-lighter); border-radius:1rem; background:var(--white); }
+    .page-hero h1{ margin:0 0 .35rem 0; }
+    .page-hero p{ margin:0; color:var(--gray); }
 
-  /* keep search full width on mobile */
-  .search-bar{ order: 10; width: 100%; max-width: 100%; }
+    .contact-grid{ display:grid; grid-template-columns: 1.25fr .75fr; gap:1.25rem; margin-top:1.25rem; }
+    @media (max-width: 992px){ .contact-grid{ grid-template-columns:1fr; } }
 
-  /* collapsible nav */
-  .main-nav{ display:none; }
-  .main-nav.is-open{ display:block; }
+    .card{ background:var(--white); border:1px solid var(--gray-lighter); border-radius:1rem; padding:1.25rem; box-shadow:0 10px 25px rgba(0,0,0,.04); }
+    .card h2{ margin-top:0; font-size:1.25rem; }
+    .muted{ color:var(--gray); }
 
-  .nav-list{
-    flex-direction:column;
-    align-items:stretch;
-    text-align:left;
-  }
-  .nav-list a{
-    padding: .9rem 1rem;
-    border-top: 1px solid var(--gray-lighter);
-  }
-}
+    .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    @media (max-width: 600px){ .form-row{ grid-template-columns:1fr; } }
+
+    label{ display:block; font-weight:700; margin:.75rem 0 .35rem; }
+    input, textarea, select{
+      width:100%;
+      border:1px solid var(--gray-lighter);
+      border-radius:.75rem;
+      padding:.75rem .85rem;
+      font:inherit;
+      background:#fff;
+      outline:none;
+    }
+    textarea{ min-height:140px; resize:vertical; }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      border:0; border-radius:.85rem;
+      padding:.8rem 1rem;
+      font-weight:800;
+      background:var(--primary);
+      color:#fff;
+      cursor:pointer;
+      margin-top:1rem;
+      text-decoration:none;
+    }
+    .btn:hover{ filter:brightness(.95); }
+
+    .contact-list{ list-style:none; padding:0; margin:.25rem 0 0; }
+    .contact-list li{ padding:.65rem 0; border-top:1px solid var(--gray-lighter); }
+    .contact-list li:first-child{ border-top:0; }
+    .pill{
+      display:inline-block;
+      padding:.25rem .55rem;
+      border-radius:999px;
+      border:1px solid var(--gray-lighter);
+      font-size:.85rem;
+      color:var(--gray);
+      margin-left:.35rem;
+    }
+
+    /* ===== Header (basic) ===== */
+    header{ position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid var(--gray-lighter); }
+    .header-inner{ max-width:1100px; margin:0 auto; padding:.9rem 1rem; }
+    .header-content{ display:flex; align-items:center; gap:1rem; justify-content:space-between; }
+    .brand{ display:flex; align-items:center; gap:.65rem; font-weight:900; text-decoration:none; color:inherit; }
+    .brand-badge{ width:34px; height:34px; border-radius:10px; background:var(--primary); display:inline-block; }
+
+    .search-bar{ flex:1; max-width:460px; }
+    .search-bar input{ margin:0; }
+
+    .header-actions{ display:flex; align-items:center; gap:1rem; }
+
+    .main-nav{ }
+    .nav-list{ display:flex; gap:.4rem; list-style:none; padding:0; margin:0; }
+    .nav-list a{
+      display:block;
+      padding:.55rem .8rem;
+      border-radius:.75rem;
+      text-decoration:none;
+      color:inherit;
+      font-weight:800;
+    }
+    .nav-list a:hover{ background:var(--bg); }
+
+    /* ===== Mobile Nav Toggle (global) ===== */
+    .nav-toggle{
+      display:none;
+      border:2px solid var(--gray-lighter);
+      background:#fff;
+      border-radius:10px;
+      padding:.55rem .75rem;
+      font-weight:800;
+      line-height:1;
+    }
+
+    @media (max-width: 992px){
+      .header-content{ flex-wrap:wrap; }
+      .nav-toggle{ display:inline-flex; align-items:center; justify-content:center; }
+      .header-actions{ gap: .75rem; }
+
+      /* keep search full width on mobile */
+      .search-bar{ order: 10; width: 100%; max-width: 100%; }
+
+      /* collapsible nav */
+      .main-nav{ display:none; width:100%; }
+      .main-nav.is-open{ display:block; }
+
+      .nav-list{
+        flex-direction:column;
+        align-items:stretch;
+        text-align:left;
+        background:#fff;
+        border:1px solid var(--gray-lighter);
+        border-radius:1rem;
+        overflow:hidden;
+        margin-top:.75rem;
+      }
+      .nav-list a{
+        padding: .9rem 1rem;
+        border-top: 1px solid var(--gray-lighter);
+      }
+      .nav-list li:first-child a{ border-top:0; }
+    }
+
+    /* ===== Footer ===== */
+    footer{ border-top:1px solid var(--gray-lighter); background:#fff; }
+    .footer-inner{ max-width:1100px; margin:0 auto; padding:1.5rem 1rem; color:var(--gray); }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="header-content">
+        <a class="brand" href="/">
+          <span class="brand-badge" aria-hidden="true"></span>
+          <span>Retro Replay</span>
+        </a>
+
+        <div class="search-bar">
+          <input id="siteSearch" type="search" placeholder="Search consoles, guides, accessories..." />
+        </div>
+
+        <div class="header-actions">
+          <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            ☰
+          </button>
+
+          <nav class="main-nav" id="site-nav" aria-label="Primary">
+            <ul class="nav-list">
+              <li><a href="/">Home</a></li>
+              <li><a href="/playstation/">PlayStation</a></li>
+              <li><a href="/xbox/">Xbox</a></li>
+              <li><a href="/nintendo/">Nintendo</a></li>
+              <li><a href="/guides/">Guides</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="page-wrap">
+    <section class="page-hero">
+      <h1>Contact</h1>
+      <p class="muted">Quotes, orders, support, and general questions. Message anytime.</p>
+    </section>
+
+    <section class="contact-grid">
+      <!-- FORM -->
+      <div class="card">
+        <h2>Send a message</h2>
+        <p class="muted">Fill in the form and include as much detail as possible (console model, game list, budget, etc.).</p>
+
+        <!-- Simple mailto form (works without backend). Replace action if you use Formspree/Netlify. -->
+        <form action="mailto:your@email.com" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic">
+            <option>Order / Quote</option>
+            <option>Support</option>
+            <option>Custom PS2 HDD build</option>
+            <option>Bulk order</option>
+            <option>Other</option>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me what you need..."></textarea>
+
+          <button class="btn" type="submit">Send message</button>
+        </form>
+      </div>
+
+      <!-- DETAILS -->
+      <aside class="card">
+        <h2>Contact details</h2>
+        <p class="muted">Fastest way is message + your game list.</p>
+
+        <ul class="contact-list">
+          <li>
+            <strong>Email</strong>
+            <span class="pill">preferred</span><br />
+            <span class="muted">your@email.com</span>
+          </li>
+          <li>
+            <strong>eBay</strong><br />
+            <span class="muted">Message via your eBay order for quickest support.</span>
+          </li>
+          <li>
+            <strong>Response times</strong><br />
+            <span class="muted">Usually same day (evenings are best).</span>
+          </li>
+          <li>
+            <strong>What to include</strong><br />
+            <span class="muted">Console model, budget, game list, TV type (HDMI/AV), and player count.</span>
+          </li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      © <span id="year"></span> Retro Replay. Tested, cleaned, and supported builds.
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.querySelector(".nav-toggle");
+      const nav = document.querySelector(".main-nav");
+
+      if (!btn || !nav) return;
+
+      btn.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+
+      // Close after tap on mobile
+      document.querySelectorAll(".nav-list a").forEach(a => {
+        a.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          btn.setAttribute("aria-expanded", "false");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

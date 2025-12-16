@@ -1,0 +1,76 @@
+<!-- =========================
+     THANK YOU PAGE (FORMSPREE REDIRECT)
+     Paste as: /contact-thanks.html
+========================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message sent | Retro Replay</title>
+  <meta name="description" content="Thanks for contacting Retro Replay." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo">
+        <span>✅ Message sent — Retro Replay</span>
+      </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/warranties.html">Warranty</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay Logo">
+        <span>Retro Replay</span>
+      </a>
+
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
+        <button class="search-btn" type="submit">Search</button>
+      </form>
+
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="page-wrap" style="max-width:1100px;margin:0 auto;padding:2rem 1rem;">
+  <section style="background:#fff;border:1px solid var(--gray-lighter);border-radius:1rem;padding:1.5rem;">
+    <h1 style="margin:0 0 .5rem 0;">Thanks — message sent</h1>
+    <p style="margin:0;color:var(--gray);">
+      We’ve received your message and will reply as soon as possible (usually same day).
+    </p>
+    <div style="margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap;">
+      <a class="btn btn-primary" href="/index.html" style="text-decoration:none;">Back to Home</a>
+      <a class="btn btn-secondary" href="/playstation/products/ps2-fat.html" style="text-decoration:none;">Shop PS2 Modded</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Retro Replay. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

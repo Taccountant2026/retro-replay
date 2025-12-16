@@ -20,16 +20,16 @@
   <style>
     .page-wrap{ max-width:1100px; margin:0 auto; padding:2rem 1rem; }
     .page-hero{ padding:1.25rem; border:1px solid var(--gray-lighter); border-radius:1rem; background:#fff; }
+    .page-hero h1{ margin:0 0 .5rem 0; }
+    .muted{ color:var(--gray); }
+
     .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-top:1.25rem; }
     @media(max-width:900px){ .contact-grid{ grid-template-columns:1fr; } }
 
     .card{ background:#fff; border:1px solid var(--gray-lighter); border-radius:1rem; padding:1.25rem; box-shadow:0 10px 25px rgba(0,0,0,.04); }
-    .muted{ color:var(--gray); }
+    .card h2{ margin:0 0 .5rem 0; }
 
-    .contact-item{
-      padding:.75rem 0;
-      border-top:1px solid var(--gray-lighter);
-    }
+    .contact-item{ padding:.75rem 0; border-top:1px solid var(--gray-lighter); }
     .contact-item:first-child{ border-top:0; }
 
     .contact-link{
@@ -39,7 +39,9 @@
       font-weight:800;
       color:var(--primary);
       margin-top:.25rem;
+      text-decoration:none;
     }
+
     .pill{
       display:inline-block;
       margin-left:.4rem;
@@ -49,12 +51,52 @@
       font-size:.8rem;
       color:var(--gray);
     }
+
+    /* Form styling (matches your theme) */
+    label{ display:block; font-weight:800; margin:.85rem 0 .35rem; }
+    input, textarea, select{
+      width:100%;
+      border:1px solid var(--gray-lighter);
+      border-radius:.75rem;
+      padding:.75rem .85rem;
+      font:inherit;
+      background:#fff;
+      outline:none;
+    }
+    textarea{ min-height:160px; resize:vertical; }
+
+    .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    @media(max-width:600px){ .form-row{ grid-template-columns:1fr; } }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      border:0; border-radius:.85rem;
+      padding:.85rem 1rem;
+      font-weight:900;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;
+      cursor:pointer;
+      margin-top:1rem;
+      text-decoration:none;
+      min-height:44px;
+    }
+    .btn:hover{ filter:brightness(.96); }
+
+    .form-status{
+      margin-top:1rem;
+      padding:.85rem 1rem;
+      border-radius:.85rem;
+      border:1px solid var(--gray-lighter);
+      background:rgba(0,102,255,.06);
+      display:none;
+    }
+    .form-status.show{ display:block; }
   </style>
 </head>
 
 <body>
 
-<!-- HEADER (unchanged, matches site) -->
+<!-- HEADER (matches site) -->
 <header class="site-header">
   <div class="header-top">
     <div class="container">
@@ -83,12 +125,12 @@
       <div class="header-actions">
         <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
         <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span></a>
-        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       </div>
     </div>
   </div>
 
-  <nav class="main-nav">
+  <nav class="main-nav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
         <li><a href="/index.html">Home</a></li>
@@ -108,46 +150,76 @@
   <section class="page-hero">
     <h1>Contact Retro Replay</h1>
     <p class="muted">
-      For quotes, orders, or support, please contact us using the details below.
-      Including your console model, budget, and game list helps us reply faster.
+      Use the form below for quotes, orders, or support. Including your console model, budget, and game list helps us reply faster.
     </p>
   </section>
 
   <section class="contact-grid">
 
-    <!-- PRIMARY CONTACT -->
+    <!-- FORM (Formspree) -->
     <div class="card">
+      <h2>Send a message</h2>
+      <p class="muted">Include: console model (PS2 Fat/Slim), budget, game list, TV type (HDMI/AV), and number of players.</p>
+
+      <form id="contactForm" action="https://formspree.io/f/manrkvby" method="POST">
+        <div class="form-row">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+
+        <label for="topic">Topic</label>
+        <select id="topic" name="topic">
+          <option>Order / Quote</option>
+          <option>Support</option>
+          <option>Custom PS2 HDD build</option>
+          <option>Bulk order</option>
+          <option>General enquiry</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us what you need..." required></textarea>
+
+        <!-- Helpful metadata -->
+        <input type="hidden" name="_subject" value="New Retro Replay Contact Message">
+        <input type="hidden" name="_template" value="table">
+
+        <button class="btn" type="submit">Send message</button>
+
+        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+
+    <!-- DETAILS -->
+    <aside class="card">
       <h2>Primary Contact</h2>
 
       <div class="contact-item">
         <strong>Email</strong>
         <span class="pill">preferred</span><br>
-        <a class="contact-link" href="mailto:your@email.com">
-          your@email.com
-        </a>
+        <a class="contact-link" href="mailto:retroreplay2026@gmail.com">retroreplay2026@gmail.com</a>
       </div>
 
       <div class="contact-item">
         <strong>Response Time</strong><br>
-        <span class="muted">Usually same day (evenings best)</span>
+        <span class="muted">Usually same day replies</span>
       </div>
 
       <div class="contact-item">
         <strong>Best for</strong><br>
-        <span class="muted">
-          Quotes • Custom PS2 builds • HDD upgrades • Warranty questions
-        </span>
+        <span class="muted">Quotes • Custom PS2 builds • HDD upgrades • Warranty questions • General enquiries</span>
       </div>
-    </div>
-
-    <!-- SUPPORT DETAILS -->
-    <aside class="card">
-      <h2>Order & Support Info</h2>
 
       <div class="contact-item">
-        <strong>eBay Support</strong><br>
+        <strong>Order &amp; Support Info</strong><br>
         <span class="muted">
           If you ordered via eBay, message through your order for the fastest response.
+          You can also check our stock on eBay, Facebook, Vinted and Gumtree.
         </span>
       </div>
 
@@ -160,9 +232,7 @@
 
       <div class="contact-item">
         <strong>Sourcing Requests</strong><br>
-        <a class="contact-link" href="/sourcing-request.html">
-          Open sourcing request →
-        </a>
+        <a class="contact-link" href="/sourcing-request.html">Open sourcing request →</a>
       </div>
     </aside>
 
@@ -179,7 +249,62 @@
 </footer>
 
 <script>
+  // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Mobile nav toggle (works with your global CSS .main-nav.is-open)
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".main-nav");
+    if (!btn || !nav) return;
+
+    btn.addEventListener("click", () => {
+      const open = nav.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    nav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        nav.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
+      });
+    });
+  });
+
+  // Formspree AJAX submit (nice UX, stays on page)
+  (function(){
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("formStatus");
+    if (!form || !status) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      status.classList.remove("show");
+      status.textContent = "";
+
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          form.reset();
+          status.textContent = "Message sent successfully. We’ll reply as soon as possible.";
+          status.classList.add("show");
+        } else {
+          status.textContent = "Something went wrong. Please email retroreplay2026@gmail.com.";
+          status.classList.add("show");
+        }
+      } catch (err) {
+        status.textContent = "Network error. Please try again, or email retroreplay2026@gmail.com.";
+        status.classList.add("show");
+      }
+    });
+  })();
 </script>
 
 </body>

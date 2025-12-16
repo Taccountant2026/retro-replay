@@ -1,5 +1,5 @@
 <!-- =========================
-     CONTACT PAGE (FULL BUILD — FIXED FOR FORMSPREE)
+     CONTACT PAGE (FULL BUILD — FORMSPREE + FULL ORIGINAL FOOTER + UPSELL)
      Paste as: /contact.html
      Live: https://retroreplay.uk/contact.html
      Form endpoint: https://formspree.io/f/manrkvby
@@ -43,7 +43,7 @@
       display:inline-flex;
       align-items:center;
       gap:.5rem;
-      font-weight:800;
+      font-weight:900;
       color:var(--primary);
       margin-top:.25rem;
       text-decoration:none;
@@ -60,12 +60,12 @@
     }
 
     /* Form styling (theme aligned) */
-    label{ display:block; font-weight:800; margin:.9rem 0 .35rem; }
+    label{ display:block; font-weight:900; margin:.9rem 0 .35rem; }
     input, textarea, select{
       width:100%;
       border:1px solid var(--gray-lighter);
-      border-radius:.75rem;
-      padding:.75rem .85rem;
+      border-radius:.85rem;
+      padding:.8rem .9rem;
       font:inherit;
       background:#fff;
       outline:none;
@@ -77,29 +77,62 @@
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      border:0; border-radius:.85rem;
-      padding:.9rem 1rem;
+      border:0; border-radius:.95rem;
+      padding:1rem 1rem;
       font-weight:900;
       background:linear-gradient(135deg,var(--primary),var(--primary-dark));
       color:#fff;
       cursor:pointer;
       margin-top:1rem;
       text-decoration:none;
-      min-height:44px;
+      min-height:48px;
       width:100%;
     }
     .btn:hover{ filter:brightness(.96); }
 
     .helpbox{
       margin-top:.9rem;
-      padding:.85rem 1rem;
-      border-radius:.85rem;
+      padding:.95rem 1rem;
+      border-radius:.95rem;
       border:1px solid var(--gray-lighter);
       background:rgba(0,102,255,.06);
       color:var(--gray);
-      font-weight:600;
+      font-weight:650;
+      line-height:1.55;
     }
     .helpbox strong{ color:var(--dark); }
+
+    /* Upsell box */
+    .upsell{
+      margin-top:1rem;
+      padding:1rem;
+      border-radius:1rem;
+      border:1px solid rgba(0,102,255,.18);
+      background: linear-gradient(135deg, rgba(0,102,255,.08), rgba(0,208,132,.06));
+    }
+    .upsell h3{ margin:0 0 .35rem 0; font-size:1.05rem; }
+    .upsell p{ margin:0; color:var(--gray); }
+    .upsell-links{
+      display:flex;
+      gap:.6rem;
+      flex-wrap:wrap;
+      margin-top:.75rem;
+    }
+    .upsell-links a{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.55rem .75rem;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.08);
+      background:#fff;
+      font-weight:900;
+      color:var(--primary);
+      text-decoration:none;
+    }
+    .upsell-links a:hover{ background:rgba(0,102,255,.06); border-color:rgba(0,102,255,.18); }
+
+    /* If your global footer is already styled, this will just inherit */
   </style>
 </head>
 
@@ -114,6 +147,7 @@
       </div>
       <div class="header-links">
         <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
         <a href="/warranties.html">Warranty</a>
       </div>
     </div>
@@ -133,7 +167,10 @@
 
       <div class="header-actions">
         <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-        <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
+        </a>
         <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="global-nav">☰</button>
       </div>
     </div>
@@ -153,7 +190,7 @@
         <li><a href="/services.html">Services</a></li>
         <li><a href="/warranties.html">Warranty</a></li>
         <li><a href="/faq.html">FAQ</a></li>
-        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/contact.html" aria-current="page">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -171,7 +208,7 @@
 
   <section class="contact-grid">
 
-    <!-- FORM (Formspree normal submit - most reliable on GitHub Pages) -->
+    <!-- FORM -->
     <div class="card">
       <h2>Send a message</h2>
       <p class="muted">Include: console model (PS2 Fat/Slim), budget, game list, TV type (HDMI/AV), and number of players.</p>
@@ -200,19 +237,32 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" placeholder="Tell us what you need..." required></textarea>
 
-        <!-- Helpful metadata for your inbox -->
+        <!-- Metadata -->
         <input type="hidden" name="_subject" value="New message from RetroReplay.uk contact page">
         <input type="hidden" name="_template" value="table">
-
-        <!-- Redirect to your own success page after submit -->
         <input type="hidden" name="_next" value="https://retroreplay.uk/contact-thanks.html">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
         <button class="btn" type="submit">Send message</button>
 
         <div class="helpbox">
-          <strong>Tip:</strong> If you have a game list, paste it into the message box. We usually reply the same day.
+          <strong>Tip:</strong> Paste your game list into the message box. We usually reply the same day.
         </div>
       </form>
+
+      <!-- LAST-RESORT UPSELL (guides/services) -->
+      <div class="upsell" aria-label="Helpful links">
+        <h3>Need help right now?</h3>
+        <p>
+          If you’re stuck, these may solve it instantly (and if not, message us above).
+        </p>
+        <div class="upsell-links">
+          <a href="/guides.html">📘 Setup guides</a>
+          <a href="/services.html">🔧 Modding services</a>
+          <a href="/playstation/products/ps2-fat.html">🎮 PS2 modded builds</a>
+          <a href="/faq.html">❓ FAQ</a>
+        </div>
+      </div>
     </div>
 
     <!-- DETAILS -->
@@ -259,9 +309,51 @@
   </section>
 </main>
 
-<!-- FOOTER -->
+<!-- ORIGINAL-STYLE FOOTER (full links like your homepage) -->
 <footer class="site-footer">
   <div class="container">
+    <div class="footer-content">
+
+      <div class="footer-section">
+        <h3>Retro Replay</h3>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Shop</h3>
+        <ul class="footer-links">
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul class="footer-links">
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/warranties.html">Warranty Info</a></li>
+          <li><a href="/delivery.html">Shipping</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul class="footer-links">
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
+          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
     <div class="footer-bottom">
       <p>© <span id="year"></span> Retro Replay. All rights reserved.</p>
     </div>
@@ -280,7 +372,7 @@
       window.RetroCart.loadCart();
     }
 
-    // Mobile nav toggle (uses your global CSS .main-nav.is-open)
+    // Mobile nav toggle
     const btn = document.querySelector(".nav-toggle");
     const nav = document.querySelector(".main-nav");
     if (!btn || !nav) return;

@@ -1,3 +1,8 @@
+<!-- =========================
+     SOURCING REQUEST (FULL BUILD — MORE APPEALING FORM UI)
+     Paste as: /sourcing-request.html
+     Uses Formspree: https://formspree.io/f/manrkvby
+========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +22,171 @@
     gtag('js', new Date());
     gtag('config', 'G-PF6Q3TSMVL');
   </script>
+
+  <style>
+    /* Page enhancements only (keeps your global theme) */
+    .sourcing-wrap{ padding:2.25rem 0 3rem; }
+    .sourcing-hero{
+      background: linear-gradient(135deg, rgba(0,102,255,.12), rgba(0,208,132,.10));
+      border:1px solid rgba(0,102,255,.14);
+      border-radius:1.25rem;
+      padding:1.4rem 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .sourcing-hero h1{ margin:0 0 .35rem; font-size: clamp(1.8rem, 3.5vw, 2.4rem); }
+    .sourcing-hero p{ margin:0; color:var(--gray); max-width:70ch; }
+
+    .sourcing-grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap:1.25rem; margin-top:1.25rem; }
+    @media (max-width: 980px){ .sourcing-grid{ grid-template-columns:1fr; } }
+
+    .panel{
+      background:#fff;
+      border:1px solid var(--gray-lighter);
+      border-radius:1.25rem;
+      padding:1.25rem;
+      box-shadow: 0 14px 30px rgba(0,0,0,.05);
+    }
+    .panel h2{ margin:0 0 .35rem; font-size:1.25rem; }
+    .panel p{ margin:0; color:var(--gray); }
+
+    .form-card{
+      background: linear-gradient(135deg, #fff, rgba(0,102,255,.03));
+      border:1px solid rgba(0,102,255,.14);
+      border-radius:1.35rem;
+      padding:1.25rem;
+      box-shadow: 0 20px 45px rgba(0,102,255,.12);
+      position:relative;
+      overflow:hidden;
+    }
+    .form-card:before{
+      content:"";
+      position:absolute;
+      top:-120px; right:-120px;
+      width:260px; height:260px;
+      border-radius:50%;
+      background: radial-gradient(circle at center, rgba(0,217,255,.22), rgba(0,102,255,0));
+      pointer-events:none;
+    }
+    .form-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:1rem;
+      margin-bottom:.75rem;
+    }
+    .form-head h2{ margin:0; }
+    .form-badges{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:flex-end; }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      padding:.35rem .65rem;
+      border-radius:999px;
+      border:1px solid rgba(0,102,255,.18);
+      background: rgba(0,102,255,.06);
+      color: var(--dark);
+      font-weight:800;
+      font-size:.82rem;
+      white-space:nowrap;
+    }
+
+    .field{ margin-top:.85rem; }
+    .field label{
+      display:flex;
+      justify-content:space-between;
+      gap:.75rem;
+      font-weight:900;
+      margin-bottom:.35rem;
+    }
+    .hint{
+      font-weight:700;
+      color:var(--gray);
+      font-size:.85rem;
+    }
+
+    .control{
+      width:100%;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: .95rem;
+      padding: .85rem .95rem;
+      background:#fff;
+      outline:none;
+      transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease;
+    }
+    .control:focus{
+      border-color: rgba(0,102,255,.55);
+      box-shadow: 0 0 0 5px rgba(0,102,255,.12);
+      transform: translateY(-1px);
+    }
+    textarea.control{ min-height:140px; resize:vertical; }
+
+    .row{ display:grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+    @media (max-width: 680px){ .row{ grid-template-columns:1fr; } }
+
+    .divider{
+      height:1px;
+      background: rgba(0,0,0,.06);
+      margin: 1.15rem 0 .25rem;
+    }
+
+    .cta{
+      margin-top:1rem;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:.65rem;
+    }
+    .cta .btn{
+      width:100%;
+      min-height:48px;
+      border-radius:1rem;
+      font-weight:900;
+      letter-spacing:.01em;
+    }
+
+    .mini-note{
+      color:var(--gray);
+      font-weight:700;
+      font-size:.9rem;
+      line-height:1.5;
+      margin:0;
+      text-align:center;
+    }
+
+    .side-list{ list-style:none; padding:0; margin:.75rem 0 0; }
+    .side-list li{
+      display:flex;
+      gap:.65rem;
+      padding:.75rem 0;
+      border-top:1px solid var(--gray-lighter);
+      align-items:flex-start;
+    }
+    .side-list li:first-child{ border-top:0; }
+    .tick{
+      width:28px; height:28px;
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius:10px;
+      background: rgba(0,208,132,.12);
+      border:1px solid rgba(0,208,132,.20);
+      font-weight:900;
+    }
+    .side-list strong{ display:block; margin-bottom:.15rem; }
+    .side-list span{ color:var(--gray); }
+
+    .chips{ display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.6rem; }
+    .chip{
+      border:1px solid rgba(0,0,0,.08);
+      background: rgba(0,0,0,.03);
+      padding:.35rem .65rem;
+      border-radius:999px;
+      font-weight:800;
+      font-size:.85rem;
+      cursor:pointer;
+      user-select:none;
+    }
+    .chip:hover{ background: rgba(0,102,255,.06); border-color: rgba(0,102,255,.18); }
+
+    .sr-only{ position:absolute; left:-9999px; }
+  </style>
 </head>
 
 <body>
@@ -43,15 +213,15 @@
         <span>Retro Replay</span>
       </a>
 
-      <form class="search-bar" action="/search.html" method="get">
-        <input type="search" name="q" placeholder="Search consoles, accessories...">
-        <button class="search-btn">Search</button>
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
+        <button class="search-btn" type="submit">Search</button>
       </form>
 
       <div class="header-actions">
         <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
         <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span></a>
-        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       </div>
     </div>
   </div>
@@ -74,102 +244,194 @@
   </nav>
 </header>
 
-<section class="hero">
-  <div class="container hero-content">
-    <div class="hero-text">
+<main class="sourcing-wrap">
+  <div class="container" style="max-width:1100px;">
+    <section class="sourcing-hero">
       <h1>Console Sourcing Request</h1>
       <p>
-        Looking for a specific PS2, Xbox, Nintendo, Sega or Atari console not currently in stock?
-        Submit a request and we’ll reply with confirmed options and pricing.
+        Tell us what you want (model, condition and budget) and we’ll reply with confirmed options, cosmetic grade and pricing.
+        No obligation to buy.
       </p>
-    </div>
+    </section>
+
+    <section class="sourcing-grid">
+
+      <!-- FORM -->
+      <section class="form-card">
+        <div class="form-head">
+          <div>
+            <h2>Request a console</h2>
+            <p class="muted" style="margin:.25rem 0 0;">Fill this in and we’ll come back with options.</p>
+          </div>
+          <div class="form-badges" aria-hidden="true">
+            <span class="badge">✅ No obligation</span>
+            <span class="badge">⚡ Fast reply</span>
+            <span class="badge">🔍 Sourced + tested</span>
+          </div>
+        </div>
+
+        <form action="https://formspree.io/f/manrkvby" method="POST" id="sourcingForm">
+          <!-- Metadata -->
+          <input type="hidden" name="_subject" value="Retro Replay — Console Sourcing Request">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://retroreplay.uk/contact-thanks.html">
+          <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off">
+
+          <div class="row">
+            <div class="field">
+              <label for="family">
+                <span>Console family</span>
+                <span class="hint">Required</span>
+              </label>
+              <select id="family" name="Console Family" class="control" required>
+                <option value="">Select…</option>
+                <option>PlayStation 2 (PS2)</option>
+                <option>PlayStation 1 (PS1)</option>
+                <option>PlayStation 3 (PS3)</option>
+                <option>Original Xbox</option>
+                <option>Xbox 360</option>
+                <option>Nintendo Wii</option>
+                <option>Nintendo GameCube</option>
+                <option>Nintendo 64</option>
+                <option>Sega (Mega Drive / Saturn / Dreamcast)</option>
+                <option>Atari (2600 / 5200 / 7800)</option>
+                <option>Other</option>
+              </select>
+
+              <div class="chips" aria-label="Quick picks">
+                <span class="chip" data-pick="PlayStation 2 (PS2)">PS2</span>
+                <span class="chip" data-pick="Original Xbox">Xbox</span>
+                <span class="chip" data-pick="Nintendo GameCube">GameCube</span>
+                <span class="chip" data-pick="Sega (Mega Drive / Saturn / Dreamcast)">Sega</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="model">
+                <span>Specific model</span>
+                <span class="hint">Optional</span>
+              </label>
+              <input id="model" name="Specific Model" class="control" type="text" placeholder="e.g. SCPH-50003, boxed, silver, etc">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="condition">
+                <span>Condition preference</span>
+                <span class="hint">Optional</span>
+              </label>
+              <select id="condition" name="Condition" class="control">
+                <option>Any good working</option>
+                <option>Good Condition</option>
+                <option>Very Good / Collector</option>
+                <option>Boxed Only</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="budget">
+                <span>Budget (approx)</span>
+                <span class="hint">Optional</span>
+              </label>
+              <input id="budget" name="Budget" class="control" type="text" placeholder="e.g. £60–£120">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="included">
+              <span>Included items wanted</span>
+              <span class="hint">Optional</span>
+            </label>
+            <textarea id="included" name="Included Items" class="control" placeholder="Controller, memory card, AV/HDMI, cables, games etc"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="mods">
+              <span>Modding / upgrade requests</span>
+              <span class="hint">Optional</span>
+            </label>
+            <textarea id="mods" name="Mods" class="control" placeholder="FMCB, OPL setup, HDD upgrade, HDMI adapter, none etc"></textarea>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="row">
+            <div class="field">
+              <label for="name">
+                <span>Your name</span>
+                <span class="hint">Required</span>
+              </label>
+              <input id="name" name="Name" class="control" type="text" placeholder="Full name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">
+                <span>Your email</span>
+                <span class="hint">Required</span>
+              </label>
+              <input id="email" name="Email" class="control" type="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="notes">
+              <span>Anything else?</span>
+              <span class="hint">Optional</span>
+            </label>
+            <textarea id="notes" name="Notes" class="control" placeholder="Extras like: region, boxed/manuals, colour, quiet fan, etc"></textarea>
+          </div>
+
+          <div class="cta">
+            <button class="btn btn-primary" type="submit">Send sourcing request</button>
+            <p class="mini-note">No obligation to buy. We confirm availability + pricing first.</p>
+          </div>
+        </form>
+      </section>
+
+      <!-- SIDE INFO -->
+      <aside class="panel">
+        <h2>How it works</h2>
+        <p>Simple 3-step process.</p>
+
+        <ul class="side-list">
+          <li>
+            <span class="tick">1</span>
+            <div>
+              <strong>You request</strong>
+              <span>Tell us model + budget + condition.</span>
+            </div>
+          </li>
+          <li>
+            <span class="tick">2</span>
+            <div>
+              <strong>We source + test</strong>
+              <span>We check availability and confirm options.</span>
+            </div>
+          </li>
+          <li>
+            <span class="tick">3</span>
+            <div>
+              <strong>You choose</strong>
+              <span>We send pricing, grade, and next steps.</span>
+            </div>
+          </li>
+        </ul>
+
+        <div style="margin-top:1rem; padding:1rem; border-radius:1rem; border:1px solid var(--gray-lighter); background:rgba(0,0,0,.02);">
+          <strong style="display:block; margin-bottom:.35rem;">Best results</strong>
+          <span class="muted" style="display:block;">
+            Include: console model, TV type (HDMI/AV), player count, and game list (if applicable).
+          </span>
+          <a href="/contact.html" style="display:inline-block; margin-top:.65rem; font-weight:900; color:var(--primary);">
+            Prefer to message instead? Contact us →
+          </a>
+        </div>
+      </aside>
+
+    </section>
   </div>
-</section>
-
-<section class="section">
-  <div class="container" style="max-width:900px;">
-
-    <form action="https://formspree.io/f/manrkvby" method="POST" class="rr-card">
-
-      <!-- Metadata -->
-      <input type="hidden" name="_subject" value="Retro Replay — Console Sourcing Request">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://retroreplay.uk/contact-thanks.html">
-      <input type="text" name="_gotcha" style="display:none">
-
-      <div class="form-row">
-        <div>
-          <label>Console Family</label>
-          <select name="Console Family" required>
-            <option value="">Select…</option>
-            <option>PlayStation 2 (PS2)</option>
-            <option>PlayStation 1 (PS1)</option>
-            <option>PlayStation 3 (PS3)</option>
-            <option>Original Xbox</option>
-            <option>Xbox 360</option>
-            <option>Nintendo Wii</option>
-            <option>Nintendo GameCube</option>
-            <option>Nintendo 64</option>
-            <option>Sega (Mega Drive / Saturn / Dreamcast)</option>
-            <option>Atari (2600 / 5200 / 7800)</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <div>
-          <label>Specific Model (optional)</label>
-          <input type="text" name="Specific Model" placeholder="SCPH-50003, boxed, silver etc">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div>
-          <label>Condition Preference</label>
-          <select name="Condition">
-            <option>Any good working</option>
-            <option>Good Condition</option>
-            <option>Very Good / Collector</option>
-            <option>Boxed Only</option>
-          </select>
-        </div>
-
-        <div>
-          <label>Budget (approx)</label>
-          <input type="text" name="Budget" placeholder="£60–£120">
-        </div>
-      </div>
-
-      <label>Included Items Wanted</label>
-      <textarea name="Included Items" placeholder="Controller, cables, memory card, games etc"></textarea>
-
-      <label>Modding / Upgrade Requests</label>
-      <textarea name="Mods" placeholder="FMCB, OPL, HDD upgrade, HDMI adapter, none"></textarea>
-
-      <div class="form-row">
-        <div>
-          <label>Your Name</label>
-          <input type="text" name="Name" required>
-        </div>
-        <div>
-          <label>Your Email</label>
-          <input type="email" name="Email" required>
-        </div>
-      </div>
-
-      <label>Additional Notes</label>
-      <textarea name="Notes"></textarea>
-
-      <button class="btn btn-primary" type="submit" style="width:100%;">
-        Send Sourcing Request
-      </button>
-
-      <p class="muted" style="margin-top:.75rem;">
-        This request does not obligate you to purchase. You’ll receive confirmed options and pricing first.
-      </p>
-    </form>
-
-  </div>
-</section>
+</main>
 
 <footer class="site-footer">
   <div class="container">
@@ -179,8 +441,43 @@
   </div>
 </footer>
 
+<script src="/cart.js"></script>
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  document.addEventListener("DOMContentLoaded", () => {
+    // year
+    const y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
+
+    // cart
+    if (window.RetroCart && typeof RetroCart.loadCart === "function") RetroCart.loadCart();
+
+    // mobile nav toggle
+    const navBtn = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".main-nav");
+    if (navBtn && nav) {
+      navBtn.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      nav.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          navBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    // quick-pick chips -> set dropdown
+    const family = document.getElementById("family");
+    document.querySelectorAll(".chip[data-pick]").forEach(chip => {
+      chip.addEventListener("click", () => {
+        const val = chip.getAttribute("data-pick");
+        if (!family) return;
+        family.value = val;
+        family.focus();
+      });
+    });
+  });
 </script>
 
 </body>

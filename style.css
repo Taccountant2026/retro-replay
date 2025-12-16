@@ -1,5 +1,5 @@
 /* =========================================================
-   Retro Replay — Unified Production CSS (FIXED BUILD)
+   Retro Replay — Unified Production CSS (FULL BUILD)
    Mobile-safe • No conflicts • Theme-matched
    ========================================================= */
 
@@ -52,7 +52,8 @@ body{
 }
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
-button,input{font-family:inherit}
+button,input,select,textarea{font-family:inherit}
+button{cursor:pointer}
 
 /* ================= LAYOUT ================= */
 .container{
@@ -79,13 +80,18 @@ button,input{font-family:inherit}
   font-size:.85rem;
   padding:.4rem 0;
 }
-
 .header-top .container{
   display:flex;
   justify-content:space-between;
   flex-wrap:wrap;
   gap:.5rem;
 }
+.header-links{
+  display:flex;
+  gap:.75rem;
+}
+.header-links a{opacity:.9}
+.header-links a:hover{opacity:1;text-decoration:underline}
 
 .header-main{padding:1rem 0}
 
@@ -108,18 +114,84 @@ button,input{font-family:inherit}
 }
 .site-logo img{height:48px}
 
+/* === Search bar (missing in your CSS) === */
+.search-bar{
+  flex:1;
+  min-width:260px;
+  max-width:520px;
+  display:flex;
+  gap:.5rem;
+  align-items:center;
+}
+.search-bar input{
+  width:100%;
+  border:1px solid var(--gray-lighter);
+  background:#fff;
+  border-radius:.75rem;
+  padding:.75rem .9rem;
+  outline:none;
+}
+.search-bar input:focus{
+  border-color:rgba(0,102,255,.55);
+  box-shadow:0 0 0 4px rgba(0,102,255,.12);
+}
+.search-btn{
+  border:0;
+  border-radius:.75rem;
+  padding:.75rem 1rem;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;
+  white-space:nowrap;
+}
+.search-btn:hover{filter:brightness(.95)}
+
+/* === Header actions (missing in your CSS) === */
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  margin-left:auto;
+}
+.header-action{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.6rem .8rem;
+  border-radius:.75rem;
+  border:1px solid rgba(0,102,255,.12);
+  background:rgba(0,102,255,.06);
+  font-weight:800;
+}
+.header-action:hover{background:rgba(0,102,255,.1)}
+.cart-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:22px;
+  height:22px;
+  padding:0 .35rem;
+  border-radius:999px;
+  background:var(--accent);
+  color:#fff;
+  font-size:.8rem;
+  font-weight:900;
+}
+
 /* ================= NAV ================= */
 .nav-toggle{
   display:none;
   font-size:1.4rem;
+  line-height:1;
   border:1px solid var(--gray-lighter);
   background:#fff;
-  border-radius:.5rem;
-  padding:.4rem .6rem;
+  border-radius:.75rem;
+  padding:.55rem .7rem;
 }
 
 .main-nav{
   border-top:1px solid var(--gray-lighter);
+  background:#fff;
 }
 .nav-list{
   display:flex;
@@ -128,10 +200,18 @@ button,input{font-family:inherit}
   list-style:none;
 }
 .nav-list a{
+  display:block;
   padding:1rem 1.4rem;
-  font-weight:600;
+  font-weight:700;
 }
 .nav-list a:hover{color:var(--primary)}
+
+/* Sub-nav support */
+.sub-nav{
+  background:rgba(0,102,255,.06);
+  border-top:1px solid rgba(0,102,255,.12);
+}
+.sub-list a{padding:.8rem 1.1rem}
 
 /* ================= HERO ================= */
 .hero{
@@ -155,19 +235,21 @@ button,input{font-family:inherit}
 /* ================= BUTTONS ================= */
 .btn{
   padding:.85rem 1.6rem;
-  border-radius:.5rem;
-  font-weight:700;
+  border-radius:.75rem;
+  font-weight:800;
   display:inline-block;
 }
 .btn-primary{
   background:linear-gradient(135deg,var(--primary),var(--primary-dark));
   color:#fff;
 }
+.btn-primary:hover{filter:brightness(.95)}
 .btn-secondary{
   background:#fff;
   color:var(--primary);
   border:2px solid #fff;
 }
+.btn-secondary:hover{filter:brightness(.98)}
 
 /* ================= PS2 FEATURE ================= */
 .rr-ps2-feature{
@@ -191,7 +273,7 @@ button,input{font-family:inherit}
 .rr-pill{
   padding:.35rem .75rem;
   border-radius:999px;
-  font-weight:800;
+  font-weight:900;
   font-size:.8rem;
   background:rgba(0,102,255,.12);
 }
@@ -216,7 +298,7 @@ button,input{font-family:inherit}
   padding:.7rem .9rem;
   border-radius:.75rem;
   box-shadow:var(--shadow-sm);
-  font-weight:700;
+  font-weight:800;
 }
 .rr-ps2-actions{display:flex;gap:.8rem;flex-wrap:wrap}
 .rr-ps2-note{font-size:.9rem;color:var(--gray)}
@@ -229,7 +311,7 @@ button,input{font-family:inherit}
 }
 .rr-card h3{margin-bottom:.5rem}
 .rr-card ul{padding-left:1.1rem;color:var(--gray)}
-.rr-card a{display:inline-block;margin-top:.6rem;font-weight:800;color:var(--primary)}
+.rr-card a{display:inline-block;margin-top:.6rem;font-weight:900;color:var(--primary)}
 
 /* ================= MOBILE QUICK BAR ================= */
 .rr-mobilebar{
@@ -250,7 +332,7 @@ button,input{font-family:inherit}
   border-radius:.75rem;
   border:1px solid rgba(0,102,255,.2);
   background:rgba(0,102,255,.08);
-  font-weight:800;
+  font-weight:900;
 }
 .rr-mobilebar .rr-cta{
   margin-left:auto;
@@ -295,9 +377,38 @@ button,input{font-family:inherit}
   .hero-content{grid-template-columns:1fr}
   .rr-ps2-grid{grid-template-columns:1fr}
 }
+
+/* MOBILE NAV: Works with .main-nav.is-open */
 @media(max-width:768px){
-  .nav-toggle{display:inline-flex}
+  .nav-toggle{display:inline-flex;align-items:center;justify-content:center}
+
+  /* stack header nicely */
+  .header-content{align-items:stretch}
+  .site-logo{order:1}
+  .header-actions{order:2; margin-left:0; justify-content:space-between; width:100%}
+  .search-bar{order:3; width:100%; max-width:100%}
+
+  /* collapsible nav */
   .main-nav{display:none}
   .main-nav.is-open{display:block}
+
+  /* dropdown styling */
+  .main-nav .container{padding:0 1rem}
+  .nav-list{
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    border:1px solid var(--gray-lighter);
+    border-radius:1rem;
+    overflow:hidden;
+    margin:.75rem 0 1rem 0;
+    background:#fff;
+  }
+  .nav-list a{
+    padding:.95rem 1rem;
+    border-top:1px solid var(--gray-lighter);
+  }
+  .nav-list li:first-child a{border-top:0}
+
   .rr-mobilebar{display:flex}
 }

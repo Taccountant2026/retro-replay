@@ -6,7 +6,7 @@
   <title>PlayStation Collection | Tested & Cleaned PS1, PS2 & PS3 | Retro Replay</title>
   <meta name="description" content="Shop the Retro Replay PlayStation collection: PS1, PS2 and PS3 consoles professionally tested and cleaned, with optional refurbishment, upgrades and warranty services." />
 
-  <!-- IMPORTANT: use root path so it works from /playstation/ and deeper folders -->
+  <!-- IMPORTANT: root path so it works from /playstation/ and deeper folders -->
   <link rel="stylesheet" href="/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
@@ -19,30 +19,36 @@
     gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
 
-  <!-- Page-safe fixes (does NOT remove any content) -->
+  <!-- Page-safe fixes: ONLY patch gaps / conflicts, do not replace your site CSS -->
   <style>
-    /* Prevent “messed up” layout on pages that rely on these classes */
+    /* 1) Ensure consistent spacing if a page doesn't have these in style.css */
     .section{ padding:3rem 0; }
-    .section-header{ text-align:center; margin-bottom:2rem; }
-    .section-title{ font-size:clamp(1.6rem,3vw,2.2rem); font-weight:900; font-family:var(--font-heading); }
-    .section-subtitle{ color:var(--gray); margin-top:.5rem; }
+    .section-header{ text-align:center; margin:0 auto 2rem; max-width: 920px; }
+    .section-title{ font-size:clamp(1.6rem,3vw,2.2rem); font-weight:900; font-family:var(--font-heading, "Inter", sans-serif); margin:0 0 .35rem; }
+    .section-subtitle{ color:var(--gray,#6b7280); margin:0; }
 
+    /* 2) Prevent horizontal overflow from grids/cards/images */
+    html, body{ overflow-x:hidden; }
+    img{ max-width:100%; height:auto; display:block; }
+
+    /* 3) Category cards */
     .category-grid{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap:1.25rem;
     }
     .category-card{
+      display:block;
       background:#fff;
-      border:1px solid var(--gray-lighter);
+      border:1px solid var(--gray-lighter,#e5e7eb);
       border-radius:1rem;
       padding:1.25rem;
-      box-shadow:var(--shadow-sm);
+      box-shadow:var(--shadow-sm, 0 2px 4px rgba(0,0,0,.08));
       transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
     }
     .category-card:hover{
       transform:translateY(-2px);
-      box-shadow:var(--shadow-md);
+      box-shadow:var(--shadow-md, 0 8px 16px rgba(0,102,255,.15));
       border-color:rgba(0,102,255,.25);
     }
     .category-icon{
@@ -53,9 +59,10 @@
       margin-bottom:.75rem;
     }
     .category-icon img{ max-height:64px; width:auto; }
-    .category-name{ font-weight:900; font-size:1.15rem; }
-    .category-count{ color:var(--gray); margin-top:.25rem; }
+    .category-name{ font-weight:900; font-size:1.15rem; margin:0; }
+    .category-count{ color:var(--gray,#6b7280); margin:.25rem 0 0; }
 
+    /* 4) Product cards (your “Why choose us” grid) */
     .product-grid{
       display:grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -63,16 +70,16 @@
     }
     .product-card{
       background:#fff;
-      border:1px solid var(--gray-lighter);
+      border:1px solid var(--gray-lighter,#e5e7eb);
       border-radius:1rem;
-      box-shadow:var(--shadow-sm);
+      box-shadow:var(--shadow-sm, 0 2px 4px rgba(0,0,0,.08));
       overflow:hidden;
     }
     .product-info{ padding:1.25rem; }
-    .product-name{ font-weight:900; font-size:1.1rem; margin-bottom:.35rem; }
-    .product-description{ color:var(--gray); }
+    .product-name{ font-weight:900; font-size:1.1rem; margin:0 0 .35rem; }
+    .product-description{ color:var(--gray,#6b7280); margin:0; }
 
-    /* Footer: stop “long list” stacking by making it a grid (matches your other pages) */
+    /* 5) Footer: keep it in columns, never “long list” unless on mobile */
     .site-footer{
       background:linear-gradient(180deg, rgba(10,14,39,.02), rgba(10,14,39,.06));
       border-top:1px solid rgba(0,102,255,.12);
@@ -86,10 +93,10 @@
     }
     .footer-section h3{
       font-weight:900;
-      margin-bottom:.65rem;
-      font-family:var(--font-heading);
+      margin:0 0 .65rem;
+      font-family:var(--font-heading, "Inter", sans-serif);
     }
-    .footer-section p{ color:var(--gray); }
+    .footer-section p{ color:var(--gray,#6b7280); margin:0; }
     .footer-links{
       list-style:none;
       margin:0;
@@ -97,22 +104,28 @@
       display:grid;
       gap:.4rem;
     }
-    .footer-links a{ color:var(--dark); opacity:.9; }
-    .footer-links a:hover{ color:var(--primary); opacity:1; text-decoration:underline; }
+    .footer-links a{ color:var(--dark,#0a0e27); opacity:.9; }
+    .footer-links a:hover{ color:var(--primary,#0066ff); opacity:1; text-decoration:underline; }
     .footer-bottom{
       margin-top:1.75rem;
       padding-top:1rem;
       border-top:1px solid rgba(0,102,255,.10);
-      color:var(--gray);
+      color:var(--gray,#6b7280);
       font-size:.95rem;
+      text-align:center;
     }
 
-    @media(max-width:1000px){
+    /* 6) Fix header-top wrapping if promo/link area causes weird line breaks */
+    .header-top .container{ flex-wrap:wrap; gap:.75rem; }
+    .header-promo{ display:flex; flex-wrap:wrap; gap:.5rem; }
+
+    /* 7) Responsive */
+    @media (max-width:1000px){
       .product-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .category-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .site-footer .footer-content{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
-    @media(max-width:560px){
+    @media (max-width:560px){
       .product-grid{ grid-template-columns: 1fr; }
       .category-grid{ grid-template-columns: 1fr; }
       .site-footer .footer-content{ grid-template-columns: 1fr; }
@@ -142,7 +155,6 @@
     <div class="header-main">
       <div class="container header-content">
 
-        <!-- IMPORTANT: absolute paths so this page works from /playstation/ -->
         <a href="/index.html" class="site-logo" aria-label="Retro Replay Home">
           <img src="/assets/logo.png" alt="Retro Replay Logo" />
           <span>Retro Replay</span>
@@ -161,7 +173,7 @@
             <span class="cart-badge" id="cart-count-js">0</span>
           </a>
 
-          <!-- MOBILE NAV TOGGLE (matches your CSS: toggles .main-nav.is-open) -->
+          <!-- IMPORTANT: aria-controls must match nav id -->
           <button class="nav-toggle"
                   type="button"
                   aria-label="Toggle navigation"
@@ -271,7 +283,8 @@
         <p class="section-subtitle">Professional testing with optional refurbishment &amp; upgrade services</p>
       </div>
 
-      <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <!-- IMPORTANT: remove inline grid-template override (it can fight your CSS on some pages) -->
+      <div class="product-grid">
         <div class="product-card">
           <div class="product-info">
             <h3 class="product-name">Professional Testing</h3>
@@ -360,7 +373,6 @@
     </div>
   </footer>
 
-  <!-- IMPORTANT: root path so it works from /playstation/ -->
   <script src="/cart.js"></script>
 
   <script>
@@ -374,7 +386,7 @@
         window.RetroCart.loadCart();
       }
 
-      // Mobile nav toggle (MUST target #primaryNav)
+      // Mobile nav toggle (must target #primaryNav)
       const btn = document.querySelector(".nav-toggle");
       const nav = document.getElementById("primaryNav");
       if (!btn || !nav) return;

@@ -13,8 +13,41 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-PF6Q3TSMVL');
+    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
+
+  <!-- Page-only fixes: keeps your content, fixes footer layout + year + safer cart init + nav toggle targeting -->
+  <style>
+    /* Footer: force proper columns so it doesn't become one long list */
+    .site-footer .footer-content{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.5rem;
+      align-items:start;
+    }
+    .site-footer .footer-links{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:.35rem;
+    }
+    .site-footer .footer-links a{ display:inline-block; padding:.1rem 0; }
+
+    @media (max-width: 900px){
+      .site-footer .footer-content{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 520px){
+      .site-footer .footer-content{ grid-template-columns: 1fr; }
+    }
+
+    /* Sub-nav: allow wrap on small screens (prevents overflow/messed layout) */
+    .sub-nav .sub-list{
+      flex-wrap: wrap;
+      gap: .5rem;
+      justify-content: center;
+    }
+  </style>
 </head>
 
 <body>
@@ -26,7 +59,7 @@
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
-        <span>🎮 PlayStation Collection — Tested & Cleaned Consoles</span>
+        <span>🎮 PlayStation Collection — Tested &amp; Cleaned Consoles</span>
       </div>
       <div class="header-links">
         <a href="/about.html">About</a>
@@ -75,7 +108,6 @@
   <nav class="main-nav" id="global-nav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
-
         <li><a href="/index.html">Main Home</a></li>
 
         <li><a href="/atari/index.html">Atari</a></li>
@@ -91,7 +123,6 @@
         <li><a href="/warranties.html">Warranty</a></li>
         <li><a href="/faq.html">FAQ</a></li>
         <li><a href="/contact.html">Contact</a></li>
-
       </ul>
     </div>
   </nav>
@@ -153,7 +184,7 @@
           <img src="../assets/ps2logo.png" alt="PS2">
         </div>
         <h3 class="category-name">PlayStation 2</h3>
-        <p class="category-count">Fat & Slim models</p>
+        <p class="category-count">Fat &amp; Slim models</p>
       </a>
 
       <a href="/playstation/products/ps3.html" class="category-card">
@@ -172,7 +203,7 @@
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Why Choose Retro Replay PlayStation?</h2>
-      <p class="section-subtitle">Professional testing with optional refurbishment & upgrade services</p>
+      <p class="section-subtitle">Professional testing with optional refurbishment &amp; upgrade services</p>
     </div>
 
     <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
@@ -213,14 +244,14 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER (same content; year fixed) -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
 
       <div class="footer-section">
         <h3>Retro Replay</h3>
-        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
       </div>
 
       <div class="footer-section">
@@ -251,26 +282,34 @@
           <li><a href="/about.html">About Us</a></li>
           <li><a href="/process.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
-          <li><a href="/terms.html">Policies & Terms</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. All rights reserved. Professionally tested & cleaned gaming consoles.</p>
+      <p>&copy; <span id="year"></span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
 
 <script src="../cart.js"></script>
-<script>RetroCart.loadCart();</script>
 
-<!-- MOBILE NAV TOGGLE SCRIPT (required) -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    // Footer year (auto)
+    const y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
+
+    // Cart init (safe)
+    if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
+      window.RetroCart.loadCart();
+    }
+
+    // Mobile nav toggle (target correct nav by ID)
     const btn = document.querySelector(".nav-toggle");
-    const nav = document.querySelector(".main-nav");
+    const nav = document.getElementById("global-nav");
     if (!btn || !nav) return;
 
     btn.addEventListener("click", () => {

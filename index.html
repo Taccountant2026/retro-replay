@@ -3,440 +3,172 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Under Maintenance | Retro Replay</title>
+  <meta name="description" content="Retro Replay is temporarily offline for maintenance. Contact us for support, orders and sourcing requests." />
 
-  <title>Retro Replay — Professionally Tested &amp; Restored Classic Consoles | PS2, Xbox, Nintendo &amp; More</title>
-  <meta name="description" content="Fully tested, professionally prepared and ready to play retro consoles. Optional refurbishment, HDD upgrades and extended warranty." />
-
-  <!-- IMPORTANT: use root paths so every page matches -->
   <link rel="stylesheet" href="/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
-  </script>
-
-  <!-- Fallback styles for sections/trust/category/footer (only if not already defined in style.css) -->
   <style>
-    .section{ padding:3rem 0; }
-    .section-header{ text-align:center; max-width:820px; margin:0 auto 2rem auto; }
-    .section-title{ font-size:2rem; font-weight:900; margin:0 0 .5rem 0; }
-    .section-subtitle{ color:var(--gray); margin:0; }
-
-    .category-grid{
+    .rr-maint{
+      min-height:100vh;
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-      gap:1rem;
-    }
-    .category-card{
-      display:block;
-      background:#fff;
-      border:1px solid var(--gray-lighter);
-      border-radius:1rem;
-      padding:1.25rem;
-      box-shadow:var(--shadow-sm);
-      transition:transform .15s ease, box-shadow .15s ease;
-    }
-    .category-card:hover{ transform:translateY(-2px); box-shadow:var(--shadow-md); }
-    .category-icon{ height:64px; display:flex; align-items:center; margin-bottom:.75rem; }
-    .category-icon img{ max-height:64px; width:auto; }
-    .category-name{ font-weight:900; margin:.25rem 0; }
-    .category-count{ color:var(--gray); margin:0; }
-
-    .trust-bar{ padding:2rem 0; background:rgba(255,255,255,.75); border-top:1px solid rgba(0,102,255,.08); border-bottom:1px solid rgba(0,102,255,.08); }
-    .trust-badges{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-      gap:1rem;
-    }
-    .trust-badge{
-      background:#fff;
-      border:1px solid var(--gray-lighter);
-      border-radius:1rem;
-      padding:1.25rem;
-      box-shadow:var(--shadow-sm);
-    }
-    .trust-badge-icon{
-      width:44px; height:44px;
-      display:flex; align-items:center; justify-content:center;
-      border-radius:12px;
-      background:rgba(0,102,255,.10);
-      font-weight:900;
-      margin-bottom:.75rem;
-    }
-    .trust-badge h3{ margin:0 0 .25rem 0; font-weight:900; }
-    .trust-badge p{ margin:0; color:var(--gray); }
-
-    .site-footer{ background:#fff; border-top:1px solid var(--gray-lighter); }
-    .footer-content{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-      gap:1.25rem;
+      place-items:center;
+      background:linear-gradient(135deg,var(--bg),#f0f4ff);
       padding:2rem 0;
     }
-    .footer-section h3{ margin:0 0 .5rem 0; font-weight:900; }
-    .footer-section p{ margin:0; color:var(--gray); }
-    .footer-links{ list-style:none; padding:0; margin:0; }
-    .footer-links li{ margin:.45rem 0; }
-    .footer-links a{ color:var(--gray); font-weight:700; }
-    .footer-links a:hover{ color:var(--primary); }
-    .footer-bottom{ border-top:1px solid var(--gray-lighter); padding:1rem 0; color:var(--gray); text-align:center; }
-
-    /* Promo spans wrap nicely */
-    .header-promo{ display:flex; flex-wrap:wrap; gap:.75rem; }
-
-    :focus-visible{ outline:3px solid rgba(0,102,255,.35); outline-offset:2px; border-radius:.5rem; }
+    .rr-card{
+      width:min(900px,calc(100% - 2rem));
+      background:#fff;
+      border:1px solid var(--gray-lighter);
+      border-radius:1.25rem;
+      box-shadow:var(--shadow-lg);
+      overflow:hidden;
+    }
+    .rr-top{
+      padding:1.25rem 1.5rem;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:1rem;
+      font-weight:900;
+    }
+    .rr-brand{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+    }
+    .rr-brand img{ height:42px; }
+    .rr-body{
+      padding:1.75rem 1.5rem;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:1.5rem;
+    }
+    h1{
+      font-size:clamp(1.8rem,3.5vw,2.5rem);
+      margin:0 0 .6rem 0;
+      font-weight:900;
+    }
+    p{ color:var(--gray); max-width:60ch; }
+    .rr-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      margin:1rem 0 1.25rem;
+    }
+    .rr-pill{
+      padding:.45rem .85rem;
+      border-radius:999px;
+      font-weight:900;
+      background:rgba(0,102,255,.1);
+      border:1px solid rgba(0,102,255,.2);
+    }
+    .rr-actions{
+      display:flex;
+      gap:.75rem;
+      flex-wrap:wrap;
+      margin-top:1rem;
+    }
+    .rr-btn{
+      padding:.85rem 1.25rem;
+      border-radius:.9rem;
+      font-weight:900;
+      background:#fff;
+      border:1px solid var(--gray-lighter);
+    }
+    .rr-btn-primary{
+      border:0;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;
+    }
+    .rr-panel{
+      background:rgba(0,102,255,.06);
+      border:1px solid rgba(0,102,255,.14);
+      border-radius:1rem;
+      padding:1.25rem;
+    }
+    .rr-panel h2{ margin:0 0 .5rem 0; font-weight:900; }
+    .rr-panel a{
+      font-weight:900;
+      color:var(--primary-dark);
+      text-decoration:none;
+    }
+    .rr-panel a:hover{ text-decoration:underline; }
+    .rr-bottom{
+      padding:1rem 1.5rem;
+      border-top:1px solid var(--gray-lighter);
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:.75rem;
+      color:var(--gray);
+    }
+    @media(max-width:900px){
+      .rr-body{ grid-template-columns:1fr; }
+    }
   </style>
 </head>
 
 <body>
-
-  <!-- HEADER -->
-  <header class="site-header">
-
-    <!-- TOP BAR -->
-    <div class="header-top">
-      <div class="container">
-        <div class="header-promo">
-          <span>🎮 Latest Arrival: PS2 SCPH-50003 Back in Stock</span>
-          <span>📦 Free Setup Guide Included with HDD Mods</span>
-        </div>
-        <div class="header-links">
-          <a href="/about.html">About</a>
-          <a href="/delivery.html">Delivery</a>
-          <a href="/warranties.html">Warranty</a>
-        </div>
+<main class="rr-maint">
+  <section class="rr-card">
+    <div class="rr-top">
+      <div class="rr-brand">
+        <img src="/assets/logo.png" alt="Retro Replay">
+        <span>Retro Replay</span>
       </div>
+      <span>Temporarily Offline</span>
     </div>
 
-    <!-- MAIN HEADER -->
-    <div class="header-main">
-      <div class="container header-content">
-
-        <a href="/index.html" class="site-logo" aria-label="Retro Replay Home">
-          <img src="/assets/logo.png" alt="Retro Replay Logo" />
-          <span>Retro Replay</span>
-        </a>
-
-        <form class="search-bar" action="/search.html" method="get" role="search">
-          <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
-          <button class="search-btn" type="submit">Search</button>
-        </form>
-
-        <div class="header-actions">
-          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-
-          <a href="/checkout.html" class="header-action">
-            <span>🛒</span><span>Cart</span>
-            <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
-          </a>
-
-          <button class="nav-toggle"
-                  type="button"
-                  aria-label="Toggle navigation"
-                  aria-expanded="false"
-                  aria-controls="primaryNav">☰</button>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- MAIN NAV -->
-    <nav class="main-nav" id="primaryNav" aria-label="Primary">
-      <div class="container">
-        <ul class="nav-list">
-          <li><a href="/index.html" aria-current="page">Main Home</a></li>
-          <li><a href="/atari/index.html">Atari</a></li>
-          <li><a href="/nintendo/index.html">Nintendo</a></li>
-          <li><a href="/playstation/index.html">PlayStation</a></li>
-          <li><a href="/sega/index.html">Sega</a></li>
-          <li><a href="/xbox/index.html">Xbox</a></li>
-          <li><a href="/guides.html">Setup Guides</a></li>
-          <li><a href="/sourcing-request.html">Sourcing</a></li>
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/warranties.html">Warranty</a></li>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>Fully Tested, Professionally Prepared &amp; Ready to Play Retro Consoles</h1>
+    <div class="rr-body">
+      <div>
+        <h1>Website Under Maintenance</h1>
         <p>
-          We specialise in professionally tested, cleaned and carefully prepared PlayStation, Xbox, Nintendo and classic gaming consoles.
-          Every system is fully functional at dispatch, cosmetically graded for transparency, and backed by our Arrival Guarantee.
-          Optional upgrades are available, including premium refurbishment, HDD and software enhancements, and extended warranty cover.
+          We’re currently carrying out maintenance and improvements to the Retro Replay website.
+          The site will be back online shortly.
         </p>
-        <div class="hero-cta">
-          <a href="/playstation/products/ps2-fat.html" class="btn btn-primary">Shop Consoles</a>
-          <a href="/services.html" class="btn btn-secondary">Console Services</a>
+
+        <div class="rr-badges">
+          <span class="rr-pill">Orders & Support Available</span>
+          <span class="rr-pill">PS2 Builds & Sourcing</span>
+          <span class="rr-pill">UK-Based Service</span>
+        </div>
+
+        <div class="rr-actions">
+          <a href="/contact.html" class="rr-btn rr-btn-primary">Contact Support</a>
+          <a href="/sourcing-request.html" class="rr-btn">Sourcing Request</a>
+          <a href="/index.html" class="rr-btn">Try Again</a>
         </div>
       </div>
 
-      <div class="hero-image" aria-hidden="true">
-        <img src="/assets/logo.png" alt="" />
-      </div>
+      <aside class="rr-panel">
+        <h2>Contact</h2>
+        <p>
+          📧 Email:<br>
+          <a href="mailto:retroreplay2026@gmail.com">retroreplay2026@gmail.com</a>
+        </p>
+        <p style="margin-top:.75rem;">
+          We aim to reply as quickly as possible.
+        </p>
+      </aside>
+    </div>
+
+    <div class="rr-bottom">
+      <span>&copy; <span id="year">2025</span> Retro Replay</span>
+      <span>Thank you for your patience</span>
     </div>
   </section>
+</main>
 
-  <!-- PS2 FEATURE (matches your CSS classes) -->
-  <section class="rr-ps2-feature">
-    <div class="container">
-      <div class="rr-ps2-shell">
-        <div class="rr-ps2-topline">
-          <span class="rr-pill">PS2 Modded Builds Live</span>
-          <span class="rr-pill">FMCB + OPL</span>
-          <span class="rr-pill">1TB / 2TB Options</span>
-          <span class="rr-pill">UK Support</span>
-        </div>
-
-        <div class="rr-ps2-grid">
-          <div class="rr-ps2-main">
-            <h2>PS2 Plug &amp; Play HDD Mod Kits</h2>
-            <p class="rr-ps2-note">
-              Professionally tested, cleaned and pre-configured for a simple ready-to-play experience.
-              Other consoles are currently sourcing-only (private). PS2 modded builds are available now.
-            </p>
-
-            <div class="rr-ps2-points">
-              <div class="rr-point">✔ Setup guide included</div>
-              <div class="rr-point">✔ HDD performance setup</div>
-              <div class="rr-point">✔ Cosmetic grading A/B/C</div>
-              <div class="rr-point">✔ Aftercare support</div>
-            </div>
-
-            <div class="rr-ps2-actions">
-              <a href="/playstation/products/ps2-fat.html" class="btn btn-primary">View PS2 Modded Selection</a>
-              <a href="/contact.html" class="btn btn-secondary">Custom order / emulators</a>
-            </div>
-          </div>
-
-          <aside class="rr-card">
-            <h3>Included (typical)</h3>
-            <ul>
-              <li>FMCB + OPL configured</li>
-              <li>HDD adapter + tested drive</li>
-              <li>Setup guidance</li>
-              <li>Support if you get stuck</li>
-            </ul>
-            <a href="/playstation/products/ps2-fat.html">Shop PS2 builds →</a>
-          </aside>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOURCING CTA -->
-  <section class="section" style="background:#f8fafc;">
-    <div class="container" style="text-align:center; max-width:800px; margin:0 auto;">
-      <h2 class="section-title">Request a Console to be Sourced</h2>
-      <p class="section-subtitle">
-        Looking for a specific revision, cosmetic grade, or bundle? Use our sourcing request service and we will locate and test the exact console you want.
-      </p>
-      <a href="/sourcing-request.html" class="btn btn-primary" style="margin-top:1rem; padding:1rem 2.5rem;">
-        Open Sourcing Request Form
-      </a>
-    </div>
-  </section>
-
-  <!-- TRUST BAR -->
-  <div class="trust-bar">
-    <div class="container">
-      <div class="trust-badges">
-        <div class="trust-badge">
-          <div class="trust-badge-icon">✓</div>
-          <h3>Optional Extended Warranty</h3>
-          <p>Premium long-term protection</p>
-        </div>
-        <div class="trust-badge">
-          <div class="trust-badge-icon">🔧</div>
-          <h3>Premium Refurbishment</h3>
-          <p>£299 full restoration service</p>
-        </div>
-        <div class="trust-badge">
-          <div class="trust-badge-icon">📦</div>
-          <h3>Tracked Shipping</h3>
-          <p>Fast, secure UK &amp; EU delivery</p>
-        </div>
-        <div class="trust-badge">
-          <div class="trust-badge-icon">⭐</div>
-          <h3>Transparent Grading</h3>
-          <p>A/B/C cosmetic condition</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SHOP BY CONSOLE -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Shop by Console</h2>
-        <p class="section-subtitle">Professionally tested and restored classic gaming consoles</p>
-      </div>
-
-      <div class="category-grid">
-        <a href="/playstation/index.html" class="category-card">
-          <div class="category-icon"><img src="/assets/playstation-logo.png" alt="PlayStation" /></div>
-          <h3 class="category-name">PlayStation</h3>
-          <p class="category-count">PS1 • PS2 • PS3</p>
-        </a>
-
-        <a href="/xbox/index.html" class="category-card">
-          <div class="category-icon"><img src="/assets/xboxlogo.png" alt="Xbox" /></div>
-          <h3 class="category-name">Xbox</h3>
-          <p class="category-count">Original • 360</p>
-        </a>
-
-        <a href="/nintendo/index.html" class="category-card">
-          <div class="category-icon"><img src="/assets/nintendologo.png" alt="Nintendo" /></div>
-          <h3 class="category-name">Nintendo</h3>
-          <p class="category-count">NES • SNES • N64</p>
-        </a>
-
-        <a href="/atari/index.html" class="category-card">
-          <div class="category-icon"><img src="/assets/atarilogo.png" alt="Atari" /></div>
-          <h3 class="category-name">Atari</h3>
-          <p class="category-count">2600 • 5200 • 7800</p>
-        </a>
-
-        <a href="/sega/index.html" class="category-card">
-          <div class="category-icon"><img src="/assets/segalogo.png" alt="Sega" /></div>
-          <h3 class="category-name">Sega</h3>
-          <p class="category-count">Mega Drive • Saturn • Dreamcast</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Retro Replay</h3>
-          <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
-        </div>
-
-        <div class="footer-section">
-          <h3>Shop</h3>
-          <ul class="footer-links">
-            <li><a href="/playstation/index.html">PlayStation</a></li>
-            <li><a href="/xbox/index.html">Xbox</a></li>
-            <li><a href="/nintendo/index.html">Nintendo</a></li>
-            <li><a href="/atari/index.html">Atari</a></li>
-            <li><a href="/sega/index.html">Sega</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Support</h3>
-          <ul class="footer-links">
-            <li><a href="/guides.html">Setup Guides</a></li>
-            <li><a href="/faq.html">FAQ</a></li>
-            <li><a href="/warranties.html">Warranty Info</a></li>
-            <li><a href="/delivery.html">Shipping</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Company</h3>
-          <ul class="footer-links">
-            <li><a href="/about.html">About Us</a></li>
-            <li><a href="/how-we-refurbish.html">Our Process</a></li>
-            <li><a href="/services.html">Services</a></li>
-            <li><a href="/terms.html">Policies &amp; Terms</a></li>
-            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; <span id="year"></span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- COOKIE BANNER -->
-  <div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
-    <div class="rr-cookie-inner">
-      <p>
-        We use cookies to measure traffic (analytics) and improve the site.
-        <a href="/cookie-policy.html">Cookie policy</a>
-      </p>
-      <div class="rr-cookie-actions">
-        <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
-        <button class="rr-cookie-btn rr-cookie-accept" id="rrCookieAccept" type="button">Accept</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="/cart.js"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Year
-      const year = document.getElementById('year');
-      if (year) year.textContent = new Date().getFullYear();
-
-      // Cart init (safe)
-      if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
-        window.RetroCart.loadCart();
-      }
-
-      // Mobile nav toggle
-      const btn = document.querySelector('.nav-toggle');
-      const nav = document.getElementById('primaryNav');
-      if (btn && nav) {
-        btn.addEventListener('click', () => {
-          const open = nav.classList.toggle('is-open');
-          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-
-        // Close after tap
-        nav.querySelectorAll('a').forEach(a => {
-          a.addEventListener('click', () => {
-            nav.classList.remove('is-open');
-            btn.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
-
-      // Cookie banner (store choice only)
-      const COOKIE_KEY = 'rr_cookie_consent'; // accepted | rejected
-      const banner = document.getElementById('rrCookie');
-      const accept = document.getElementById('rrCookieAccept');
-      const reject = document.getElementById('rrCookieReject');
-      const saved = localStorage.getItem(COOKIE_KEY);
-
-      function show(){ if (banner) banner.classList.remove('is-hidden'); }
-      function hide(){ if (banner) banner.classList.add('is-hidden'); }
-
-      if (!saved) show(); else hide();
-
-      if (accept) accept.addEventListener('click', () => {
-        localStorage.setItem(COOKIE_KEY, 'accepted');
-        hide();
-      });
-
-      if (reject) reject.addEventListener('click', () => {
-        localStorage.setItem(COOKIE_KEY, 'rejected');
-        hide();
-      });
-    });
-  </script>
-
+<script>
+  document.addEventListener('DOMContentLoaded',()=>{
+    const y=document.getElementById('year');
+    if(y) y.textContent=new Date().getFullYear();
+  });
+</script>
 </body>
 </html>

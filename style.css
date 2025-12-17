@@ -1,409 +1,414 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PlayStation Collection | Tested & Cleaned PS1, PS2 & PS3 | Retro Replay</title>
-  <meta name="description" content="Shop the Retro Replay PlayStation collection: PS1, PS2 and PS3 consoles professionally tested and cleaned, with optional refurbishment, upgrades and warranty services." />
+/* =========================================================
+   Retro Replay — Unified Production CSS (FULL BUILD)
+   Mobile-safe • No conflicts • Theme-matched
+   ========================================================= */
 
-  <!-- IMPORTANT: root path so it works from /playstation/ and deeper folders -->
-  <link rel="stylesheet" href="/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+/* ================= ROOT ================= */
+:root {
+  --primary: #0066ff;
+  --primary-dark: #0052cc;
+  --primary-light: #3d8fff;
+  --secondary: #00d084;
+  --accent: #ff6b35;
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
-  </script>
+  --dark: #0a0e27;
+  --dark-soft: #1a1f3a;
 
-  <!-- Page-safe fixes: ONLY patch gaps / conflicts, do not replace your site CSS -->
-  <style>
-    /* 1) Ensure consistent spacing if a page doesn't have these in style.css */
-    .section{ padding:3rem 0; }
-    .section-header{ text-align:center; margin:0 auto 2rem; max-width: 920px; }
-    .section-title{ font-size:clamp(1.6rem,3vw,2.2rem); font-weight:900; font-family:var(--font-heading, "Inter", sans-serif); margin:0 0 .35rem; }
-    .section-subtitle{ color:var(--gray,#6b7280); margin:0; }
+  --gray: #6b7280;
+  --gray-light: #9ca3af;
+  --gray-lighter: #e5e7eb;
 
-    /* 2) Prevent horizontal overflow from grids/cards/images */
-    html, body{ overflow-x:hidden; }
-    img{ max-width:100%; height:auto; display:block; }
+  --white: #ffffff;
+  --bg: #f8f9fb;
 
-    /* 3) Category cards */
-    .category-grid{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap:1.25rem;
-    }
-    .category-card{
-      display:block;
-      background:#fff;
-      border:1px solid var(--gray-lighter,#e5e7eb);
-      border-radius:1rem;
-      padding:1.25rem;
-      box-shadow:var(--shadow-sm, 0 2px 4px rgba(0,0,0,.08));
-      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-    }
-    .category-card:hover{
-      transform:translateY(-2px);
-      box-shadow:var(--shadow-md, 0 8px 16px rgba(0,102,255,.15));
-      border-color:rgba(0,102,255,.25);
-    }
-    .category-icon{
-      height:64px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin-bottom:.75rem;
-    }
-    .category-icon img{ max-height:64px; width:auto; }
-    .category-name{ font-weight:900; font-size:1.15rem; margin:0; }
-    .category-count{ color:var(--gray,#6b7280); margin:.25rem 0 0; }
+  --success: #00d084;
+  --warning: #ff9500;
+  --error: #ff4444;
 
-    /* 4) Product cards (your “Why choose us” grid) */
-    .product-grid{
-      display:grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap:1.25rem;
-    }
-    .product-card{
-      background:#fff;
-      border:1px solid var(--gray-lighter,#e5e7eb);
-      border-radius:1rem;
-      box-shadow:var(--shadow-sm, 0 2px 4px rgba(0,0,0,.08));
-      overflow:hidden;
-    }
-    .product-info{ padding:1.25rem; }
-    .product-name{ font-weight:900; font-size:1.1rem; margin:0 0 .35rem; }
-    .product-description{ color:var(--gray,#6b7280); margin:0; }
+  --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-heading: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 
-    /* 5) Footer: keep it in columns, never “long list” unless on mobile */
-    .site-footer{
-      background:linear-gradient(180deg, rgba(10,14,39,.02), rgba(10,14,39,.06));
-      border-top:1px solid rgba(0,102,255,.12);
-      padding:2.5rem 0 1.25rem;
-    }
-    .site-footer .footer-content{
-      display:grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap:1.5rem;
-      align-items:start;
-    }
-    .footer-section h3{
-      font-weight:900;
-      margin:0 0 .65rem;
-      font-family:var(--font-heading, "Inter", sans-serif);
-    }
-    .footer-section p{ color:var(--gray,#6b7280); margin:0; }
-    .footer-links{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:grid;
-      gap:.4rem;
-    }
-    .footer-links a{ color:var(--dark,#0a0e27); opacity:.9; }
-    .footer-links a:hover{ color:var(--primary,#0066ff); opacity:1; text-decoration:underline; }
-    .footer-bottom{
-      margin-top:1.75rem;
-      padding-top:1rem;
-      border-top:1px solid rgba(0,102,255,.10);
-      color:var(--gray,#6b7280);
-      font-size:.95rem;
-      text-align:center;
-    }
+  --container-width: 1200px;
 
-    /* 6) Fix header-top wrapping if promo/link area causes weird line breaks */
-    .header-top .container{ flex-wrap:wrap; gap:.75rem; }
-    .header-promo{ display:flex; flex-wrap:wrap; gap:.5rem; }
+  --radius-sm: .375rem;
+  --radius-md: .5rem;
+  --radius-lg: .75rem;
+  --radius-xl: 1rem;
 
-    /* 7) Responsive */
-    @media (max-width:1000px){
-      .product-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .category-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .site-footer .footer-content{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width:560px){
-      .product-grid{ grid-template-columns: 1fr; }
-      .category-grid{ grid-template-columns: 1fr; }
-      .site-footer .footer-content{ grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
+  --shadow-sm: 0 2px 4px rgba(0,0,0,.08);
+  --shadow-md: 0 8px 16px rgba(0,102,255,.15);
+  --shadow-lg: 0 16px 32px rgba(0,102,255,.20);
+}
 
-<body>
+/* ================= RESET ================= */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  font-family:var(--font-primary);
+  background:linear-gradient(135deg,var(--bg),#f0f4ff);
+  color:var(--dark);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font-family:inherit}
+button{cursor:pointer}
 
-  <!-- HEADER -->
-  <header class="site-header">
+/* ================= LAYOUT ================= */
+.container{
+  width:100%;
+  max-width:var(--container-width);
+  margin:0 auto;
+  padding:0 1rem;
+}
 
-    <!-- TOP BAR -->
-    <div class="header-top">
-      <div class="container">
-        <div class="header-promo">
-          <span>🎮 PlayStation Collection — Tested &amp; Cleaned Consoles</span>
-        </div>
-        <div class="header-links">
-          <a href="/about.html">About</a>
-          <a href="/warranties.html">Warranty</a>
-        </div>
-      </div>
-    </div>
+/* ================= HEADER ================= */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,102,255,.1);
+  box-shadow:0 8px 32px rgba(0,102,255,.12);
+}
 
-    <!-- MAIN HEADER ROW -->
-    <div class="header-main">
-      <div class="container header-content">
+.header-top{
+  background:linear-gradient(90deg,var(--dark),var(--dark-soft));
+  color:#fff;
+  font-size:.85rem;
+  padding:.4rem 0;
+}
+.header-top .container{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:.5rem;
+}
+.header-links{
+  display:flex;
+  gap:.75rem;
+}
+.header-links a{opacity:.9}
+.header-links a:hover{opacity:1;text-decoration:underline}
 
-        <a href="/index.html" class="site-logo" aria-label="Retro Replay Home">
-          <img src="/assets/logo.png" alt="Retro Replay Logo" />
-          <span>Retro Replay</span>
-        </a>
+.header-main{padding:1rem 0}
 
-        <form class="search-bar" action="/search.html" method="get" role="search">
-          <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
-          <button class="search-btn" type="submit">Search</button>
-        </form>
+.header-content{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
 
-        <div class="header-actions">
-          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+.site-logo{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  font-weight:800;
+  font-size:1.5rem;
+  background:linear-gradient(135deg,var(--primary),#00d9ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.site-logo img{height:48px}
 
-          <a href="/checkout.html" class="header-action">
-            <span>🛒</span><span>Cart</span>
-            <span class="cart-badge" id="cart-count-js">0</span>
-          </a>
+/* === Search bar (missing in your CSS) === */
+.search-bar{
+  flex:1;
+  min-width:260px;
+  max-width:520px;
+  display:flex;
+  gap:.5rem;
+  align-items:center;
+}
+.search-bar input{
+  width:100%;
+  border:1px solid var(--gray-lighter);
+  background:#fff;
+  border-radius:.75rem;
+  padding:.75rem .9rem;
+  outline:none;
+}
+.search-bar input:focus{
+  border-color:rgba(0,102,255,.55);
+  box-shadow:0 0 0 4px rgba(0,102,255,.12);
+}
+.search-btn{
+  border:0;
+  border-radius:.75rem;
+  padding:.75rem 1rem;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;
+  white-space:nowrap;
+}
+.search-btn:hover{filter:brightness(.95)}
 
-          <!-- IMPORTANT: aria-controls must match nav id -->
-          <button class="nav-toggle"
-                  type="button"
-                  aria-label="Toggle navigation"
-                  aria-expanded="false"
-                  aria-controls="primaryNav">☰</button>
-        </div>
+/* === Header actions (missing in your CSS) === */
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  margin-left:auto;
+}
+.header-action{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.6rem .8rem;
+  border-radius:.75rem;
+  border:1px solid rgba(0,102,255,.12);
+  background:rgba(0,102,255,.06);
+  font-weight:800;
+}
+.header-action:hover{background:rgba(0,102,255,.1)}
+.cart-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:22px;
+  height:22px;
+  padding:0 .35rem;
+  border-radius:999px;
+  background:var(--accent);
+  color:#fff;
+  font-size:.8rem;
+  font-weight:900;
+}
 
-      </div>
-    </div>
+/* ================= NAV ================= */
+.nav-toggle{
+  display:none;
+  font-size:1.4rem;
+  line-height:1;
+  border:1px solid var(--gray-lighter);
+  background:#fff;
+  border-radius:.75rem;
+  padding:.55rem .7rem;
+}
 
-    <!-- GLOBAL MAIN NAV -->
-    <nav class="main-nav" id="primaryNav" aria-label="Primary">
-      <div class="container">
-        <ul class="nav-list">
-          <li><a href="/index.html">Main Home</a></li>
-          <li><a href="/atari/index.html">Atari</a></li>
-          <li><a href="/nintendo/index.html">Nintendo</a></li>
-          <li><a href="/playstation/index.html" aria-current="page">PlayStation</a></li>
-          <li><a href="/sega/index.html">Sega</a></li>
-          <li><a href="/xbox/index.html">Xbox</a></li>
-          <li><a href="/guides.html">Setup Guides</a></li>
-          <li><a href="/sourcing-request.html">Sourcing</a></li>
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/warranties.html">Warranty</a></li>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+.main-nav{
+  border-top:1px solid var(--gray-lighter);
+  background:#fff;
+}
+.nav-list{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  list-style:none;
+}
+.nav-list a{
+  display:block;
+  padding:1rem 1.4rem;
+  font-weight:700;
+}
+.nav-list a:hover{color:var(--primary)}
 
-    <!-- SUB NAV -->
-    <nav class="sub-nav" aria-label="PlayStation">
-      <div class="container">
-        <ul class="nav-list sub-list">
-          <li><a href="/playstation/products/ps1.html">PS1</a></li>
-          <li><a href="/playstation/products/ps2.html">PS2</a></li>
-          <li><a href="/playstation/products/ps3.html">PS3</a></li>
-          <li><a href="/playstation/guides.html">Guides</a></li>
-        </ul>
-      </div>
-    </nav>
+/* Sub-nav support */
+.sub-nav{
+  background:rgba(0,102,255,.06);
+  border-top:1px solid rgba(0,102,255,.12);
+}
+.sub-list a{padding:.8rem 1.1rem}
 
-  </header>
+/* ================= HERO ================= */
+.hero{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;
+  padding:3rem 0;
+}
+.hero-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  align-items:center;
+}
+.hero-text h1{
+  font-size:clamp(2rem,5vw,3.5rem);
+  font-weight:800;
+}
+.hero-text p{margin:1rem 0}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>PlayStation Collection</h1>
-        <p>
-          Professionally tested and cleaned PlayStation consoles including PS1, PS2 and PS3.
-          Optional premium refurbishment, HDD upgrades, and extended warranty services available.
-        </p>
-        <div class="hero-cta">
-          <a href="/playstation/products/ps2.html" class="btn btn-primary">Shop PS2</a>
-          <a href="/playstation/guides.html" class="btn btn-secondary">Setup Guides</a>
-        </div>
-      </div>
+/* ================= BUTTONS ================= */
+.btn{
+  padding:.85rem 1.6rem;
+  border-radius:.75rem;
+  font-weight:800;
+  display:inline-block;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;
+}
+.btn-primary:hover{filter:brightness(.95)}
+.btn-secondary{
+  background:#fff;
+  color:var(--primary);
+  border:2px solid #fff;
+}
+.btn-secondary:hover{filter:brightness(.98)}
 
-      <div class="hero-image">
-        <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PlayStation Consoles" />
-      </div>
-    </div>
-  </section>
+/* ================= PS2 FEATURE ================= */
+.rr-ps2-feature{
+  padding:3rem 0;
+  margin-top:-2rem;
+}
+.rr-ps2-shell{
+  background:linear-gradient(135deg,#fff,#f0f4ff);
+  border-radius:1.25rem;
+  box-shadow:var(--shadow-lg);
+  overflow:hidden;
+  border:1px solid rgba(0,102,255,.12);
+}
+.rr-ps2-topline{
+  padding:.8rem 1.2rem;
+  background:rgba(0,102,255,.08);
+  display:flex;
+  gap:.5rem;
+  flex-wrap:wrap;
+}
+.rr-pill{
+  padding:.35rem .75rem;
+  border-radius:999px;
+  font-weight:900;
+  font-size:.8rem;
+  background:rgba(0,102,255,.12);
+}
+.rr-ps2-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:1.5rem;
+  padding:1.5rem;
+}
+.rr-ps2-main h2{
+  font-family:var(--font-heading);
+  font-size:2rem;
+}
+.rr-ps2-points{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:.6rem;
+  margin:1rem 0;
+}
+.rr-point{
+  background:#fff;
+  padding:.7rem .9rem;
+  border-radius:.75rem;
+  box-shadow:var(--shadow-sm);
+  font-weight:800;
+}
+.rr-ps2-actions{display:flex;gap:.8rem;flex-wrap:wrap}
+.rr-ps2-note{font-size:.9rem;color:var(--gray)}
 
-  <!-- PRODUCTS -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Browse PlayStation Consoles</h2>
-        <p class="section-subtitle">All consoles are professionally tested, cleaned and graded</p>
-      </div>
+.rr-card{
+  background:#fff;
+  border-radius:1rem;
+  padding:1.2rem;
+  box-shadow:var(--shadow-md);
+}
+.rr-card h3{margin-bottom:.5rem}
+.rr-card ul{padding-left:1.1rem;color:var(--gray)}
+.rr-card a{display:inline-block;margin-top:.6rem;font-weight:900;color:var(--primary)}
 
-      <div class="category-grid">
-        <a href="/playstation/products/ps1.html" class="category-card">
-          <div class="category-icon">
-            <img src="/assets/ps1logo.png" alt="PS1" />
-          </div>
-          <h3 class="category-name">PlayStation 1</h3>
-          <p class="category-count">Classic PS1 units</p>
-        </a>
+/* ================= MOBILE QUICK BAR ================= */
+.rr-mobilebar{
+  display:none;
+  position:sticky;
+  top:0;
+  z-index:2000;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);
+  padding:.6rem;
+  border-bottom:1px solid rgba(0,102,255,.15);
+  gap:.5rem;
+}
+.rr-mobilebar a,
+.rr-mobilebar button{
+  min-height:44px;
+  padding:.5rem .8rem;
+  border-radius:.75rem;
+  border:1px solid rgba(0,102,255,.2);
+  background:rgba(0,102,255,.08);
+  font-weight:900;
+}
+.rr-mobilebar .rr-cta{
+  margin-left:auto;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;
+}
 
-        <a href="/playstation/products/ps2.html" class="category-card">
-          <div class="category-icon">
-            <img src="/assets/ps2logo.png" alt="PS2" />
-          </div>
-          <h3 class="category-name">PlayStation 2</h3>
-          <p class="category-count">Fat &amp; Slim models</p>
-        </a>
+/* ================= COOKIE BANNER ================= */
+.rr-cookie{
+  position:fixed;
+  left:0;right:0;bottom:0;
+  z-index:3000;
+  background:rgba(10,14,39,.95);
+  padding:1rem;
+}
+.rr-cookie.is-hidden{display:none}
+.rr-cookie-inner{
+  max-width:var(--container-width);
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+}
+.rr-cookie-inner p{color:rgba(255,255,255,.9)}
+.rr-cookie-actions{display:flex;gap:.5rem}
+.rr-cookie-btn{
+  min-height:44px;
+  padding:.6rem 1rem;
+  border-radius:.75rem;
+  font-weight:900;
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+}
+.rr-cookie-accept{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  border-color:var(--primary);
+}
 
-        <a href="/playstation/products/ps3.html" class="category-card">
-          <div class="category-icon">
-            <img src="/assets/ps3logo.jpg" alt="PS3" />
-          </div>
-          <h3 class="category-name">PlayStation 3</h3>
-          <p class="category-count">Multiple model types</p>
-        </a>
-      </div>
-    </div>
-  </section>
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .hero-content{grid-template-columns:1fr}
+  .rr-ps2-grid{grid-template-columns:1fr}
+}
 
-  <!-- WHY CHOOSE US -->
-  <section class="section" style="background: white;">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Why Choose Retro Replay PlayStation?</h2>
-        <p class="section-subtitle">Professional testing with optional refurbishment &amp; upgrade services</p>
-      </div>
+/* MOBILE NAV: Works with .main-nav.is-open */
+@media(max-width:768px){
+  .nav-toggle{display:inline-flex;align-items:center;justify-content:center}
 
-      <!-- IMPORTANT: remove inline grid-template override (it can fight your CSS on some pages) -->
-      <div class="product-grid">
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">Professional Testing</h3>
-            <p class="product-description">All consoles are inspected, tested, cleaned and graded before sale to ensure full working order.</p>
-          </div>
-        </div>
+  /* stack header nicely */
+  .header-content{align-items:stretch}
+  .site-logo{order:1}
+  .header-actions{order:2; margin-left:0; justify-content:space-between; width:100%}
+  .search-bar{order:3; width:100%; max-width:100%}
 
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">Optional Full Refurbishment</h3>
-            <p class="product-description">
-              Deep internal servicing, ultrasonic cleaning, PSU checks, thermal refresh and drive servicing — available as a premium upgrade.
-            </p>
-          </div>
-        </div>
+  /* collapsible nav */
+  .main-nav{display:none}
+  .main-nav.is-open{display:block}
 
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">Upgrade Options</h3>
-            <p class="product-description">
-              HDD upgrades, FMCB installs, OPL setup and cosmetic shell improvements available for PS2 systems.
-            </p>
-          </div>
-        </div>
+  /* dropdown styling */
+  .main-nav .container{padding:0 1rem}
+  .nav-list{
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    border:1px solid var(--gray-lighter);
+    border-radius:1rem;
+    overflow:hidden;
+    margin:.75rem 0 1rem 0;
+    background:#fff;
+  }
+  .nav-list a{
+    padding:.95rem 1rem;
+    border-top:1px solid var(--gray-lighter);
+  }
+  .nav-list li:first-child a{border-top:0}
 
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">Warranty Options</h3>
-            <p class="product-description">
-              All consoles include a 30-day functional warranty with extended warranty plans available.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-
-        <div class="footer-section">
-          <h3>Retro Replay</h3>
-          <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
-        </div>
-
-        <div class="footer-section">
-          <h3>Shop</h3>
-          <ul class="footer-links">
-            <li><a href="/playstation/index.html">PlayStation</a></li>
-            <li><a href="/xbox/index.html">Xbox</a></li>
-            <li><a href="/nintendo/index.html">Nintendo</a></li>
-            <li><a href="/atari/index.html">Atari</a></li>
-            <li><a href="/sega/index.html">Sega</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Support</h3>
-          <ul class="footer-links">
-            <li><a href="/guides.html">Setup Guides</a></li>
-            <li><a href="/faq.html">FAQ</a></li>
-            <li><a href="/warranties.html">Warranty Info</a></li>
-            <li><a href="/delivery.html">Delivery</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Company</h3>
-          <ul class="footer-links">
-            <li><a href="/about.html">About Us</a></li>
-            <li><a href="/process.html">Our Process</a></li>
-            <li><a href="/services.html">Services</a></li>
-            <li><a href="/terms.html">Policies &amp; Terms</a></li>
-            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; <span id="year-js">2025</span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="/cart.js"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Year
-      const y = document.getElementById("year-js");
-      if (y) y.textContent = new Date().getFullYear();
-
-      // Cart init (safe)
-      if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
-        window.RetroCart.loadCart();
-      }
-
-      // Mobile nav toggle (must target #primaryNav)
-      const btn = document.querySelector(".nav-toggle");
-      const nav = document.getElementById("primaryNav");
-      if (!btn || !nav) return;
-
-      btn.addEventListener("click", () => {
-        const open = nav.classList.toggle("is-open");
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
-      });
-
-      nav.querySelectorAll("a").forEach(a => {
-        a.addEventListener("click", () => {
-          nav.classList.remove("is-open");
-          btn.setAttribute("aria-expanded", "false");
-        });
-      });
-    });
-  </script>
-
-</body>
-</html>
+  .rr-mobilebar{display:flex}
+}

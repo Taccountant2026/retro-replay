@@ -3,42 +3,339 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Cookie Policy | Retro Replay</title>
-  <meta name="description" content="Cookie policy for Retro Replay." />
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Cookie policy for Retro Replay. Learn what cookies we use, why we use them, and how to manage your preferences." />
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
+  </script>
+
+  <style>
+    /* Page polish (safe overrides) */
+    .section{ padding:3rem 0; }
+    .policy-wrap{ max-width:900px; margin:0 auto; }
+    .policy-card{
+      background:#fff;
+      border:1px solid var(--gray-lighter);
+      border-radius:1rem;
+      padding:1.75rem;
+      box-shadow:var(--shadow-sm);
+    }
+    .policy-card h1{ margin-top:0; letter-spacing:-.02em; }
+    .policy-card h2{ margin-top:1.75rem; }
+    .policy-card h3{ margin-top:1.15rem; }
+    .policy-muted{ color:var(--gray); }
+    .policy-list{ padding-left:1.1rem; }
+    .policy-callout{
+      margin-top:1.25rem;
+      padding:1rem 1.1rem;
+      border-radius:1rem;
+      border:1px solid rgba(0,102,255,.18);
+      background:rgba(0,102,255,.06);
+    }
+    .policy-table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--gray-lighter);
+      border-radius:1rem;
+      margin-top:.75rem;
+    }
+    .policy-table th, .policy-table td{
+      padding:.85rem .9rem;
+      border-bottom:1px solid var(--gray-lighter);
+      vertical-align:top;
+      text-align:left;
+    }
+    .policy-table tr:last-child td{ border-bottom:0; }
+    .policy-table th{
+      background:#f8fafc;
+      font-weight:900;
+      white-space:nowrap;
+    }
+    .policy-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.75rem;
+      margin-top:1.25rem;
+    }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; }
+    .btn-small{ padding:.7rem 1rem; border-radius:.9rem; font-weight:900; }
+    :focus-visible{ outline:3px solid rgba(0,102,255,.35); outline-offset:2px; border-radius:.5rem; }
+  </style>
 </head>
+
 <body>
 
-<header class="site-header">
-  <!-- reuse your normal header here if you have shared includes -->
-</header>
+  <!-- Header (matches your main layout) -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo">
+          <span>🎮 Professionally tested &amp; cleaned</span>
+          <span>📦 Tracked delivery available</span>
+        </div>
+        <div class="header-links">
+          <a href="about.html">About</a>
+          <a href="delivery.html">Delivery</a>
+          <a href="warranties.html">Warranty</a>
+        </div>
+      </div>
+    </div>
 
-<main class="section">
-  <div class="container" style="max-width:900px;">
-    <h1>Cookie Policy</h1>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="index.html" class="site-logo" aria-label="Retro Replay Home">
+          <img src="assets/logo.png" alt="Retro Replay Logo" />
+          <span>Retro Replay</span>
+        </a>
 
-    <p>We use cookies to help our website function properly and to understand how visitors use the site.</p>
+        <form class="search-bar" action="search.html" method="get" role="search">
+          <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+          <button class="search-btn" type="submit">Search</button>
+        </form>
 
-    <h2>Types of cookies we use</h2>
-    <h3>Essential cookies</h3>
-    <p>These are required for basic site functionality (for example, remembering basic preferences or cart/session features if used).</p>
+        <div class="header-actions">
+          <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
 
-    <h3>Analytics cookies (optional)</h3>
-    <p>If you accept cookies, we use Google Analytics to measure traffic and improve the website (for example, which pages are visited most).</p>
+          <a href="checkout.html" class="header-action">
+            <span>🛒</span><span>Cart</span>
+            <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
+          </a>
 
-    <h2>Your choices</h2>
-    <p>You can accept or reject non-essential cookies using the banner on our site. If you previously chose, you can change your choice by clearing site data in your browser (local storage) and reloading the website.</p>
+          <button class="nav-toggle"
+                  type="button"
+                  aria-label="Toggle navigation"
+                  aria-expanded="false"
+                  aria-controls="primaryNav">☰</button>
+        </div>
+      </div>
+    </div>
 
-    <h2>Contact</h2>
-    <p>If you have questions about this policy, contact us via the <a href="/contact.html">contact page</a>.</p>
+    <nav class="main-nav" id="primaryNav" aria-label="Primary">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index.html">Main Home</a></li>
+          <li><a href="atari/index.html">Atari</a></li>
+          <li><a href="nintendo/index.html">Nintendo</a></li>
+          <li><a href="playstation/index.html">PlayStation</a></li>
+          <li><a href="sega/index.html">Sega</a></li>
+          <li><a href="xbox/index.html">Xbox</a></li>
+          <li><a href="guides.html">Setup Guides</a></li>
+          <li><a href="sourcing-request.html">Sourcing</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="warranties.html">Warranty</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-    <p><strong>Last updated:</strong> 2025</p>
+  <main class="section">
+    <div class="container policy-wrap">
+      <div class="policy-card">
+        <h1>Cookie Policy</h1>
+        <p class="policy-muted">
+          This policy explains what cookies are, which cookies we use on Retro Replay, and how you can control them.
+        </p>
+
+        <div class="policy-callout">
+          <strong>Quick summary:</strong> We only use non-essential cookies (analytics) if you accept them via the banner.
+        </div>
+
+        <h2>What are cookies?</h2>
+        <p>
+          Cookies are small text files stored on your device by your web browser. They help websites remember information
+          about your visit (for example, preferences) and can be used for analytics.
+        </p>
+
+        <h2>Cookies we use</h2>
+
+        <h3>Essential cookies / local storage</h3>
+        <p>
+          We use basic storage needed for site features you use (for example, remembering your cookie preference and
+          cart/session functionality if enabled). These are required for the website to function properly.
+        </p>
+
+        <h3>Analytics cookies (optional)</h3>
+        <p>
+          If you accept cookies, we use Google Analytics to measure traffic and improve the website (for example, which
+          pages are visited most and how visitors move through the site).
+        </p>
+
+        <table class="policy-table" aria-label="Cookie categories table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Purpose</th>
+              <th>Optional?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Essential</td>
+              <td>Remember your cookie choice and enable basic site functions (and cart/session features if used).</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Analytics</td>
+              <td>Understand site usage and improve performance and content (Google Analytics).</td>
+              <td>Yes</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Your choices</h2>
+        <ul class="policy-list">
+          <li>You can accept or reject non-essential cookies using the cookie banner.</li>
+          <li>If you previously chose, you can change your choice by clearing site data (local storage) in your browser and reloading the website.</li>
+        </ul>
+
+        <div class="policy-actions">
+          <a class="btn btn-secondary btn-small" href="cookie-policy.html">Refresh this page</a>
+          <a class="btn btn-primary btn-small" href="contact.html">Contact support</a>
+        </div>
+
+        <h2>Contact</h2>
+        <p>
+          If you have questions about this policy, contact us via the <a href="contact.html">contact page</a>.
+        </p>
+
+        <p class="policy-muted"><strong>Last updated:</strong> <span id="policy-updated">2025</span></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer (matches main layout) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Retro Replay</h3>
+          <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul class="footer-links">
+            <li><a href="playstation/index.html">PlayStation</a></li>
+            <li><a href="xbox/index.html">Xbox</a></li>
+            <li><a href="nintendo/index.html">Nintendo</a></li>
+            <li><a href="atari/index.html">Atari</a></li>
+            <li><a href="sega/index.html">Sega</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="guides.html">Setup Guides</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="warranties.html">Warranty Info</a></li>
+            <li><a href="delivery.html">Shipping</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="how-we-refurbish.html">Our Process</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="terms.html">Policies &amp; Terms</a></li>
+            <li><a href="cookie-policy.html" aria-current="page">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie Banner (same as main) -->
+  <div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <div class="rr-cookie-inner">
+      <p>
+        We use cookies to measure traffic (analytics) and improve the site.
+        <a href="cookie-policy.html">Cookie policy</a>
+      </p>
+      <div class="rr-cookie-actions">
+        <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
+        <button class="rr-cookie-btn rr-cookie-accept" id="rrCookieAccept" type="button">Accept</button>
+      </div>
+    </div>
   </div>
-</main>
 
-<footer class="site-footer">
-  <!-- reuse your normal footer -->
-</footer>
+  <script src="cart.js"></script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Year
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+
+      // Policy updated (keep simple / manual if preferred)
+      const updated = document.getElementById('policy-updated');
+      if (updated && !updated.textContent.trim()) updated.textContent = new Date().getFullYear();
+
+      // Cart init (safe)
+      if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
+        window.RetroCart.loadCart();
+      }
+
+      // Mobile nav toggle
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primaryNav');
+      if (btn && nav) {
+        btn.addEventListener('click', () => {
+          const open = nav.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+
+        nav.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            nav.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // Cookie banner (store choice only)
+      const COOKIE_KEY = 'rr_cookie_consent'; // accepted | rejected
+      const banner = document.getElementById('rrCookie');
+      const accept = document.getElementById('rrCookieAccept');
+      const reject = document.getElementById('rrCookieReject');
+      const saved = localStorage.getItem(COOKIE_KEY);
+
+      function show(){ if (banner) banner.classList.remove('is-hidden'); }
+      function hide(){ if (banner) banner.classList.add('is-hidden'); }
+
+      if (!saved) show(); else hide();
+
+      if (accept) accept.addEventListener('click', () => {
+        localStorage.setItem(COOKIE_KEY, 'accepted');
+        hide();
+      });
+
+      if (reject) reject.addEventListener('click', () => {
+        localStorage.setItem(COOKIE_KEY, 'rejected');
+        hide();
+      });
+    });
+  </script>
 </body>
 </html>

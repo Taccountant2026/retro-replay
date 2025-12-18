@@ -785,4 +785,8 @@ ul{list-style:none}
   .rr-checkout-actions{flex-direction:column}
   .rr-btn-wide{width:100%}
 }
+/* Clickable card links without ugly underline */
+.rr-card-link{display:block;text-decoration:none}
+.rr-card-link:hover .product-card{transform:translateY(-2px)}
+.product-card{transition:transform .15s ease, box-shadow .15s ease}
 

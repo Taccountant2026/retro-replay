@@ -26,7 +26,7 @@
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
-        <span>🔧 Premium Refurbishment & Upgrade Services</span>
+        <span>🔧 Premium Refurbishment &amp; Upgrade Services</span>
         <span>📘 Free setup guidance available</span>
       </div>
       <div class="header-links">
@@ -45,7 +45,7 @@
         <span>Retro Replay</span>
       </a>
 
-      <!-- Mobile menu button (requires .nav-toggle + .main-nav.is-open CSS in style.css) -->
+      <!-- Mobile menu button -->
       <button class="nav-toggle"
               type="button"
               aria-label="Open menu"
@@ -115,22 +115,22 @@
 
       <div class="product-card">
         <div class="product-info">
-          <h3 class="product-name">🔧 Premium Refurbishment (£400)</h3>
+          <h3 class="product-name">🔧 Premium Refurbishment <span style="white-space:nowrap;">(£400)</span></h3>
           <p class="product-description">
-            Full engineering-grade internal restoration service including complete disassembly, deep cleaning, drive servicing, thermal refresh, PSU inspection and final gameplay testing.
-            Suitable for collectors or long-term preservation.
+            Full engineering-grade internal restoration including complete disassembly, deep cleaning, drive servicing,
+            thermal refresh, PSU inspection and final gameplay testing. Suitable for collectors and long-term preservation.
           </p>
-          <a class="btn btn-outline btn-add-cart" href="/how-we-refurbish.html">View Full Process</a>
+          <a class="btn btn-outline" href="/how-we-refurbish.html">View Full Process</a>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-info">
-          <h3 class="product-name">⚙️ Upgrade & Mod Services</h3>
+          <h3 class="product-name">⚙️ Upgrade &amp; Mod Services</h3>
           <p class="product-description">
-            Optional extras including FMCB installation, HDD/SSD upgrades, HDMI adaptors, region changes, custom shells and homebrew setup for supported systems.
+            Optional extras including FMCB installation, HDD/SSD upgrades, HDMI adapters, region changes, custom shells and homebrew setup (supported systems only).
           </p>
-          <a class="btn btn-outline btn-add-cart" href="/guides.html">View Setup Guides</a>
+          <a class="btn btn-outline" href="/guides.html">View Setup Guides</a>
         </div>
       </div>
 
@@ -138,9 +138,9 @@
         <div class="product-info">
           <h3 class="product-name">📋 Setup Guides</h3>
           <p class="product-description">
-            Clear step-by-step guides covering console setup, memory card preparation, HDD usage, controller pairing and system optimisation.
+            Step-by-step guides covering console setup, memory card preparation, HDD usage, controller pairing and troubleshooting.
           </p>
-          <a class="btn btn-outline btn-add-cart" href="/guides.html">Browse Guides</a>
+          <a class="btn btn-outline" href="/guides.html">Browse Guides</a>
         </div>
       </div>
 
@@ -148,9 +148,9 @@
         <div class="product-info">
           <h3 class="product-name">⭐ Cosmetic Grading</h3>
           <p class="product-description">
-            All consoles are graded A/B/C for external condition so you know exactly what to expect before purchasing.
+            Consoles are graded A/B/C for external condition so you know exactly what to expect before purchasing.
           </p>
-          <a class="btn btn-outline btn-add-cart" href="/how-we-refurbish.html#grades">See Grades</a>
+          <a class="btn btn-outline" href="/how-we-refurbish.html#grades">See Grades</a>
         </div>
       </div>
 
@@ -158,9 +158,9 @@
         <div class="product-info">
           <h3 class="product-name">🛡 Optional Extended Warranty</h3>
           <p class="product-description">
-            Standard 30-day functional warranty included with all tested consoles. Extended protection plans (from £150) offer priority diagnostics and hardware cover.
+            Standard 30-day functional warranty included with tested consoles. Extended protection plans (from £150) offer priority diagnostics and hardware cover.
           </p>
-          <a class="btn btn-outline btn-add-cart" href="/warranties.html">View Warranty Options</a>
+          <a class="btn btn-outline" href="/warranties.html">View Warranty Options</a>
         </div>
       </div>
 
@@ -180,13 +180,13 @@
       <div class="product-info">
         <ul class="product-features" style="font-size: 1.05rem; line-height: 2;">
           <li>✓ Full internal disassembly</li>
-          <li>✓ Deep cleaning & corrosion inspection</li>
-          <li>✓ Thermal paste replacement & cooling optimisation</li>
+          <li>✓ Deep cleaning &amp; corrosion inspection</li>
+          <li>✓ Thermal paste replacement &amp; cooling optimisation</li>
           <li>✓ Power delivery inspection (PSU/caps/connectors)</li>
-          <li>✓ Optical drive service & calibration (where applicable)</li>
+          <li>✓ Optical drive service &amp; calibration (where applicable)</li>
           <li>✓ Port and connector inspection</li>
           <li>✓ Multi-stage functional testing</li>
-          <li>✓ Secure packaging & tracked shipping</li>
+          <li>✓ Secure packaging &amp; tracked shipping</li>
         </ul>
 
         <div class="hero-cta" style="margin-top: 1.25rem;">
@@ -312,7 +312,7 @@
         <ul class="footer-links">
           <li><a href="/about.html">About Us</a></li>
           <li><a href="/how-we-refurbish.html">Our Process</a></li>
-          <li><a href="/services.html">Services</a></li>
+          <li><a href="/services.html" aria-current="page">Services</a></li>
           <li><a href="/terms.html">Policies &amp; Terms</a></li>
         </ul>
       </div>
@@ -320,23 +320,40 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
+      <p>© <span id="year"></span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
 
-<script src="/cart.js"></script>
+<!-- Global scripts -->
+<script src="/cart.js" defer></script>
+<script src="/particles.js" defer></script>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    if (window.RetroCart && typeof RetroCart.loadCart === "function") RetroCart.loadCart();
+    // Year
+    const y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
 
-    // Mobile nav toggle (requires CSS in style.css)
+    // Cart
+    if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
+      window.RetroCart.loadCart();
+    }
+
+    // Mobile nav toggle + auto-close on link click
     const navBtn = document.querySelector(".nav-toggle");
     const nav = document.getElementById("primaryNav");
     if (navBtn && nav) {
       navBtn.addEventListener("click", () => {
         const open = nav.classList.toggle("is-open");
         navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+
+      nav.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          navBtn.setAttribute("aria-expanded", "false");
+        });
       });
     }
   });

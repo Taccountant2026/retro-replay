@@ -1,88 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atari Guides | Retro Replay</title>
-  <link rel="stylesheet" href="../style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta name="description" content="Step-by-step guides and maintenance for Atari 2600, 5200, and 7800." />
 
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
+  <!-- IMPORTANT: this page is inside /atari/ so use ROOT paths -->
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
+
+  <style>
+    /* Page-only helpers */
+    .atari-guides-wrap { max-width: 1100px; margin: 0 auto; }
+  </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="header-top"><div class="container"><div class="header-promo"><span>📖 Atari Guides</span></div></div></div>
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="../index.html" class="site-logo"><img src="../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
-        <form class="search-bar" action="/search.html" method="get" role="search">
-  <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
-  <button class="search-btn" type="submit">Search</button>
-</form>
-        <div class="header-actions"><a href="../contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="../checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+
+<header class="site-header">
+
+  <!-- GLOBAL TOP BAR -->
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo">
+        <span>📖 Atari Guides</span>
+        <span>Step-by-step setup & care</span>
+      </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
       </div>
     </div>
-   <!-- GLOBAL TOP BAR -->
-<div class="header-top">
-  <div class="container">
-    <div class="header-promo">
-      <span>Retro Replay — Professionally tested and cleaned gaming consoles</span>
-    </div>
-    <div class="header-links">
-      <a href="/about.html">About</a>
-      <a href="/warranties.html">Warranty</a>
+  </div>
+
+  <!-- HEADER MAIN -->
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay" />
+        <span>Retro Replay</span>
+      </a>
+
+      <!-- Mobile menu button -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
+
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
+
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- GLOBAL MAIN NAV -->
-<nav class="main-nav">
-  <div class="container">
-    <ul class="nav-list">
+  <!-- GLOBAL MAIN NAV -->
+  <nav class="main-nav" id="primaryNav" aria-label="Primary">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html" aria-current="page">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-      <li><a href="/index.html">Main Home</a></li>
+</header>
 
-      <li><a href="/atari/index.html">Atari</a></li>
-      <li><a href="/nintendo/index.html">Nintendo</a></li>
-      <li><a href="/playstation/index.html">PlayStation</a></li>
-      <li><a href="/sega/index.html">Sega</a></li>
-      <li><a href="/xbox/index.html">Xbox</a></li>
-
-      <li><a href="/guides.html">Setup Guides</a></li>
-      <li><a href="/sourcing-request.html">Sourcing</a></li>
-
-      <li><a href="/services.html">Services</a></li>
-      <li><a href="/warranties.html">Warranty</a></li>
-      <li><a href="/faq.html">FAQ</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-
-    </ul>
+<!-- HERO -->
+<section class="hero" style="background: linear-gradient(135deg, #d62828 0%, #a61e1e 100%);">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Atari Setup Guides</h1>
+      <p>Step-by-step guides and maintenance for Atari 2600, 5200, and 7800.</p>
+      <div class="hero-cta">
+        <a href="/atari/index.html" class="btn btn-secondary">Browse Atari</a>
+        <a href="/contact.html" class="btn btn-primary">Ask for Help</a>
+      </div>
+    </div>
   </div>
-</nav>
-  </header>
+</section>
 
-  <section class="hero" style="background: linear-gradient(135deg, #d62828 0%, #a61e1e 100%);"><div class="container hero-content"><div class="hero-text"><h1>Atari Setup Guides</h1><p>Step-by-step guides and maintenance for Atari 2600, 5200, and 7800.</p></div></div></section>
+<!-- GUIDES -->
+<section class="section" style="background: white;">
+  <div class="container atari-guides-wrap">
+    <div class="section-header">
+      <h2 class="section-title">Console Guides</h2>
+      <p class="section-subtitle">Setup, cleaning, preservation and collector info.</p>
+    </div>
 
-  <section class="section" style="background: white;"><div class="container"><div class="section-header"><h2 class="section-title">Console Guides</h2></div><div class="product-grid"><a href="guides/2600-guide.html" class="product-card" style="text-decoration: none;"><div class="product-info"><h3 class="product-name">Atari 2600 Complete Guide</h3><p class="product-description">The console that started it all — history, models, cartridge care, and industry impact.</p></div></a><div class="product-card"><div class="product-info"><h3 class="product-name">Cartridge Care & Preservation</h3><p class="product-description">ROM chips last 50+ years — learn how to clean contacts and store games properly.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Classic Game Library</h3><p class="product-description">Discover top 10 must-play games and understand the legendary titles that defined an era.</p></div></div><div class="product-card"><div class="product-info"><h3 class="product-name">Collector's Guide</h3><p class="product-description">Model rarity, pricing guide, and how to identify valuable original hardware.</p></div></div></div></div></section>
+    <div class="product-grid">
+      <!-- Use root path so it works reliably from /atari/ -->
+      <a href="/atari/guides/2600-guide.html" class="product-card" style="text-decoration:none;">
+        <div class="product-info">
+          <h3 class="product-name">Atari 2600 Complete Guide</h3>
+          <p class="product-description">History, models, cartridge care, setup tips, and what to check when buying.</p>
+        </div>
+      </a>
 
-  <footer class="site-footer">
+      <a href="/atari/guides/cartridge-care.html" class="product-card" style="text-decoration:none;">
+        <div class="product-info">
+          <h3 class="product-name">Cartridge Care &amp; Preservation</h3>
+          <p class="product-description">How to clean contacts safely, store carts properly, and avoid common damage.</p>
+        </div>
+      </a>
+
+      <a href="/atari/guides/classic-library.html" class="product-card" style="text-decoration:none;">
+        <div class="product-info">
+          <h3 class="product-name">Classic Game Library</h3>
+          <p class="product-description">Must-play titles and what makes each one worth owning.</p>
+        </div>
+      </a>
+
+      <a href="/atari/guides/collectors-guide.html" class="product-card" style="text-decoration:none;">
+        <div class="product-info">
+          <h3 class="product-name">Collector’s Guide</h3>
+          <p class="product-description">Rarity basics, spotting original hardware, and avoiding repro pitfalls.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
   <div class="container">
     <div class="footer-content">
 
-      <!-- BRANDING -->
       <div class="footer-section">
         <h3>Retro Replay</h3>
-        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
       </div>
 
-      <!-- SHOP -->
       <div class="footer-section">
         <h3>Shop</h3>
         <ul class="footer-links">
@@ -94,7 +172,6 @@
         </ul>
       </div>
 
-      <!-- SUPPORT -->
       <div class="footer-section">
         <h3>Support</h3>
         <ul class="footer-links">
@@ -106,24 +183,52 @@
         </ul>
       </div>
 
-      <!-- COMPANY -->
       <div class="footer-section">
         <h3>Company</h3>
         <ul class="footer-links">
           <li><a href="/about.html">About Us</a></li>
-          <li><a href="/process.html">Our Process</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
-          <li><a href="/terms.html">Policies & Terms</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. All rights reserved. Professionally tested & cleaned gaming consoles.</p>
+      <p>© 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
-  <script src="../cart.js"></script><script>RetroCart.loadCart();</script>
+
+<!-- Scripts -->
+<script src="/cart.js" defer></script>
+<script src="/particles.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
+      window.RetroCart.loadCart();
+    }
+
+    // Mobile nav toggle + close on click
+    const navBtn = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("primaryNav");
+    if (navBtn && nav) {
+      navBtn.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+
+      nav.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          navBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+  });
+</script>
+
 </body>
 </html>

@@ -1,57 +1,78 @@
+// /site.js (global)
+// Requires pages to have: <div id="siteHeader"></div> and <div id="siteFooter"></div>
+
 async function inject(id, url) {
   const el = document.getElementById(id);
-  if (!el) return;
-  const res = await fetch(url, { cache: "no-store" });
-  el.innerHTML = await res.text();
+  if (!el) return false;
+
+  try {
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) throw new Error(`Failed to load ${url}: ${res.status}`);
+    el.innerHTML = await res.text();
+    return true;
+  } catch (err) {
+    console.warn(err);
+    return false;
+  }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await inject("siteHeader", "/partials/header.html");
-  await inject("siteFooter", "/partials/footer.html");
-
-  // Year
+function setYear() {
   const y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
+}
 
-  // Cart safe init
+function initCart() {
   if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
     window.RetroCart.loadCart();
   }
+}
 
-  // Mobile nav toggle (works with your CSS: .main-nav.is-open)
+function initMobileNav() {
   const btn = document.querySelector(".nav-toggle");
   const nav = document.getElementById("primaryNav") || document.querySelector(".main-nav");
-  if (btn && nav) {
-    btn.addEventListener("click", () => {
-      const open = nav.classList.toggle("is-open");
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
-    });
+  if (!btn || !nav) return;
 
-    nav.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", () => {
-        nav.classList.remove("is-open");
-        btn.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
+  btn.addEventListener("click", () => {
+    const open = nav.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
 
-  // Cookie banner (optional global)
-  const COOKIE_KEY = "rr_cookie_consent";
+  nav.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+function initCookieBanner() {
+  const COOKIE_KEY = "rr_cookie_consent"; // accepted | rejected
   const banner = document.getElementById("rrCookie");
   const accept = document.getElementById("rrCookieAccept");
   const reject = document.getElementById("rrCookieReject");
-  if (banner) {
-    const saved = localStorage.getItem(COOKIE_KEY);
-    banner.classList.toggle("is-hidden", !!saved);
+  if (!banner) return;
 
-    accept?.addEventListener("click", () => {
-      localStorage.setItem(COOKIE_KEY, "accepted");
-      banner.classList.add("is-hidden");
-    });
+  const saved = localStorage.getItem(COOKIE_KEY);
+  banner.classList.toggle("is-hidden", !!saved);
 
-    reject?.addEventListener("click", () => {
-      localStorage.setItem(COOKIE_KEY, "rejected");
-      banner.classList.add("is-hidden");
-    });
-  }
+  accept?.addEventListener("click", () => {
+    localStorage.setItem(COOKIE_KEY, "accepted");
+    banner.classList.add("is-hidden");
+  });
+
+  reject?.addEventListener("click", () => {
+    localStorage.setItem(COOKIE_KEY, "rejected");
+    banner.classList.add("is-hidden");
+  });
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  // Inject partials first, so elements exist before wiring listeners
+  await inject("siteHeader", "/partials/header.html");
+  await inject("siteFooter", "/partials/footer.html");
+
+  setYear();
+  initCart();
+  initMobileNav();
+  initCookieBanner();
 });

@@ -1,13 +1,10 @@
 <!-- =========================
-  RetroReplay UK — all-consoles.html (FULL BUILD FIXED)
-  Fixes:
-  - Root-relative paths everywhere (/style.css, /assets, /cart.js)
-  - Canonical + meta description + OG tags added
-  - GA anonymize_ip (matches index)
-  - Header/footer aligned with MASTER layout
-  - Category icons fixed to /assets/*
-  - Adds “close nav after link tap” for mobile
-  - Keeps your page content + layout intact
+  RetroReplay UK — all-consoles.html (MASTERED)
+  Changes:
+  - Removes inline styles (hero + white section) and uses existing classes
+  - Uses footer-grid (matches your unified CSS)
+  - Adds cookie banner + consent JS (matches index)
+  - Keeps content + links intact
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +26,6 @@
   <meta property="og:image" content="/assets/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -44,7 +40,6 @@
   <!-- HEADER (MASTER) -->
   <header class="site-header">
 
-    <!-- TOP BAR -->
     <div class="header-top">
       <div class="container">
         <div class="header-promo">
@@ -59,12 +54,11 @@
       </div>
     </div>
 
-    <!-- MAIN HEADER -->
     <div class="header-main">
       <div class="container header-content">
 
         <a href="/" class="site-logo" aria-label="Retro Replay Home">
-          <img src="/assets/logo.png" alt="Retro Replay Logo" />
+          <img src="/assets/logo.png" alt="Retro Replay Logo" width="48" height="48" loading="eager" decoding="async" />
           <span>Retro Replay</span>
         </a>
 
@@ -74,10 +68,10 @@
         </form>
 
         <div class="header-actions">
-          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+          <a href="/contact.html" class="header-action"><span aria-hidden="true">📞</span><span>Support</span></a>
 
           <a href="/checkout.html" class="header-action">
-            <span>🛒</span><span>Cart</span>
+            <span aria-hidden="true">🛒</span><span>Cart</span>
             <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
           </a>
 
@@ -91,7 +85,6 @@
       </div>
     </div>
 
-    <!-- MAIN NAV -->
     <nav class="main-nav" id="primaryNav" aria-label="Primary">
       <div class="container">
         <ul class="nav-list">
@@ -113,119 +106,127 @@
 
   </header>
 
-  <!-- HERO -->
-  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>All Consoles</h1>
-        <p>Browse our complete collection of refurbished gaming consoles from all major brands.</p>
+  <main>
+
+    <!-- HERO (no inline style) -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1>All Consoles</h1>
+          <p>Browse our complete collection of refurbished gaming consoles from all major brands.</p>
+        </div>
+        <div class="hero-image" aria-hidden="true">
+          <img src="/assets/logo.png" alt="" loading="lazy" decoding="async" />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- BROWSE BY BRAND -->
-  <section class="section" style="background: white;">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Browse by Brand</h2>
-        <p class="section-subtitle">Choose a platform to view stock, bundles, and upgrade options.</p>
+    <!-- BROWSE BY BRAND -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Browse by Brand</h2>
+          <p class="section-subtitle">Choose a platform to view stock, bundles, and upgrade options.</p>
+        </div>
+
+        <div class="category-grid">
+          <a href="/playstation/index.html" class="category-card">
+            <div class="category-icon"><img src="/assets/playstation-logo.png" alt="PlayStation" loading="lazy" decoding="async" /></div>
+            <h3 class="category-name">PlayStation</h3>
+            <p class="category-count">PS1 • PS2 • PS3</p>
+          </a>
+
+          <a href="/xbox/index.html" class="category-card">
+            <div class="category-icon"><img src="/assets/xboxlogo.png" alt="Xbox" loading="lazy" decoding="async" /></div>
+            <h3 class="category-name">Xbox</h3>
+            <p class="category-count">Original • 360</p>
+          </a>
+
+          <a href="/nintendo/index.html" class="category-card">
+            <div class="category-icon"><img src="/assets/nintendologo.png" alt="Nintendo" loading="lazy" decoding="async" /></div>
+            <h3 class="category-name">Nintendo</h3>
+            <p class="category-count">NES • SNES • N64</p>
+          </a>
+
+          <a href="/atari/index.html" class="category-card">
+            <div class="category-icon"><img src="/assets/atarilogo.png" alt="Atari" loading="lazy" decoding="async" /></div>
+            <h3 class="category-name">Atari</h3>
+            <p class="category-count">2600 • 5200 • 7800</p>
+          </a>
+
+          <a href="/sega/index.html" class="category-card">
+            <div class="category-icon"><img src="/assets/segalogo.png" alt="Sega" loading="lazy" decoding="async" /></div>
+            <h3 class="category-name">Sega</h3>
+            <p class="category-count">Mega Drive • Saturn • Dreamcast</p>
+          </a>
+        </div>
       </div>
+    </section>
 
-      <div class="category-grid">
-        <a href="/playstation/index.html" class="category-card">
-          <div class="category-icon"><img src="/assets/playstation-logo.png" alt="PlayStation" /></div>
-          <h3 class="category-name">PlayStation</h3>
-          <p class="category-count">PS1 • PS2 • PS3</p>
-        </a>
+    <!-- FEATURED COLLECTIONS -->
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Collections</h2>
+          <p class="section-subtitle">Popular categories people buy most often.</p>
+        </div>
 
-        <a href="/xbox/index.html" class="category-card">
-          <div class="category-icon"><img src="/assets/xboxlogo.png" alt="Xbox" /></div>
-          <h3 class="category-name">Xbox</h3>
-          <p class="category-count">Original • 360</p>
-        </a>
+        <div class="product-grid">
+          <a href="/playstation/products/ps2.html" class="rr-card-link">
+            <div class="product-card">
+              <div class="product-body">
+                <div class="product-title">PlayStation 2</div>
+                <div class="product-desc">Fat and Slim models with HDD/FMCB options available.</div>
+              </div>
+            </div>
+          </a>
 
-        <a href="/nintendo/index.html" class="category-card">
-          <div class="category-icon"><img src="/assets/nintendologo.png" alt="Nintendo" /></div>
-          <h3 class="category-name">Nintendo</h3>
-          <p class="category-count">NES • SNES • N64</p>
-        </a>
+          <a href="/xbox/products/xbox.html" class="rr-card-link">
+            <div class="product-card">
+              <div class="product-body">
+                <div class="product-title">Xbox Original</div>
+                <div class="product-desc">Classic 6th gen gaming. Fully refurbished and tested.</div>
+              </div>
+            </div>
+          </a>
 
-        <a href="/atari/index.html" class="category-card">
-          <div class="category-icon"><img src="/assets/atarilogo.png" alt="Atari" /></div>
-          <h3 class="category-name">Atari</h3>
-          <p class="category-count">2600 • 5200 • 7800</p>
-        </a>
+          <a href="/nintendo/products/N64.html" class="rr-card-link">
+            <div class="product-card">
+              <div class="product-body">
+                <div class="product-title">Nintendo 64</div>
+                <div class="product-desc">Iconic 3D gaming. Complete with controllers and cables.</div>
+              </div>
+            </div>
+          </a>
 
-        <a href="/sega/index.html" class="category-card">
-          <div class="category-icon"><img src="/assets/segalogo.png" alt="Sega" /></div>
-          <h3 class="category-name">Sega</h3>
-          <p class="category-count">Mega Drive • Saturn • Dreamcast</p>
-        </a>
+          <a href="/atari/products/2600.html" class="rr-card-link">
+            <div class="product-card">
+              <div class="product-body">
+                <div class="product-title">Atari 2600</div>
+                <div class="product-desc">The console that started it all. Retro gaming classics.</div>
+              </div>
+            </div>
+          </a>
+
+          <a href="/sega/products/genesis.html" class="rr-card-link">
+            <div class="product-card">
+              <div class="product-body">
+                <div class="product-title">Sega Mega Drive</div>
+                <div class="product-desc">16-bit legends. Sonic and more.</div>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FEATURED COLLECTIONS -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Featured Collections</h2>
-        <p class="section-subtitle">Popular categories people buy most often.</p>
-      </div>
-
-      <div class="product-grid">
-        <a href="/playstation/products/ps2.html" style="text-decoration:none;">
-          <div class="product-card">
-            <div class="product-info">
-              <h3 class="product-name">PlayStation 2</h3>
-              <p class="product-description">Fat and Slim models with HDD/FMCB options available.</p>
-            </div>
-          </div>
-        </a>
-
-        <a href="/xbox/products/xbox.html" style="text-decoration:none;">
-          <div class="product-card">
-            <div class="product-info">
-              <h3 class="product-name">Xbox Original</h3>
-              <p class="product-description">Classic 6th generation gaming. Fully refurbished and tested.</p>
-            </div>
-          </div>
-        </a>
-
-        <a href="/nintendo/products/N64.html" style="text-decoration:none;">
-          <div class="product-card">
-            <div class="product-info">
-              <h3 class="product-name">Nintendo 64</h3>
-              <p class="product-description">Iconic 3D gaming. Complete with controllers and cables.</p>
-            </div>
-          </div>
-        </a>
-
-        <a href="/atari/products/2600.html" style="text-decoration:none;">
-          <div class="product-card">
-            <div class="product-info">
-              <h3 class="product-name">Atari 2600</h3>
-              <p class="product-description">The console that started it all. Retro gaming classics.</p>
-            </div>
-          </div>
-        </a>
-
-        <a href="/sega/products/genesis.html" style="text-decoration:none;">
-          <div class="product-card">
-            <div class="product-info">
-              <h3 class="product-name">Sega Mega Drive</h3>
-              <p class="product-description">16-bit gaming legends. Sonic and more.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <!-- FOOTER (MASTER) -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-content">
+
+      <div class="footer-grid">
 
         <div class="footer-section">
           <h3>Retro Replay</h3>
@@ -270,26 +271,40 @@
       <div class="footer-bottom">
         © 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.
       </div>
+
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- COOKIE BANNER -->
+  <div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <div class="rr-cookie-inner">
+      <p>
+        We use cookies to measure traffic (analytics) and improve the site.
+        <a href="/cookie-policy.html">Cookie policy</a>
+      </p>
+      <div class="rr-cookie-actions">
+        <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
+        <button class="rr-cookie-btn rr-cookie-btn-primary" id="rrCookieAccept" type="button">Accept</button>
+      </div>
+    </div>
+  </div>
+
   <script src="/cart.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Safe cart init
+
       if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
         window.RetroCart.loadCart();
       }
 
-      // Mobile nav toggle + close after tap
       const btn = document.querySelector('.nav-toggle');
       const nav = document.getElementById('primaryNav');
       if (btn && nav) {
         btn.addEventListener('click', () => {
           nav.classList.toggle('is-open');
-          btn.setAttribute('aria-expanded', nav.classList.contains('is-open') ? 'true' : 'false');
+          const open = nav.classList.contains('is-open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
 
         nav.querySelectorAll('a').forEach(a => {
@@ -299,6 +314,21 @@
           });
         });
       }
+
+      const COOKIE_KEY = 'rr_cookie_consent';
+      const banner = document.getElementById('rrCookie');
+      const acceptBtn = document.getElementById('rrCookieAccept');
+      const rejectBtn = document.getElementById('rrCookieReject');
+
+      function hideBanner(){ if (banner) banner.classList.add('is-hidden'); }
+      function showBanner(){ if (banner) banner.classList.remove('is-hidden'); }
+
+      const stored = localStorage.getItem(COOKIE_KEY);
+      if (!stored) showBanner();
+
+      if (acceptBtn) acceptBtn.addEventListener('click', () => { localStorage.setItem(COOKIE_KEY,'accepted'); hideBanner(); });
+      if (rejectBtn) rejectBtn.addEventListener('click', () => { localStorage.setItem(COOKIE_KEY,'rejected'); hideBanner(); });
+
     });
   </script>
 

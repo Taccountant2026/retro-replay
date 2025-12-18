@@ -1,12 +1,11 @@
 <!-- =========================
-  RetroReplay UK — delivery.html (FULL BUILD FIXED)
-  Fixes:
-  - Canonical + OG tags + theme-color added
-  - Analytics anonymize_ip enabled
-  - Consistent header/nav/footer (MASTER)
-  - Safe cart init + mobile nav toggle + close after tap
-  - Adds cookie banner (same as other pages)
-  - Normalises copy + adds small “dispatch times” section
+  RetroReplay UK — delivery.html (MASTERED)
+  Changes:
+  - Removes inline <style> + inline section backgrounds (uses reusable CSS hooks)
+  - Cookie banner button class fixed to rr-cookie-btn-primary (matches your CSS)
+  - Footer upgraded to footer-grid (matches your index patch)
+  - Adds image size attrs on logo (stability)
+  - Keeps your content/layout, just makes it consistent + reusable
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +13,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Shipping & Delivery | Retro Replay</title>
+  <title>Shipping &amp; Delivery | Retro Replay</title>
   <meta name="description" content="Shipping & delivery information for Retro Replay. Fast, secure, tracked delivery with protective packaging on all consoles." />
 
   <link rel="stylesheet" href="/style.css" />
@@ -28,7 +27,6 @@
   <meta property="og:image" content="/assets/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -36,33 +34,12 @@
     gtag('js', new Date());
     gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
-
-  <style>
-    /* Optional polish (safe overrides only) */
-    :focus-visible{ outline:3px solid rgba(0,102,255,.35); outline-offset:2px; border-radius:.5rem; }
-    .notice-card{
-      background:#fff;
-      border:1px solid var(--gray-lighter);
-      border-radius:1rem;
-      padding:1.25rem;
-      box-shadow:var(--shadow-sm);
-    }
-    .notice-card p{ margin:.25rem 0 0 0; color:var(--gray); }
-    .mini-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-      gap:1rem;
-      margin-top:1rem;
-    }
-  </style>
 </head>
 
 <body>
 
-<!-- HEADER (MASTER) -->
 <header class="site-header">
 
-  <!-- TOP BAR -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
@@ -77,11 +54,10 @@
     </div>
   </div>
 
-  <!-- MAIN HEADER -->
   <div class="header-main">
     <div class="container header-content">
       <a href="/" class="site-logo" aria-label="Retro Replay Home">
-        <img src="/assets/logo.png" alt="Retro Replay" />
+        <img src="/assets/logo.png" alt="Retro Replay" width="48" height="48" loading="eager" decoding="async" />
         <span>Retro Replay</span>
       </a>
 
@@ -91,9 +67,9 @@
       </form>
 
       <div class="header-actions">
-        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/contact.html" class="header-action"><span aria-hidden="true">📞</span><span>Support</span></a>
         <a href="/checkout.html" class="header-action">
-          <span>🛒</span><span>Cart</span>
+          <span aria-hidden="true">🛒</span><span>Cart</span>
           <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
         </a>
         <button class="nav-toggle"
@@ -105,7 +81,6 @@
     </div>
   </div>
 
-  <!-- MAIN NAV -->
   <nav class="main-nav" id="primaryNav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
@@ -127,8 +102,7 @@
 
 </header>
 
-<!-- HERO -->
-<section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+<section class="hero">
   <div class="container hero-content">
     <div class="hero-text">
       <h1>Shipping &amp; Delivery</h1>
@@ -137,47 +111,48 @@
   </div>
 </section>
 
-<!-- SHIPPING OPTIONS -->
-<section class="section" style="background: white;">
+<section class="section section-soft">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Shipping Options</h2>
       <p class="section-subtitle">All shipments are packed securely with tracking provided.</p>
     </div>
 
-    <div class="product-grid">
+    <div class="product-grid rr-ship-grid">
       <div class="product-card">
-        <div class="product-info">
+        <div class="product-body">
           <h3 class="product-name">🚚 Standard Delivery</h3>
           <p class="product-description"><strong>3–5 business days (UK)</strong> • Tracked • From £4.99</p>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="product-info">
+        <div class="product-body">
           <h3 class="product-name">⚡ Express Delivery</h3>
           <p class="product-description"><strong>1–2 business days (UK)</strong> • Priority handling • From £9.99</p>
         </div>
       </div>
 
       <div class="product-card">
-        <div class="product-info">
+        <div class="product-body">
           <h3 class="product-name">🌍 International</h3>
           <p class="product-description"><strong>7–14 business days</strong> • Varies by country • Tracked (where available)</p>
         </div>
       </div>
     </div>
 
-    <div class="mini-grid">
-      <div class="notice-card">
+    <div class="rr-mini-grid">
+      <div class="rr-notice-card">
         <strong>Dispatch times</strong>
         <p>Most orders ship within 1–3 working days (build-to-order items may take longer). We’ll confirm when it’s packed and ready.</p>
       </div>
-      <div class="notice-card">
+
+      <div class="rr-notice-card">
         <strong>Packaging &amp; protection</strong>
         <p>Consoles are packed with protective materials to reduce movement and impact risk in transit.</p>
       </div>
-      <div class="notice-card">
+
+      <div class="rr-notice-card">
         <strong>Tracking</strong>
         <p>Tracking details are provided after dispatch (email / order message depending on where you purchased).</p>
       </div>
@@ -186,33 +161,30 @@
   </div>
 </section>
 
-<!-- DETAILS -->
 <section class="section">
-  <div class="container" style="max-width: 900px;">
+  <div class="container rr-narrow">
     <div class="section-header">
       <h2 class="section-title">Delivery Details</h2>
       <p class="section-subtitle">What to expect after you place an order.</p>
     </div>
 
-    <div class="product-card">
-      <div class="product-info">
-        <ul class="product-features" style="font-size: 1.05rem; line-height: 2; color: var(--dark);">
-          <li>✓ Secure packaging designed to reduce transit damage</li>
-          <li>✓ Tracking information provided after dispatch</li>
-          <li>✓ Signature required for higher-value orders (where applicable)</li>
-          <li>✓ Damage protection support if an issue occurs in transit</li>
-          <li>✓ International delivery available (country dependent)</li>
-          <li>✓ Returns handled via our policies (see Terms &amp; Policies)</li>
-        </ul>
-      </div>
+    <div class="rr-card">
+      <ul class="rr-checklist">
+        <li>✓ Secure packaging designed to reduce transit damage</li>
+        <li>✓ Tracking information provided after dispatch</li>
+        <li>✓ Signature required for higher-value orders (where applicable)</li>
+        <li>✓ Damage protection support if an issue occurs in transit</li>
+        <li>✓ International delivery available (country dependent)</li>
+        <li>✓ Returns handled via our policies (see Terms &amp; Policies)</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- FOOTER (MASTER) -->
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-content">
+
+    <div class="footer-grid">
 
       <div class="footer-section">
         <h3>Retro Replay</h3>
@@ -255,12 +227,11 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© <span id="year"></span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
+      © <span id="year"></span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.
     </div>
   </div>
 </footer>
 
-<!-- COOKIE BANNER (MASTER) -->
 <div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <div class="rr-cookie-inner">
     <p>
@@ -269,7 +240,7 @@
     </p>
     <div class="rr-cookie-actions">
       <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
-      <button class="rr-cookie-btn rr-cookie-accept" id="rrCookieAccept" type="button">Accept</button>
+      <button class="rr-cookie-btn rr-cookie-btn-primary" id="rrCookieAccept" type="button">Accept</button>
     </div>
   </div>
 </div>
@@ -278,16 +249,13 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Year
     const y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();
 
-    // Cart init (safe)
     if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
       window.RetroCart.loadCart();
     }
 
-    // Mobile nav toggle + close after tap
     const navBtn = document.querySelector('.nav-toggle');
     const nav = document.getElementById('primaryNav');
     if (navBtn && nav) {
@@ -304,8 +272,7 @@
       });
     }
 
-    // Cookie banner (store choice only)
-    const COOKIE_KEY = 'rr_cookie_consent'; // accepted | rejected
+    const COOKIE_KEY = 'rr_cookie_consent';
     const banner = document.getElementById('rrCookie');
     const accept = document.getElementById('rrCookieAccept');
     const reject = document.getElementById('rrCookieReject');
@@ -316,15 +283,8 @@
 
     if (!saved) show(); else hide();
 
-    if (accept) accept.addEventListener('click', () => {
-      localStorage.setItem(COOKIE_KEY, 'accepted');
-      hide();
-    });
-
-    if (reject) reject.addEventListener('click', () => {
-      localStorage.setItem(COOKIE_KEY, 'rejected');
-      hide();
-    });
+    if (accept) accept.addEventListener('click', () => { localStorage.setItem(COOKIE_KEY, 'accepted'); hide(); });
+    if (reject) reject.addEventListener('click', () => { localStorage.setItem(COOKIE_KEY, 'rejected'); hide(); });
   });
 </script>
 

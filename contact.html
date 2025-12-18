@@ -1,13 +1,10 @@
 <!-- =========================
-  RetroReplay UK — contact.html (FULL BUILD FIXED)
-  Fixes:
-  - Root-relative paths everywhere (/style.css, /assets, /cart.js)
-  - Canonical + OG tags + theme-color added
-  - GA anonymize_ip (matches index)
-  - Header/nav matches MASTER (id="primaryNav" + toggle targets it)
-  - Removes nav mismatch (was #global-nav + querySelector(".main-nav"))
-  - Adds cart badge + safe cart init
-  - Keeps your Formspree config + upsell + full footer
+  RetroReplay UK — contact.html (MASTERED)
+  Changes:
+  - Removes the big inline <style> block (moves to reusable CSS hooks)
+  - Uses MASTER footer structure (footer-grid) to match index
+  - Adds cookie banner + consent JS (matches index/about)
+  - Keeps Formspree + upsell + contact details intact
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +26,6 @@
   <meta property="og:image" content="/assets/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -37,115 +33,6 @@
     gtag('js', new Date());
     gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
-
-  <style>
-    .page-wrap{ max-width:1100px; margin:0 auto; padding:2rem 1rem; }
-    .page-hero{ padding:1.25rem; border:1px solid var(--gray-lighter); border-radius:1rem; background:#fff; }
-    .page-hero h1{ margin:0 0 .5rem 0; }
-    .muted{ color:var(--gray); margin:0; }
-
-    .contact-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:1.25rem; margin-top:1.25rem; }
-    @media(max-width:900px){ .contact-grid{ grid-template-columns:1fr; } }
-
-    .card{ background:#fff; border:1px solid var(--gray-lighter); border-radius:1rem; padding:1.25rem; box-shadow:0 10px 25px rgba(0,0,0,.04); }
-    .card h2{ margin:0 0 .5rem 0; }
-
-    .contact-item{ padding:.75rem 0; border-top:1px solid var(--gray-lighter); }
-    .contact-item:first-child{ border-top:0; }
-
-    .contact-link{
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      font-weight:900;
-      color:var(--primary);
-      margin-top:.25rem;
-      text-decoration:none;
-    }
-
-    .pill{
-      display:inline-block;
-      margin-left:.4rem;
-      padding:.25rem .6rem;
-      border-radius:999px;
-      border:1px solid var(--gray-lighter);
-      font-size:.8rem;
-      color:var(--gray);
-    }
-
-    /* Form styling (theme aligned) */
-    label{ display:block; font-weight:900; margin:.9rem 0 .35rem; }
-    input, textarea, select{
-      width:100%;
-      border:1px solid var(--gray-lighter);
-      border-radius:.85rem;
-      padding:.8rem .9rem;
-      font:inherit;
-      background:#fff;
-      outline:none;
-    }
-    textarea{ min-height:170px; resize:vertical; }
-
-    .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-    @media(max-width:600px){ .form-row{ grid-template-columns:1fr; } }
-
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      border:0; border-radius:.95rem;
-      padding:1rem 1rem;
-      font-weight:900;
-      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
-      color:#fff;
-      cursor:pointer;
-      margin-top:1rem;
-      text-decoration:none;
-      min-height:48px;
-      width:100%;
-    }
-    .btn:hover{ filter:brightness(.96); }
-
-    .helpbox{
-      margin-top:.9rem;
-      padding:.95rem 1rem;
-      border-radius:.95rem;
-      border:1px solid var(--gray-lighter);
-      background:rgba(0,102,255,.06);
-      color:var(--gray);
-      font-weight:650;
-      line-height:1.55;
-    }
-    .helpbox strong{ color:var(--dark); }
-
-    /* Upsell box */
-    .upsell{
-      margin-top:1rem;
-      padding:1rem;
-      border-radius:1rem;
-      border:1px solid rgba(0,102,255,.18);
-      background: linear-gradient(135deg, rgba(0,102,255,.08), rgba(0,208,132,.06));
-    }
-    .upsell h3{ margin:0 0 .35rem 0; font-size:1.05rem; }
-    .upsell p{ margin:0; color:var(--gray); }
-    .upsell-links{
-      display:flex;
-      gap:.6rem;
-      flex-wrap:wrap;
-      margin-top:.75rem;
-    }
-    .upsell-links a{
-      display:inline-flex;
-      align-items:center;
-      gap:.45rem;
-      padding:.55rem .75rem;
-      border-radius:999px;
-      border:1px solid rgba(0,0,0,.08);
-      background:#fff;
-      font-weight:900;
-      color:var(--primary);
-      text-decoration:none;
-    }
-    .upsell-links a:hover{ background:rgba(0,102,255,.06); border-color:rgba(0,102,255,.18); }
-  </style>
 </head>
 
 <body>
@@ -169,7 +56,7 @@
     <div class="header-main">
       <div class="container header-content">
         <a href="/" class="site-logo" aria-label="Retro Replay Home">
-          <img src="/assets/logo.png" alt="Retro Replay Logo" />
+          <img src="/assets/logo.png" alt="Retro Replay Logo" width="48" height="48" loading="eager" decoding="async" />
           <span>Retro Replay</span>
         </a>
 
@@ -179,10 +66,10 @@
         </form>
 
         <div class="header-actions">
-          <a href="/contact.html" class="header-action" aria-current="page"><span>📞</span><span>Support</span></a>
+          <a href="/contact.html" class="header-action" aria-current="page"><span aria-hidden="true">📞</span><span>Support</span></a>
 
           <a href="/checkout.html" class="header-action">
-            <span>🛒</span><span>Cart</span>
+            <span aria-hidden="true">🛒</span><span>Cart</span>
             <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
           </a>
 
@@ -217,24 +104,24 @@
   </header>
 
   <!-- MAIN -->
-  <main class="page-wrap">
+  <main class="rr-page">
 
-    <section class="page-hero">
+    <section class="rr-page-hero">
       <h1>Contact Retro Replay</h1>
-      <p class="muted">
+      <p class="rr-muted">
         Use the form below for quotes, orders, or support. Including your console model, budget, and game list helps us reply faster.
       </p>
     </section>
 
-    <section class="contact-grid">
+    <section class="rr-two-col">
 
       <!-- FORM -->
-      <div class="card">
+      <div class="rr-card">
         <h2>Send a message</h2>
-        <p class="muted">Include: console model (PS2 Fat/Slim), budget, game list, TV type (HDMI/AV), and number of players.</p>
+        <p class="rr-muted">Include: console model (PS2 Fat/Slim), budget, game list, TV type (HDMI/AV), and number of players.</p>
 
-        <form action="https://formspree.io/f/manrkvby" method="POST">
-          <div class="form-row">
+        <form action="https://formspree.io/f/manrkvby" method="POST" class="rr-form">
+          <div class="rr-form-row">
             <div>
               <label for="name">Name</label>
               <input id="name" name="name" type="text" placeholder="Your name" required />
@@ -263,18 +150,17 @@
           <input type="hidden" name="_next" value="https://retroreplay.uk/contact-thanks.html" />
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
-          <button class="btn" type="submit">Send message</button>
+          <button class="rr-btn-full" type="submit">Send message</button>
 
-          <div class="helpbox">
+          <div class="rr-helpbox">
             <strong>Tip:</strong> Paste your game list into the message box. We usually reply the same day.
           </div>
         </form>
 
-        <!-- UPSELL -->
-        <div class="upsell" aria-label="Helpful links">
+        <div class="rr-upsell" aria-label="Helpful links">
           <h3>Need help right now?</h3>
-          <p>If you’re stuck, these may solve it instantly (and if not, message us above).</p>
-          <div class="upsell-links">
+          <p class="rr-muted">If you’re stuck, these may solve it instantly (and if not, message us above).</p>
+          <div class="rr-upsell-links">
             <a href="/guides.html">📘 Setup guides</a>
             <a href="/services.html">🔧 Modding services</a>
             <a href="/playstation/products/ps2-fat.html">🎮 PS2 modded builds</a>
@@ -284,53 +170,64 @@
       </div>
 
       <!-- DETAILS -->
-      <aside class="card">
+      <aside class="rr-card">
         <h2>Primary Contact</h2>
 
-        <div class="contact-item">
-          <strong>Email</strong>
-          <span class="pill">preferred</span><br />
-          <a class="contact-link" href="mailto:retroreplay2026@gmail.com">retroreplay2026@gmail.com</a>
+        <div class="rr-split-item">
+          <div>
+            <strong>Email</strong> <span class="rr-pill">preferred</span>
+            <div><a class="rr-link" href="mailto:retroreplay2026@gmail.com">retroreplay2026@gmail.com</a></div>
+          </div>
         </div>
 
-        <div class="contact-item">
-          <strong>Response Time</strong><br />
-          <span class="muted">Usually same day replies</span>
+        <div class="rr-split-item">
+          <div>
+            <strong>Response Time</strong>
+            <div class="rr-muted">Usually same day replies</div>
+          </div>
         </div>
 
-        <div class="contact-item">
-          <strong>Best for</strong><br />
-          <span class="muted">Quotes • Custom PS2 builds • HDD upgrades • Warranty questions • General enquiries</span>
+        <div class="rr-split-item">
+          <div>
+            <strong>Best for</strong>
+            <div class="rr-muted">Quotes • Custom PS2 builds • HDD upgrades • Warranty questions • General enquiries</div>
+          </div>
         </div>
 
-        <div class="contact-item">
-          <strong>Order &amp; Support Info</strong><br />
-          <span class="muted">
-            If you ordered via eBay, message through your order for the fastest response.
-            Check our stock on eBay, Facebook, Vinted and Gumtree.
-          </span>
+        <div class="rr-split-item">
+          <div>
+            <strong>Order &amp; Support Info</strong>
+            <div class="rr-muted">
+              If you ordered via eBay, message through your order for the fastest response.
+              Check our stock on eBay, Facebook, Vinted and Gumtree.
+            </div>
+          </div>
         </div>
 
-        <div class="contact-item">
-          <strong>Include in your message</strong><br />
-          <span class="muted">
-            Console model (PS2 Fat/Slim), budget, game list, TV type (HDMI/AV), and number of players.
-          </span>
+        <div class="rr-split-item">
+          <div>
+            <strong>Include in your message</strong>
+            <div class="rr-muted">Console model (PS2 Fat/Slim), budget, game list, TV type (HDMI/AV), and number of players.</div>
+          </div>
         </div>
 
-        <div class="contact-item">
-          <strong>Sourcing Requests</strong><br />
-          <a class="contact-link" href="/sourcing-request.html">Open sourcing request →</a>
+        <div class="rr-split-item">
+          <div>
+            <strong>Sourcing Requests</strong>
+            <div><a class="rr-link" href="/sourcing-request.html">Open sourcing request →</a></div>
+          </div>
         </div>
       </aside>
 
     </section>
+
   </main>
 
   <!-- FOOTER (MASTER) -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-content">
+
+      <div class="footer-grid">
 
         <div class="footer-section">
           <h3>Retro Replay</h3>
@@ -373,24 +270,35 @@
       </div>
 
       <div class="footer-bottom">
-        © <span id="year"></span> Retro Replay. All rights reserved.
+        © 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.
       </div>
+
     </div>
   </footer>
 
+  <!-- COOKIE BANNER -->
+  <div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <div class="rr-cookie-inner">
+      <p>
+        We use cookies to measure traffic (analytics) and improve the site.
+        <a href="/cookie-policy.html">Cookie policy</a>
+      </p>
+      <div class="rr-cookie-actions">
+        <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
+        <button class="rr-cookie-btn rr-cookie-btn-primary" id="rrCookieAccept" type="button">Accept</button>
+      </div>
+    </div>
+  </div>
+
   <script src="/cart.js"></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Year
-      const y = document.getElementById("year");
-      if (y) y.textContent = new Date().getFullYear();
 
-      // Safe cart init
       if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
         window.RetroCart.loadCart();
       }
 
-      // Mobile nav toggle (MASTER)
       const btn = document.querySelector(".nav-toggle");
       const nav = document.getElementById("primaryNav");
       if (btn && nav) {
@@ -399,7 +307,6 @@
           btn.setAttribute("aria-expanded", nav.classList.contains("is-open") ? "true" : "false");
         });
 
-        // Close after tap
         nav.querySelectorAll("a").forEach(a => {
           a.addEventListener("click", () => {
             nav.classList.remove("is-open");
@@ -407,6 +314,21 @@
           });
         });
       }
+
+      const COOKIE_KEY = "rr_cookie_consent";
+      const banner = document.getElementById("rrCookie");
+      const acceptBtn = document.getElementById("rrCookieAccept");
+      const rejectBtn = document.getElementById("rrCookieReject");
+
+      function hideBanner(){ if (banner) banner.classList.add("is-hidden"); }
+      function showBanner(){ if (banner) banner.classList.remove("is-hidden"); }
+
+      const stored = localStorage.getItem(COOKIE_KEY);
+      if (!stored) showBanner();
+
+      if (acceptBtn) acceptBtn.addEventListener("click", () => { localStorage.setItem(COOKIE_KEY,"accepted"); hideBanner(); });
+      if (rejectBtn) rejectBtn.addEventListener("click", () => { localStorage.setItem(COOKIE_KEY,"rejected"); hideBanner(); });
+
     });
   </script>
 

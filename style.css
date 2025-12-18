@@ -942,3 +942,21 @@ ul{list-style:none}
 .rr-policy-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem}
 .rr-btn-small{padding:.7rem 1rem;border-radius:.95rem;font-weight:900}
 
+/* Shared helpers for content pages */
+.rr-narrow{max-width:900px}
+.rr-mini-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+.rr-notice-card{
+  background:#fff;
+  border:1px solid var(--gray-lighter);
+  border-radius:1rem;
+  padding:1.25rem;
+  box-shadow:var(--shadow-sm);
+}
+.rr-notice-card p{margin:.25rem 0 0 0;color:var(--gray)}
+.rr-checklist{margin:0;padding-left:1.1rem;line-height:2}
+.rr-checklist li{margin:.15rem 0}

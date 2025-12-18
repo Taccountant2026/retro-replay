@@ -1,212 +1,293 @@
+<!-- =========================
+  RetroReplay UK — how-we-refurbish.html (FULL BUILD FIXED)
+  Fixes:
+  - Root-relative paths everywhere (/style.css, /assets, /cart.js)
+  - Canonical + meta description + OG tags added
+  - Header/footer aligned exactly with MASTER layout
+  - Search form + nav toggle consistent with index/about
+  - Safe cart init + mobile nav JS
+========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>How We Refurbish | Retro Replay</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Learn about Retro Replay’s professional 7-step refurbishment process for retro gaming consoles, designed to maximise reliability and lifespan." />
+
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="canonical" href="https://retroreplay.uk/how-we-refurbish.html" />
+  <meta name="theme-color" content="#0066ff" />
+  <meta property="og:title" content="How We Refurbish | Retro Replay" />
+  <meta property="og:description" content="A precise, fully documented refurbishment workflow for retro gaming consoles." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
+  </script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Retro Replay",
+    "url":"https://retroreplay.uk/",
+    "logo":"https://retroreplay.uk/assets/logo.png",
+    "sameAs":[]
+  }
+  </script>
 </head>
+
 <body>
 
-<header class="site-header">
+  <!-- HEADER (MASTER) -->
+  <header class="site-header">
 
-  <!-- GLOBAL TOP BAR -->
-  <div class="header-top">
-    <div class="container">
-      <div class="header-promo">
-        <span>🔧 Professional Console Refurbishment</span>
-      </div>
-      <div class="header-links">
-        <a href="/about.html">About</a>
-        <a href="/warranties.html">Warranty</a>
+    <!-- TOP BAR -->
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo">
+          <span>🔧 Professional Console Refurbishment</span>
+        </div>
+        <div class="header-links">
+          <a href="/about.html">About</a>
+          <a href="/delivery.html">Delivery</a>
+          <a href="/warranties.html">Warranty</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- HEADER MAIN -->
-  <div class="header-main">
-    <div class="container header-content">
-      <a href="index.html" class="site-logo">
-        <img src="assets/logo.png" alt="Retro Replay">
-        <span>Retro Replay</span>
-      </a>
+    <!-- MAIN HEADER -->
+    <div class="header-main">
+      <div class="container header-content">
 
-      <div class="search-bar">
-        <input type="search" placeholder="Search..." aria-label="Search">
-        <button class="search-btn">Search</button>
-      </div>
-
-      <div class="header-actions">
-        <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-        <a href="checkout.html" class="header-action">
-          <span>🛒</span><span>Cart</span>
-          <span class="cart-badge" id="cart-count-js">0</span>
+        <a href="/" class="site-logo" aria-label="Retro Replay Home">
+          <img src="/assets/logo.png" alt="Retro Replay Logo" />
+          <span>Retro Replay</span>
         </a>
-      </div>
-    </div>
-  </div>
 
-  <!-- GLOBAL NAV -->
-  <nav class="main-nav">
-    <div class="container">
-      <ul class="nav-list">
+        <form class="search-bar" action="/search.html" method="get" role="search">
+          <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+          <button class="search-btn" type="submit">Search</button>
+        </form>
 
-        <li><a href="/index.html">Main Home</a></li>
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
 
-        <li><a href="/atari/index.html">Atari</a></li>
-        <li><a href="/nintendo/index.html">Nintendo</a></li>
-        <li><a href="/playstation/index.html">PlayStation</a></li>
-        <li><a href="/sega/index.html">Sega</a></li>
-        <li><a href="/xbox/index.html">Xbox</a></li>
+          <a href="/checkout.html" class="header-action">
+            <span>🛒</span><span>Cart</span>
+            <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
+          </a>
 
-        <li><a href="/guides.html">Setup Guides</a></li>
-        <li><a href="/sourcing-request.html">Sourcing</a></li>
-
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/warranties.html">Warranty</a></li>
-        <li><a href="/faq.html">FAQ</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-
-      </ul>
-    </div>
-  </nav>
-
-</header>
-
-<!-- HERO -->
-<section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
-  <div class="container hero-content">
-    <div class="hero-text">
-      <h1>Our Refurbishment Process</h1>
-      <p>A precise, fully documented restoration workflow designed to maximise lifespan, reliability and performance.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 7-STEP PROCESS -->
-<section class="section" style="background: white;">
-  <div class="container" style="max-width: 900px;">
-
-    <div class="product-card">
-      <div class="product-info">
-
-        <h2 class="section-title" style="text-align:center; margin-bottom:1.5rem; color:var(--dark);">
-          Our 7-Step Professional Refurbishment
-        </h2>
-
-        <ul class="product-features" style="font-size:1.15rem; line-height:1.9; color:var(--dark); padding-left:1.2rem;">
-
-          <li><strong>1. Full Disassembly</strong> — Every console is completely dismantled, cleaned and documented.  
-          This prevents unnoticed faults and ensures safe reassembly.</li>
-
-          <li><strong>2. Ultrasonic Component Cleaning</strong> — Ports, plastics and internal parts are ultrasonically cleaned to remove dust, oils and corrosion.</li>
-
-          <li><strong>3. Optical/Laser Calibration</strong> — Disc-based systems receive full laser tuning, lubrication and read-performance checks.</li>
-
-          <li><strong>4. Thermal Refresh</strong> — Old thermal paste is removed and replaced. Cooling assemblies are cleaned and fans are stabilised or replaced if needed.</li>
-
-          <li><strong>5. Power Delivery Inspection</strong> — PSU voltages, capacitors and connectors are tested to meet safe electrical output levels.</li>
-
-          <li><strong>6. Multi-Stage Play Testing</strong> — Games, controller ports, memory card slots, video output and audio are all tested live.</li>
-
-          <li><strong>7. Secure Final Assembly</strong> — The system is rebuilt, re-cleaned externally, and packaged using anti-static and impact-safe materials.</li>
-
-        </ul>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- GRADING -->
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Quality Grades</h2>
-      <p class="section-subtitle">Clear, honest cosmetic grading. Functionally, all grades perform identically.</p>
-    </div>
-
-    <div class="product-grid">
-
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">Grade A — Like New</h3>
-          <p class="product-description">Very minimal cosmetic wear. Ideal for collectors or display setups.</p>
+          <button class="nav-toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="primaryNav">☰</button>
         </div>
-      </div>
 
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">Grade B — Excellent</h3>
-          <p class="product-description">Light cosmetic marks but excellent overall condition. Best value choice.</p>
-        </div>
       </div>
-
-      <div class="product-card">
-        <div class="product-info">
-          <h3 class="product-name">Grade C — Good</h3>
-          <p class="product-description">More visible external wear, but fully tested and fully functional.</p>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
 
-<!-- GLOBAL FOOTER -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-content">
-
-      <div class="footer-section">
-        <h3>Retro Replay</h3>
-        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
-      </div>
-
-      <div class="footer-section">
-        <h3>Shop</h3>
-        <ul class="footer-links">
-          <li><a href="/playstation/index.html">PlayStation</a></li>
-          <li><a href="/xbox/index.html">Xbox</a></li>
-          <li><a href="/nintendo/index.html">Nintendo</a></li>
+    <!-- MAIN NAV -->
+    <nav class="main-nav" id="primaryNav" aria-label="Primary">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="/">Main Home</a></li>
           <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/playstation/index.html">PlayStation</a></li>
           <li><a href="/sega/index.html">Sega</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-section">
-        <h3>Support</h3>
-        <ul class="footer-links">
+          <li><a href="/xbox/index.html">Xbox</a></li>
           <li><a href="/guides.html">Setup Guides</a></li>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/warranties.html">Warranty Info</a></li>
-          <li><a href="/delivery.html">Delivery</a></li>
-          <li><a href="/contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-section">
-        <h3>Company</h3>
-        <ul class="footer-links">
-          <li><a href="/about.html">About Us</a></li>
-          <li><a href="/process.html">Our Process</a></li>
+          <li><a href="/sourcing-request.html">Sourcing</a></li>
           <li><a href="/services.html">Services</a></li>
-          <li><a href="/terms.html">Policies & Terms</a></li>
+          <li><a href="/warranties.html">Warranty</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
+      </div>
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Our Refurbishment Process</h1>
+        <p>
+          A precise, fully documented restoration workflow designed to maximise lifespan,
+          reliability, and performance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7-STEP PROCESS -->
+  <section class="section" style="background: white;">
+    <div class="container" style="max-width: 900px;">
+
+      <div class="product-card">
+        <div class="product-info">
+
+          <h2 class="section-title" style="text-align:center; margin-bottom:1.5rem;">
+            Our 7-Step Professional Refurbishment
+          </h2>
+
+          <ul class="product-features" style="font-size:1.15rem; line-height:1.9; padding-left:1.2rem;">
+
+            <li><strong>1. Full Disassembly</strong> — Every console is completely dismantled, cleaned, and documented to eliminate hidden faults.</li>
+
+            <li><strong>2. Deep Component Cleaning</strong> — Plastics, ports, and internal components are thoroughly cleaned to remove dust, oils, and corrosion.</li>
+
+            <li><strong>3. Optical / Laser Calibration</strong> — Disc-based systems receive laser tuning, lubrication, and read-performance verification.</li>
+
+            <li><strong>4. Thermal Refresh</strong> — Old thermal compounds are replaced and cooling systems restored for stable long-term operation.</li>
+
+            <li><strong>5. Power Delivery Inspection</strong> — Power supplies, voltages, and connectors are tested to meet safe operating tolerances.</li>
+
+            <li><strong>6. Multi-Stage Play Testing</strong> — Games, ports, video, audio, and controllers are tested under real-use conditions.</li>
+
+            <li><strong>7. Secure Final Assembly</strong> — Systems are rebuilt, externally detailed, and packaged using anti-static and impact-safe materials.</li>
+
+          </ul>
+
+        </div>
       </div>
 
     </div>
+  </section>
 
-    <div class="footer-bottom">
-      <p>© 2025 Retro Replay. Professionally tested & cleaned gaming consoles.</p>
+  <!-- GRADING -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Quality Grades</h2>
+        <p class="section-subtitle">
+          Clear, honest cosmetic grading. Functionally, all grades perform identically.
+        </p>
+      </div>
+
+      <div class="product-grid">
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Grade A — Like New</h3>
+            <p class="product-description">Very minimal cosmetic wear. Ideal for collectors or display setups.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Grade B — Excellent</h3>
+            <p class="product-description">Light cosmetic marks with excellent overall condition. Best value choice.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-info">
+            <h3 class="product-name">Grade C — Good</h3>
+            <p class="product-description">More visible external wear, but fully tested and fully functional.</p>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<script src="cart.js"></script>
-<script>RetroCart.loadCart();</script>
+  <!-- FOOTER (MASTER) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+
+        <div class="footer-section">
+          <h3>Retro Replay</h3>
+          <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul class="footer-links">
+            <li><a href="/playstation/index.html">PlayStation</a></li>
+            <li><a href="/xbox/index.html">Xbox</a></li>
+            <li><a href="/nintendo/index.html">Nintendo</a></li>
+            <li><a href="/atari/index.html">Atari</a></li>
+            <li><a href="/sega/index.html">Sega</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="/guides.html">Setup Guides</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/warranties.html">Warranty Info</a></li>
+            <li><a href="/delivery.html">Delivery</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/how-we-refurbish.html" aria-current="page">Our Process</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/terms.html">Policies &amp; Terms</a></li>
+            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 Retro Replay. Professionally tested &amp; cleaned gaming consoles.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/cart.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
+        window.RetroCart.loadCart();
+      }
+
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primaryNav');
+
+      if (btn && nav) {
+        btn.addEventListener('click', () => {
+          nav.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded',
+            nav.classList.contains('is-open') ? 'true' : 'false'
+          );
+        });
+
+        nav.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            nav.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>

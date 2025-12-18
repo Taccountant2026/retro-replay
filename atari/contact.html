@@ -1,88 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Atari Division | Retro Replay</title>
-  <link rel="stylesheet" href="../style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta name="description" content="Contact Retro Replay’s Atari Division for help with Atari consoles, orders, troubleshooting and setup guidance." />
 
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
+  <!-- IMPORTANT: this page is inside /atari/ so use ROOT paths -->
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
+
+  <style>
+    /* Page-local helpers only */
+    .contact-wrap { max-width: 760px; margin: 0 auto; }
+    .contact-card { background: #f9fafb; padding: 2rem; border-radius: 12px; border: 1px solid var(--gray-lighter); }
+    .field { margin-bottom: 1rem; }
+    .label { display:block; margin-bottom:.5rem; font-weight:800; color: var(--dark); }
+    .input, .textarea {
+      width: 100%;
+      padding: .85rem .9rem;
+      border: 2px solid var(--gray-lighter);
+      border-radius: 10px;
+      outline: none;
+      background: #fff;
+    }
+    .input:focus, .textarea:focus { border-color: rgba(37,99,235,.55); box-shadow: 0 0 0 5px rgba(37,99,235,.12); }
+    .textarea { min-height: 160px; resize: vertical; }
+  </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="header-top"><div class="container"><div class="header-promo"><span>📞 Atari Support</span></div></div></div>
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="../index.html" class="site-logo"><img src="../assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
-        <form class="search-bar" action="/search.html" method="get" role="search">
-  <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
-  <button class="search-btn" type="submit">Search</button>
-</form>
-        <div class="header-actions"><a href="../contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="../checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+
+<header class="site-header">
+
+  <!-- GLOBAL TOP BAR -->
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo">
+        <span>📞 Atari Support</span>
+        <span>✅ Fast, friendly help</span>
+      </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
       </div>
     </div>
-    <!-- GLOBAL TOP BAR -->
-<div class="header-top">
-  <div class="container">
-    <div class="header-promo">
-      <span>Retro Replay — Professionally tested and cleaned gaming consoles</span>
-    </div>
-    <div class="header-links">
-      <a href="/about.html">About</a>
-      <a href="/warranties.html">Warranty</a>
+  </div>
+
+  <!-- HEADER MAIN -->
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay" />
+        <span>Retro Replay</span>
+      </a>
+
+      <!-- Mobile menu button -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
+
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
+
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- GLOBAL MAIN NAV -->
-<nav class="main-nav">
-  <div class="container">
-    <ul class="nav-list">
+  <!-- GLOBAL MAIN NAV -->
+  <nav class="main-nav" id="primaryNav" aria-label="Primary">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html" aria-current="page">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-      <li><a href="/index.html">Main Home</a></li>
+</header>
 
-      <li><a href="/atari/index.html">Atari</a></li>
-      <li><a href="/nintendo/index.html">Nintendo</a></li>
-      <li><a href="/playstation/index.html">PlayStation</a></li>
-      <li><a href="/sega/index.html">Sega</a></li>
-      <li><a href="/xbox/index.html">Xbox</a></li>
-
-      <li><a href="/guides.html">Setup Guides</a></li>
-      <li><a href="/sourcing-request.html">Sourcing</a></li>
-
-      <li><a href="/services.html">Services</a></li>
-      <li><a href="/warranties.html">Warranty</a></li>
-      <li><a href="/faq.html">FAQ</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-
-    </ul>
+<!-- HERO -->
+<section class="hero" style="background: linear-gradient(135deg, #d62828 0%, #a61e1e 100%);">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Contact Atari Division</h1>
+      <p>Questions about Atari consoles, orders, setup or troubleshooting — we’re here to help.</p>
+      <div class="hero-cta">
+        <a href="/atari/index.html" class="btn btn-secondary">Browse Atari</a>
+        <a href="/sourcing-request.html" class="btn btn-primary">Request Sourcing</a>
+      </div>
+    </div>
   </div>
-</nav>
-  </header>
+</section>
 
-  <section class="hero" style="background: linear-gradient(135deg, #d62828 0%, #a61e1e 100%);"><div class="container hero-content"><div class="hero-text"><h1>Contact Atari Division</h1><p>Questions about your Atari consoles? We're here to help.</p></div></div></section>
+<!-- CONTENT -->
+<section class="section" style="background: white;">
+  <div class="container contact-wrap">
 
-  <section class="section" style="background: white;"><div class="container" style="max-width: 600px;"><div class="section-header"><h2 class="section-title">Get in Touch</h2></div><form onsubmit="return handleContactForm(event)" style="background: #f9fafb; padding: 2rem; border-radius: 12px;"><div style="margin-bottom: 1rem;"><label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Name</label><input type="text" placeholder="Your name" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></div><div style="margin-bottom: 1rem;"><label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Email</label><input type="email" placeholder="your@email.com" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></div><div style="margin-bottom: 1rem;"><label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Subject</label><input type="text" placeholder="How can we help?" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></div><div style="margin-bottom: 1.5rem;"><label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--dark);">Message</label><textarea placeholder="Tell us more..." rows="6" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--gray-lighter); border-radius: 8px;"></textarea></div><button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button></form><div style="background: #f0f4f8; padding: 1.5rem; border-radius: 12px; margin-top: 2rem;"><h3 style="color: var(--primary); margin-top: 0;">Other Ways to Reach Us</h3><p><strong>Email:</strong> atari@retroreplay.com</p><p><strong>Phone:</strong> +44 1234 567890</p></div></div></section>
+    <div class="section-header">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-subtitle">Send a message and we’ll reply as quickly as possible.</p>
+    </div>
 
-  <footer class="site-footer">
+    <!-- NOTE: Replace the Formspree endpoint if you want this routed to a specific inbox -->
+    <form class="contact-card" action="https://formspree.io/f/manrkvby" method="POST">
+      <input type="hidden" name="_subject" value="Retro Replay — Atari Contact Form" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_next" value="https://retroreplay.uk/contact-thanks.html" />
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <div class="field">
+        <label class="label" for="name">Name</label>
+        <input class="input" id="name" name="Name" type="text" placeholder="Your name" required />
+      </div>
+
+      <div class="field">
+        <label class="label" for="email">Email</label>
+        <input class="input" id="email" name="Email" type="email" placeholder="you@example.com" required />
+      </div>
+
+      <div class="field">
+        <label class="label" for="subject">Subject</label>
+        <input class="input" id="subject" name="Subject" type="text" placeholder="How can we help?" required />
+      </div>
+
+      <div class="field" style="margin-bottom: 1.25rem;">
+        <label class="label" for="message">Message</label>
+        <textarea class="textarea" id="message" name="Message" placeholder="Tell us what model you have, the issue, and what cables/TV you’re using." required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+    </form>
+
+    <div class="product-card" style="margin-top: 1.25rem;">
+      <div class="product-info">
+        <h3 class="product-name">Other ways to reach us</h3>
+        <p class="product-description"><strong>Email:</strong> support@retroreplay.uk</p>
+        <p class="product-description"><strong>Orders:</strong> Include your order number if you have one.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
   <div class="container">
     <div class="footer-content">
 
-      <!-- BRANDING -->
       <div class="footer-section">
         <h3>Retro Replay</h3>
-        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
       </div>
 
-      <!-- SHOP -->
       <div class="footer-section">
         <h3>Shop</h3>
         <ul class="footer-links">
@@ -94,7 +194,6 @@
         </ul>
       </div>
 
-      <!-- SUPPORT -->
       <div class="footer-section">
         <h3>Support</h3>
         <ul class="footer-links">
@@ -106,24 +205,52 @@
         </ul>
       </div>
 
-      <!-- COMPANY -->
       <div class="footer-section">
         <h3>Company</h3>
         <ul class="footer-links">
           <li><a href="/about.html">About Us</a></li>
-          <li><a href="/process.html">Our Process</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
-          <li><a href="/terms.html">Policies & Terms</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. All rights reserved. Professionally tested & cleaned gaming consoles.</p>
+      <p>© 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
-  <script src="../cart.js"></script><script>RetroCart.loadCart(); function handleContactForm(e){e.preventDefault(); alert('Thank you! We will respond shortly.'); e.target.reset(); return false;}</script>
+
+<!-- Scripts -->
+<script src="/cart.js" defer></script>
+<script src="/particles.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
+      window.RetroCart.loadCart();
+    }
+
+    // Mobile nav toggle + auto-close on link click
+    const navBtn = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("primaryNav");
+    if (navBtn && nav) {
+      navBtn.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+
+      nav.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          navBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+  });
+</script>
+
 </body>
 </html>

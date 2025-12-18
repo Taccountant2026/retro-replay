@@ -1,214 +1,387 @@
-/* =========================
-   HOME PAGE / GLOBAL FIX PATCH
-   Paste at bottom of /style.css
-========================= */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-/* Prevent any image from blowing out layouts */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+  <title>Retro Replay — Professionally Tested &amp; Restored Classic Consoles | PS2, Xbox, Nintendo &amp; More</title>
+  <meta name="description" content="Fully tested, professionally prepared and ready to play retro consoles. Optional refurbishment, HDD upgrades and extended warranty." />
 
-/* Container safety */
-.container {
-  width: min(1100px, calc(100% - 2rem));
-  margin-inline: auto;
-}
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-/* Header top spacing */
-.header-top-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.header-promo {
-  display: flex;
-  gap: .75rem 1.25rem;
-  flex-wrap: wrap;
-}
+  <link rel="canonical" href="https://retroreplay.uk/" />
+  <meta name="theme-color" content="#0066ff" />
+  <meta property="og:title" content="Retro Replay — Professionally Tested &amp; Restored Classic Consoles" />
+  <meta property="og:description" content="Professionally tested, cleaned and prepared consoles with optional upgrades and extended warranty." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-/* Hero logo sizing (stops massive logo) */
-.hero-logo {
-  width: min(280px, 70vw);
-  height: auto;
-  opacity: 0.9;
-}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
+  </script>
 
-/* Section utility replacements (instead of inline styles) */
-.section-soft {
-  background: #f8fafc;
-}
-.section-center {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.btn-lg {
-  margin-top: 1rem;
-  padding: 1rem 2.5rem;
-}
-
-/* Trust badges: consistent card heights */
-.trust-badges {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-}
-.trust-badge {
-  border-radius: 1rem;
-  padding: 1.25rem;
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(0,0,0,.06);
-}
-@media (max-width: 900px) {
-  .trust-badges { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 520px) {
-  .trust-badges { grid-template-columns: 1fr; }
-}
-
-/* Category cards: fix oversized images + align content */
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1rem;
-}
-.category-card {
-  display: grid;
-  gap: .75rem;
-  align-content: start;
-  border-radius: 1.25rem;
-  padding: 1.25rem;
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(0,0,0,.06);
-  text-decoration: none;
-}
-.category-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  background: rgba(0,0,0,.04);
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-.category-icon img {
-  width: 70%;
-  height: 70%;
-  object-fit: contain;
-}
-.category-name { margin: 0; }
-.category-count { margin: 0; opacity: .8; }
-
-@media (max-width: 1100px) {
-  .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 700px) {
-  .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 420px) {
-  .category-grid { grid-template-columns: 1fr; }
-}
-
-/* If you have product cards elsewhere, this normalises them too */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-.product-card {
-  border-radius: 1.25rem;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(0,0,0,.06);
-  display: grid;
-  align-content: start;
-}
-.product-media {
-  aspect-ratio: 4 / 3;
-  background: rgba(0,0,0,.04);
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-.product-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* stops huge crop/zoom */
-}
-.product-body {
-  padding: 1rem;
-  display: grid;
-  gap: .5rem;
-}
-@media (max-width: 900px) {
-  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 520px) {
-  .product-grid { grid-template-columns: 1fr; }
-}
-
-/* Footer: real columns instead of a long list */
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 1.25rem;
-  align-items: start;
-}
-.site-footer .footer-section h3,
-.site-footer .footer-title {
-  margin: 0 0 .75rem 0;
-}
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: .5rem;
-}
-.footer-links a {
-  text-decoration: none;
-  opacity: .9;
-}
-.footer-links a:hover { opacity: 1; }
-
-/* Footer accordion buttons (mobile only) */
-.footer-accordion .footer-title {
-  display: none; /* hidden on desktop */
-  width: 100%;
-  text-align: left;
-  background: transparent;
-  border: 0;
-  padding: .75rem 0;
-  font: inherit;
-  cursor: pointer;
-}
-@media (max-width: 900px) {
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-accordion .footer-title { display: inline-flex; justify-content: space-between; align-items: center; }
-  .footer-accordion .footer-links { display: none; padding-bottom: .75rem; }
-  .footer-accordion.is-open .footer-links { display: grid; }
-}
-
-/* Mobile nav: ensure it doesn't become an endless tall list */
-.main-nav .nav-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .25rem .75rem;
-}
-@media (max-width: 900px) {
-  .main-nav { display: none; }
-  .main-nav.is-open { display: block; }
-  .main-nav .nav-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: .5rem;
-    padding: .75rem 0;
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Retro Replay",
+    "url":"https://retroreplay.uk/",
+    "logo":"https://retroreplay.uk/assets/logo.png",
+    "sameAs":[]
   }
-}
-@media (max-width: 520px) {
-  .main-nav .nav-list { grid-template-columns: 1fr; }
-}
+  </script>
+</head>
+
+<body>
+
+  <header class="site-header">
+
+    <div class="header-top">
+      <div class="container header-top-inner">
+        <div class="header-promo">
+          <span>Latest Arrival: PS2 SCPH-50003 Back in Stock</span>
+          <span>Free Setup Guide Included with HDD Mods</span>
+        </div>
+        <div class="header-links">
+          <a href="/about.html">About</a>
+          <a href="/delivery.html">Delivery</a>
+          <a href="/warranties.html">Warranty</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container header-content">
+
+        <a href="/" class="site-logo" aria-label="Retro Replay Home">
+          <img src="/assets/logo.png" alt="Retro Replay Logo" width="44" height="44" loading="eager" decoding="async" />
+          <span>Retro Replay</span>
+        </a>
+
+        <form class="search-bar" action="/search.html" method="get" role="search">
+          <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+          <button class="search-btn" type="submit">Search</button>
+        </form>
+
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action"><span aria-hidden="true">📞</span><span>Support</span></a>
+
+          <a href="/checkout.html" class="header-action">
+            <span aria-hidden="true">🛒</span><span>Cart</span>
+            <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
+          </a>
+
+          <button class="nav-toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="primaryNav">☰</button>
+        </div>
+
+      </div>
+    </div>
+
+    <nav class="main-nav" id="primaryNav" aria-label="Primary">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="/" aria-current="page">Main Home</a></li>
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/sourcing-request.html">Sourcing</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/warranties.html">Warranty</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1>Fully Tested, Professionally Prepared &amp; Ready to Play Retro Consoles</h1>
+          <p>
+            Optional upgrades are available, including premium refurbishment, HDD and software enhancements,
+            and extended warranty cover.
+          </p>
+          <div class="hero-cta">
+            <a href="/playstation/products/ps2-fat.html" class="btn btn-primary">Shop Consoles</a>
+            <a href="/services.html" class="btn btn-secondary">Console Services</a>
+          </div>
+        </div>
+
+        <div class="hero-image" aria-hidden="true">
+          <img class="hero-logo" src="/assets/logo.png" alt="" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <section class="rr-ps2-feature">
+      <div class="container">
+        <div class="rr-ps2-shell">
+
+          <div class="rr-ps2-content">
+            <h2>PS2 Plug &amp; Play HDD Mod Kits</h2>
+            <p>
+              Professionally prepared systems designed for simplicity and long-term reliability.
+              Turn on, choose a game, and play — no discs required.
+            </p>
+
+            <div class="rr-ps2-actions">
+              <a href="/playstation/products/ps2-fat.html" class="btn btn-primary">View PS2 Modded Selection</a>
+              <a href="/contact.html" class="btn btn-secondary">Custom order / emulators</a>
+            </div>
+          </div>
+
+          <aside class="rr-ps2-card">
+            <h3>Included (typical)</h3>
+            <ul>
+              <li>Prepared HDD setup</li>
+              <li>FMCB memory card</li>
+              <li>Network adapter / SATA support</li>
+              <li>Setup guidance</li>
+              <li>Support if you get stuck</li>
+            </ul>
+            <a href="/playstation/products/ps2-fat.html">Shop PS2 builds →</a>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container section-center">
+        <h2 class="section-title">Request a Console to be Sourced</h2>
+        <p class="section-subtitle">
+          Looking for a specific revision, cosmetic grade, or bundle? Use our sourcing request service and we will locate
+          and test the exact console you want.
+        </p>
+
+        <a href="/sourcing-request.html" class="btn btn-primary btn-lg">
+          Open Sourcing Request Form
+        </a>
+      </div>
+    </section>
+
+    <section class="trust-bar">
+      <div class="container">
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <div class="trust-badge-icon" aria-hidden="true">✓</div>
+            <h3>Tested &amp; Verified</h3>
+            <p>Each console is checked and prepared before dispatch.</p>
+          </div>
+          <div class="trust-badge">
+            <div class="trust-badge-icon" aria-hidden="true">🛡</div>
+            <h3>Support Included</h3>
+            <p>Help if you get stuck — before and after delivery.</p>
+          </div>
+          <div class="trust-badge">
+            <div class="trust-badge-icon" aria-hidden="true">🧼</div>
+            <h3>Clean &amp; Presentable</h3>
+            <p>Professionally cleaned and ready to gift or enjoy.</p>
+          </div>
+          <div class="trust-badge">
+            <div class="trust-badge-icon" aria-hidden="true">📋</div>
+            <h3>Transparent Grading</h3>
+            <p>Clear condition notes and honest listings.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Shop by Console</h2>
+          <p class="section-subtitle">Browse curated categories across the main retro platforms.</p>
+        </div>
+
+        <div class="category-grid">
+          <a href="/playstation/index.html" class="category-card">
+            <div class="category-icon">
+              <img src="/assets/playstation-logo.png" alt="PlayStation" loading="lazy" decoding="async" />
+            </div>
+            <h3 class="category-name">PlayStation</h3>
+            <p class="category-count">PS1 • PS2 • PS3</p>
+          </a>
+
+          <a href="/xbox/index.html" class="category-card">
+            <div class="category-icon">
+              <img src="/assets/xboxlogo.png" alt="Xbox" loading="lazy" decoding="async" />
+            </div>
+            <h3 class="category-name">Xbox</h3>
+            <p class="category-count">Original • 360</p>
+          </a>
+
+          <a href="/nintendo/index.html" class="category-card">
+            <div class="category-icon">
+              <img src="/assets/nintendologo.png" alt="Nintendo" loading="lazy" decoding="async" />
+            </div>
+            <h3 class="category-name">Nintendo</h3>
+            <p class="category-count">NES • SNES • N64</p>
+          </a>
+
+          <a href="/atari/index.html" class="category-card">
+            <div class="category-icon">
+              <img src="/assets/atarilogo.png" alt="Atari" loading="lazy" decoding="async" />
+            </div>
+            <h3 class="category-name">Atari</h3>
+            <p class="category-count">2600 • 5200 • 7800</p>
+          </a>
+
+          <a href="/sega/index.html" class="category-card">
+            <div class="category-icon">
+              <img src="/assets/segalogo.png" alt="Sega" loading="lazy" decoding="async" />
+            </div>
+            <h3 class="category-name">Sega</h3>
+            <p class="category-count">Mega Drive • Saturn • Dreamcast</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Retro Replay</h3>
+          <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
+        </div>
+
+        <div class="footer-section footer-accordion">
+          <button class="footer-title" type="button" aria-expanded="false">Shop</button>
+          <ul class="footer-links">
+            <li><a href="/playstation/index.html">PlayStation</a></li>
+            <li><a href="/xbox/index.html">Xbox</a></li>
+            <li><a href="/nintendo/index.html">Nintendo</a></li>
+            <li><a href="/atari/index.html">Atari</a></li>
+            <li><a href="/sega/index.html">Sega</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section footer-accordion">
+          <button class="footer-title" type="button" aria-expanded="false">Support</button>
+          <ul class="footer-links">
+            <li><a href="/guides.html">Setup Guides</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/warranties.html">Warranty Info</a></li>
+            <li><a href="/delivery.html">Shipping</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section footer-accordion">
+          <button class="footer-title" type="button" aria-expanded="false">Company</button>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/how-we-refurbish.html">Our Process</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/terms.html">Policies &amp; Terms</a></li>
+            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.
+      </div>
+    </div>
+  </footer>
+
+  <div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <div class="rr-cookie-inner">
+      <p>
+        We use cookies to measure traffic (analytics) and improve the site.
+        <a href="/cookie-policy.html">Cookie policy</a>
+      </p>
+      <div class="rr-cookie-actions">
+        <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
+        <button class="rr-cookie-btn rr-cookie-btn-primary" id="rrCookieAccept" type="button">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/cart.js"></script>
+  <script src="/particles.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
+        window.RetroCart.loadCart();
+      }
+
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primaryNav');
+
+      if (btn && nav) {
+        btn.addEventListener('click', () => {
+          nav.classList.toggle('is-open');
+          const open = nav.classList.contains('is-open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+
+        nav.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            nav.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      const COOKIE_KEY = 'rr_cookie_consent';
+      const banner = document.getElementById('rrCookie');
+      const acceptBtn = document.getElementById('rrCookieAccept');
+      const rejectBtn = document.getElementById('rrCookieReject');
+
+      function hideBanner(){ if (banner) banner.classList.add('is-hidden'); }
+      function showBanner(){ if (banner) banner.classList.remove('is-hidden'); }
+
+      const stored = localStorage.getItem(COOKIE_KEY);
+      if (!stored) showBanner();
+
+      if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+          localStorage.setItem(COOKIE_KEY, 'accepted');
+          hideBanner();
+        });
+      }
+      if (rejectBtn) {
+        rejectBtn.addEventListener('click', () => {
+          localStorage.setItem(COOKIE_KEY, 'rejected');
+          hideBanner();
+        });
+      }
+
+      // Footer accordion (mobile)
+      const acc = document.querySelectorAll('.footer-accordion .footer-title');
+      acc.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const section = btn.closest('.footer-accordion');
+          const open = section.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

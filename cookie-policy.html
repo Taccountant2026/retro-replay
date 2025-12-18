@@ -1,12 +1,10 @@
 <!-- =========================
-  RetroReplay UK — cookie-policy.html (FULL BUILD FIXED)
-  Fixes:
-  - Root-relative paths everywhere (/style.css, /assets, /cart.js)
-  - Canonical + OG tags + theme-color added
-  - Header/nav matches MASTER (id="primaryNav")
-  - Cookie banner links to /cookie-policy.html
-  - Safe cart init + mobile nav toggle + close after tap
-  - Removes duplicate/relative href issues
+  RetroReplay UK — cookie-policy.html (MASTERED)
+  Changes:
+  - Removes inline <style> block (moves to reusable rr-policy CSS hooks)
+  - Uses MASTER footer layout (footer-grid) to match index
+  - Fixes cookie banner button class to rr-cookie-btn-primary (matches your CSS)
+  - Keeps your full policy content + table intact
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +26,6 @@
   <meta property="og:image" content="/assets/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -36,61 +33,6 @@
     gtag('js', new Date());
     gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
-
-  <style>
-    /* Page polish (safe overrides) */
-    .section{ padding:3rem 0; }
-    .policy-wrap{ max-width:900px; margin:0 auto; }
-    .policy-card{
-      background:#fff;
-      border:1px solid var(--gray-lighter);
-      border-radius:1rem;
-      padding:1.75rem;
-      box-shadow:var(--shadow-sm);
-    }
-    .policy-card h1{ margin-top:0; letter-spacing:-.02em; }
-    .policy-card h2{ margin-top:1.75rem; }
-    .policy-card h3{ margin-top:1.15rem; }
-    .policy-muted{ color:var(--gray); }
-    .policy-list{ padding-left:1.1rem; }
-    .policy-callout{
-      margin-top:1.25rem;
-      padding:1rem 1.1rem;
-      border-radius:1rem;
-      border:1px solid rgba(0,102,255,.18);
-      background:rgba(0,102,255,.06);
-    }
-    .policy-table{
-      width:100%;
-      border-collapse:separate;
-      border-spacing:0;
-      overflow:hidden;
-      border:1px solid var(--gray-lighter);
-      border-radius:1rem;
-      margin-top:.75rem;
-    }
-    .policy-table th, .policy-table td{
-      padding:.85rem .9rem;
-      border-bottom:1px solid var(--gray-lighter);
-      vertical-align:top;
-      text-align:left;
-    }
-    .policy-table tr:last-child td{ border-bottom:0; }
-    .policy-table th{
-      background:#f8fafc;
-      font-weight:900;
-      white-space:nowrap;
-    }
-    .policy-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.75rem;
-      margin-top:1.25rem;
-    }
-    .btn{ display:inline-flex; align-items:center; justify-content:center; }
-    .btn-small{ padding:.7rem 1rem; border-radius:.9rem; font-weight:900; }
-    :focus-visible{ outline:3px solid rgba(0,102,255,.35); outline-offset:2px; border-radius:.5rem; }
-  </style>
 </head>
 
 <body>
@@ -114,7 +56,7 @@
     <div class="header-main">
       <div class="container header-content">
         <a href="/" class="site-logo" aria-label="Retro Replay Home">
-          <img src="/assets/logo.png" alt="Retro Replay Logo" />
+          <img src="/assets/logo.png" alt="Retro Replay Logo" width="48" height="48" loading="eager" decoding="async" />
           <span>Retro Replay</span>
         </a>
 
@@ -124,10 +66,10 @@
         </form>
 
         <div class="header-actions">
-          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+          <a href="/contact.html" class="header-action"><span aria-hidden="true">📞</span><span>Support</span></a>
 
           <a href="/checkout.html" class="header-action">
-            <span>🛒</span><span>Cart</span>
+            <span aria-hidden="true">🛒</span><span>Cart</span>
             <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
           </a>
 
@@ -160,15 +102,15 @@
     </nav>
   </header>
 
-  <main class="section">
-    <div class="container policy-wrap">
-      <div class="policy-card">
+  <main class="rr-policy">
+    <div class="container rr-policy-wrap">
+      <article class="rr-policy-card">
         <h1>Cookie Policy</h1>
-        <p class="policy-muted">
+        <p class="rr-policy-muted">
           This policy explains what cookies are, which cookies we use on Retro Replay, and how you can control them.
         </p>
 
-        <div class="policy-callout">
+        <div class="rr-policy-callout">
           <strong>Quick summary:</strong> We only use non-essential cookies (analytics) if you accept them via the banner.
         </div>
 
@@ -192,7 +134,7 @@
           pages are visited most and how visitors move through the site).
         </p>
 
-        <table class="policy-table" aria-label="Cookie categories table">
+        <table class="rr-policy-table" aria-label="Cookie categories table">
           <thead>
             <tr>
               <th>Category</th>
@@ -215,30 +157,30 @@
         </table>
 
         <h2>Your choices</h2>
-        <ul class="policy-list">
+        <ul class="rr-policy-list">
           <li>You can accept or reject non-essential cookies using the cookie banner.</li>
           <li>If you previously chose, you can change your choice by clearing site data (local storage) in your browser and reloading the website.</li>
         </ul>
 
-        <div class="policy-actions">
-          <a class="btn btn-secondary btn-small" href="/cookie-policy.html">Refresh this page</a>
-          <a class="btn btn-primary btn-small" href="/contact.html">Contact support</a>
+        <div class="rr-policy-actions">
+          <a class="btn btn-secondary rr-btn-small" href="/cookie-policy.html">Refresh this page</a>
+          <a class="btn btn-primary rr-btn-small" href="/contact.html">Contact support</a>
         </div>
 
         <h2>Contact</h2>
-        <p>
-          If you have questions about this policy, contact us via the <a href="/contact.html">contact page</a>.
-        </p>
+        <p>If you have questions about this policy, contact us via the <a href="/contact.html">contact page</a>.</p>
 
-        <p class="policy-muted"><strong>Last updated:</strong> <span id="policy-updated"></span></p>
-      </div>
+        <p class="rr-policy-muted"><strong>Last updated:</strong> <span id="policy-updated"></span></p>
+      </article>
     </div>
   </main>
 
   <!-- FOOTER (MASTER) -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-content">
+
+      <div class="footer-grid">
+
         <div class="footer-section">
           <h3>Retro Replay</h3>
           <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
@@ -276,11 +218,13 @@
             <li><a href="/cookie-policy.html" aria-current="page">Cookie Policy</a></li>
           </ul>
         </div>
+
       </div>
 
       <div class="footer-bottom">
-        <p>© <span id="year"></span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
+        © <span id="year"></span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.
       </div>
+
     </div>
   </footer>
 
@@ -293,7 +237,7 @@
       </p>
       <div class="rr-cookie-actions">
         <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
-        <button class="rr-cookie-btn rr-cookie-accept" id="rrCookieAccept" type="button">Accept</button>
+        <button class="rr-cookie-btn rr-cookie-btn-primary" id="rrCookieAccept" type="button">Accept</button>
       </div>
     </div>
   </div>
@@ -315,7 +259,7 @@
         window.RetroCart.loadCart();
       }
 
-      // Mobile nav toggle
+      // Mobile nav toggle + close after tap
       const btn = document.querySelector('.nav-toggle');
       const nav = document.getElementById('primaryNav');
       if (btn && nav) {
@@ -333,7 +277,7 @@
       }
 
       // Cookie banner (store choice only)
-      const COOKIE_KEY = 'rr_cookie_consent'; // accepted | rejected
+      const COOKIE_KEY = 'rr_cookie_consent';
       const banner = document.getElementById('rrCookie');
       const accept = document.getElementById('rrCookieAccept');
       const reject = document.getElementById('rrCookieReject');
@@ -344,16 +288,10 @@
 
       if (!saved) show(); else hide();
 
-      if (accept) accept.addEventListener('click', () => {
-        localStorage.setItem(COOKIE_KEY, 'accepted');
-        hide();
-      });
-
-      if (reject) reject.addEventListener('click', () => {
-        localStorage.setItem(COOKIE_KEY, 'rejected');
-        hide();
-      });
+      if (accept) accept.addEventListener('click', () => { localStorage.setItem(COOKIE_KEY,'accepted'); hide(); });
+      if (reject) reject.addEventListener('click', () => { localStorage.setItem(COOKIE_KEY,'rejected'); hide(); });
     });
   </script>
+
 </body>
 </html>

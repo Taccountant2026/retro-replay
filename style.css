@@ -622,3 +622,11 @@ ul{list-style:none}
   /* cookie banner stack */
   .rr-cookie-inner{flex-direction:column;align-items:flex-start}
 }
+/* About / content pages prose */
+.rr-prose p{
+  color: var(--gray);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin: 0 0 1.25rem 0;
+}
+

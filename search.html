@@ -16,6 +16,13 @@
     gtag('js', new Date());
     gtag('config', 'G-PF6Q3TSMVL');
   </script>
+
+  <style>
+    /* Page-only helper for nicer result cards (optional, safe) */
+    .search-wrap { max-width: 900px; margin: 0 auto; }
+    .search-result-card { display:block; text-decoration:none; color:inherit; }
+    .search-result-card:hover { transform: translateY(-1px); }
+  </style>
 </head>
 
 <body>
@@ -27,7 +34,7 @@
     <div class="container">
       <div class="header-promo">
         <span>🔎 Site Search</span>
-        <span>Find consoles, pages, guides & policies</span>
+        <span>Find consoles, pages, guides &amp; policies</span>
       </div>
       <div class="header-links">
         <a href="/about.html">About</a>
@@ -40,12 +47,12 @@
   <!-- HEADER MAIN -->
   <div class="header-main">
     <div class="container header-content">
-      <a href="/index.html" class="site-logo">
+      <a href="/index.html" class="site-logo" aria-label="Retro Replay Home">
         <img src="/assets/logo.png" alt="Retro Replay Logo" />
         <span>Retro Replay</span>
       </a>
 
-      <!-- Mobile menu button (pairs with JS below + CSS in style.css) -->
+      <!-- Mobile menu button -->
       <button class="nav-toggle"
               type="button"
               aria-label="Open menu"
@@ -53,7 +60,9 @@
               aria-controls="primaryNav">☰</button>
 
       <form class="search-bar" action="/search.html" method="get" role="search">
-        <input id="q" type="search" name="q" placeholder="Try: ps2, hdd mod, warranty, dreamcast..." aria-label="Search site" />
+        <input id="q" type="search" name="q"
+               placeholder="Try: ps2, hdd mod, warranty, dreamcast..."
+               aria-label="Search site" />
         <button class="search-btn" type="submit">Search</button>
       </form>
 
@@ -61,14 +70,14 @@
         <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
         <a href="/checkout.html" class="header-action">
           <span>🛒</span><span>Cart</span>
-          <span class="cart-badge" id="cart-count-js">0</span>
+          <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
         </a>
       </div>
     </div>
   </div>
 
   <!-- GLOBAL NAV -->
-  <nav class="main-nav" id="primaryNav">
+  <nav class="main-nav" id="primaryNav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
         <li><a href="/index.html">Main Home</a></li>
@@ -101,7 +110,7 @@
 </section>
 
 <section class="section" style="background: white;">
-  <div class="container" style="max-width: 900px;">
+  <div class="container search-wrap">
     <div class="section-header" style="margin-bottom: 1rem;">
       <h2 class="section-title" id="results-title">Results</h2>
       <p class="section-subtitle" id="results-meta">Enter a search term above.</p>
@@ -164,12 +173,15 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
+      <p>© <span id="year"></span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
 
-<script src="/cart.js"></script>
+<!-- Global scripts -->
+<script src="/cart.js" defer></script>
+<script src="/particles.js" defer></script>
+
 <script>
   // Simple site index (edit/extend anytime)
   const INDEX = [
@@ -249,7 +261,7 @@
 
     noEl.style.display = "none";
     resultsEl.innerHTML = scored.map(({ item }) => `
-      <a class="product-card" href="${escapeHtml(item.url)}" style="text-decoration:none;">
+      <a class="product-card search-result-card" href="${escapeHtml(item.url)}">
         <div class="product-info">
           <h3 class="product-name">${escapeHtml(item.title)}</h3>
           <p class="product-description">${escapeHtml(item.url)}</p>
@@ -259,15 +271,29 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    if (window.RetroCart && typeof RetroCart.loadCart === "function") RetroCart.loadCart();
+    // Year
+    const y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
 
-    // Mobile menu toggle (pairs with CSS in style.css)
+    // Cart
+    if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
+      window.RetroCart.loadCart();
+    }
+
+    // Mobile menu toggle + auto-close on link click
     const navBtn = document.querySelector(".nav-toggle");
     const nav = document.getElementById("primaryNav");
     if (navBtn && nav) {
       navBtn.addEventListener("click", () => {
         const open = nav.classList.toggle("is-open");
         navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+
+      nav.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          navBtn.setAttribute("aria-expanded", "false");
+        });
       });
     }
 

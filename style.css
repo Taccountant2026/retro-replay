@@ -629,4 +629,160 @@ ul{list-style:none}
   line-height: 1.85;
   margin: 0 0 1.25rem 0;
 }
+/* =========================
+   Checkout page (rr-checkout)
+========================= */
+.rr-checkout-container{max-width:900px}
+
+.rr-cart-items{display:grid;gap:1rem;margin-bottom:1.5rem}
+
+.rr-cart-row{
+  display:flex;
+  gap:1.25rem;
+  padding:1.25rem;
+  border-radius:1.25rem;
+  background:#fff;
+  border:1px solid rgba(0,102,255,.10);
+  box-shadow:var(--shadow-sm);
+}
+
+.rr-cart-row-img{
+  flex:0 0 auto;
+  width:140px;
+  height:140px;
+  border-radius:1rem;
+  overflow:hidden;
+  background:rgba(0,102,255,.06);
+  border:1px solid rgba(0,102,255,.10);
+  display:grid;
+  place-items:center;
+}
+.rr-cart-row-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.rr-cart-row-main{flex:1;display:flex;flex-direction:column;gap:1rem}
+
+.rr-cart-row-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+.rr-cart-row-title{
+  font-size:1.2rem;
+  font-weight:900;
+  margin:0;
+}
+.rr-cart-row-unit{
+  display:flex;
+  flex-direction:column;
+  gap:.15rem;
+  color:var(--gray);
+  font-weight:700;
+}
+.rr-cart-row-unit strong{color:var(--dark);font-weight:900}
+
+.rr-cart-row-controls{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.rr-qty{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
+.rr-qty-label{color:var(--gray);font-weight:800;font-size:.95rem}
+.rr-qty-wrap{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  background:rgba(0,102,255,.06);
+  border:1px solid rgba(0,102,255,.12);
+  padding:.35rem .45rem;
+  border-radius:.75rem;
+}
+.rr-qty-btn{
+  border:0;
+  background:transparent;
+  color:var(--primary);
+  font-weight:900;
+  font-size:1.1rem;
+  padding:.35rem .6rem;
+  border-radius:.6rem;
+}
+.rr-qty-btn:hover{background:rgba(0,102,255,.10)}
+.rr-qty-value{min-width:34px;text-align:center;font-weight:900}
+
+.rr-cart-row-right{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+.rr-subtotal{display:flex;flex-direction:column;gap:.15rem;min-width:140px}
+.rr-subtotal-label{color:var(--gray);font-weight:800;font-size:.9rem}
+.rr-subtotal-value{color:var(--primary);font-weight:900;font-size:1.25rem}
+
+.rr-remove-btn{white-space:nowrap}
+
+/* Totals */
+.rr-cart-totals{
+  background:#fff;
+  border:1px solid rgba(0,102,255,.10);
+  box-shadow:var(--shadow-sm);
+  border-radius:1.25rem;
+  padding:1.25rem;
+  margin-bottom:1rem;
+}
+.rr-cart-total-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+  border-top:2px solid var(--gray-lighter);
+  padding-top:1.25rem;
+}
+.rr-cart-total-label{font-size:1.15rem;font-weight:900;color:var(--dark)}
+.rr-cart-total-value{font-size:2rem;font-weight:900;color:var(--primary)}
+
+.rr-checkout-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.rr-btn-wide{flex:1;text-align:center}
+
+.rr-checkout-info{
+  margin-top:1.5rem;
+  background:rgba(0,102,255,.06);
+  border:1px solid rgba(0,102,255,.12);
+  border-radius:1.25rem;
+  padding:1.25rem;
+}
+.rr-checkout-info h3{margin:0 0 .5rem 0;color:var(--primary);font-weight:900}
+.rr-checkout-info-list{list-style:none;margin:0;padding:0;color:var(--gray);line-height:1.9;font-weight:700}
+
+/* Empty cart */
+.rr-empty-cart{
+  text-align:center;
+  padding:2rem;
+  background:rgba(0,0,0,.03);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:1.25rem;
+  color:var(--gray);
+}
+.rr-empty-cart-link{color:var(--primary);font-weight:900}
+
+/* Mobile safety */
+@media (max-width:768px){
+  .rr-cart-row{flex-direction:column}
+  .rr-cart-row-img{width:min(320px,100%);height:auto;aspect-ratio:1/1}
+  .rr-cart-row-img img{height:auto;aspect-ratio:1/1}
+  .rr-cart-row-controls{flex-direction:column;align-items:flex-start}
+  .rr-cart-row-right{width:100%;justify-content:space-between}
+  .rr-subtotal{min-width:auto}
+  .rr-checkout-actions{flex-direction:column}
+  .rr-btn-wide{width:100%}
+}
 

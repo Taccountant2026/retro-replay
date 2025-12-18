@@ -790,3 +790,25 @@ ul{list-style:none}
 .rr-card-link:hover .product-card{transform:translateY(-2px)}
 .product-card{transition:transform .15s ease, box-shadow .15s ease}
 
+/* Simple message pages (contact thanks, etc.) */
+.rr-simple-page{
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+.rr-simple-card{
+  background:#fff;
+  border:1px solid var(--gray-lighter);
+  border-radius:1.25rem;
+  padding:1.5rem;
+  box-shadow:var(--shadow-sm);
+}
+.rr-simple-card h1{margin:0 0 .5rem 0;font-weight:900}
+.rr-simple-card p{margin:0;color:var(--gray);font-weight:600;line-height:1.75}
+.rr-simple-actions{
+  margin-top:1rem;
+  display:flex;
+  gap:.75rem;
+  flex-wrap:wrap;
+}
+

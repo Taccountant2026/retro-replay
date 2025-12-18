@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atari 2600 Complete Guide | Retro Replay</title>
-  <link rel="stylesheet" href="../../style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Complete Atari 2600 guide: history, models, cartridge care, common issues, maintenance, and collector tips." />
+
+  <!-- IMPORTANT: this page lives in /atari/guides/ so use ROOT paths -->
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
+
   <style>
     .guide-content { max-width: 900px; margin: 0 auto; line-height: 1.8; }
     .guide-section { margin: 2.5rem 0; padding: 2rem; background: #f8f9fa; border-radius: 1rem; }
@@ -16,29 +29,23 @@
     .model-comparison { background: white; margin: 1.5rem 0; padding: 1.5rem; border-left: 4px solid #b45309; }
     .fun-fact { background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%); padding: 1.5rem; border-radius: 0.75rem; margin: 1rem 0; border-left: 4px solid #b45309; }
   </style>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
 </head>
-  
+
 <body>
+
 <header class="site-header">
 
   <!-- GLOBAL TOP BAR -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
-        <span>Retro Replay — Professionally tested and cleaned gaming consoles</span>
+        <span>📖 Atari Guides</span>
+        <span>Atari 2600 Complete Guide</span>
       </div>
       <div class="header-links">
-        <a href="../about.html">About</a>
-        <a href="../warranties.html">Warranty</a>
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
       </div>
     </div>
   </div>
@@ -46,308 +53,318 @@
   <!-- HEADER MAIN -->
   <div class="header-main">
     <div class="container header-content">
-      <a href="../index.html" class="site-logo">
-        <img src="../assets/logo.png" alt="Retro Replay">
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay" />
         <span>Retro Replay</span>
       </a>
 
-<form class="search-bar" action="/search.html" method="get" role="search">
-  <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
-  <button class="search-btn" type="submit">Search</button>
-</form>
+      <!-- Mobile menu button -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
+
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
 
       <div class="header-actions">
-        <a href="../contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-        <a href="../checkout.html" class="header-action">
-          <span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span>
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
         </a>
       </div>
     </div>
   </div>
 
   <!-- GLOBAL MAIN NAV -->
-  <nav class="main-nav">
+  <nav class="main-nav" id="primaryNav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
-        <li><a href="../index.html">Main Home</a></li>
-
-        <li><a href="../atari/index.html">Atari</a></li>
-        <li><a href="../nintendo/index.html">Nintendo</a></li>
-        <li><a href="../playstation/index.html">PlayStation</a></li>
-        <li><a href="../sega/index.html">Sega</a></li>
-        <li><a href="../xbox/index.html">Xbox</a></li>
-
-        <li><a href="../guides.html">Setup Guides</a></li>
-        <li><a href="../sourcing-request.html">Sourcing</a></li>
-
-        <li><a href="../services.html">Services</a></li>
-        <li><a href="../warranties.html">Warranty</a></li>
-        <li><a href="../faq.html">FAQ</a></li>
-        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
       </ul>
     </div>
   </nav>
 
 </header>
 
-  <section class="hero" style="background: linear-gradient(135deg, #b45309 0%, #92400e 100%); padding: 3rem 0;">
-    <div class="container">
-      <div style="text-align: center; color: white;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Atari 2600 — The System That Started It All</h1>
-        <p style="font-size: 1.1rem;">Complete guide to the console that created the video game industry, including cartridge care and historical significance.</p>
+<section class="hero" style="background: linear-gradient(135deg, #b45309 0%, #92400e 100%); padding: 3rem 0;">
+  <div class="container">
+    <div style="text-align: center; color: white;">
+      <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Atari 2600 — The System That Started It All</h1>
+      <p style="font-size: 1.1rem;">Complete guide to the console that created the video game industry, including cartridge care and historical significance.</p>
+
+      <div class="hero-cta" style="justify-content:center; margin-top: 1.25rem;">
+        <a href="/atari/guides.html" class="btn btn-secondary">Back to Atari Guides</a>
+        <a href="/sourcing-request.html" class="btn btn-primary">Request a Sourced Atari</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" style="background: white;">
-    <div class="container guide-content">
-      
-      <!-- Console Overview -->
-      <div class="guide-section">
-        <h2>🎮 Console Overview</h2>
-        <p>The Atari 2600, released in September 1977, created the home video game industry. With over 30 million units sold across its 15-year lifespan, it established gaming as a mainstream consumer product and launched iconic franchises like Pac-Man, Space Invaders, and Pitfall. The 2600 remains one of the most historically significant consoles ever made.</p>
-        
-        <h3>Historical Importance</h3>
-        <ul class="guide-list">
-          <li><strong>Industry Pioneer:</strong> First successful home video game console. Established the cartridge-based console business model.</li>
-          <li><strong>Cultural Impact:</strong> Made arcade gaming accessible at home. Created gaming culture as we know it.</li>
-          <li><strong>Technical Innovation:</strong> 6507 processor, 128 bytes RAM (yes, bytes not megabytes). Developers performed miracles with limited hardware.</li>
-          <li><strong>Legendary Titles:</strong> Space Invaders, Pac-Man, Pitfall, Combat, Adventure (first adventure game for home console).</li>
-          <li><strong>Backward Compatibility:</strong> Games from 1977 work on consoles from 1991. Proven reliability.</li>
-        </ul>
+<section class="section" style="background: white;">
+  <div class="container guide-content">
 
-        <div class="fun-fact">
-          <strong>💡 Fun Fact:</strong> The 1983 video game crash was largely triggered by Atari's poor game publishing decisions. The infamous "E.T. Extra-Terrestrial" game was so bad that it's credited with nearly destroying the entire video game industry.
-        </div>
+    <!-- Console Overview -->
+    <div class="guide-section">
+      <h2>🎮 Console Overview</h2>
+      <p>The Atari 2600, released in September 1977, created the home video game industry. With over 30 million units sold across its 15-year lifespan, it established gaming as a mainstream consumer product and launched iconic franchises like Pac-Man, Space Invaders, and Pitfall. The 2600 remains one of the most historically significant consoles ever made.</p>
+
+      <h3>Historical Importance</h3>
+      <ul class="guide-list">
+        <li><strong>Industry Pioneer:</strong> First successful home video game console. Established the cartridge-based console business model.</li>
+        <li><strong>Cultural Impact:</strong> Made arcade gaming accessible at home. Created gaming culture as we know it.</li>
+        <li><strong>Technical Innovation:</strong> 6507 processor, 128 bytes RAM. Developers performed miracles with limited hardware.</li>
+        <li><strong>Legendary Titles:</strong> Space Invaders, Pac-Man, Pitfall, Combat, Adventure (first adventure game for home console).</li>
+        <li><strong>Backward Compatibility:</strong> Games from 1977 work on consoles from 1991. Proven reliability.</li>
+      </ul>
+
+      <div class="fun-fact">
+        <strong>💡 Fun Fact:</strong> The 1983 video game crash was largely triggered by Atari's poor game publishing decisions. The infamous "E.T. Extra-Terrestrial" game is often cited as a major contributor.
       </div>
+    </div>
 
-      <!-- Atari 2600 Models -->
-      <div class="guide-section">
-        <h2>📦 Atari 2600 Revisions</h2>
-        
-        <div class="model-comparison">
-          <h3>Heavy Sixer (CX-2600 - 1977-1980)</h3>
-          <p>Original design weighing 6 pounds (the "six" refers to weight).</p>
-          <ul class="guide-list">
-            <li>Heavier construction; better cooling</li>
-            <li>Silver bezel and colored case variants (rare)</li>
-            <li>Less prone to overheating than later models</li>
-            <li>Most collectible original variant</li>
-          </ul>
-        </div>
+    <!-- Atari 2600 Models -->
+    <div class="guide-section">
+      <h2>📦 Atari 2600 Revisions</h2>
 
-        <div class="model-comparison">
-          <h3>Light Sixer (CX-2600 - 1980-1982)</h3>
-          <p>Slightly redesigned version with reduced weight and cost.</p>
-          <ul class="guide-list">
-            <li>Lighter construction (4.5 lbs)</li>
-            <li>Black bezel instead of silver</li>
-            <li>Cost reduction for consumer; less robust than Heavy Sixer</li>
-            <li>Still fully compatible with all cartridges</li>
-          </ul>
-        </div>
-
-        <div class="model-comparison">
-          <h3>CX-2600 Junior (1985-1992)</h3>
-          <p>Redesigned compact model with integrated joysticks.</p>
-          <ul class="guide-list">
-            <li>Significantly smaller footprint</li>
-            <li>Built-in joystick; cartridge-based controllers not needed</li>
-            <li>Black color scheme</li>
-            <li>Most common variant; readily available</li>
-          </ul>
-        </div>
-
-        <div class="fun-fact">
-          <strong>💡 Fun Fact:</strong> The Heavy Sixer's "six" refers to its 6-pound weight. It was literally named after its heaviness! The name stuck even though later models were much lighter.
-        </div>
-      </div>
-
-      <!-- Cartridges & Accessories -->
-      <div class="guide-section">
-        <h2>🎮 Cartridges & Accessories</h2>
-        
-        <h3>Cartridge Care & Longevity</h3>
+      <div class="model-comparison">
+        <h3>Heavy Sixer (CX-2600 - 1977-1980)</h3>
+        <p>Original design with heavier construction and distinctive styling.</p>
         <ul class="guide-list">
-          <li><strong>ROM Chip Durability:</strong> Atari 2600 cartridges use ROM chips rated for 40-50+ year lifespan. Many games work perfectly after 45+ years.</li>
-          <li><strong>Contact Corrosion:</strong> Gold and silver contacts can oxidize. Use pencil eraser or specialized cleaner to restore connection.</li>
-          <li><strong>Plastic Degradation:</strong> Cartridge cases become brittle over time. Avoid dropping or applying pressure.</li>
-          <li><strong>Label Care:</strong> Original labels are often damaged. Avoid moisture and UV exposure to preserve.</li>
-        </ul>
-
-        <h3>Controllers & Input Devices</h3>
-        <ul class="guide-list">
-          <li><strong>Joystick Controller:</strong> Classic design; potentiometer wears out after extended use. Replacement sticks available (£3-8).</li>
-          <li><strong>Paddles:</strong> Dial controllers for games like Pong. Still fully functional on most units.</li>
-          <li><strong>Keypad Controllers:</strong> Numeric keypad for games like Berzerk. Membrane switches frequently fail.</li>
-          <li><strong>Modern Controllers:</strong> Third-party joysticks and adapters provide enhanced comfort and reliability.</li>
-        </ul>
-
-        <h3>Expansion Accessories</h3>
-        <ul class="guide-list">
-          <li><strong>RF Switch:</strong> Antenna connector to television. Original switches often corroded; replacements available.</li>
-          <li><strong>Composite Cable:</strong> Better video quality than RF. Connects to yellow RCA jack on modern TVs.</li>
-          <li><strong>Power Supply:</strong> Original 9V adapters still work; replacements available for failed units.</li>
-          <li><strong>Game Cartridge Holders:</strong> Organization boxes for game collections.</li>
+          <li>Heavier construction; better cooling</li>
+          <li>Silver bezel and colored case variants (rare)</li>
+          <li>Less prone to overheating than later models</li>
+          <li>Most collectible early variant</li>
         </ul>
       </div>
 
-      <!-- Refurbishment & Care -->
-      <div class="guide-section">
-        <h2>🔧 Refurbishment & Maintenance</h2>
-        
-        <h3>Common Atari 2600 Issues</h3>
+      <div class="model-comparison">
+        <h3>Light Sixer (CX-2600 - 1980-1982)</h3>
+        <p>Revised version with reduced weight and production cost.</p>
         <ul class="guide-list">
-          <li><strong>No Video Output:</strong> Usually RF switch failure or cartridge connection issue. Cleaning contacts resolves most cases.</li>
-          <li><strong>Cartridge Read Errors:</strong> Oxidized contacts. Use pencil eraser or specialized cartridge cleaner.</li>
-          <li><strong>Joystick Wear:</strong> Potentiometer degradation after 40+ years. Replacement joysticks recommended.</li>
-          <li><strong>Power Supply Failure:</strong> 9V transformer aging. Modern replacements available.</li>
-          <li><strong>Color Fading:</strong> Plastic yellowing from age and UV exposure. No reversal; cosmetic only.</li>
-        </ul>
-
-        <h3>Professional Restoration Process</h3>
-        <ul class="guide-list">
-          <li><strong>Deep Cleaning:</strong> Remove dust and debris from case vents and cartridge slot.</li>
-          <li><strong>Contact Restoration:</strong> All cartridge and controller contacts cleaned and inspected.</li>
-          <li><strong>Power Supply Testing:</strong> Verify 9V transformer output stable and protective fuse functional.</li>
-          <li><strong>Video Output Testing:</strong> RF and composite video tested with period-appropriate TVs or modern TV compatibility verified.</li>
-          <li><strong>Controller Refurbishment:</strong> Joysticks tested and replaced if needed. Potentiometer contacts cleaned.</li>
-          <li><strong>Full Game Library Test:</strong> Multiple cartridges tested to verify reliable operation.</li>
-        </ul>
-
-        <h3>Preventive Maintenance</h3>
-        <ul class="guide-list">
-          <li>Store cartridges vertically or horizontally in acid-free boxes</li>
-          <li>Keep console in cool, dry environment (avoid basements with moisture)</li>
-          <li>Clean cartridge contacts every 5-10 years with pencil eraser</li>
-          <li>Avoid excessive sunlight exposure (prevents yellowing)</li>
-          <li>Use modern power supply if original fails; never force insertion</li>
-          <li>Test games periodically to catch issues early</li>
+          <li>Lighter construction</li>
+          <li>Black bezel instead of silver</li>
+          <li>Cost reduction; slightly less robust than early units</li>
+          <li>Still fully compatible with all cartridges</li>
         </ul>
       </div>
 
-      <!-- Collector's Guide -->
-      <div class="guide-section">
-        <h2>💰 Collector's Guide & Game Library</h2>
-        
-        <h3>Console Rarity & Value</h3>
+      <div class="model-comparison">
+        <h3>CX-2600 Junior (1985-1992)</h3>
+        <p>Redesigned compact model with later-era styling.</p>
         <ul class="guide-list">
-          <li><strong>Heavy Sixer (Original):</strong> £300-600+ in good condition. Most desirable variant.</li>
-          <li><strong>Light Sixer:</strong> £150-300 in working condition. Still valuable but less sought-after.</li>
-          <li><strong>Junior Model:</strong> £50-150. Most affordable variant. Still fully functional.</li>
-          <li><strong>Original Packaging:</strong> Box, manuals, and inserts can double console value.</li>
-        </ul>
-
-        <h3>Most Valuable Cartridges</h3>
-        <ul class="guide-list">
-          <li><strong>Air Raid (Rare):</strong> Only ~10,000 cartridges produced. Mint examples can exceed £2,000+</li>
-          <li><strong>Space Invaders (Sealed):</strong> Original 1980 cartridges in sealed condition extremely valuable.</li>
-          <li><strong>Atari Test Cartridges:</strong> Beta/prototype cartridges among most sought-after by collectors.</li>
-          <li><strong>Common Titles:</strong> Pac-Man, Pitfall, Combat typically £5-30 each.</li>
-        </ul>
-
-        <h3>Top 10 Must-Play Atari 2600 Games</h3>
-        <ul class="guide-list">
-          <li><strong>Space Invaders (1980):</strong> The game that saved the industry and launched home console gaming.</li>
-          <li><strong>Pitfall! (1982):</strong> Defined the platformer genre. Still incredible fun.</li>
-          <li><strong>Adventure (1980):</strong> First action-adventure game. Essentially invented the genre.</li>
-          <li><strong>Pac-Man (1982):</strong> Arcade legend at home. Imperfect port but iconic.</li>
-          <li><strong>Combat (1977):</strong> Launch title; influenced all future combat games.</li>
-          <li><strong>River Raid (1982):</strong> Vertical shooter; innovative and addictive gameplay.</li>
-          <li><strong>Defender (1981):</strong> Complex but rewarding shooter gameplay.</li>
-          <li><strong>Asteroids (1981):</strong> Vector-based arcade classic perfectly adapted.</li>
-          <li><strong>Missile Command (1981):</strong> Arcade shooter with strategic depth.</li>
-          <li><strong>Breakout (1978):</strong> Pong's successor. Deceptively addictive paddle action.</li>
+          <li>Smaller footprint</li>
+          <li>Most common variant; readily available</li>
+          <li>Black color scheme</li>
+          <li>Still compatible with the Atari 2600 library</li>
         </ul>
       </div>
 
-      <!-- Fun Facts & Legacy -->
-      <div class="guide-section">
-        <h2>🌟 Atari 2600 Legacy & Fun Facts</h2>
-        
-        <div class="fun-fact">
-          <strong>🎮 Industry Creation:</strong> The Atari 2600 literally created the home video game industry. Before 2600, gaming was arcade-only. After 2600, gaming became a home entertainment staple.
-        </div>
+      <div class="fun-fact">
+        <strong>💡 Fun Fact:</strong> “Heavy Sixer” is collector slang referencing the earliest heavier-built units.
+      </div>
+    </div>
 
-        <div class="fun-fact">
-          <strong>📊 Sales Dominance:</strong> 30+ million units sold across 15 years. For comparison, that's more than the original Xbox. The 2600 dominated its era completely.
-        </div>
+    <!-- Cartridges & Accessories -->
+    <div class="guide-section">
+      <h2>🎮 Cartridges &amp; Accessories</h2>
 
-        <div class="fun-fact">
-          <strong>💥 The Great Crash of 1983:</strong> Atari's poor game quality (especially E.T.) triggered the 1983 video game crash. The industry came close to disappearing entirely. Nintendo's NES revival saved gaming industry from extinction.
-        </div>
+      <h3>Cartridge Care &amp; Longevity</h3>
+      <ul class="guide-list">
+        <li><strong>ROM Chip Durability:</strong> Cartridges can remain functional for decades when stored properly.</li>
+        <li><strong>Contact Oxidation:</strong> Use a soft pencil eraser or proper contact cleaner to restore connections.</li>
+        <li><strong>Storage:</strong> Keep cartridges dry, away from extreme heat, and out of direct sunlight.</li>
+        <li><strong>Label Preservation:</strong> Avoid moisture; store upright to reduce scuffing.</li>
+      </ul>
 
-        <div class="fun-fact">
-          <strong>🎯 Cartridge Business Model:</strong> Atari 2600 perfected the cartridge model. Game companies could produce their own cartridges! This model remained standard for 40+ years until digital downloads.
-        </div>
+      <h3>Controllers &amp; Input Devices</h3>
+      <ul class="guide-list">
+        <li><strong>Joystick:</strong> Classic stick; internal wear is common after decades of use.</li>
+        <li><strong>Paddles:</strong> Dial controllers for games like Breakout and Warlords.</li>
+        <li><strong>Keypads:</strong> Used by some titles; membranes can age and fail.</li>
+        <li><strong>Modern Options:</strong> Third-party replacements and adapters improve comfort.</li>
+      </ul>
 
-        <div class="fun-fact">
-          <strong>🔧 Homebrew Legacy:</strong> Atari 2600 homebrew community is STILL active 45+ years after release. Thousands of fan-made games exist, including brand new releases in 2024.
-        </div>
+      <h3>Useful Accessories</h3>
+      <ul class="guide-list">
+        <li><strong>RF Switch:</strong> Common failure point on original setups; replacements improve reliability.</li>
+        <li><strong>Composite Mods/Cables:</strong> Better video quality than RF (where available/installed).</li>
+        <li><strong>Power Supply:</strong> Use a correct-rated replacement if the original is unstable.</li>
+      </ul>
+    </div>
 
-        <div class="fun-fact">
-          <strong>💾 Longevity Record:</strong> The 2600's 15-year lifespan (1977-1992) is the longest of any major console family. Most consoles last 5-7 years; Atari 2600 lasted nearly 3 times longer!
-        </div>
+    <!-- Refurbishment & Care -->
+    <div class="guide-section">
+      <h2>🔧 Refurbishment &amp; Maintenance</h2>
+
+      <h3>Common Atari 2600 Issues</h3>
+      <ul class="guide-list">
+        <li><strong>No video output:</strong> Often cartridge contacts, RF switch/cable, or dirty cartridge slot.</li>
+        <li><strong>Intermittent game loading:</strong> Oxidized cartridge contacts or worn slot tension.</li>
+        <li><strong>Controller faults:</strong> Worn switches/pots and cracked wires.</li>
+        <li><strong>Power problems:</strong> Ageing power supplies and connectors.</li>
+      </ul>
+
+      <h3>Preventive Maintenance</h3>
+      <ul class="guide-list">
+        <li>Store in a cool, dry place</li>
+        <li>Clean cartridge contacts periodically</li>
+        <li>Avoid UV exposure (prevents yellowing)</li>
+        <li>Do not force cartridge insertion</li>
+      </ul>
+    </div>
+
+    <!-- Collector's Guide -->
+    <div class="guide-section">
+      <h2>💰 Collector's Guide &amp; Game Library</h2>
+
+      <h3>Console Rarity &amp; Value (Guide Only)</h3>
+      <ul class="guide-list">
+        <li><strong>Heavy Sixer:</strong> Higher collector demand, price varies heavily by condition/box.</li>
+        <li><strong>Light Sixer:</strong> Strong demand; typically mid-range.</li>
+        <li><strong>Junior:</strong> Most affordable and widely available.</li>
+      </ul>
+
+      <h3>Top 10 Must-Play Atari 2600 Games</h3>
+      <ul class="guide-list">
+        <li><strong>Space Invaders</strong></li>
+        <li><strong>Pitfall!</strong></li>
+        <li><strong>Adventure</strong></li>
+        <li><strong>Pac-Man</strong></li>
+        <li><strong>Combat</strong></li>
+        <li><strong>River Raid</strong></li>
+        <li><strong>Defender</strong></li>
+        <li><strong>Asteroids</strong></li>
+        <li><strong>Missile Command</strong></li>
+        <li><strong>Breakout</strong></li>
+      </ul>
+    </div>
+
+    <!-- Legacy -->
+    <div class="guide-section">
+      <h2>🌟 Atari 2600 Legacy</h2>
+
+      <div class="fun-fact">
+        <strong>🎮 Industry Creation:</strong> The Atari 2600 helped establish home gaming as mainstream entertainment.
       </div>
 
-      <!-- Call to Action -->
-      <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%); border-radius: 1rem;">
-        <h3 style="color: #b45309; margin-bottom: 1rem;">Ready for Classic Atari Gaming?</h3>
-        <p style="margin-bottom: 1.5rem; color: var(--dark);">Browse our selection of professionally refurbished Atari 2600 consoles, each tested with our 12-point inspection and backed by 6-month UK warranty.</p>
-        <li><a href="../../sourcing-request.html">Sourcing</a></li>
+      <div class="fun-fact">
+        <strong>💾 Longevity:</strong> Many units and cartridges still work reliably decades later with basic care.
+      </div>
+
+      <div class="fun-fact">
+        <strong>🔧 Community:</strong> A homebrew scene still creates new releases for the 2600.
+      </div>
+    </div>
+
+    <!-- Call to Action (FIXED: no stray <li> and uses buttons) -->
+    <div style="text-align:center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%); border-radius: 1rem;">
+      <h3 style="color: #b45309; margin-bottom: 1rem;">Want an Atari 2600 sourced &amp; tested?</h3>
+      <p style="margin-bottom: 1.5rem; color: var(--dark);">
+        Request a console and we’ll confirm availability, cosmetic grade and pricing before you buy.
+      </p>
+      <div class="hero-cta" style="justify-content:center;">
+        <a href="/sourcing-request.html" class="btn btn-primary">Sourcing Request</a>
+        <a href="/atari/index.html" class="btn btn-secondary">Back to Atari Collection</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+
+      <div class="footer-section">
+        <h3>Retro Replay</h3>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Shop</h3>
+        <ul class="footer-links">
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul class="footer-links">
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/warranties.html">Warranty Info</a></li>
+          <li><a href="/delivery.html">Shipping</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul class="footer-links">
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
+        </ul>
       </div>
 
     </div>
-  </section>
 
- <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Retro Replay</h3>
-          <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
-        </div>
-
-        <div class="footer-section">
-          <h3>Shop</h3>
-          <ul class="footer-links">
-            <li><a href="/playstation/index.html">PlayStation</a></li>
-            <li><a href="/xbox/index.html">Xbox</a></li>
-            <li><a href="/nintendo/index.html">Nintendo</a></li>
-            <li><a href="/atari/index.html">Atari</a></li>
-            <li><a href="/sega/index.html">Sega</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Support</h3>
-          <ul class="footer-links">
-            <li><a href="/guides.html">Setup Guides</a></li>
-            <li><a href="/faq.html">FAQ</a></li>
-            <li><a href="/warranties.html">Warranty Info</a></li>
-            <li><a href="/delivery.html">Shipping</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Company</h3>
-          <ul class="footer-links">
-            <li><a href="/about.html">About Us</a></li>
-            <li><a href="/how-we-refurbish.html">Our Process</a></li>
-            <li><a href="/services.html">Services</a></li>
-            <li><a href="/terms.html">Policies & Terms</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2025 Retro Replay. All rights reserved. Professionally tested & cleaned gaming consoles.</p>
-      </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script src="../../cart.js"></script><script>RetroCart.loadCart();</script>
+<!-- Scripts -->
+<script src="/cart.js" defer></script>
+<script src="/particles.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // cart
+    if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
+      window.RetroCart.loadCart();
+    }
+
+    // mobile nav toggle (requires CSS: .main-nav.is-open)
+    const navBtn = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("primaryNav");
+    if (navBtn && nav) {
+      navBtn.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+
+      nav.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          navBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+  });
+</script>
+
 </body>
 </html>

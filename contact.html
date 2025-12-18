@@ -1,19 +1,33 @@
 <!-- =========================
-     CONTACT PAGE (FULL BUILD — FORMSPREE + FULL ORIGINAL FOOTER + UPSELL)
-     Paste as: /contact.html
-     Live: https://retroreplay.uk/contact.html
-     Form endpoint: https://formspree.io/f/manrkvby
+  RetroReplay UK — contact.html (FULL BUILD FIXED)
+  Fixes:
+  - Root-relative paths everywhere (/style.css, /assets, /cart.js)
+  - Canonical + OG tags + theme-color added
+  - GA anonymize_ip (matches index)
+  - Header/nav matches MASTER (id="primaryNav" + toggle targets it)
+  - Removes nav mismatch (was #global-nav + querySelector(".main-nav"))
+  - Adds cart badge + safe cart init
+  - Keeps your Formspree config + upsell + full footer
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Contact | Retro Replay</title>
   <meta name="description" content="Contact Retro Replay — quotes, orders, and support." />
 
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="canonical" href="https://retroreplay.uk/contact.html" />
+  <meta name="theme-color" content="#0066ff" />
+  <meta property="og:title" content="Contact | Retro Replay" />
+  <meta property="og:description" content="Contact Retro Replay — quotes, orders, and support." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
@@ -21,7 +35,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-PF6Q3TSMVL');
+    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
 
   <style>
@@ -131,265 +145,270 @@
       text-decoration:none;
     }
     .upsell-links a:hover{ background:rgba(0,102,255,.06); border-color:rgba(0,102,255,.18); }
-
-    /* If your global footer is already styled, this will just inherit */
   </style>
 </head>
 
 <body>
 
-<!-- HEADER (matches your site) -->
-<header class="site-header">
-  <div class="header-top">
-    <div class="container">
-      <div class="header-promo">
-        <span>📩 Contact Retro Replay — Quotes, Orders & Support</span>
-      </div>
-      <div class="header-links">
-        <a href="/about.html">About</a>
-        <a href="/delivery.html">Delivery</a>
-        <a href="/warranties.html">Warranty</a>
+  <!-- HEADER (MASTER) -->
+  <header class="site-header">
+
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo">
+          <span>📩 Contact Retro Replay — Quotes, Orders &amp; Support</span>
+        </div>
+        <div class="header-links">
+          <a href="/about.html">About</a>
+          <a href="/delivery.html">Delivery</a>
+          <a href="/warranties.html">Warranty</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="header-main">
-    <div class="container header-content">
-      <a href="/index.html" class="site-logo">
-        <img src="/assets/logo.png" alt="Retro Replay Logo">
-        <span>Retro Replay</span>
-      </a>
-
-      <form class="search-bar" action="/search.html" method="get" role="search">
-        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
-        <button class="search-btn" type="submit">Search</button>
-      </form>
-
-      <div class="header-actions">
-        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-        <a href="/checkout.html" class="header-action">
-          <span>🛒</span><span>Cart</span>
-          <span class="cart-badge" id="cart-count-js">0</span>
+    <div class="header-main">
+      <div class="container header-content">
+        <a href="/" class="site-logo" aria-label="Retro Replay Home">
+          <img src="/assets/logo.png" alt="Retro Replay Logo" />
+          <span>Retro Replay</span>
         </a>
-        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="global-nav">☰</button>
-      </div>
-    </div>
-  </div>
 
-  <nav class="main-nav" id="global-nav" aria-label="Primary">
-    <div class="container">
-      <ul class="nav-list">
-        <li><a href="/index.html">Main Home</a></li>
-        <li><a href="/atari/index.html">Atari</a></li>
-        <li><a href="/nintendo/index.html">Nintendo</a></li>
-        <li><a href="/playstation/index.html">PlayStation</a></li>
-        <li><a href="/sega/index.html">Sega</a></li>
-        <li><a href="/xbox/index.html">Xbox</a></li>
-        <li><a href="/guides.html">Setup Guides</a></li>
-        <li><a href="/sourcing-request.html">Sourcing</a></li>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/warranties.html">Warranty</a></li>
-        <li><a href="/faq.html">FAQ</a></li>
-        <li><a href="/contact.html" aria-current="page">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
+        <form class="search-bar" action="/search.html" method="get" role="search">
+          <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+          <button class="search-btn" type="submit">Search</button>
+        </form>
 
-<!-- MAIN -->
-<main class="page-wrap">
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action" aria-current="page"><span>📞</span><span>Support</span></a>
 
-  <section class="page-hero">
-    <h1>Contact Retro Replay</h1>
-    <p class="muted">
-      Use the form below for quotes, orders, or support. Including your console model, budget, and game list helps us reply faster.
-    </p>
-  </section>
+          <a href="/checkout.html" class="header-action">
+            <span>🛒</span><span>Cart</span>
+            <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
+          </a>
 
-  <section class="contact-grid">
-
-    <!-- FORM -->
-    <div class="card">
-      <h2>Send a message</h2>
-      <p class="muted">Include: console model (PS2 Fat/Slim), budget, game list, TV type (HDMI/AV), and number of players.</p>
-
-      <form action="https://formspree.io/f/manrkvby" method="POST">
-        <div class="form-row">
-          <div>
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required>
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required>
-          </div>
-        </div>
-
-        <label for="topic">Topic</label>
-        <select id="topic" name="topic" required>
-          <option value="Order / Quote">Order / Quote</option>
-          <option value="Support">Support</option>
-          <option value="Custom PS2 HDD build">Custom PS2 HDD build</option>
-          <option value="Bulk order">Bulk order</option>
-          <option value="General enquiry">General enquiry</option>
-        </select>
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Tell us what you need..." required></textarea>
-
-        <!-- Metadata -->
-        <input type="hidden" name="_subject" value="New message from RetroReplay.uk contact page">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://retroreplay.uk/contact-thanks.html">
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-
-        <button class="btn" type="submit">Send message</button>
-
-        <div class="helpbox">
-          <strong>Tip:</strong> Paste your game list into the message box. We usually reply the same day.
-        </div>
-      </form>
-
-      <!-- LAST-RESORT UPSELL (guides/services) -->
-      <div class="upsell" aria-label="Helpful links">
-        <h3>Need help right now?</h3>
-        <p>
-          If you’re stuck, these may solve it instantly (and if not, message us above).
-        </p>
-        <div class="upsell-links">
-          <a href="/guides.html">📘 Setup guides</a>
-          <a href="/services.html">🔧 Modding services</a>
-          <a href="/playstation/products/ps2-fat.html">🎮 PS2 modded builds</a>
-          <a href="/faq.html">❓ FAQ</a>
+          <button class="nav-toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="primaryNav">☰</button>
         </div>
       </div>
     </div>
 
-    <!-- DETAILS -->
-    <aside class="card">
-      <h2>Primary Contact</h2>
-
-      <div class="contact-item">
-        <strong>Email</strong>
-        <span class="pill">preferred</span><br>
-        <a class="contact-link" href="mailto:retroreplay2026@gmail.com">retroreplay2026@gmail.com</a>
-      </div>
-
-      <div class="contact-item">
-        <strong>Response Time</strong><br>
-        <span class="muted">Usually same day replies</span>
-      </div>
-
-      <div class="contact-item">
-        <strong>Best for</strong><br>
-        <span class="muted">Quotes • Custom PS2 builds • HDD upgrades • Warranty questions • General enquiries</span>
-      </div>
-
-      <div class="contact-item">
-        <strong>Order &amp; Support Info</strong><br>
-        <span class="muted">
-          If you ordered via eBay, message through your order for the fastest response.
-          Check our stock on eBay, Facebook, Vinted and Gumtree.
-        </span>
-      </div>
-
-      <div class="contact-item">
-        <strong>Include in your message</strong><br>
-        <span class="muted">
-          Console model (PS2 Fat/Slim), budget, game list, TV type (HDMI/AV), and number of players.
-        </span>
-      </div>
-
-      <div class="contact-item">
-        <strong>Sourcing Requests</strong><br>
-        <a class="contact-link" href="/sourcing-request.html">Open sourcing request →</a>
-      </div>
-    </aside>
-
-  </section>
-</main>
-
-<!-- ORIGINAL-STYLE FOOTER (full links like your homepage) -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-content">
-
-      <div class="footer-section">
-        <h3>Retro Replay</h3>
-        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
-      </div>
-
-      <div class="footer-section">
-        <h3>Shop</h3>
-        <ul class="footer-links">
-          <li><a href="/playstation/index.html">PlayStation</a></li>
-          <li><a href="/xbox/index.html">Xbox</a></li>
-          <li><a href="/nintendo/index.html">Nintendo</a></li>
+    <nav class="main-nav" id="primaryNav" aria-label="Primary">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="/">Main Home</a></li>
           <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/playstation/index.html">PlayStation</a></li>
           <li><a href="/sega/index.html">Sega</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-section">
-        <h3>Support</h3>
-        <ul class="footer-links">
+          <li><a href="/xbox/index.html">Xbox</a></li>
           <li><a href="/guides.html">Setup Guides</a></li>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/warranties.html">Warranty Info</a></li>
-          <li><a href="/delivery.html">Shipping</a></li>
-          <li><a href="/contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-section">
-        <h3>Company</h3>
-        <ul class="footer-links">
-          <li><a href="/about.html">About Us</a></li>
-          <li><a href="/how-we-refurbish.html">Our Process</a></li>
+          <li><a href="/sourcing-request.html">Sourcing</a></li>
           <li><a href="/services.html">Services</a></li>
-          <li><a href="/terms.html">Policies &amp; Terms</a></li>
-          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="/warranties.html">Warranty</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/contact.html" aria-current="page">Contact</a></li>
         </ul>
       </div>
+    </nav>
 
+  </header>
+
+  <!-- MAIN -->
+  <main class="page-wrap">
+
+    <section class="page-hero">
+      <h1>Contact Retro Replay</h1>
+      <p class="muted">
+        Use the form below for quotes, orders, or support. Including your console model, budget, and game list helps us reply faster.
+      </p>
+    </section>
+
+    <section class="contact-grid">
+
+      <!-- FORM -->
+      <div class="card">
+        <h2>Send a message</h2>
+        <p class="muted">Include: console model (PS2 Fat/Slim), budget, game list, TV type (HDMI/AV), and number of players.</p>
+
+        <form action="https://formspree.io/f/manrkvby" method="POST">
+          <div class="form-row">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic" required>
+            <option value="Order / Quote">Order / Quote</option>
+            <option value="Support">Support</option>
+            <option value="Custom PS2 HDD build">Custom PS2 HDD build</option>
+            <option value="Bulk order">Bulk order</option>
+            <option value="General enquiry">General enquiry</option>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us what you need..." required></textarea>
+
+          <!-- Metadata -->
+          <input type="hidden" name="_subject" value="New message from RetroReplay.uk contact page" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value="https://retroreplay.uk/contact-thanks.html" />
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <button class="btn" type="submit">Send message</button>
+
+          <div class="helpbox">
+            <strong>Tip:</strong> Paste your game list into the message box. We usually reply the same day.
+          </div>
+        </form>
+
+        <!-- UPSELL -->
+        <div class="upsell" aria-label="Helpful links">
+          <h3>Need help right now?</h3>
+          <p>If you’re stuck, these may solve it instantly (and if not, message us above).</p>
+          <div class="upsell-links">
+            <a href="/guides.html">📘 Setup guides</a>
+            <a href="/services.html">🔧 Modding services</a>
+            <a href="/playstation/products/ps2-fat.html">🎮 PS2 modded builds</a>
+            <a href="/faq.html">❓ FAQ</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DETAILS -->
+      <aside class="card">
+        <h2>Primary Contact</h2>
+
+        <div class="contact-item">
+          <strong>Email</strong>
+          <span class="pill">preferred</span><br />
+          <a class="contact-link" href="mailto:retroreplay2026@gmail.com">retroreplay2026@gmail.com</a>
+        </div>
+
+        <div class="contact-item">
+          <strong>Response Time</strong><br />
+          <span class="muted">Usually same day replies</span>
+        </div>
+
+        <div class="contact-item">
+          <strong>Best for</strong><br />
+          <span class="muted">Quotes • Custom PS2 builds • HDD upgrades • Warranty questions • General enquiries</span>
+        </div>
+
+        <div class="contact-item">
+          <strong>Order &amp; Support Info</strong><br />
+          <span class="muted">
+            If you ordered via eBay, message through your order for the fastest response.
+            Check our stock on eBay, Facebook, Vinted and Gumtree.
+          </span>
+        </div>
+
+        <div class="contact-item">
+          <strong>Include in your message</strong><br />
+          <span class="muted">
+            Console model (PS2 Fat/Slim), budget, game list, TV type (HDMI/AV), and number of players.
+          </span>
+        </div>
+
+        <div class="contact-item">
+          <strong>Sourcing Requests</strong><br />
+          <a class="contact-link" href="/sourcing-request.html">Open sourcing request →</a>
+        </div>
+      </aside>
+
+    </section>
+  </main>
+
+  <!-- FOOTER (MASTER) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+
+        <div class="footer-section">
+          <h3>Retro Replay</h3>
+          <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul class="footer-links">
+            <li><a href="/playstation/index.html">PlayStation</a></li>
+            <li><a href="/xbox/index.html">Xbox</a></li>
+            <li><a href="/nintendo/index.html">Nintendo</a></li>
+            <li><a href="/atari/index.html">Atari</a></li>
+            <li><a href="/sega/index.html">Sega</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="/guides.html">Setup Guides</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/warranties.html">Warranty Info</a></li>
+            <li><a href="/delivery.html">Shipping</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/how-we-refurbish.html">Our Process</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/terms.html">Policies &amp; Terms</a></li>
+            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © <span id="year"></span> Retro Replay. All rights reserved.
+      </div>
     </div>
+  </footer>
 
-    <div class="footer-bottom">
-      <p>© <span id="year"></span> Retro Replay. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
+  <script src="/cart.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Year
+      const y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
 
-<script src="/cart.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Year
-    const y = document.getElementById("year");
-    if (y) y.textContent = new Date().getFullYear();
+      // Safe cart init
+      if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
+        window.RetroCart.loadCart();
+      }
 
-    // Safe cart init
-    if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
-      window.RetroCart.loadCart();
-    }
+      // Mobile nav toggle (MASTER)
+      const btn = document.querySelector(".nav-toggle");
+      const nav = document.getElementById("primaryNav");
+      if (btn && nav) {
+        btn.addEventListener("click", () => {
+          nav.classList.toggle("is-open");
+          btn.setAttribute("aria-expanded", nav.classList.contains("is-open") ? "true" : "false");
+        });
 
-    // Mobile nav toggle
-    const btn = document.querySelector(".nav-toggle");
-    const nav = document.querySelector(".main-nav");
-    if (!btn || !nav) return;
-
-    btn.addEventListener("click", () => {
-      const open = nav.classList.toggle("is-open");
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
+        // Close after tap
+        nav.querySelectorAll("a").forEach(a => {
+          a.addEventListener("click", () => {
+            nav.classList.remove("is-open");
+            btn.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
     });
-
-    nav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        nav.classList.remove("is-open");
-        btn.setAttribute("aria-expanded", "false");
-      });
-    });
-  });
-</script>
+  </script>
 
 </body>
 </html>

@@ -1,55 +1,200 @@
+<!-- =========================
+  RetroReplay UK — order-success.html (FULL BUILD FIXED)
+  Fixes:
+  - Root-relative paths everywhere (/style.css, /assets, /cart.js)
+  - Canonical + meta description + OG tags added
+  - Header/footer aligned with MASTER layout
+  - Adds main navigation + mobile toggle for consistency
+  - Safe cart init (no JS errors if cart not loaded)
+========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Success | Retro Replay</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Order Successful | Retro Replay</title>
+  <meta name="description" content="Thank you for your order. Your Retro Replay console is now being prepared and tested. Tracking details will be sent shortly." />
+
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="canonical" href="https://retroreplay.uk/order-success.html" />
+  <meta name="theme-color" content="#10b981" />
+  <meta property="og:title" content="Order Successful | Retro Replay" />
+  <meta property="og:description" content="Your order has been successfully processed. Your console is now being professionally prepared." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
+  </script>
 </head>
+
 <body>
+
+  <!-- HEADER (MASTER) -->
   <header class="site-header">
-    <div class="header-top"><div class="container"><div class="header-promo"><span>✅ Order Successful</span></div></div></div>
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
-        <div style="flex: 1;"></div>
-        <div class="header-actions"><a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a><a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a></div>
+
+    <!-- TOP BAR -->
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo">
+          <span>✅ Order Successful</span>
+          <span>Your console is now being prepared</span>
+        </div>
+        <div class="header-links">
+          <a href="/about.html">About</a>
+          <a href="/delivery.html">Delivery</a>
+          <a href="/warranties.html">Warranty</a>
+        </div>
       </div>
     </div>
+
+    <!-- MAIN HEADER -->
+    <div class="header-main">
+      <div class="container header-content">
+
+        <a href="/" class="site-logo" aria-label="Retro Replay Home">
+          <img src="/assets/logo.png" alt="Retro Replay Logo" />
+          <span>Retro Replay</span>
+        </a>
+
+        <form class="search-bar" action="/search.html" method="get" role="search">
+          <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+          <button class="search-btn" type="submit">Search</button>
+        </form>
+
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+
+          <a href="/checkout.html" class="header-action">
+            <span>🛒</span><span>Cart</span>
+            <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
+          </a>
+
+          <button class="nav-toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="primaryNav">☰</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MAIN NAV -->
+    <nav class="main-nav" id="primaryNav" aria-label="Primary">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="/">Main Home</a></li>
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
   </header>
 
+  <!-- SUCCESS HERO -->
   <section class="hero" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); min-height: 60vh; display: flex; align-items: center;">
-    <div class="container" style="text-align: center;">
-      <div style="font-size: 5rem; margin-bottom: 2rem;">✅</div>
-      <h1 style="color: white; font-size: 2.5rem; margin-bottom: 1rem;">Thank You for Your Order!</h1>
-      <p style="color: white; font-size: 1.2rem; margin-bottom: 2rem;">Your order has been successfully processed. You should receive a confirmation email shortly.</p>
-      
-      <div style="background: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-        <h3 style="color: var(--primary); margin-top: 0;">What's Next?</h3>
-        <ul style="text-align: left; color: var(--dark); line-height: 2;">
-          <li>✓ Your console will be carefully prepared and tested</li>
-          <li>✓ You'll receive tracking information via email</li>
-          <li>✓ Your refurbished console arrives with 6-month warranty</li>
-          <li>✓ Secure packaging ensures safe delivery</li>
+    <div class="container" style="text-align: center; max-width: 900px;">
+      <div style="font-size: 4.5rem; margin-bottom: 1.5rem;">✅</div>
+
+      <h1 style="color: white; font-size: 2.4rem; margin-bottom: 1rem;">
+        Thank You for Your Order
+      </h1>
+
+      <p style="color: white; font-size: 1.15rem; margin-bottom: 2.5rem;">
+        Your order has been successfully received and is now being processed.
+        A confirmation email will be sent shortly.
+      </p>
+
+      <div style="background: white; padding: 2rem; border-radius: 1rem; margin-bottom: 2.5rem; box-shadow: var(--shadow-md);">
+        <h3 style="margin-top: 0;">What Happens Next?</h3>
+        <ul style="text-align: left; line-height: 1.9; margin: 0;">
+          <li>✔ Your console is carefully prepared and tested</li>
+          <li>✔ Any upgrades or modifications are completed</li>
+          <li>✔ You receive tracking details once dispatched</li>
+          <li>✔ Secure, tracked delivery to your address</li>
         </ul>
       </div>
 
-      <a href="index.html" class="btn btn-primary" style="margin-right: 1rem;">Back to Home</a>
-      <a href="contact.html" class="btn btn-secondary">Questions?</a>
+      <div>
+        <a href="/" class="btn btn-primary" style="margin-right: .75rem;">Back to Home</a>
+        <a href="/contact.html" class="btn btn-secondary">Questions?</a>
+      </div>
     </div>
   </section>
 
+  <!-- FOOTER (MASTER) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
-        <div class="footer-section"><h3>Order Success</h3><p>Thank you for your purchase.</p></div>
-        <div class="footer-section"><h3>Support</h3><ul class="footer-links"><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+
+        <div class="footer-section">
+          <h3>Retro Replay</h3>
+          <p>Thank you for choosing Retro Replay. Your console is being professionally prepared and supported.</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/warranties.html">Warranty Info</a></li>
+          </ul>
+        </div>
+
       </div>
-      <div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div>
+
+      <div class="footer-bottom">
+        © 2025 Retro Replay. All rights reserved.
+      </div>
     </div>
   </footer>
 
-  <script src="cart.js"></script><script>RetroCart.loadCart();</script>
+  <!-- Scripts -->
+  <script src="/cart.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
+        window.RetroCart.loadCart();
+      }
+
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primaryNav');
+
+      if (btn && nav) {
+        btn.addEventListener('click', () => {
+          nav.classList.toggle('is-open');
+          btn.setAttribute(
+            'aria-expanded',
+            nav.classList.contains('is-open') ? 'true' : 'false'
+          );
+        });
+
+        nav.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            nav.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>

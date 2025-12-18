@@ -1,12 +1,33 @@
+<!-- =========================
+  RetroReplay UK — how-we-refurbish.html (FULL BUILD FIXED)
+  Fixes applied:
+  - Canonical + OG + theme-color
+  - Analytics anonymize_ip enabled
+  - Cookie banner added (site-wide compatible)
+  - Footer year auto-update
+  - Mobile nav toggle + close-on-link
+  - Safe cart init
+  - Root paths used consistently
+========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>How We Refurbish | Retro Replay</title>
-  <meta name="description" content="See Retro Replay’s documented refurbishment process: inspection, deep clean, thermal refresh, laser tuning, play testing, and secure packing.">
-  <link rel="stylesheet" href="/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="See Retro Replay’s documented refurbishment process: inspection, deep clean, thermal refresh, laser tuning, play testing, and secure packing." />
+
+  <link rel="canonical" href="https://retroreplay.uk/how-we-refurbish.html" />
+  <meta name="theme-color" content="#0066ff" />
+  <meta property="og:title" content="How We Refurbish | Retro Replay" />
+  <meta property="og:description" content="A documented refurbishment process: inspection, deep clean, thermal refresh, testing, and secure packing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
@@ -14,12 +35,12 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-PF6Q3TSMVL');
+    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
 
   <style>
-    /* Page-only helpers (keep mobile tidy if content is long) */
-    .process-wrap { max-width: 980px; margin: 0 auto; }
+    .process-wrap{ max-width:980px; margin:0 auto; }
+    :focus-visible{ outline:3px solid rgba(0,102,255,.35); outline-offset:2px; border-radius:.5rem; }
   </style>
 </head>
 
@@ -27,7 +48,7 @@
 
 <header class="site-header">
 
-  <!-- GLOBAL TOP BAR -->
+  <!-- TOP BAR -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
@@ -42,23 +63,22 @@
     </div>
   </div>
 
-  <!-- HEADER MAIN -->
+  <!-- MAIN HEADER -->
   <div class="header-main">
     <div class="container header-content">
-      <a href="/index.html" class="site-logo">
-        <img src="/assets/logo.png" alt="Retro Replay">
+      <a href="/" class="site-logo" aria-label="Retro Replay Home">
+        <img src="/assets/logo.png" alt="Retro Replay" />
         <span>Retro Replay</span>
       </a>
 
-      <!-- Mobile nav toggle -->
       <button class="nav-toggle"
               type="button"
-              aria-label="Open menu"
+              aria-label="Toggle navigation"
               aria-expanded="false"
               aria-controls="primaryNav">☰</button>
 
       <form class="search-bar" action="/search.html" method="get" role="search">
-        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
         <button class="search-btn" type="submit">Search</button>
       </form>
 
@@ -72,11 +92,11 @@
     </div>
   </div>
 
-  <!-- GLOBAL NAV -->
-  <nav class="main-nav" id="primaryNav">
+  <!-- NAV -->
+  <nav class="main-nav" id="primaryNav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
-        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/">Main Home</a></li>
         <li><a href="/atari/index.html">Atari</a></li>
         <li><a href="/nintendo/index.html">Nintendo</a></li>
         <li><a href="/playstation/index.html">PlayStation</a></li>
@@ -95,7 +115,7 @@
 </header>
 
 <!-- HERO -->
-<section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+<section class="hero" style="background:linear-gradient(135deg,#2563eb 0%,#1e40af 100%);">
   <div class="container hero-content">
     <div class="hero-text">
       <h1>Our Refurbishment Process</h1>
@@ -109,7 +129,7 @@
 </section>
 
 <!-- 7-STEP PROCESS -->
-<section class="section" style="background: white;">
+<section class="section" style="background:#fff;">
   <div class="container process-wrap">
 
     <div class="section-header">
@@ -119,7 +139,7 @@
 
     <div class="product-card">
       <div class="product-info">
-        <ul class="product-features" style="font-size:1.05rem; line-height:1.9; color:var(--dark); padding-left:1.2rem;">
+        <ul class="product-features" style="font-size:1.05rem;line-height:1.9;color:var(--dark);padding-left:1.2rem;">
           <li><strong>1. Full Disassembly</strong> — The console is dismantled so we can access, inspect, clean, and reassemble correctly.</li>
           <li><strong>2. Deep Cleaning</strong> — Dust, debris and residue are removed from shells, vents, ports and internal assemblies.</li>
           <li><strong>3. Optical / Laser Checks</strong> — Disc systems are tested for read stability. If applicable, we clean, lubricate and verify performance.</li>
@@ -143,7 +163,6 @@
     </div>
 
     <div class="product-grid">
-
       <div class="product-card">
         <div class="product-info">
           <h3 class="product-name">Grade A — Like New</h3>
@@ -164,14 +183,13 @@
           <p class="product-description">More visible external wear, but fully tested and fully functional.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="section" style="background: white;">
-  <div class="container" style="max-width: 980px;">
+<section class="section" style="background:#fff;">
+  <div class="container" style="max-width:980px;">
     <div class="product-card">
       <div class="product-info" style="text-align:center;">
         <h2 class="section-title" style="margin-bottom:.5rem;">Want a specific model or condition?</h2>
@@ -227,30 +245,78 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. Professionally tested &amp; cleaned gaming consoles.</p>
+      <p>© <span id="year"></span> Retro Replay. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
 
-<script src="/cart.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    if (window.RetroCart && typeof RetroCart.loadCart === 'function') {
-      RetroCart.loadCart();
-    }
+<!-- COOKIE BANNER -->
+<div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <div class="rr-cookie-inner">
+    <p>
+      We use cookies to measure traffic (analytics) and improve the site.
+      <a href="/cookie-policy.html">Cookie policy</a>
+    </p>
+    <div class="rr-cookie-actions">
+      <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
+      <button class="rr-cookie-btn rr-cookie-accept" id="rrCookieAccept" type="button">Accept</button>
+    </div>
+  </div>
+</div>
 
-    // Mobile menu toggle
-    const navBtn = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('primaryNav');
-    if (navBtn && nav) {
-      navBtn.addEventListener('click', () => {
-        const open = nav.classList.toggle('is-open');
-        navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+<script src="/cart.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Year
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  // Cart init (safe)
+  if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
+    window.RetroCart.loadCart();
+  }
+
+  // Mobile nav toggle + close-on-link
+  const navBtn = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('primaryNav');
+  if (navBtn && nav) {
+    navBtn.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('is-open');
+        navBtn.setAttribute('aria-expanded', 'false');
       });
-    }
+    });
+  }
+
+  // Cookie consent (store choice only)
+  const COOKIE_KEY = 'rr_cookie_consent'; // accepted | rejected
+  const banner = document.getElementById('rrCookie');
+  const accept = document.getElementById('rrCookieAccept');
+  const reject = document.getElementById('rrCookieReject');
+  const saved = localStorage.getItem(COOKIE_KEY);
+
+  function show(){ banner && banner.classList.remove('is-hidden'); }
+  function hide(){ banner && banner.classList.add('is-hidden'); }
+
+  if (!saved) show(); else hide();
+
+  accept?.addEventListener('click', () => {
+    localStorage.setItem(COOKIE_KEY, 'accepted');
+    hide();
   });
+
+  reject?.addEventListener('click', () => {
+    localStorage.setItem(COOKIE_KEY, 'rejected');
+    hide();
+  });
+});
 </script>
 
 </body>
 </html>
-

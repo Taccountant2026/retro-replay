@@ -1,8 +1,8 @@
 <!-- =========================
-     SOURCING REQUEST (FULL BUILD — FIXED)
+     SOURCING REQUEST (FULL BUILD — FIXED + PARTICLES + CONSISTENT HEADER)
      Paste as: /sourcing-request.html
      Form endpoint: https://formspree.io/f/manrkvby
-     Redirect: /contact-thanks.html
+     Redirect: /sourcing-thanks.html
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -222,6 +222,8 @@
 <body>
 
 <header class="site-header">
+
+  <!-- GLOBAL TOP BAR -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
@@ -236,15 +238,23 @@
     </div>
   </div>
 
+  <!-- HEADER MAIN (aligned to your other pages) -->
   <div class="header-main">
     <div class="container header-content">
       <a href="/index.html" class="site-logo">
-        <img src="/assets/logo.png" alt="Retro Replay Logo">
+        <img src="/assets/logo.png" alt="Retro Replay Logo" />
         <span>Retro Replay</span>
       </a>
 
+      <!-- Mobile menu button -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
+
       <form class="search-bar" action="/search.html" method="get" role="search">
-        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
         <button class="search-btn" type="submit">Search</button>
       </form>
 
@@ -254,17 +264,11 @@
           <span>🛒</span><span>Cart</span>
           <span class="cart-badge" id="cart-count-js">0</span>
         </a>
-
-        <!-- FIXED: adds aria-controls + uses the same #primaryNav as homepage -->
-        <button class="nav-toggle"
-                type="button"
-                aria-label="Toggle navigation"
-                aria-expanded="false"
-                aria-controls="primaryNav">☰</button>
       </div>
     </div>
   </div>
 
+  <!-- GLOBAL NAV -->
   <nav class="main-nav" id="primaryNav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
@@ -283,6 +287,7 @@
       </ul>
     </div>
   </nav>
+
 </header>
 
 <main class="sourcing-wrap">
@@ -315,10 +320,7 @@
         <form action="https://formspree.io/f/manrkvby" method="POST">
           <input type="hidden" name="_subject" value="Retro Replay — Console Sourcing Request">
           <input type="hidden" name="_template" value="table">
-
-          <!-- FIXED: use a dedicated sourcing thanks page (or create an alias) -->
           <input type="hidden" name="_next" value="https://retroreplay.uk/sourcing-thanks.html">
-
           <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off">
 
           <div class="row">
@@ -349,7 +351,7 @@
 
             <div class="field">
               <label for="model"><span>Specific model</span><span class="hint">Optional</span></label>
-              <input id="model" name="Specific Model" class="control" type="text" placeholder="e.g. SCPH-50003, boxed, silver, etc">
+              <input id="model" name="Specific Model" class="control" type="text" placeholder="e.g. SCPH-50003, boxed, silver, etc" />
             </div>
           </div>
 
@@ -366,7 +368,7 @@
 
             <div class="field">
               <label for="budget"><span>Budget (approx)</span><span class="hint">Optional</span></label>
-              <input id="budget" name="Budget" class="control" type="text" placeholder="e.g. £60–£120">
+              <input id="budget" name="Budget" class="control" type="text" placeholder="e.g. £60–£120" />
             </div>
           </div>
 
@@ -385,12 +387,12 @@
           <div class="row">
             <div class="field">
               <label for="name"><span>Your name</span><span class="hint">Required</span></label>
-              <input id="name" name="Name" class="control" type="text" placeholder="Full name" required>
+              <input id="name" name="Name" class="control" type="text" placeholder="Full name" required />
             </div>
 
             <div class="field">
               <label for="email"><span>Your email</span><span class="hint">Required</span></label>
-              <input id="email" name="Email" class="control" type="email" placeholder="you@example.com" required>
+              <input id="email" name="Email" class="control" type="email" placeholder="you@example.com" required />
             </div>
           </div>
 
@@ -408,9 +410,7 @@
         <!-- UPSELL -->
         <div class="upsell" aria-label="Helpful links">
           <h3>Want it ready-to-play instead?</h3>
-          <p>
-            If you’re mainly after PS2, you may not need sourcing — you can order a plug &amp; play setup today.
-          </p>
+          <p>If you’re mainly after PS2, you may not need sourcing — you can order a plug &amp; play setup today.</p>
           <div class="upsell-links">
             <a href="/playstation/products/ps2-fat.html">🎮 PS2 modded consoles</a>
             <a href="/playstation/products/ps2-fat.html">💾 PS2 HDD mod kits</a>
@@ -474,7 +474,7 @@
   </div>
 </main>
 
-<!-- FULL FOOTER (matches homepage) -->
+<!-- FULL FOOTER (matches your other pages) -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
@@ -525,7 +525,10 @@
   </div>
 </footer>
 
-<script src="/cart.js"></script>
+<!-- Scripts -->
+<script src="/cart.js" defer></script>
+<script src="/particles.js" defer></script>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     // year
@@ -533,9 +536,11 @@
     if (y) y.textContent = new Date().getFullYear();
 
     // cart
-    if (window.RetroCart && typeof RetroCart.loadCart === "function") RetroCart.loadCart();
+    if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
+      window.RetroCart.loadCart();
+    }
 
-    // mobile nav toggle (matches your CSS: .main-nav.is-open)
+    // mobile nav toggle + auto-close
     const navBtn = document.querySelector(".nav-toggle");
     const nav = document.getElementById("primaryNav");
     if (navBtn && nav) {
@@ -543,6 +548,7 @@
         const open = nav.classList.toggle("is-open");
         navBtn.setAttribute("aria-expanded", open ? "true" : "false");
       });
+
       nav.querySelectorAll("a").forEach(a => {
         a.addEventListener("click", () => {
           nav.classList.remove("is-open");

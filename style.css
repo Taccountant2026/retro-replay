@@ -900,4 +900,45 @@ ul{list-style:none}
   text-decoration:none;
 }
 .rr-upsell-links a:hover{background:rgba(0,102,255,.06);border-color:rgba(0,102,255,.18)}
+/* Policy pages (cookie-policy, terms, privacy, etc.) */
+.rr-policy{padding:3rem 0}
+.rr-policy-wrap{max-width:900px;margin:0 auto}
+.rr-policy-card{
+  background:#fff;
+  border:1px solid var(--gray-lighter);
+  border-radius:1.25rem;
+  padding:1.75rem;
+  box-shadow:var(--shadow-sm);
+}
+.rr-policy-card h1{margin-top:0;letter-spacing:-.02em}
+.rr-policy-card h2{margin-top:1.75rem}
+.rr-policy-card h3{margin-top:1.15rem}
+.rr-policy-muted{color:var(--gray)}
+.rr-policy-list{padding-left:1.1rem}
+.rr-policy-callout{
+  margin-top:1.25rem;
+  padding:1rem 1.1rem;
+  border-radius:1.25rem;
+  border:1px solid rgba(0,102,255,.18);
+  background:rgba(0,102,255,.06);
+}
+.rr-policy-table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  overflow:hidden;
+  border:1px solid var(--gray-lighter);
+  border-radius:1.25rem;
+  margin-top:.75rem;
+}
+.rr-policy-table th,.rr-policy-table td{
+  padding:.85rem .9rem;
+  border-bottom:1px solid var(--gray-lighter);
+  vertical-align:top;
+  text-align:left;
+}
+.rr-policy-table tr:last-child td{border-bottom:0}
+.rr-policy-table th{background:#f8fafc;font-weight:900;white-space:nowrap}
+.rr-policy-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem}
+.rr-btn-small{padding:.7rem 1rem;border-radius:.95rem;font-weight:900}
 

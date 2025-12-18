@@ -1,213 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atari Collection | Retro Replay</title>
-  <link rel="stylesheet" href="../style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta name="description" content="Professionally function-tested, externally cleaned and condition-graded Atari 2600, 5200 and 7800 systems. Optional refurbishment available." />
 
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
+  <!-- IMPORTANT: this page lives in /atari/ so always use ROOT paths -->
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
 </head>
+
 <body>
 
-  <header class="site-header">
-    <div class="header-top">
-      <div class="container">
-        <div class="header-promo">
-          <span>🎮 Atari Collection</span>
-        </div>
-        <div class="header-links">
-          <a href="/about.html">About</a>
-          <a href="/warranties.html">Warranty</a>
-        </div>
+<header class="site-header">
+
+  <!-- GLOBAL TOP BAR -->
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo">
+        <span>🎮 Atari Collection</span>
+        <span>Tested • Cleaned • Graded</span>
       </div>
-    </div>
-
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="../index.html" class="site-logo">
-          <img src="../assets/logo.png" alt="Retro Replay">
-          <span>Retro Replay</span>
-        </a>
-
-<form class="search-bar" action="/search.html" method="get" role="search">
-  <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
-  <button class="search-btn" type="submit">Search</button>
-</form>
-
-        <div class="header-actions">
-          <a href="/contact.html" class="header-action">
-            <span>📞</span><span>Support</span>
-          </a>
-          <a href="/checkout.html" class="header-action">
-            <span>🛒</span><span>Cart</span>
-            <span class="cart-badge" id="cart-count-js">0</span>
-          </a>
-        </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
       </div>
-    </div>
-
-<!-- GLOBAL TOP BAR -->
-<div class="header-top">
-  <div class="container">
-    <div class="header-promo">
-      <span>Retro Replay — Professionally tested and cleaned gaming consoles</span>
-    </div>
-    <div class="header-links">
-      <a href="/about.html">About</a>
-      <a href="/warranties.html">Warranty</a>
     </div>
   </div>
-</div>
 
-<!-- GLOBAL MAIN NAV -->
-<nav class="main-nav">
-  <div class="container">
-    <ul class="nav-list">
+  <!-- HEADER MAIN -->
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/index.html" class="site-logo">
+        <img src="/assets/logo.png" alt="Retro Replay" />
+        <span>Retro Replay</span>
+      </a>
 
-      <li><a href="/index.html">Main Home</a></li>
+      <!-- Mobile menu button -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
 
-      <li><a href="/atari/index.html">Atari</a></li>
-      <li><a href="/nintendo/index.html">Nintendo</a></li>
-      <li><a href="/playstation/index.html">PlayStation</a></li>
-      <li><a href="/sega/index.html">Sega</a></li>
-      <li><a href="/xbox/index.html">Xbox</a></li>
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
 
-      <li><a href="/guides.html">Setup Guides</a></li>
-      <li><a href="/sourcing-request.html">Sourcing</a></li>
-
-      <li><a href="/services.html">Services</a></li>
-      <li><a href="/warranties.html">Warranty</a></li>
-      <li><a href="/faq.html">FAQ</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-
-    </ul>
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js">0</span>
+        </a>
+      </div>
+    </div>
   </div>
-</nav>
-  </header>
 
-  <!-- HERO -->
-  <section class="hero" style="background: linear-gradient(135deg, #d62828 0%, #c41e1e 100%);">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>Atari Collection</h1>
-        <p>
-          Professionally function-tested, externally cleaned and condition-graded Atari 2600, 5200 and 7800 systems.
-          Optional refurbishment available for collectors or long-term reliability.  
-          Every console is prepared individually to order.
-        </p>
-        <div class="hero-cta">
-          <a href="#atari-models" class="btn btn-primary">Browse Models</a>
-          <a href="/atari/guides.html" class="btn btn-secondary">Setup Guides</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="../assets/Console_Bundle.jpg" alt="Atari Consoles">
-      </div>
-    </div>
-  </section>
-
-  <!-- SOURCE-ONLY MODEL CARDS -->
-  <section class="section" id="atari-models">
+  <!-- GLOBAL MAIN NAV -->
+  <nav class="main-nav" id="primaryNav" aria-label="Primary">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Browse Atari Consoles</h2>
-        <p class="section-subtitle">All consoles sourced to order • Tested • Cleaned • Graded</p>
-      </div>
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html" aria-current="page">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-      <div class="category-grid">
+</header>
 
-        <a href="/sourcing-request.html" class="category-card">
-          <div class="category-icon">
-            <img src="../assets/atarilogo.png" alt="Atari 2600">
-          </div>
-          <h3 class="category-name">Atari 2600</h3>
-          <p class="category-count">Source to Order • Classic VCS</p>
-        </a>
-
-        <a href="/sourcing-request.html" class="category-card">
-          <div class="category-icon">
-            <img src="../assets/atarilogo.png" alt="Atari 5200">
-          </div>
-          <h3 class="category-name">Atari 5200</h3>
-          <p class="category-count">Source to Order • Advanced System</p>
-        </a>
-
-        <a href="/sourcing-request.html" class="category-card">
-          <div class="category-icon">
-            <img src="../assets/atarilogo.png" alt="Atari 7800">
-          </div>
-          <h3 class="category-name">Atari 7800</h3>
-          <p class="category-count">Source to Order • Enhanced Console</p>
-        </a>
-
+<!-- HERO -->
+<section class="hero" style="background: linear-gradient(135deg, #d62828 0%, #c41e1e 100%);">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Atari Collection</h1>
+      <p>
+        Professionally function-tested, externally cleaned and condition-graded Atari 2600, 5200 and 7800 systems.
+        Optional refurbishment available for collectors or long-term reliability.
+        Every console is prepared individually to order.
+      </p>
+      <div class="hero-cta">
+        <a href="#atari-models" class="btn btn-primary">Browse Models</a>
+        <a href="/atari/guides.html" class="btn btn-secondary">Setup Guides</a>
       </div>
     </div>
-  </section>
 
-  <!-- WHY RETRO REPLAY -->
-  <section class="section" style="background: white;">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Why Choose Retro Replay Atari?</h2>
-      </div>
-
-      <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-        
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">Professional Function Testing</h3>
-            <p class="product-description">
-              Cartridge reading, controller response, RF/AV output stability, power integrity  
-              and full operational verification included with every sourced console.
-            </p>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">Optional Internal Refurbishment</h3>
-            <p class="product-description">
-              Internal cleaning, connector tightening, PSU refresh (where applicable)  
-              and preventative maintenance available on request.
-            </p>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">Arrival Guarantee</h3>
-            <p class="product-description">
-              Every sourced unit is protected by our Arrival Guarantee.  
-              Optional extended protection plans available.
-            </p>
-          </div>
-        </div>
-
-      </div>
+    <div class="hero-image">
+      <img src="/assets/Console_Bundle.jpg" alt="Atari Consoles" />
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
+<!-- MODEL CARDS -->
+<section class="section" id="atari-models">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Browse Atari Consoles</h2>
+      <p class="section-subtitle">All consoles sourced to order • Tested • Cleaned • Graded</p>
+    </div>
+
+    <div class="category-grid">
+
+      <a href="/sourcing-request.html" class="category-card">
+        <div class="category-icon">
+          <img src="/assets/atarilogo.png" alt="Atari 2600" />
+        </div>
+        <h3 class="category-name">Atari 2600</h3>
+        <p class="category-count">Source to Order • Classic VCS</p>
+      </a>
+
+      <a href="/sourcing-request.html" class="category-card">
+        <div class="category-icon">
+          <img src="/assets/atarilogo.png" alt="Atari 5200" />
+        </div>
+        <h3 class="category-name">Atari 5200</h3>
+        <p class="category-count">Source to Order • Advanced System</p>
+      </a>
+
+      <a href="/sourcing-request.html" class="category-card">
+        <div class="category-icon">
+          <img src="/assets/atarilogo.png" alt="Atari 7800" />
+        </div>
+        <h3 class="category-name">Atari 7800</h3>
+        <p class="category-count">Source to Order • Enhanced Console</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY RETRO REPLAY -->
+<section class="section" style="background: white;">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Why Choose Retro Replay Atari?</h2>
+    </div>
+
+    <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">Professional Function Testing</h3>
+          <p class="product-description">
+            Cartridge reading, controller response, RF/AV output stability, power integrity
+            and full operational verification included with every sourced console.
+          </p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">Optional Internal Refurbishment</h3>
+          <p class="product-description">
+            Internal cleaning, connector tightening, PSU refresh (where applicable)
+            and preventative maintenance available on request.
+          </p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">Arrival Guarantee</h3>
+          <p class="product-description">
+            Every sourced unit is protected by our Arrival Guarantee.
+            Optional extended protection plans available.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
 
-      <!-- BRANDING -->
       <div class="footer-section">
         <h3>Retro Replay</h3>
-        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari & Sega systems.</p>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
       </div>
 
-      <!-- SHOP -->
       <div class="footer-section">
         <h3>Shop</h3>
         <ul class="footer-links">
@@ -219,7 +215,6 @@
         </ul>
       </div>
 
-      <!-- SUPPORT -->
       <div class="footer-section">
         <h3>Support</h3>
         <ul class="footer-links">
@@ -231,27 +226,54 @@
         </ul>
       </div>
 
-      <!-- COMPANY -->
       <div class="footer-section">
         <h3>Company</h3>
         <ul class="footer-links">
           <li><a href="/about.html">About Us</a></li>
-          <li><a href="/process.html">Our Process</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
-          <li><a href="/terms.html">Policies & Terms</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. All rights reserved. Professionally tested & cleaned gaming consoles.</p>
+      <p>© 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
 
-  <script src="../cart.js"></script>
-  <script>RetroCart.loadCart();</script>
+<!-- Scripts -->
+<script src="/cart.js" defer></script>
+<script src="/particles.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // cart
+    if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
+      window.RetroCart.loadCart();
+    }
+
+    // mobile nav toggle (requires CSS: .main-nav.is-open)
+    const navBtn = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("primaryNav");
+    if (navBtn && nav) {
+      navBtn.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+
+      // close menu after selecting a link (mobile UX)
+      nav.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          navBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+  });
+</script>
 
 </body>
 </html>

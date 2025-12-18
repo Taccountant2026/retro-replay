@@ -1,76 +1,170 @@
 <!-- =========================
-     THANK YOU PAGE (FORMSPREE REDIRECT)
-     Paste as: /contact-thanks.html
+  RetroReplay UK — contact-thanks.html (FULL BUILD FIXED)
+  Fixes:
+  - Root-relative paths everywhere (/style.css, /assets, /cart.js)
+  - Canonical + OG tags + theme-color added
+  - Header/footer aligned with MASTER layout (top bar + main nav + toggle)
+  - Adds cart badge + safe cart init
+  - Mobile nav toggle + close after tap
+  - Keeps your simple “thanks” content intact
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Message sent | Retro Replay</title>
-  <meta name="description" content="Thanks for contacting Retro Replay." />
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <title>Message Sent | Retro Replay</title>
+  <meta name="description" content="Thanks for contacting Retro Replay. We’ve received your message and will reply as soon as possible." />
+
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="canonical" href="https://retroreplay.uk/contact-thanks.html" />
+  <meta name="theme-color" content="#0066ff" />
+  <meta property="og:title" content="Message Sent | Retro Replay" />
+  <meta property="og:description" content="We’ve received your message and will reply as soon as possible." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
+  </script>
 </head>
+
 <body>
 
-<header class="site-header">
-  <div class="header-top">
+  <!-- HEADER (MASTER) -->
+  <header class="site-header">
+
+    <!-- TOP BAR -->
+    <div class="header-top">
+      <div class="container">
+        <div class="header-promo">
+          <span>✅ Message sent</span>
+          <span>We’ll reply as soon as possible</span>
+        </div>
+        <div class="header-links">
+          <a href="/about.html">About</a>
+          <a href="/delivery.html">Delivery</a>
+          <a href="/warranties.html">Warranty</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <div class="header-main">
+      <div class="container header-content">
+
+        <a href="/" class="site-logo" aria-label="Retro Replay Home">
+          <img src="/assets/logo.png" alt="Retro Replay Logo" />
+          <span>Retro Replay</span>
+        </a>
+
+        <form class="search-bar" action="/search.html" method="get" role="search">
+          <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+          <button class="search-btn" type="submit">Search</button>
+        </form>
+
+        <div class="header-actions">
+          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+
+          <a href="/checkout.html" class="header-action">
+            <span>🛒</span><span>Cart</span>
+            <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
+          </a>
+
+          <button class="nav-toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="primaryNav">☰</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MAIN NAV -->
+    <nav class="main-nav" id="primaryNav" aria-label="Primary">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="/">Main Home</a></li>
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/sourcing-request.html">Sourcing</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/warranties.html">Warranty</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  </header>
+
+  <!-- CONTENT -->
+  <main class="page-wrap" style="max-width:1100px;margin:0 auto;padding:2rem 1rem;">
+    <section style="background:#fff;border:1px solid var(--gray-lighter);border-radius:1rem;padding:1.5rem;box-shadow:var(--shadow-sm);">
+      <h1 style="margin:0 0 .5rem 0;">Thanks — message sent</h1>
+      <p style="margin:0;color:var(--gray);">
+        We’ve received your message and will reply as soon as possible (usually same day).
+      </p>
+
+      <div style="margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap;">
+        <a class="btn btn-primary" href="/" style="text-decoration:none;">Back to Home</a>
+        <a class="btn btn-secondary" href="/playstation/products/ps2-fat.html" style="text-decoration:none;">Shop PS2 Modded</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (MASTER-LITE) -->
+  <footer class="site-footer">
     <div class="container">
-      <div class="header-promo">
-        <span>✅ Message sent — Retro Replay</span>
-      </div>
-      <div class="header-links">
-        <a href="/about.html">About</a>
-        <a href="/warranties.html">Warranty</a>
+      <div class="footer-bottom">
+        © <span id="year"></span> Retro Replay. All rights reserved.
       </div>
     </div>
-  </div>
+  </footer>
 
-  <div class="header-main">
-    <div class="container header-content">
-      <a href="/index.html" class="site-logo">
-        <img src="/assets/logo.png" alt="Retro Replay Logo">
-        <span>Retro Replay</span>
-      </a>
+  <!-- Scripts -->
+  <script src="/cart.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-      <form class="search-bar" action="/search.html" method="get" role="search">
-        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
-        <button class="search-btn" type="submit">Search</button>
-      </form>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Safe cart init
+      if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
+        window.RetroCart.loadCart();
+      }
 
-      <div class="header-actions">
-        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-        <a href="/checkout.html" class="header-action"><span>🛒</span><span>Cart</span></a>
-      </div>
-    </div>
-  </div>
-</header>
+      // Mobile nav toggle + close after tap
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primaryNav');
+      if (btn && nav) {
+        btn.addEventListener('click', () => {
+          nav.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', nav.classList.contains('is-open') ? 'true' : 'false');
+        });
 
-<main class="page-wrap" style="max-width:1100px;margin:0 auto;padding:2rem 1rem;">
-  <section style="background:#fff;border:1px solid var(--gray-lighter);border-radius:1rem;padding:1.5rem;">
-    <h1 style="margin:0 0 .5rem 0;">Thanks — message sent</h1>
-    <p style="margin:0;color:var(--gray);">
-      We’ve received your message and will reply as soon as possible (usually same day).
-    </p>
-    <div style="margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap;">
-      <a class="btn btn-primary" href="/index.html" style="text-decoration:none;">Back to Home</a>
-      <a class="btn btn-secondary" href="/playstation/products/ps2-fat.html" style="text-decoration:none;">Shop PS2 Modded</a>
-    </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-bottom">
-      <p>© <span id="year"></span> Retro Replay. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+        nav.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            nav.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>

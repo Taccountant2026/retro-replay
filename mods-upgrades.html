@@ -1,143 +1,290 @@
+<!-- =========================
+     SERVICES PAGE (MODS & UPGRADES) — FULL BUILD FIXED
+     Paste as: /services.html
+========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Mods & Upgrades | Retro Replay</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Professional console mods and upgrades: PS2 HDD installs, FMCB/OPL setup, homebrew configuration, controller options, and more." />
+
+  <link rel="stylesheet" href="/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
+
+  <style>
+    /* Page-only helpers */
+    .services-wrap{max-width:1100px;margin:0 auto;}
+    .note{background:#f0f4f8;border:1px solid var(--gray-lighter);border-radius:12px;padding:1rem 1.25rem;color:var(--gray);line-height:1.7;}
+    .note strong{color:var(--dark);}
+  </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="header-top"><div class="container"><div class="header-promo"><span>⚙️ Mods & Upgrades</span></div></div></div>
-    <div class="header-main">
-      <div class="container header-content">
-        <a href="index.html" class="site-logo"><img src="assets/logo.png" alt="Retro Replay"><span>Retro Replay</span></a>
-        <div class="search-bar"><input type="search" placeholder="Search..." aria-label="Search"><button class="search-btn">Search</button></div>
-        <div class="header-actions">
-          <a href="contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-          <a href="checkout.html" class="header-action"><span>🛒</span><span>Cart</span><span class="cart-badge" id="cart-count-js">0</span></a>
-        </div>
-      </div>
-    </div>
-    <nav class="main-nav">
-      <div class="container">
-        <ul class="nav-list">
-    
-          <li><a href="/index.html">Main Home</a></li>
-    
-          <li><a href="/atari/index.html">Atari</a></li>
-          <li><a href="/nintendo/index.html">Nintendo</a></li>
-          <li><a href="/playstation/index.html">PlayStation</a></li>
-          <li><a href="/sega/index.html">Sega</a></li>
-          <li><a href="/xbox/index.html">Xbox</a></li>
-    
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/warranties.html">Warranty</a></li>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-    
-        </ul>
-      </div>
-    </nav>
-  </header>
 
-  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>Mods & Upgrades</h1>
-        <p>Enhance your console with professional modifications and upgrades.</p>
-      </div>
-    </div>
-  </section>
+<header class="site-header">
 
-  <section class="section" style="background: white;">
+  <!-- GLOBAL TOP BAR -->
+  <div class="header-top">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Available Modifications</h2>
+      <div class="header-promo">
+        <span>⚙️ Mods &amp; Upgrades</span>
+        <span>Professional installs • Fully tested</span>
       </div>
-
-      <div class="product-grid">
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">🖥️ HDD Installation</h3>
-            <p class="product-description">Add 500GB or 1TB hard drive to PS2 for expanded storage and game compatibility.</p>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">⚡ FMCB Setup</h3>
-            <p class="product-description">Free McBoot installation for PS2 allows homebrew games and custom configurations.</p>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">🎮 Homebrew Configuration</h3>
-            <p class="product-description">Setup emulators and custom software for enhanced gaming possibilities.</p>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">🎨 Custom Shells</h3>
-            <p class="product-description">Replace console shells with custom colors and designs for unique aesthetics.</p>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">🔌 Power Upgrades</h3>
-            <p class="product-description">Enhanced power supplies for improved stability and reliability.</p>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">🎯 Controller Mods</h3>
-            <p class="product-description">Custom controllers with ergonomic improvements and wireless options.</p>
-          </div>
-        </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="section">
-    <div class="container" style="max-width: 900px;">
-      <div class="section-header">
-        <h2 class="section-title">How to Get Mods</h2>
+  <!-- HEADER MAIN -->
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/index.html" class="site-logo" aria-label="Retro Replay Home">
+        <img src="/assets/logo.png" alt="Retro Replay">
+        <span>Retro Replay</span>
+      </a>
+
+      <!-- Mobile nav toggle -->
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primaryNav">☰</button>
+
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
+        <button class="search-btn" type="submit">Search</button>
+      </form>
+
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL MAIN NAV -->
+  <nav class="main-nav" id="primaryNav" aria-label="Primary">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+       j>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html" aria-current="page">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</header>
+
+<!-- HERO -->
+<section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Mods &amp; Upgrades</h1>
+      <p>Enhance your console with professionally installed modifications and upgrades. Fully tested before dispatch.</p>
+      <div class="hero-cta">
+        <a href="/contact.html" class="btn btn-primary">Request a Quote</a>
+        <a href="/guides.html" class="btn btn-secondary">View Setup Guides</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="section" style="background: white;">
+  <div class="container services-wrap">
+    <div class="section-header">
+      <h2 class="section-title">Available Modifications</h2>
+      <p class="section-subtitle">Common options we offer. If you need something specific, message us and we’ll advise.</p>
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">🖥️ PS2 HDD Installation</h3>
+          <p class="product-description">Add 500GB / 1TB / 2TB storage with a compatible adapter and a clean, reliable setup.</p>
+        </div>
       </div>
 
       <div class="product-card">
         <div class="product-info">
-          <p style="font-size: 1.05rem; line-height: 1.8; color: var(--dark);">When ordering a console, you can select which modifications you'd like us to install. All mods are performed by experienced technicians and fully tested before shipment. Contact us if you need custom configurations not listed.</p>
-          <a href="contact.html" class="btn btn-primary" style="margin-top: 1rem;">Contact About Mods</a>
+          <h3 class="product-name">⚡ FMCB + OPL Setup</h3>
+          <p class="product-description">Free McBoot configured for easy booting and game loading, with menus optimised for simplicity.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">🎮 Homebrew Configuration</h3>
+          <p class="product-description">Emulators, apps, and clean menu layout configured to your needs (where supported).</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">🧼 Deep Service / Refurb Refresh</h3>
+          <p class="product-description">Internal clean, inspection, thermal refresh and stability checks to maximise lifespan.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">🎯 Controller Options</h3>
+          <p class="product-description">Wireless kits, multi-controller setups, and tested controller bundles for multiplayer.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">🎨 Cosmetic Upgrades</h3>
+          <p class="product-description">Shell swaps and cosmetic improvements (availability depends on platform and stock).</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="note" style="margin-top:1.25rem;">
+      <strong>Important:</strong> Mods and upgrade availability depends on the exact console model/revision and stock.
+      Send your console model (e.g., PS2 Fat SCPH-5000x), TV type (HDMI/AV), and what you want to achieve for the fastest quote.
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="container" style="max-width: 900px;">
+    <div class="section-header">
+      <h2 class="section-title">How to Get Mods</h2>
+      <p class="section-subtitle">Simple process: tell us what you want, we confirm, then we build and test.</p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-info">
+        <ol class="product-features" style="font-size:1.05rem; line-height:2; color:var(--dark);">
+          <li><strong>Message us</strong> with your console model, budget, and desired upgrades.</li>
+          <li><strong>We confirm compatibility</strong>, pricing, and lead time.</li>
+          <li><strong>We install and test</strong> your setup (multi-stage checks).</li>
+          <li><strong>We dispatch</strong> with tracking and support if you get stuck.</li>
+        </ol>
+
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
+          <a href="/contact.html" class="btn btn-primary" style="flex:1; text-align:center;">Contact About Mods</a>
+          <a href="/sourcing-request.html" class="btn btn-secondary" style="flex:1; text-align:center;">Request Sourcing</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section"><h3>Mods</h3><p>Professional modifications and upgrades.</p></div>
-        <div class="footer-section"><h3>Links</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+
+      <div class="footer-section">
+        <h3>Retro Replay</h3>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
       </div>
-      <div class="footer-bottom"><p>&copy; 2025 Retro Replay. All rights reserved.</p></div>
-    </div>
-  </footer>
 
-  <script src="cart.js"></script>
-  <script>RetroCart.loadCart();</script>
+      <div class="footer-section">
+        <h3>Shop</h3>
+        <ul class="footer-links">
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul class="footer-links">
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/warranties.html">Warranty Info</a></li>
+          <li><a href="/delivery.html">Shipping</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul class="footer-links">
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
+          <li><a href="/services.html" aria-current="page">Services</a></li>
+          <li><a href="/terms.html">Policies &amp; Terms</a></li>
+          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Retro Replay. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/cart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Year
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+
+    // Cart init (safe)
+    if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
+      window.RetroCart.loadCart();
+    }
+
+    // Mobile menu toggle
+    const navBtn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primaryNav');
+    if (navBtn && nav) {
+      navBtn.addEventListener('click', () => {
+        const open = nav.classList.toggle('is-open');
+        navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          nav.classList.remove('is-open');
+          navBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  });
+</script>
+
 </body>
 </html>

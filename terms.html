@@ -73,7 +73,7 @@
         <span>Retro Replay</span>
       </a>
 
-      <!-- Mobile menu button (requires .nav-toggle + .main-nav.is-open CSS in style.css) -->
+      <!-- Mobile menu button -->
       <button class="nav-toggle"
               type="button"
               aria-label="Open menu"
@@ -300,23 +300,36 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2025 Retro Replay. All rights reserved.</p>
+      <p>© 2025 Retro Replay. All rights reserved.</p>
     </div>
   </div>
 </footer>
 
-<script src="/cart.js"></script>
+<!-- Scripts -->
+<script src="/cart.js" defer></script>
+<script src="/particles.js" defer></script>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    if (window.RetroCart && typeof RetroCart.loadCart === "function") RetroCart.loadCart();
+    // cart
+    if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
+      window.RetroCart.loadCart();
+    }
 
-    // Mobile nav toggle
+    // Mobile nav toggle + auto-close on link click
     const navBtn = document.querySelector(".nav-toggle");
     const nav = document.getElementById("primaryNav");
     if (navBtn && nav) {
       navBtn.addEventListener("click", () => {
         const open = nav.classList.toggle("is-open");
         navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+
+      nav.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          navBtn.setAttribute("aria-expanded", "false");
+        });
       });
     }
   });

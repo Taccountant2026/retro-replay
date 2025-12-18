@@ -76,8 +76,10 @@
 
       <div class="header-actions">
         <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
-        <a href="/checkout.html" class="header-action">
-          <span>🛒</span><span>Cart</span>
+
+        <!-- Sourcing-first: point cart CTA to sourcing so users aren't misled -->
+        <a href="/sourcing-request.html" class="header-action">
+          <span>🛒</span><span>Sourcing</span>
           <span class="cart-badge" id="cart-count-js">0</span>
         </a>
       </div>
@@ -150,7 +152,8 @@
         </div>
       </div>
 
-      <a href="#shop-consoles" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem; display: inline-block;">Shop Now</a>
+      <!-- Sourcing-first -->
+      <a href="/sourcing-request.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem; display: inline-block;">Request Sourcing</a>
     </div>
   </div>
 </section>
@@ -191,7 +194,7 @@
             <li>✓ Preparation report</li>
           </ul>
           <p style="font-size:.75rem; color: var(--gray); margin-bottom:1rem;">No accessories included</p>
-          <button class="btn btn-outline" style="width:100%;">Choose Model</button>
+          <a class="btn btn-outline" href="/sourcing-request.html" style="width:100%; display:inline-block;">Choose Model</a>
         </div>
       </div>
 
@@ -211,7 +214,7 @@
             <li>✓ AV/RF cables</li>
             <li>✓ 1 free game</li>
           </ul>
-          <button class="btn btn-success" style="width:100%; background: var(--secondary); font-weight:900;">Get Bundle 1</button>
+          <a class="btn btn-success" href="/sourcing-request.html" style="width:100%; background: var(--secondary); font-weight:900; display:inline-block;">Request Bundle 1</a>
         </div>
       </div>
 
@@ -230,7 +233,7 @@
             <li>✓ 3 free games total</li>
             <li>✓ Game storage case</li>
           </ul>
-          <button class="btn btn-success" style="width:100%; background:#d97706; font-weight:900;">Get Bundle 2</button>
+          <a class="btn btn-success" href="/sourcing-request.html" style="width:100%; background:#d97706; font-weight:900; display:inline-block;">Request Bundle 2</a>
         </div>
       </div>
 
@@ -249,7 +252,7 @@
             <li>✓ 5 free games total</li>
             <li>✓ Cleaning kit</li>
           </ul>
-          <button class="btn btn-success" style="width:100%; background: var(--accent); font-weight:900;">Get Bundle 3</button>
+          <a class="btn btn-success" href="/sourcing-request.html" style="width:100%; background: var(--accent); font-weight:900; display:inline-block;">Request Bundle 3</a>
         </div>
       </div>
     </div>
@@ -261,7 +264,7 @@
         <p class="section-subtitle">Choose your console variant, then add a bundle and optional upgrades.</p>
       </div>
 
-      <!-- CATEGORY CARDS -->
+      <!-- CATEGORY CARDS (keep anchors as-is; they are internal scroll) -->
       <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; margin-bottom:3rem;">
         <a href="#consoles" class="promo-card" style="text-decoration:none; display:block; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); padding:2rem; border-radius:1rem; border:2px solid #3b82f6;">
           <div style="font-size:3rem; margin-bottom:1rem; text-align:center;">📦</div>
@@ -301,7 +304,7 @@
         </a>
       </div>
 
-      <!-- MODDED SECTION -->
+      <!-- MODDED SECTION (unchanged) -->
       <div id="modded" style="margin-bottom: 3rem; background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%); padding: 2rem; border-radius: 1rem; border: 2px solid var(--accent); scroll-margin-top: 240px;">
         <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem; flex-wrap:wrap;">
           <h2 style="font-size:2rem; margin:0; color: var(--accent); font-weight:900;">⚡ Upgraded Atari 2600 Consoles</h2>
@@ -362,6 +365,7 @@
           </button>
 
           <div class="product-carousel">
+            <!-- REPLACE ALL Add-to-cart with sourcing link -->
             <article class="product-card" style="display:flex; flex-direction:column; overflow:hidden;">
               <div style="position:relative; background:#f8f9fa; padding:2rem; min-height:200px; display:flex; align-items:center; justify-content:center;">
                 <div style="font-size:3.5rem;">🎮</div>
@@ -374,9 +378,7 @@
                 <p class="product-description" style="font-size:.9rem; color: var(--gray); margin:0 0 1rem; flex-grow:1;">Iconic design. Minimal wear. Collector grade.</p>
                 <div style="border-top:1px solid #eee; padding-top:1rem;">
                   <p style="font-size:1.3rem; font-weight:900; color:#d97706; margin:0 0 .75rem;">£85.00</p>
-                  <button class="btn btn-success btn-add-cart" type="button"
-                          onclick="RetroCart.addItem('2600-wood-a','Atari 2600 Wood Grain A-Grade',85.00,'/assets/atarilogo.png')"
-                          style="width:100%;">Add to Cart</button>
+                  <a class="btn btn-success btn-add-cart" href="/sourcing-request.html" style="width:100%; display:inline-block;">Request This Console</a>
                 </div>
               </div>
             </article>
@@ -393,9 +395,7 @@
                 <p class="product-description" style="font-size:.9rem; color: var(--gray); margin:0 0 1rem; flex-grow:1;">Classic design. Light wear. Excellent value.</p>
                 <div style="border-top:1px solid #eee; padding-top:1rem;">
                   <p style="font-size:1.3rem; font-weight:900; color:#d97706; margin:0 0 .75rem;">£69.99</p>
-                  <button class="btn btn-success btn-add-cart" type="button"
-                          onclick="RetroCart.addItem('2600-wood-b','Atari 2600 Wood Grain B-Grade',69.99,'/assets/atarilogo.png')"
-                          style="width:100%;">Add to Cart</button>
+                  <a class="btn btn-success btn-add-cart" href="/sourcing-request.html" style="width:100%; display:inline-block;">Request This Console</a>
                 </div>
               </div>
             </article>
@@ -412,9 +412,7 @@
                 <p class="product-description" style="font-size:.9rem; color: var(--gray); margin:0 0 1rem; flex-grow:1;">Vintage wear. Budget-friendly. Fully functional.</p>
                 <div style="border-top:1px solid #eee; padding-top:1rem;">
                   <p style="font-size:1.3rem; font-weight:900; color:#d97706; margin:0 0 .75rem;">£55.00</p>
-                  <button class="btn btn-success btn-add-cart" type="button"
-                          onclick="RetroCart.addItem('2600-wood-c','Atari 2600 Wood Grain C-Grade',55.00,'/assets/atarilogo.png')"
-                          style="width:100%;">Add to Cart</button>
+                  <a class="btn btn-success btn-add-cart" href="/sourcing-request.html" style="width:100%; display:inline-block;">Request This Console</a>
                 </div>
               </div>
             </article>
@@ -431,9 +429,7 @@
                 <p class="product-description" style="font-size:.9rem; color: var(--gray); margin:0 0 1rem; flex-grow:1;">Sleek Vader design. Near-perfect condition.</p>
                 <div style="border-top:1px solid #eee; padding-top:1rem;">
                   <p style="font-size:1.3rem; font-weight:900; color:#d97706; margin:0 0 .75rem;">£75.00</p>
-                  <button class="btn btn-success btn-add-cart" type="button"
-                          onclick="RetroCart.addItem('2600-vader-a','Atari 2600 All-Black A-Grade',75.00,'/assets/atarilogo.png')"
-                          style="width:100%;">Add to Cart</button>
+                  <a class="btn btn-success btn-add-cart" href="/sourcing-request.html" style="width:100%; display:inline-block;">Request This Console</a>
                 </div>
               </div>
             </article>
@@ -450,9 +446,7 @@
                 <p class="product-description" style="font-size:.9rem; color: var(--gray); margin:0 0 1rem; flex-grow:1;">Light wear. Excellent value.</p>
                 <div style="border-top:1px solid #eee; padding-top:1rem;">
                   <p style="font-size:1.3rem; font-weight:900; color:#d97706; margin:0 0 .75rem;">£62.99</p>
-                  <button class="btn btn-success btn-add-cart" type="button"
-                          onclick="RetroCart.addItem('2600-vader-b','Atari 2600 All-Black B-Grade',62.99,'/assets/atarilogo.png')"
-                          style="width:100%;">Add to Cart</button>
+                  <a class="btn btn-success btn-add-cart" href="/sourcing-request.html" style="width:100%; display:inline-block;">Request This Console</a>
                 </div>
               </div>
             </article>
@@ -479,6 +473,7 @@
       <p style="font-size: 1.1rem; color: var(--gray); max-width: 700px; margin: 0 auto; line-height: 1.6;">Add controllers, cables, mods, and restoration services.</p>
     </div>
 
+    <!-- Change all "Add" buttons into sourcing links -->
     <details open>
       <summary>🎮 Joysticks & Cables</summary>
       <div class="accordion-content">
@@ -489,9 +484,7 @@
             <p style="font-size:.9rem; color: var(--gray); margin:0 0 1rem;">Authentic CX40 joystick • Tested & working</p>
             <div style="display:flex; align-items:center; justify-content:space-between;">
               <p style="margin:0; font-size:1.4rem; font-weight:900; color:#d97706;">£14.99</p>
-              <button class="btn btn-success" type="button"
-                      onclick="RetroCart.addItem('atari-joystick','Original Atari Joystick',14.99,'/assets/atarilogo.png')"
-                      style="padding:.5rem 1rem; font-size:.9rem;">Add</button>
+              <a class="btn btn-success" href="/sourcing-request.html" style="padding:.5rem 1rem; font-size:.9rem; display:inline-block;">Request</a>
             </div>
           </div>
 
@@ -501,9 +494,7 @@
             <p style="font-size:.9rem; color: var(--gray); margin:0 0 1rem;">Original paddles • Tested</p>
             <div style="display:flex; align-items:center; justify-content:space-between;">
               <p style="margin:0; font-size:1.4rem; font-weight:900; color:#d97706;">£24.99</p>
-              <button class="btn btn-success" type="button"
-                      onclick="RetroCart.addItem('atari-paddles','Atari Paddle Controllers (Pair)',24.99,'/assets/atarilogo.png')"
-                      style="padding:.5rem 1rem; font-size:.9rem;">Add</button>
+              <a class="btn btn-success" href="/sourcing-request.html" style="padding:.5rem 1rem; font-size:.9rem; display:inline-block;">Request</a>
             </div>
           </div>
 
@@ -513,9 +504,7 @@
             <p style="font-size:.9rem; color: var(--gray); margin:0 0 1rem;">Complete set • Replacement cables</p>
             <div style="display:flex; align-items:center; justify-content:space-between;">
               <p style="margin:0; font-size:1.4rem; font-weight:900; color:#d97706;">£12.99</p>
-              <button class="btn btn-success" type="button"
-                      onclick="RetroCart.addItem('atari-cables','Atari Power & AV/RF Cables',12.99,'/assets/atarilogo.png')"
-                      style="padding:.5rem 1rem; font-size:.9rem;">Add</button>
+              <a class="btn btn-success" href="/sourcing-request.html" style="padding:.5rem 1rem; font-size:.9rem; display:inline-block;">Request</a>
             </div>
           </div>
         </div>
@@ -533,9 +522,7 @@
             <p style="font-size:.9rem; color: var(--gray); margin:0 0 1rem;">Better picture • Modern TV compatibility</p>
             <div style="display:flex; align-items:center; justify-content:space-between;">
               <p style="margin:0; font-size:1.4rem; font-weight:900; color:#d97706;">£65.00</p>
-              <button class="btn btn-success" type="button"
-                      onclick="RetroCart.addItem('atari-mod-composite','Composite Video Mod (Service)',65.00,'/assets/atarilogo.png')"
-                      style="padding:.5rem 1rem; font-size:.9rem;">Add</button>
+              <a class="btn btn-success" href="/sourcing-request.html" style="padding:.5rem 1rem; font-size:.9rem; display:inline-block;">Request</a>
             </div>
           </div>
 
@@ -545,9 +532,7 @@
             <p style="font-size:.9rem; color: var(--gray); margin:0 0 1rem;">Prevents failures • Extends lifespan</p>
             <div style="display:flex; align-items:center; justify-content:space-between;">
               <p style="margin:0; font-size:1.4rem; font-weight:900; color:#d97706;">£45.00</p>
-              <button class="btn btn-success" type="button"
-                      onclick="RetroCart.addItem('atari-service-cap','Capacitor Refresh (Service)',45.00,'/assets/atarilogo.png')"
-                      style="padding:.5rem 1rem; font-size:.9rem;">Add</button>
+              <a class="btn btn-success" href="/sourcing-request.html" style="padding:.5rem 1rem; font-size:.9rem; display:inline-block;">Request</a>
             </div>
           </div>
 
@@ -557,9 +542,7 @@
             <p style="font-size:.9rem; color: var(--gray); margin:0 0 1rem;">Deep clean • Refresh • Reliability focus</p>
             <div style="display:flex; align-items:center; justify-content:space-between;">
               <p style="margin:0; font-size:1.4rem; font-weight:900; color:#d97706;">£85.00</p>
-              <button class="btn btn-success" type="button"
-                      onclick="RetroCart.addItem('atari-service-full','Full Restoration (Service)',85.00,'/assets/atarilogo.png')"
-                      style="padding:.5rem 1rem; font-size:.9rem;">Add</button>
+              <a class="btn btn-success" href="/sourcing-request.html" style="padding:.5rem 1rem; font-size:.9rem; display:inline-block;">Request</a>
             </div>
           </div>
         </div>
@@ -576,9 +559,7 @@
             <p style="font-size:.9rem; color: var(--gray); margin:0 0 1rem;">Tested classic cartridge • Various titles</p>
             <div style="display:flex; align-items:center; justify-content:space-between;">
               <p style="margin:0; font-size:1.4rem; font-weight:900; color:#d97706;">£5.99</p>
-              <button class="btn btn-success" type="button"
-                      onclick="RetroCart.addItem('atari-game-random','Atari 2600 Game (Random)',5.99,'/assets/atarilogo.png')"
-                      style="padding:.5rem 1rem; font-size:.9rem;">Add</button>
+              <a class="btn btn-success" href="/sourcing-request.html" style="padding:.5rem 1rem; font-size:.9rem; display:inline-block;">Request</a>
             </div>
           </div>
 
@@ -588,9 +569,7 @@
             <p style="font-size:.9rem; color: var(--gray); margin:0 0 1rem;">Holds 12 cartridges • Protective storage</p>
             <div style="display:flex; align-items:center; justify-content:space-between;">
               <p style="margin:0; font-size:1.4rem; font-weight:900; color:#d97706;">£15.99</p>
-              <button class="btn btn-success" type="button"
-                      onclick="RetroCart.addItem('atari-case','Atari Game Storage Case',15.99,'/assets/atarilogo.png')"
-                      style="padding:.5rem 1rem; font-size:.9rem;">Add</button>
+              <a class="btn btn-success" href="/sourcing-request.html" style="padding:.5rem 1rem; font-size:.9rem; display:inline-block;">Request</a>
             </div>
           </div>
 
@@ -600,9 +579,7 @@
             <p style="font-size:.9rem; color: var(--gray); margin:0 0 1rem;">Vintage-safe cleaning • Microfibre cloths</p>
             <div style="display:flex; align-items:center; justify-content:space-between;">
               <p style="margin:0; font-size:1.4rem; font-weight:900; color:#d97706;">£9.99</p>
-              <button class="btn btn-success" type="button"
-                      onclick="RetroCart.addItem('atari-clean-kit','Atari Cleaning Kit',9.99,'/assets/atarilogo.png')"
-                      style="padding:.5rem 1rem; font-size:.9rem;">Add</button>
+              <a class="btn btn-success" href="/sourcing-request.html" style="padding:.5rem 1rem; font-size:.9rem; display:inline-block;">Request</a>
             </div>
           </div>
         </div>
@@ -685,12 +662,10 @@
   </div>
 </footer>
 
-<script src="/cart.js"></script>
+<!-- Optional: remove cart.js completely on sourcing-only pages.
+     If you keep it, it won't hurt, but the cart badge may mislead. -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // cart
-    if (window.RetroCart && typeof RetroCart.loadCart === "function") RetroCart.loadCart();
-
     // mobile nav toggle
     const navBtn = document.querySelector(".nav-toggle");
     const nav = document.getElementById("primaryNav");

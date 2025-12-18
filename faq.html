@@ -1,11 +1,32 @@
+<!-- =========================
+  RetroReplay UK — faq.html (FULL BUILD FIXED)
+  Fixes:
+  - Adds canonical + OG tags + theme-color
+  - Analytics anonymize_ip enabled
+  - Adds cookie banner (same as site)
+  - Safe cart init + mobile nav toggle + close after tap
+  - Normalises year to auto-update
+  - Keeps your FAQ styling intact
+========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>FAQ | Retro Replay</title>
-  <link rel="stylesheet" href="/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Frequently asked questions about Retro Replay consoles, delivery, returns, warranties, and upgrade services." />
+
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="canonical" href="https://retroreplay.uk/faq.html" />
+  <meta name="theme-color" content="#0066ff" />
+  <meta property="og:title" content="FAQ | Retro Replay" />
+  <meta property="og:description" content="Answers to common questions about tested consoles, delivery, returns, warranties, and upgrade services." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
@@ -13,25 +34,34 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-PF6Q3TSMVL');
+    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
 
   <style>
     /* FAQ page-only helpers (keeps your global CSS clean) */
     .faq-wrap{max-width:900px;margin:0 auto;}
-    .faq-card{background:#f9fafb;border-radius:12px;margin-bottom:1rem;padding:1.25rem 1.25rem;border:1px solid var(--gray-lighter);border-left:4px solid var(--primary);}
+    .faq-card{
+      background:#f9fafb;
+      border-radius:12px;
+      margin-bottom:1rem;
+      padding:1.25rem 1.25rem;
+      border:1px solid var(--gray-lighter);
+      border-left:4px solid var(--primary);
+    }
     .faq-card h3{margin:0 0 .5rem 0;color:var(--dark);font-size:1.1rem;}
     .faq-card p{margin:0;color:var(--gray);line-height:1.7;}
     .faq-help{background:#f0f4f8;padding:1.25rem;border-radius:12px;margin-top:1.5rem;}
     .faq-help a{color:var(--primary);font-weight:700;}
+    :focus-visible{ outline:3px solid rgba(0,102,255,.35); outline-offset:2px; border-radius:.5rem; }
   </style>
 </head>
 
 <body>
 
+<!-- HEADER (MASTER) -->
 <header class="site-header">
 
-  <!-- GLOBAL TOP BAR -->
+  <!-- TOP BAR -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
@@ -46,23 +76,16 @@
     </div>
   </div>
 
-  <!-- HEADER MAIN -->
+  <!-- MAIN HEADER -->
   <div class="header-main">
     <div class="container header-content">
-      <a href="/index.html" class="site-logo">
-        <img src="/assets/logo.png" alt="Retro Replay">
+      <a href="/" class="site-logo" aria-label="Retro Replay Home">
+        <img src="/assets/logo.png" alt="Retro Replay" />
         <span>Retro Replay</span>
       </a>
 
-      <!-- Mobile nav toggle -->
-      <button class="nav-toggle"
-              type="button"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="primaryNav">☰</button>
-
       <form class="search-bar" action="/search.html" method="get" role="search">
-        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
         <button class="search-btn" type="submit">Search</button>
       </form>
 
@@ -70,17 +93,22 @@
         <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
         <a href="/checkout.html" class="header-action">
           <span>🛒</span><span>Cart</span>
-          <span class="cart-badge" id="cart-count-js">0</span>
+          <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
         </a>
+        <button class="nav-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="primaryNav">☰</button>
       </div>
     </div>
   </div>
 
-  <!-- GLOBAL MAIN NAV -->
-  <nav class="main-nav" id="primaryNav">
+  <!-- MAIN NAV -->
+  <nav class="main-nav" id="primaryNav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
-        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/">Main Home</a></li>
         <li><a href="/atari/index.html">Atari</a></li>
         <li><a href="/nintendo/index.html">Nintendo</a></li>
         <li><a href="/playstation/index.html">PlayStation</a></li>
@@ -98,15 +126,17 @@
 
 </header>
 
+<!-- HERO -->
 <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
   <div class="container hero-content">
     <div class="hero-text">
       <h1>Frequently Asked Questions</h1>
-      <p>Answers to common questions about our tested consoles, delivery, returns, and upgrade services.</p>
+      <p>Answers to common questions about our tested consoles, delivery, returns, warranties, and upgrade services.</p>
     </div>
   </div>
 </section>
 
+<!-- FAQ -->
 <section class="section" style="background:white;">
   <div class="container faq-wrap">
     <div class="section-header">
@@ -136,7 +166,7 @@
 
     <div class="faq-card">
       <h3>What’s your return policy?</h3>
-      <p>Return terms are listed in your Policies & Terms. If there’s a problem on arrival, contact us as soon as possible with photos (if relevant) and we’ll guide you through the quickest fix.</p>
+      <p>Return terms are listed in your Policies &amp; Terms. If there’s a problem on arrival, contact us as soon as possible with photos (if relevant) and we’ll guide you through the quickest fix.</p>
     </div>
 
     <div class="faq-card">
@@ -159,6 +189,7 @@
   </div>
 </section>
 
+<!-- FOOTER (MASTER) -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
@@ -194,36 +225,86 @@
         <h3>Company</h3>
         <ul class="footer-links">
           <li><a href="/about.html">About Us</a></li>
-          <li><a href="/process.html">Our Process</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
           <li><a href="/terms.html">Policies &amp; Terms</a></li>
+          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
+      <p>© <span id="year"></span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
 
+<!-- COOKIE BANNER (MASTER) -->
+<div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <div class="rr-cookie-inner">
+    <p>
+      We use cookies to measure traffic (analytics) and improve the site.
+      <a href="/cookie-policy.html">Cookie policy</a>
+    </p>
+    <div class="rr-cookie-actions">
+      <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
+      <button class="rr-cookie-btn rr-cookie-accept" id="rrCookieAccept" type="button">Accept</button>
+    </div>
+  </div>
+</div>
+
 <script src="/cart.js"></script>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    if (window.RetroCart && typeof RetroCart.loadCart === 'function') {
-      RetroCart.loadCart();
+    // Year
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+
+    // Cart init (safe)
+    if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
+      window.RetroCart.loadCart();
     }
 
-    // Mobile menu toggle
+    // Mobile nav toggle + close after tap
     const navBtn = document.querySelector('.nav-toggle');
     const nav = document.getElementById('primaryNav');
     if (navBtn && nav) {
       navBtn.addEventListener('click', () => {
-        const open = nav.classList.toggle('is-open');
-        navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        nav.classList.toggle('is-open');
+        navBtn.setAttribute('aria-expanded', nav.classList.contains('is-open') ? 'true' : 'false');
+      });
+
+      nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          nav.classList.remove('is-open');
+          navBtn.setAttribute('aria-expanded', 'false');
+        });
       });
     }
+
+    // Cookie banner (store choice only)
+    const COOKIE_KEY = 'rr_cookie_consent'; // accepted | rejected
+    const banner = document.getElementById('rrCookie');
+    const accept = document.getElementById('rrCookieAccept');
+    const reject = document.getElementById('rrCookieReject');
+    const saved = localStorage.getItem(COOKIE_KEY);
+
+    function show(){ if (banner) banner.classList.remove('is-hidden'); }
+    function hide(){ if (banner) banner.classList.add('is-hidden'); }
+
+    if (!saved) show(); else hide();
+
+    if (accept) accept.addEventListener('click', () => {
+      localStorage.setItem(COOKIE_KEY, 'accepted');
+      hide();
+    });
+
+    if (reject) reject.addEventListener('click', () => {
+      localStorage.setItem(COOKIE_KEY, 'rejected');
+      hide();
+    });
   });
 </script>
 

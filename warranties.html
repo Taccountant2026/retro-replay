@@ -65,7 +65,7 @@
         <span>Retro Replay</span>
       </a>
 
-      <!-- Mobile menu button (requires .nav-toggle + .main-nav.is-open CSS in style.css) -->
+      <!-- Mobile menu button -->
       <button class="nav-toggle"
               type="button"
               aria-label="Open menu"
@@ -97,10 +97,8 @@
         <li><a href="/playstation/index.html">PlayStation</a></li>
         <li><a href="/sega/index.html">Sega</a></li>
         <li><a href="/xbox/index.html">Xbox</a></li>
-
         <li><a href="/guides.html">Setup Guides</a></li>
         <li><a href="/sourcing-request.html">Sourcing</a></li>
-
         <li><a href="/services.html">Services</a></li>
         <li><a href="/warranties.html" aria-current="page">Warranty</a></li>
         <li><a href="/faq.html">FAQ</a></li>
@@ -301,18 +299,31 @@
   </div>
 </footer>
 
-<script src="/cart.js"></script>
+<!-- Scripts -->
+<script src="/cart.js" defer></script>
+<script src="/particles.js" defer></script>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    if (window.RetroCart && typeof RetroCart.loadCart === "function") RetroCart.loadCart();
+    // cart
+    if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
+      window.RetroCart.loadCart();
+    }
 
-    // Mobile nav toggle
+    // Mobile nav toggle + auto-close on link click
     const navBtn = document.querySelector(".nav-toggle");
     const nav = document.getElementById("primaryNav");
     if (navBtn && nav) {
       navBtn.addEventListener("click", () => {
         const open = nav.classList.toggle("is-open");
         navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+
+      nav.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          navBtn.setAttribute("aria-expanded", "false");
+        });
       });
     }
   });

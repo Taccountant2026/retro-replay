@@ -1,12 +1,10 @@
 <!-- =========================
-  RetroReplay UK — about.html (FULL BUILD FIXED)
-  Fixes:
-  - Uses root-relative assets + CSS (/style.css, /assets/logo.png, /cart.js)
-  - Adds canonical + OG tags + theme-color for consistency
-  - GA config anonymize_ip (matches your index)
-  - Header matches MASTER header (same structure across site)
-  - Removes inline toggle duplication issues (toggle lives in header-actions like index)
-  - Keeps your About content (values + story) intact
+  RetroReplay UK — about.html (FULL BUILD MASTERED)
+  Changes:
+  - Removes inline styles (uses your unified /style.css utilities)
+  - Aligns layout + spacing with index (section-soft, section-center, product-grid)
+  - Fixes About “Values” cards to use existing product-card structure cleanly
+  - Footer class aligned to CSS footer-grid (not footer-content)
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +26,6 @@
   <meta property="og:image" content="/assets/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -37,7 +34,6 @@
     gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
 
-  <!-- Structured data (basic Organization) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -55,7 +51,6 @@
   <!-- HEADER (MASTER) -->
   <header class="site-header">
 
-    <!-- TOP BAR -->
     <div class="header-top">
       <div class="container">
         <div class="header-promo">
@@ -71,12 +66,11 @@
       </div>
     </div>
 
-    <!-- MAIN HEADER -->
     <div class="header-main">
       <div class="container header-content">
 
         <a href="/" class="site-logo" aria-label="Retro Replay Home">
-          <img src="/assets/logo.png" alt="Retro Replay Logo" />
+          <img src="/assets/logo.png" alt="Retro Replay Logo" width="48" height="48" loading="eager" decoding="async" />
           <span>Retro Replay</span>
         </a>
 
@@ -86,10 +80,10 @@
         </form>
 
         <div class="header-actions">
-          <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+          <a href="/contact.html" class="header-action"><span aria-hidden="true">📞</span><span>Support</span></a>
 
           <a href="/checkout.html" class="header-action">
-            <span>🛒</span><span>Cart</span>
+            <span aria-hidden="true">🛒</span><span>Cart</span>
             <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
           </a>
 
@@ -103,7 +97,6 @@
       </div>
     </div>
 
-    <!-- MAIN NAV -->
     <nav class="main-nav" id="primaryNav" aria-label="Primary">
       <div class="container">
         <ul class="nav-list">
@@ -125,112 +118,126 @@
 
   </header>
 
-  <!-- HERO -->
-  <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>About Retro Replay</h1>
-        <p>
-          We specialise in professionally tested and cleaned retro gaming consoles, with optional premium
-          refurbishment and upgrade services for collectors and enthusiasts.
-        </p>
+  <main>
+
+    <!-- HERO (uses global .hero styles) -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1>About Retro Replay</h1>
+          <p>
+            We specialise in professionally tested and cleaned retro gaming consoles, with optional premium
+            refurbishment and upgrade services for collectors and enthusiasts.
+          </p>
+        </div>
+        <div class="hero-image" aria-hidden="true">
+          <img src="/assets/logo.png" alt="" loading="lazy" decoding="async" />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- OUR STORY -->
-  <section class="section" style="background: white;">
-    <div class="container" style="max-width: 900px;">
-      <div class="section-header">
-        <h2 class="section-title">Our Story</h2>
+    <!-- OUR STORY (remove inline styles; keep typography tidy) -->
+    <section class="section">
+      <div class="container" style="max-width: 900px;">
+        <div class="section-header">
+          <h2 class="section-title">Our Story</h2>
+          <p class="section-subtitle">
+            Built from a passion for classic gaming, backed by a focus on reliability and honest grading.
+          </p>
+        </div>
+
+        <div class="rr-prose">
+          <p>
+            Retro Replay was founded from a passion for classic gaming and a commitment to keeping legendary hardware alive.
+            We source authentic PlayStation, Xbox, Nintendo, Atari, and Sega consoles, then professionally inspect, test,
+            clean and grade each system before resale. Our goal is to provide reliable, ready-to-use retro hardware that is
+            accurately described and fairly priced.
+          </p>
+
+          <p>
+            For collectors and enthusiasts who want deeper restoration, we offer optional engineering-grade refurbishment and
+            upgrade services, including full internal rebuilds, HDD/FMCB setups, and cosmetic enhancements. Standard consoles
+            include a 30-day functional warranty, with extended protection plans available for those who want long-term cover.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <p style="font-size: 1.1rem; line-height: 1.8; color: var(--gray); margin-bottom: 2rem;">
-        Retro Replay was founded from a passion for classic gaming and a commitment to keeping legendary hardware alive.
-        We source authentic PlayStation, Xbox, Nintendo, Atari, and Sega consoles, then professionally inspect, test,
-        clean and grade each system before resale. Our goal is to provide reliable, ready-to-use retro hardware that is
-        accurately described and fairly priced.
-      </p>
-
-      <p style="font-size: 1.1rem; line-height: 1.8; color: var(--gray);">
-        For collectors and enthusiasts who want deeper restoration, we offer optional engineering-grade refurbishment and
-        upgrade services, including full internal rebuilds, HDD/FMCB setups, and cosmetic enhancements. Standard consoles
-        include a 30-day functional warranty, with extended protection plans available for those who want long-term cover.
-      </p>
-    </div>
-  </section>
-
-  <!-- OUR VALUES -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Our Values</h2>
-      </div>
-
-      <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">🎮 Passion for Retro Gaming</h3>
-            <p class="product-description">
-              We grew up with these systems. Every console is handled with respect, care, and genuine enthusiasm for the hardware.
-            </p>
-          </div>
+    <!-- OUR VALUES -->
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Our Values</h2>
+          <p class="section-subtitle">What you can expect from every Retro Replay order.</p>
         </div>
 
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">🔧 Professional Standards</h3>
-            <p class="product-description">
-              Each console is carefully inspected, cleaned, tested and graded. Premium refurbishment provides full internal restoration for customers who want the very best.
-            </p>
+        <!-- Use your existing product grid + cards -->
+        <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+          <div class="product-card">
+            <div class="product-body">
+              <div class="product-title">🎮 Passion for Retro Gaming</div>
+              <div class="product-desc">
+                We grew up with these systems. Every console is handled with care and genuine respect for the hardware.
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">✓ Honest Grading</h3>
-            <p class="product-description">
-              Our A/B/C cosmetic grading system offers complete transparency, helping customers make informed decisions with no surprises.
-            </p>
+          <div class="product-card">
+            <div class="product-body">
+              <div class="product-title">🔧 Professional Standards</div>
+              <div class="product-desc">
+                Each console is inspected, cleaned, tested and graded. Premium refurbishment adds deeper restoration.
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">🛡 Optional Warranty Cover</h3>
-            <p class="product-description">
-              All tested consoles include a 30-day functional warranty, with extended warranty options available for peace of mind.
-            </p>
+          <div class="product-card">
+            <div class="product-body">
+              <div class="product-title">✓ Honest Grading</div>
+              <div class="product-desc">
+                Clear cosmetic grading and transparent listings so customers can buy confidently with no surprises.
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">🌍 Fair &amp; Accessible Pricing</h3>
-            <p class="product-description">
-              We aim to make classic gaming affordable and accessible, offering tested consoles with optional enhancements rather than forcing premium refurb costs.
-            </p>
+          <div class="product-card">
+            <div class="product-body">
+              <div class="product-title">🛡 Optional Warranty Cover</div>
+              <div class="product-desc">
+                Tested consoles include a 30-day functional warranty, with extended options available for peace of mind.
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="product-card">
-          <div class="product-info">
-            <h3 class="product-name">🚀 Safe &amp; Tracked Delivery</h3>
-            <p class="product-description">
-              Every console is securely packaged and shipped using tracked delivery services for reliability and security.
-            </p>
+          <div class="product-card">
+            <div class="product-body">
+              <div class="product-title">🌍 Fair &amp; Accessible Pricing</div>
+              <div class="product-desc">
+                Tested consoles with optional enhancements — so you’re not forced into premium refurb pricing.
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-body">
+              <div class="product-title">🚀 Safe &amp; Tracked Delivery</div>
+              <div class="product-desc">
+                Secure packaging and tracked delivery services for reliable and protected shipping.
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER (MASTER) -->
+  </main>
+
+  <!-- FOOTER (MASTER) - uses footer-grid from your CSS -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-content">
+
+      <div class="footer-grid">
 
         <div class="footer-section">
           <h3>Retro Replay</h3>
@@ -292,18 +299,15 @@
     </div>
   </div>
 
-  <!-- Scripts -->
   <script src="/cart.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-      // Cart count (only if your cart.js exposes RetroCart)
       if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
         window.RetroCart.loadCart();
       }
 
-      // Mobile nav toggle
       const btn = document.querySelector('.nav-toggle');
       const nav = document.getElementById('primaryNav');
 
@@ -322,18 +326,13 @@
         });
       }
 
-      // Cookie banner (store choice only)
-      const COOKIE_KEY = 'rr_cookie_consent'; // accepted | rejected
+      const COOKIE_KEY = 'rr_cookie_consent';
       const banner = document.getElementById('rrCookie');
       const acceptBtn = document.getElementById('rrCookieAccept');
       const rejectBtn = document.getElementById('rrCookieReject');
 
-      function hideBanner(){
-        if (banner) banner.classList.add('is-hidden');
-      }
-      function showBanner(){
-        if (banner) banner.classList.remove('is-hidden');
-      }
+      function hideBanner(){ if (banner) banner.classList.add('is-hidden'); }
+      function showBanner(){ if (banner) banner.classList.remove('is-hidden'); }
 
       const stored = localStorage.getItem(COOKIE_KEY);
       if (!stored) showBanner();

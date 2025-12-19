@@ -1,12 +1,34 @@
+<!-- =========================
+  RetroReplay UK — services.html (MASTERED VERSION OF YOUR “Our Services” PAGE)
+  Fixes applied:
+  - Root-relative paths normalised (logo link "/" not "/index.html")
+  - Adds canonical + OG + theme-color
+  - GA anonymize_ip enabled (matches other pages)
+  - Header matches MASTER layout (nav-toggle inside header-actions)
+  - Footer matches MASTER (footer-content + company includes cookie-policy link)
+  - Adds cookie banner (same as other pages)
+  - Safe cart init + mobile nav toggle + close-on-link
+  - Removes external particles.js (was unnecessary + may 404)
+========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Our Services | Retro Replay</title>
   <meta name="description" content="Premium refurbishment, upgrades, HDD/FMCB installs, setup support and extended warranty options for retro gaming consoles." />
+
   <link rel="stylesheet" href="/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="canonical" href="https://retroreplay.uk/services.html" />
+  <meta name="theme-color" content="#0066ff" />
+  <meta property="og:title" content="Our Services | Retro Replay" />
+  <meta property="og:description" content="Premium refurbishment, upgrades, HDD/FMCB installs, setup support and extended warranty options for retro gaming consoles." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
@@ -14,7 +36,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-PF6Q3TSMVL');
+    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
 </head>
 
@@ -22,7 +44,6 @@
 
 <header class="site-header">
 
-  <!-- GLOBAL TOP BAR -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
@@ -37,20 +58,13 @@
     </div>
   </div>
 
-  <!-- HEADER MAIN -->
   <div class="header-main">
     <div class="container header-content">
-      <a href="/index.html" class="site-logo">
-        <img src="/assets/logo.png" alt="Retro Replay Logo" />
+
+      <a href="/" class="site-logo" aria-label="Retro Replay Home">
+        <img src="/assets/logo.png" alt="Retro Replay Logo" width="48" height="48" loading="eager" decoding="async" />
         <span>Retro Replay</span>
       </a>
-
-      <!-- Mobile menu button -->
-      <button class="nav-toggle"
-              type="button"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="primaryNav">☰</button>
 
       <form class="search-bar" action="/search.html" method="get" role="search">
         <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
@@ -58,20 +72,27 @@
       </form>
 
       <div class="header-actions">
-        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/contact.html" class="header-action"><span aria-hidden="true">📞</span><span>Support</span></a>
+
         <a href="/checkout.html" class="header-action">
-          <span>🛒</span><span>Cart</span>
-          <span class="cart-badge" id="cart-count-js">0</span>
+          <span aria-hidden="true">🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
         </a>
+
+        <button class="nav-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="primaryNav">☰</button>
       </div>
+
     </div>
   </div>
 
-  <!-- GLOBAL MAIN NAV -->
-  <nav class="main-nav" id="primaryNav">
+  <nav class="main-nav" id="primaryNav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
-        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/">Main Home</a></li>
         <li><a href="/atari/index.html">Atari</a></li>
         <li><a href="/nintendo/index.html">Nintendo</a></li>
         <li><a href="/playstation/index.html">PlayStation</a></li>
@@ -89,7 +110,6 @@
 
 </header>
 
-<!-- HERO -->
 <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
   <div class="container hero-content">
     <div class="hero-text">
@@ -103,7 +123,6 @@
   </div>
 </section>
 
-<!-- WHAT WE OFFER -->
 <section class="section" style="background: white;">
   <div class="container">
     <div class="section-header">
@@ -168,7 +187,6 @@
   </div>
 </section>
 
-<!-- REFURBISHMENT PROCESS -->
 <section class="section">
   <div class="container" style="max-width: 900px;">
     <div class="section-header">
@@ -198,7 +216,6 @@
   </div>
 </section>
 
-<!-- CONSOLE-SPECIFIC SERVICES -->
 <section class="section" style="background: white;">
   <div class="container" style="max-width: 900px;">
     <div class="section-header">
@@ -257,7 +274,6 @@
   </div>
 </section>
 
-<!-- CTA -->
 <section class="section">
   <div class="container" style="max-width: 900px;">
     <div class="product-card">
@@ -275,7 +291,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
@@ -314,6 +329,7 @@
           <li><a href="/how-we-refurbish.html">Our Process</a></li>
           <li><a href="/services.html" aria-current="page">Services</a></li>
           <li><a href="/terms.html">Policies &amp; Terms</a></li>
+          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
         </ul>
       </div>
 
@@ -325,10 +341,20 @@
   </div>
 </footer>
 
-<!-- Global scripts -->
-<script src="/cart.js" defer></script>
-<script src="/particles.js" defer></script>
+<div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <div class="rr-cookie-inner">
+    <p>
+      We use cookies to measure traffic (analytics) and improve the site.
+      <a href="/cookie-policy.html">Cookie policy</a>
+    </p>
+    <div class="rr-cookie-actions">
+      <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
+      <button class="rr-cookie-btn rr-cookie-accept" id="rrCookieAccept" type="button">Accept</button>
+    </div>
+  </div>
+</div>
 
+<script src="/cart.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     // Year
@@ -340,7 +366,7 @@
       window.RetroCart.loadCart();
     }
 
-    // Mobile nav toggle + auto-close on link click
+    // Mobile nav toggle + auto-close
     const navBtn = document.querySelector(".nav-toggle");
     const nav = document.getElementById("primaryNav");
     if (navBtn && nav) {
@@ -356,6 +382,28 @@
         });
       });
     }
+
+    // Cookie banner (store choice only)
+    const COOKIE_KEY = "rr_cookie_consent"; // accepted | rejected
+    const banner = document.getElementById("rrCookie");
+    const accept = document.getElementById("rrCookieAccept");
+    const reject = document.getElementById("rrCookieReject");
+    const saved = localStorage.getItem(COOKIE_KEY);
+
+    function show(){ banner && banner.classList.remove("is-hidden"); }
+    function hide(){ banner && banner.classList.add("is-hidden"); }
+
+    if (!saved) show(); else hide();
+
+    accept && accept.addEventListener("click", () => {
+      localStorage.setItem(COOKIE_KEY, "accepted");
+      hide();
+    });
+
+    reject && reject.addEventListener("click", () => {
+      localStorage.setItem(COOKIE_KEY, "rejected");
+      hide();
+    });
   });
 </script>
 

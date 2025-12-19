@@ -1,13 +1,13 @@
 <!-- =========================
-  RetroReplay UK — how-we-refurbish.html (FULL BUILD FIXED)
-  Fixes applied:
-  - Canonical + OG + theme-color
-  - Analytics anonymize_ip enabled
-  - Cookie banner added (site-wide compatible)
-  - Footer year auto-update
-  - Mobile nav toggle + close-on-link
-  - Safe cart init
-  - Root paths used consistently
+  RetroReplay UK — how-we-refurbish.html (MASTERED)
+  Fixes:
+  - Header matches MASTER structure (search between logo + header-actions; nav-toggle inside header-actions)
+  - Removes inline page <style> (uses global helper class rr-wide/rr-narrow)
+  - Removes inline hero background (uses global .hero styling)
+  - Footer upgraded to footer-grid (MASTER)
+  - Cookie accept button class fixed to rr-cookie-btn-primary (MASTER)
+  - Cart badge aria-label + safe init consistent
+  - Adds logo width/height for layout stability
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +29,6 @@
   <link rel="stylesheet" href="/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -37,18 +36,12 @@
     gtag('js', new Date());
     gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
-
-  <style>
-    .process-wrap{ max-width:980px; margin:0 auto; }
-    :focus-visible{ outline:3px solid rgba(0,102,255,.35); outline-offset:2px; border-radius:.5rem; }
-  </style>
 </head>
 
 <body>
 
 <header class="site-header">
 
-  <!-- TOP BAR -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
@@ -63,19 +56,13 @@
     </div>
   </div>
 
-  <!-- MAIN HEADER -->
   <div class="header-main">
     <div class="container header-content">
+
       <a href="/" class="site-logo" aria-label="Retro Replay Home">
-        <img src="/assets/logo.png" alt="Retro Replay" />
+        <img src="/assets/logo.png" alt="Retro Replay" width="48" height="48" loading="eager" decoding="async" />
         <span>Retro Replay</span>
       </a>
-
-      <button class="nav-toggle"
-              type="button"
-              aria-label="Toggle navigation"
-              aria-expanded="false"
-              aria-controls="primaryNav">☰</button>
 
       <form class="search-bar" action="/search.html" method="get" role="search">
         <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
@@ -83,16 +70,23 @@
       </form>
 
       <div class="header-actions">
-        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/contact.html" class="header-action"><span aria-hidden="true">📞</span><span>Support</span></a>
+
         <a href="/checkout.html" class="header-action">
-          <span>🛒</span><span>Cart</span>
-          <span class="cart-badge" id="cart-count-js">0</span>
+          <span aria-hidden="true">🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
         </a>
+
+        <button class="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="primaryNav">☰</button>
       </div>
+
     </div>
   </div>
 
-  <!-- NAV -->
   <nav class="main-nav" id="primaryNav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
@@ -114,12 +108,12 @@
 
 </header>
 
-<!-- HERO -->
-<section class="hero" style="background:linear-gradient(135deg,#2563eb 0%,#1e40af 100%);">
+<section class="hero">
   <div class="container hero-content">
     <div class="hero-text">
       <h1>Our Refurbishment Process</h1>
       <p>A precise, documented workflow designed to maximise lifespan, reliability, and performance.</p>
+
       <div class="hero-cta">
         <a href="/services.html" class="btn btn-secondary">View Services</a>
         <a href="/contact.html" class="btn btn-primary">Ask a Question</a>
@@ -128,9 +122,8 @@
   </div>
 </section>
 
-<!-- 7-STEP PROCESS -->
 <section class="section" style="background:#fff;">
-  <div class="container process-wrap">
+  <div class="container rr-wide">
 
     <div class="section-header">
       <h2 class="section-title">Our 7-Step Professional Refurbishment</h2>
@@ -154,9 +147,9 @@
   </div>
 </section>
 
-<!-- GRADING -->
 <section class="section">
   <div class="container">
+
     <div class="section-header">
       <h2 class="section-title">Quality Grades</h2>
       <p class="section-subtitle">Clear, honest cosmetic grading. Functionally, all grades perform identically.</p>
@@ -184,12 +177,12 @@
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- CTA -->
 <section class="section" style="background:#fff;">
-  <div class="container" style="max-width:980px;">
+  <div class="container rr-wide">
     <div class="product-card">
       <div class="product-info" style="text-align:center;">
         <h2 class="section-title" style="margin-bottom:.5rem;">Want a specific model or condition?</h2>
@@ -200,10 +193,10 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-content">
+
+    <div class="footer-grid">
 
       <div class="footer-section">
         <h3>Retro Replay</h3>
@@ -239,18 +232,18 @@
           <li><a href="/how-we-refurbish.html" aria-current="page">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
           <li><a href="/terms.html">Terms &amp; Policies</a></li>
+          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>© <span id="year"></span> Retro Replay. Professionally tested &amp; cleaned gaming consoles.</p>
+      © <span id="year"></span> Retro Replay. Professionally tested &amp; cleaned gaming consoles.
     </div>
   </div>
 </footer>
 
-<!-- COOKIE BANNER -->
 <div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <div class="rr-cookie-inner">
     <p>
@@ -259,7 +252,7 @@
     </p>
     <div class="rr-cookie-actions">
       <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
-      <button class="rr-cookie-btn rr-cookie-accept" id="rrCookieAccept" type="button">Accept</button>
+      <button class="rr-cookie-btn rr-cookie-btn-primary" id="rrCookieAccept" type="button">Accept</button>
     </div>
   </div>
 </div>
@@ -268,16 +261,13 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Year
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  // Cart init (safe)
   if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
     window.RetroCart.loadCart();
   }
 
-  // Mobile nav toggle + close-on-link
   const navBtn = document.querySelector('.nav-toggle');
   const nav = document.getElementById('primaryNav');
   if (navBtn && nav) {
@@ -294,8 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Cookie consent (store choice only)
-  const COOKIE_KEY = 'rr_cookie_consent'; // accepted | rejected
+  const COOKIE_KEY = 'rr_cookie_consent';
   const banner = document.getElementById('rrCookie');
   const accept = document.getElementById('rrCookieAccept');
   const reject = document.getElementById('rrCookieReject');

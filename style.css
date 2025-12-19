@@ -960,3 +960,23 @@ ul{list-style:none}
 .rr-notice-card p{margin:.25rem 0 0 0;color:var(--gray)}
 .rr-checklist{margin:0;padding-left:1.1rem;line-height:2}
 .rr-checklist li{margin:.15rem 0}
+
+/* FAQ shared blocks */
+.rr-faq-card{
+  background:#f9fafb;
+  border-radius:12px;
+  margin-bottom:1rem;
+  padding:1.25rem;
+  border:1px solid var(--gray-lighter);
+  border-left:4px solid var(--primary);
+}
+.rr-faq-card h3{margin:0 0 .5rem 0;color:var(--dark);font-size:1.1rem;}
+.rr-faq-card p{margin:0;color:var(--gray);line-height:1.7;}
+.rr-faq-help{
+  background:#f0f4f8;
+  padding:1.25rem;
+  border-radius:12px;
+  margin-top:1.5rem;
+  color:var(--gray);
+}
+.rr-faq-help a{color:var(--primary);font-weight:800;}

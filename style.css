@@ -980,3 +980,11 @@ ul{list-style:none}
   color:var(--gray);
 }
 .rr-faq-help a{color:var(--primary);font-weight:800;}
+
+/* Page width helpers */
+.rr-narrow{ max-width:900px; }
+.rr-wide{ max-width:1100px; }
+.rr-narrow, .rr-wide{ margin:0 auto; }
+
+/* Focus ring (global) */
+:focus-visible{ outline:3px solid rgba(0,102,255,.35); outline-offset:2px; border-radius:.5rem; }

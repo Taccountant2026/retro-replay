@@ -1,13 +1,33 @@
+<!-- =========================
+  RetroReplay UK — warranties.html (FULL BUILD FIXED / MASTER MATCH)
+  Fixes applied:
+  - Canonical + OG tags + theme-color
+  - Analytics anonymize_ip enabled
+  - Header/nav/footer matches MASTER pattern (nav-toggle inside header-actions)
+  - Root links normalised to "/"
+  - Cookie banner added (site-wide compatible)
+  - Safe cart init + mobile nav toggle + close after tap
+  - Footer year auto-updates
+========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Warranties | Retro Replay</title>
+
+  <title>Warranty | Retro Replay</title>
   <meta name="description" content="Warranty coverage for Retro Replay consoles and accessories, including standard warranty and optional extended plans." />
 
   <link rel="stylesheet" href="/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="canonical" href="https://retroreplay.uk/warranties.html" />
+  <meta name="theme-color" content="#0066ff" />
+  <meta property="og:title" content="Warranty | Retro Replay" />
+  <meta property="og:description" content="Warranty coverage for Retro Replay consoles and accessories, including standard warranty and optional extended plans." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
@@ -15,34 +35,37 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-PF6Q3TSMVL');
+    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
 
   <style>
-    /* Small safety styles if variables are missing */
-    :root {
-      --primary: #2563eb;
-      --gray: #64748b;
-      --gray-lighter: #e2e8f0;
-      --dark: #0f172a;
+    /* Optional safety styles if global variables are missing */
+    :root{
+      --primary:#0066ff;
+      --gray:#64748b;
+      --gray-lighter:#e2e8f0;
+      --dark:#0f172a;
     }
-    .note {
-      border-radius: 12px;
-      padding: 1rem 1.25rem;
-      border: 1px solid rgba(37,99,235,0.25);
+    :focus-visible{ outline:3px solid rgba(0,102,255,.35); outline-offset:2px; border-radius:.5rem; }
+
+    .note{
+      border-radius:12px;
+      padding:1rem 1.25rem;
+      border:1px solid rgba(37,99,235,0.25);
       background: linear-gradient(135deg, rgba(37,99,235,0.07), rgba(34,197,94,0.05));
-      color: var(--dark);
-      font-size: .95rem;
+      color:var(--dark);
+      font-size:.95rem;
     }
-    .note a { color: var(--primary); font-weight: 700; }
+    .note a{ color:var(--primary); font-weight:700; }
   </style>
 </head>
 
 <body>
 
+<!-- HEADER (MASTER) -->
 <header class="site-header">
 
-  <!-- GLOBAL TOP BAR (matches index.html) -->
+  <!-- TOP BAR -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
@@ -57,20 +80,13 @@
     </div>
   </div>
 
-  <!-- HEADER MAIN -->
+  <!-- MAIN HEADER -->
   <div class="header-main">
     <div class="container header-content">
-      <a href="/index.html" class="site-logo">
+      <a href="/" class="site-logo" aria-label="Retro Replay Home">
         <img src="/assets/logo.png" alt="Retro Replay" />
         <span>Retro Replay</span>
       </a>
-
-      <!-- Mobile menu button -->
-      <button class="nav-toggle"
-              type="button"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="primaryNav">☰</button>
 
       <form class="search-bar" action="/search.html" method="get" role="search">
         <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
@@ -81,17 +97,23 @@
         <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
         <a href="/checkout.html" class="header-action">
           <span>🛒</span><span>Cart</span>
-          <span class="cart-badge" id="cart-count-js">0</span>
+          <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
         </a>
+
+        <button class="nav-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="primaryNav">☰</button>
       </div>
     </div>
   </div>
 
-  <!-- GLOBAL MAIN NAV -->
-  <nav class="main-nav" id="primaryNav">
+  <!-- MAIN NAV -->
+  <nav class="main-nav" id="primaryNav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
-        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/">Main Home</a></li>
         <li><a href="/atari/index.html">Atari</a></li>
         <li><a href="/nintendo/index.html">Nintendo</a></li>
         <li><a href="/playstation/index.html">PlayStation</a></li>
@@ -197,7 +219,7 @@
   <div class="container" style="max-width: 900px;">
     <div class="section-header">
       <h2 class="section-title">What’s Not Covered</h2>
-      <p class="table-subtitle" style="color: var(--gray); margin-top: .25rem;">
+      <p class="section-subtitle" style="color: var(--gray); margin-top: .25rem;">
         These examples are not exhaustive; see Terms for full details.
       </p>
     </div>
@@ -249,7 +271,7 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER (MASTER) -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
@@ -288,29 +310,48 @@
           <li><a href="/how-we-refurbish.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
           <li><a href="/terms.html">Policies &amp; Terms</a></li>
+          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
+      <p>© <span id="year"></span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
     </div>
   </div>
 </footer>
 
+<!-- COOKIE BANNER (MASTER) -->
+<div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <div class="rr-cookie-inner">
+    <p>
+      We use cookies to measure traffic (analytics) and improve the site.
+      <a href="/cookie-policy.html">Cookie policy</a>
+    </p>
+    <div class="rr-cookie-actions">
+      <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
+      <button class="rr-cookie-btn rr-cookie-accept" id="rrCookieAccept" type="button">Accept</button>
+    </div>
+  </div>
+</div>
+
 <!-- Scripts -->
-<script src="/cart.js" defer></script>
+<script src="/cart.js"></script>
 <script src="/particles.js" defer></script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // cart
+    // Year
+    const y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
+
+    // Cart init (safe)
     if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
       window.RetroCart.loadCart();
     }
 
-    // Mobile nav toggle + auto-close on link click
+    // Mobile nav toggle + close after tap
     const navBtn = document.querySelector(".nav-toggle");
     const nav = document.getElementById("primaryNav");
     if (navBtn && nav) {
@@ -326,6 +367,28 @@
         });
       });
     }
+
+    // Cookie banner (store choice only)
+    const COOKIE_KEY = "rr_cookie_consent"; // accepted | rejected
+    const banner = document.getElementById("rrCookie");
+    const accept = document.getElementById("rrCookieAccept");
+    const reject = document.getElementById("rrCookieReject");
+    const saved = localStorage.getItem(COOKIE_KEY);
+
+    function show(){ banner && banner.classList.remove("is-hidden"); }
+    function hide(){ banner && banner.classList.add("is-hidden"); }
+
+    if (!saved) show(); else hide();
+
+    accept && accept.addEventListener("click", () => {
+      localStorage.setItem(COOKIE_KEY, "accepted");
+      hide();
+    });
+
+    reject && reject.addEventListener("click", () => {
+      localStorage.setItem(COOKIE_KEY, "rejected");
+      hide();
+    });
   });
 </script>
 

@@ -1,19 +1,34 @@
 <!-- =========================
-     SOURCING REQUEST (FULL BUILD — FIXED + PARTICLES + CONSISTENT HEADER)
-     Paste as: /sourcing-request.html
-     Form endpoint: https://formspree.io/f/manrkvby
-     Redirect: /sourcing-thanks.html
+  RetroReplay UK — sourcing-request.html (MASTER FIX)
+  Fixes applied to your file:
+  - Adds canonical + OG + theme-color
+  - GA anonymize_ip enabled (matches other pages)
+  - Header matches MASTER structure (nav-toggle inside header-actions)
+  - Logo/home links normalised to "/" (not "/index.html")
+  - Adds cookie banner (same as other pages)
+  - Safe cart init + mobile nav toggle + close-on-link
+  - Keeps particles.js include (as requested)
+  - Fixes small upsell link duplication + corrects HDD kits link
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Console Sourcing Request | Retro Replay</title>
   <meta name="description" content="Request a specific console to be sourced and tested by Retro Replay. Get confirmed pricing and options before you buy." />
 
   <link rel="stylesheet" href="/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="canonical" href="https://retroreplay.uk/sourcing-request.html" />
+  <meta name="theme-color" content="#0066ff" />
+  <meta property="og:title" content="Console Sourcing Request | Retro Replay" />
+  <meta property="og:description" content="Request a specific console to be sourced and tested by Retro Replay. Get confirmed pricing and options before you buy." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Google tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
@@ -21,7 +36,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-PF6Q3TSMVL');
+    gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
 
   <style>
@@ -187,7 +202,6 @@
 
     .sr-only{ position:absolute; left:-9999px; }
 
-    /* Upsell block */
     .upsell{
       margin-top:1rem;
       padding:1rem;
@@ -223,7 +237,6 @@
 
 <header class="site-header">
 
-  <!-- GLOBAL TOP BAR -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
@@ -238,20 +251,12 @@
     </div>
   </div>
 
-  <!-- HEADER MAIN (aligned to your other pages) -->
   <div class="header-main">
     <div class="container header-content">
-      <a href="/index.html" class="site-logo">
+      <a href="/" class="site-logo" aria-label="Retro Replay Home">
         <img src="/assets/logo.png" alt="Retro Replay Logo" />
         <span>Retro Replay</span>
       </a>
-
-      <!-- Mobile menu button -->
-      <button class="nav-toggle"
-              type="button"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="primaryNav">☰</button>
 
       <form class="search-bar" action="/search.html" method="get" role="search">
         <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
@@ -264,15 +269,20 @@
           <span>🛒</span><span>Cart</span>
           <span class="cart-badge" id="cart-count-js">0</span>
         </a>
+
+        <button class="nav-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="primaryNav">☰</button>
       </div>
     </div>
   </div>
 
-  <!-- GLOBAL NAV -->
   <nav class="main-nav" id="primaryNav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
-        <li><a href="/index.html">Main Home</a></li>
+        <li><a href="/">Main Home</a></li>
         <li><a href="/atari/index.html">Atari</a></li>
         <li><a href="/nintendo/index.html">Nintendo</a></li>
         <li><a href="/playstation/index.html">PlayStation</a></li>
@@ -303,7 +313,6 @@
 
     <section class="sourcing-grid">
 
-      <!-- FORM -->
       <section class="form-card">
         <div class="form-head">
           <div>
@@ -407,20 +416,18 @@
           </div>
         </form>
 
-        <!-- UPSELL -->
         <div class="upsell" aria-label="Helpful links">
           <h3>Want it ready-to-play instead?</h3>
           <p>If you’re mainly after PS2, you may not need sourcing — you can order a plug &amp; play setup today.</p>
           <div class="upsell-links">
             <a href="/playstation/products/ps2-fat.html">🎮 PS2 modded consoles</a>
-            <a href="/playstation/products/ps2-fat.html">💾 PS2 HDD mod kits</a>
+            <a href="/playstation/products/ps2-hdd-kits.html">💾 PS2 HDD mod kits</a>
             <a href="/services.html">🔧 Modding services</a>
             <a href="/guides.html">📘 Setup guides</a>
           </div>
         </div>
       </section>
 
-      <!-- SIDE INFO -->
       <aside class="panel">
         <h2>How it works</h2>
         <p>Simple 3-step process.</p>
@@ -474,7 +481,6 @@
   </div>
 </main>
 
-<!-- FULL FOOTER (matches your other pages) -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
@@ -525,10 +531,21 @@
   </div>
 </footer>
 
-<!-- Scripts -->
-<script src="/cart.js" defer></script>
-<script src="/particles.js" defer></script>
+<div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <div class="rr-cookie-inner">
+    <p>
+      We use cookies to measure traffic (analytics) and improve the site.
+      <a href="/cookie-policy.html">Cookie policy</a>
+    </p>
+    <div class="rr-cookie-actions">
+      <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
+      <button class="rr-cookie-btn rr-cookie-accept" id="rrCookieAccept" type="button">Accept</button>
+    </div>
+  </div>
+</div>
 
+<script src="/cart.js"></script>
+<script src="/particles.js" defer></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     // year
@@ -556,6 +573,28 @@
         });
       });
     }
+
+    // cookie banner
+    const COOKIE_KEY = "rr_cookie_consent"; // accepted | rejected
+    const banner = document.getElementById("rrCookie");
+    const accept = document.getElementById("rrCookieAccept");
+    const reject = document.getElementById("rrCookieReject");
+    const saved = localStorage.getItem(COOKIE_KEY);
+
+    const show = () => banner && banner.classList.remove("is-hidden");
+    const hide = () => banner && banner.classList.add("is-hidden");
+
+    if (!saved) show(); else hide();
+
+    accept && accept.addEventListener("click", () => {
+      localStorage.setItem(COOKIE_KEY, "accepted");
+      hide();
+    });
+
+    reject && reject.addEventListener("click", () => {
+      localStorage.setItem(COOKIE_KEY, "rejected");
+      hide();
+    });
 
     // quick-pick chips
     const family = document.getElementById("family");

@@ -1,13 +1,13 @@
 <!-- =========================
-  RetroReplay UK — guides.html (FULL BUILD FIXED)
-  Fixes applied:
-  - Canonical + OG + theme-color
-  - Analytics anonymize_ip enabled
-  - Cookie banner added (site-wide compatible)
-  - Mobile nav toggle + close-on-link
-  - Safe cart init
-  - Footer year auto-update
-  - No visual redesign (layout preserved)
+  RetroReplay UK — guides.html (MASTERED)
+  Changes:
+  - Removes page-only <style> block (optional CSS snippet provided below)
+  - Removes inline hero styles (uses global .hero)
+  - Fixes cookie accept button class to rr-cookie-btn-primary (matches your CSS patch)
+  - Upgrades footer to footer-grid (matches your global patch)
+  - Adds logo width/height for stability
+  - Fixes cart badge aria-label consistency
+  - Keeps layout/content the same
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +29,6 @@
   <link rel="stylesheet" href="/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -37,18 +36,12 @@
     gtag('js', new Date());
     gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
-
-  <style>
-    .guides-wrap{ max-width:1100px; margin:0 auto; }
-    :focus-visible{ outline:3px solid rgba(0,102,255,.35); outline-offset:2px; border-radius:.5rem; }
-  </style>
 </head>
 
 <body>
 
 <header class="site-header">
 
-  <!-- TOP BAR -->
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
@@ -63,11 +56,10 @@
     </div>
   </div>
 
-  <!-- MAIN HEADER -->
   <div class="header-main">
     <div class="container header-content">
       <a href="/" class="site-logo" aria-label="Retro Replay Home">
-        <img src="/assets/logo.png" alt="Retro Replay Logo" />
+        <img src="/assets/logo.png" alt="Retro Replay Logo" width="48" height="48" loading="eager" decoding="async" />
         <span>Retro Replay</span>
       </a>
 
@@ -77,10 +69,10 @@
       </form>
 
       <div class="header-actions">
-        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/contact.html" class="header-action"><span aria-hidden="true">📞</span><span>Support</span></a>
         <a href="/checkout.html" class="header-action">
-          <span>🛒</span><span>Cart</span>
-          <span class="cart-badge" id="cart-count-js">0</span>
+          <span aria-hidden="true">🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
         </a>
         <button class="nav-toggle"
                 type="button"
@@ -91,7 +83,6 @@
     </div>
   </div>
 
-  <!-- NAV -->
   <nav class="main-nav" id="primaryNav" aria-label="Primary">
     <div class="container">
       <ul class="nav-list">
@@ -113,8 +104,7 @@
 
 </header>
 
-<!-- HERO -->
-<section class="hero" style="padding:3rem 0;background:linear-gradient(135deg,#2563eb 0%,#1e40af 100%);">
+<section class="hero">
   <div class="container hero-content">
     <div class="hero-text">
       <h1>Setup &amp; Modding Guides</h1>
@@ -126,54 +116,51 @@
   </div>
 </section>
 
-<!-- GUIDE SELECTION -->
 <section class="section">
-  <div class="container guides-wrap">
+  <div class="container rr-wide">
     <div class="section-header">
       <h2 class="section-title">Select a Console</h2>
       <p class="section-subtitle">Choose your console to view detailed setup guides</p>
     </div>
 
     <div class="category-grid">
-
       <a href="/playstation/guides.html" class="category-card">
-        <div class="category-icon"><img src="/assets/playstation-logo.png" alt="PlayStation"></div>
+        <div class="category-icon"><img src="/assets/playstation-logo.png" alt="PlayStation" /></div>
         <h3 class="category-name">PlayStation</h3>
         <p class="category-count">PS1 • PS2 • PS3</p>
       </a>
 
       <a href="/xbox/guides.html" class="category-card">
-        <div class="category-icon"><img src="/assets/xboxlogo.png" alt="Xbox"></div>
+        <div class="category-icon"><img src="/assets/xboxlogo.png" alt="Xbox" /></div>
         <h3 class="category-name">Xbox</h3>
         <p class="category-count">Original • 360</p>
       </a>
 
       <a href="/nintendo/guides.html" class="category-card">
-        <div class="category-icon"><img src="/assets/nintendologo.png" alt="Nintendo"></div>
+        <div class="category-icon"><img src="/assets/nintendologo.png" alt="Nintendo" /></div>
         <h3 class="category-name">Nintendo</h3>
         <p class="category-count">N64 • SNES • More</p>
       </a>
 
       <a href="/atari/guides.html" class="category-card">
-        <div class="category-icon"><img src="/assets/atarilogo.png" alt="Atari"></div>
+        <div class="category-icon"><img src="/assets/atarilogo.png" alt="Atari" /></div>
         <h3 class="category-name">Atari</h3>
         <p class="category-count">2600 • 5200 • 7800</p>
       </a>
 
       <a href="/sega/guides.html" class="category-card">
-        <div class="category-icon"><img src="/assets/segalogo.png" alt="Sega"></div>
+        <div class="category-icon"><img src="/assets/segalogo.png" alt="Sega" /></div>
         <h3 class="category-name">Sega</h3>
         <p class="category-count">Mega Drive • Saturn • Dreamcast</p>
       </a>
-
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-content">
+
+    <div class="footer-grid">
 
       <div class="footer-section">
         <h3>Retro Replay</h3>
@@ -206,21 +193,21 @@
         <h3>Company</h3>
         <ul class="footer-links">
           <li><a href="/about.html">About Us</a></li>
-          <li><a href="/process.html">Our Process</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
           <li><a href="/services.html">Services</a></li>
           <li><a href="/terms.html">Policies &amp; Terms</a></li>
+          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>© <span id="year"></span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.</p>
+      © <span id="year"></span> Retro Replay. All rights reserved. Professionally tested &amp; cleaned gaming consoles.
     </div>
   </div>
 </footer>
 
-<!-- COOKIE BANNER -->
 <div class="rr-cookie is-hidden" id="rrCookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <div class="rr-cookie-inner">
     <p>
@@ -229,7 +216,7 @@
     </p>
     <div class="rr-cookie-actions">
       <button class="rr-cookie-btn" id="rrCookieReject" type="button">Reject</button>
-      <button class="rr-cookie-btn rr-cookie-accept" id="rrCookieAccept" type="button">Accept</button>
+      <button class="rr-cookie-btn rr-cookie-btn-primary" id="rrCookieAccept" type="button">Accept</button>
     </div>
   </div>
 </div>
@@ -238,17 +225,13 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-
-  // Year
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  // Cart init
   if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
     window.RetroCart.loadCart();
   }
 
-  // Mobile nav toggle + close on tap
   const btn = document.querySelector('.nav-toggle');
   const nav = document.getElementById('primaryNav');
   if (btn && nav) {
@@ -265,7 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Cookie consent
   const KEY = 'rr_cookie_consent';
   const banner = document.getElementById('rrCookie');
   const accept = document.getElementById('rrCookieAccept');

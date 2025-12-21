@@ -622,6 +622,7 @@ ul{list-style:none}
   /* cookie banner stack */
   .rr-cookie-inner{flex-direction:column;align-items:flex-start}
 }
+
 /* About / content pages prose */
 .rr-prose p{
   color: var(--gray);
@@ -629,6 +630,7 @@ ul{list-style:none}
   line-height: 1.85;
   margin: 0 0 1.25rem 0;
 }
+
 /* =========================
    Checkout page (rr-checkout)
 ========================= */
@@ -785,6 +787,7 @@ ul{list-style:none}
   .rr-checkout-actions{flex-direction:column}
   .rr-btn-wide{width:100%}
 }
+
 /* Clickable card links without ugly underline */
 .rr-card-link{display:block;text-decoration:none}
 .rr-card-link:hover .product-card{transform:translateY(-2px)}
@@ -811,6 +814,7 @@ ul{list-style:none}
   gap:.75rem;
   flex-wrap:wrap;
 }
+
 /* Page layout helpers (contact, legal pages, etc.) */
 .rr-page{width:min(1100px,calc(100% - 2rem));margin:0 auto;padding:2rem 0}
 .rr-page-hero{padding:1.25rem;border:1px solid var(--gray-lighter);border-radius:1.25rem;background:#fff;box-shadow:var(--shadow-sm)}
@@ -900,6 +904,7 @@ ul{list-style:none}
   text-decoration:none;
 }
 .rr-upsell-links a:hover{background:rgba(0,102,255,.06);border-color:rgba(0,102,255,.18)}
+
 /* Policy pages (cookie-policy, terms, privacy, etc.) */
 .rr-policy{padding:3rem 0}
 .rr-policy-wrap{max-width:900px;margin:0 auto}
@@ -987,7 +992,11 @@ ul{list-style:none}
 .rr-narrow, .rr-wide{ margin:0 auto; }
 
 /* Focus ring (global) */
-:focus-visible{ outline:3px solid rgba(0,102,255,.35); outline-offset:2px; border-radius:.5rem; }
+:focus-visible{
+  outline:3px solid rgba(0,102,255,.35);
+  outline-offset:2px;
+  border-radius:.5rem;
+}
 
 /* =========================================================
    RetroReplay — Patch fixes (add at end of style.css)
@@ -1060,9 +1069,7 @@ a.product-card:focus-visible{
 }
 
 /* ===== Clean up "Why Choose" cards ===== */
-.product-grid{
-  align-items: stretch;
-}
+.product-grid{ align-items: stretch; }
 
 .product-card{
   padding: 1.25rem;
@@ -1079,10 +1086,7 @@ a.product-card:focus-visible{
 }
 
 /* Ensure text spacing looks premium */
-.product-info{
-  display: grid;
-  gap: .45rem;
-}
+.product-info{ display: grid; gap: .45rem; }
 
 .product-name{
   font-size: 1.15rem;
@@ -1100,9 +1104,5 @@ a.product-card:focus-visible{
 }
 
 /* Optional: make the section subtitle align better */
-.section-header{
-  margin-bottom: 1.5rem;
-}
-.section-subtitle{
-  line-height: 1.7;
-}
+.section-header{ margin-bottom: 1.5rem; }
+.section-subtitle{ line-height: 1.7; }

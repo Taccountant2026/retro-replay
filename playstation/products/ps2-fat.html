@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PlayStation 2 Fat Models | Retro Replay</title>
-  <meta name="description" content="Shop PS2 Fat models by revision and cosmetic grade. Professionally inspected, tested and presentation-cleaned, with printed test report and Arrival Guarantee." />
+  <meta name="description" content="Shop PS2 Fat consoles: Standard tested consoles, Modded bundles, Accessories, and Upgrades & Services. Professionally inspected, tested and presentation-cleaned, with printed test report and Arrival Guarantee." />
 
   <link rel="stylesheet" href="/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -19,9 +19,8 @@
   </script>
 
   <style>
-    /* ====== KEEPING YOUR PAGE AS-IS, JUST FIXING LAYOUT ISSUES ====== */
+    /* ====== KEEPING YOUR CSS THE SAME, ONLY ADDING CATEGORY LAYOUT + ANCHOR FIXES ====== */
 
-    /* Sticky page nav: don’t hardcode a magic top that breaks on devices */
     :root{ --rr-sticky-offset: 12px; }
     .page-nav{
       position: sticky;
@@ -58,7 +57,7 @@
     .page-nav a:hover{ transform: translateY(-1px); }
 
     /* Anchor offset so sections don’t hide under sticky nav */
-    #shop-consoles, #addons, #support { scroll-margin-top: 120px; }
+    #standard, #modded, #accessories, #upgrades, #support { scroll-margin-top: 120px; }
 
     /* Carousel: hide arrows on small screens so it doesn’t look broken */
     .carousel-wrapper{ position:relative; }
@@ -89,12 +88,46 @@
     @media (max-width: 520px){
       .site-footer .footer-content{ grid-template-columns: 1fr; }
     }
+
+    /* Category header card (matches your aesthetic using inline-safe styles) */
+    .rr-category-head{
+      text-align:center;
+      margin-bottom:2rem;
+      padding:1.75rem 1rem;
+      border-radius:1rem;
+      border:1px solid rgba(15,23,42,0.06);
+    }
+    .rr-pill{
+      display:inline-block;
+      color:#fff;
+      padding:0.6rem 1.6rem;
+      border-radius:2rem;
+      font-size:0.85rem;
+      font-weight:800;
+      margin-bottom:0.9rem;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      box-shadow:0 4px 12px rgba(2,6,23,0.15);
+    }
+    .rr-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap:1.5rem;
+    }
+    .rr-note{
+      margin:0 auto 1.5rem;
+      max-width:860px;
+      color:#475569;
+      line-height:1.6;
+      font-size:1.05rem;
+      text-align:center;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER (your original, with nav toggle added to match main) -->
+  <!-- HEADER -->
   <header class="site-header">
 
     <div class="header-top">
@@ -159,28 +192,30 @@
 
   </header>
 
-  <!-- Sticky Navigation (your original links, layout fixed by CSS above) -->
+  <!-- Sticky Navigation (UPDATED to categories) -->
   <nav class="page-nav" aria-label="On this page">
     <div class="container">
       <ul>
-        <li><a href="#shop-consoles"><span style="font-size:1.2rem;">🎮</span> Shop Consoles</a></li>
-        <li><a href="#addons"><span style="font-size:1.2rem;">🛠️</span> Add-Ons</a></li>
+        <li><a href="#standard"><span style="font-size:1.2rem;">🎮</span> Standard Consoles</a></li>
+        <li><a href="#modded"><span style="font-size:1.2rem;">⚡</span> Modded Bundles</a></li>
+        <li><a href="#accessories"><span style="font-size:1.2rem;">🕹️</span> Accessories</a></li>
+        <li><a href="#upgrades"><span style="font-size:1.2rem;">🛠️</span> Upgrades & Services</a></li>
         <li><a href="#support"><span style="font-size:1.2rem;">💬</span> Support</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- HERO (your original) -->
+  <!-- HERO -->
   <section class="hero" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #0b1120 100%); padding: 3rem 0;">
     <div class="container">
-      <div style="text-align:center; max-width:800px; margin:0 auto;">
+      <div style="text-align:center; max-width:900px; margin:0 auto;">
         <h1 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem;">PlayStation 2 Fat Models</h1>
-        <p style="font-size: 1.1rem; margin-bottom: 2rem; color: rgba(255,255,255,0.95);">
-          Iconic PS2 Fat consoles, professionally inspected, function-tested and presentation cleaned.
-          Each console includes a printed test report and Arrival Guarantee as standard.
+        <p style="font-size: 1.1rem; margin-bottom: 1.75rem; color: rgba(255,255,255,0.95);">
+          Shop by category: <strong>Standard Consoles</strong>, <strong>Modded Bundles</strong>, <strong>Accessories</strong>, and <strong>Upgrades & Services</strong>.
+          Every console is professionally inspected and function-tested, with a printed test report and Arrival Guarantee.
         </p>
 
-        <div style="display:flex; gap:1.5rem; margin:0 auto 2rem; flex-wrap:wrap; justify-content:center; max-width:650px;">
+        <div style="display:flex; gap:1.5rem; margin:0 auto 2rem; flex-wrap:wrap; justify-content:center; max-width:760px;">
           <div style="display:flex; align-items:center; gap:0.5rem; background: rgba(15,23,42,0.7); padding:0.75rem 1.25rem; border-radius:0.5rem; backdrop-filter: blur(10px);">
             <span style="font-size: 1.5rem;">⭐</span>
             <div style="text-align:left;">
@@ -204,23 +239,22 @@
           </div>
         </div>
 
-        <a href="#shop-consoles" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem; display: inline-block;">Shop PS2 Fat</a>
+        <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
+          <a href="#standard" class="btn btn-primary" style="font-size: 1.05rem; padding: 1rem 2.2rem; display:inline-block;">Shop Standard</a>
+          <a href="#modded" class="btn" style="font-size: 1.05rem; padding: 1rem 2.2rem; display:inline-block; background:#0f172a; color:#fff;">Shop Modded</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SHOP CONSOLES SECTION (your original products restored) -->
-  <section class="section" id="shop-consoles" style="background: #f8fafc; scroll-margin-top: 240px; padding: 3rem 0;">
+  <!-- STANDARD CONSOLES (your original carousel moved here) -->
+  <section class="section" id="standard" style="background: #f8fafc; padding: 3rem 0;">
     <div class="container">
-
-      <div style="text-align:center; margin-bottom:3rem; padding:2rem 1rem; background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%); border-radius:1rem;">
-        <div style="display:inline-block; background: linear-gradient(135deg, #2563eb, #1d4ed8); color:white; padding:0.6rem 1.8rem; border-radius:2rem; font-size:0.85rem; font-weight:700; margin-bottom:1rem; text-transform:uppercase; letter-spacing:1px; box-shadow: 0 4px 12px rgba(37,99,235,0.3);">
-          🎮 PS2 Fat Console Range
-        </div>
-        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 0.75rem; color: #0f172a; font-weight: 800;">Choose Your Ideal PS2 Fat</h2>
-        <p style="font-size: 1.1rem; color: #475569; max-width: 760px; margin: 0 auto; line-height: 1.6;">
-          Every PS2 Fat is tested on real hardware: disc reading, controller ports, memory card slots, video output and basic stability checks.
-          Choose your revision and cosmetic grade (A/B/C).
+      <div class="rr-category-head" style="background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);">
+        <div class="rr-pill" style="background: linear-gradient(135deg, #2563eb, #1d4ed8);">🎮 Standard Consoles</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin:0 0 .5rem; color:#0f172a; font-weight:800;">Tested PS2 Fat Consoles</h2>
+        <p class="rr-note">
+          Choose your revision and cosmetic grade (A/B/C). Standard consoles are tested, presentation-cleaned externally, and include a printed test sheet + Arrival Guarantee.
         </p>
       </div>
 
@@ -231,6 +265,7 @@
 
         <div class="product-carousel">
 
+          <!-- === YOUR ORIGINAL STANDARD CONSOLES (UNCHANGED) === -->
           <!-- SCPH-3000x A/B/C -->
           <article class="product-card">
             <div style="position: relative; background:#0b1120;">
@@ -241,7 +276,7 @@
             <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
               <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Early Revision</p>
               <h3 class="product-name">PS2 Fat SCPH-3000x (A-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">Early PS2 Fat with minimal cosmetic wear. Fully tested, cleaned and ready to play.</p>
+              <p class="product-description" style="flex-grow:1;">Early PS2 Fat with minimal cosmetic wear. Fully tested and ready to play.</p>
               <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
                 <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£84.99</p>
                 <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-3000x-a','PS2 Fat SCPH-3000x A-Grade',84.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
@@ -542,6 +577,7 @@
               </div>
             </div>
           </article>
+          <!-- === END ORIGINAL STANDARD CONSOLES === -->
 
         </div>
 
@@ -552,113 +588,191 @@
     </div>
   </section>
 
-  <!-- ADD-ONS SECTION (your original) -->
-  <section class="section" id="addons" style="background: white; scroll-margin-top: 240px; padding: 3rem 0;">
+  <!-- MODDED CATEGORY (NEW) -->
+  <section class="section" id="modded" style="background: white; padding: 3rem 0;">
     <div class="container">
-      <div style="text-align:center; margin-bottom:3rem; padding:2rem 1rem; background: linear-gradient(135deg, #ecfeff 0%, #e0f2fe 100%); border-radius:1rem;">
-        <div style="display:inline-block; background: linear-gradient(135deg, #22c55e, #16a34a); color:white; padding:0.6rem 1.8rem; border-radius:2rem; font-size:0.85rem; font-weight:700; margin-bottom:1rem; text-transform:uppercase; letter-spacing:1px; box-shadow: 0 4px 12px rgba(34,197,94,0.3);">
-          🛠️ PS2 Add-Ons & Upgrades
-        </div>
-        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 0.75rem; color: #0f172a; font-weight: 800;">Build Your Perfect Setup</h2>
-        <p style="font-size: 1.1rem; color: #475569; max-width: 780px; margin: 0 auto; line-height: 1.6;">
-          Add accessories, video upgrades, and HDD mod kits to any PS2 Fat order. Everything here can be added to cart.
+      <div class="rr-category-head" style="background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);">
+        <div class="rr-pill" style="background: linear-gradient(135deg, #7c3aed, #4f46e5);">⚡ Modded Bundles</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin:0 0 .5rem; color:#0f172a; font-weight:800;">OPL-Ready PS2 Setups</h2>
+        <p class="rr-note">
+          These are complete bundles (console + required parts) prepared for OPL use. Great if you want a “ready to go” setup with minimal hassle.
         </p>
       </div>
 
-      <!-- Accessories -->
-      <details open>
-        <summary style="font-size:1.3rem; font-weight:700; padding:1rem; background:#f8fafc; border-radius:0.5rem; cursor:pointer; margin-bottom:1rem;">🎮 Accessories</summary>
-        <div style="padding:1rem; background:white; border-radius:0.5rem; margin-bottom:1.5rem;">
-          <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:1.5rem;">
-
-            <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
-              <div style="font-size:2rem; margin-bottom:0.75rem;">🎮</div>
-              <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">Sony DualShock 2 (Official)</h4>
-              <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Official PS2 controller with vibration support. Tested buttons and sticks.</p>
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£14.99</p>
-                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-pad-official','Sony DualShock 2 (Official)',14.99,'')" style="padding:0.5rem 1rem;">Add</button>
-              </div>
-            </div>
-
-            <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
-              <div style="font-size:2rem; margin-bottom:0.75rem;">🕹️</div>
-              <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">DualShock 2 Compatible (Third-Party)</h4>
-              <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Budget-friendly controller option (brand/model may vary).</p>
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£11.99</p>
-                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-pad-3rd','PS2 Controller (Third-Party)',11.99,'')" style="padding:0.5rem 1rem;">Add</button>
-              </div>
-            </div>
-
-            <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
-              <div style="font-size:2rem; margin-bottom:0.75rem;">💾</div>
-              <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">Sony Memory Card 8MB (Official)</h4>
-              <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Official 8MB card. Tested in real hardware.</p>
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£7.99</p>
-                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-mc-8mb-official','Sony Memory Card 8MB (Official)',7.99,'')" style="padding:0.5rem 1rem;">Add</button>
-              </div>
-            </div>
-
-            <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
-              <div style="font-size:2rem; margin-bottom:0.75rem;">💿</div>
-              <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">Memory Card (16/32/64MB)</h4>
-              <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Higher-capacity third-party card (capacity may vary).</p>
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£9.99</p>
-                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-mc-hi','PS2 Memory Card (16/32/64MB)',9.99,'')" style="padding:0.5rem 1rem;">Add</button>
-              </div>
-            </div>
-
-            <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
-              <div style="font-size:2rem; margin-bottom:0.75rem;">📺</div>
-              <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">RGB SCART Cable</h4>
-              <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Higher quality video output for compatible TVs/SCART equipment.</p>
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£12.99</p>
-                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-scart','PS2 RGB SCART Cable',12.99,'')" style="padding:0.5rem 1rem;">Add</button>
-              </div>
-            </div>
-
-            <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
-              <div style="font-size:2rem; margin-bottom:0.75rem;">🖥️</div>
-              <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">YPbPr Component Cable</h4>
-              <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Best analogue quality. Supports 480p on compatible titles.</p>
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£14.99</p>
-                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-component','PS2 Component Cable (YPbPr)',14.99,'')" style="padding:0.5rem 1rem;">Add</button>
-              </div>
-            </div>
-
-            <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
-              <div style="font-size:2rem; margin-bottom:0.75rem;">🔌</div>
-              <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">Composite AV Cable (R/W/Y)</h4>
-              <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Standard PS2 AV cable for older TVs and capture devices.</p>
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£6.99</p>
-                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-av','PS2 Composite AV Cable',6.99,'')" style="padding:0.5rem 1rem;">Add</button>
-              </div>
-            </div>
-
-            <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
-              <div style="font-size:2rem; margin-bottom:0.75rem;">🔫</div>
-              <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">GunCon 2 (G-Con 2)</h4>
-              <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Official light gun for Time Crisis / Virtua Cop (CRT required).</p>
-              <div style="display:flex; align-items:center; justify-content:space-between;">
-                <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£29.99</p>
-                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-guncon2','GunCon 2 (G-Con 2)',29.99,'')" style="padding:0.5rem 1rem;">Add</button>
-              </div>
-            </div>
-
+      <div class="rr-grid">
+        <article class="product-card">
+          <div style="position: relative; background:#0b1120;">
+            <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (500GB)" style="width:100%; height:200px; object-fit:cover;">
+            <span class="product-badge new" style="top:0.75rem; left:0.75rem;">OPL Ready</span>
+            <span class="product-badge sale" style="top:0.75rem; right:0.75rem; background:#7c3aed;">Bundle</span>
           </div>
+          <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
+            <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Starter Library Setup</p>
+            <h3 class="product-name">PS2 Fat OPL Ready Bundle (500GB)</h3>
+            <p class="product-description" style="flex-grow:1;">Console + FMCB + network adapter + prepared 500GB drive. Plug-in and boot into OPL.</p>
+            <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
+              <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£189.99</p>
+              <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-opl-bundle-500','PS2 Fat OPL Ready Bundle (500GB)',189.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div style="position: relative; background:#0b1120;">
+            <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (1TB)" style="width:100%; height:200px; object-fit:cover;">
+            <span class="product-badge new" style="top:0.75rem; left:0.75rem;">OPL Ready</span>
+            <span class="product-badge sale" style="top:0.75rem; right:0.75rem; background:#7c3aed;">Bundle</span>
+          </div>
+          <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
+            <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Most Popular</p>
+            <h3 class="product-name">PS2 Fat OPL Ready Bundle (1TB)</h3>
+            <p class="product-description" style="flex-grow:1;">Console + FMCB + network adapter + prepared 1TB drive. Best value for larger collections.</p>
+            <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
+              <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£239.99</p>
+              <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-opl-bundle-1tb','PS2 Fat OPL Ready Bundle (1TB)',239.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div style="position: relative; background:#0b1120;">
+            <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (2TB)" style="width:100%; height:200px; object-fit:cover;">
+            <span class="product-badge new" style="top:0.75rem; left:0.75rem;">OPL Ready</span>
+            <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#0f172a;">Max</span>
+          </div>
+          <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
+            <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Maximum Storage</p>
+            <h3 class="product-name">PS2 Fat OPL Ready Bundle (2TB)</h3>
+            <p class="product-description" style="flex-grow:1;">For large collections. Includes console + FMCB + adapter + prepared 2TB drive.</p>
+            <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
+              <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£289.99</p>
+              <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-opl-bundle-2tb','PS2 Fat OPL Ready Bundle (2TB)',289.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top:1.75rem; background:#f8fafc; border:1px solid #e2e8f0; border-radius:1rem; padding:1.25rem; text-align:center;">
+        <p style="margin:0; color:#475569;">
+          Want a specific setup (HDD size, themes, controller options, or custom requests)?
+          Use <a href="/sourcing-request.html" style="font-weight:800;">Sourcing Request</a> and I’ll quote it as a custom order.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESSORIES CATEGORY (moved from Add-ons > Accessories only) -->
+  <section class="section" id="accessories" style="background:#f8fafc; padding:3rem 0;">
+    <div class="container">
+      <div class="rr-category-head" style="background: linear-gradient(135deg, #ecfeff 0%, #e0f2fe 100%);">
+        <div class="rr-pill" style="background: linear-gradient(135deg, #22c55e, #16a34a);">🕹️ Accessories</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin:0 0 .5rem; color:#0f172a; font-weight:800;">Controllers, Cables & Extras</h2>
+        <p class="rr-note">Add accessories to any console order. Everything below can be added to cart.</p>
+      </div>
+
+      <!-- (Your existing Accessories grid unchanged) -->
+      <div style="padding:1rem; background:white; border-radius:0.75rem; border:1px solid #e2e8f0;">
+        <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:1.5rem;">
+
+          <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
+            <div style="font-size:2rem; margin-bottom:0.75rem;">🎮</div>
+            <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">Sony DualShock 2 (Official)</h4>
+            <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Official PS2 controller with vibration support. Tested buttons and sticks.</p>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£14.99</p>
+              <button class="btn btn-success" onclick="RetroCart.addItem('ps2-pad-official','Sony DualShock 2 (Official)',14.99,'')" style="padding:0.5rem 1rem;">Add</button>
+            </div>
+          </div>
+
+          <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
+            <div style="font-size:2rem; margin-bottom:0.75rem;">🕹️</div>
+            <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">DualShock 2 Compatible (Third-Party)</h4>
+            <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Budget-friendly controller option (brand/model may vary).</p>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£11.99</p>
+              <button class="btn btn-success" onclick="RetroCart.addItem('ps2-pad-3rd','PS2 Controller (Third-Party)',11.99,'')" style="padding:0.5rem 1rem;">Add</button>
+            </div>
+          </div>
+
+          <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
+            <div style="font-size:2rem; margin-bottom:0.75rem;">💾</div>
+            <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">Sony Memory Card 8MB (Official)</h4>
+            <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Official 8MB card. Tested in real hardware.</p>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£7.99</p>
+              <button class="btn btn-success" onclick="RetroCart.addItem('ps2-mc-8mb-official','Sony Memory Card 8MB (Official)',7.99,'')" style="padding:0.5rem 1rem;">Add</button>
+            </div>
+          </div>
+
+          <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
+            <div style="font-size:2rem; margin-bottom:0.75rem;">💿</div>
+            <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">Memory Card (16/32/64MB)</h4>
+            <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Higher-capacity third-party card (capacity may vary).</p>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£9.99</p>
+              <button class="btn btn-success" onclick="RetroCart.addItem('ps2-mc-hi','PS2 Memory Card (16/32/64MB)',9.99,'')" style="padding:0.5rem 1rem;">Add</button>
+            </div>
+          </div>
+
+          <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
+            <div style="font-size:2rem; margin-bottom:0.75rem;">📺</div>
+            <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">RGB SCART Cable</h4>
+            <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Higher quality video output for compatible TVs/SCART equipment.</p>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£12.99</p>
+              <button class="btn btn-success" onclick="RetroCart.addItem('ps2-scart','PS2 RGB SCART Cable',12.99,'')" style="padding:0.5rem 1rem;">Add</button>
+            </div>
+          </div>
+
+          <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
+            <div style="font-size:2rem; margin-bottom:0.75rem;">🖥️</div>
+            <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">YPbPr Component Cable</h4>
+            <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Best analogue quality. Supports 480p on compatible titles.</p>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£14.99</p>
+              <button class="btn btn-success" onclick="RetroCart.addItem('ps2-component','PS2 Component Cable (YPbPr)',14.99,'')" style="padding:0.5rem 1rem;">Add</button>
+            </div>
+          </div>
+
+          <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
+            <div style="font-size:2rem; margin-bottom:0.75rem;">🔌</div>
+            <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">Composite AV Cable (R/W/Y)</h4>
+            <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Standard PS2 AV cable for older TVs and capture devices.</p>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£6.99</p>
+              <button class="btn btn-success" onclick="RetroCart.addItem('ps2-av','PS2 Composite AV Cable',6.99,'')" style="padding:0.5rem 1rem;">Add</button>
+            </div>
+          </div>
+
+          <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
+            <div style="font-size:2rem; margin-bottom:0.75rem;">🔫</div>
+            <h4 style="margin:0 0 0.5rem; font-size:1.1rem;">GunCon 2 (G-Con 2)</h4>
+            <p style="font-size:0.9rem; color:#64748b; margin:0 0 1rem;">Official light gun for Time Crisis / Virtua Cop (CRT required).</p>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <p style="margin:0; font-size:1.3rem; font-weight:700; color:#2563eb;">£29.99</p>
+              <button class="btn btn-success" onclick="RetroCart.addItem('ps2-guncon2','GunCon 2 (G-Con 2)',29.99,'')" style="padding:0.5rem 1rem;">Add</button>
+            </div>
+          </div>
+
         </div>
-      </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- UPGRADES & SERVICES CATEGORY (HDD Mods + Services combined/cleaned) -->
+  <section class="section" id="upgrades" style="background:white; padding:3rem 0;">
+    <div class="container">
+      <div class="rr-category-head" style="background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);">
+        <div class="rr-pill" style="background: linear-gradient(135deg, #0f172a, #1e293b);">🛠️ Upgrades & Services</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin:0 0 .5rem; color:#0f172a; font-weight:800;">HDD Mods, Video Upgrades & Servicing</h2>
+        <p class="rr-note">Build your ideal setup: OPL parts, storage options, and servicing. Add to cart or request a custom quote.</p>
+      </div>
 
       <!-- HDD MODS -->
-      <details>
+      <details open>
         <summary style="font-size:1.3rem; font-weight:700; padding:1rem; background:#f8fafc; border-radius:0.5rem; cursor:pointer; margin-bottom:1rem;">⚙️ HDD Mods (OPL Ready)</summary>
-        <div style="padding:1rem; background:white; border-radius:0.5rem; margin-bottom:1.5rem;">
+        <div style="padding:1rem; background:white; border-radius:0.5rem; margin-bottom:1.5rem; border:1px solid #e2e8f0;">
           <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:1.5rem;">
 
             <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
@@ -735,10 +849,10 @@
         </div>
       </details>
 
-      <!-- Services -->
+      <!-- SERVICES -->
       <details>
-        <summary style="font-size:1.3rem; font-weight:700; padding:1rem; background:#f8fafc; border-radius:0.5rem; cursor:pointer; margin-bottom:1rem;">🧼 Cosmetic & Service Options</summary>
-        <div style="padding:1rem; background:white; border-radius:0.5rem; margin-bottom:1.5rem;">
+        <summary style="font-size:1.3rem; font-weight:700; padding:1rem; background:#f8fafc; border-radius:0.5rem; cursor:pointer; margin-bottom:1rem;">🧼 Servicing & Cosmetic Options</summary>
+        <div style="padding:1rem; background:white; border-radius:0.5rem; margin-bottom:1.5rem; border:1px solid #e2e8f0;">
           <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:1.5rem;">
 
             <div style="background:#f8fafc; padding:1.25rem; border-radius:0.75rem;">
@@ -775,11 +889,26 @@
         </div>
       </details>
 
+      <!-- Optional video upgrade callout -->
+      <div style="margin-top:1.25rem; background:#f8fafc; border:1px solid #e2e8f0; border-radius:1rem; padding:1.25rem;">
+        <div style="display:flex; gap:0.75rem; align-items:flex-start; flex-wrap:wrap;">
+          <div style="font-size:1.8rem;">📺</div>
+          <div style="flex:1; min-width:240px;">
+            <p style="margin:0 0 .25rem; font-weight:800; color:#0f172a;">Want better picture quality on modern TVs?</p>
+            <p style="margin:0; color:#475569; line-height:1.6;">
+              I can source proper HDMI upscalers (not cheap dongles) and include them as part of a bundle/custom order.
+              If you mainly play on OLED/large screens, this can be a big upgrade.
+            </p>
+          </div>
+          <a href="/sourcing-request.html" class="btn btn-primary" style="white-space:nowrap;">Request a Quote</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- SUPPORT SECTION (your original) -->
-  <section class="section" id="support" style="background: linear-gradient(135deg, #0b1120 0%, #1e293b 40%, #020617 100%); color: white; scroll-margin-top: 240px; padding: 3rem 0;">
+  <!-- SUPPORT SECTION (unchanged) -->
+  <section class="section" id="support" style="background: linear-gradient(135deg, #0b1120 0%, #1e293b 40%, #020617 100%); color: white; padding: 3rem 0;">
     <div class="container">
       <div style="text-align:center; margin-bottom:3rem;">
         <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 0.75rem; color: white; font-weight: 800;">💬 Support & Guarantee</h2>
@@ -833,7 +962,7 @@
     </div>
   </section>
 
-  <!-- Footer (your original, just made column layout via CSS + dynamic year) -->
+  <!-- Footer (unchanged) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">

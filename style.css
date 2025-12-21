@@ -1059,3 +1059,50 @@ a.product-card:focus-visible{
   filter: drop-shadow(0 18px 40px rgba(0,0,0,.18));
 }
 
+/* ===== Clean up "Why Choose" cards ===== */
+.product-grid{
+  align-items: stretch;
+}
+
+.product-card{
+  padding: 1.25rem;
+  gap: .75rem;
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.product-card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(0,102,255,.18);
+}
+
+/* Ensure text spacing looks premium */
+.product-info{
+  display: grid;
+  gap: .45rem;
+}
+
+.product-name{
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.product-description{
+  margin: 0;
+  color: var(--gray);
+  font-weight: 650;
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+/* Optional: make the section subtitle align better */
+.section-header{
+  margin-bottom: 1.5rem;
+}
+.section-subtitle{
+  line-height: 1.7;
+}

@@ -72,10 +72,7 @@
         <div class="header-actions">
           <a href="/contact.html" class="header-action"><span aria-hidden="true">📞</span><span>Support</span></a>
 
-          <a href="/checkout.html" class="header-action">
-            <span aria-hidden="true">🛒</span><span>Cart</span>
-            <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
-          </a>
+          <!-- ✅ REMOVED: Cart / Checkout link -->
 
           <button class="nav-toggle"
             type="button"
@@ -319,15 +316,13 @@
     </div>
   </div>
 
-  <script src="/cart.js"></script>
+  <!-- ✅ REMOVED: /cart.js because checkout/cart is being removed -->
   <script src="/particles.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-      if (window.RetroCart && typeof window.RetroCart.loadCart === 'function') {
-        window.RetroCart.loadCart();
-      }
+      // ✅ REMOVED: RetroCart.loadCart()
 
       const btn = document.querySelector('.nav-toggle');
       const nav = document.getElementById('primaryNav');

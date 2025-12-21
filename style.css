@@ -988,3 +988,74 @@ ul{list-style:none}
 
 /* Focus ring (global) */
 :focus-visible{ outline:3px solid rgba(0,102,255,.35); outline-offset:2px; border-radius:.5rem; }
+
+/* =========================================================
+   RetroReplay — Patch fixes (add at end of style.css)
+   Fixes: footer layout mismatch, active nav highlight,
+          flexible category grid, nicer card links
+   ========================================================= */
+
+/* 1) FOOTER: your HTML uses .footer-content, CSS uses .footer-grid */
+.footer-content{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:1.5rem;
+  align-items:start;
+}
+/* Keep existing .footer-grid too (some pages might use it) */
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:1.5rem;
+  align-items:start;
+}
+
+/* Footer responsive to match your existing breakpoints */
+@media(max-width:900px){
+  .footer-content,
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+}
+@media(max-width:520px){
+  .footer-content,
+  .footer-grid{ grid-template-columns:1fr; }
+}
+
+/* 2) ACTIVE LINKS: you add class="active" in HTML, but no CSS */
+.nav-list a.active,
+.sub-nav .nav-list a.active,
+.footer-links a.active{
+  color: var(--primary);
+  background: rgba(0,102,255,.08);
+  border: 1px solid rgba(0,102,255,.18);
+}
+.sub-nav .nav-list a.active{
+  background: rgba(0,102,255,.12);
+}
+
+/* 3) CATEGORY GRID: currently hard-set to 5 columns
+      Use auto-fit so it looks right whether you have 2 or 10 cards */
+.category-grid{
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* 4) PRODUCT-CARD LINKS: your PS2 guides use <a class="product-card">,
+      ensure they look like cards (no underline) and animate consistently */
+a.product-card{
+  text-decoration:none;
+  color:inherit;
+}
+a.product-card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+a.product-card:focus-visible{
+  outline: 3px solid rgba(0,102,255,.35);
+  outline-offset: 3px;
+  border-radius: 1.25rem;
+}
+
+/* 5) Minor: keep hero images crisp and consistent */
+.hero-image img{
+  filter: drop-shadow(0 18px 40px rgba(0,0,0,.18));
+}
+

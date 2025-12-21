@@ -122,6 +122,134 @@
       font-size:1.05rem;
       text-align:center;
     }
+
+    /* =========================
+       NEW: “CATEGORY-STYLE” PRODUCT CARDS FOR STANDARD CAROUSEL
+    ========================== */
+    .rr-prod{
+      background:#fff;
+      border:1px solid rgba(15,23,42,0.08);
+      border-radius:1.1rem;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(2,6,23,0.06);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      display:flex;
+      flex-direction:column;
+      min-width: 280px; /* helps carousel */
+    }
+    .rr-prod:hover{
+      transform: translateY(-3px);
+      box-shadow:0 18px 50px rgba(2,6,23,0.10);
+      border-color: rgba(37,99,235,0.25);
+    }
+    .rr-prod__media{
+      position:relative;
+      background:#0b1120;
+    }
+    .rr-prod__img{
+      width:100%;
+      height:210px;
+      object-fit:cover;
+      display:block;
+    }
+    .rr-prod__badges{
+      position:absolute;
+      inset: 0.8rem 0.8rem auto 0.8rem;
+      display:flex;
+      justify-content:space-between;
+      gap:.5rem;
+      pointer-events:none;
+    }
+    .rr-chip{
+      pointer-events:none;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.45rem .75rem;
+      border-radius:999px;
+      font-weight:800;
+      font-size:.78rem;
+      letter-spacing:.3px;
+      color:#fff;
+      box-shadow:0 6px 16px rgba(2,6,23,0.20);
+      background: rgba(15,23,42,0.75);
+      backdrop-filter: blur(8px);
+      white-space:nowrap;
+    }
+    .rr-chip--model{ background: rgba(37,99,235,0.85); }
+    .rr-chip--a{ background: rgba(37,99,235,0.92); }
+    .rr-chip--b{ background: rgba(34,197,94,0.90); }
+    .rr-chip--c{ background: rgba(249,115,22,0.92); }
+
+    .rr-prod__body{
+      padding:1.1rem 1.1rem 1rem;
+      display:flex;
+      flex-direction:column;
+      gap:.75rem;
+      flex:1;
+    }
+    .rr-prod__meta{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:.75rem;
+      flex-wrap:wrap;
+      color:#64748b;
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-weight:800;
+    }
+    .rr-prod__meta span{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      background:#f1f5f9;
+      border:1px solid #e2e8f0;
+      padding:.35rem .6rem;
+      border-radius:999px;
+    }
+    .rr-prod__title{
+      margin:0;
+      font-size:1.15rem;
+      font-weight:900;
+      color:#0f172a;
+      line-height:1.2;
+    }
+    .rr-prod__desc{
+      margin:0;
+      color:#475569;
+      line-height:1.55;
+      font-size:.95rem;
+      flex:1;
+    }
+    .rr-prod__footer{
+      border-top:1px solid #e2e8f0;
+      padding:0.9rem 1.1rem 1.1rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:.75rem;
+    }
+    .rr-price{
+      font-size:1.35rem;
+      font-weight:900;
+      color:#2563eb;
+      margin:0;
+      white-space:nowrap;
+    }
+    .rr-add{
+      flex:1;
+      display:flex;
+      justify-content:flex-end;
+    }
+    .rr-add .btn{
+      width:100%;
+      max-width: 180px;
+      border-radius:0.85rem;
+      font-weight:900;
+    }
+    .product-carousel{ gap:1.25rem; }
   </style>
 </head>
 
@@ -247,7 +375,7 @@
     </div>
   </section>
 
-  <!-- STANDARD CONSOLES (your original carousel moved here) -->
+  <!-- STANDARD CONSOLES (UPDATED CARD STYLE) -->
   <section class="section" id="standard" style="background: #f8fafc; padding: 3rem 0;">
     <div class="container">
       <div class="rr-category-head" style="background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);">
@@ -265,319 +393,443 @@
 
         <div class="product-carousel">
 
-          <!-- === YOUR ORIGINAL STANDARD CONSOLES (UNCHANGED) === -->
           <!-- SCPH-3000x A/B/C -->
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3000x A-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge sale" style="top:0.75rem; right:0.75rem;">A-Grade</span>
-              <span class="product-badge new" style="top:0.75rem; left:0.75rem;">SCPH-3000x</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3000x A-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">SCPH-3000x</span>
+                <span class="rr-chip rr-chip--a">A-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Early Revision</p>
-              <h3 class="product-name">PS2 Fat SCPH-3000x (A-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">Early PS2 Fat with minimal cosmetic wear. Fully tested and ready to play.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£84.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-3000x-a','PS2 Fat SCPH-3000x A-Grade',84.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🔧 Early Revision</span>
+                <span>📋 Printed Report</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-3000x (A-Grade)</h3>
+              <p class="rr-prod__desc">Early PS2 Fat with minimal cosmetic wear. Fully tested and ready to play.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£84.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-3000x-a','PS2 Fat SCPH-3000x A-Grade',84.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3000x B-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#22c55e;">B-Grade</span>
-              <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#1e293b;">SCPH-3000x</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3000x B-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">SCPH-3000x</span>
+                <span class="rr-chip rr-chip--b">B-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Early Revision</p>
-              <h3 class="product-name">PS2 Fat SCPH-3000x (B-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">Light cosmetic wear, solid structure. Ports, disc reading and video output tested.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£74.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-3000x-b','PS2 Fat SCPH-3000x B-Grade',74.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🔧 Early Revision</span>
+                <span>🛡️ Arrival Guarantee</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-3000x (B-Grade)</h3>
+              <p class="rr-prod__desc">Light cosmetic wear, solid structure. Ports, disc reading and video output tested.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£74.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-3000x-b','PS2 Fat SCPH-3000x B-Grade',74.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3000x C-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#f97316;">C-Grade</span>
-              <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#334155;">SCPH-3000x</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3000x C-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">SCPH-3000x</span>
+                <span class="rr-chip rr-chip--c">C-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Early Revision</p>
-              <h3 class="product-name">PS2 Fat SCPH-3000x (C-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">More visible cosmetic marks. Same full hardware checks and printed report.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£64.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-3000x-c','PS2 Fat SCPH-3000x C-Grade',64.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🔧 Early Revision</span>
+                <span>🧼 Presentation Clean</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-3000x (C-Grade)</h3>
+              <p class="rr-prod__desc">More visible cosmetic marks. Same full hardware checks and printed report.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£64.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-3000x-c','PS2 Fat SCPH-3000x C-Grade',64.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
           <!-- SCPH-3500x A/B/C -->
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3500x A-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge sale" style="top:0.75rem; right:0.75rem;">A-Grade</span>
-              <span class="product-badge new" style="top:0.75rem; left:0.75rem;">SCPH-3500x</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3500x A-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">SCPH-3500x</span>
+                <span class="rr-chip rr-chip--a">A-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Transitional Revision</p>
-              <h3 class="product-name">PS2 Fat SCPH-3500x (A-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">A strong mid revision with excellent cosmetic condition. Tested and cleaned.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£89.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-3500x-a','PS2 Fat SCPH-3500x A-Grade',89.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🔧 Transitional</span>
+                <span>📋 Printed Report</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-3500x (A-Grade)</h3>
+              <p class="rr-prod__desc">A strong mid revision with excellent cosmetic condition. Tested and cleaned.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£89.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-3500x-a','PS2 Fat SCPH-3500x A-Grade',89.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3500x B-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#22c55e;">B-Grade</span>
-              <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#1e293b;">SCPH-3500x</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3500x B-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">SCPH-3500x</span>
+                <span class="rr-chip rr-chip--b">B-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Transitional Revision</p>
-              <h3 class="product-name">PS2 Fat SCPH-3500x (B-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">Light surface marks only. Fully tested for stable play and clean output.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£79.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-3500x-b','PS2 Fat SCPH-3500x B-Grade',79.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🔧 Transitional</span>
+                <span>🛡️ Arrival Guarantee</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-3500x (B-Grade)</h3>
+              <p class="rr-prod__desc">Light surface marks only. Fully tested for stable play and clean output.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£79.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-3500x-b','PS2 Fat SCPH-3500x B-Grade',79.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3500x C-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#f97316;">C-Grade</span>
-              <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#334155;">SCPH-3500x</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3500x C-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">SCPH-3500x</span>
+                <span class="rr-chip rr-chip--c">C-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Transitional Revision</p>
-              <h3 class="product-name">PS2 Fat SCPH-3500x (C-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">Heavier cosmetic wear, same testing, same guarantee, same printed report.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£69.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-3500x-c','PS2 Fat SCPH-3500x C-Grade',69.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🔧 Transitional</span>
+                <span>🧼 Presentation Clean</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-3500x (C-Grade)</h3>
+              <p class="rr-prod__desc">Heavier cosmetic wear, same testing, same guarantee, same printed report.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£69.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-3500x-c','PS2 Fat SCPH-3500x C-Grade',69.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
           <!-- SCPH-3900x A/B/C -->
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3900x A-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge sale" style="top:0.75rem; right:0.75rem;">A-Grade</span>
-              <span class="product-badge new" style="top:0.75rem; left:0.75rem;">SCPH-3900x</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3900x A-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">SCPH-3900x</span>
+                <span class="rr-chip rr-chip--a">A-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Improved Revision</p>
-              <h3 class="product-name">PS2 Fat SCPH-3900x (A-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">Well-regarded revision with strong reliability. Minimal wear, fully tested.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£94.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-3900x-a','PS2 Fat SCPH-3900x A-Grade',94.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🔧 Improved</span>
+                <span>📋 Printed Report</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-3900x (A-Grade)</h3>
+              <p class="rr-prod__desc">Well-regarded revision with strong reliability. Minimal wear, fully tested.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£94.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-3900x-a','PS2 Fat SCPH-3900x A-Grade',94.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3900x B-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#22c55e;">B-Grade</span>
-              <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#1e293b;">SCPH-3900x</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3900x B-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">SCPH-3900x</span>
+                <span class="rr-chip rr-chip--b">B-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Improved Revision</p>
-              <h3 class="product-name">PS2 Fat SCPH-3900x (B-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">Normal cosmetic wear. Disc reading, video output and ports tested.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£84.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-3900x-b','PS2 Fat SCPH-3900x B-Grade',84.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🔧 Improved</span>
+                <span>🛡️ Arrival Guarantee</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-3900x (B-Grade)</h3>
+              <p class="rr-prod__desc">Normal cosmetic wear. Disc reading, video output and ports tested.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£84.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-3900x-b','PS2 Fat SCPH-3900x B-Grade',84.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3900x C-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#f97316;">C-Grade</span>
-              <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#334155;">SCPH-3900x</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-3900x C-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">SCPH-3900x</span>
+                <span class="rr-chip rr-chip--c">C-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Improved Revision</p>
-              <h3 class="product-name">PS2 Fat SCPH-3900x (C-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">More noticeable marks, same testing and Arrival Guarantee.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£74.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-3900x-c','PS2 Fat SCPH-3900x C-Grade',74.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🔧 Improved</span>
+                <span>🧼 Presentation Clean</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-3900x (C-Grade)</h3>
+              <p class="rr-prod__desc">More noticeable marks, same testing and Arrival Guarantee.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£74.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-3900x-c','PS2 Fat SCPH-3900x C-Grade',74.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
           <!-- SCPH-5000x A/B/C -->
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-5000x A-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge sale" style="top:0.75rem; right:0.75rem;">A-Grade</span>
-              <span class="product-badge new" style="top:0.75rem; left:0.75rem;">SCPH-5000x</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-5000x A-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">SCPH-5000x</span>
+                <span class="rr-chip rr-chip--a">A-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Best Fat Revision</p>
-              <h3 class="product-name">PS2 Fat SCPH-5000x (A-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">Popular “best fat” revision. Quiet, stable and ideal for long sessions.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£109.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-5000x-a','PS2 Fat SCPH-5000x A-Grade',109.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🔧 Best Fat</span>
+                <span>📋 Printed Report</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-5000x (A-Grade)</h3>
+              <p class="rr-prod__desc">Popular “best fat” revision. Quiet, stable and ideal for long sessions.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£109.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-5000x-a','PS2 Fat SCPH-5000x A-Grade',109.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-5000x B-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#22c55e;">B-Grade</span>
-              <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#1e293b;">SCPH-5000x</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-5000x B-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">SCPH-5000x</span>
+                <span class="rr-chip rr-chip--b">B-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Best Fat Revision</p>
-              <h3 class="product-name">PS2 Fat SCPH-5000x (B-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">Normal cosmetic wear. Fully tested and cleaned with printed report.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£99.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-5000x-b','PS2 Fat SCPH-5000x B-Grade',99.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🔧 Best Fat</span>
+                <span>🛡️ Arrival Guarantee</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-5000x (B-Grade)</h3>
+              <p class="rr-prod__desc">Normal cosmetic wear. Fully tested and cleaned with printed report.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£99.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-5000x-b','PS2 Fat SCPH-5000x B-Grade',99.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-5000x C-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#f97316;">C-Grade</span>
-              <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#334155;">SCPH-5000x</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-5000x C-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">SCPH-5000x</span>
+                <span class="rr-chip rr-chip--c">C-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">Best Fat Revision</p>
-              <h3 class="product-name">PS2 Fat SCPH-5000x (C-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">More cosmetic wear, same testing standards and Arrival Guarantee.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£89.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-5000x-c','PS2 Fat SCPH-5000x C-Grade',89.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🔧 Best Fat</span>
+                <span>🧼 Presentation Clean</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-5000x (C-Grade)</h3>
+              <p class="rr-prod__desc">More cosmetic wear, same testing standards and Arrival Guarantee.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£89.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-5000x-c','PS2 Fat SCPH-5000x C-Grade',89.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
           <!-- SCPH-50003 Black A/B/C -->
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-50003 Black A-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge sale" style="top:0.75rem; right:0.75rem;">A-Grade</span>
-              <span class="product-badge new" style="top:0.75rem; left:0.75rem;">50003 Black</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-50003 Black A-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">50003 Black</span>
+                <span class="rr-chip rr-chip--a">A-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">PAL Model</p>
-              <h3 class="product-name">PS2 Fat SCPH-50003 (Black) (A-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">Great-condition 50003 in classic black. Fully tested and presentation cleaned.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£114.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-50003-black-a','PS2 Fat SCPH-50003 Black A-Grade',114.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🇬🇧 PAL Model</span>
+                <span>📋 Printed Report</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-50003 (Black) (A-Grade)</h3>
+              <p class="rr-prod__desc">Great-condition 50003 in classic black. Fully tested and presentation cleaned.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£114.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-50003-black-a','PS2 Fat SCPH-50003 Black A-Grade',114.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-50003 Black B-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#22c55e;">B-Grade</span>
-              <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#1e293b;">50003 Black</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-50003 Black B-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">50003 Black</span>
+                <span class="rr-chip rr-chip--b">B-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">PAL Model</p>
-              <h3 class="product-name">PS2 Fat SCPH-50003 (Black) (B-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">Normal wear. Fully tested, stable output and clean operation.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£104.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-50003-black-b','PS2 Fat SCPH-50003 Black B-Grade',104.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🇬🇧 PAL Model</span>
+                <span>🛡️ Arrival Guarantee</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-50003 (Black) (B-Grade)</h3>
+              <p class="rr-prod__desc">Normal wear. Fully tested, stable output and clean operation.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£104.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-50003-black-b','PS2 Fat SCPH-50003 Black B-Grade',104.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-50003 Black C-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#f97316;">C-Grade</span>
-              <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#334155;">50003 Black</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-50003 Black C-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">50003 Black</span>
+                <span class="rr-chip rr-chip--c">C-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">PAL Model</p>
-              <h3 class="product-name">PS2 Fat SCPH-50003 (Black) (C-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">More visible marks. Same testing, same printed report, same guarantee.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£94.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-50003-black-c','PS2 Fat SCPH-50003 Black C-Grade',94.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🇬🇧 PAL Model</span>
+                <span>🧼 Presentation Clean</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-50003 (Black) (C-Grade)</h3>
+              <p class="rr-prod__desc">More visible marks. Same testing, same printed report, same guarantee.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£94.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-50003-black-c','PS2 Fat SCPH-50003 Black C-Grade',94.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
           <!-- SCPH-50003 Silver A/B/C -->
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-50003 Silver A-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge sale" style="top:0.75rem; right:0.75rem;">A-Grade</span>
-              <span class="product-badge new" style="top:0.75rem; left:0.75rem;">50003 Silver</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-50003 Silver A-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">50003 Silver</span>
+                <span class="rr-chip rr-chip--a">A-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">PAL Model</p>
-              <h3 class="product-name">PS2 Fat SCPH-50003 (Silver) (A-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">Collector-friendly silver variant with minimal wear. Fully tested and cleaned.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£124.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-50003-silver-a','PS2 Fat SCPH-50003 Silver A-Grade',124.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🇬🇧 PAL Model</span>
+                <span>📋 Printed Report</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-50003 (Silver) (A-Grade)</h3>
+              <p class="rr-prod__desc">Collector-friendly silver variant with minimal wear. Fully tested and cleaned.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£124.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-50003-silver-a','PS2 Fat SCPH-50003 Silver A-Grade',124.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-50003 Silver B-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#22c55e;">B-Grade</span>
-              <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#1e293b;">50003 Silver</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-50003 Silver B-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">50003 Silver</span>
+                <span class="rr-chip rr-chip--b">B-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">PAL Model</p>
-              <h3 class="product-name">PS2 Fat SCPH-50003 (Silver) (B-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">Normal wear. Fully tested and presented clean with printed report.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£114.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-50003-silver-b','PS2 Fat SCPH-50003 Silver B-Grade',114.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🇬🇧 PAL Model</span>
+                <span>🛡️ Arrival Guarantee</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-50003 (Silver) (B-Grade)</h3>
+              <p class="rr-prod__desc">Normal wear. Fully tested and presented clean with printed report.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£114.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-50003-silver-b','PS2 Fat SCPH-50003 Silver B-Grade',114.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
 
-          <article class="product-card">
-            <div style="position: relative; background:#0b1120;">
-              <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-50003 Silver C-Grade" style="width:100%; height:200px; object-fit:cover;">
-              <span class="product-badge" style="top:0.75rem; right:0.75rem; background:#f97316;">C-Grade</span>
-              <span class="product-badge" style="top:0.75rem; left:0.75rem; background:#334155;">50003 Silver</span>
+          <article class="rr-prod">
+            <div class="rr-prod__media">
+              <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat SCPH-50003 Silver C-Grade">
+              <div class="rr-prod__badges">
+                <span class="rr-chip rr-chip--model">50003 Silver</span>
+                <span class="rr-chip rr-chip--c">C-Grade</span>
+              </div>
             </div>
-            <div class="product-info" style="flex-grow:1; display:flex; flex-direction:column;">
-              <p style="font-size:0.75rem; color:#64748b; margin:0 0 0.5rem; text-transform:uppercase;">PAL Model</p>
-              <h3 class="product-name">PS2 Fat SCPH-50003 (Silver) (C-Grade)</h3>
-              <p class="product-description" style="flex-grow:1;">More visible marks. Same testing standards and Arrival Guarantee.</p>
-              <div style="border-top:1px solid #e2e8f0; padding-top:1rem;">
-                <p style="font-size:1.3rem; font-weight:700; color:#2563eb; margin:0 0 0.75rem;">£104.99</p>
-                <button class="btn btn-success btn-add-cart" onclick="RetroCart.addItem('ps2-fat-50003-silver-c','PS2 Fat SCPH-50003 Silver C-Grade',104.99,'/assets/PS2_REFURBED_BUNDLE.jpg')" style="width:100%;">Add to Cart</button>
+            <div class="rr-prod__body">
+              <div class="rr-prod__meta">
+                <span>🇬🇧 PAL Model</span>
+                <span>🧼 Presentation Clean</span>
+              </div>
+              <h3 class="rr-prod__title">PS2 Fat SCPH-50003 (Silver) (C-Grade)</h3>
+              <p class="rr-prod__desc">More visible marks. Same testing standards and Arrival Guarantee.</p>
+            </div>
+            <div class="rr-prod__footer">
+              <p class="rr-price">£104.99</p>
+              <div class="rr-add">
+                <button class="btn btn-success" onclick="RetroCart.addItem('ps2-fat-50003-silver-c','PS2 Fat SCPH-50003 Silver C-Grade',104.99,'/assets/PS2_REFURBED_BUNDLE.jpg')">Add to Cart</button>
               </div>
             </div>
           </article>
-          <!-- === END ORIGINAL STANDARD CONSOLES === -->
 
         </div>
 
@@ -588,7 +840,7 @@
     </div>
   </section>
 
-  <!-- MODDED CATEGORY (NEW) -->
+  <!-- MODDED CATEGORY (UNCHANGED) -->
   <section class="section" id="modded" style="background: white; padding: 3rem 0;">
     <div class="container">
       <div class="rr-category-head" style="background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);">
@@ -661,7 +913,7 @@
     </div>
   </section>
 
-  <!-- ACCESSORIES CATEGORY (moved from Add-ons > Accessories only) -->
+  <!-- ACCESSORIES CATEGORY (UNCHANGED) -->
   <section class="section" id="accessories" style="background:#f8fafc; padding:3rem 0;">
     <div class="container">
       <div class="rr-category-head" style="background: linear-gradient(135deg, #ecfeff 0%, #e0f2fe 100%);">
@@ -670,7 +922,6 @@
         <p class="rr-note">Add accessories to any console order. Everything below can be added to cart.</p>
       </div>
 
-      <!-- (Your existing Accessories grid unchanged) -->
       <div style="padding:1rem; background:white; border-radius:0.75rem; border:1px solid #e2e8f0;">
         <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:1.5rem;">
 
@@ -760,7 +1011,7 @@
     </div>
   </section>
 
-  <!-- UPGRADES & SERVICES CATEGORY (HDD Mods + Services combined/cleaned) -->
+  <!-- UPGRADES & SERVICES CATEGORY (UNCHANGED FROM YOUR BUILD) -->
   <section class="section" id="upgrades" style="background:white; padding:3rem 0;">
     <div class="container">
       <div class="rr-category-head" style="background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);">
@@ -889,7 +1140,6 @@
         </div>
       </details>
 
-      <!-- Optional video upgrade callout -->
       <div style="margin-top:1.25rem; background:#f8fafc; border:1px solid #e2e8f0; border-radius:1rem; padding:1.25rem;">
         <div style="display:flex; gap:0.75rem; align-items:flex-start; flex-wrap:wrap;">
           <div style="font-size:1.8rem;">📺</div>
@@ -907,7 +1157,7 @@
     </div>
   </section>
 
-  <!-- SUPPORT SECTION (unchanged) -->
+  <!-- SUPPORT SECTION (UNCHANGED) -->
   <section class="section" id="support" style="background: linear-gradient(135deg, #0b1120 0%, #1e293b 40%, #020617 100%); color: white; padding: 3rem 0;">
     <div class="container">
       <div style="text-align:center; margin-bottom:3rem;">

@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlayStation 2 Collection | Tested & Cleaned | Retro Replay</title>
-  <link rel="stylesheet" href="../../style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  gtag('config', 'G-PF6Q3TSMVL');
-</script>
+  <title>PlayStation 2 Collection | Tested & Cleaned | Retro Replay</title>
+  <meta name="description" content="Browse Retro Replay’s PlayStation 2 collection. Professionally tested and prepared PS2 Fat & Slim consoles with optional HDD upgrades, FMCB/OPL setup and support." />
+  <link rel="canonical" href="https://retroreplay.uk/playstation/products/ps2.html" />
+  <meta name="theme-color" content="#0066ff" />
+
+  <!-- Use root path so CSS works from any folder depth -->
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PF6Q3TSMVL');
+  </script>
 </head>
+
 <body>
 
 <!-- HEADER -->
@@ -35,14 +42,15 @@
   <div class="header-main">
     <div class="container header-content">
       <a href="/index.html" class="site-logo">
-        <img src="../../assets/logo.png" alt="Retro Replay Logo">
+        <img src="/assets/logo.png" alt="Retro Replay Logo" />
         <span>Retro Replay</span>
       </a>
 
-      <div class="search-bar">
-        <input type="search" placeholder="Search PS2 products..." aria-label="Search">
-        <button class="search-btn">Search</button>
-      </div>
+      <!-- Search: made safe + functional (filters on-page category cards) -->
+      <form class="search-bar" role="search" aria-label="Search PS2 products">
+        <input id="ps2-search" type="search" placeholder="Search PS2 products..." aria-label="Search PS2 products" />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
 
       <div class="header-actions">
         <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
@@ -55,7 +63,7 @@
   </div>
 
   <!-- GLOBAL NAV -->
-  <nav class="main-nav">
+  <nav class="main-nav" aria-label="Main navigation">
     <div class="container">
       <ul class="nav-list">
         <li><a href="/index.html">Main Home</a></li>
@@ -73,17 +81,16 @@
   </nav>
 
   <!-- PLAYSTATION SUB-NAV -->
-  <nav class="sub-nav">
+  <nav class="sub-nav" aria-label="PlayStation navigation">
     <div class="container">
       <ul class="nav-list sub-list">
         <li><a href="/playstation/products/ps1.html">PS1</a></li>
-        <li><a href="/playstation/products/ps2.html" class="active">PS2</a></li>
+        <li><a href="/playstation/products/ps2.html" class="active" aria-current="page">PS2</a></li>
         <li><a href="/playstation/products/ps3.html">PS3</a></li>
         <li><a href="/playstation/guides.html">Guides</a></li>
       </ul>
     </div>
   </nav>
-
 </header>
 
 <!-- HERO -->
@@ -92,55 +99,56 @@
     <div class="hero-text">
       <h1>PlayStation 2 Collection</h1>
       <p>
-        Professionally inspected, fully function-tested and externally cleaned PlayStation 2 consoles.  
-        Each system receives a complete 12-point hardware check with a printed test report included.  
-        An Arrival Guarantee is provided as standard.  
-        Optional refurbishment, HDD upgrades, cosmetic improvements and modding packages are also available.
+        Professionally inspected, fully function-tested and externally cleaned PlayStation 2 consoles.
+        Each system receives a complete hardware check with a printed test report included.
+        An Arrival Guarantee is provided as standard. Optional restoration, HDD upgrades, cosmetic improvements
+        and modding packages are also available.
       </p>
       <div class="hero-cta">
-        <a href="/playstation/products/ps2.html" class="btn btn-primary">Browse PS2 Models</a>
+        <a href="#browse" class="btn btn-primary">Browse PS2 Models</a>
         <a href="/playstation/guides.html" class="btn btn-secondary">PS2 Setup Guides</a>
       </div>
     </div>
 
     <div class="hero-image">
-      <img src="../../assets/PS2_REFURBED_BUNDLE.jpg" alt="PlayStation 2 Consoles">
+      <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PlayStation 2 console bundle" loading="eager" />
     </div>
   </div>
 </section>
 
 <!-- BROWSE (CATEGORY CARDS – SLIM + FAT ONLY) -->
-<section class="section">
+<section class="section" id="browse">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Browse PlayStation 2 Consoles</h2>
       <p class="section-subtitle">
-        All PS2 units undergo full hardware testing and exterior cleaning.  
-        Optional upgrades, modifications and refurbishment packages are available.
+        All PS2 units undergo full hardware testing and exterior cleaning. Optional upgrades, modifications and restoration packages are available.
       </p>
     </div>
 
-    <div class="category-grid">
+    <div class="category-grid" id="ps2-categories">
 
-      <!-- FAT stays the same -->
-      <a href="/playstation/products/ps2-fat.html" class="category-card">
+      <a href="/playstation/products/ps2-fat.html" class="category-card" data-search="ps2 fat models durable iconic upgrade ready">
         <div class="category-icon">
-          <img src="../../assets/ps2logo.png" alt="PS2 Logo">
+          <img src="/assets/ps2logo.png" alt="PS2 Logo" loading="lazy" />
         </div>
         <h3 class="category-name">PS2 Fat Models</h3>
         <p class="category-count">Durable • Iconic • Upgrade-ready</p>
       </a>
 
-      <!-- SLIM goes to sourcing-request.html -->
-      <a href="/sourcing-request.html" class="category-card">
+      <a href="/sourcing-request.html" class="category-card" data-search="ps2 slim models compact quiet reliable">
         <div class="category-icon">
-          <img src="../../assets/ps2logo.png" alt="PS2 Logo">
+          <img src="/assets/ps2logo.png" alt="PS2 Logo" loading="lazy" />
         </div>
         <h3 class="category-name">PS2 Slim Models</h3>
         <p class="category-count">Compact • Quiet • Reliable</p>
       </a>
 
     </div>
+
+    <p id="ps2-search-empty" style="display:none; margin-top: 14px;">
+      No matches found. Try searching “fat”, “slim”, “upgrade”, or “quiet”.
+    </p>
   </div>
 </section>
 
@@ -149,7 +157,7 @@
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Why Choose Retro Replay for PS2?</h2>
-      <p class="section-subtitle">Professional testing with optional upgrades, mods and refurbishment</p>
+      <p class="section-subtitle">Professional testing with optional upgrades, mods and restoration</p>
     </div>
 
     <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
@@ -158,17 +166,17 @@
         <div class="product-info">
           <h3 class="product-name">Professional Hardware Testing</h3>
           <p class="product-description">
-            Every system undergoes a detailed 12-point inspection covering disc reading, 
-            controller ports, memory card slots, fan behaviour, video output, and more.
+            Every system undergoes a detailed inspection covering disc reading, controller ports,
+            memory card slots, fan behaviour, video output, and more.
           </p>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-info">
-          <h3 class="product-name">Optional Full Refurbishment</h3>
+          <h3 class="product-name">Optional Full Restoration</h3>
           <p class="product-description">
-            Internal deep cleaning, new thermal paste, laser tuning or replacement, PSU inspection & full cooling maintenance.
+            Internal deep clean, fresh thermal paste, laser tuning or replacement (where required), PSU inspection, and cooling maintenance.
           </p>
         </div>
       </div>
@@ -214,59 +222,59 @@
         </div>
       </a>
 
-      <div class="product-card">
+      <a href="/playstation/guides/restoration.html" class="product-card">
         <div class="product-info">
-          <h3 class="product-name">Refurbishment Overview</h3>
+          <h3 class="product-name">Restoration Overview</h3>
           <p class="product-description">
-            Detailed breakdown of professional servicing and refurbishment options.
+            Breakdown of servicing options, what’s included, and what changes to expect.
           </p>
         </div>
-      </div>
+      </a>
 
-      <div class="product-card">
+      <a href="/playstation/guides/hdd-fmcb-opl.html" class="product-card">
         <div class="product-info">
           <h3 class="product-name">HDD, FMCB & OPL Setup</h3>
           <p class="product-description">
             Guidance for HDD preparation, FMCB installation and OPL configuration.
           </p>
         </div>
-      </div>
+      </a>
 
-      <div class="product-card">
+      <a href="/playstation/guides/buying-ps2.html" class="product-card">
         <div class="product-info">
           <h3 class="product-name">Buying Guide</h3>
           <p class="product-description">
             Fat vs Slim, recommended revisions, upgrade paths and pricing.
           </p>
         </div>
-      </div>
+      </a>
 
-      <div class="product-card">
+      <a href="/services.html#tradein" class="product-card">
         <div class="product-info">
           <h3 class="product-name">Trade-In Program</h3>
           <p class="product-description">
             Trade old consoles for discounted, fully tested PS2 units.
           </p>
         </div>
-      </div>
+      </a>
 
-      <div class="product-card">
+      <a href="/warranties.html" class="product-card">
         <div class="product-info">
           <h3 class="product-name">Arrival Guarantee & Support</h3>
           <p class="product-description">
             Warranty options, aftercare and extended support.
           </p>
         </div>
-      </div>
+      </a>
 
-      <div class="product-card">
+      <a href="/playstation/guides/grading.html" class="product-card">
         <div class="product-info">
           <h3 class="product-name">Cosmetic Grading</h3>
           <p class="product-description">
             A/B/C grading system explained clearly.
           </p>
         </div>
-      </div>
+      </a>
 
     </div>
   </div>
@@ -318,8 +326,43 @@
   </div>
 </footer>
 
-<script src="../../cart.js"></script>
-<script>RetroCart.loadCart();</script>
+<!-- Use root path so JS works from any folder depth -->
+<script src="/cart.js"></script>
+<script>
+  // Safely load cart badge (won't break page if cart.js missing)
+  try { RetroCart.loadCart(); } catch(e) {}
+
+  // Simple on-page search (filters the two PS2 category cards)
+  (function () {
+    const form = document.querySelector('.search-bar');
+    const input = document.getElementById('ps2-search');
+    const cards = Array.from(document.querySelectorAll('#ps2-categories .category-card'));
+    const empty = document.getElementById('ps2-search-empty');
+
+    if (!form || !input || !cards.length) return;
+
+    function applyFilter(q) {
+      const query = (q || '').trim().toLowerCase();
+      let shown = 0;
+
+      cards.forEach(card => {
+        const hay = (card.getAttribute('data-search') || card.textContent || '').toLowerCase();
+        const match = !query || hay.includes(query);
+        card.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
+
+      if (empty) empty.style.display = shown ? 'none' : '';
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      applyFilter(input.value);
+    });
+
+    input.addEventListener('input', () => applyFilter(input.value));
+  })();
+</script>
 
 </body>
 </html>

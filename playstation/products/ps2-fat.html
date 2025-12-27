@@ -1,16 +1,17 @@
 <!-- =========================
-     RetroReplay UK — /playstation/products/ps2-fat.html
-     OPTION A FULL BUILD (MASTER MENU + YOUR LAYOUT + PAYPAL BUTTONS WORKING)
+  /playstation/products/ps2-fat.html
+  FULL BUILD — TIDIER PRODUCT CARDS (NO QUANTITIES)
 
-     What this does:
-     - Keeps your current layout + sizing fixes (no redesign)
-     - Restores MASTER header/nav/footer (menu back)
-     - Loads PayPal SDK ONCE (head)
-     - Renders ALL PayPal buttons into your existing product card containers
-     - Uses YOUR hostedButtonIds you pasted (mapped below)
+  What changed (tidy fixes only):
+  - No quantity controls anywhere (PayPal buttons are single-purchase per item)
+  - Product cards made tighter + consistent height
+  - Footer layout aligned (price left, PayPal button right)
+  - Carousel cards reduced + cleaner spacing
+  - PayPal containers use your real IDs (no placeholders)
 
-     NOTE:
-     - If any button is the “wrong product”, just swap the hostedButtonId values in the MAP.
+  PayPal Hosted Buttons:
+  - SDK loads ONCE in <head>
+  - All buttons render in one place at bottom (clean + reliable)
 ========================== -->
 <!DOCTYPE html>
 <html lang="en">
@@ -19,8 +20,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PlayStation 2 Fat Models | RetroReplay UK</title>
   <meta name="description" content="Shop PS2 Fat consoles, HDD/OPL-ready bundles, accessories and upgrades. PayPal checkout per item." />
-
-  <link rel="stylesheet" href="/style.css" />
 
   <!-- Google Ads tag (AW-17822331715) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17822331715"></script>
@@ -36,8 +35,14 @@
     src="https://www.paypal.com/sdk/js?client-id=BAApYaG5zDntUHsd2tRXv1ylGkYhREqRR-t7PWcH3-Sh7ElgWliEyCEnhAeQjoawIGidc1LY7PQRK9A0Sg&components=hosted-buttons&disable-funding=venmo&currency=GBP">
   </script>
 
+  <!-- Global site styles -->
+  <link rel="stylesheet" href="/style.css" />
+
   <style>
-    /* ====== Page-only CSS (size/fidelity fixes only) ====== */
+    /* =========================
+       Page-only tidy layer
+       (keeps MASTER header/nav/footer intact)
+    ========================= */
     :root{
       --rr-max: 1120px;
       --rr-radius: 16px;
@@ -48,41 +53,105 @@
       --rr-gap: 1rem;
     }
 
-    .rr-wrap{max-width:var(--rr-max);margin:0 auto;padding:1rem;}
-    @media (max-width: 640px){ .rr-wrap{padding:.85rem;} }
+    .rr-wrap{ max-width:var(--rr-max); margin:0 auto; padding:1rem; }
+    @media (max-width:640px){ .rr-wrap{ padding:.85rem; } }
 
     /* HERO */
     .rr-hero{
       background:#0b1120;color:#fff;border-radius:var(--rr-radius);
-      padding:1.1rem;
+      padding:1.05rem;
       box-shadow:0 10px 26px rgba(0,0,0,.14);
     }
-    .rr-hero h1{margin:.2rem 0 0;font-weight:900;letter-spacing:-.02em;font-size: clamp(1.35rem, 2.7vw, 2rem);}
-    .rr-hero p{margin:.6rem 0 0;color:rgba(255,255,255,.85);max-width:70ch;font-size:.95rem;line-height:1.5;}
-    .rr-hero__grid{display:grid;grid-template-columns:1.35fr .65fr;gap:var(--rr-gap);align-items:stretch}
-    @media (max-width: 900px){.rr-hero__grid{grid-template-columns:1fr}}
-
+    .rr-hero__grid{ display:grid; grid-template-columns:1.35fr .65fr; gap:var(--rr-gap); align-items:stretch; }
+    @media (max-width:900px){ .rr-hero__grid{ grid-template-columns:1fr; } }
+    .rr-hero h1{
+      margin:.2rem 0 0; font-weight:900; letter-spacing:-.02em;
+      font-size: clamp(1.35rem, 2.7vw, 2rem);
+    }
+    .rr-hero p{ margin:.6rem 0 0; color:rgba(255,255,255,.85); max-width:70ch; font-size:.95rem; line-height:1.5; }
+    .rr-pill{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.3rem .65rem; border-radius:999px;
+      color:#fff; font-weight:800; font-size:.72rem;
+    }
     .rr-card{
       background:#fff;border:1px solid var(--rr-border);border-radius:14px;
       padding:.9rem;
     }
-    .rr-pill{
-      display:inline-flex;align-items:center;gap:.5rem;
-      padding:.3rem .65rem;border-radius:999px;color:#fff;
-      font-weight:800;font-size:.72rem;
-    }
 
-    /* CATEGORY HEADER */
+    /* Category headers */
     .rr-category-head{
       margin-top:1rem;
       border-radius:var(--rr-radius);
       padding:.95rem;
       border:1px solid var(--rr-border);
     }
-    .rr-category-head h2{font-size: clamp(1.15rem, 2.2vw, 1.6rem);}
-    .rr-note{margin:.25rem 0 0;color:#475569;font-size:.95rem;line-height:1.45;}
+    .rr-category-head h2{ font-size: clamp(1.15rem, 2.2vw, 1.6rem); }
+    .rr-note{ margin:.25rem 0 0; color:#475569; font-size:.95rem; line-height:1.45; }
 
-    /* CAROUSEL */
+    /* Cards (shared) */
+    .rr-cardBase{
+      background:#fff;
+      border:1px solid var(--rr-border);
+      border-radius:14px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .rr-cardBase:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(15,23,42,.08);
+    }
+
+    /* Image blocks */
+    .rr-imgWrap{ background:#0b1120; }
+    .rr-img{ width:100%; height:168px; object-fit:cover; display:block; }
+
+    /* Body */
+    .rr-body{ padding:.9rem; display:flex; flex-direction:column; gap:.35rem; flex:1; }
+    .rr-kicker{ font-size:.72rem; color:var(--rr-muted); text-transform:uppercase; margin:0; }
+    .rr-title{ margin:0; font-weight:900; color:var(--rr-ink); font-size:1.02rem; line-height:1.2; }
+    .rr-desc{ margin:0; color:var(--rr-muted); font-size:.92rem; line-height:1.45; }
+
+    /* Footer */
+    .rr-foot{
+      margin-top:auto;
+      border-top:1px solid var(--rr-border);
+      padding:.85rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:.75rem;
+    }
+    .rr-price{ margin:0; font-weight:900; color:var(--rr-accent); font-size:1.15rem; white-space:nowrap; }
+
+    /* PayPal container sizing (prevents bloat) */
+    .rr-paypal{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      min-width: 170px;
+    }
+    .rr-paypal > div{
+      width:100%;
+      max-width: 210px;
+    }
+    @media (max-width:420px){
+      .rr-foot{ flex-direction:column; align-items:stretch; }
+      .rr-paypal{ justify-content:flex-start; min-width: unset; }
+      .rr-paypal > div{ max-width: 100%; }
+    }
+
+    /* Grid */
+    .rr-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+      gap:1rem;
+      margin-top:.9rem;
+    }
+
+    /* Carousel (Standard consoles) */
     .product-carousel{
       display:flex;
       gap:.9rem;
@@ -92,68 +161,18 @@
       scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling: touch;
     }
-    .rr-prod{
+    .rr-slide{
       flex:0 0 280px;
-      background:#fff;border:1px solid var(--rr-border);
-      border-radius:14px;overflow:hidden;
       scroll-snap-align:start;
-      transition: transform .15s ease, box-shadow .15s ease;
     }
-    .rr-prod:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(15,23,42,.08);
-    }
-    .rr-prod__media{background:#0b1120}
-    .rr-prod__img{width:100%;height:168px;object-fit:cover;display:block;}
-    .rr-prod__body{padding:.85rem;}
-    .rr-prod__title{margin:0 0 .35rem;font-weight:900;color:var(--rr-ink);font-size:1rem;}
-    .rr-prod__meta{margin:0;color:var(--rr-muted);font-size:.88rem;}
-    .rr-prod__footer{
-      display:flex;align-items:center;gap:.6rem;
-      padding:.85rem;border-top:1px solid var(--rr-border);
-    }
-    .rr-price{margin:0;font-weight:900;color:var(--rr-accent);font-size:1.15rem;white-space:nowrap}
-    .rr-add{flex:1;display:flex;justify-content:flex-end;align-items:center;gap:.6rem;flex-wrap:wrap}
-
-    /* PAYPAL: prevent buttons from blowing up card layout */
-    .rr-paypal-mini{
-      flex:0 0 auto;
-      display:flex;
-      justify-content:flex-end;
-      align-items:center;
-      min-width:150px;
-    }
-    .rr-paypal-mini > div{ width:100%; max-width:190px; }
-    .rr-paypal-compact > div{ max-width:180px; }
-
-    /* GRID */
-    .rr-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
-      gap:1rem;
-      margin-top:.9rem;
-    }
-    .product-card{
-      background:#fff;border:1px solid var(--rr-border);
-      border-radius:14px;overflow:hidden;
-      display:flex;flex-direction:column;
-      transition: transform .15s ease, box-shadow .15s ease;
-    }
-    .product-card:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(15,23,42,.08);
-    }
-    .product-card .inner{padding:.9rem;display:flex;flex-direction:column;flex:1;}
-    .product-name{margin:0 0 .35rem;font-weight:900;color:var(--rr-ink);font-size:1.02rem;}
-    .product-description{margin:0 0 .8rem;color:var(--rr-muted);font-size:.92rem;line-height:1.45;}
-    .product-card img{height:168px !important;}
+    .rr-slide .rr-img{ height:160px; } /* slightly shorter for carousel */
   </style>
 </head>
 
 <body>
 
 <!-- =========================
-     MASTER HEADER (MENU)
+     MASTER HEADER (kept)
 ========================== -->
 <header class="site-header">
 
@@ -238,8 +257,8 @@
       <div class="rr-card">
         <h3 style="margin:.1rem 0 .45rem;color:#0f172a;font-weight:900;font-size:1.05rem;">Quick Checkout (PayPal)</h3>
         <p style="margin:0 0 .6rem;color:#64748b;font-size:.92rem;line-height:1.4;">Fast payment option. For custom bundles, message first.</p>
-        <div id="paypal-hero-quick"></div>
-        <small style="display:block;margin-top:.55rem;color:#64748b;">Quick checkout button</small>
+        <div class="rr-paypal"><div id="paypal-container-5ZBSDBUWLJ3B4"></div></div>
+        <small style="display:block;margin-top:.55rem;color:#64748b;">Single checkout button</small>
       </div>
     </div>
   </section>
@@ -252,24 +271,22 @@
   </div>
 
   <div class="rr-grid">
-    <article class="product-card">
-      <div style="position:relative;background:#0b1120;">
-        <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 1TB Plug & Play Bundle" style="width:100%;object-fit:cover;">
+    <article class="rr-cardBase">
+      <div class="rr-imgWrap">
+        <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 1TB Plug & Play Bundle">
       </div>
-      <div class="inner">
-        <p style="font-size:.72rem;color:#64748b;margin:0 0 .4rem;text-transform:uppercase;">Order Summary</p>
-        <h3 class="product-name">PS2 Fat 1TB Plug &amp; Play Bundle</h3>
-        <p class="product-description">
+      <div class="rr-body">
+        <p class="rr-kicker">Order Summary</p>
+        <h3 class="rr-title">PS2 Fat 1TB Plug &amp; Play Bundle</h3>
+        <p class="rr-desc">
           • PS2 console (fully tested &amp; cleaned)<br>
           • 1TB HDD upgrade + plug-and-play setup<br>
           • Controller included: original wired OR wireless third-party
         </p>
-        <div style="border-top:1px solid #e2e8f0;padding-top:.85rem;margin-top:auto;">
-          <p style="font-size:1.18rem;font-weight:900;color:#2563eb;margin:0 0 .55rem;">£193.00</p>
-          <div class="rr-paypal-mini">
-            <div id="pp-ps2-bundle-1tb-193"></div>
-          </div>
-        </div>
+      </div>
+      <div class="rr-foot">
+        <p class="rr-price">£193.00</p>
+        <div class="rr-paypal"><div id="paypal-container-3HDEMFMFNMF84"></div></div>
       </div>
     </article>
   </div>
@@ -282,39 +299,35 @@
   </div>
 
   <div class="product-carousel">
-    <article class="rr-prod">
-      <div class="rr-prod__media">
-        <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 (Black) A-Grade">
+    <!-- Standard 1 -->
+    <article class="rr-cardBase rr-slide">
+      <div class="rr-imgWrap">
+        <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 (Black) A-Grade">
       </div>
-      <div class="rr-prod__body">
-        <h3 class="rr-prod__title">PS2 Fat 50003 (Black) (A-Grade)</h3>
-        <p class="rr-prod__meta">Tested • Cleaned • UK PAL</p>
+      <div class="rr-body">
+        <p class="rr-kicker">UK PAL • A-Grade</p>
+        <h3 class="rr-title">PS2 Fat 50003 (Black)</h3>
+        <p class="rr-desc">Tested and cleaned. Ready to play.</p>
       </div>
-      <div class="rr-prod__footer">
+      <div class="rr-foot">
         <p class="rr-price">£114.99</p>
-        <div class="rr-add">
-          <div class="rr-paypal-mini rr-paypal-compact">
-            <div id="pp-ps2-fat-50003-black-a"></div>
-          </div>
-        </div>
+        <div class="rr-paypal"><div id="paypal-container-ZB2G3CN5Z6WRS"></div></div>
       </div>
     </article>
 
-    <article class="rr-prod">
-      <div class="rr-prod__media">
-        <img class="rr-prod__img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 (Silver) B-Grade">
+    <!-- Standard 2 -->
+    <article class="rr-cardBase rr-slide">
+      <div class="rr-imgWrap">
+        <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 (Silver) B-Grade">
       </div>
-      <div class="rr-prod__body">
-        <h3 class="rr-prod__title">PS2 Fat 50003 (Silver) (B-Grade)</h3>
-        <p class="rr-prod__meta">Tested • Cleaned • UK PAL</p>
+      <div class="rr-body">
+        <p class="rr-kicker">UK PAL • B-Grade</p>
+        <h3 class="rr-title">PS2 Fat 50003 (Silver)</h3>
+        <p class="rr-desc">Tested and cleaned. Minor cosmetic marks may be present.</p>
       </div>
-      <div class="rr-prod__footer">
+      <div class="rr-foot">
         <p class="rr-price">£114.99</p>
-        <div class="rr-add">
-          <div class="rr-paypal-mini rr-paypal-compact">
-            <div id="pp-ps2-fat-50003-silver-b"></div>
-          </div>
-        </div>
+        <div class="rr-paypal"><div id="paypal-container-KZTTHJVUHAFZC"></div></div>
       </div>
     </article>
   </div>
@@ -327,48 +340,48 @@
   </div>
 
   <div class="rr-grid">
-    <article class="product-card">
-      <div style="position:relative;background:#0b1120;">
-        <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (500GB)" style="width:100%;object-fit:cover;">
+    <article class="rr-cardBase">
+      <div class="rr-imgWrap">
+        <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (500GB)">
       </div>
-      <div class="inner">
-        <p style="font-size:.72rem;color:#64748b;margin:0 0 .4rem;text-transform:uppercase;">Starter</p>
-        <h3 class="product-name">PS2 Fat OPL Ready Bundle (500GB)</h3>
-        <p class="product-description">Console + FMCB + network adapter + prepared 500GB drive.</p>
-        <div style="border-top:1px solid #e2e8f0;padding-top:.85rem;margin-top:auto;">
-          <p style="font-size:1.18rem;font-weight:900;color:#2563eb;margin:0 0 .55rem;">£189.99</p>
-          <div class="rr-paypal-mini"><div id="pp-ps2-opl-bundle-500"></div></div>
-        </div>
+      <div class="rr-body">
+        <p class="rr-kicker">Starter</p>
+        <h3 class="rr-title">PS2 Fat OPL Ready Bundle (500GB)</h3>
+        <p class="rr-desc">Console + FMCB + network adapter + prepared 500GB drive.</p>
       </div>
-    </article>
-
-    <article class="product-card">
-      <div style="position:relative;background:#0b1120;">
-        <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (1TB)" style="width:100%;object-fit:cover;">
-      </div>
-      <div class="inner">
-        <p style="font-size:.72rem;color:#64748b;margin:0 0 .4rem;text-transform:uppercase;">Most Popular</p>
-        <h3 class="product-name">PS2 Fat OPL Ready Bundle (1TB)</h3>
-        <p class="product-description">Console + FMCB + network adapter + prepared 1TB drive.</p>
-        <div style="border-top:1px solid #e2e8f0;padding-top:.85rem;margin-top:auto;">
-          <p style="font-size:1.18rem;font-weight:900;color:#2563eb;margin:0 0 .55rem;">£239.99</p>
-          <div class="rr-paypal-mini"><div id="pp-ps2-opl-bundle-1tb"></div></div>
-        </div>
+      <div class="rr-foot">
+        <p class="rr-price">£189.99</p>
+        <div class="rr-paypal"><div id="paypal-container-FB8WMNP7L9P8Q"></div></div>
       </div>
     </article>
 
-    <article class="product-card">
-      <div style="position:relative;background:#0b1120;">
-        <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (2TB)" style="width:100%;object-fit:cover;">
+    <article class="rr-cardBase">
+      <div class="rr-imgWrap">
+        <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (1TB)">
       </div>
-      <div class="inner">
-        <p style="font-size:.72rem;color:#64748b;margin:0 0 .4rem;text-transform:uppercase;">Maximum Storage</p>
-        <h3 class="product-name">PS2 Fat OPL Ready Bundle (2TB)</h3>
-        <p class="product-description">Console + FMCB + network adapter + prepared 2TB drive.</p>
-        <div style="border-top:1px solid #e2e8f0;padding-top:.85rem;margin-top:auto;">
-          <p style="font-size:1.18rem;font-weight:900;color:#2563eb;margin:0 0 .55rem;">£289.99</p>
-          <div class="rr-paypal-mini"><div id="pp-ps2-opl-bundle-2tb"></div></div>
-        </div>
+      <div class="rr-body">
+        <p class="rr-kicker">Most Popular</p>
+        <h3 class="rr-title">PS2 Fat OPL Ready Bundle (1TB)</h3>
+        <p class="rr-desc">Console + FMCB + network adapter + prepared 1TB drive.</p>
+      </div>
+      <div class="rr-foot">
+        <p class="rr-price">£239.99</p>
+        <div class="rr-paypal"><div id="paypal-container-D98EQNG5DDRTW"></div></div>
+      </div>
+    </article>
+
+    <article class="rr-cardBase">
+      <div class="rr-imgWrap">
+        <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (2TB)">
+      </div>
+      <div class="rr-body">
+        <p class="rr-kicker">Maximum Storage</p>
+        <h3 class="rr-title">PS2 Fat OPL Ready Bundle (2TB)</h3>
+        <p class="rr-desc">Console + FMCB + network adapter + prepared 2TB drive.</p>
+      </div>
+      <div class="rr-foot">
+        <p class="rr-price">£289.99</p>
+        <div class="rr-paypal"><div id="paypal-container-FBYSXR7KJWMMN"></div></div>
       </div>
     </article>
   </div>
@@ -377,78 +390,108 @@
   <div class="rr-category-head" style="background: linear-gradient(135deg, #ecfeff 0%, #e0f2fe 100%);">
     <div class="rr-pill" style="background: linear-gradient(135deg, #22c55e, #16a34a);">🕹️ Accessories</div>
     <h2 style="margin:.35rem 0 0;color:#0f172a;font-weight:900;">Controllers, Cables & Extras</h2>
-    <p class="rr-note">PayPal checkout per item below.</p>
+    <p class="rr-note">Checkout per item below (single purchase per button — no quantities).</p>
   </div>
 
-  <div class="rr-card" style="margin-top:.75rem;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;">
-      <div style="background:#f8fafc;padding:1rem;border-radius:.75rem;">
-        <div style="font-size:1.8rem;margin-bottom:.55rem;">🎮</div>
-        <h4 style="margin:0 0 .4rem;font-size:1.1rem;font-weight:900;color:#0f172a;">DualShock 2 (Official)</h4>
-        <p style="font-size:.9rem;color:#64748b;margin:0 0 .85rem;">Tested buttons, sticks and vibration.</p>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;">
-          <p style="margin:0;font-size:1.18rem;font-weight:900;color:#2563eb;">£14.99</p>
-          <div class="rr-paypal-mini rr-paypal-compact"><div id="pp-ps2-pad-official"></div></div>
-        </div>
+  <div class="rr-grid">
+    <article class="rr-cardBase">
+      <div class="rr-body">
+        <p class="rr-kicker">Official</p>
+        <h3 class="rr-title">DualShock 2 Controller (Tested)</h3>
+        <p class="rr-desc">Tested buttons, sticks and vibration.</p>
       </div>
+      <div class="rr-foot">
+        <p class="rr-price">£14.99</p>
+        <div class="rr-paypal"><div id="paypal-container-FWM8PZDAECU64"></div></div>
+      </div>
+    </article>
 
-      <div style="background:#f8fafc;padding:1rem;border-radius:.75rem;">
-        <div style="font-size:1.8rem;margin-bottom:.55rem;">🖥️</div>
-        <h4 style="margin:0 0 .4rem;font-size:1.1rem;font-weight:900;color:#0f172a;">Component Cable (YPbPr)</h4>
-        <p style="font-size:.9rem;color:#64748b;margin:0 0 .85rem;">Best analogue quality. Supports 480p on compatible titles.</p>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;">
-          <p style="margin:0;font-size:1.18rem;font-weight:900;color:#2563eb;">£14.99</p>
-          <div class="rr-paypal-mini rr-paypal-compact"><div id="pp-ps2-component"></div></div>
-        </div>
+    <article class="rr-cardBase">
+      <div class="rr-body">
+        <p class="rr-kicker">Video</p>
+        <h3 class="rr-title">Component Cable (YPbPr)</h3>
+        <p class="rr-desc">Best analogue quality. Supports 480p on compatible titles.</p>
       </div>
-    </div>
+      <div class="rr-foot">
+        <p class="rr-price">£14.99</p>
+        <div class="rr-paypal"><div id="paypal-container-AEEP26CFY5ZQE"></div></div>
+      </div>
+    </article>
+
+    <article class="rr-cardBase">
+      <div class="rr-body">
+        <p class="rr-kicker">Modern TVs</p>
+        <h3 class="rr-title">HDMI Adapter (PS2)</h3>
+        <p class="rr-desc">Simple HDMI output for modern displays (adapter type may vary).</p>
+      </div>
+      <div class="rr-foot">
+        <p class="rr-price">£9.99</p>
+        <div class="rr-paypal"><div id="paypal-container-JCFV9FGY3MHT2"></div></div>
+      </div>
+    </article>
+
+    <article class="rr-cardBase">
+      <div class="rr-body">
+        <p class="rr-kicker">Wireless</p>
+        <h3 class="rr-title">Wireless Controller (Third-Party)</h3>
+        <p class="rr-desc">Reliable wireless option (not official). Great everyday controller.</p>
+      </div>
+      <div class="rr-foot">
+        <p class="rr-price">£19.99</p>
+        <div class="rr-paypal"><div id="paypal-container-X3D4GQWRMGZN4"></div></div>
+      </div>
+    </article>
   </div>
 
   <!-- UPGRADES -->
   <div class="rr-category-head" style="background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);">
     <div class="rr-pill" style="background: linear-gradient(135deg, #0f172a, #1e293b);">🛠️ Upgrades & Services</div>
     <h2 style="margin:.35rem 0 0;color:#0f172a;font-weight:900;">HDD Mods, Video Upgrades & Servicing</h2>
-    <p class="rr-note">PayPal checkout per item below.</p>
+    <p class="rr-note">Checkout per item below (single purchase per button — no quantities).</p>
   </div>
 
-  <div class="rr-card" style="margin-top:.75rem;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;">
-      <div style="background:#f8fafc;padding:1rem;border-radius:.75rem;">
-        <div style="font-size:1.8rem;margin-bottom:.55rem;">🧠</div>
-        <h4 style="margin:0 0 .4rem;font-size:1.1rem;font-weight:900;color:#0f172a;">FMCB Memory Card (Pre-configured)</h4>
-        <p style="font-size:.9rem;color:#64748b;margin:0 0 .85rem;">Pre-configured card for booting OPL and utilities.</p>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;">
-          <p style="margin:0;font-size:1.18rem;font-weight:900;color:#2563eb;">£19.99</p>
-          <div class="rr-paypal-mini rr-paypal-compact"><div id="pp-ps2-fmcb"></div></div>
-        </div>
+  <div class="rr-grid">
+    <article class="rr-cardBase">
+      <div class="rr-body">
+        <p class="rr-kicker">Boot & Tools</p>
+        <h3 class="rr-title">FMCB Memory Card (Pre-configured)</h3>
+        <p class="rr-desc">Pre-configured card for booting OPL and essential utilities.</p>
       </div>
+      <div class="rr-foot">
+        <p class="rr-price">£19.99</p>
+        <div class="rr-paypal"><div id="paypal-container-ARVYRKFQ3JW7U"></div></div>
+      </div>
+    </article>
 
-      <div style="background:#f8fafc;padding:1rem;border-radius:.75rem;">
-        <div style="font-size:1.8rem;margin-bottom:.55rem;">🌐</div>
-        <h4 style="margin:0 0 .4rem;font-size:1.1rem;font-weight:900;color:#0f172a;">Network Adapter (Tested)</h4>
-        <p style="font-size:.9rem;color:#64748b;margin:0 0 .85rem;">Required for internal HDD loading on PS2 Fat models.</p>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;">
-          <p style="margin:0;font-size:1.18rem;font-weight:900;color:#2563eb;">£39.99</p>
-          <div class="rr-paypal-mini rr-paypal-compact"><div id="pp-ps2-net-adapter"></div></div>
-        </div>
+    <article class="rr-cardBase">
+      <div class="rr-body">
+        <p class="rr-kicker">Required</p>
+        <h3 class="rr-title">Network Adapter (PS2 Fat)</h3>
+        <p class="rr-desc">Required for internal HDD loading on PS2 Fat models.</p>
       </div>
+      <div class="rr-foot">
+        <p class="rr-price">£39.99</p>
+        <div class="rr-paypal"><div id="paypal-container-3NAWLTNHHMFGE"></div></div>
+      </div>
+    </article>
 
-      <div style="background:#f8fafc;padding:1rem;border-radius:.75rem;">
-        <div style="font-size:1.8rem;margin-bottom:.55rem;">💽</div>
-        <h4 style="margin:0 0 .4rem;font-size:1.1rem;font-weight:900;color:#0f172a;">500GB HDD (OPL-ready)</h4>
-        <p style="font-size:.9rem;color:#64748b;margin:0 0 .85rem;">Prepared drive for PS2 use (OPL-ready structure).</p>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;">
-          <p style="margin:0;font-size:1.18rem;font-weight:900;color:#2563eb;">£69.99</p>
-          <div class="rr-paypal-mini rr-paypal-compact"><div id="pp-ps2-hdd-500"></div></div>
-        </div>
+    <article class="rr-cardBase">
+      <div class="rr-body">
+        <p class="rr-kicker">Storage</p>
+        <h3 class="rr-title">500GB HDD (OPL-ready)</h3>
+        <p class="rr-desc">Prepared drive for PS2 use (OPL-ready structure).</p>
       </div>
-    </div>
+      <div class="rr-foot">
+        <p class="rr-price">£69.99</p>
+        <div class="rr-paypal"><div id="paypal-container-9MRPKXUYHR8QC"></div></div>
+      </div>
+    </article>
   </div>
 
 </div>
 
 <!-- =========================
-     MASTER FOOTER
+     MASTER FOOTER (kept)
 ========================== -->
 <footer class="site-footer">
   <div class="container">
@@ -494,18 +537,19 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© <span id="year-footer"></span> Retro Replay. All rights reserved.</p>
+      <p>© <span id="year"></span> Retro Replay. All rights reserved.</p>
     </div>
   </div>
 </footer>
 
+<!-- Scripts -->
 <script src="/cart.js"></script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // Footer year
-    const yf = document.getElementById("year-footer");
-    if (yf) yf.textContent = new Date().getFullYear();
+    // Year
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
 
     // Cart init (safe)
     if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
@@ -529,55 +573,39 @@
     }
   });
 
-  // PayPal Hosted Buttons: render into your existing containers (Option A)
-  window.addEventListener("load", () => {
+  // =========================
+  // PayPal Hosted Buttons renders (NO QUANTITIES)
+  // =========================
+  window.addEventListener('load', () => {
     if (!window.paypal || !paypal.HostedButtons) {
-      console.error("PayPal Hosted Buttons SDK not loaded (adblock/shields/CSP?).");
+      console.warn("PayPal Hosted Buttons SDK not loaded.");
       return;
     }
 
-    // Map PAGE CONTAINER -> PAYPAL hostedButtonId
-    // Swap IDs here if any product is mismatched.
-    const MAP = {
-      // Hero quick checkout
-      "#paypal-hero-quick": "5ZBSDBUWLJ3B4",
+    // Quick checkout + Featured
+    paypal.HostedButtons({ hostedButtonId: "5ZBSDBUWLJ3B4" }).render("#paypal-container-5ZBSDBUWLJ3B4");
+    paypal.HostedButtons({ hostedButtonId: "3HDEMFMFNMF84" }).render("#paypal-container-3HDEMFMFNMF84");
 
-      // Featured bundle £193
-      "#pp-ps2-bundle-1tb-193": "3HDEMFMFNMF84",
+    // Standard consoles
+    paypal.HostedButtons({ hostedButtonId: "ZB2G3CN5Z6WRS" }).render("#paypal-container-ZB2G3CN5Z6WRS");
+    paypal.HostedButtons({ hostedButtonId: "KZTTHJVUHAFZC" }).render("#paypal-container-KZTTHJVUHAFZC");
 
-      // Standard carousel (2)
-      "#pp-ps2-fat-50003-black-a": "ZB2G3CN5Z6WRS",
-      "#pp-ps2-fat-50003-silver-b": "KZTTHJVUHAFZC",
+    // Modded bundles
+    paypal.HostedButtons({ hostedButtonId: "FB8WMNP7L9P8Q" }).render("#paypal-container-FB8WMNP7L9P8Q");
+    paypal.HostedButtons({ hostedButtonId: "D98EQNG5DDRTW" }).render("#paypal-container-D98EQNG5DDRTW");
+    paypal.HostedButtons({ hostedButtonId: "FBYSXR7KJWMMN" }).render("#paypal-container-FBYSXR7KJWMMN");
 
-      // Modded bundles (3)
-      "#pp-ps2-opl-bundle-500": "FB8WMNP7L9P8Q",
-      "#pp-ps2-opl-bundle-1tb": "D98EQNG5DDRTW",
-      "#pp-ps2-opl-bundle-2tb": "FBYSXR7KJWMMN",
+    // Accessories
+    paypal.HostedButtons({ hostedButtonId: "FWM8PZDAECU64" }).render("#paypal-container-FWM8PZDAECU64");
+    paypal.HostedButtons({ hostedButtonId: "AEEP26CFY5ZQE" }).render("#paypal-container-AEEP26CFY5ZQE");
+    paypal.HostedButtons({ hostedButtonId: "JCFV9FGY3MHT2" }).render("#paypal-container-JCFV9FGY3MHT2");
+    paypal.HostedButtons({ hostedButtonId: "X3D4GQWRMGZN4" }).render("#paypal-container-X3D4GQWRMGZN4");
 
-      // Accessories (2)
-      "#pp-ps2-pad-official": "FWM8PZDAECU64",
-      "#pp-ps2-component": "AEEP26CFY5ZQE",
-
-      // Upgrades (3)
-      "#pp-ps2-fmcb": "ARVYRKFQ3JW7U",
-      "#pp-ps2-net-adapter": "3NAWLTNHHMFGE",
-      "#pp-ps2-hdd-500": "9MRPKXUYHR8QC",
-    };
-
-    for (const [selector, hostedButtonId] of Object.entries(MAP)) {
-      const el = document.querySelector(selector);
-      if (!el) {
-        console.warn("Missing PayPal container on page:", selector);
-        continue;
-      }
-      try {
-        paypal.HostedButtons({ hostedButtonId }).render(selector);
-      } catch (e) {
-        console.error("PayPal render failed:", selector, hostedButtonId, e);
-      }
-    }
+    // Upgrades
+    paypal.HostedButtons({ hostedButtonId: "ARVYRKFQ3JW7U" }).render("#paypal-container-ARVYRKFQ3JW7U");
+    paypal.HostedButtons({ hostedButtonId: "3NAWLTNHHMFGE" }).render("#paypal-container-3NAWLTNHHMFGE");
+    paypal.HostedButtons({ hostedButtonId: "9MRPKXUYHR8QC" }).render("#paypal-container-9MRPKXUYHR8QC");
   });
 </script>
-
 </body>
 </html>

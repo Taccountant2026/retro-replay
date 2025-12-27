@@ -1,11 +1,13 @@
 <!-- =========================
   PS2 Fat Models — FULL BUILD (MASTER HEADER + MOBILE NAV FIX + ACCORDION PRODUCTS + PAYPAL)
-  What this fixes:
-  ✅ Restores full MASTER header/nav/footer (menu back)
-  ✅ Mobile menu no longer blocks the page (drawer + backdrop + scroll lock + auto-close)
-  ✅ Products are contained in dropdown sections (<details>/<summary>)
-  ✅ PayPal buttons render reliably using YOUR Part-2 container IDs
-  ✅ Removes “quantity” feel by using hosted buttons only (no site qty controls)
+  Ecommerce upgrades added (NO DESIGN CHANGE / NO LAYOUT REWORK):
+  ✅ Trust + reassurance strip (delivery, warranty, returns, support)
+  ✅ Breadcrumbs + product page meta polish (OG + JSON-LD)
+  ✅ “Why buy from us” micro-section (small, tidy)
+  ✅ “Need help choosing?” sticky mini-bar (mobile-friendly, non-blocking)
+  ✅ Small stock/status text (optional, no qty controls)
+  ✅ Review snippet section (uses your real customer wording - optional)
+  NOTE: Everything added is additive and compact. Existing cards/accordions remain.
   File: /playstation/products/ps2-fat.html
 ========================== -->
 <!DOCTYPE html>
@@ -15,6 +17,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PlayStation 2 Fat Models | RetroReplay UK</title>
   <meta name="description" content="Shop PS2 Fat consoles, HDD/OPL-ready bundles, accessories and upgrades. PayPal checkout per item." />
+
+  <!-- Open Graph (nice previews when shared) -->
+  <meta property="og:title" content="PlayStation 2 Fat Models | RetroReplay UK" />
+  <meta property="og:description" content="Tested, cleaned, ready to play PS2 Fat consoles and OPL/HDD bundles. PayPal checkout per item." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/PS2_REFURBED_BUNDLE.jpg" />
 
   <!-- Google Ads tag (AW-17822331715) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17822331715"></script>
@@ -102,6 +110,34 @@
     .rr-paypal{display:flex;justify-content:flex-end;align-items:center;min-width:160px;}
     .rr-paypal > div{width:100%;max-width:190px;}
 
+    /* Small ecommerce labels (no qty, just helpful) */
+    .rr-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      padding:.25rem .5rem;
+      border-radius:999px;
+      border:1px solid var(--rr-border);
+      background:#f8fafc;
+      color:var(--rr-ink);
+      font-weight:900;
+      font-size:.72rem;
+      line-height:1;
+      white-space:nowrap;
+    }
+    .rr-badgeRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.45rem;
+      margin-top:.55rem;
+    }
+    .rr-status{
+      margin:.45rem 0 0;
+      font-size:.86rem;
+      color:#475569;
+      line-height:1.35;
+    }
+
     /* ===== Accordion (dropdown sections) ===== */
     .rr-accordion{
       margin-top: 1rem;
@@ -150,6 +186,139 @@
       border-top: 1px solid var(--rr-border);
       padding: .9rem 1rem 1.05rem;
       background:#fff;
+    }
+
+    /* ===== Ecommerce helper blocks (small, tidy) ===== */
+    .rr-breadcrumbs{
+      margin: .85rem 0 .65rem;
+      font-size: .88rem;
+      color:#475569;
+    }
+    .rr-breadcrumbs a{color:inherit;text-decoration:underline;text-decoration-color:rgba(71,85,105,.35);}
+    .rr-trustbar{
+      margin-top:.85rem;
+      border:1px solid rgba(226,232,240,.9);
+      border-radius:14px;
+      background: linear-gradient(135deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.03) 100%);
+      padding:.75rem .85rem;
+    }
+    .rr-trustGrid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:.6rem;
+      margin-top:.55rem;
+    }
+    @media (max-width: 900px){ .rr-trustGrid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+    .rr-trustItem{
+      border:1px solid rgba(226,232,240,.25);
+      background: rgba(255,255,255,.06);
+      border-radius:12px;
+      padding:.6rem .65rem;
+    }
+    .rr-trustItem b{display:block;color:#fff;font-size:.88rem;line-height:1.2;}
+    .rr-trustItem span{display:block;color:rgba(255,255,255,.78);font-size:.82rem;line-height:1.25;margin-top:.15rem;}
+
+    .rr-why{
+      margin-top: 1rem;
+      border: 1px solid var(--rr-border);
+      border-radius: var(--rr-radius);
+      background:#fff;
+      padding: .95rem 1rem;
+    }
+    .rr-why h2{margin:0;font-size:1.05rem;font-weight:900;color:var(--rr-ink);}
+    .rr-why p{margin:.35rem 0 0;color:#475569;font-size:.92rem;line-height:1.45;}
+    .rr-whyGrid{
+      margin-top:.65rem;
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:.7rem;
+    }
+    @media (max-width: 900px){ .rr-whyGrid{grid-template-columns:1fr;} }
+    .rr-whyBox{
+      border:1px solid var(--rr-border);
+      border-radius:12px;
+      background:#f8fafc;
+      padding:.75rem .8rem;
+    }
+    .rr-whyBox b{display:block;color:var(--rr-ink);font-size:.9rem;}
+    .rr-whyBox span{display:block;color:#475569;font-size:.86rem;margin-top:.2rem;line-height:1.35;}
+
+    .rr-review{
+      margin-top: 1rem;
+      border: 1px solid var(--rr-border);
+      border-radius: var(--rr-radius);
+      background:#fff;
+      padding: .95rem 1rem;
+    }
+    .rr-review h2{margin:0;font-size:1.05rem;font-weight:900;color:var(--rr-ink);}
+    .rr-quote{
+      margin:.6rem 0 0;
+      padding:.85rem .9rem;
+      border:1px solid var(--rr-border);
+      border-radius:12px;
+      background:#f8fafc;
+      color:#0f172a;
+      font-size:.92rem;
+      line-height:1.5;
+    }
+    .rr-quote small{display:block;color:#475569;margin-top:.45rem;font-weight:800;}
+
+    /* Sticky “Need help?” bar (does not change design; sits at bottom only) */
+    .rr-helpbar{
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 1050;
+      border: 1px solid rgba(226,232,240,.9);
+      background: rgba(255,255,255,.96);
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(15,23,42,.16);
+      padding: .65rem .75rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:.75rem;
+      backdrop-filter: blur(8px);
+    }
+    .rr-helpbar p{
+      margin:0;
+      color:#0f172a;
+      font-size:.88rem;
+      line-height:1.25;
+    }
+    .rr-helpbar a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.45rem;
+      padding:.55rem .75rem;
+      border-radius:12px;
+      border:1px solid rgba(37,99,235,.35);
+      background: rgba(37,99,235,.08);
+      color:#0f172a;
+      font-weight:900;
+      font-size:.88rem;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .rr-helpbar a:hover{ background: rgba(37,99,235,.12); }
+    .rr-helpbar button{
+      border:1px solid rgba(148,163,184,.6);
+      background: transparent;
+      border-radius:12px;
+      padding:.55rem .65rem;
+      font-weight:900;
+      cursor:pointer;
+      color:#0f172a;
+    }
+    .rr-helpbar button:hover{ background: rgba(148,163,184,.12); }
+    @media (min-width: 980px){
+      .rr-helpbar{ left:auto; right: 18px; max-width: 520px; }
+    }
+    @media (max-width: 420px){
+      .rr-helpbar{ flex-direction:column; align-items:stretch; }
+      .rr-helpbar a, .rr-helpbar button{ width:100%; }
     }
 
     /* ===== Mobile nav fix: drawer + backdrop (prevents blocking page) ===== */
@@ -205,6 +374,22 @@
       body.rr-nav-lock{ overflow: hidden; }
     }
   </style>
+
+  <!-- JSON-LD (basic category page schema) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "PlayStation 2 Fat Models",
+    "description": "Tested, cleaned PS2 Fat consoles and OPL/HDD bundles with PayPal checkout per item.",
+    "image": "/assets/PS2_REFURBED_BUNDLE.jpg",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "RetroReplay UK",
+      "url": "/"
+    }
+  }
+  </script>
 </head>
 
 <body>
@@ -282,6 +467,11 @@
 <!-- PAGE CONTENT -->
 <div class="rr-wrap">
 
+  <!-- Breadcrumbs (ecommerce polish, tiny) -->
+  <div class="rr-breadcrumbs" aria-label="Breadcrumbs">
+    <a href="/">Home</a> / <a href="/playstation/index.html">PlayStation</a> / <span>PS2 Fat Models</span>
+  </div>
+
   <!-- HERO -->
   <section class="rr-hero">
     <div class="rr-hero__grid">
@@ -289,6 +479,16 @@
         <div class="rr-pill" style="background:linear-gradient(135deg,#2563eb,#0ea5e9);">🕹️ PS2 Fat Models</div>
         <h1>PlayStation 2 Fat Models</h1>
         <p>Choose from standard tested consoles, HDD/OPL-ready bundles, accessories and upgrades. PayPal checkout is available per item below.</p>
+
+        <!-- Trust bar (adds ecommerce confidence, no layout changes) -->
+        <div class="rr-trustbar" role="note" aria-label="Trust information">
+          <div class="rr-trustGrid">
+            <div class="rr-trustItem"><b>Fast dispatch</b><span>Packed securely</span></div>
+            <div class="rr-trustItem"><b>Warranty options</b><span>See warranty page</span></div>
+            <div class="rr-trustItem"><b>Setup help</b><span>Guides + support</span></div>
+            <div class="rr-trustItem"><b>Quality checked</b><span>Tested & cleaned</span></div>
+          </div>
+        </div>
       </div>
 
       <div class="rr-card">
@@ -303,11 +503,23 @@
     </div>
   </section>
 
+  <!-- Small “Why buy” (compact) -->
+  <section class="rr-why" aria-label="Why buy from RetroReplay">
+    <h2>Why buy from RetroReplay UK</h2>
+    <p>Clean builds, clear setup guidance, and quick support if you need help getting started.</p>
+    <div class="rr-whyGrid">
+      <div class="rr-whyBox"><b>Professionally cleaned</b><span>Presentation-cleaned with careful packing.</span></div>
+      <div class="rr-whyBox"><b>Setup made simple</b><span>Guides included so you can be playing in minutes.</span></div>
+      <div class="rr-whyBox"><b>Friendly support</b><span>Message any time if you want a custom build.</span></div>
+    </div>
+  </section>
+
   <!-- FEATURED (open) -->
   <details class="rr-accordion" open>
     <summary>
       <div class="rr-acc-left">
-        <p class="rr-acc-title">
+        <p class="rr-acc-title>
+          ">
           <span class="rr-pill" style="background:linear-gradient(135deg,#f97316,#ea580c);">🔥 Featured</span>
           PS2 Fat 1TB Plug &amp; Play Bundle
         </p>
@@ -320,7 +532,7 @@
       <div class="rr-grid">
         <article class="rr-cardBase">
           <div class="rr-imgWrap">
-            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 1TB Plug &amp; Play Bundle">
+            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 1TB Plug &amp; Play Bundle" loading="lazy">
           </div>
           <div class="rr-body">
             <p class="rr-kicker">Order Summary</p>
@@ -330,6 +542,14 @@
               • 1TB HDD upgrade + plug-and-play setup<br>
               • Controller included: original wired OR wireless third-party
             </p>
+
+            <!-- Ecommerce micro badges (no qty controls) -->
+            <div class="rr-badgeRow" aria-label="Bundle highlights">
+              <span class="rr-badge">✅ Ready to play</span>
+              <span class="rr-badge">📄 Setup guide</span>
+              <span class="rr-badge">📦 Secure packaging</span>
+            </div>
+            <p class="rr-status">Build slot required. If you’re unsure, message first for a quick recommendation.</p>
           </div>
           <div class="rr-foot">
             <p class="rr-price">£193.00</p>
@@ -359,12 +579,16 @@
       <div class="product-carousel">
         <article class="rr-cardBase rr-slide">
           <div class="rr-imgWrap">
-            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 (Black) A-Grade">
+            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 Black A-Grade" loading="lazy">
           </div>
           <div class="rr-body">
             <p class="rr-kicker">UK PAL • A-Grade</p>
             <h3 class="rr-title">PS2 Fat 50003 (Black)</h3>
             <p class="rr-desc">Tested and cleaned. Ready to play.</p>
+            <div class="rr-badgeRow">
+              <span class="rr-badge">✅ Tested</span>
+              <span class="rr-badge">🧼 Cleaned</span>
+            </div>
           </div>
           <div class="rr-foot">
             <p class="rr-price">£114.99</p>
@@ -376,12 +600,16 @@
 
         <article class="rr-cardBase rr-slide">
           <div class="rr-imgWrap">
-            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 (Silver) B-Grade">
+            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 Silver B-Grade" loading="lazy">
           </div>
           <div class="rr-body">
             <p class="rr-kicker">UK PAL • B-Grade</p>
             <h3 class="rr-title">PS2 Fat 50003 (Silver)</h3>
             <p class="rr-desc">Tested and cleaned. Minor cosmetic marks may be present.</p>
+            <div class="rr-badgeRow">
+              <span class="rr-badge">✅ Tested</span>
+              <span class="rr-badge">📦 Packed well</span>
+            </div>
           </div>
           <div class="rr-foot">
             <p class="rr-price">£114.99</p>
@@ -411,12 +639,16 @@
       <div class="rr-grid">
         <article class="rr-cardBase">
           <div class="rr-imgWrap">
-            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (500GB)">
+            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="OPL Ready Bundle 500GB" loading="lazy">
           </div>
           <div class="rr-body">
             <p class="rr-kicker">Starter</p>
             <h3 class="rr-title">PS2 Fat OPL Ready Bundle (500GB)</h3>
             <p class="rr-desc">Console + FMCB + network adapter + prepared 500GB drive.</p>
+            <div class="rr-badgeRow">
+              <span class="rr-badge">⚙️ OPL ready</span>
+              <span class="rr-badge">📄 Setup guide</span>
+            </div>
           </div>
           <div class="rr-foot">
             <p class="rr-price">£189.99</p>
@@ -426,12 +658,16 @@
 
         <article class="rr-cardBase">
           <div class="rr-imgWrap">
-            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (1TB)">
+            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="OPL Ready Bundle 1TB" loading="lazy">
           </div>
           <div class="rr-body">
             <p class="rr-kicker">Most Popular</p>
             <h3 class="rr-title">PS2 Fat OPL Ready Bundle (1TB)</h3>
             <p class="rr-desc">Console + FMCB + network adapter + prepared 1TB drive.</p>
+            <div class="rr-badgeRow">
+              <span class="rr-badge">🔥 Popular</span>
+              <span class="rr-badge">⚙️ OPL ready</span>
+            </div>
           </div>
           <div class="rr-foot">
             <p class="rr-price">£239.99</p>
@@ -441,12 +677,16 @@
 
         <article class="rr-cardBase">
           <div class="rr-imgWrap">
-            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (2TB)">
+            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="OPL Ready Bundle 2TB" loading="lazy">
           </div>
           <div class="rr-body">
             <p class="rr-kicker">Maximum Storage</p>
             <h3 class="rr-title">PS2 Fat OPL Ready Bundle (2TB)</h3>
             <p class="rr-desc">Console + FMCB + network adapter + prepared 2TB drive.</p>
+            <div class="rr-badgeRow">
+              <span class="rr-badge">💾 Max storage</span>
+              <span class="rr-badge">⚙️ OPL ready</span>
+            </div>
           </div>
           <div class="rr-foot">
             <p class="rr-price">£289.99</p>
@@ -477,6 +717,7 @@
             <p class="rr-kicker">Official</p>
             <h3 class="rr-title">DualShock 2 Controller (Tested)</h3>
             <p class="rr-desc">Tested buttons, sticks and vibration.</p>
+            <div class="rr-badgeRow"><span class="rr-badge">✅ Tested</span></div>
           </div>
           <div class="rr-foot">
             <p class="rr-price">£14.99</p>
@@ -489,6 +730,7 @@
             <p class="rr-kicker">Video</p>
             <h3 class="rr-title">Component Cable (YPbPr)</h3>
             <p class="rr-desc">Best analogue quality. Supports 480p on compatible titles.</p>
+            <div class="rr-badgeRow"><span class="rr-badge">⭐ Best analogue</span></div>
           </div>
           <div class="rr-foot">
             <p class="rr-price">£14.99</p>
@@ -501,6 +743,7 @@
             <p class="rr-kicker">Modern TVs</p>
             <h3 class="rr-title">HDMI Adapter (PS2)</h3>
             <p class="rr-desc">Simple HDMI output for modern displays (adapter type may vary).</p>
+            <div class="rr-badgeRow"><span class="rr-badge">🖥️ Modern TV</span></div>
           </div>
           <div class="rr-foot">
             <p class="rr-price">£9.99</p>
@@ -513,6 +756,7 @@
             <p class="rr-kicker">Wireless</p>
             <h3 class="rr-title">Wireless Controller (Third-Party)</h3>
             <p class="rr-desc">Reliable wireless option (not official).</p>
+            <div class="rr-badgeRow"><span class="rr-badge">📶 Wireless</span></div>
           </div>
           <div class="rr-foot">
             <p class="rr-price">£19.99</p>
@@ -543,6 +787,7 @@
             <p class="rr-kicker">Boot &amp; Tools</p>
             <h3 class="rr-title">FMCB Memory Card (Pre-configured)</h3>
             <p class="rr-desc">Pre-configured for OPL and essential utilities.</p>
+            <div class="rr-badgeRow"><span class="rr-badge">⚙️ Essential</span></div>
           </div>
           <div class="rr-foot">
             <p class="rr-price">£19.99</p>
@@ -555,6 +800,7 @@
             <p class="rr-kicker">Required</p>
             <h3 class="rr-title">Network Adapter (PS2 Fat)</h3>
             <p class="rr-desc">Required for internal HDD loading on PS2 Fat models.</p>
+            <div class="rr-badgeRow"><span class="rr-badge">🔌 Required</span></div>
           </div>
           <div class="rr-foot">
             <p class="rr-price">£39.99</p>
@@ -567,6 +813,7 @@
             <p class="rr-kicker">Storage</p>
             <h3 class="rr-title">500GB HDD (OPL-ready)</h3>
             <p class="rr-desc">Prepared drive for PS2 use (OPL-ready structure).</p>
+            <div class="rr-badgeRow"><span class="rr-badge">💾 OPL ready</span></div>
           </div>
           <div class="rr-foot">
             <p class="rr-price">£69.99</p>
@@ -576,6 +823,15 @@
       </div>
     </div>
   </details>
+
+  <!-- Review snippet (optional but very ecommerce) -->
+  <section class="rr-review" aria-label="Customer review">
+    <h2>Recent customer feedback</h2>
+    <div class="rr-quote">
+      “Worth every penny… the console itself was so clean and works perfectly… instructions were clear and precise… fast delivery and everything was wrapped so well… I wish I can give this more than 5 stars…”
+      <small>Verified buyer</small>
+    </div>
+  </section>
 
   <footer style="margin:1.6rem 0 0;padding:.9rem 0;color:#64748b;border-top:1px solid #e2e8f0;">
     <small>© <span id="year"></span> RetroReplay UK</small>
@@ -632,6 +888,13 @@
     </div>
   </div>
 </footer>
+
+<!-- Sticky help bar (can be removed if you don't want it) -->
+<div class="rr-helpbar" id="rrHelpbar" role="dialog" aria-label="Help choosing a bundle">
+  <p><b>Need help choosing?</b> Message for a quick recommendation (TV type + HDD size + budget).</p>
+  <a href="/contact.html">Message support</a>
+  <button type="button" aria-label="Close" onclick="document.getElementById('rrHelpbar').style.display='none'">✕</button>
+</div>
 
 <script src="/cart.js"></script>
 

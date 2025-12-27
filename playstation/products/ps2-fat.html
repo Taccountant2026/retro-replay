@@ -1,337 +1,729 @@
 <!-- =========================
-  PS2 Fat Models — ADD DROPDOWN SECTIONS (DETAILS/ACCORDION)
-  Goal: keep page contained by collapsing product groups.
-  - Uses native <details>/<summary> (no dependencies)
-  - Default open: Featured + Standard (editable)
-  - PayPal renders still work (buttons render fine inside collapsed sections)
+  PS2 Fat Models — FULL BUILD (MASTER HEADER + MOBILE NAV FIX + ACCORDION PRODUCTS + PAYPAL)
+  What this fixes:
+  ✅ Restores full MASTER header/nav/footer (menu back)
+  ✅ Mobile menu no longer blocks the page (drawer + backdrop + scroll lock + auto-close)
+  ✅ Products are contained in dropdown sections (<details>/<summary>)
+  ✅ PayPal buttons render reliably using YOUR Part-2 container IDs
+  ✅ Removes “quantity” feel by using hosted buttons only (no site qty controls)
+  File: /playstation/products/ps2-fat.html
 ========================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayStation 2 Fat Models | RetroReplay UK</title>
+  <meta name="description" content="Shop PS2 Fat consoles, HDD/OPL-ready bundles, accessories and upgrades. PayPal checkout per item." />
 
-<!-- Add this CSS into your existing <style> block (page-only) -->
-<style>
-  /* Collapsible sections */
-  .rr-accordion{
-    margin-top: 1rem;
-    border: 1px solid var(--rr-border);
-    border-radius: var(--rr-radius);
-    background: #fff;
-    overflow: hidden;
-  }
-  .rr-accordion + .rr-accordion{ margin-top: .9rem; }
+  <!-- Google Ads tag (AW-17822331715) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17822331715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17822331715');
+  </script>
 
-  .rr-accordion summary{
-    list-style: none;
-    cursor: pointer;
-    padding: .95rem 1rem;
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    gap: 1rem;
-    user-select:none;
-    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-  }
-  .rr-accordion summary::-webkit-details-marker{ display:none; }
+  <!-- PayPal Hosted Buttons SDK (LOAD ONCE) -->
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=BAApYaG5zDntUHsd2tRXv1ylGkYhREqRR-t7PWcH3-Sh7ElgWliEyCEnhAeQjoawIGidc1LY7PQRK9A0Sg&components=hosted-buttons&disable-funding=venmo&currency=GBP">
+  </script>
 
-  .rr-acc-left{
-    display:flex;
-    flex-direction:column;
-    gap:.2rem;
-  }
-  .rr-acc-title{
-    margin:0;
-    font-weight: 900;
-    color: var(--rr-ink);
-    font-size: 1.05rem;
-    line-height: 1.2;
-    display:flex;
-    align-items:center;
-    gap:.55rem;
-  }
-  .rr-acc-sub{
-    margin:0;
-    color:#475569;
-    font-size:.92rem;
-    line-height:1.35;
-  }
-  .rr-acc-icon{
-    flex:0 0 auto;
-    width: 34px;
-    height: 34px;
-    border-radius: 999px;
-    border: 1px solid var(--rr-border);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color: var(--rr-ink);
-    background:#fff;
-    transition: transform .15s ease;
-  }
-  details[open] .rr-acc-icon{ transform: rotate(45deg); } /* + becomes x */
+  <!-- Global styles -->
+  <link rel="stylesheet" href="/style.css" />
 
-  .rr-acc-body{
-    border-top: 1px solid var(--rr-border);
-    padding: .9rem 1rem 1.05rem;
-    background:#fff;
-  }
+  <style>
+    /* ===== Page-only sizing (keeps global style.css intact) ===== */
+    :root{
+      --rr-max: 1120px;
+      --rr-radius: 16px;
+      --rr-border: #e2e8f0;
+      --rr-muted: #64748b;
+      --rr-ink: #0f172a;
+      --rr-accent: #2563eb;
+      --rr-gap: 1rem;
+      --rr-header-offset: 64px; /* JS updates */
+    }
 
-  /* Reduce top margins inside accordion */
-  .rr-acc-body .rr-category-head{ margin-top: 0; }
+    .rr-wrap{max-width:var(--rr-max);margin:0 auto;padding:1rem;}
+    @media (max-width: 640px){ .rr-wrap{padding:.85rem;} }
 
-  /* Optional: make carousel not too tall inside accordion */
-  .rr-acc-body .product-carousel{ margin-top: .6rem; }
-</style>
+    /* HERO */
+    .rr-hero{
+      background:#0b1120;color:#fff;border-radius:var(--rr-radius);
+      padding:1.1rem;
+      box-shadow:0 10px 26px rgba(0,0,0,.14);
+    }
+    .rr-hero h1{margin:.2rem 0 0;font-weight:900;letter-spacing:-.02em;font-size: clamp(1.35rem, 2.7vw, 2rem);}
+    .rr-hero p{margin:.6rem 0 0;color:rgba(255,255,255,.85);max-width:70ch;font-size:.95rem;line-height:1.5;}
+    .rr-hero__grid{display:grid;grid-template-columns:1.35fr .65fr;gap:var(--rr-gap);align-items:stretch}
+    @media (max-width: 900px){.rr-hero__grid{grid-template-columns:1fr}}
 
-<!-- =========================
-  Replace your existing product sections with these collapsible blocks.
-  (Keep your HERO as-is above these.)
-========================== -->
+    .rr-card{background:#fff;border:1px solid var(--rr-border);border-radius:14px;padding:.9rem;}
+    .rr-pill{
+      display:inline-flex;align-items:center;gap:.5rem;
+      padding:.3rem .65rem;border-radius:999px;color:#fff;
+      font-weight:800;font-size:.72rem;
+    }
 
-<!-- FEATURED (open by default) -->
-<details class="rr-accordion" open>
-  <summary>
-    <div class="rr-acc-left">
-      <p class="rr-acc-title"><span class="rr-pill" style="background:linear-gradient(135deg,#f97316,#ea580c);">🔥 Featured</span> PS2 Fat 1TB Plug &amp; Play Bundle</p>
-      <p class="rr-acc-sub">Best value bundle — console + 1TB HDD setup + controller choice.</p>
-    </div>
-    <div class="rr-acc-icon" aria-hidden="true">+</div>
-  </summary>
-  <div class="rr-acc-body">
-    <!-- (keep your Featured card exactly as you already have it) -->
-    <div class="rr-grid">
-      <article class="rr-cardBase">
-        <div class="rr-imgWrap">
-          <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 1TB Plug &amp; Play Bundle">
-        </div>
-        <div class="rr-body">
-          <p class="rr-kicker">Order Summary</p>
-          <h3 class="rr-title">PS2 Fat 1TB Plug &amp; Play Bundle</h3>
-          <p class="rr-desc">
-            • PS2 console (fully tested &amp; cleaned)<br>
-            • 1TB HDD upgrade + plug-and-play setup<br>
-            • Controller included: original wired OR wireless third-party
-          </p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£193.00</p>
-          <div class="rr-paypal"><div id="paypal-container-3HDEMFMFNMF84"></div></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</details>
+    /* ===== Product card system used inside accordion ===== */
+    .rr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-top:.9rem;}
+    .rr-cardBase{
+      background:#fff;border:1px solid var(--rr-border);
+      border-radius:14px;overflow:hidden;
+      display:flex;flex-direction:column;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .rr-cardBase:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(15,23,42,.08);}
+    .rr-imgWrap{background:#0b1120}
+    .rr-img{width:100%;height:168px;object-fit:cover;display:block;}
+    .rr-body{padding:.9rem;display:flex;flex-direction:column;gap:.35rem;}
+    .rr-kicker{margin:0;font-size:.72rem;color:var(--rr-muted);text-transform:uppercase;letter-spacing:.04em;}
+    .rr-title{margin:0;font-weight:900;color:var(--rr-ink);font-size:1.02rem;line-height:1.2;}
+    .rr-desc{margin:0;color:var(--rr-muted);font-size:.92rem;line-height:1.45;}
+    .rr-foot{
+      margin-top:auto;
+      display:flex;align-items:center;justify-content:space-between;gap:.75rem;
+      padding:.85rem .9rem;border-top:1px solid var(--rr-border);
+    }
+    .rr-price{margin:0;font-weight:900;color:var(--rr-accent);font-size:1.15rem;white-space:nowrap;}
 
-<!-- STANDARD (open by default) -->
-<details class="rr-accordion" open>
-  <summary>
-    <div class="rr-acc-left">
-      <p class="rr-acc-title"><span class="rr-pill" style="background:linear-gradient(135deg,#0f172a,#1e293b);">✅ Standard</span> Standard Tested PS2 Fat</p>
-      <p class="rr-acc-sub">Individually tested and cleaned — ready to play.</p>
-    </div>
-    <div class="rr-acc-icon" aria-hidden="true">+</div>
-  </summary>
-  <div class="rr-acc-body">
-    <div class="product-carousel">
-      <!-- Standard 1 -->
-      <article class="rr-cardBase rr-slide">
-        <div class="rr-imgWrap">
-          <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 (Black) A-Grade">
-        </div>
-        <div class="rr-body">
-          <p class="rr-kicker">UK PAL • A-Grade</p>
-          <h3 class="rr-title">PS2 Fat 50003 (Black)</h3>
-          <p class="rr-desc">Tested and cleaned. Ready to play.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£114.99</p>
-          <div class="rr-paypal"><div id="paypal-container-ZB2G3CN5Z6WRS"></div></div>
-        </div>
-      </article>
+    /* Carousel inside accordion */
+    .product-carousel{
+      display:flex;gap:.9rem;overflow:auto;
+      padding:.5rem .15rem;margin-top:.6rem;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .rr-slide{flex:0 0 280px;scroll-snap-align:start;}
 
-      <!-- Standard 2 -->
-      <article class="rr-cardBase rr-slide">
-        <div class="rr-imgWrap">
-          <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 (Silver) B-Grade">
-        </div>
-        <div class="rr-body">
-          <p class="rr-kicker">UK PAL • B-Grade</p>
-          <h3 class="rr-title">PS2 Fat 50003 (Silver)</h3>
-          <p class="rr-desc">Tested and cleaned. Minor cosmetic marks may be present.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£114.99</p>
-          <div class="rr-paypal"><div id="paypal-container-KZTTHJVUHAFZC"></div></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</details>
+    /* PayPal container sizing (prevents bloat) */
+    .rr-paypal{display:flex;justify-content:flex-end;align-items:center;min-width:160px;}
+    .rr-paypal > div{width:100%;max-width:190px;}
 
-<!-- MODDED BUNDLES (collapsed by default) -->
-<details class="rr-accordion">
-  <summary>
-    <div class="rr-acc-left">
-      <p class="rr-acc-title"><span class="rr-pill" style="background:linear-gradient(135deg,#22c55e,#16a34a);">⚙️ Modded</span> OPL / HDD Ready Bundles</p>
-      <p class="rr-acc-sub">Built for PS2 Fat models — includes required HDD hardware.</p>
-    </div>
-    <div class="rr-acc-icon" aria-hidden="true">+</div>
-  </summary>
-  <div class="rr-acc-body">
-    <div class="rr-grid">
-      <article class="rr-cardBase">
-        <div class="rr-imgWrap">
-          <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (500GB)">
-        </div>
-        <div class="rr-body">
-          <p class="rr-kicker">Starter</p>
-          <h3 class="rr-title">PS2 Fat OPL Ready Bundle (500GB)</h3>
-          <p class="rr-desc">Console + FMCB + network adapter + prepared 500GB drive.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£189.99</p>
-          <div class="rr-paypal"><div id="paypal-container-FB8WMNP7L9P8Q"></div></div>
-        </div>
-      </article>
+    /* ===== Accordion (dropdown sections) ===== */
+    .rr-accordion{
+      margin-top: 1rem;
+      border: 1px solid var(--rr-border);
+      border-radius: var(--rr-radius);
+      background: #fff;
+      overflow: hidden;
+    }
+    .rr-accordion + .rr-accordion{ margin-top: .9rem; }
 
-      <article class="rr-cardBase">
-        <div class="rr-imgWrap">
-          <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (1TB)">
-        </div>
-        <div class="rr-body">
-          <p class="rr-kicker">Most Popular</p>
-          <h3 class="rr-title">PS2 Fat OPL Ready Bundle (1TB)</h3>
-          <p class="rr-desc">Console + FMCB + network adapter + prepared 1TB drive.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£239.99</p>
-          <div class="rr-paypal"><div id="paypal-container-D98EQNG5DDRTW"></div></div>
-        </div>
-      </article>
+    .rr-accordion summary{
+      list-style: none;
+      cursor: pointer;
+      padding: .95rem 1rem;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 1rem;
+      user-select:none;
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    }
+    .rr-accordion summary::-webkit-details-marker{ display:none; }
 
-      <article class="rr-cardBase">
-        <div class="rr-imgWrap">
-          <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (2TB)">
-        </div>
-        <div class="rr-body">
-          <p class="rr-kicker">Maximum Storage</p>
-          <h3 class="rr-title">PS2 Fat OPL Ready Bundle (2TB)</h3>
-          <p class="rr-desc">Console + FMCB + network adapter + prepared 2TB drive.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£289.99</p>
-          <div class="rr-paypal"><div id="paypal-container-FBYSXR7KJWMMN"></div></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</details>
+    .rr-acc-left{display:flex;flex-direction:column;gap:.2rem;}
+    .rr-acc-title{
+      margin:0;
+      font-weight: 900;
+      color: var(--rr-ink);
+      font-size: 1.05rem;
+      line-height: 1.2;
+      display:flex;align-items:center;gap:.55rem;
+    }
+    .rr-acc-sub{margin:0;color:#475569;font-size:.92rem;line-height:1.35;}
+    .rr-acc-icon{
+      flex:0 0 auto;
+      width: 34px;height: 34px;
+      border-radius: 999px;
+      border: 1px solid var(--rr-border);
+      display:flex;align-items:center;justify-content:center;
+      color: var(--rr-ink);background:#fff;
+      transition: transform .15s ease;
+    }
+    details[open] .rr-acc-icon{ transform: rotate(45deg); }
 
-<!-- ACCESSORIES (collapsed by default) -->
-<details class="rr-accordion">
-  <summary>
-    <div class="rr-acc-left">
-      <p class="rr-acc-title"><span class="rr-pill" style="background:linear-gradient(135deg,#06b6d4,#0ea5e9);">🕹️ Accessories</span> Controllers, Cables &amp; Extras</p>
-      <p class="rr-acc-sub">Checkout per item — single purchase buttons.</p>
-    </div>
-    <div class="rr-acc-icon" aria-hidden="true">+</div>
-  </summary>
-  <div class="rr-acc-body">
-    <div class="rr-grid">
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Official</p>
-          <h3 class="rr-title">DualShock 2 Controller (Tested)</h3>
-          <p class="rr-desc">Tested buttons, sticks and vibration.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£14.99</p>
-          <div class="rr-paypal"><div id="paypal-container-FWM8PZDAECU64"></div></div>
-        </div>
-      </article>
+    .rr-acc-body{
+      border-top: 1px solid var(--rr-border);
+      padding: .9rem 1rem 1.05rem;
+      background:#fff;
+    }
 
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Video</p>
-          <h3 class="rr-title">Component Cable (YPbPr)</h3>
-          <p class="rr-desc">Best analogue quality. Supports 480p on compatible titles.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£14.99</p>
-          <div class="rr-paypal"><div id="paypal-container-AEEP26CFY5ZQE"></div></div>
-        </div>
-      </article>
+    /* ===== Mobile nav fix: drawer + backdrop (prevents blocking page) ===== */
+    @media (max-width: 900px){
+      .site-header{ position: sticky; top: 0; z-index: 1200; }
 
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Modern TVs</p>
-          <h3 class="rr-title">HDMI Adapter (PS2)</h3>
-          <p class="rr-desc">Simple HDMI output for modern displays (adapter type may vary).</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£9.99</p>
-          <div class="rr-paypal"><div id="paypal-container-JCFV9FGY3MHT2"></div></div>
-        </div>
-      </article>
+      .main-nav{
+        display: block;
+        position: fixed;
+        left: 0; right: 0;
+        top: var(--rr-header-offset);
+        max-height: calc(100vh - var(--rr-header-offset));
+        overflow: auto;
+        background: #ffffff;
+        border-top: 1px solid rgba(226,232,240,.95);
+        box-shadow: 0 18px 40px rgba(15,23,42,.18);
+        transform: translateY(-12px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .18s ease, transform .18s ease;
+        z-index: 1150;
+      }
+      .main-nav.is-open{
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .main-nav .nav-list{
+        display:grid;grid-template-columns:1fr;gap:.25rem;
+        padding:.75rem;margin:0;
+      }
+      .main-nav .nav-list a{
+        display:flex;
+        padding:.85rem .9rem;
+        border-radius:.75rem;
+        border:1px solid rgba(226,232,240,.9);
+        background:#fff;
+      }
 
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Wireless</p>
-          <h3 class="rr-title">Wireless Controller (Third-Party)</h3>
-          <p class="rr-desc">Reliable wireless option (not official).</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£19.99</p>
-          <div class="rr-paypal"><div id="paypal-container-X3D4GQWRMGZN4"></div></div>
-        </div>
-      </article>
+      .rr-nav-backdrop{
+        position: fixed;
+        inset: 0;
+        background: rgba(15,23,42,.45);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .18s ease;
+        z-index: 1100;
+      }
+      .rr-nav-backdrop.is-open{
+        opacity: 1;
+        pointer-events: auto;
+      }
+      body.rr-nav-lock{ overflow: hidden; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- MASTER HEADER -->
+<header class="site-header">
+
+  <div class="header-top">
+    <div class="container">
+      <div class="header-promo">
+        <span>🕹️ PlayStation 2 Fat</span>
+        <span>✅ Tested • Cleaned • Ready to Play</span>
+      </div>
+      <div class="header-links">
+        <a href="/about.html">About</a>
+        <a href="/delivery.html">Delivery</a>
+        <a href="/warranties.html">Warranty</a>
+      </div>
     </div>
   </div>
-</details>
 
-<!-- UPGRADES (collapsed by default) -->
-<details class="rr-accordion">
-  <summary>
-    <div class="rr-acc-left">
-      <p class="rr-acc-title"><span class="rr-pill" style="background:linear-gradient(135deg,#334155,#0f172a);">🛠️ Upgrades</span> HDD Mods, Video Upgrades &amp; Servicing</p>
-      <p class="rr-acc-sub">Checkout per item — single purchase buttons.</p>
-    </div>
-    <div class="rr-acc-icon" aria-hidden="true">+</div>
-  </summary>
-  <div class="rr-acc-body">
-    <div class="rr-grid">
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Boot &amp; Tools</p>
-          <h3 class="rr-title">FMCB Memory Card (Pre-configured)</h3>
-          <p class="rr-desc">Pre-configured for OPL and essential utilities.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£19.99</p>
-          <div class="rr-paypal"><div id="paypal-container-ARVYRKFQ3JW7U"></div></div>
-        </div>
-      </article>
+  <div class="header-main">
+    <div class="container header-content">
+      <a href="/" class="site-logo" aria-label="Retro Replay Home">
+        <img src="/assets/logo.png" alt="Retro Replay Logo" />
+        <span>Retro Replay</span>
+      </a>
 
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Required</p>
-          <h3 class="rr-title">Network Adapter (PS2 Fat)</h3>
-          <p class="rr-desc">Required for internal HDD loading on PS2 Fat models.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£39.99</p>
-          <div class="rr-paypal"><div id="paypal-container-3NAWLTNHHMFGE"></div></div>
-        </div>
-      </article>
+      <form class="search-bar" action="/search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Search consoles, accessories..." aria-label="Search products" />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
 
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Storage</p>
-          <h3 class="rr-title">500GB HDD (OPL-ready)</h3>
-          <p class="rr-desc">Prepared drive for PS2 use (OPL-ready structure).</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£69.99</p>
-          <div class="rr-paypal"><div id="paypal-container-9MRPKXUYHR8QC"></div></div>
-        </div>
-      </article>
+      <div class="header-actions">
+        <a href="/contact.html" class="header-action"><span>📞</span><span>Support</span></a>
+        <a href="/checkout.html" class="header-action">
+          <span>🛒</span><span>Cart</span>
+          <span class="cart-badge" id="cart-count-js" aria-label="Cart items">0</span>
+        </a>
+
+        <button class="nav-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="primaryNav">☰</button>
+      </div>
     </div>
   </div>
-</details>
+
+  <nav class="main-nav" id="primaryNav" aria-label="Primary">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/">Main Home</a></li>
+        <li><a href="/atari/index.html">Atari</a></li>
+        <li><a href="/nintendo/index.html">Nintendo</a></li>
+        <li><a href="/playstation/index.html">PlayStation</a></li>
+        <li><a href="/sega/index.html">Sega</a></li>
+        <li><a href="/xbox/index.html">Xbox</a></li>
+        <li><a href="/guides.html">Setup Guides</a></li>
+        <li><a href="/sourcing-request.html">Sourcing</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/warranties.html">Warranty</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</header>
+
+<!-- Backdrop for mobile nav -->
+<div class="rr-nav-backdrop" id="rrNavBackdrop" aria-hidden="true"></div>
+
+<!-- PAGE CONTENT -->
+<div class="rr-wrap">
+
+  <!-- HERO -->
+  <section class="rr-hero">
+    <div class="rr-hero__grid">
+      <div>
+        <div class="rr-pill" style="background:linear-gradient(135deg,#2563eb,#0ea5e9);">🕹️ PS2 Fat Models</div>
+        <h1>PlayStation 2 Fat Models</h1>
+        <p>Choose from standard tested consoles, HDD/OPL-ready bundles, accessories and upgrades. PayPal checkout is available per item below.</p>
+      </div>
+
+      <div class="rr-card">
+        <h3 style="margin:.1rem 0 .45rem;color:#0f172a;font-weight:900;font-size:1.05rem;">Quick Checkout (PayPal)</h3>
+        <p style="margin:0 0 .6rem;color:#64748b;font-size:.92rem;line-height:1.4;">Fast payment option. For custom bundles, message first.</p>
+
+        <!-- Your PayPal container for 5ZBSDBUWLJ3B4 -->
+        <div id="paypal-container-5ZBSDBUWLJ3B4"></div>
+
+        <small style="display:block;margin-top:.55rem;color:#64748b;">Quick checkout button</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED (open) -->
+  <details class="rr-accordion" open>
+    <summary>
+      <div class="rr-acc-left">
+        <p class="rr-acc-title">
+          <span class="rr-pill" style="background:linear-gradient(135deg,#f97316,#ea580c);">🔥 Featured</span>
+          PS2 Fat 1TB Plug &amp; Play Bundle
+        </p>
+        <p class="rr-acc-sub">Best value bundle — console + 1TB HDD setup + controller choice.</p>
+      </div>
+      <div class="rr-acc-icon" aria-hidden="true">+</div>
+    </summary>
+
+    <div class="rr-acc-body">
+      <div class="rr-grid">
+        <article class="rr-cardBase">
+          <div class="rr-imgWrap">
+            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 1TB Plug &amp; Play Bundle">
+          </div>
+          <div class="rr-body">
+            <p class="rr-kicker">Order Summary</p>
+            <h3 class="rr-title">PS2 Fat 1TB Plug &amp; Play Bundle</h3>
+            <p class="rr-desc">
+              • PS2 console (fully tested &amp; cleaned)<br>
+              • 1TB HDD upgrade + plug-and-play setup<br>
+              • Controller included: original wired OR wireless third-party
+            </p>
+          </div>
+          <div class="rr-foot">
+            <p class="rr-price">£193.00</p>
+            <div class="rr-paypal">
+              <div id="paypal-container-3HDEMFMFNMF84"></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </details>
+
+  <!-- STANDARD (open) -->
+  <details class="rr-accordion" open>
+    <summary>
+      <div class="rr-acc-left">
+        <p class="rr-acc-title">
+          <span class="rr-pill" style="background:linear-gradient(135deg,#0f172a,#1e293b);">✅ Standard</span>
+          Standard Tested PS2 Fat
+        </p>
+        <p class="rr-acc-sub">Individually tested and cleaned — ready to play.</p>
+      </div>
+      <div class="rr-acc-icon" aria-hidden="true">+</div>
+    </summary>
+
+    <div class="rr-acc-body">
+      <div class="product-carousel">
+        <article class="rr-cardBase rr-slide">
+          <div class="rr-imgWrap">
+            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 (Black) A-Grade">
+          </div>
+          <div class="rr-body">
+            <p class="rr-kicker">UK PAL • A-Grade</p>
+            <h3 class="rr-title">PS2 Fat 50003 (Black)</h3>
+            <p class="rr-desc">Tested and cleaned. Ready to play.</p>
+          </div>
+          <div class="rr-foot">
+            <p class="rr-price">£114.99</p>
+            <div class="rr-paypal">
+              <div id="paypal-container-ZB2G3CN5Z6WRS"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="rr-cardBase rr-slide">
+          <div class="rr-imgWrap">
+            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 (Silver) B-Grade">
+          </div>
+          <div class="rr-body">
+            <p class="rr-kicker">UK PAL • B-Grade</p>
+            <h3 class="rr-title">PS2 Fat 50003 (Silver)</h3>
+            <p class="rr-desc">Tested and cleaned. Minor cosmetic marks may be present.</p>
+          </div>
+          <div class="rr-foot">
+            <p class="rr-price">£114.99</p>
+            <div class="rr-paypal">
+              <div id="paypal-container-KZTTHJVUHAFZC"></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </details>
+
+  <!-- MODDED (closed) -->
+  <details class="rr-accordion">
+    <summary>
+      <div class="rr-acc-left">
+        <p class="rr-acc-title">
+          <span class="rr-pill" style="background:linear-gradient(135deg,#22c55e,#16a34a);">⚙️ Modded</span>
+          OPL / HDD Ready Bundles
+        </p>
+        <p class="rr-acc-sub">Built for PS2 Fat models — includes required HDD hardware.</p>
+      </div>
+      <div class="rr-acc-icon" aria-hidden="true">+</div>
+    </summary>
+
+    <div class="rr-acc-body">
+      <div class="rr-grid">
+        <article class="rr-cardBase">
+          <div class="rr-imgWrap">
+            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (500GB)">
+          </div>
+          <div class="rr-body">
+            <p class="rr-kicker">Starter</p>
+            <h3 class="rr-title">PS2 Fat OPL Ready Bundle (500GB)</h3>
+            <p class="rr-desc">Console + FMCB + network adapter + prepared 500GB drive.</p>
+          </div>
+          <div class="rr-foot">
+            <p class="rr-price">£189.99</p>
+            <div class="rr-paypal"><div id="paypal-container-FB8WMNP7L9P8Q"></div></div>
+          </div>
+        </article>
+
+        <article class="rr-cardBase">
+          <div class="rr-imgWrap">
+            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (1TB)">
+          </div>
+          <div class="rr-body">
+            <p class="rr-kicker">Most Popular</p>
+            <h3 class="rr-title">PS2 Fat OPL Ready Bundle (1TB)</h3>
+            <p class="rr-desc">Console + FMCB + network adapter + prepared 1TB drive.</p>
+          </div>
+          <div class="rr-foot">
+            <p class="rr-price">£239.99</p>
+            <div class="rr-paypal"><div id="paypal-container-D98EQNG5DDRTW"></div></div>
+          </div>
+        </article>
+
+        <article class="rr-cardBase">
+          <div class="rr-imgWrap">
+            <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (2TB)">
+          </div>
+          <div class="rr-body">
+            <p class="rr-kicker">Maximum Storage</p>
+            <h3 class="rr-title">PS2 Fat OPL Ready Bundle (2TB)</h3>
+            <p class="rr-desc">Console + FMCB + network adapter + prepared 2TB drive.</p>
+          </div>
+          <div class="rr-foot">
+            <p class="rr-price">£289.99</p>
+            <div class="rr-paypal"><div id="paypal-container-FBYSXR7KJWMMN"></div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </details>
+
+  <!-- ACCESSORIES (closed) -->
+  <details class="rr-accordion">
+    <summary>
+      <div class="rr-acc-left">
+        <p class="rr-acc-title">
+          <span class="rr-pill" style="background:linear-gradient(135deg,#06b6d4,#0ea5e9);">🕹️ Accessories</span>
+          Controllers, Cables &amp; Extras
+        </p>
+        <p class="rr-acc-sub">Checkout per item — single purchase buttons.</p>
+      </div>
+      <div class="rr-acc-icon" aria-hidden="true">+</div>
+    </summary>
+
+    <div class="rr-acc-body">
+      <div class="rr-grid">
+        <article class="rr-cardBase">
+          <div class="rr-body">
+            <p class="rr-kicker">Official</p>
+            <h3 class="rr-title">DualShock 2 Controller (Tested)</h3>
+            <p class="rr-desc">Tested buttons, sticks and vibration.</p>
+          </div>
+          <div class="rr-foot">
+            <p class="rr-price">£14.99</p>
+            <div class="rr-paypal"><div id="paypal-container-FWM8PZDAECU64"></div></div>
+          </div>
+        </article>
+
+        <article class="rr-cardBase">
+          <div class="rr-body">
+            <p class="rr-kicker">Video</p>
+            <h3 class="rr-title">Component Cable (YPbPr)</h3>
+            <p class="rr-desc">Best analogue quality. Supports 480p on compatible titles.</p>
+          </div>
+          <div class="rr-foot">
+            <p class="rr-price">£14.99</p>
+            <div class="rr-paypal"><div id="paypal-container-AEEP26CFY5ZQE"></div></div>
+          </div>
+        </article>
+
+        <article class="rr-cardBase">
+          <div class="rr-body">
+            <p class="rr-kicker">Modern TVs</p>
+            <h3 class="rr-title">HDMI Adapter (PS2)</h3>
+            <p class="rr-desc">Simple HDMI output for modern displays (adapter type may vary).</p>
+          </div>
+          <div class="rr-foot">
+            <p class="rr-price">£9.99</p>
+            <div class="rr-paypal"><div id="paypal-container-JCFV9FGY3MHT2"></div></div>
+          </div>
+        </article>
+
+        <article class="rr-cardBase">
+          <div class="rr-body">
+            <p class="rr-kicker">Wireless</p>
+            <h3 class="rr-title">Wireless Controller (Third-Party)</h3>
+            <p class="rr-desc">Reliable wireless option (not official).</p>
+          </div>
+          <div class="rr-foot">
+            <p class="rr-price">£19.99</p>
+            <div class="rr-paypal"><div id="paypal-container-X3D4GQWRMGZN4"></div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </details>
+
+  <!-- UPGRADES (closed) -->
+  <details class="rr-accordion">
+    <summary>
+      <div class="rr-acc-left">
+        <p class="rr-acc-title">
+          <span class="rr-pill" style="background:linear-gradient(135deg,#334155,#0f172a);">🛠️ Upgrades</span>
+          HDD Mods, Video Upgrades &amp; Servicing
+        </p>
+        <p class="rr-acc-sub">Checkout per item — single purchase buttons.</p>
+      </div>
+      <div class="rr-acc-icon" aria-hidden="true">+</div>
+    </summary>
+
+    <div class="rr-acc-body">
+      <div class="rr-grid">
+        <article class="rr-cardBase">
+          <div class="rr-body">
+            <p class="rr-kicker">Boot &amp; Tools</p>
+            <h3 class="rr-title">FMCB Memory Card (Pre-configured)</h3>
+            <p class="rr-desc">Pre-configured for OPL and essential utilities.</p>
+          </div>
+          <div class="rr-foot">
+            <p class="rr-price">£19.99</p>
+            <div class="rr-paypal"><div id="paypal-container-ARVYRKFQ3JW7U"></div></div>
+          </div>
+        </article>
+
+        <article class="rr-cardBase">
+          <div class="rr-body">
+            <p class="rr-kicker">Required</p>
+            <h3 class="rr-title">Network Adapter (PS2 Fat)</h3>
+            <p class="rr-desc">Required for internal HDD loading on PS2 Fat models.</p>
+          </div>
+          <div class="rr-foot">
+            <p class="rr-price">£39.99</p>
+            <div class="rr-paypal"><div id="paypal-container-3NAWLTNHHMFGE"></div></div>
+          </div>
+        </article>
+
+        <article class="rr-cardBase">
+          <div class="rr-body">
+            <p class="rr-kicker">Storage</p>
+            <h3 class="rr-title">500GB HDD (OPL-ready)</h3>
+            <p class="rr-desc">Prepared drive for PS2 use (OPL-ready structure).</p>
+          </div>
+          <div class="rr-foot">
+            <p class="rr-price">£69.99</p>
+            <div class="rr-paypal"><div id="paypal-container-9MRPKXUYHR8QC"></div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </details>
+
+  <footer style="margin:1.6rem 0 0;padding:.9rem 0;color:#64748b;border-top:1px solid #e2e8f0;">
+    <small>© <span id="year"></span> RetroReplay UK</small>
+  </footer>
+
+</div>
+
+<!-- MASTER FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+
+      <div class="footer-section">
+        <h3>Retro Replay</h3>
+        <p>Professionally tested and cleaned gaming consoles with optional refurbishment and upgrade services for PlayStation, Xbox, Nintendo, Atari &amp; Sega systems.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Shop</h3>
+        <ul class="footer-links">
+          <li><a href="/playstation/index.html">PlayStation</a></li>
+          <li><a href="/xbox/index.html">Xbox</a></li>
+          <li><a href="/nintendo/index.html">Nintendo</a></li>
+          <li><a href="/atari/index.html">Atari</a></li>
+          <li><a href="/sega/index.html">Sega</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul class="footer-links">
+          <li><a href="/guides.html">Setup Guides</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/warranties.html">Warranty Info</a></li>
+          <li><a href="/delivery.html">Delivery</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul class="footer-links">
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/how-we-refurbish.html">Our Process</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/terms.html">Terms &amp; Policies</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year-footer"></span> Retro Replay. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/cart.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Year
+    const y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
+    const yf = document.getElementById("year-footer");
+    if (yf) yf.textContent = new Date().getFullYear();
+
+    // Cart init (safe)
+    if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
+      window.RetroCart.loadCart();
+    }
+
+    // ===== Mobile nav: offset + backdrop + lock + close =====
+    const navBtn = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("primaryNav");
+    const backdrop = document.getElementById("rrNavBackdrop");
+    const header = document.querySelector(".site-header");
+
+    function setHeaderOffset(){
+      if (!header) return;
+      const h = header.getBoundingClientRect().height;
+      document.documentElement.style.setProperty("--rr-header-offset", `${Math.round(h)}px`);
+    }
+    function openNav(){
+      if (!navBtn || !nav) return;
+      nav.classList.add("is-open");
+      backdrop && backdrop.classList.add("is-open");
+      document.body.classList.add("rr-nav-lock");
+      navBtn.setAttribute("aria-expanded", "true");
+    }
+    function closeNav(){
+      if (!navBtn || !nav) return;
+      nav.classList.remove("is-open");
+      backdrop && backdrop.classList.remove("is-open");
+      document.body.classList.remove("rr-nav-lock");
+      navBtn.setAttribute("aria-expanded", "false");
+    }
+    function toggleNav(){
+      if (!nav) return;
+      nav.classList.contains("is-open") ? closeNav() : openNav();
+    }
+
+    setHeaderOffset();
+    window.addEventListener("resize", setHeaderOffset);
+
+    if (navBtn && nav){
+      navBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        toggleNav();
+      });
+      nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => closeNav()));
+    }
+    if (backdrop) backdrop.addEventListener("click", () => closeNav());
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeNav(); });
+  });
+
+  // ===== PayPal renders (YOUR container ids) =====
+  window.addEventListener("load", () => {
+    if (!window.paypal || !paypal.HostedButtons) {
+      console.warn("PayPal Hosted Buttons SDK not loaded.");
+      return;
+    }
+
+    const render = (id) => {
+      const sel = "#paypal-container-" + id;
+      const el = document.querySelector(sel);
+      if (!el) return;
+      paypal.HostedButtons({ hostedButtonId: id }).render(sel);
+    };
+
+    [
+      "5ZBSDBUWLJ3B4",
+      "3HDEMFMFNMF84",
+      "ZB2G3CN5Z6WRS",
+      "KZTTHJVUHAFZC",
+      "FB8WMNP7L9P8Q",
+      "D98EQNG5DDRTW",
+      "FBYSXR7KJWMMN",
+      "FWM8PZDAECU64",
+      "AEEP26CFY5ZQE",
+      "JCFV9FGY3MHT2",
+      "X3D4GQWRMGZN4",
+      "ARVYRKFQ3JW7U",
+      "3NAWLTNHHMFGE",
+      "9MRPKXUYHR8QC"
+    ].forEach(render);
+  });
+</script>
+
+</body>
+</html>

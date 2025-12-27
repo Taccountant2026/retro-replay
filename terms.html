@@ -1,13 +1,15 @@
 <!-- =========================
-  RetroReplay UK — terms.html (FULL BUILD FIXED / MASTER MATCH)
-  Fixes applied:
-  - Adds canonical + OG tags + theme-color
-  - Analytics anonymize_ip enabled
-  - Header/nav/footer matches MASTER pattern (nav-toggle inside header-actions)
-  - Root links normalised to "/"
-  - Adds cookie banner (site-wide compatible)
-  - Safe cart init + mobile nav toggle + close after tap
-  - Footer year auto-updates
+  RetroReplay UK — terms.html (FULL BUILD / 110% TIGHT)
+  Upgrades applied:
+  - Adds plain-English “Summary” box at top
+  - Adds Definitions section (prevents disputes)
+  - Adds UK Consumer Rights references (CRA 2015 + CCR 2013) without overpromising
+  - Adds clearer timelines (14-day cancel window for non-custom goods)
+  - Adds exclusions for customised / built-to-order / configured items (where permitted)
+  - Adds fault process + return condition + evidence wording
+  - Clarifies “tested & cleaned” vs “refurbishment” (optional only)
+  - Cookie banner now actually gates analytics storage (Consent Mode) + remembers choice
+  - Keeps your MASTER header/nav/footer and your styling
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -29,12 +31,22 @@
   <meta property="og:image" content="/assets/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) — Consent Mode v2 (analytics gated by cookie choice) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PF6Q3TSMVL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
+    // Default: deny until user accepts (your cookie banner controls this)
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted'
+    });
+
+    // Configure GA4 (keeps anonymize_ip; will only store analytics if consent granted)
     gtag('config', 'G-PF6Q3TSMVL', { anonymize_ip: true });
   </script>
 
@@ -43,7 +55,7 @@
     :focus-visible{ outline:3px solid rgba(0,102,255,.35); outline-offset:2px; border-radius:.5rem; }
 
     .legal-wrap { max-width: 980px; }
-    .legal-meta { color: var(--gray, #64748b); margin: .25rem 0 2rem; }
+    .legal-meta { color: var(--gray, #64748b); margin: .25rem 0 1.25rem; }
     .legal-card {
       background: #ffffff;
       border: 1px solid rgba(226,232,240,.95);
@@ -52,9 +64,11 @@
     }
     .legal-card h1 { margin: 0 0 .5rem; }
     .legal-card h2 { margin: 2rem 0 .5rem; }
+    .legal-card h3 { margin: 1.25rem 0 .5rem; }
     .legal-card p { margin: .5rem 0 0; }
     .legal-card ul { margin: .75rem 0 0; padding-left: 1.25rem; }
     .legal-card li { margin: .35rem 0; }
+
     .legal-note {
       margin-top: 1.25rem;
       padding: 1rem 1.25rem;
@@ -64,7 +78,23 @@
       color: #0f172a;
       font-size: .95rem;
     }
-    .legal-note a { color: var(--primary, #2563eb); font-weight: 700; }
+    .legal-note a { color: var(--primary, #2563eb); font-weight: 800; }
+
+    .legal-summary {
+      margin: 1rem 0 0;
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      border: 1px solid rgba(2,132,199,0.25);
+      background: linear-gradient(135deg, rgba(14,165,233,0.08), rgba(37,99,235,0.06));
+      color: #0f172a;
+      font-size: .95rem;
+    }
+    .legal-summary strong{font-weight:900;}
+    .legal-summary ul{margin:.65rem 0 0;padding-left:1.1rem;}
+    .legal-summary li{margin:.3rem 0;}
+
+    .legal-hr{height:1px;background:rgba(226,232,240,.95);border:0;margin:1.5rem 0;}
+    code.inline{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
   </style>
 </head>
 
@@ -155,120 +185,184 @@
   <div class="container legal-wrap">
     <div class="legal-card" style="line-height:1.75;">
 
-      <p class="legal-meta"><strong>Last updated:</strong> January 2025</p>
+      <p class="legal-meta"><strong>Last updated:</strong> December 2025</p>
 
       <div class="legal-note">
         For warranty details, see <a href="/warranties.html">Warranty</a>. For delivery times &amp; shipping info, see <a href="/delivery.html">Delivery</a>.
       </div>
 
+      <div class="legal-summary" aria-label="Plain-English summary">
+        <strong>Plain-English summary (not a replacement for the full terms):</strong>
+        <ul>
+          <li><strong>Most items are pre-owned</strong> and will show normal age-related wear, but are <strong>tested and cleaned</strong> before dispatch.</li>
+          <li><strong>Refurbishment is optional</strong> and only applies when explicitly purchased.</li>
+          <li><strong>Non-custom orders</strong>: you can cancel within <strong>14 days of delivery</strong> under the Consumer Contracts Regulations (where applicable).</li>
+          <li><strong>Custom / built-to-order / configured</strong> items may have reduced cancellation rights (where permitted by law).</li>
+          <li>If something is <strong>faulty or misdescribed</strong>, you have statutory rights under the Consumer Rights Act 2015.</li>
+        </ul>
+      </div>
+
+      <hr class="legal-hr" />
+
       <h2>1. Introduction</h2>
       <p>
-        These Terms &amp; Policies govern purchases, services, and use of the Retro Replay website.
-        By ordering, requesting sourcing, or using this site, you agree to these terms.
+        These Terms &amp; Policies govern purchases, services, sourcing requests, and use of the Retro Replay website.
+        By ordering, requesting sourcing, booking a service, or using this site, you agree to these terms.
+      </p>
+      <p>
+        Nothing in these terms limits your statutory consumer rights under UK law, including the
+        <strong>Consumer Rights Act 2015</strong> and (where applicable) the <strong>Consumer Contracts Regulations 2013</strong>.
       </p>
 
-      <h2>2. Products &amp; Condition</h2>
-      <p>
-        Retro Replay specialises in professionally tested, cleaned, and prepared retro gaming consoles and accessories.
-        Unless explicitly stated, all items are pre-owned.
-      </p>
+      <h2>2. Definitions</h2>
       <ul>
-        <li>Each console is function-tested prior to dispatch.</li>
-        <li>Cosmetic condition is graded transparently (A / B / C) where applicable.</li>
-        <li>Minor wear consistent with age should be expected on pre-owned items.</li>
-        <li>Images may be representative; exact cosmetic marks can vary between units.</li>
+        <li><strong>Standard preparation</strong>: functional testing and basic cleaning to ensure the item operates as described.</li>
+        <li><strong>Refurbishment</strong>: deeper internal servicing/restoration beyond standard preparation, only where explicitly purchased.</li>
+        <li><strong>Upgrade/modification</strong>: optional changes such as storage upgrades, configuration, video accessories, or cosmetic enhancements.</li>
+        <li><strong>Built-to-order / Custom</strong>: items assembled, configured, upgraded, or sourced specifically to your request.</li>
+        <li><strong>Arrival guarantee</strong>: confirmation your item arrives working as described (see Warranty page for full coverage).</li>
       </ul>
 
-      <h2>3. Refurbishment &amp; Upgrade Services</h2>
+      <h2>3. Products &amp; Condition</h2>
       <p>
-        Optional refurbishment, upgrades, and modification services may be available and are described at the point of purchase.
+        Retro Replay specialises in professionally tested, cleaned, and prepared retro gaming consoles and accessories.
+        Unless explicitly stated as <strong>new</strong>, items are <strong>pre-owned</strong>.
       </p>
       <ul>
-        <li>Premium refurbishment involves deeper internal servicing, cleaning, and restoration processes.</li>
-        <li>Upgrades may include storage upgrades, software setup, video accessories, or cosmetic enhancements.</li>
-        <li>Once a refurbishment/upgrade service has been completed, it may be non-reversible.</li>
+        <li>Each console is function-tested prior to dispatch (power, output, ports, basic operation).</li>
+        <li>Cosmetic condition may be graded (A / B / C) where stated.</li>
+        <li>Minor wear consistent with age should be expected on pre-owned items.</li>
+        <li>Images may be representative; exact cosmetic marks can vary between units.</li>
+        <li>If you require specific cosmetic requirements, request a sourcing/custom build before purchase.</li>
+      </ul>
+
+      <h2>4. Preparation, Refurbishment &amp; Upgrade Services</h2>
+      <p>
+        Some products include standard preparation by default. Optional refurbishment and upgrades may be available and will be
+        described at the point of purchase or confirmed in writing.
+      </p>
+      <ul>
+        <li><strong>Standard preparation</strong> includes functional testing and cleaning.</li>
+        <li><strong>Refurbishment</strong> (where purchased) may include deeper internal servicing, cleaning, and restoration steps.</li>
+        <li><strong>Upgrades</strong> may include storage upgrades, configuration, video accessories, or cosmetic enhancements.</li>
+        <li>Once refurbishment/upgrades are completed, services may be non-reversible.</li>
         <li>Service pricing reflects labour, parts, testing time, and preparation.</li>
       </ul>
 
-      <h2>4. Software, Modifications &amp; Homebrew</h2>
+      <h2>5. Software, Modifications &amp; Homebrew</h2>
       <p>
-        Some products/services may include configuration for homebrew or user-supplied backups. Retro Replay does not provide,
-        supply, or endorse copyrighted game files.
+        Some products/services may include configuration that supports homebrew or user-supplied backups.
+        Retro Replay does not provide, supply, or endorse copyrighted game files.
       </p>
       <ul>
         <li>Customers are responsible for ensuring legal use in their jurisdiction.</li>
         <li>No copyrighted content is included unless explicitly stated.</li>
-        <li>Support is limited to supplied hardware/functionality, not third-party software behaviour outside our control.</li>
+        <li>Support is limited to supplied hardware/functionality and the supplied configuration at dispatch.</li>
+        <li>We are not responsible for third-party software behaviour, customer-added content, or updates outside our control.</li>
       </ul>
 
-      <h2>5. Sourcing Requests</h2>
-      <p>
-        Our sourcing service helps locate specific console revisions, cosmetic grades, or bundles.
-      </p>
+      <h2>6. Sourcing Requests</h2>
+      <p>Our sourcing service helps locate specific console revisions, cosmetic grades, or bundles.</p>
       <ul>
         <li>Sourcing is subject to market availability.</li>
         <li>Quoted prices may change if market conditions change before confirmation.</li>
         <li>Where applicable, sourcing fees cover time and procurement effort.</li>
-        <li>Custom-sourced items may have limited return eligibility where permitted by law (e.g., where customised to your request).</li>
+        <li>Custom-sourced items may have limited cancellation/return rights where permitted by law.</li>
       </ul>
 
-      <h2>6. Pricing &amp; Payment</h2>
+      <h2>7. Pricing &amp; Payment</h2>
       <p>All prices are shown in GBP unless stated otherwise.</p>
       <ul>
-        <li>Prices include applicable preparation and testing costs.</li>
+        <li>Prices include applicable preparation and testing costs stated in the listing.</li>
         <li>Shipping costs (if any) are shown separately.</li>
-        <li>Payment must be received in full before dispatch.</li>
+        <li>Payment must be received in full before dispatch or build commencement.</li>
       </ul>
 
-      <h2>7. Shipping &amp; Delivery</h2>
-      <p>We ship using tracked and insured delivery services wherever possible.</p>
+      <h2>8. Shipping &amp; Delivery</h2>
+      <p>We ship using tracked delivery services wherever possible.</p>
       <ul>
         <li>Dispatch and delivery times are estimates, not guarantees.</li>
         <li>Customers must provide accurate delivery information.</li>
         <li>Risk transfers upon confirmed delivery, subject to applicable consumer protections.</li>
+        <li>If a parcel is marked delivered but not received, we will support you with the courier claim process and required evidence.</li>
       </ul>
 
-      <h2>8. Warranty &amp; Guarantees</h2>
+      <h2>9. Warranty, Arrival Guarantee &amp; Support</h2>
       <p>
-        All consoles include an arrival guarantee confirming the item arrives in working condition.
+        All consoles include an arrival guarantee confirming the item arrives in working condition as described.
         Extended warranty options may be available separately.
       </p>
       <ul>
-        <li>Warranty covers functional hardware faults only.</li>
-        <li>Warranty does not cover accidental damage, misuse, liquid damage, or unauthorised modifications/repairs.</li>
+        <li>Warranty covers functional hardware faults under normal use.</li>
+        <li>Warranty does not cover accidental damage, misuse, liquid damage, power surge damage, or unauthorised modifications/repairs.</li>
         <li>Cosmetic wear is not covered.</li>
+        <li>Support is provided for the supplied hardware and configuration at dispatch.</li>
       </ul>
 
-      <h2>9. Returns &amp; Cancellations</h2>
-      <p>Returns are handled in line with UK consumer regulations where applicable.</p>
+      <h2>10. Returns, Cancellations &amp; Refunds</h2>
+
+      <h3>10.1 Non-custom orders (standard items)</h3>
+      <p>
+        Where the Consumer Contracts Regulations apply, you may cancel a standard (non-custom) order within
+        <strong>14 days of delivery</strong>.
+      </p>
       <ul>
-        <li>Customised or upgraded items may be exempt from standard returns where permitted by law.</li>
-        <li>Returned items must be in the same condition as supplied, with included accessories.</li>
+        <li>To cancel, contact us within the 14-day period using the <a href="/contact.html">Contact page</a>.</li>
+        <li>After cancellation is approved, items must be returned within <strong>14 days</strong>.</li>
+        <li>Items must be returned in the same condition supplied, with all included accessories and documentation.</li>
+        <li>You are responsible for return postage unless the item is faulty or misdescribed.</li>
+      </ul>
+
+      <h3>10.2 Custom / built-to-order / configured / upgraded items</h3>
+      <p>
+        Items that are built-to-order, customised, upgraded, or configured to your request may have reduced cancellation/return
+        rights where permitted by law (for example, where an item is clearly personalised or a service has been performed).
+      </p>
+      <ul>
+        <li>Examples include: storage upgrades, configuration/setup services, custom sourcing to your specification, or refurbishment services.</li>
+        <li>If you are unsure whether your order is “custom”, contact us before purchase and we will confirm in writing.</li>
+      </ul>
+
+      <h3>10.3 Faulty or misdescribed items</h3>
+      <p>
+        If an item is faulty or misdescribed, your statutory rights apply. We will work with you to resolve issues quickly and fairly.
+      </p>
+      <ul>
+        <li>Contact us as soon as possible with your order number and a clear description of the issue.</li>
+        <li>We may request photos/video to diagnose and to support courier claims or warranty assessment.</li>
+        <li>Do not attempt repairs or modifications before contacting us, as this can affect warranty coverage.</li>
+      </ul>
+
+      <h3>10.4 Refund processing</h3>
+      <ul>
+        <li>Refunds (where due) are issued to the original payment method after return inspection or fault confirmation.</li>
         <li>Shipping costs may be non-refundable unless the item is faulty or misdescribed.</li>
       </ul>
 
-      <h2>10. Limitation of Liability</h2>
+      <h2>11. Limitation of Liability</h2>
       <p>
-        Retro Replay shall not be liable for indirect or consequential losses (e.g., loss of data, loss of enjoyment,
+        Retro Replay shall not be liable for indirect or consequential losses (e.g., loss of data, loss of enjoyment, business loss,
         or third-party software issues) except where liability cannot be excluded by law.
       </p>
 
-      <h2>11. Intellectual Property</h2>
+      <h2>12. Intellectual Property</h2>
       <p>
-        Site content, branding, documentation, and materials are the property of Retro Replay and may not be reused without permission.
+        Site content, branding, documentation, images, and materials are the property of Retro Replay and may not be reused,
+        copied, or redistributed without written permission.
       </p>
 
-      <h2>12. Privacy</h2>
+      <h2>13. Privacy</h2>
       <p>
         Customer data is handled in accordance with UK data protection laws. We do not sell personal information.
+        We only share information where required to process payments and deliver orders.
       </p>
 
-      <h2>13. Changes to These Terms</h2>
+      <h2>14. Changes to These Terms</h2>
       <p>
         Retro Replay may update these terms from time to time. Continued use of the site constitutes acceptance of updated terms.
       </p>
 
-      <h2>14. Contact</h2>
+      <h2>15. Contact</h2>
       <p>
         For questions regarding these terms, contact us via the <a href="/contact.html">Contact page</a>.
       </p>
@@ -373,7 +467,7 @@
       });
     }
 
-    // Cookie banner (store choice only)
+    // Cookie banner + GA consent mode
     const COOKIE_KEY = "rr_cookie_consent"; // accepted | rejected
     const banner = document.getElementById("rrCookie");
     const accept = document.getElementById("rrCookieAccept");
@@ -383,15 +477,42 @@
     function show(){ banner && banner.classList.remove("is-hidden"); }
     function hide(){ banner && banner.classList.add("is-hidden"); }
 
-    if (!saved) show(); else hide();
+    function applyConsent(state){
+      // state: 'accepted' | 'rejected'
+      if (state === "accepted") {
+        gtag('consent', 'update', {
+          ad_storage: 'denied',
+          analytics_storage: 'granted',
+          functionality_storage: 'granted',
+          security_storage: 'granted'
+        });
+      } else {
+        gtag('consent', 'update', {
+          ad_storage: 'denied',
+          analytics_storage: 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted'
+        });
+      }
+    }
+
+    if (!saved) {
+      show();
+      // keep default denied until user chooses
+    } else {
+      hide();
+      applyConsent(saved);
+    }
 
     accept && accept.addEventListener("click", () => {
       localStorage.setItem(COOKIE_KEY, "accepted");
+      applyConsent("accepted");
       hide();
     });
 
     reject && reject.addEventListener("click", () => {
       localStorage.setItem(COOKIE_KEY, "rejected");
+      applyConsent("rejected");
       hide();
     });
   });

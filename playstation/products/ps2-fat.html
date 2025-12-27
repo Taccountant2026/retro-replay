@@ -1,337 +1,140 @@
-<!-- =========================
-  PS2 Fat Models — ADD DROPDOWN SECTIONS (DETAILS/ACCORDION)
-  Goal: keep page contained by collapsing product groups.
-  - Uses native <details>/<summary> (no dependencies)
-  - Default open: Featured + Standard (editable)
-  - PayPal renders still work (buttons render fine inside collapsed sections)
-========================== -->
+<!-- FIX: Mobile menu overlay so it doesn’t “block” page + auto-close + scroll lock
+     Add this to your PAGE-ONLY <style> (or global style.css if you want site-wide) -->
 
-<!-- Add this CSS into your existing <style> block (page-only) -->
 <style>
-  /* Collapsible sections */
-  .rr-accordion{
-    margin-top: 1rem;
-    border: 1px solid var(--rr-border);
-    border-radius: var(--rr-radius);
+/* ===== Mobile Nav: overlay drawer (non-blocking, scroll-safe) ===== */
+@media (max-width: 900px){
+  /* Ensure header/nav sits above content but doesn't permanently cover it */
+  .site-header{ position: sticky; top: 0; z-index: 1200; }
+
+  /* Turn main nav into a slide-down drawer */
+  .main-nav{
+    display: block;                 /* keep nav in DOM */
+    position: fixed;
+    left: 0; right: 0;
+    top: var(--rr-header-offset, 64px);  /* JS sets this to actual header height */
+    max-height: calc(100vh - var(--rr-header-offset, 64px));
+    overflow: auto;
+    background: #ffffff;
+    border-top: 1px solid rgba(226,232,240,.95);
+    box-shadow: 0 18px 40px rgba(15,23,42,.18);
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+  }
+
+  /* Open state (your JS already toggles .is-open on #primaryNav) */
+  .main-nav.is-open{
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Make the list vertical and tappable */
+  .main-nav .nav-list{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .25rem;
+    padding: .75rem;
+    margin: 0;
+  }
+  .main-nav .nav-list a{
+    display: flex;
+    padding: .85rem .9rem;
+    border-radius: .75rem;
+    border: 1px solid rgba(226,232,240,.9);
     background: #fff;
-    overflow: hidden;
-  }
-  .rr-accordion + .rr-accordion{ margin-top: .9rem; }
-
-  .rr-accordion summary{
-    list-style: none;
-    cursor: pointer;
-    padding: .95rem 1rem;
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    gap: 1rem;
-    user-select:none;
-    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-  }
-  .rr-accordion summary::-webkit-details-marker{ display:none; }
-
-  .rr-acc-left{
-    display:flex;
-    flex-direction:column;
-    gap:.2rem;
-  }
-  .rr-acc-title{
-    margin:0;
-    font-weight: 900;
-    color: var(--rr-ink);
-    font-size: 1.05rem;
-    line-height: 1.2;
-    display:flex;
-    align-items:center;
-    gap:.55rem;
-  }
-  .rr-acc-sub{
-    margin:0;
-    color:#475569;
-    font-size:.92rem;
-    line-height:1.35;
-  }
-  .rr-acc-icon{
-    flex:0 0 auto;
-    width: 34px;
-    height: 34px;
-    border-radius: 999px;
-    border: 1px solid var(--rr-border);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color: var(--rr-ink);
-    background:#fff;
-    transition: transform .15s ease;
-  }
-  details[open] .rr-acc-icon{ transform: rotate(45deg); } /* + becomes x */
-
-  .rr-acc-body{
-    border-top: 1px solid var(--rr-border);
-    padding: .9rem 1rem 1.05rem;
-    background:#fff;
   }
 
-  /* Reduce top margins inside accordion */
-  .rr-acc-body .rr-category-head{ margin-top: 0; }
+  /* Backdrop so user can tap outside to close */
+  .rr-nav-backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(15,23,42,.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .18s ease;
+    z-index: 1100; /* below header (1200), above page */
+  }
+  .rr-nav-backdrop.is-open{
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-  /* Optional: make carousel not too tall inside accordion */
-  .rr-acc-body .product-carousel{ margin-top: .6rem; }
+  /* Prevent body scroll when menu open */
+  body.rr-nav-lock{ overflow: hidden; }
+}
+
+/* Optional: stop any layout jump if your header is taller */
+.page-offset{
+  padding-top: 0; /* keep default unless you want extra spacing */
+}
 </style>
 
-<!-- =========================
-  Replace your existing product sections with these collapsible blocks.
-  (Keep your HERO as-is above these.)
-========================== -->
+<!-- Add this backdrop DIV once, just before closing </body> -->
+<div class="rr-nav-backdrop" id="rrNavBackdrop" aria-hidden="true"></div>
 
-<!-- FEATURED (open by default) -->
-<details class="rr-accordion" open>
-  <summary>
-    <div class="rr-acc-left">
-      <p class="rr-acc-title"><span class="rr-pill" style="background:linear-gradient(135deg,#f97316,#ea580c);">🔥 Featured</span> PS2 Fat 1TB Plug &amp; Play Bundle</p>
-      <p class="rr-acc-sub">Best value bundle — console + 1TB HDD setup + controller choice.</p>
-    </div>
-    <div class="rr-acc-icon" aria-hidden="true">+</div>
-  </summary>
-  <div class="rr-acc-body">
-    <!-- (keep your Featured card exactly as you already have it) -->
-    <div class="rr-grid">
-      <article class="rr-cardBase">
-        <div class="rr-imgWrap">
-          <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 1TB Plug &amp; Play Bundle">
-        </div>
-        <div class="rr-body">
-          <p class="rr-kicker">Order Summary</p>
-          <h3 class="rr-title">PS2 Fat 1TB Plug &amp; Play Bundle</h3>
-          <p class="rr-desc">
-            • PS2 console (fully tested &amp; cleaned)<br>
-            • 1TB HDD upgrade + plug-and-play setup<br>
-            • Controller included: original wired OR wireless third-party
-          </p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£193.00</p>
-          <div class="rr-paypal"><div id="paypal-container-3HDEMFMFNMF84"></div></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</details>
+<script>
+/* ===== Mobile nav behaviour (drop-in, safe) ===== */
+document.addEventListener("DOMContentLoaded", () => {
+  const navBtn = document.querySelector(".nav-toggle");
+  const nav = document.getElementById("primaryNav");
+  const backdrop = document.getElementById("rrNavBackdrop");
+  const header = document.querySelector(".site-header");
 
-<!-- STANDARD (open by default) -->
-<details class="rr-accordion" open>
-  <summary>
-    <div class="rr-acc-left">
-      <p class="rr-acc-title"><span class="rr-pill" style="background:linear-gradient(135deg,#0f172a,#1e293b);">✅ Standard</span> Standard Tested PS2 Fat</p>
-      <p class="rr-acc-sub">Individually tested and cleaned — ready to play.</p>
-    </div>
-    <div class="rr-acc-icon" aria-hidden="true">+</div>
-  </summary>
-  <div class="rr-acc-body">
-    <div class="product-carousel">
-      <!-- Standard 1 -->
-      <article class="rr-cardBase rr-slide">
-        <div class="rr-imgWrap">
-          <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 (Black) A-Grade">
-        </div>
-        <div class="rr-body">
-          <p class="rr-kicker">UK PAL • A-Grade</p>
-          <h3 class="rr-title">PS2 Fat 50003 (Black)</h3>
-          <p class="rr-desc">Tested and cleaned. Ready to play.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£114.99</p>
-          <div class="rr-paypal"><div id="paypal-container-ZB2G3CN5Z6WRS"></div></div>
-        </div>
-      </article>
+  function setHeaderOffset(){
+    if (!header) return;
+    const h = header.getBoundingClientRect().height;
+    document.documentElement.style.setProperty("--rr-header-offset", `${Math.round(h)}px`);
+  }
 
-      <!-- Standard 2 -->
-      <article class="rr-cardBase rr-slide">
-        <div class="rr-imgWrap">
-          <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 50003 (Silver) B-Grade">
-        </div>
-        <div class="rr-body">
-          <p class="rr-kicker">UK PAL • B-Grade</p>
-          <h3 class="rr-title">PS2 Fat 50003 (Silver)</h3>
-          <p class="rr-desc">Tested and cleaned. Minor cosmetic marks may be present.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£114.99</p>
-          <div class="rr-paypal"><div id="paypal-container-KZTTHJVUHAFZC"></div></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</details>
+  function openNav(){
+    if (!navBtn || !nav) return;
+    nav.classList.add("is-open");
+    backdrop && backdrop.classList.add("is-open");
+    document.body.classList.add("rr-nav-lock");
+    navBtn.setAttribute("aria-expanded", "true");
+  }
 
-<!-- MODDED BUNDLES (collapsed by default) -->
-<details class="rr-accordion">
-  <summary>
-    <div class="rr-acc-left">
-      <p class="rr-acc-title"><span class="rr-pill" style="background:linear-gradient(135deg,#22c55e,#16a34a);">⚙️ Modded</span> OPL / HDD Ready Bundles</p>
-      <p class="rr-acc-sub">Built for PS2 Fat models — includes required HDD hardware.</p>
-    </div>
-    <div class="rr-acc-icon" aria-hidden="true">+</div>
-  </summary>
-  <div class="rr-acc-body">
-    <div class="rr-grid">
-      <article class="rr-cardBase">
-        <div class="rr-imgWrap">
-          <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (500GB)">
-        </div>
-        <div class="rr-body">
-          <p class="rr-kicker">Starter</p>
-          <h3 class="rr-title">PS2 Fat OPL Ready Bundle (500GB)</h3>
-          <p class="rr-desc">Console + FMCB + network adapter + prepared 500GB drive.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£189.99</p>
-          <div class="rr-paypal"><div id="paypal-container-FB8WMNP7L9P8Q"></div></div>
-        </div>
-      </article>
+  function closeNav(){
+    if (!navBtn || !nav) return;
+    nav.classList.remove("is-open");
+    backdrop && backdrop.classList.remove("is-open");
+    document.body.classList.remove("rr-nav-lock");
+    navBtn.setAttribute("aria-expanded", "false");
+  }
 
-      <article class="rr-cardBase">
-        <div class="rr-imgWrap">
-          <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (1TB)">
-        </div>
-        <div class="rr-body">
-          <p class="rr-kicker">Most Popular</p>
-          <h3 class="rr-title">PS2 Fat OPL Ready Bundle (1TB)</h3>
-          <p class="rr-desc">Console + FMCB + network adapter + prepared 1TB drive.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£239.99</p>
-          <div class="rr-paypal"><div id="paypal-container-D98EQNG5DDRTW"></div></div>
-        </div>
-      </article>
+  function toggleNav(){
+    if (!nav) return;
+    nav.classList.contains("is-open") ? closeNav() : openNav();
+  }
 
-      <article class="rr-cardBase">
-        <div class="rr-imgWrap">
-          <img class="rr-img" src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (2TB)">
-        </div>
-        <div class="rr-body">
-          <p class="rr-kicker">Maximum Storage</p>
-          <h3 class="rr-title">PS2 Fat OPL Ready Bundle (2TB)</h3>
-          <p class="rr-desc">Console + FMCB + network adapter + prepared 2TB drive.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£289.99</p>
-          <div class="rr-paypal"><div id="paypal-container-FBYSXR7KJWMMN"></div></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</details>
+  // Ensure offset matches actual header height (fixes “blocking page”)
+  setHeaderOffset();
+  window.addEventListener("resize", setHeaderOffset);
 
-<!-- ACCESSORIES (collapsed by default) -->
-<details class="rr-accordion">
-  <summary>
-    <div class="rr-acc-left">
-      <p class="rr-acc-title"><span class="rr-pill" style="background:linear-gradient(135deg,#06b6d4,#0ea5e9);">🕹️ Accessories</span> Controllers, Cables &amp; Extras</p>
-      <p class="rr-acc-sub">Checkout per item — single purchase buttons.</p>
-    </div>
-    <div class="rr-acc-icon" aria-hidden="true">+</div>
-  </summary>
-  <div class="rr-acc-body">
-    <div class="rr-grid">
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Official</p>
-          <h3 class="rr-title">DualShock 2 Controller (Tested)</h3>
-          <p class="rr-desc">Tested buttons, sticks and vibration.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£14.99</p>
-          <div class="rr-paypal"><div id="paypal-container-FWM8PZDAECU64"></div></div>
-        </div>
-      </article>
+  // Toggle button
+  if (navBtn && nav){
+    navBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      toggleNav();
+    });
 
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Video</p>
-          <h3 class="rr-title">Component Cable (YPbPr)</h3>
-          <p class="rr-desc">Best analogue quality. Supports 480p on compatible titles.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£14.99</p>
-          <div class="rr-paypal"><div id="paypal-container-AEEP26CFY5ZQE"></div></div>
-        </div>
-      </article>
+    // Close after tap on any nav link
+    nav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => closeNav());
+    });
+  }
 
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Modern TVs</p>
-          <h3 class="rr-title">HDMI Adapter (PS2)</h3>
-          <p class="rr-desc">Simple HDMI output for modern displays (adapter type may vary).</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£9.99</p>
-          <div class="rr-paypal"><div id="paypal-container-JCFV9FGY3MHT2"></div></div>
-        </div>
-      </article>
+  // Tap outside closes
+  if (backdrop){
+    backdrop.addEventListener("click", () => closeNav());
+  }
 
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Wireless</p>
-          <h3 class="rr-title">Wireless Controller (Third-Party)</h3>
-          <p class="rr-desc">Reliable wireless option (not official).</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£19.99</p>
-          <div class="rr-paypal"><div id="paypal-container-X3D4GQWRMGZN4"></div></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</details>
-
-<!-- UPGRADES (collapsed by default) -->
-<details class="rr-accordion">
-  <summary>
-    <div class="rr-acc-left">
-      <p class="rr-acc-title"><span class="rr-pill" style="background:linear-gradient(135deg,#334155,#0f172a);">🛠️ Upgrades</span> HDD Mods, Video Upgrades &amp; Servicing</p>
-      <p class="rr-acc-sub">Checkout per item — single purchase buttons.</p>
-    </div>
-    <div class="rr-acc-icon" aria-hidden="true">+</div>
-  </summary>
-  <div class="rr-acc-body">
-    <div class="rr-grid">
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Boot &amp; Tools</p>
-          <h3 class="rr-title">FMCB Memory Card (Pre-configured)</h3>
-          <p class="rr-desc">Pre-configured for OPL and essential utilities.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£19.99</p>
-          <div class="rr-paypal"><div id="paypal-container-ARVYRKFQ3JW7U"></div></div>
-        </div>
-      </article>
-
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Required</p>
-          <h3 class="rr-title">Network Adapter (PS2 Fat)</h3>
-          <p class="rr-desc">Required for internal HDD loading on PS2 Fat models.</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£39.99</p>
-          <div class="rr-paypal"><div id="paypal-container-3NAWLTNHHMFGE"></div></div>
-        </div>
-      </article>
-
-      <article class="rr-cardBase">
-        <div class="rr-body">
-          <p class="rr-kicker">Storage</p>
-          <h3 class="rr-title">500GB HDD (OPL-ready)</h3>
-          <p class="rr-desc">Prepared drive for PS2 use (OPL-ready structure).</p>
-        </div>
-        <div class="rr-foot">
-          <p class="rr-price">£69.99</p>
-          <div class="rr-paypal"><div id="paypal-container-9MRPKXUYHR8QC"></div></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</details>
+  // ESC closes
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeNav();
+  });
+});
+</script>

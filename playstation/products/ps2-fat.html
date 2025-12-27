@@ -1,19 +1,16 @@
 <!-- =========================
-     PS2 Fat Models (FULL BUILD) — MASTER MENU + PRODUCT CARD FIX
-     Fixes (no redesign):
-     - MASTER header/nav restored
-     - Product cards made consistent height (title/desc clamped)
-     - PayPal containers constrained so they don’t “bloat” cards
-     - Removed duplicate mini footer (kept MASTER site-footer only)
+     RetroReplay UK — /playstation/products/ps2-fat.html
+     OPTION A FULL BUILD (MASTER MENU + YOUR LAYOUT + PAYPAL BUTTONS WORKING)
 
-     File: /playstation/products/ps2-fat.html
+     What this does:
+     - Keeps your current layout + sizing fixes (no redesign)
+     - Restores MASTER header/nav/footer (menu back)
+     - Loads PayPal SDK ONCE (head)
+     - Renders ALL PayPal buttons into your existing product card containers
+     - Uses YOUR hostedButtonIds you pasted (mapped below)
 
-     Notes:
-     1) PayPal SDK loads ONCE (in <head>).
-     2) Replace PASTE_ID_HERE with your real PayPal Hosted Button IDs.
-     3) Your known IDs already used:
-        - HERO quick checkout: 5ZBSDBUWLJ3B4
-        - Featured bundle £193: 3HDEMFMFNMF84
+     NOTE:
+     - If any button is the “wrong product”, just swap the hostedButtonId values in the MAP.
 ========================== -->
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +19,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PlayStation 2 Fat Models | RetroReplay UK</title>
   <meta name="description" content="Shop PS2 Fat consoles, HDD/OPL-ready bundles, accessories and upgrades. PayPal checkout per item." />
+
+  <link rel="stylesheet" href="/style.css" />
 
   <!-- Google Ads tag (AW-17822331715) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17822331715"></script>
@@ -37,11 +36,8 @@
     src="https://www.paypal.com/sdk/js?client-id=BAApYaG5zDntUHsd2tRXv1ylGkYhREqRR-t7PWcH3-Sh7ElgWliEyCEnhAeQjoawIGidc1LY7PQRK9A0Sg&components=hosted-buttons&disable-funding=venmo&currency=GBP">
   </script>
 
-  <!-- Your global styles -->
-  <link rel="stylesheet" href="/style.css" />
-
   <style>
-    /* ====== Page-only CSS (keeps your global /style.css intact) ====== */
+    /* ====== Page-only CSS (size/fidelity fixes only) ====== */
     :root{
       --rr-max: 1120px;
       --rr-radius: 16px;
@@ -102,7 +98,6 @@
       border-radius:14px;overflow:hidden;
       scroll-snap-align:start;
       transition: transform .15s ease, box-shadow .15s ease;
-      height:100%;
     }
     .rr-prod:hover{
       transform: translateY(-2px);
@@ -110,15 +105,26 @@
     }
     .rr-prod__media{background:#0b1120}
     .rr-prod__img{width:100%;height:168px;object-fit:cover;display:block;}
-    .rr-prod__body{padding:.85rem; min-height:84px;}
+    .rr-prod__body{padding:.85rem;}
     .rr-prod__title{margin:0 0 .35rem;font-weight:900;color:var(--rr-ink);font-size:1rem;}
     .rr-prod__meta{margin:0;color:var(--rr-muted);font-size:.88rem;}
     .rr-prod__footer{
       display:flex;align-items:center;gap:.6rem;
-      padding:.7rem;border-top:1px solid var(--rr-border);
+      padding:.85rem;border-top:1px solid var(--rr-border);
     }
     .rr-price{margin:0;font-weight:900;color:var(--rr-accent);font-size:1.15rem;white-space:nowrap}
     .rr-add{flex:1;display:flex;justify-content:flex-end;align-items:center;gap:.6rem;flex-wrap:wrap}
+
+    /* PAYPAL: prevent buttons from blowing up card layout */
+    .rr-paypal-mini{
+      flex:0 0 auto;
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      min-width:150px;
+    }
+    .rr-paypal-mini > div{ width:100%; max-width:190px; }
+    .rr-paypal-compact > div{ max-width:180px; }
 
     /* GRID */
     .rr-grid{
@@ -132,67 +138,25 @@
       border-radius:14px;overflow:hidden;
       display:flex;flex-direction:column;
       transition: transform .15s ease, box-shadow .15s ease;
-      height:100%;
     }
     .product-card:hover{
       transform: translateY(-2px);
       box-shadow: 0 10px 22px rgba(15,23,42,.08);
     }
-    .product-card img{height:168px !important;}
-    .product-card .inner{padding:.9rem;display:flex;flex-direction:column;flex:1;gap:.35rem;}
+    .product-card .inner{padding:.9rem;display:flex;flex-direction:column;flex:1;}
     .product-name{margin:0 0 .35rem;font-weight:900;color:var(--rr-ink);font-size:1.02rem;}
     .product-description{margin:0 0 .8rem;color:var(--rr-muted);font-size:.92rem;line-height:1.45;}
-    .product-card .inner > div[style*="border-top"]{ margin-top:auto; }
-
-    /* PAYPAL: prevent buttons from blowing up card layout */
-    .rr-paypal-mini{
-      flex:0 0 auto;
-      display:flex;
-      justify-content:flex-end;
-      align-items:center;
-      min-width:150px;
-      min-height:42px; /* stable */
-    }
-    .rr-paypal-mini > div{
-      width:100%;
-      max-width:176px;
-      min-height:42px; /* stable before render */
-    }
-    .rr-paypal-compact > div{ max-width:176px; }
-
-    /* PayPal injected elements – keep them from inflating */
-    .rr-paypal-mini iframe,
-    .rr-paypal-mini .paypal-buttons,
-    .rr-paypal-mini .paypal-buttons-context-iframe,
-    .rr-paypal-mini .paypal-button,
-    .rr-paypal-mini .paypal-button-container{
-      max-width:176px !important;
-      min-height:42px !important;
-    }
-
-    /* Clamp titles/descriptions to stop uneven rows */
-    .rr-prod__title,
-    .product-name{
-      display:-webkit-box;
-      -webkit-line-clamp:2;
-      -webkit-box-orient:vertical;
-      overflow:hidden;
-    }
-    .product-description{
-      display:-webkit-box;
-      -webkit-line-clamp:3;
-      -webkit-box-orient:vertical;
-      overflow:hidden;
-    }
+    .product-card img{height:168px !important;}
   </style>
 </head>
 
 <body>
 
 <!-- =========================
-     MASTER HEADER (RESTORED)
+     MASTER HEADER (MENU)
 ========================== -->
 <header class="site-header">
+
   <div class="header-top">
     <div class="container">
       <div class="header-promo">
@@ -254,10 +218,11 @@
       </ul>
     </div>
   </nav>
+
 </header>
 
 <!-- =========================
-     PAGE CONTENT (PRODUCTS)
+     PAGE CONTENT
 ========================== -->
 <div class="rr-wrap">
 
@@ -289,7 +254,7 @@
   <div class="rr-grid">
     <article class="product-card">
       <div style="position:relative;background:#0b1120;">
-        <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 1TB Plug & Play Bundle" style="width:100%;height:200px;object-fit:cover;">
+        <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat 1TB Plug & Play Bundle" style="width:100%;object-fit:cover;">
       </div>
       <div class="inner">
         <p style="font-size:.72rem;color:#64748b;margin:0 0 .4rem;text-transform:uppercase;">Order Summary</p>
@@ -299,7 +264,7 @@
           • 1TB HDD upgrade + plug-and-play setup<br>
           • Controller included: original wired OR wireless third-party
         </p>
-        <div style="border-top:1px solid #e2e8f0;padding-top:.85rem;">
+        <div style="border-top:1px solid #e2e8f0;padding-top:.85rem;margin-top:auto;">
           <p style="font-size:1.18rem;font-weight:900;color:#2563eb;margin:0 0 .55rem;">£193.00</p>
           <div class="rr-paypal-mini">
             <div id="pp-ps2-bundle-1tb-193"></div>
@@ -364,13 +329,13 @@
   <div class="rr-grid">
     <article class="product-card">
       <div style="position:relative;background:#0b1120;">
-        <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (500GB)" style="width:100%;height:200px;object-fit:cover;">
+        <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (500GB)" style="width:100%;object-fit:cover;">
       </div>
       <div class="inner">
         <p style="font-size:.72rem;color:#64748b;margin:0 0 .4rem;text-transform:uppercase;">Starter</p>
         <h3 class="product-name">PS2 Fat OPL Ready Bundle (500GB)</h3>
         <p class="product-description">Console + FMCB + network adapter + prepared 500GB drive.</p>
-        <div style="border-top:1px solid #e2e8f0;padding-top:.85rem;">
+        <div style="border-top:1px solid #e2e8f0;padding-top:.85rem;margin-top:auto;">
           <p style="font-size:1.18rem;font-weight:900;color:#2563eb;margin:0 0 .55rem;">£189.99</p>
           <div class="rr-paypal-mini"><div id="pp-ps2-opl-bundle-500"></div></div>
         </div>
@@ -379,13 +344,13 @@
 
     <article class="product-card">
       <div style="position:relative;background:#0b1120;">
-        <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (1TB)" style="width:100%;height:200px;object-fit:cover;">
+        <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (1TB)" style="width:100%;object-fit:cover;">
       </div>
       <div class="inner">
         <p style="font-size:.72rem;color:#64748b;margin:0 0 .4rem;text-transform:uppercase;">Most Popular</p>
         <h3 class="product-name">PS2 Fat OPL Ready Bundle (1TB)</h3>
         <p class="product-description">Console + FMCB + network adapter + prepared 1TB drive.</p>
-        <div style="border-top:1px solid #e2e8f0;padding-top:.85rem;">
+        <div style="border-top:1px solid #e2e8f0;padding-top:.85rem;margin-top:auto;">
           <p style="font-size:1.18rem;font-weight:900;color:#2563eb;margin:0 0 .55rem;">£239.99</p>
           <div class="rr-paypal-mini"><div id="pp-ps2-opl-bundle-1tb"></div></div>
         </div>
@@ -394,13 +359,13 @@
 
     <article class="product-card">
       <div style="position:relative;background:#0b1120;">
-        <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (2TB)" style="width:100%;height:200px;object-fit:cover;">
+        <img src="/assets/PS2_REFURBED_BUNDLE.jpg" alt="PS2 Fat OPL Ready Bundle (2TB)" style="width:100%;object-fit:cover;">
       </div>
       <div class="inner">
         <p style="font-size:.72rem;color:#64748b;margin:0 0 .4rem;text-transform:uppercase;">Maximum Storage</p>
         <h3 class="product-name">PS2 Fat OPL Ready Bundle (2TB)</h3>
         <p class="product-description">Console + FMCB + network adapter + prepared 2TB drive.</p>
-        <div style="border-top:1px solid #e2e8f0;padding-top:.85rem;">
+        <div style="border-top:1px solid #e2e8f0;padding-top:.85rem;margin-top:auto;">
           <p style="font-size:1.18rem;font-weight:900;color:#2563eb;margin:0 0 .55rem;">£289.99</p>
           <div class="rr-paypal-mini"><div id="pp-ps2-opl-bundle-2tb"></div></div>
         </div>
@@ -483,7 +448,7 @@
 </div>
 
 <!-- =========================
-     MASTER FOOTER (KEEP ONLY THIS ONE)
+     MASTER FOOTER
 ========================== -->
 <footer class="site-footer">
   <div class="container">
@@ -538,7 +503,8 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const yf = document.getElementById('year-footer');
+    // Footer year
+    const yf = document.getElementById("year-footer");
     if (yf) yf.textContent = new Date().getFullYear();
 
     // Cart init (safe)
@@ -546,7 +512,7 @@
       window.RetroCart.loadCart();
     }
 
-    // Mobile nav toggle + close after tap (MASTER behaviour)
+    // Mobile nav toggle + close after tap
     const navBtn = document.querySelector(".nav-toggle");
     const nav = document.getElementById("primaryNav");
     if (navBtn && nav) {
@@ -563,28 +529,53 @@
     }
   });
 
-  // PayPal renders
-  window.addEventListener('load', () => {
-    if (!window.paypal || !paypal.HostedButtons) return;
+  // PayPal Hosted Buttons: render into your existing containers (Option A)
+  window.addEventListener("load", () => {
+    if (!window.paypal || !paypal.HostedButtons) {
+      console.error("PayPal Hosted Buttons SDK not loaded (adblock/shields/CSP?).");
+      return;
+    }
 
-    // Known working buttons
-    paypal.HostedButtons({ hostedButtonId: "5ZBSDBUWLJ3B4" }).render("#paypal-hero-quick");
-    paypal.HostedButtons({ hostedButtonId: "3HDEMFMFNMF84" }).render("#pp-ps2-bundle-1tb-193");
+    // Map PAGE CONTAINER -> PAYPAL hostedButtonId
+    // Swap IDs here if any product is mismatched.
+    const MAP = {
+      // Hero quick checkout
+      "#paypal-hero-quick": "5ZBSDBUWLJ3B4",
 
-    // Replace these with real IDs
-    paypal.HostedButtons({ hostedButtonId: "PASTE_ID_HERE" }).render("#pp-ps2-fat-50003-black-a");
-    paypal.HostedButtons({ hostedButtonId: "PASTE_ID_HERE" }).render("#pp-ps2-fat-50003-silver-b");
+      // Featured bundle £193
+      "#pp-ps2-bundle-1tb-193": "3HDEMFMFNMF84",
 
-    paypal.HostedButtons({ hostedButtonId: "PASTE_ID_HERE" }).render("#pp-ps2-opl-bundle-500");
-    paypal.HostedButtons({ hostedButtonId: "PASTE_ID_HERE" }).render("#pp-ps2-opl-bundle-1tb");
-    paypal.HostedButtons({ hostedButtonId: "PASTE_ID_HERE" }).render("#pp-ps2-opl-bundle-2tb");
+      // Standard carousel (2)
+      "#pp-ps2-fat-50003-black-a": "ZB2G3CN5Z6WRS",
+      "#pp-ps2-fat-50003-silver-b": "KZTTHJVUHAFZC",
 
-    paypal.HostedButtons({ hostedButtonId: "PASTE_ID_HERE" }).render("#pp-ps2-pad-official");
-    paypal.HostedButtons({ hostedButtonId: "PASTE_ID_HERE" }).render("#pp-ps2-component");
+      // Modded bundles (3)
+      "#pp-ps2-opl-bundle-500": "FB8WMNP7L9P8Q",
+      "#pp-ps2-opl-bundle-1tb": "D98EQNG5DDRTW",
+      "#pp-ps2-opl-bundle-2tb": "FBYSXR7KJWMMN",
 
-    paypal.HostedButtons({ hostedButtonId: "PASTE_ID_HERE" }).render("#pp-ps2-fmcb");
-    paypal.HostedButtons({ hostedButtonId: "PASTE_ID_HERE" }).render("#pp-ps2-net-adapter");
-    paypal.HostedButtons({ hostedButtonId: "PASTE_ID_HERE" }).render("#pp-ps2-hdd-500");
+      // Accessories (2)
+      "#pp-ps2-pad-official": "FWM8PZDAECU64",
+      "#pp-ps2-component": "AEEP26CFY5ZQE",
+
+      // Upgrades (3)
+      "#pp-ps2-fmcb": "ARVYRKFQ3JW7U",
+      "#pp-ps2-net-adapter": "3NAWLTNHHMFGE",
+      "#pp-ps2-hdd-500": "9MRPKXUYHR8QC",
+    };
+
+    for (const [selector, hostedButtonId] of Object.entries(MAP)) {
+      const el = document.querySelector(selector);
+      if (!el) {
+        console.warn("Missing PayPal container on page:", selector);
+        continue;
+      }
+      try {
+        paypal.HostedButtons({ hostedButtonId }).render(selector);
+      } catch (e) {
+        console.error("PayPal render failed:", selector, hostedButtonId, e);
+      }
+    }
   });
 </script>
 

@@ -1,12 +1,10 @@
 <!-- =========================
   PS2 Fat Models — FULL BUILD (ECOMMERCE DENSITY + BETTER CARDS + NO SIDE-SCROLL)
-  - Branding/colour unchanged (uses your existing palette + /style.css)
-  - Accordion sections kept
-  - Standard section uses grid (no horizontal carousel scroll)
-  - Card height tightened (no “big empty” look)
-  - PayPal buttons rendered using YOUR container IDs
-  - Mobile nav drawer/backdrop fix kept
-  File: /playstation/products/ps2-fat.html
+  FIX APPLIED:
+  ✅ Quick Checkout card is now “Featured Modded Bundle (1TB)” (main feature)
+  ✅ Uses hostedButtonId 3HDEMFMFNMF84 inside that hero card
+  ✅ Featured accordion remains (can be kept as secondary)
+  ✅ Also fixed a broken quote in: <p class="rr-acc-title"> (was missing closing ")
 ========================== -->
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +32,6 @@
   <link rel="stylesheet" href="/style.css" />
 
   <style>
-    /* ===== Page-only sizing (keeps global style.css intact) ===== */
     :root{
       --rr-max: 1120px;
       --rr-radius: 16px;
@@ -42,14 +39,13 @@
       --rr-muted: #64748b;
       --rr-ink: #0f172a;
       --rr-accent: #2563eb;
-      --rr-gap: .85rem;           /* tighter spacing */
-      --rr-header-offset: 64px;   /* JS updates */
+      --rr-gap: .85rem;
+      --rr-header-offset: 64px;
     }
 
     .rr-wrap{max-width:var(--rr-max);margin:0 auto;padding:.85rem;}
     @media (max-width: 640px){ .rr-wrap{padding:.75rem;} }
 
-    /* HERO */
     .rr-hero{
       background:#0b1120;color:#fff;border-radius:var(--rr-radius);
       padding:1rem;
@@ -60,14 +56,13 @@
     .rr-hero__grid{display:grid;grid-template-columns:1.35fr .65fr;gap:var(--rr-gap);align-items:stretch}
     @media (max-width: 900px){.rr-hero__grid{grid-template-columns:1fr}}
 
-    .rr-card{background:#fff;border:1px solid var(--rr-border);border-radius:14px;padding:.85rem;}
+    .rr-card{background:#fff;border:1px solid var(--rr-border);border-radius:14px;padding:.85rem;color:var(--rr-ink);}
     .rr-pill{
       display:inline-flex;align-items:center;gap:.5rem;
       padding:.3rem .65rem;border-radius:999px;color:#fff;
       font-weight:800;font-size:.72rem;
     }
 
-    /* ===== Product card system (denser, no tall cards) ===== */
     .rr-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -90,22 +85,10 @@
     .rr-body{padding:.75rem .85rem;display:flex;flex-direction:column;gap:.35rem;}
     .rr-kicker{margin:0;font-size:.70rem;color:var(--rr-muted);text-transform:uppercase;letter-spacing:.04em;}
     .rr-title{margin:0;font-weight:900;color:var(--rr-ink);font-size:1rem;line-height:1.2;}
-
     .rr-desc{
-      margin:0;
-      color:var(--rr-muted);
-      font-size:.90rem;
-      line-height:1.35;
-      display:-webkit-box;
-      -webkit-line-clamp:3;
-      -webkit-box-orient:vertical;
-      overflow:hidden;
+      margin:0;color:var(--rr-muted);font-size:.90rem;line-height:1.35;
+      display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
     }
-
-    /* optional bullet list styling (if you use <ul> in descriptions) */
-    .rr-desc ul{margin:.25rem 0 0;padding-left:1.05rem;}
-    .rr-desc li{margin:.15rem 0;}
-
     .rr-foot{
       margin-top:auto;
       display:flex;align-items:center;justify-content:space-between;gap:.75rem;
@@ -113,11 +96,9 @@
     }
     .rr-price{margin:0;font-weight:900;color:var(--rr-accent);font-size:1.1rem;white-space:nowrap;}
 
-    /* PayPal container sizing (prevents bloat) */
     .rr-paypal{display:flex;justify-content:flex-end;align-items:center;min-width:168px;}
     .rr-paypal > div{width:100%;max-width:190px;}
 
-    /* ===== Accordion (dropdown sections) ===== */
     .rr-accordion{
       margin-top: .85rem;
       border: 1px solid var(--rr-border);
@@ -152,9 +133,7 @@
     .rr-acc-sub{margin:0;color:#475569;font-size:.92rem;line-height:1.35;}
 
     .rr-acc-icon{
-      flex:0 0 auto;
-      width: 34px;height: 34px;
-      border-radius: 999px;
+      flex:0 0 auto;width: 34px;height: 34px;border-radius: 999px;
       border: 1px solid var(--rr-border);
       display:flex;align-items:center;justify-content:center;
       color: var(--rr-ink);background:#fff;
@@ -168,7 +147,6 @@
       background:#fff;
     }
 
-    /* ===== Standard grid (no horizontal scroll) ===== */
     .rr-standard-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -176,7 +154,6 @@
       margin-top:.65rem;
     }
 
-    /* ===== Mobile nav fix: drawer + backdrop (prevents blocking page) ===== */
     @media (max-width: 900px){
       .site-header{ position: sticky; top: 0; z-index: 1200; }
 
@@ -196,11 +173,8 @@
         transition: opacity .18s ease, transform .18s ease;
         z-index: 1150;
       }
-      .main-nav.is-open{
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
-      }
+      .main-nav.is-open{ transform: translateY(0); opacity: 1; pointer-events: auto; }
+
       .main-nav .nav-list{
         display:grid;grid-template-columns:1fr;gap:.25rem;
         padding:.75rem;margin:0;
@@ -214,18 +188,13 @@
       }
 
       .rr-nav-backdrop{
-        position: fixed;
-        inset: 0;
+        position: fixed; inset: 0;
         background: rgba(15,23,42,.45);
-        opacity: 0;
-        pointer-events: none;
+        opacity: 0; pointer-events: none;
         transition: opacity .18s ease;
         z-index: 1100;
       }
-      .rr-nav-backdrop.is-open{
-        opacity: 1;
-        pointer-events: auto;
-      }
+      .rr-nav-backdrop.is-open{ opacity: 1; pointer-events: auto; }
       body.rr-nav-lock{ overflow: hidden; }
     }
   </style>
@@ -233,9 +202,6 @@
 
 <body>
 
-<!-- =========================
-     MASTER HEADER
-========================== -->
 <header class="site-header">
 
   <div class="header-top">
@@ -302,12 +268,8 @@
 
 </header>
 
-<!-- Backdrop for mobile nav -->
 <div class="rr-nav-backdrop" id="rrNavBackdrop" aria-hidden="true"></div>
 
-<!-- =========================
-     PAGE CONTENT
-========================== -->
 <div class="rr-wrap">
 
   <!-- HERO -->
@@ -319,11 +281,18 @@
         <p>Choose from standard tested consoles, HDD/OPL-ready bundles, accessories and upgrades. PayPal checkout is available per item below.</p>
       </div>
 
+      <!-- MAIN FEATURE PRODUCT (replaces the random quick-checkout card) -->
       <div class="rr-card">
-        <h3 style="margin:.1rem 0 .45rem;color:#0f172a;font-weight:900;font-size:1.05rem;">Quick Checkout (PayPal)</h3>
-        <p style="margin:0 0 .6rem;color:#64748b;font-size:.92rem;line-height:1.4;">Fast payment option. For custom bundles, message first.</p>
-        <div id="paypal-container-5ZBSDBUWLJ3B4"></div>
-        <small style="display:block;margin-top:.55rem;color:#64748b;">Quick checkout button</small>
+        <div class="rr-pill" style="background:linear-gradient(135deg,#f97316,#ea580c);margin-bottom:.6rem;">🔥 Featured Modded Bundle</div>
+        <h3 style="margin:.1rem 0 .4rem;color:#0f172a;font-weight:900;font-size:1.05rem;">PS2 Fat 1TB Plug &amp; Play Bundle</h3>
+        <p style="margin:0 0 .6rem;color:#64748b;font-size:.92rem;line-height:1.4;">
+          Console + 1TB HDD setup + ready-to-play menu. Controller included (wired original or wireless third-party).
+        </p>
+
+        <!-- PayPal button for the featured bundle -->
+        <div id="paypal-container-3HDEMFMFNMF84"></div>
+
+        <small style="display:block;margin-top:.55rem;color:#64748b;">Featured bundle checkout</small>
       </div>
     </div>
   </section>
@@ -332,7 +301,7 @@
   <details class="rr-accordion" open>
     <summary>
       <div class="rr-acc-left">
-        <p class="rr-acc-title>
+        <p class="rr-acc-title">
           <span class="rr-pill" style="background:linear-gradient(135deg,#f97316,#ea580c);">🔥 Featured</span>
           PS2 Fat 1TB Plug &amp; Play Bundle
         </p>
@@ -361,7 +330,7 @@
     </div>
   </details>
 
-  <!-- STANDARD (open) — GRID (no horizontal scrolling) -->
+  <!-- STANDARD (open) -->
   <details class="rr-accordion" open>
     <summary>
       <div class="rr-acc-left">
@@ -600,9 +569,6 @@
 
 </div>
 
-<!-- =========================
-     MASTER FOOTER
-========================== -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
@@ -656,18 +622,15 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // Year
     const y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
     const yf = document.getElementById("year-footer");
     if (yf) yf.textContent = new Date().getFullYear();
 
-    // Cart init (safe)
     if (window.RetroCart && typeof window.RetroCart.loadCart === "function") {
       window.RetroCart.loadCart();
     }
 
-    // ===== Mobile nav: offset + backdrop + lock + close =====
     const navBtn = document.querySelector(".nav-toggle");
     const nav = document.getElementById("primaryNav");
     const backdrop = document.getElementById("rrNavBackdrop");
@@ -711,7 +674,6 @@
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeNav(); });
   });
 
-  // ===== PayPal renders (YOUR container ids) =====
   window.addEventListener("load", () => {
     if (!window.paypal || !paypal.HostedButtons) {
       console.warn("PayPal Hosted Buttons SDK not loaded.");
@@ -726,7 +688,6 @@
     };
 
     [
-      "5ZBSDBUWLJ3B4",
       "3HDEMFMFNMF84",
       "ZB2G3CN5Z6WRS",
       "KZTTHJVUHAFZC",
